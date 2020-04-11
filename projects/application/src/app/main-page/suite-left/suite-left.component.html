@@ -1,0 +1,25 @@
+<div class="bg-dark-light">
+    <div class="container scroll-div" id={{suiteDivId}}>
+        <div class="row">
+            
+            <div class="col-md-6">
+                <h1 class="text-dark font-weight-bold">{{suiteName}}</h1>
+                <h3 class="text-dark">{{suiteDescription}}</h3>
+                <br>
+                <div class="suite-uses" *ngFor="let use of suiteUses">
+                    <i class="fa-hand-point-right far"></i>
+                    <h4 class="text-muted">{{use}}</h4>
+                </div> 
+                <br>
+                <a href={{suiteButtonLink}} target="_blank">
+                    <button class="btn btn-lg btn-danger">go to {{suiteName}}</button>
+                </a>
+            </div>
+            
+            <div class="col-md-6">
+                <img src={{suiteImageSrc}} class="img-fluid">
+            </div>
+            
+        </div>
+    </div>
+</div>

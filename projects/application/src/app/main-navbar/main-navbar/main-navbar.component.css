@@ -1,0 +1,12 @@
+.navbar-brand {
+	font-size: 26px;
+	padding: 4px;
+}
+
+.nav-form button {
+	width: 90px;
+}
+
+.nav-form .nav-link {
+	padding: 0 4px;
+}

@@ -1,0 +1,30 @@
+.bg-light-dark {
+    background-color: #fcfdfe !important;
+}
+
+.scroll-div {
+    padding: 90px 0;
+}
+
+.scroll-div img {
+    padding: 50px;
+}
+
+.scroll-div h1 {
+    font-size: 50px;
+    padding: 32px 0 12px 0;
+}
+
+.scroll-div h3 {
+    font-size: 25px;
+}
+
+.suite-uses {
+    padding: 12px 0;
+}
+
+.suite-uses h4 {
+    display: inline;
+    font-size: 18px;
+    padding-left: 11px;
+}
