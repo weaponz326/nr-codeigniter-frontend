@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter your user email" required autofocus>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Enter your login password" required>
+    </div>
+    
+    <div class="row form-group">
+        <div class="col-md-12">
+            <button type="submit" class="float-right btn btn-success mb-2">Submit</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md 12">
+        <small class="text-center">
+            <a href="#" (click)="gotoRecovery($event)">
+                <p>forgot your password?</p>
+            </a>
+        </small>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <small class="text-center text-muted">
+            <p>Don't have an account? <a href="#" (click)="gotoSignup($event)">sign up</a></p>
+        </small>
+    </div>
+</div>

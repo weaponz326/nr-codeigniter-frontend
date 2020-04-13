@@ -1,0 +1,48 @@
+<form [formGroup]="profileForm" (ngSubmit)="profileSubmit()">
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label>First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter your first name" required autofocus>
+        </div>
+        <div class="col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter your last name" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Location</label>
+            <input type="text" class="form-control" formControlName="location" placeholder="Enter your city or town, state, and country" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>About</label>
+            <textarea class="form-control text-left" rows="3" formControlName="about" placeholder="Enter a brief description about yourself" required></textarea>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-12">
+            <button type="submit" class="float-right btn btn-success mb-2">Next</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md-12">
+        <small class="text-center">
+            <a href="#" (click)="gotoVerification($event)">
+                <p>Verify an already created account</p>
+            </a>
+        </small>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <small class="text-center text-muted">
+            <p>Already registered? <a href="#" (click)="gotoLogin($event)">Log in</a></p>
+        </small>
+    </div>
+</div>

@@ -2,14 +2,14 @@
 	<div class="container">
 
 		<div class="navbar-header">
-			<a href={{navBrandLink}} class="navbar-brand">{{navBrand}}</a>
+			<a href="#" (click)="goHome($event)" class="navbar-brand">{{navBrand}}</a>
 		</div>
 
 		<form class="form-inline nav-form">
-			<a href={{loginLink}} class="nav-link">
+			<a (click)="login($event)" class="nav-link">
 				<button class="btn btn-secondary nav-item" type="button">Log in</button>
 			</a>
-			<a href={{signupLink}} class="nav-link">
+			<a (click)="signup($event)" class="nav-link">
 				<button class="btn btn-secondary nav-item" type="button">Sign up</button>
 			</a>
 		</form>
