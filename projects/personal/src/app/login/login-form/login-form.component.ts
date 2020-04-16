@@ -5,6 +5,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+import { LoginApiService } from '../login-api.service';
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder ,private router: Router) { }
+  constructor(private fb: FormBuilder ,private router: Router, private loginApi: LoginApiService) { }
 
   loginForm = this.fb.group({
     email: ["", Validators.required],
@@ -21,9 +22,11 @@ export class LoginFormComponent implements OnInit {
   })
 
   loginSubmit(){
-    this.router.navigateByUrl("login/success");
-
-    console.log(this.loginForm.value);
+    this.loginApi.sendLogin(this.loginForm.value)
+      .subscribe(data => {
+        console.log(data);
+        this.router.navigateByUrl("/login/success");
+      })
   }
 
   gotoSignup(e){

@@ -2,6 +2,7 @@
 // user clicks on a button to continue to the next registration page
 
 import { Component, OnInit } from '@angular/core';
+import { LoginApiService } from '../login-api.service';
 
 @Component({
   selector: 'app-login-success',
@@ -10,7 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginSuccessComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginApi: LoginApiService) { }
+
+  checkSource(){
+    let userSource = "";
+
+    this.loginApi.getSource()
+      .subscribe(res => {
+        userSource = res.user_source;
+        console.log(res.user_source);
+      })
+
+    return userSource;
+  }
 
   ngOnInit(): void {
   }

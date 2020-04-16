@@ -3,6 +3,7 @@
 // if source is main or personal, user clicks on button to redirect main or personal page respectively
 
 import { Component, OnInit } from '@angular/core';
+import { SignupApiService } from '../signup-api.service';
 
 @Component({
   selector: 'app-signup-success',
@@ -11,7 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupSuccessComponent implements OnInit {
 
-  constructor() { }
+  constructor(private signupApi: SignupApiService) { }
+
+  checkSource(){
+    let userSource = "";
+
+    this.signupApi.getSource()
+      .subscribe(res => {
+        userSource = res.user_source;
+        console.log(res.user_source);
+      })
+
+    return userSource;
+  }
 
   ngOnInit(): void {
   }

@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
+import { LoginApiService } from '../login-api.service';
 
 @Component({
   selector: 'app-recovery-form',
@@ -12,16 +13,18 @@ import { Router } from '@angular/router'
 })
 export class RecoveryFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private loginApi: LoginApiService) { }
 
   recoveryForm = this.fb.group({
     email: ["", Validators.required]
   });
 
   recoverySubmit(){
-    this.router.navigateByUrl("login/await");
-
-    console.log(this.recoveryForm.value);
+    this.loginApi.sendRecForm(this.recoveryForm.value)
+      .subscribe(data => {
+        console.log(this.recoveryForm.value);
+        this.router.navigateByUrl("login/await");
+      })
   }
 
 

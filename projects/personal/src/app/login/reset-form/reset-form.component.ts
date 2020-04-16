@@ -4,6 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
+import { LoginApiService } from '../login-api.service';
 
 @Component({
   selector: 'app-reset-form',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router'
 })
 export class ResetFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private loginApi: LoginApiService) { }
 
   resetForm = this.fb.group({
     password: ["", Validators.required],
@@ -20,9 +21,11 @@ export class ResetFormComponent implements OnInit {
   })
 
   resetSubmit(){
-    this.router.navigateByUrl("login/recsuccess");
-
-    console.log(this.resetForm.value);
+    this.loginApi.sendReset(this.resetForm.value)
+      .subscribe(data => {
+        console.log(data);
+        this.router.navigateByUrl("/login/recsuccess");
+      })
   }
 
   ngOnInit(): void {

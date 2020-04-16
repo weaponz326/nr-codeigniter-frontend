@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validator, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
+import { SignupApiService } from '../signup-api.service';
+
 @Component({
   selector: 'app-account-form',
   templateUrl: './account-form.component.html',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class AccountFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private signupApi: SignupApiService) { }
 
   accountForm = this.fb.group({
     email: ["", Validators.required],
@@ -21,9 +23,11 @@ export class AccountFormComponent implements OnInit {
   })
 
   accountSubmit(){
-    this.router.navigateByUrl("/signup/await");
-
-    console.log(this.accountForm.value);
+    this.signupApi.sendAccount(this.accountForm.value)
+      .subscribe(data => {
+        console.log(data);
+        this.router.navigateByUrl("/signup/await");
+      })
   }
 
   gotoProfile(){

@@ -4,6 +4,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { LoginApiService } from '../login-api.service';
+import { interval } from 'rxjs';
+import { startWith, switchMap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-recovery-await',
@@ -12,13 +15,24 @@ import { Router } from '@angular/router'
 })
 export class RecoveryAwaitComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginApi: LoginApiService) { }
 
   gotoReset(){
     this.router.navigateByUrl("login/reset");
   }
 
   ngOnInit(): void {
+    let verStatus = false;
+
+    interval(5000)
+      .pipe(
+        startWith(0),
+        switchMap(() => this.loginApi.pollVerstatus())
+      )
+      .subscribe(res => {
+        verStatus = res.ver_status;
+        console.log(res.ver_status);
+      })
   }
 
 }
