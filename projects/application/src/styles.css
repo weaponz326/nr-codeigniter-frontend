@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~font-awesome/css/font-awesome.css";
+.bg-dark-light {
+    background-color: #f4f5f6 !important;
+}
+
+.bg-light-dark {
+    background-color: #fcfdfe !important;
+}

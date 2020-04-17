@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-dark-light {
+    background-color: #f4f5f6 !important;
+}
+
+.bg-light-dark {
+    background-color: #fcfdfe !important;
+}
+
+.scroll-div {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.extras-heading {
+	margin-top: 26px;
+	margin-bottom: 26px;
+}

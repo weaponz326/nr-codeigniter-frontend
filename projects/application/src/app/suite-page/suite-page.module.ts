@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SuitePageRoutingModule } from './suite-page-routing.module';
 import { GuestTopComponent } from './guest-top/guest-top.component';
 import { UserTopComponent } from './user-top/user-top.component';
 import { AboutComponent } from './about/about.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ContactComponent } from './contact/contact.component';
+import { SuiteScrollnavComponent } from './suite-scrollnav/suite-scrollnav.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +14,19 @@ import { ContactComponent } from './contact/contact.component';
     UserTopComponent, 
     AboutComponent, 
     PricingComponent, 
-    ContactComponent
+    ContactComponent, 
+    SuiteScrollnavComponent
   ],
   imports: [
     CommonModule,
-    SuitePageRoutingModule
+  ],
+  exports: [
+    GuestTopComponent,
+    UserTopComponent,
+    AboutComponent,
+    PricingComponent,
+    ContactComponent,
+    SuiteScrollnavComponent
   ]
 })
 export class SuitePageModule { }

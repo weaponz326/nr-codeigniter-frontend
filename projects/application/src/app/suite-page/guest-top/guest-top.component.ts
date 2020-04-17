@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-guest-top',
@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class GuestTopComponent implements OnInit {
 
   constructor() { }
+
+  @Input() source: "string"
+  @Input() suiteName: "string" 
+  @Input() primaryCaption: "string" 
+  @Input() secondaryCaption: "string" 
+  @Input() features: "object"
 
   ngOnInit(): void {
   }

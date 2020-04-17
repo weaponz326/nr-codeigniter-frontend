@@ -1,0 +1,38 @@
+<div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
+    
+    <app-suite-scrollnav></app-suite-scrollnav>
+
+    <app-guest-top
+        [source]="'personal'"
+        [suiteName]="'Personal'"
+        [primaryCaption]="'netRink Personal'"
+        [secondaryCaption]="'Get unlimited access to a range of simple and easy to use personal productivity tools'"
+        [features]="[
+            { 
+                'title': 'Financial management', 
+                'description': 'Plan your budgets, and assemble all your accounts in one place',
+                'imgLink': '#'
+            },
+            { 
+                'title': 'Note Taking', 
+                'description': 'Put down notes, images, audio and video recordings, and access them anywhere',
+                'imgLink': '#'
+            },
+            { 
+                'title': 'Personal orgnisation', 
+                'description': 'Take care of all your routine tasks and schedules',
+                'imgLink': '#'
+            },
+            { 
+                'title': 'Seamless integration', 
+                'description': 'Import and export data to and from other netRink suites with ease',
+                'imgLink': '#'
+            }
+        ]">
+    </app-guest-top>
+
+    <app-about></app-about>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    
+</div>
