@@ -1,7 +1,1 @@
-#scrollNavbar {
-    padding: 22px;
-}
-
-.bg-darker {
-    background-color: #78797a !important;
-}
+@import "../../../assets/styles/main.css";

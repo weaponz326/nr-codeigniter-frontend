@@ -1,10 +1,4 @@
-.bg-light-dark {
-    background-color: #fcfdfe !important;
-}
-
-.scroll-div {
-    padding: 90px 0;
-}
+@import "../../../assets/styles/main.css";
 
 .scroll-div img {
     padding: 50px;

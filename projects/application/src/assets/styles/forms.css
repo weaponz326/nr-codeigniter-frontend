@@ -1,0 +1,21 @@
+.form-group {
+	margin-bottom: 0;
+}
+
+.form-control {
+	margin-bottom: 8px;
+}
+
+.form-group label {
+	margin-bottom: 4px;
+}
+
+.form-group p {
+	margin-top: -4px;
+	margin-bottom: 4px;
+}
+
+.form-group button {
+	width: 100px;
+	margin: 11px 0;
+}

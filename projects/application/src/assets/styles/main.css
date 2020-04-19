@@ -1,0 +1,45 @@
+/* styles for main and all suite landing pages */
+
+#scrollNavbar {
+    padding: 22px;
+}
+
+.bg-darker {
+    background-color: #78797a !important;
+}
+
+.primary-caption {
+    font-size: 62px;
+    color: #fffd;
+    padding-top: 60px;
+}
+
+.secondary-caption {
+    font-size: 25px;
+    color: #fffa;
+    padding: 15px 0;
+}
+
+.feature-title {
+    font-size: 25px;
+    color: #000b;
+    padding: 7px 0;
+}
+
+.feature-description {
+    font-size: 18px;
+    color: #0008;
+    padding-bottom: 23px;
+}
+
+.bg-dark-light {
+    background-color: #f4f5f6 !important;
+}
+
+.bg-light-dark {
+    background-color: #fcfdfe !important;
+}
+
+.scroll-div {
+    padding: 90px 0;
+}
