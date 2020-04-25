@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost/netrink/backend/application/public/"
+  baseUrl: "http://localhost/netrink/backend/projects/personal/public/"
 };
 
 /*

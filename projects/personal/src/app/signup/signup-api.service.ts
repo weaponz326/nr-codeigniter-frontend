@@ -17,27 +17,27 @@ export class SignupApiService {
 
   // send user profile form  
   public sendProfile(userProile): Observable<any>{
-    return this.http.post(this.baseUrl + "send_profile", userProile);
+    return this.http.post(this.baseUrl + "user/signup/send_profile", userProile);
   }
 
   // send user account form
   public sendAccount(userAccount): Observable<any>{
-    return this.http.post(this.baseUrl + "send_account", userAccount);
+    return this.http.post(this.baseUrl + "user/signup/send_account", userAccount);
   }
 
   // long polling for verification status
   public pollVerstatus(): Observable<any>{
-    return this.http.get(this.baseUrl + "poll_verstatus");
+    return this.http.get(this.baseUrl + "user/signup/poll_verstatus");
   }
 
   // get user registration source
   public getSource(): Observable<any>{
-    return this.http.get(this.baseUrl + "get_source");
+    return this.http.get(this.baseUrl + "user/signup/get_source");
   }
 
   // send verification mail form
   public sendVerForm(verForm): Observable<any>{
-    return this.http.post(this.baseUrl + "send_ver_form", verForm);
+    return this.http.post(this.baseUrl + "user/signup/send_ver_form", verForm);
   }
 
 }

@@ -6,10 +6,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavbarModule } from './main-navbar/main-navbar.module';
+import { BudgetTablesComponent } from './suite/modules/budget/budget-tables/budget-tables.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BudgetTablesComponent
   ],
   imports: [
     BrowserModule,

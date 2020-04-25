@@ -36,12 +36,13 @@
 }
 
 .module-heading {
-	padding: 8px 0;
+	padding-bottom: 10px;
 }
 
 .module-heading h3{
-	display: inline;
+	display: inline-block;
 	font-size: 25px;
+	margin: 8px 2px;
 }
 
 .module-heading a{
@@ -60,4 +61,8 @@
 .header-line{
 	margin-top: 0;
 	margin-bottom: 5px;
+}
+
+.top-button-row{
+	margin-bottom: 9px;
 }
