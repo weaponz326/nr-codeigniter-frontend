@@ -3,6 +3,8 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Router, NavigationEnd } from '@angular/router';
+
 @Component({
   selector: 'app-form-container',
   templateUrl: './form-container.component.html',
@@ -10,9 +12,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FormContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  formHeading = "placeholder Heading";
 
   ngOnInit(): void {
+    this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd){
+        console.log(e.urlAfterRedirects);
+        
+        if (e.urlAfterRedirects == "/signup/profile" || e.urlAfterRedirects == "signup"){
+          console.log("this is profile");
+        }
+      }
+    })
   }
 
 }

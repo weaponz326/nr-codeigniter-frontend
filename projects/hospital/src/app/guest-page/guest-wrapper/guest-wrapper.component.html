@@ -1,0 +1,38 @@
+<div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
+    
+    <app-suite-scrollnav></app-suite-scrollnav>
+
+    <app-guest-top
+        [source]="'hospital'"
+        [suiteName]="'Hospital'"
+        [primaryCaption]="'netRink Hospital'"
+        [secondaryCaption]="'Link up all departments of your hospital for easy and effective operations'"
+        [features]="[
+            {
+                'title': 'Patients management',
+                'description': 'Register patients and access their medical data at anytime',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Staff management',
+                'description': 'Manage doctors, nurses, and all other supporting staff',
+                'imgLink': '#'
+            },
+            {
+                'title': 'OPD and IPD',
+                'description': 'Run operations of all departments of your facility effectively',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Bills and payments',
+                'description': 'Automatically generate bills and receive payments from patients',
+                'imgLink': '#'
+            }
+        ]"
+    ></app-guest-top>
+
+    <app-about></app-about>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    
+</div>

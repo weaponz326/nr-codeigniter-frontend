@@ -247,6 +247,129 @@
           }
         }
       }
+    },
+    "hospital": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/hospital",
+      "sourceRoot": "projects/hospital/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/hospital",
+            "index": "projects/hospital/src/index.html",
+            "main": "projects/hospital/src/main.ts",
+            "polyfills": "projects/hospital/src/polyfills.ts",
+            "tsConfig": "projects/hospital/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/hospital/src/favicon.ico",
+              "projects/hospital/src/assets"
+            ],
+            "styles": [
+              "projects/hospital/src/styles.css",
+              "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js", 
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/hospital/src/environments/environment.ts",
+                  "with": "projects/hospital/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "hospital:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "hospital:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "hospital:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hospital/src/test.ts",
+            "polyfills": "projects/hospital/src/polyfills.ts",
+            "tsConfig": "projects/hospital/tsconfig.spec.json",
+            "karmaConfig": "projects/hospital/karma.conf.js",
+            "assets": [
+              "projects/hospital/src/favicon.ico",
+              "projects/hospital/src/assets"
+            ],
+            "styles": [
+              "projects/hospital/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hospital/tsconfig.app.json",
+              "projects/hospital/tsconfig.spec.json",
+              "projects/hospital/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/hospital/e2e/protractor.conf.js",
+            "devServerTarget": "hospital:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "hospital:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "application"
 }

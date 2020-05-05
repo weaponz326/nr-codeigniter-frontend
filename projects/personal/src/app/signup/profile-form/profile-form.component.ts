@@ -25,10 +25,15 @@ export class ProfileFormComponent implements OnInit {
 
   profileSubmit(){
     this.signupApi.sendProfile(this.profileForm.value)
-      .subscribe(data => {
-        console.log(data);
-        this.router.navigateByUrl("/signup/account");
-      })
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigateByUrl("/signup/account");
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
   
   gotoLogin(e){

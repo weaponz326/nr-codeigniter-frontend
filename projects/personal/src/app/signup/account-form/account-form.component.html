@@ -1,15 +1,21 @@
 <form [formGroup]="accountForm" (ngSubmit)="accountSubmit()">
-    <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" formControlName="email" placeholder="Enter your email address" required autofocus>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Email</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter your email address" required autofocus>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control" formControlName="password" placeholder="Enter your password" required>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Enter your password" required>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" class="form-control" formControlName="confirm" placeholder="Enter your password again" required>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirm" placeholder="Enter your password again" required>
+        </div>
     </div>
     
     <div class="row form-group">
