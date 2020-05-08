@@ -1,4 +1,8 @@
-.main-tab-content .row{
+body{
+	padding-bottom: 50px;
+}
+
+.home-div .row{
 	margin: 0;
 }
 
@@ -66,3 +70,69 @@
 .top-button-row{
 	margin-bottom: 9px;
 }
+
+/* forms directly embeded in the page */
+
+.page-form-div button{
+	margin-left: 4px;
+}
+
+/* standard popup dialog boxes */
+
+.edit-dialog-label{
+	clear: both;
+	float: left;
+	margin-left: 2%;
+	padding: 4px;
+	text-align: right;
+	width: 18%;
+	line-height: 25px;
+}
+
+.edit-dialog-field{
+	clear: right;
+	float: right;
+	margin-right: 2%;
+	padding: 4px;
+	width: 380px;
+}
+
+.edit-dialog-buttons{
+	width: 100%;
+}
+
+.edit-dialog-buttons button{
+	margin-left: 5px;
+	float: right;
+}
+
+/* alternative popup dialog boxes
+for when labels are longer than usual */
+
+.edit-dialog-label-alt{
+    clear: both;
+    float: left;
+    margin-left: 2%;
+    padding: 4px;
+    text-align: right;
+    width: 30%;
+    line-height: 25px;
+}
+
+.edit-dialog-field-alt{
+    clear: right;
+    float: right;
+    margin-right: 2%;
+    padding: 4px;
+    width: 340px;
+}
+
+.edit-dialog-buttons-alt{
+	width: 100%;
+}
+
+.edit-dialog-buttons-alt button{
+	margin-left: 5px;
+	float: right;
+}
+

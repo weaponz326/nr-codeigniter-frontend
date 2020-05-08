@@ -1,0 +1,46 @@
+<div class="container">
+            
+    <div class="module-heading row">
+        <div class="col-md-12">
+                
+            <a href="#"><h3>Home</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <a href="#"><h3>Patients</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <h3>New Patient</h3>
+            
+            <hr class="header-line" />
+            <hr class="header-line" />
+        
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------------- -->
+
+    <!-- patient page form -->
+
+    <app-patient-form></app-patient-form>
+
+    <div class="row page-form-div">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <jqxButton #cancelButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>                    
+
+                    <jqxButton #saveButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+
 
 @Component({
   selector: 'app-view-account',

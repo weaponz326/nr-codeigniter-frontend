@@ -1,0 +1,82 @@
+<div>
+    <div class="edit-dialog-label-alt">Appointment ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #appointmentCodeReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Patient Name</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #patientNameReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxDropDownList>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Patient ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #patientCodeReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxDropDownList>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Consultant Name</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #consultantNameReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxDropDownList>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Appointment Date</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #appointmentDateReference
+            [width]="'100%'"
+            [height]="25"
+            [showTimeButton]="true"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Appointment For</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #appointmentForReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Remarks</div>
+    <div class="edit-dialog-field-alt">
+        <jqxTextArea #remarksReference
+            [width]="'100%'"
+            [height]="40"
+        ></jqxTextArea>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Appointment Status</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #statusReference
+            [source]="statusSource"
+            [width]="'100%'"
+            [height]="25"
+            [autoDropDownHeight]="true"
+        ></jqxDropDownList>
+    </div>
+</div>

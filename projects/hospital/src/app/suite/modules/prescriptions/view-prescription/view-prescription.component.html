@@ -1,0 +1,97 @@
+<div class="container">
+            
+    <div class="module-heading row">
+        <div class="col-md-12">
+                
+            <a href="#"><h3>Home</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <a href="#"><h3>Prescriptions</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <h3>View Prescription</h3>
+
+            <hr class="header-line" />
+            <hr class="header-line" />
+        
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------------------- -->
+
+    <div class="row page-form-div">
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Prescription ID :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #prescriptionCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Prescription Date :</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #prescriptionDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Patient Name :</label></div>
+                <div class="col-md-8">
+                    <jqxDropDownList #patientNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxDropDownList>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Patient ID :</label></div>
+                <div class="col-md-8">
+                    <jqxDropDownList #patientCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxDropDownList>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Prescribing Doctor :</label></div>
+                <div class="col-md-8">
+                    <jqxDropDownList #prescribingDoctorReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxDropDownList>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <jqxButton #savePrescriptionReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <hr />
+        </div>
+    </div>
+
+    <!-- prescription details -->
+
+    <app-prescription-details></app-prescription-details>
+
+</div>

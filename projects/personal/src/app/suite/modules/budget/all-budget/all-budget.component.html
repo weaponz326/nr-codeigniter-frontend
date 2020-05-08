@@ -15,7 +15,7 @@
 
     <div class="row top-button-row">
         <div class="col-md-12">
-            <jqxButton #buttonReference
+            <jqxButton #buttonReference (click)="newBudgetComponentReference.openWindow()"
                 [width]="120"
                 [height]="30"
             >New Budget</jqxButton>
@@ -36,3 +36,7 @@
     </div>
 
 </div>
+
+<!-- new budget popup dialog window -->
+
+<app-new-budget #newBudgetComponentReference></app-new-budget>

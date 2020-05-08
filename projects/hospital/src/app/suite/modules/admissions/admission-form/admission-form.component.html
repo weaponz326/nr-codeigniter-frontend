@@ -1,0 +1,87 @@
+<div class="row page-form-div">
+
+    <div class="col-md-12">
+        <h4>Admission Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Admission ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #admissionCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Admission Date :</label></div>
+            <div class="col-md-8">
+                <jqxDateTimeInput #admissionDateReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Date Discharged :</label></div>
+            <div class="col-md-8">
+                <jqxDateTimeInput #dateDischargedReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Assigned Doctor :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #assignedDoctorReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Patient Name :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #patientNameReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Patient ID :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #patientCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Ward :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #wardReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<hr />

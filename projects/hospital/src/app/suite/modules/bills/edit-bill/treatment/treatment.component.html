@@ -1,0 +1,23 @@
+<jqxWindow #editWindowReference 
+    [width]="612" 
+    [height]="400" 
+    [autoOpen]="false">
+    
+    <div>Edit Treatment Charges</div>
+
+    <div>
+        <jqxGrid #editGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [showemptyrow]="false"
+            [selectionmode]="'singlerow'"
+            [showeverpresentrow]="true"
+            [everpresentrowactions]="'add update delete reset'"
+            [showstatusbar]="true"
+            [showaggregates]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+
+</jqxWindow>

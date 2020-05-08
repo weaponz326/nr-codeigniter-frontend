@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Ward's Patients</h4>
+    </div>
+
+    <div class="col-md-8">
+        <jqxGrid #patientsGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [sortable]="true"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+</div>

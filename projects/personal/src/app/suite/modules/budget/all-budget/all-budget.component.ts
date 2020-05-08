@@ -19,7 +19,6 @@ export class AllBudgetComponent implements OnInit {
   }
 
   // all budget grid settings
-
   columns: any[] = [
     { text: "Budget Name", dataField: "budget_name", width: "50%" },
     { text: "Date Created", dataField: "date_created", filtertype: "range", width: "25%" },

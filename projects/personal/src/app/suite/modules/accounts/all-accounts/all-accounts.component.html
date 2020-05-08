@@ -15,7 +15,7 @@
 
     <div class="row top-button-row">
         <div class="col-md-12">
-            <jqxButton #newButtonReference
+            <jqxButton #newButtonReference (click)="addAccountComponentReference.openWindow()"
                 [width]="120"
                 [height]="30"
             >New Account</jqxButton>
@@ -43,3 +43,7 @@
     </div>
 
 </div>
+
+<!-- add account popup dialog window -->
+
+<app-add-account #addAccountComponentReference></app-add-account>

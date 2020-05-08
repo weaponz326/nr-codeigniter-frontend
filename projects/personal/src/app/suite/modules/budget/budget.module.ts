@@ -7,18 +7,22 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
+import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { BudgetWrapperComponent } from './budget-wrapper/budget-wrapper.component';
 import { AllBudgetComponent } from './all-budget/all-budget.component';
 import { ViewBudgetComponent } from './view-budget/view-budget.component';
 import { BudgetTablesComponent } from './budget-tables/budget-tables.component';
+import { NewBudgetComponent } from './new-budget/new-budget.component';
 
 
 @NgModule({
   declarations: [
     BudgetWrapperComponent, 
     AllBudgetComponent, 
-    ViewBudgetComponent, BudgetTablesComponent,
+    ViewBudgetComponent, 
+    BudgetTablesComponent, 
+    NewBudgetComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +31,8 @@ import { BudgetTablesComponent } from './budget-tables/budget-tables.component';
     jqxGridModule,
     jqxInputModule,
     jqxDropDownListModule,
-    jqxDateTimeInputModule 
+    jqxDateTimeInputModule,
+    jqxWindowModule
   ]
 })
 export class BudgetModule { }

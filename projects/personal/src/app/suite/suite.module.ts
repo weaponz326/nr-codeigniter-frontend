@@ -11,8 +11,8 @@ import { HomeComponent } from './home/home.component';
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    jqxTooltipModule,
-    SuiteRoutingModule
+    SuiteRoutingModule,
+    jqxTooltipModule
   ]
 })
 export class SuiteModule { }

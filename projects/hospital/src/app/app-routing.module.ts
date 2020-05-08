@@ -27,6 +27,14 @@ const routes: Routes = [
     path: "register",
     loadChildren: () => import("./register/register.module").then(m => m.RegisterModule)
   },
+  {
+    path: "suite",
+    loadChildren: () => import("./suite/suite.module").then(m => m.SuiteModule)
+  },
+  {
+    path: "**",
+    loadChildren: () => import("./guest-page/guest-page.module").then(m => m.GuestPageModule)
+  }
 ];
 
 @NgModule({

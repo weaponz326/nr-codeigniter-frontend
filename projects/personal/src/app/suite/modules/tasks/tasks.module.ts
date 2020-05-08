@@ -7,16 +7,25 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons'
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput'
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput'
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid'
+import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { TasksWrapperComponent } from './tasks-wrapper/tasks-wrapper.component';
 import { AllTasksComponent } from './all-tasks/all-tasks.component';
 import { KanbanViewComponent } from './kanban-view/kanban-view.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
     TasksWrapperComponent, 
     AllTasksComponent,
-    KanbanViewComponent
+    KanbanViewComponent,
+    AddTaskComponent,
+    EditTaskComponent,
+    TaskFormComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +34,10 @@ import { KanbanViewComponent } from './kanban-view/kanban-view.component';
     jqxButtonModule,
     jqxInputModule,
     jqxDateTimeInputModule,
-    jqxGridModule    
+    jqxGridModule,
+    jqxWindowModule,
+    jqxDropDownListModule,
+    jqxTextAreaModule
   ]
 })
 export class TasksModule { }

@@ -20,10 +20,10 @@ export class ViewBudgetComponent implements OnInit {
   @ViewChild('updatedDateReference') updatedDate: jqxDateTimeInputComponent;
   @ViewChild('saveBudgetReference') saveButton: jqxButtonComponent;
 
-  ngOnInit(): void {
-  }
-
   // budget type settings
   budgetTypeSource: ["Weekly", "Monthly", "Quarterly", "Yearly"];
+
+  ngOnInit(): void {
+  }
 
 }
