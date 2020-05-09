@@ -63,6 +63,10 @@ const routes: Routes = [
     path: "admissions",
     loadChildren: () => import("./modules/admissions/admissions.module").then(m => m.AdmissionsModule)
   },
+  {
+    path: "portal",
+    loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
+  }
 ];
 
 @NgModule({

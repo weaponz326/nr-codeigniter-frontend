@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxInputComponent } from 'jqwidgets-ng/jqxinput/public_api';
+import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';

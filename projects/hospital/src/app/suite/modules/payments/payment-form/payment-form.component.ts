@@ -19,7 +19,6 @@ export class PaymentFormComponent implements OnInit {
   @ViewChild("patientNameReference") patientName: jqxDropDownListComponent;
   @ViewChild("patientCodeReference") patientCode: jqxDropDownListComponent;
   @ViewChild("billCodeReference") billCode: jqxDropDownListComponent;
-  @ViewChild("billDateReference") billDate: jqxDateTimeInputComponent;
   @ViewChild("amountDueReference") amountDue: jqxNumberInputComponent;
   @ViewChild("amountPayedReference") amountPayed: jqxNumberInputComponent;
   @ViewChild("balanceReference") amountbalancePayed: jqxNumberInputComponent;

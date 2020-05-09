@@ -1,0 +1,59 @@
+<div class="row page-form-div">
+
+    <div class="col-md-12">
+        <h4>Table Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Table No. :</label></div>
+            <div class="col-md-8">
+                <jqxInput #tableNumberReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Capacity :</label></div>
+            <div class="col-md-8">
+                <jqxNumberInput #capacityReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [inputMode]="'simple'"
+                    [decimalDigits]="0"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Location :</label></div>
+            <div class="col-md-8">
+                <jqxInput #locationReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Status :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #statusReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <hr />
+    </div>
+</div>

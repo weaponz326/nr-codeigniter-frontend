@@ -1,0 +1,69 @@
+<div class="row page-form-div">
+
+    <div class="col-md-12">
+        <h4>Menu Item Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Item ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #itemCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Item Name :</label></div>
+            <div class="col-md-8">
+                <jqxInput #itemNameReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Category :</label></div>
+            <div class="col-md-8">
+                <jqxComboBox #categoryReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxComboBox>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Price :</label></div>
+            <div class="col-md-8">
+                <jqxNumberInput #itemCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [inputMode]="'simple'"
+                    [symbol]="'$'"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Description :</label></div>
+            <div class="col-md-8">
+                <jqxTextArea #descriptionReference
+                    [width]="'100%'"
+                    [height]="45"
+                ></jqxTextArea>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <hr />
+    </div>
+</div>

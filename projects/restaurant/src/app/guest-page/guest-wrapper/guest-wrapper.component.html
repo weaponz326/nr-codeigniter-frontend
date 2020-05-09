@@ -1,0 +1,38 @@
+<div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
+    
+    <app-suite-scrollnav></app-suite-scrollnav>
+
+    <app-guest-top
+        [source]="'restaurant'"
+        [suiteName]="'Restaurant'"
+        [primaryCaption]="'netRink Restaurant'"
+        [secondaryCaption]="'Effective running of the day to day activities of your catering institution'"
+        [features]="[
+            {
+                'title': 'Bills and payments',
+                'description': 'Automatically generate bills and receive payments from guests',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Operations management',
+                'description': 'Handle all operations of your facility with ease',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Reservations and orders',
+                'description': 'receive and respond to reservations and orders',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Guest management',
+                'description': 'Manage your guests for good customer relationship',
+                'imgLink': '#'
+            }
+        ]"
+    ></app-guest-top>
+
+    <app-about></app-about>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    
+</div>

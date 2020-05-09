@@ -8,6 +8,7 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea'
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { PatientsWrapperComponent } from './patients-wrapper/patients-wrapper.component';
 import { AllPatientsComponent } from './all-patients/all-patients.component';
@@ -32,7 +33,8 @@ import { NewPatientComponent } from './new-patient/new-patient.component';
     jqxDateTimeInputModule,
     jqxTextAreaModule,
     jqxButtonModule,
-    jqxGridModule
+    jqxGridModule,
+    jqxComboBoxModule
   ]
 })
 export class PatientsModule { }

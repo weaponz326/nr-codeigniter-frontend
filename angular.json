@@ -370,6 +370,129 @@
           }
         }
       }
+    },
+    "restaurant": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/restaurant",
+      "sourceRoot": "projects/restaurant/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/restaurant",
+            "index": "projects/restaurant/src/index.html",
+            "main": "projects/restaurant/src/main.ts",
+            "polyfills": "projects/restaurant/src/polyfills.ts",
+            "tsConfig": "projects/restaurant/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/restaurant/src/favicon.ico",
+              "projects/restaurant/src/assets"
+            ],
+            "styles": [
+              "projects/restaurant/src/styles.css",
+              "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js", 
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/restaurant/src/environments/environment.ts",
+                  "with": "projects/restaurant/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "restaurant:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "restaurant:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "restaurant:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/restaurant/src/test.ts",
+            "polyfills": "projects/restaurant/src/polyfills.ts",
+            "tsConfig": "projects/restaurant/tsconfig.spec.json",
+            "karmaConfig": "projects/restaurant/karma.conf.js",
+            "assets": [
+              "projects/restaurant/src/favicon.ico",
+              "projects/restaurant/src/assets"
+            ],
+            "styles": [
+              "projects/restaurant/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/restaurant/tsconfig.app.json",
+              "projects/restaurant/tsconfig.spec.json",
+              "projects/restaurant/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/restaurant/e2e/protractor.conf.js",
+            "devServerTarget": "restaurant:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "restaurant:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "application"
 }
