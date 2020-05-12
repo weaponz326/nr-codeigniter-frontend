@@ -1,0 +1,57 @@
+<jqxWindow #addAssessmentReference 
+    [width]="612" 
+    [height]="450" 
+    [autoOpen]="false">
+    
+    <div>Add/Remove Assessment(s)</div>
+
+    <div>
+
+        <div class="assessment-filter">
+            <label>Term</label>
+            <jqxDropDownList #termReference
+                [width]="'100%'"
+                [height]="26"
+            ></jqxDropDownList>
+        </div>
+
+        <div class="assessment-filter">
+            <label>Subject</label>
+            <jqxDropDownList #subjectReference
+                [width]="'100%'"
+                [height]="26"
+            ></jqxDropDownList>
+        </div>
+
+        <div class="assessment-listbox">
+            <jqxListBox #allAssessment
+                [filterable]="true"
+                [allowDrop]="true"
+                [allowDrag]="true"
+                [width]="252"
+                [height]="250"
+            ></jqxListBox>
+
+            <jqxListBox #selectAssessment
+                [allowDrop]="true"
+                [allowDrag]="true"
+                [width]="252"
+                [height]="250"
+            ></jqxListBox>
+        </div>
+
+        <div class="assessment-buttons">
+            <jqxButton #saveButtonReference
+                [width]="65"
+                [height]="26"
+            >Save</jqxButton>
+
+            <jqxButton #cancelButtonReference
+                [width]="65"
+                [height]="26"
+            >Cancel</jqxButton>
+        </div>
+        
+    </div>
+
+</jqxWindow>

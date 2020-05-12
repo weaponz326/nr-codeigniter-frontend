@@ -1,0 +1,74 @@
+<jqxWindow #newReportReference 
+    [width]="540" 
+    [height]="250" 
+    [autoOpen]="false">
+    
+    <div>Add New Report</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Report ID</div>
+            <div class="edit-dialog-field">
+                <jqxInput #reportCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Report Name</div>
+            <div class="edit-dialog-field">
+                <jqxInput #reportNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+        
+        <div>
+            <div class="edit-dialog-label">Report Date</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #reportDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Term</div>
+            <div class="edit-dialog-field">
+                <jqxDropDownList #termReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Class(es)</div>
+            <div class="edit-dialog-field">
+                <jqxDropDownList #classReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [checkboxes]="true"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+  

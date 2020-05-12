@@ -1,3 +1,5 @@
+// import tooltip for use on module home page
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

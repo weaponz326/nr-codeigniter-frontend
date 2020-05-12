@@ -17,8 +17,8 @@ export class AllOrdersComponent implements OnInit {
 
   columns: any[] = [
     { text: "Order ID", dataField: "order_code", width: "25%" },
-    { text: "Guest Name", dataField: "guest_name", width: "50%" },
-    { text: "Order Date", dataField: "order_date", width: "25%" },
+    { text: "Customer Name", dataField: "customer_name", width: "50%" },
+    { text: "Order Date", dataField: "order_date", filtertype: "range", width: "25%" },
   ];
 
   ngOnInit(): void {

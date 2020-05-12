@@ -1,0 +1,30 @@
+.assessment-filter label{
+    clear: both;
+	float: left;
+	margin-left: 10%;
+	padding: 4px;
+	text-align: right;
+	width: 15%;
+}
+
+.assessment-filter jqxDropDownList{
+    clear: right;
+	float: right;
+	margin-right: 10%;
+	padding: 4px;
+	width: 380px;
+}
+
+.assessment-listbox jqxListBox{
+    float: left;
+    margin: 4%;
+}
+
+.assessment-buttons{
+    margin-right: 4%;
+	float: right;
+}
+
+.assessment-buttons jqxButton{
+    margin-left: 5px;
+}

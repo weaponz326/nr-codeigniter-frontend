@@ -1,0 +1,20 @@
+<div class="row top-button-row">
+    <div class="col-md-12">
+        <jqxButton #sheetButtonReference class="float-right"
+            [width]="150"
+            [height]="30"
+        >Check Attendance</jqxButton>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <jqxGrid #sheetGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [sortable]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+</div>

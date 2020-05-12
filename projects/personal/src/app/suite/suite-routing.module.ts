@@ -1,5 +1,5 @@
 // main router for suite app
-// home page is the default page and is loaded aegerly
+// home page is the default page and is loaded eagerly
 // all other module pages are lazy loaded
 
 import { NgModule } from '@angular/core';

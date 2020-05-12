@@ -1,0 +1,38 @@
+<div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
+    
+    <app-suite-scrollnav></app-suite-scrollnav>
+
+    <app-guest-top
+        [source]="'school'"
+        [suiteName]="'School'"
+        [primaryCaption]="'netRink School'"
+        [secondaryCaption]="'Run and handle every aspect of your educational institution with much ease'"
+        [features]="[
+            {
+                'title': 'Fees and payments',
+                'description': 'Easily generate school fees and receive payments',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Parent interaction',
+                'description': 'Interact with parents about the welfare of their wards',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Academic management',
+                'description': 'Run all your academic and extra curricular activities',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Teacher and staff',
+                'description': 'Manage teaching and non-teaching staff with ease',
+                'imgLink': '#'
+            }
+        ]"
+    ></app-guest-top>
+
+    <app-about></app-about>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    
+</div>

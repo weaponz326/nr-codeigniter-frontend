@@ -21,7 +21,7 @@ export class AddOrderComponent implements OnInit {
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild("orderCodeReference") orderCode: jqxInputComponent;
   @ViewChild("orderDateReference") orderDate: jqxDateTimeInputComponent;
-  @ViewChild("GuestNameReference") guestName: jqxComboBoxComponent;
+  @ViewChild("customerNameReference") customerName: jqxComboBoxComponent;
   @ViewChild("orderTypeReference") orderType: jqxDropDownListComponent;
   @ViewChild("orderStatusReference") orderStatus: jqxDropDownListComponent;
 

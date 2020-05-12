@@ -1,0 +1,75 @@
+<jqxWindow #createFeesReference 
+    [width]="540" 
+    [height]="250" 
+    [autoOpen]="false">
+    
+    <div>Create New Fees</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Fees ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #feesCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Fees Description</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #feesDescriptionReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Fees Date</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #feesDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Target Class(es)</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDropDownList #targetClassReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [checkboxes]="true"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Target Student(s)</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDropDownList #targetStudentReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [checkboxes]="true"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+  

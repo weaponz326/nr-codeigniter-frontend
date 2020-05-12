@@ -493,6 +493,129 @@
           }
         }
       }
+    },
+    "school": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/school",
+      "sourceRoot": "projects/school/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/school",
+            "index": "projects/school/src/index.html",
+            "main": "projects/school/src/main.ts",
+            "polyfills": "projects/school/src/polyfills.ts",
+            "tsConfig": "projects/school/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/school/src/favicon.ico",
+              "projects/school/src/assets"
+            ],
+            "styles": [
+              "projects/school/src/styles.css",
+              "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js", 
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/school/src/environments/environment.ts",
+                  "with": "projects/school/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "school:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "school:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "school:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/school/src/test.ts",
+            "polyfills": "projects/school/src/polyfills.ts",
+            "tsConfig": "projects/school/tsconfig.spec.json",
+            "karmaConfig": "projects/school/karma.conf.js",
+            "assets": [
+              "projects/school/src/favicon.ico",
+              "projects/school/src/assets"
+            ],
+            "styles": [
+              "projects/school/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/school/tsconfig.app.json",
+              "projects/school/tsconfig.spec.json",
+              "projects/school/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/school/e2e/protractor.conf.js",
+            "devServerTarget": "school:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "school:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "application"
 }
