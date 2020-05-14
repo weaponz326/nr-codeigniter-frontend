@@ -1,0 +1,38 @@
+<div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
+    
+    <app-suite-scrollnav></app-suite-scrollnav>
+
+    <app-guest-top
+        [source]="'hotel'"
+        [suiteName]="'Hotel'"
+        [primaryCaption]="'netRink Hotel'"
+        [secondaryCaption]="'Effective running of all the day to day operations of your hotel'"
+        [features]="[
+            {
+                'title': 'Bills and Payments',
+                'description': 'Automatically generate bills and receive payments from guests',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Operations management',
+                'description': 'Run all activities of your establishment with ease',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Room Booking',
+                'description': 'Receive and proccess bookings from from your guests',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Guest management',
+                'description': 'Manage your guests well for good customer relationship',
+                'imgLink': '#'
+            }
+        ]"
+    ></app-guest-top>
+
+    <app-about></app-about>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    
+</div>

@@ -1,0 +1,94 @@
+<!-- ---------------------------------------------------------------------------------------------
+personal details -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-12">
+        <h4>Check-In Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Check-In ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #checkinCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Guest Name :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #guestNameReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Guest ID :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #guestCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Room No. :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #roomNumberReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Check-In Date :</label></div>
+            <div class="col-md-8">
+                <jqxDateTimeInput #checkinDateReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Check-Out Date :</label></div>
+            <div class="col-md-8">
+                <jqxDateTimeInput #checkoutDateReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Number of Nights :</label></div>
+            <div class="col-md-8">
+                <jqxNumberInput #nightsNumberReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [inputMode]="'simple'"
+                    [spinButtons]="true"
+                    [decimalDigits]="0"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+

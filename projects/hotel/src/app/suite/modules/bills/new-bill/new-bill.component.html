@@ -1,0 +1,63 @@
+<jqxWindow #newBillReference 
+    [width]="540" 
+    [height]="220" 
+    [autoOpen]="false">
+    
+    <div>Add New Order</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Bill ID</div>
+            <div class="edit-dialog-field">
+                <jqxInput #billCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Bill Date</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #billDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Guest Name</div>
+            <div class="edit-dialog-field">
+                <jqxDropDownList #guestNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+        
+        <div>
+            <div class="edit-dialog-label">Guest ID</div>
+            <div class="edit-dialog-field">
+                <jqxDropDownList #guestCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+  

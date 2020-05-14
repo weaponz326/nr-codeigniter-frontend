@@ -16,7 +16,7 @@ export class AllCustomersComponent implements OnInit {
   @ViewChild('gridReference') grid: jqxGridComponent;
 
   columns: any[] = [
-    { text: "Customer ID", dataField: "customrt_code", width: "25%" },
+    { text: "Customer ID", dataField: "customer_code", width: "25%" },
     { text: "Customer Name", dataField: "customer", width: "50%" },
     { text: "Phone No.", dataField: "phone", width: "25%" }
   ];

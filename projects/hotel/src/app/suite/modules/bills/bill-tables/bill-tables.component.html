@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Bill Details</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <jqxGrid #roomGridReference
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showemptyrow]="false"
+                    [selectionmode]="'singlerow'"
+                    [showeverpresentrow]="true"
+                    [everpresentrowactions]="'add update delete reset'"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="roomColumns"
+                    [columngroups]="roomColumnGroups"
+                ></jqxGrid>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <jqxGrid #servicesGridReference
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showemptyrow]="false"
+                    [selectionmode]="'singlerow'"
+                    [showeverpresentrow]="true"
+                    [everpresentrowactions]="'add update delete reset'"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="servicesColumns"
+                    [columngroups]="servicesColumnGroups"
+                ></jqxGrid>
+            </div>
+        </div>
+
+    </div>
+</div>

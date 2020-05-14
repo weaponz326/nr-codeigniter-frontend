@@ -1,0 +1,79 @@
+<div class="row page-form-div">
+
+    <div class="col-md-12">
+        <h4>Room Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Room No. :</label></div>
+            <div class="col-md-8">
+                <jqxInput #roomNumberReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Room Type :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #roomTypeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Location :</label></div>
+            <div class="col-md-8">
+                <jqxInput #locationReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Rate :</label></div>
+            <div class="col-md-8">
+                <jqxNumberInput #rateReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [inputMode]="'simple'"
+                    [symbol]="'$'"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Features :</label></div>
+            <div class="col-md-8 textarea-div">
+                <jqxTextArea #featuresReference
+                    [width]="'100%'"
+                    [height]="52"
+                ></jqxTextArea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Room Status :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #statusReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <hr />
+    </div>
+</div>
