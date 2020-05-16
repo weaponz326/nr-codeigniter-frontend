@@ -14,9 +14,6 @@ export class BudgetTablesComponent implements OnInit {
   @ViewChild("incomeGridReference") incomeGrid: jqxGridComponent;
   @ViewChild("expenditureGridReference") expenditureGrid: jqxGridComponent;
 
-  ngOnInit(): void {
-  }
-
   // income grid settings
 
   incomeColumns: any[] = [
@@ -39,4 +36,7 @@ export class BudgetTablesComponent implements OnInit {
     { text: "Expenditure", align: "center", name: "expenditureGroup" }
   ];
 
+  ngOnInit(): void {
+  }
+  
 }

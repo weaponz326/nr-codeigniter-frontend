@@ -1,0 +1,53 @@
+<jqxWindow #newAttendanceReference 
+    [width]="540" 
+    [height]="190" 
+    [autoOpen]="false">
+    
+    <div>Add New Attendance</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Attendance ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #attendanceCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Attendance Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #attendanceNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+        
+        <div>
+            <div class="edit-dialog-label-alt">Year</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDropDownList #yearReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+  

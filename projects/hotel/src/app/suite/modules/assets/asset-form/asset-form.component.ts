@@ -14,6 +14,7 @@ export class AssetFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild('assetCodeReference') assetCode: jqxInputComponent;
+  @ViewChild('assetNameReference') assetName: jqxInputComponent;
   @ViewChild('assetTypeReference') assetType: jqxInputComponent;
   @ViewChild('categoryTypeReference') category: jqxInputComponent;
   @ViewChild('brandReference') brand: jqxInputComponent;

@@ -12,16 +12,15 @@ export class AccountTransactionsComponent implements OnInit {
 
   @ViewChild("gridReference") grid: jqxGridComponent;
 
-  ngOnInit(): void {
-  }
-
   // transanctoins grid settings
-
   columns: any[] = [
     { text: "Transaction Date", dataField: "transaction_date", columntype: "datetimeinput", width: "20%" },
     { text: "Description", dataField: "description", width: "45%" },
     { text: "Transaction Type", dataField: "transaction_type", width: "20%" },
     { text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
   ];
+
+  ngOnInit(): void {
+  }
 
 }

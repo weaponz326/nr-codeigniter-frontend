@@ -1,0 +1,52 @@
+<jqxWindow #generatePayrollReference 
+    [width]="540" 
+    [height]="190" 
+    [autoOpen]="false">
+    
+    <div>Generate New Payroll</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Payroll Name</div>
+            <div class="edit-dialog-field">
+                <jqxInput #payrollNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Month</div>
+            <div class="edit-dialog-field">
+                <jqxDropDownList #monthReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Year</div>
+            <div class="edit-dialog-field">
+                <jqxDropDownList #yearReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

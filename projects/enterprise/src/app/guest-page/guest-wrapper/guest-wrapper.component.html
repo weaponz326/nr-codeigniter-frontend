@@ -1,0 +1,38 @@
+<div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
+    
+    <app-suite-scrollnav></app-suite-scrollnav>
+
+    <app-guest-top
+        [source]="'enterprise'"
+        [suiteName]="'Enterprise'"
+        [primaryCaption]="'netRink Enterprise'"
+        [secondaryCaption]="'Everything you need to manage and run your business operations effectively'"
+        [features]="[
+            {
+                'title': 'Finance and accounting',
+                'description': 'Take care of all your financial operations in one place',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Human Resource',
+                'description': 'Manage all personnel related operations',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Administrative operations',
+                'description': 'Efficiently handle all office and administrative activities',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Assets management',
+                'description': 'Manage and track all assets in your establishment',
+                'imgLink': '#'
+            }
+        ]"
+    ></app-guest-top>
+
+    <app-about></app-about>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    
+</div>

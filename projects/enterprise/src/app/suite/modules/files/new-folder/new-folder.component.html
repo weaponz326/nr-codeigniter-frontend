@@ -1,0 +1,42 @@
+<jqxWindow #newFolderReference 
+    [width]="540" 
+    [height]="160" 
+    [autoOpen]="false">
+    
+    <div>Add New Folder</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Folder No.</div>
+            <div class="edit-dialog-field">
+                <jqxInput #folderNumberReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Folder Name</div>
+            <div class="edit-dialog-field">
+                <jqxInput #folderNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

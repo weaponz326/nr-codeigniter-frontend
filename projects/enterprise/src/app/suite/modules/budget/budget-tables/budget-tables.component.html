@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <hr />
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <jqxGrid #incomeGridReference
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showemptyrow]="false"
+                    [selectionmode]="'singlerow'"
+                    [showeverpresentrow]="true"
+                    [everpresentrowactions]="'add update delete reset'"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="incomeColumns"
+                    [columngroups]="incomeColumnGroups"
+                ></jqxGrid>
+            </div>
+
+            <div class="col-md-6">
+                <jqxGrid #expenditureGridReference
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showemptyrow]="false"
+                    [selectionmode]="'singlerow'"
+                    [showeverpresentrow]="true"
+                    [everpresentrowactions]="'add update delete reset'"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="expenditureColumns"
+                    [columngroups]="expenditureColumnGroups"
+                ></jqxGrid>
+            </div>
+
+        </div>
+
+    </div>
+</div>

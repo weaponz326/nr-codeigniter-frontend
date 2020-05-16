@@ -14,20 +14,20 @@ export class StaffFormComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
-  @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
-  @ViewChild('sexReference') sexRadioButton: jqxRadioButtonComponent;
-  @ViewChild('dobReference') dobInput: jqxDateTimeInputComponent;
-  @ViewChild('nationalityReference') nationalityInput: jqxInputComponent;
-  @ViewChild('religionReference') religionInput: jqxInputComponent;
-  @ViewChild('phoneReference') phoneInput: jqxInputComponent;
-  @ViewChild('emailReference') emailInput: jqxInputComponent;
-  @ViewChild('addressReference') addressInput: jqxTextAreaComponent;
-  @ViewChild('stateReference') stateInput: jqxInputComponent;
-  @ViewChild('cityReference') cityInput: jqxInputComponent;
-  @ViewChild('postCodeReference') postCodeInput: jqxInputComponent;
-  @ViewChild('staffCodeReference') staffCodeInput: jqxInputComponent;
-  @ViewChild('jobReference') jobInput: jqxInputComponent;
+  @ViewChild('firstNameReference') firstName: jqxInputComponent;
+  @ViewChild('lastNameReference') lastName: jqxInputComponent;
+  @ViewChild('sexReference') sex: jqxRadioButtonComponent;
+  @ViewChild('dobReference') dob: jqxDateTimeInputComponent;
+  @ViewChild('nationalityReference') nationality: jqxInputComponent;
+  @ViewChild('religionReference') religion: jqxInputComponent;
+  @ViewChild('phoneReference') phone: jqxInputComponent;
+  @ViewChild('emailReference') email: jqxInputComponent;
+  @ViewChild('addressReference') address: jqxTextAreaComponent;
+  @ViewChild('stateReference') state: jqxInputComponent;
+  @ViewChild('cityReference') city: jqxInputComponent;
+  @ViewChild('postCodeReference') postCode: jqxInputComponent;
+  @ViewChild('staffCodeReference') staffCode: jqxInputComponent;
+  @ViewChild('jobReference') job: jqxInputComponent;
 
   ngOnInit(): void {
   }
