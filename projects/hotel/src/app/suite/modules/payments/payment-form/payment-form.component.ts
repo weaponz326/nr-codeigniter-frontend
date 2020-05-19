@@ -20,7 +20,7 @@ export class PaymentFormComponent implements OnInit {
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
   @ViewChild("billCodeReference") billCode: jqxDropDownListComponent;
   @ViewChild("amountDueReference") amountDue: jqxNumberInputComponent;
-  @ViewChild("amountPayedReference") amountPayed: jqxNumberInputComponent;
+  @ViewChild("amountPaidReference") amountPaid: jqxNumberInputComponent;
   @ViewChild("balanceReference") amountbalancePayed: jqxNumberInputComponent;
 
   ngOnInit(): void {

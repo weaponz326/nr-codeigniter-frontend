@@ -1,0 +1,26 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Shop Name</label>
+            <input type="text" class="form-control" formControlName="shopName" placeholder="Enter the name of your shop" required autofocus>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Location</label>
+            <input type="text" class="form-control" formControlName="location" placeholder="Enter your city or town, state, and country" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>About</label>
+            <textarea class="form-control text-left" rows="3" formControlName="about" placeholder="Enter a brief description about your shop" required></textarea>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-12">
+            <button type="submit" class="float-right btn btn-success mb-2">Submit</button>
+        </div>
+    </div>
+</form>

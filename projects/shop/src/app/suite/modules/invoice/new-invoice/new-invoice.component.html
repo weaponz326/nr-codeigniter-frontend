@@ -1,0 +1,73 @@
+<jqxWindow #newInvoiceReference 
+    [width]="540" 
+    [height]="250" 
+    [autoOpen]="false">
+    
+    <div>Add New Invoice</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Invoice No.</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #invoiceNumberReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Invoice Date</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #invoiceDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Customer Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxComboBox #customerNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxComboBox>
+            </div>
+        </div>
+        
+        <div>
+            <div class="edit-dialog-label-alt">Customer Contact</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #customerContactReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Due Date</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #dueDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+  

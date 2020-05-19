@@ -20,7 +20,7 @@ export class AllPaymentsComponent implements OnInit {
     { text: "Payment Date", dataField: "payment_date", filtertype: "range", width: "20%" },
     { text: "Student ID", dataField: "student_code", width: "15%" },
     { text: "Student Name", dataField: "student_name", width: "35%" },
-    { text: 'Amount Payed', dataField: 'amount_payed', width: "15%", cellsalign: 'right', cellsformat: 'c2' }
+    { text: 'Amount Paid', dataField: 'amount_paid', width: "15%", cellsalign: 'right', cellsformat: 'c2' }
   ];
 
   ngOnInit(): void {

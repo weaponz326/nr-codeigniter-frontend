@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-8">
+
+        <hr />
+
+        <jqxGrid #inflowGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [showemptyrow]="false"
+            [selectionmode]="'singlerow'"
+            [showeverpresentrow]="true"
+            [everpresentrowactions]="'add update delete reset'"
+            [showstatusbar]="true"
+            [showaggregates]="true"
+            [columns]="inflowColumns"
+        ></jqxGrid>
+
+        <br />
+
+        <jqxGrid #outflowGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [showemptyrow]="false"
+            [selectionmode]="'singlerow'"
+            [showeverpresentrow]="true"
+            [everpresentrowactions]="'add update delete reset'"
+            [showstatusbar]="true"
+            [showaggregates]="true"
+            [columns]="outflowColumns"
+        ></jqxGrid>
+
+        <br />
+
+        <jqxGrid #netflowGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [showemptyrow]="false"
+            [selectionmode]="'singlerow'"
+            [showeverpresentrow]="true"
+            [everpresentrowactions]="'add update delete reset'"
+            [showstatusbar]="true"
+            [showaggregates]="true"
+            [columns]="netflowColumns"
+        ></jqxGrid>
+
+    </div>
+</div>

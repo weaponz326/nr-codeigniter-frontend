@@ -6,7 +6,6 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
-import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
 
 import { CustomersWrapperComponent } from './customers-wrapper/customers-wrapper.component';
 import { AllCustomersComponent } from './all-customers/all-customers.component';
@@ -29,7 +28,6 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
     jqxGridModule,
     jqxInputModule,
     jqxTextAreaModule,
-    jqxRadioButtonModule
   ]
 })
 export class CustomersModule { }
