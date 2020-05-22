@@ -1,0 +1,38 @@
+<div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
+    
+    <app-suite-scrollnav></app-suite-scrollnav>
+
+    <app-guest-top
+        [source]="'production'"
+        [suiteName]="'Production'"
+        [primaryCaption]="'netRink Production'"
+        [secondaryCaption]="'Fully manage your production facility\'s operations, from beginning to end'"
+        [features]="[
+            {
+                'title': 'Production materials',
+                'description': 'Take stock of materials needed for your production',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Operations management',
+                'description': 'Manage all production related administrative operations',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Product lifecycle',
+                'description': 'Manage products as they go through the production proccess',
+                'imgLink': '#'
+            },
+            {
+                'title': 'Project management',
+                'description': 'Plan your production proccesses and tasks',
+                'imgLink': '#'
+            }
+        ]"
+    ></app-guest-top>
+
+    <app-about></app-about>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    
+</div>

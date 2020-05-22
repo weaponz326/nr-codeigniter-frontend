@@ -11,7 +11,7 @@ export class AllPayablesComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("gridReference") roomGrid: jqxGridComponent;
+  @ViewChild("gridReference") grid: jqxGridComponent;
 
   columns: any[] = [
     { text: "Payable ID", dataField: "payable_code", width: "8%" },

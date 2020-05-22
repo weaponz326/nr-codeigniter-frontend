@@ -11,7 +11,7 @@ export class AllReceivablesComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("gridReference") roomGrid: jqxGridComponent;
+  @ViewChild("gridReference") grid: jqxGridComponent;
 
   columns: any[] = [
     { text: "Receivable ID", dataField: "receivable_code", width: "8%" },

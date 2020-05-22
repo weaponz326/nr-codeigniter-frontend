@@ -1,0 +1,38 @@
+<div class="container">
+            
+    <div class="module-heading row">
+        <div class="col-md-12">
+                
+            <a href="#"><h3>Home</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <h3>Manufacturing</h3>
+            
+            <hr class="header-line" />
+            <hr class="header-line" />
+        
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------------------- -->
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <jqxGrid #gridReference
+                [width]="'100%'"
+                [height]="500"
+                [rowsheight]="24"
+                [showemptyrow]="false"
+                [filterable]="true"
+                [showfilterrow]="true"
+                [selectionmode]="'singlerow'"
+                [showeverpresentrow]="true"
+                [everpresentrowactions]="'add update delete reset'"
+                [columns]="columns"
+            ></jqxGrid>
+
+        </div>
+    </div>
+
+</div>
