@@ -17,25 +17,29 @@ export class ProfileFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private signupApi: SignupApiService) { }
 
   profileForm = this.fb.group({
-    firstName: ["", Validators.required],
-    lastName: ["", Validators.required],
+    first_name: ["", Validators.required],
+    last_name: ["", Validators.required],
     location: ["", Validators.required],
     about: ["", Validators.required]
   });
 
   profileSubmit(){
-    this.signupApi.sendProfile(this.profileForm.value)
+    this.signupApi.postProfile(this.profileForm.value)
       .subscribe(
         res => {
           console.log(res);
-          this.router.navigateByUrl("/signup/account");
+          if(res.status == true){
+            this.router.navigateByUrl("/signup/account");
+          }
         },
         err => {
           console.log(err);
         }
       )
+
+    console.log(this.profileForm.value);
   }
-  
+
   gotoLogin(e){
     e.preventDefault();
     this.router.navigateByUrl("/login");
@@ -45,7 +49,7 @@ export class ProfileFormComponent implements OnInit {
     e.preventDefault();
     this.router.navigateByUrl("/signup/verification");
   }
-  
+
   ngOnInit(): void {
   }
 

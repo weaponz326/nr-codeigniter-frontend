@@ -1,9 +1,10 @@
 // container body forform elemetns of main page and all suites
 // also contains styles for all forms
+// form heeading is determined according to the route
 
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-container',
@@ -14,18 +15,17 @@ export class FormContainerComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  formHeading = "placeholder Heading";
+  formHeading;
 
   ngOnInit(): void {
-    this.router.events.subscribe(e => {
-      if (e instanceof NavigationEnd){
-        console.log(e.urlAfterRedirects);
-        
-        if (e.urlAfterRedirects == "/signup/profile" || e.urlAfterRedirects == "signup"){
-          console.log("this is profile");
-        }
-      }
-    })
+    var route = this.router.url;
+    console.log(route);
+
+    if (route.includes("/signup")){
+      this.formHeading = "sign up with netRink";
+    }else if(route.includes("/login")){
+      this.formHeading = "log in to netRink";
+    }
   }
 
 }

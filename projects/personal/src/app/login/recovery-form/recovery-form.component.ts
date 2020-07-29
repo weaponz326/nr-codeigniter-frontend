@@ -20,7 +20,7 @@ export class RecoveryFormComponent implements OnInit {
   });
 
   recoverySubmit(){
-    this.loginApi.sendRecForm(this.recoveryForm.value)
+    this.loginApi.postRecoveryEmail(this.recoveryForm.value)
       .subscribe(data => {
         console.log(this.recoveryForm.value);
         this.router.navigateByUrl("login/await");

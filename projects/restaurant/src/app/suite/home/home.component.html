@@ -2,107 +2,107 @@
 
     <div class="module-heading row">
         <div class="col-md-12">
-            
+
             <h3>Home</h3>
 
             <hr class="header-line" />
             <hr class="header-line" />
-        
+
         </div>
     </div>
-        
+
     <!-- --------------------------------------------------------------------------------------------------- -->
 
-    <div class="home-div"> 
+    <div class="home-div">
 
         <div class="row">
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #adminTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admin</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #menuTooltipReference
                     [position]="'mouse'"
                     [content]="'Plan and organize all menu'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Menu</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #staffTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage all staff'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Staff</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #tablesTooltipReference
                     [position]="'mouse'"
                     [content]="'Organize tables and manage other table activities'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Tables</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #ordersTooltipReference
                     [position]="'mouse'"
                     [content]="'Receive orders and automatically generate bills'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Orders</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
 
             </div>
-            
-            <div class="col-md-2 col-sm-6 text-center">	
+
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #deliveriesTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage delivery operations'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Deliveries</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
@@ -116,61 +116,61 @@
 
         <div class="row">
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #paymentsTooltipReference
                     [position]="'mouse'"
                     [content]="'Receive payment of bills from customers'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Payments</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #reservationsTooltipReference
                     [position]="'mouse'"
                     [content]="'Receive and plan reservations'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Reservations</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
-            
-            <div class="col-md-2 col-sm-6 text-center">	
+
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #customersTooltipReference
                     [position]="'mouse'"
                     [content]="'Keep track of all your guests and customers'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Customers</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
-            
-            <div class="col-md-2 col-sm-6 text-center">	
+
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #portalTooltipReference
                     [position]="'mouse'"
                     [content]="'Interact with customers through netRink portal'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Portal</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
@@ -179,5 +179,17 @@
         </div>
 
     </div>
+
+    <!-- --------------------------------------------------------------------------------------------- -->
+
+    <div *ngIf="this.isActive == false; then createAccountBlock"></div>
+
+    <ng-template #createAccountBlock>
+        <div class="row text-center home-create-button-div">
+            <div class="col-md-12">
+                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create netRink account</button>
+            </div>
+        </div>
+    </ng-template>
 
 </div>

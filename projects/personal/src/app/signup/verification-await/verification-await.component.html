@@ -7,8 +7,8 @@
 
 <div class="row text-center">
     <div class="col-md-12">
-        <button (click)="gotoSuccess()" type="button" class="btn btn-success mb-2 mt-4">Activate account</button>
+        <button (click)="gotoSuccess()" type="button" class="btn btn-success mb-2 mt-4" [disabled]="verStatus">Activate account</button>
         <br />
-        <small class="text-success">Email verified! Click button to continue...</small>
+        <small class="text-success">{{ this.verMsg }}</small>
     </div>
 </div>

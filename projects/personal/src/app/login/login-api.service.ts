@@ -4,6 +4,7 @@ import { Observable } from 'rxjs'
 
 import { environment } from '../../environments/environment'
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,31 +12,27 @@ export class LoginApiService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl = environment.baseUrl;
+  personalUrl = environment.personalUrl;
 
   // send login form
-  public sendLogin(loginForm): Observable<any>{
-    return this.http.post(this.baseUrl + "send_login", loginForm);
-  }
-
-  // get user login source
-  public getSource(): Observable<any>{
-    return this.http.get(this.baseUrl + "get_source");
+  public postLogin(loginForm): Observable<any>{
+    return this.http.post(this.personalUrl + "users/rest-auth/login/", loginForm);
   }
 
   // send account recovery mail
-  public sendRecForm(recForm): Observable<any>{
-    return this.http.post(this.baseUrl + "send_rec_form", recForm);
+  public postRecoveryEmail(email): Observable<any>{
+    return this.http.post(this.personalUrl + "users/rest-auth/password/reset/", email);
   }
 
-  // long polling for recovery mail verification status 
+  // *** have to be changed
+  // long polling for recovery mail verification status
   public pollVerstatus(): Observable<any>{
-    return this.http.get(this.baseUrl + "poll_verstatus");
+    return this.http.get(this.personalUrl + "poll_verstatus");
   }
 
-  // send password reset form  
+  // send password reset form
   public sendReset(resetForm): Observable<any>{
-    return this.http.post(this.baseUrl + "send_reset", resetForm);
+    return this.http.post(this.personalUrl + "users/rest-auth/password/reset/confirm/", resetForm);
   }
 
 }

@@ -13,32 +13,26 @@ export class SignupApiService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl = environment.baseUrl;
+  personalUrl = environment.personalUrl;
 
-  // send user profile form  
-  public sendProfile(userProfile): Observable<any>{
-    return this.http.post(this.baseUrl + "api/user/signup/send_profile", userProfile);
-    // return this.http.get(this.baseUrl + "api/user/signup/get_pollstatus");
+  // send user profile form
+  public postProfile(userProfile): Observable<any>{
+    return this.http.post(this.personalUrl + "users/profile-store/", userProfile);
   }
 
   // send user account form
-  public sendAccount(userAccount): Observable<any>{
-    return this.http.post(this.baseUrl + "api/user/signup/send_account", userAccount);
+  public postAccount(userAccount): Observable<any>{
+    return this.http.post(this.personalUrl + "users/rest-auth/registration/", userAccount);
   }
 
   // long polling for verification status
-  public pollVerstatus(): Observable<any>{
-    return this.http.get(this.baseUrl + "api/user/signup/get_pollstatus");
-  }
-
-  // get user registration source
-  public getSource(): Observable<any>{
-    return this.http.get(this.baseUrl + "api/user/signup/get_source");
+  public pollVerification(): Observable<any>{
+    return this.http.get(this.personalUrl + "users/poll_verification/");
   }
 
   // send verification mail form
-  public sendVerForm(verForm): Observable<any>{
-    return this.http.post(this.baseUrl + "api/user/signup/send_ver_form", verForm);
+  public postVerificationEmail(email): Observable<any>{
+    return this.http.post(this.personalUrl + "users/verification-email/", email);
   }
 
 }

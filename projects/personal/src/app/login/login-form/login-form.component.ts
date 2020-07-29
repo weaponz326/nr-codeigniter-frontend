@@ -5,16 +5,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+
 import { LoginApiService } from '../login-api.service';
+import { MainNavbarComponent } from 'projects/application/src/app/main-navbar/main-navbar/main-navbar.component';
+
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.css'],
+  providers: [ MainNavbarComponent ]
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder ,private router: Router, private loginApi: LoginApiService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private loginApi: LoginApiService,
+    private navbar: MainNavbarComponent
+  ) { }
 
   loginForm = this.fb.group({
     email: ["", Validators.required],
@@ -22,11 +31,22 @@ export class LoginFormComponent implements OnInit {
   })
 
   loginSubmit(){
-    this.loginApi.sendLogin(this.loginForm.value)
-      .subscribe(data => {
-        console.log(data);
-        this.router.navigateByUrl("/login/success");
-      })
+    this.loginApi.postLogin(this.loginForm.value)
+    .subscribe(
+      res => {
+        console.log(res);
+        if (JSON.stringify(res).includes("key")){
+          localStorage.setItem('token', res.key);
+          // reload main navbar after login
+          this.navbar.ngOnInit();
+
+          this.router.navigateByUrl("/login/success");
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
   gotoSignup(e){

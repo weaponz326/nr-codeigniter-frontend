@@ -21,11 +21,18 @@ export class VerificationFormComponent implements OnInit {
   });
 
   verificationSubmit(){
-    this.signupApi.sendVerForm(this.verificationForm.value)
-      .subscribe(data => {
-        console.log(this.verificationForm.value);
-        this.router.navigateByUrl("signup/await");
-      })
+    this.signupApi.postVerificationEmail(this.verificationForm.value)
+      .subscribe(
+        res => {
+          console.log(res);
+          if (res.status == true){
+            this.router.navigateByUrl("/signup/await");
+          }
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
 
   ngOnInit(): void {

@@ -18,22 +18,33 @@ export class VerificationAwaitComponent implements OnInit {
 
   constructor(private router: Router, private signupApi: SignupApiService) { }
 
+  verStatus = false;
+  verMsg = "Verify your email to finish with the registration";
+
   gotoSuccess(){
     this.router.navigateByUrl("/signup/success");
   }
 
   ngOnInit(): void {
-    let verStatus = false;
 
     interval(5000)
       .pipe(
         startWith(0),
-        switchMap(() => this.signupApi.pollVerstatus())
+        switchMap(() => this.signupApi.pollVerification())
       )
-      .subscribe(res => {
-        verStatus = res.ver_status;
-        console.log(res.ver_status);
-      })
+      .subscribe(
+        res => {
+          console.log(res.ver_status);
+
+          if (res.verStatus == true){
+            this.verMsg = "Email verified! Click button to continue...";
+            this.verStatus = true;
+          }
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
 
 }

@@ -4,6 +4,9 @@
 
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from '../../../environments/environment'
+
+
 @Component({
   selector: 'app-main-wrapper',
   templateUrl: './main-wrapper.component.html',
@@ -12,6 +15,16 @@ import { Component, OnInit } from '@angular/core';
 export class MainWrapperComponent implements OnInit {
 
   constructor() { }
+
+  baseUrl = environment.baseUrl;
+  personalUrl = environment.personalUrl;
+  hospitalUrl = environment.hospitalUrl;
+  restaurantUrl = environment.restaurantUrl;
+  schoolUrl = environment.schoolUrl;
+  enterpriseUrl = environment.enterpriseUrl;
+  hotelUrl = environment.hotelUrl;
+  shopUrl = environment.shopUrl;
+  productionUrl = environment.productionUrl;
 
   ngOnInit(): void {
   }

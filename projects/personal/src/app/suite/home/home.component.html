@@ -2,12 +2,12 @@
 
     <div class="module-heading row">
         <div class="col-md-12">
-            
+
             <h3>Home</h3>
 
             <hr class="header-line" />
             <hr class="header-line" />
-        
+
         </div>
     </div>
 
@@ -17,16 +17,16 @@
 
         <div class="row">
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #calendarTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage all schedules and appointments'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Calendar</figcaption>
-                        </figure>								
+                        </figure>
                     </a>
 
                 </jqxTooltip>
@@ -36,23 +36,23 @@
                 <jqxTooltip #budgetTooltipReference
                     [position]="'mouse'"
                     [content]="'Plan and prepare personal budgets'">
-                    
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Budget</figcaption>
-                        </figure>										
+                        </figure>
                     </a>
 
                 </jqxTooltip>
 
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">	
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #notesTooltipReference
                     [position]="'mouse'"
-                    [content]="'Put down notes and attach supporting files'">	
-                    
+                    [content]="'Put down notes and attach supporting files'">
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
@@ -72,7 +72,7 @@
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Accounts</figcaption>
-                        </figure>										
+                        </figure>
                     </a>
 
                 </jqxTooltip>
@@ -82,12 +82,12 @@
                 <jqxTooltip #tasksTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage and track to-do tasks and activities '">
-                        
+
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Tasks</figcaption>
-                        </figure>										
+                        </figure>
                     </a>
 
                 </jqxTooltip>
@@ -102,14 +102,26 @@
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Portal</figcaption>
-                        </figure>										
+                        </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
         </div>
-                    
+
     </div>
-    
+
+    <!-- --------------------------------------------------------------------------------------------- -->
+
+    <div *ngIf="this.isLoggedIn == false; then createAccountBlock"></div>
+
+    <ng-template #createAccountBlock>
+        <div class="row text-center home-create-button-div">
+            <div class="col-md-12">
+                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create Personal account</button>
+            </div>
+        </div>
+    </ng-template>
+
 </div>

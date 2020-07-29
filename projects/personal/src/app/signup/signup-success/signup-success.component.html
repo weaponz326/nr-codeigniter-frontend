@@ -1,12 +1,13 @@
 <div class="row form-group text-center">
     <div class="col-md-12">
-        <h4>Welcome User</h4>
-        <p>You have successfully created a netRink account</p>
+      <h4>Welcome {{ this.name }}</h4>
+      <p>You have successfully created a netRink account</p>
     </div>
 </div>
 
 <div class="row text-center">
     <div class="col-md-12">
-        <button type="button" class="btn btn-success mb-2 mt-4">Back to Home Page</button>
+      <button type="button" (click)="redirectLink()" class="btn btn-success mb-2 mt-4">Continue</button>
+      <small class="text-success"><p>{{ this.redirectionMsg }}</p></small>
     </div>
 </div>

@@ -10,3 +10,7 @@
 .nav-form .nav-link {
 	padding: 0 4px;
 }
+
+#navDropdownMenu {
+  z-index: 1500;
+}
