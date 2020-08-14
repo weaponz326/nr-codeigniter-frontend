@@ -1,8 +1,10 @@
-<jqxWindow #newBudgetReference 
-    [width]="540" 
-    [height]="150" 
-    [autoOpen]="false">
-    
+<jqxWindow #newBudgetReference
+    [width]="540"
+    [height]="150"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
     <div>Add New Budget</div>
 
     <div>
@@ -20,10 +22,11 @@
         <div>
             <div class="edit-dialog-label-alt">Budget Type</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #budgetNameReference
+                <jqxDropDownList #budgetTypeReference
                     [width]="'100%'"
                     [height]="25"
                     [source]="budgetTypeSource"
+                    [selectedIndex]="1"
                 ></jqxDropDownList>
             </div>
         </div>
@@ -33,7 +36,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #okButtonReference (click)="saveBudget()"
                 >Save</jqxButton>
             </div>
         </div>

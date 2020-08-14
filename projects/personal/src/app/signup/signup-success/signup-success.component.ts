@@ -23,7 +23,7 @@ export class SignupSuccessComponent implements OnInit {
   // which will also automatically redirect to either suite page for personal
   // or user page for other suites
   redirectLink(){
-    this.router.navigateByUrl('/')
+    window.location.href = "";
   }
 
   ngOnInit(): void {

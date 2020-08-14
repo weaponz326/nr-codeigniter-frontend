@@ -1,34 +1,74 @@
 // page lists all appointments
 // user can serach for appoinments with date range
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
-import { jqxInputComponent } from 'jqwidgets-ng/jqxinput'
-import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput'
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+
+import { CalendarApiService } from '../calendar-api.service';
+import { SuiteRoutesService } from '../../../suite-routes.service';
+
 
 @Component({
   selector: 'app-all-appointments',
   templateUrl: './all-appointments.component.html',
   styleUrls: ['./all-appointments.component.css']
 })
-export class AllAppointmentsComponent implements OnInit {
+export class AllAppointmentsComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
 
-  @ViewChild('searchInputReference') searchInput: jqxInputComponent;
-  @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
-  @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  getData(){
+    this.calendarApi.getAppointments()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
 
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
+
+  // widgets
+  // ----------------------------------------------------------------------------------------
+
+  // grid properties
+
+  source: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'id', type: 'string' },
+      { name: 'subject', type: 'string' },
+      { name: 'start', type: 'date', format: 'yyyy-MM-dd HH:mm' },
+      { name: 'end', type: 'date', format: 'yyyy-MM-dd HH:mm' },
+      { name: 'location', type: 'string' },
+      { name: 'description', type: 'string' },
+      { name: 'status', type: 'string' },
+    ],
+    id: 'id',
+ };
+
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+
   columns: any[] = [
     { text: "Subject", dataField: "subject", width: "40%" },
-    { text: "From", dataField: "from_date", filtertype: "range", width: "22%" },
-    { text: "To", dataField: "to_date", filtertype: "range", width: "22%" },
-    { text: "Status", dataField: "appointment_status", width: "16%" }
+    { text: "From", dataField: "start", filtertype: "range", width: "22%" },
+    { text: "To", dataField: "end", filtertype: "range", width: "22%" },
+    { text: "Status", dataField: "status", width: "16%" }
   ];
 
 }

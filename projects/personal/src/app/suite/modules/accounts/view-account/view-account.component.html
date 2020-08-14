@@ -1,17 +1,17 @@
 <div class="container">
-            
+
     <div class="module-heading row">
         <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
+
+            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
             <span class="fa fa-angle-double-right"></span>
-            <a href="#"><h3>Accounts</h3></a>
+            <a href="#" (click)="this.suiteRoutes.goAccountsAll($event)"><h3>Accounts</h3></a>
             <span class="fa fa-angle-double-right"></span>
             <h3>View Account</h3>
-            
+
             <hr class="header-line" />
             <hr class="header-line" />
-        
+
         </div>
     </div>
 
@@ -50,7 +50,12 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <jqxButton #saveButton class="float-right"
+                    <jqxButton #deleteButton class="float-right" (click)="deleteAccount()"
+                        [width]="100"
+                        [height]="28"
+                    >Delete</jqxButton>
+
+                    <jqxButton #saveButton class="float-right" (click)="saveAccount()"
                         [width]="100"
                         [height]="28"
                     >Save</jqxButton>

@@ -7,12 +7,13 @@ import { ViewBudgetComponent } from './view-budget/view-budget.component';
 
 
 const routes: Routes = [
-  { 
-    path: "", 
+  {
+    path: "",
     component: BudgetWrapperComponent,
     children: [
-      { path: "all_budget", component: AllBudgetComponent },
-      { path: "view_budget", component: ViewBudgetComponent },
+      { path: "", component: AllBudgetComponent },
+      { path: "all-budget", component: AllBudgetComponent },
+      { path: "view-budget", component: ViewBudgetComponent },
     ]
   }
 ];

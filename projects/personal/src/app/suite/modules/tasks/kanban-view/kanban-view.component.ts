@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxKanbanComponent } from 'jqwidgets-ng/jqxkanban'
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons'
+import { jqxKanbanComponent } from 'jqwidgets-ng/jqxkanban';
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+
+import { TasksApiService } from '../tasks-api.service';
+import { SuiteRoutesService } from '../../../suite-routes.service';
 
 @Component({
   selector: 'app-kanban-view',
@@ -10,54 +13,75 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons'
 })
 export class KanbanViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
 
   @ViewChild('kanbanReference') kanban: jqxKanbanComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;
 
+  newItemData: any;
+
+  // inserts task into kanban
+  onTaskAdded(taskData: object){
+    console.log("u want to add new task");
+
+    // this.newItemData = {
+    //   status: taskData.progress,
+    //   text: taskData.task_name,
+    //   content: taskData.description,
+    //   tags: taskData.priority
+    // }
+
+    // this.tasksApi.postTask(this.newItemData)
+    //   .subscribe(
+    //     res => {
+    //       console.log(res);
+    //       this.kanban.addItem(this.newItemData);
+    //     },
+    //     err => {
+    //       console.log(err);
+    //     }
+    //   )
+
+    this.newItemData = {
+      status: "Doing",
+      text: "dfjkdfjk jdkfkd fkdjf",
+      content: "lsklkdmfl skdmflksdmflksdmflksdmfkls",
+      tags: "lkrjkmlk mdslkf"
+    }
+
+    console.log(this.newItemData);
+    this.kanban.addItem(this.newItemData);
+  }
+
   ngOnInit(): void {
   }
 
+  // widget
+  // -----------------------------------------------------------------------------------------
+
   // kanban settings
 
-  columns: any[] = [
-    { text: "To Do", dataField: "todo" },
-    { text: "Doing", dataField: "doing" },
-    { text: "Done", dataField: "done" }
-  ];
-
   fields: any[] = [
-		{ name: "id", map: "task_id", type: "number" },
-		{ name: "status", map: "status", type: "string" },
+		{ name: "id", map: "id", type: "number" },
+		{ name: "status", map: "progress", type: "string" },
 		{ name: "text", map: "task_name", type: "string" },
 		{ name: "tags", map: "priority", type: "string" },
 		{ name: "content", map: "description", type: "string" }
   ];
-  
+
   source: any =
-  {  
+  {
     dataType: "json",
     url: "#",
     dataFields: this.fields,
-    id: "task_id"
+    id: "id"
   };
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
-  resourcesAdapterFunc: any = (): any => {
-    let resourcesSource = {
-      localData: [
-				{ id: 0, name: "", image: "#" },
-			],
-			dataType: "array",
-			dataFields: [
-				{ name: "id", type: "number" },
-				{ name: "name", type: "string" },
-				{ name: "image", type: "string" },
-			]
-    }
-
-    let resourcesDataAdapter = new jqx.dataAdapter(resourcesSource);
-		return resourcesDataAdapter;
-  }
+  columns: any[] = [
+    { text: "To Do", dataField: "To Do" },
+    { text: "Doing", dataField: "Doing" },
+    { text: "Done", dataField: "Done" }
+  ];
 
 }

@@ -18,13 +18,28 @@
         <div class="row">
 
             <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #portalTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Interact with people through netRink portal'">
+
+                    <a href="#" (click)="openPortal($event)">
+                        <figure>
+                            <img src="../../../assets/images/modules/portal.png" class="home-icons" />
+                            <figcaption>Portal</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #calendarTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage all schedules and appointments'">
 
-                    <a href="#">
+                    <a href="#" (click)="openCalendar($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/calendar.png" class="home-icons" />
                             <figcaption>Calendar</figcaption>
                         </figure>
                     </a>
@@ -33,29 +48,13 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #budgetTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Plan and prepare personal budgets'">
-
-                    <a href="#">
-                        <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Budget</figcaption>
-                        </figure>
-                    </a>
-
-                </jqxTooltip>
-
-            </div>
-
-            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #notesTooltipReference
                     [position]="'mouse'"
                     [content]="'Put down notes and attach supporting files'">
 
-                    <a href="#">
+                    <a href="#" (click)="openNotes($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/notes.png" class="home-icons" />
                             <figcaption>Notes</figcaption>
                         </figure>
                     </a>
@@ -68,9 +67,9 @@
                     [position]="'mouse'"
                     [content]="'Manage all financial accounts togethet in one space'">
 
-                    <a href="#">
+                    <a href="#" (click)="openAccounts($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/accounts.png" class="home-icons" />
                             <figcaption>Accounts</figcaption>
                         </figure>
                     </a>
@@ -83,9 +82,9 @@
                     [position]="'mouse'"
                     [content]="'Manage and track to-do tasks and activities '">
 
-                    <a href="#">
+                    <a href="#" (click)="openTasks($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/tasks.png" class="home-icons" />
                             <figcaption>Tasks</figcaption>
                         </figure>
                     </a>
@@ -94,14 +93,36 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+                <jqxTooltip #budgetTooltipReference
                     [position]="'mouse'"
-                    [content]="'Interact with people through netRink portal'">
+                    [content]="'Plan and prepare personal budgets'">
 
-                    <a href="#">
+                    <a href="#" (click)="openBudget($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <img src="../../../assets/images/modules/budget.png" class="home-icons" />
+                            <figcaption>Budget</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+
+            </div>
+
+        </div>
+
+        <!-- ---------------------------------------------------------------------------------------- -->
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #settingsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Set the general configurations of your modules'">
+
+                    <a href="#" (click)="openSettings($event)">
+                        <figure>
+                            <img src="../../../assets/images/modules/settings.png" class="home-icons" />
+                            <figcaption>Settings</figcaption>
                         </figure>
                     </a>
 
@@ -119,7 +140,7 @@
     <ng-template #createAccountBlock>
         <div class="row text-center home-create-button-div">
             <div class="col-md-12">
-                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create Personal account</button>
+                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create netRink account</button>
             </div>
         </div>
     </ng-template>

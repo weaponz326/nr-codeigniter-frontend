@@ -13,8 +13,9 @@ const routes: Routes = [
     path: "",
     component: CalendarWrapperComponent,
     children: [
-      { path: "view_calendar", component: ViewCalendarComponent },
-      { path: "all_appointments", component: AllAppointmentsComponent }
+      { path: "", component: ViewCalendarComponent },
+      { path: "view-calendar", component: ViewCalendarComponent },
+      { path: "all-appointments", component: AllAppointmentsComponent },
     ]
   }
 ];

@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: TasksWrapperComponent,
     children: [
-      { path: "kanban_view", component: KanbanViewComponent },
-      { path: "all_tasks", component: AllTasksComponent }
+      { path: "", component: KanbanViewComponent },
+      { path: "kanban-view", component: KanbanViewComponent },
+      { path: "all-tasks", component: AllTasksComponent }
     ]
   }
 ];

@@ -27,11 +27,11 @@ export class MainNavbarApiService {
     .set('Authorization', this.token);
 
   public postSource(source): Observable<any>{
-    return this.http.post(this.baseUrl + "main/user-source/", { "user_source": source });
+    return this.http.post(this.baseUrl + "main/user-source/", { "user_source": source }, { withCredentials: true });
   }
 
   public getSource(): Observable<any>{
-    return this.http.get(this.baseUrl + "main/user-source/");
+    return this.http.get(this.baseUrl + "main/user-source/", { withCredentials: true });
   }
 
   public getUser(): Observable<any>{

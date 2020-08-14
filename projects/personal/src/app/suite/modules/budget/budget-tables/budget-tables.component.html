@@ -9,6 +9,7 @@
                 <jqxGrid #incomeGridReference
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="incomeDataAdapter"
                     [rowsheight]="24"
                     [showemptyrow]="false"
                     [selectionmode]="'singlerow'"
@@ -25,6 +26,7 @@
                 <jqxGrid #expenditureGridReference
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="expenditureDataAdapter"
                     [rowsheight]="24"
                     [showemptyrow]="false"
                     [selectionmode]="'singlerow'"

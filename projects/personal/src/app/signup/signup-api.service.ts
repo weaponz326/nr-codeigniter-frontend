@@ -17,12 +17,12 @@ export class SignupApiService {
 
   // send user profile form
   public postProfile(userProfile): Observable<any>{
-    return this.http.post(this.personalUrl + "users/profile-store/", userProfile);
+    return this.http.post(this.personalUrl + "users/profile-store/", userProfile, { withCredentials: true });
   }
 
   // send user account form
   public postAccount(userAccount): Observable<any>{
-    return this.http.post(this.personalUrl + "users/rest-auth/registration/", userAccount);
+    return this.http.post(this.personalUrl + "users/rest-auth/registration/", userAccount, { withCredentials: true });
   }
 
   // long polling for verification status

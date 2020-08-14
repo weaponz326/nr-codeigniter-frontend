@@ -56,10 +56,6 @@ const routes: Routes = [
     loadChildren: () => import("./modules/employees/employees.module").then(m => m.EmployeesModule)
   },
   {
-    path: "departments",
-    loadChildren: () => import("./modules/departments/departments.module").then(m => m.DepartmentsModule)
-  },
-  {
     path: "ledger",
     loadChildren: () => import("./modules/ledger/ledger.module").then(m => m.LedgerModule)
   },

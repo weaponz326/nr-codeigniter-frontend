@@ -18,10 +18,10 @@ import { NewBudgetComponent } from './new-budget/new-budget.component';
 
 @NgModule({
   declarations: [
-    BudgetWrapperComponent, 
-    AllBudgetComponent, 
-    ViewBudgetComponent, 
-    BudgetTablesComponent, 
+    BudgetWrapperComponent,
+    AllBudgetComponent,
+    ViewBudgetComponent,
+    BudgetTablesComponent,
     NewBudgetComponent,
   ],
   imports: [

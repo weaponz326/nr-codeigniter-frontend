@@ -1,30 +1,65 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
-import { jqxInputComponent } from 'jqwidgets-ng/jqxinput'
-import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput'
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+
+import { TasksApiService } from '../tasks-api.service'
+import { SuiteRoutesService } from '../../../suite-routes.service';
+
 
 @Component({
   selector: 'app-all-tasks',
   templateUrl: './all-tasks.component.html',
   styleUrls: ['./all-tasks.component.css']
 })
-export class AllTasksComponent implements OnInit {
+export class AllTasksComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
 
-  @ViewChild("searchInputReference") input: jqxInputComponent;
-  @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
-  @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
   @ViewChild("gridReference") grid: jqxGridComponent;
+
+  getData(){
+    this.tasksApi.getTasks()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
 
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
+
+  // widgets
+  // ---------------------------------------------------------------------------------
+
+  source: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'id', type: 'string' },
+      { name: 'task_name', type: 'string' },
+      { name: 'priority', type: 'string' },
+      { name: 'progress', type: 'string' },
+    ],
+    id: 'id',
+ };
+
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+
   columns: any[] = [
-    { text: "Subject", dataField: "subject", width: "50%" },
-    { text: "Date Created", dataField: "date_created", filtertype: "range", width: "25%" },
-    { text: "Last Updated", dataField: "last_updated", filtertype: "range", width: "25%" },
+    { text: "Task Name", dataField: "task_name", width: "50%" },
+    { text: "Priority", dataField: "priority", width: "25%" },
+    { text: "Progress", dataField: "progress", width: "25%" },
   ];
-  
+
 }

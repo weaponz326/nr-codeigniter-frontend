@@ -5,6 +5,7 @@ import { NotesRoutingModule } from './notes-routing.module';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput'
 import { jqxEditorModule } from 'jqwidgets-ng/jqxeditor'
 import { jqxFileUploadModule } from 'jqwidgets-ng/jqxfileupload'
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel'
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons'
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput'
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid'
@@ -16,8 +17,8 @@ import { AllNotesComponent } from './all-notes/all-notes.component';
 
 @NgModule({
   declarations: [
-    NotesWrapperComponent, 
-    ViewNoteComponent, 
+    NotesWrapperComponent,
+    ViewNoteComponent,
     AllNotesComponent
   ],
   imports: [
@@ -26,6 +27,7 @@ import { AllNotesComponent } from './all-notes/all-notes.component';
     jqxInputModule,
     jqxEditorModule,
     jqxFileUploadModule,
+    jqxPanelModule,
     jqxButtonModule,
     jqxDateTimeInputModule,
     jqxGridModule

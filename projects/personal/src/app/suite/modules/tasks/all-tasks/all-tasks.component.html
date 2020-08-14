@@ -1,69 +1,32 @@
 <div class="container">
-            
+
     <div class="module-heading row">
         <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
+
+            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
             <span class="fa fa-angle-double-right"></span>
-            <h3>Tasks</h3>
+            <a href="#" (click)="this.suiteRoutes.goTasksKanban($event)"><h3>Tasks</h3></a>
             <span class="fa fa-angle-double-right"></span>
             <h3>All Tasks</h3>
-            
+
             <hr class="header-line" />
             <hr class="header-line" />
-        
+
         </div>
     </div>
 
     <div class="row">
-
-        <div class="col-md-9">
-            <div class="row">
-                <div class="col-md-2">
-                    <jqxDateTimeInput #fromDateReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxDateTimeInput>
-                </div>
-
-                <div class="col-md-1">From</div>
-
-                <div class="col-md-6">
-                    <jqxInput #searchInputReference
-                        [width]="'100%'"
-                        [height]="28"
-                        [placeHolder]="'Search for tasks'"
-                    ></jqxInput>
-                </div>
-                
-                <div class="col-md-1">To</div>
-
-                <div class="col-md-2">
-                    <jqxDateTimeInput #toDateReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxDateTimeInput>
-                </div>
-            </div>
-
-            <hr>
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-9">
+        <div class="col-md-8">
             <jqxGrid #gridReference
                 [width]="'100%'"
                 [height]="400"
+                [source]="dataAdapter"
                 [sortable]="true"
                 [filterable]="true"
                 [showfilterrow]="true"
                 [columns]="columns"
             ></jqxGrid>
         </div>
-
     </div>
 
 </div>

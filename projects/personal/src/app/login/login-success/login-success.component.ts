@@ -32,7 +32,7 @@ export class LoginSuccessComponent implements OnInit {
       )
 
     // autoatically redirect right after login
-    this.router.navigateByUrl('/')
+    window.location.href = "";
   }
 
 }

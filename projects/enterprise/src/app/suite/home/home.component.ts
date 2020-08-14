@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   @ViewChild("#appraisalTooltipReference") appraisalTooltip: jqxTooltipComponent;
   @ViewChild("#filesTooltipReference") filesTooltip: jqxTooltipComponent;
   @ViewChild("#employeesTooltipReference") employeesTooltip: jqxTooltipComponent;
-  @ViewChild("#departmentsTooltipReference") departmentsTooltip: jqxTooltipComponent;
   @ViewChild("#ledgerTooltipReference") ledgerTooltip: jqxTooltipComponent;
   @ViewChild("#portalTooltipReference") portalTooltip: jqxTooltipComponent;
 

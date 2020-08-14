@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
@@ -16,10 +16,22 @@ export class TaskFormComponent implements OnInit {
   @ViewChild("taskNameReference") taskName: jqxInputComponent;
   @ViewChild("descriptionReference") description: jqxTextAreaComponent;
   @ViewChild("priorityReference") priority: jqxDropDownListComponent;
+  @ViewChild("progressReference") progress: jqxDropDownListComponent;
 
-  prioritySource: any[] = ["Very Low Priority", "Low Priority", "High Priority", "Very High Priority", "Urgent"];
+  taskData: object = {
+    task_name: "this.taskName.val()",
+    description: "this.description.val()",
+    priority: "this.priority.val()",
+    progress: "this.progress.val()"
+  }
 
   ngOnInit(): void {
   }
+
+  // widgets
+  // -------------------------------------------------------------------------------------------------------
+
+  prioritySource: any[] = ["Very Low Priority", "Low Priority", "High Priority", "Very High Priority", "Urgent"];
+  progressSource: any[] = ["To do", "Doing", "Done"];
 
 }

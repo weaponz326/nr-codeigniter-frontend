@@ -114,6 +114,21 @@
 
         <div class="row">
 
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #projectsTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Plan and manage projects'">
+
+                  <a href="#">
+                      <figure>
+                          <img src="#" class="home-icons" />
+                          <figcaption>Projects</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #workersTooltipReference
                     [position]="'mouse'"
@@ -145,14 +160,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #planningTooltipReference
+                <jqxTooltip #tasksTooltipReference
                     [position]="'mouse'"
-                    [content]="'Plan and manage manufacturing projects'">
+                    [content]="'Manage the progress of tasks'">
 
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Planning</figcaption>
+                            <figcaption>Tasks</figcaption>
                         </figure>
                     </a>
 

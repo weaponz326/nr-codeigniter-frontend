@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: NotesWrapperComponent,
     children: [
-      { path: "view_note", component: ViewNoteComponent },
-      { path: "all_notes", component: AllNotesComponent }
+      { path: "", component: ViewNoteComponent },
+      { path: "view-note", component: ViewNoteComponent },
+      { path: "all-notes", component: AllNotesComponent }
     ]
   }
 ];

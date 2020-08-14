@@ -61,8 +61,8 @@ export class MainNavbarComponent implements OnInit {
           localStorage.removeItem("shop_id");
           localStorage.removeItem("production_id");
 
-          // reload navbar
-          this.ngOnInit();
+          // reload page
+          window.location.href = "";
         },
         err => {
           console.log(err);
