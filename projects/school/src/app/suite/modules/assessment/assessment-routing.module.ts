@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: AssessmentWrapperComponent,
     children: [
-      { path: "all_assessment", component: AllAssessmentComponent },
-      { path: "view_assessment", component: ViewAssessmentComponent }
+      { path: "", component: AllAssessmentComponent },
+      { path: "all-assessment", component: AllAssessmentComponent },
+      { path: "view-assessment", component: ViewAssessmentComponent }
     ]
   }
 ];

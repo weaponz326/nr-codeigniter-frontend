@@ -4,7 +4,7 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
   selector: 'app-new-assessment',
@@ -12,8 +12,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
   styleUrls: ['./new-assessment.component.css']
 })
 export class NewAssessmentComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild("newAssessmentReference") newAssessment: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -26,11 +24,13 @@ export class NewAssessmentComponent implements OnInit {
   @ViewChild('classReference') class: jqxDropDownListComponent;
   @ViewChild('createdByReference') createdBy: jqxDropDownListComponent;
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
   openWindow(){
     this.newAssessment.open();
-  }
-  
-  ngOnInit(): void {
   }
 
 }

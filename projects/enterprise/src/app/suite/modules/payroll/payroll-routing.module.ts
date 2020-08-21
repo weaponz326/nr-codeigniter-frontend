@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: PayrollWrapperComponent,
     children: [
-      { path: "all_payroll", component: AllPayrollComponent },
-      { path: "view_payroll", component: ViewPayrollComponent },
-      { path: "employee_payroll", component: EmployeePayrollComponent }
+      { path: "", component: AllPayrollComponent },
+      { path: "all-payroll", component: AllPayrollComponent },
+      { path: "view-payroll", component: ViewPayrollComponent },
+      { path: "employee-payroll", component: EmployeePayrollComponent }
     ]
   }
 ];

@@ -10,17 +10,17 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class NewDeliveryComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("newDeliveryReference") newDelivery: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
-  openWindow(){
-    this.newDelivery.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.newDelivery.open();
   }
 
 }

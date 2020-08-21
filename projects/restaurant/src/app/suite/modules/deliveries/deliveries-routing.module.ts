@@ -10,7 +10,8 @@ const routes: Routes = [
     path: "",
     component: DeliveriesWrapperComponent,
     children: [
-      { path: "all_deliveries", component: AllDeliveriesComponent }
+      { path: "", component: AllDeliveriesComponent }
+      { path: "all-deliveries", component: AllDeliveriesComponent }
     ]
   }
 ];

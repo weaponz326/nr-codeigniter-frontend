@@ -10,17 +10,20 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllTablesComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Table Number", dataField: "table_number", width: "50%" },
     { text: "Table Status", dataField: "table_status", width: "50%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

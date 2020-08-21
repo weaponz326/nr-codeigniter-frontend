@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SubjectsRoutingModule } from './subjects-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+
+import { SubjectsRoutingModule } from './subjects-routing.module';
 
 import { AllSubjectsComponent } from './all-subjects/all-subjects.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
@@ -20,9 +21,9 @@ import { TeachersTableComponent } from './teachers-table/teachers-table.componen
 @NgModule({
   declarations: [
     SubjectsWrapperComponent,
-    AllSubjectsComponent, 
-    AddSubjectComponent, 
-    ViewSubjectComponent, 
+    AllSubjectsComponent,
+    AddSubjectComponent,
+    ViewSubjectComponent,
     SubjectFormComponent, TeachersTableComponent
   ],
   imports: [

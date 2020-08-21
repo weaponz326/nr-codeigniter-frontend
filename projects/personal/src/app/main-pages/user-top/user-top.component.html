@@ -1,0 +1,48 @@
+<div class="bg-light">
+  <div class="container">
+
+      <div class="row" id="usersTable">
+          <div class="col-md-8 offset-md-2">
+
+              <div class="row">
+                  <div class="col-md-12">
+                      <h4 class="text-center">My {{ suiteName }}s</h4>
+                  </div>
+              </div>
+
+              <table class="table table-hover table-striped">
+
+                  <div *ngIf="this.accounts != null; then accountsBlock else noAccountBlock"></div>
+
+                  <ng-template #accountsBlock>
+                      <thead>
+                          <tr>
+                              <th width="60%">{{ suiteName }} Name</th>
+                              <th width="40%">{{ suiteName }} Location</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let userAccount of accounts" (click)="accountSelected(userAccount.account.id)">
+                              <td>{{ userAccount.account.name }}</td>
+                              <td>{{ userAccount.account.location }}</td>
+                          </tr>
+                      </tbody>
+                  </ng-template>
+
+                  <ng-template #noAccountBlock>
+                      <td class="text-center">{{ this.noAccountMsg }}</td>
+                  </ng-template>
+
+              </table>
+
+          </div>
+      </div>
+
+      <div class="row text-center">
+          <div class="col-md-12">
+              <button class="new-btn btn btn-lg btn-danger" (click)="register()">new {{suiteName}} account</button>
+          </div>
+      </div>
+
+  </div>
+</div>

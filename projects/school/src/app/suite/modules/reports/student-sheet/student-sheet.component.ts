@@ -9,7 +9,15 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class StudentSheetComponent implements OnInit {
 
+  @ViewChild('gridReference') grid: jqxGridComponent;
+
   constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ----------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Subject", dataField: "subject", width: "50%" },
@@ -17,8 +25,5 @@ export class StudentSheetComponent implements OnInit {
     { text: "Grade", dataField: "grade", editable: true, width: "10%" },
     { text: "Remarks", dataField: "remarks", editable: true, width: "30%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

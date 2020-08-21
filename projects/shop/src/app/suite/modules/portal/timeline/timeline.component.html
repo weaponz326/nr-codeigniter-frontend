@@ -1,0 +1,114 @@
+<div class="container">
+
+    <div class="module-heading row">
+        <div class="col-md-12">
+
+            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <h3>Portal</h3>
+
+            <hr class="header-line" />
+            <hr class="header-line" />
+
+        </div>
+    </div>
+
+    <div class="row top-button-row">
+        <div class="col-md-12">
+            <jqxButton #newButtonReference
+                (click)="this.suiteRoutes.goPortalNew($event)"
+                [width]="120"
+                [height]="30"
+            >New Rink</jqxButton>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+            <div class="row" (click)="suiteRoutes.goPortalView($event)">
+                <div class="col-md-12">
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-12"><small>RinkIn - Wed, 8th June, 2020. 10:00 AM</small></div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
+                        <div class="col-md-5">
+                            <label class="text-muted"><em><small>Hospital Name :</small></em></label><br />
+                            Ridge Hospital
+                        </div>
+                        <div class="col-md-5">
+                            <label class="text-muted"><em><small>Location :</small></em></label><br />
+                            Accra, Ghana
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                        <div class="col-md-5">Admission</div>
+                    </div>
+
+                    <hr />
+
+                </div>
+            </div>
+
+            <!-- -------------------------------------------------------------------------------------------- -->
+
+            <div class="row" (click)="suiteRoutes.goPortalView($event)">
+                <div class="col-md-12">
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-12"><small>RinkOut - Sun, 5th June, 2020. 10:00 AM</small></div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
+                        <div class="col-md-5">
+                            <label class="text-muted"><em><small>Hospital Name :</small></em></label><br />
+                            Oak Central Hospital
+                        </div>
+                        <div class="col-md-5">
+                            <label class="text-muted"><em><small>Location :</small></em></label><br />
+                            Hong Kong
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                        <div class="col-md-5">Patient</div>
+                    </div>
+
+                    <hr />
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <jqxButton #goToSearchButtonReference class="float-right"
+                (click)="this.suiteRoutes.goPortalSearch($event)"
+                [width]="120"
+                [height]="30"
+            >Search</jqxButton>
+        </div>
+
+    </div>
+
+</div>

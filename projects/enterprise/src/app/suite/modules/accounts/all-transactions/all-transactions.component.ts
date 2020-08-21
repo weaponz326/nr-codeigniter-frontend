@@ -9,9 +9,15 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllTransactionsComponent implements OnInit {
 
+  @ViewChild("#gridReference") grid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("#gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // wigets
+  // ---------------------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Transaction Date", dataField: "transaction_date", filtertype: "range", width: "20%" },
@@ -19,8 +25,5 @@ export class AllTransactionsComponent implements OnInit {
     { text: "Transaction Type", dataField: "transaction_type", filtertype: "checkedlist", width: "20%" },
     { text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

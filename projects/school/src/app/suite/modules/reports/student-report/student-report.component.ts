@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
   selector: 'app-student-report',
@@ -11,14 +11,14 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 })
 export class StudentReportComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('studentCodeReference') studentCode: jqxDropDownListComponent;
   @ViewChild('studentNameReference') studentName: jqxDropDownListComponent;
   @ViewChild('reportNameReference') reportName: jqxInputComponent;
   @ViewChild('reportDateReference') reportDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

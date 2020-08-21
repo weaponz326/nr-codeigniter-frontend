@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: TeachersWrapperComponent,
     children: [
-      { path: "all_teachers", component: AllTeachersComponent },
-      { path: "add_teacher", component: AddTeacherComponent },
-      { path: "view_teacher", component: ViewTeacherComponent }
+      { path: "", component: AllTeachersComponent },
+      { path: "all-teachers", component: AllTeachersComponent },
+      { path: "add-teacher", component: AddTeacherComponent },
+      { path: "view-teacher", component: ViewTeacherComponent }
     ]
   }
 ];

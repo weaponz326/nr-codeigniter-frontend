@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: AssetsWrapperComponent,
     children: [
-      { path: "all_assets", component: AllAssetsComponent },
-      { path: "add_asset", component: AddAssetComponent },
-      { path: "view_asset", component: ViewAssetComponent }
+      { path: "", component: AllAssetsComponent },
+      { path: "all-assets", component: AllAssetsComponent },
+      { path: "add-asset", component: AddAssetComponent },
+      { path: "view-asset", component: ViewAssetComponent }
     ]
   }
 ];

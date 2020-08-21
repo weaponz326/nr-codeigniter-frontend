@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons'
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 @Component({
   selector: 'app-all-appraisal',
@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
 })
 export class AllAppraisalComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('newButtonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ---------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Appraisal ID", dataField: "appraisal_code", width: "10%" },
@@ -23,8 +29,5 @@ export class AllAppraisalComponent implements OnInit {
     { text: "End Date", dataField: "end_date", filtertype: "range", width: "15%" },
     { text: "Supervisor", dataField: "supervisor", width: "25%" },
   ]
-
-  ngOnInit(): void {
-  }
 
 }

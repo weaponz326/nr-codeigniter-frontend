@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: CashflowWrapperComponent,
     children: [
-      { path: "all_cashflow", component: AllCashflowComponent },
-      { path: "view_sheet", component: ViewSheetComponent }
+      { path: "", component: AllCashflowComponent },
+      { path: "all-cashflow", component: AllCashflowComponent },
+      { path: "view-sheet", component: ViewSheetComponent }
     ]
   }
 ];

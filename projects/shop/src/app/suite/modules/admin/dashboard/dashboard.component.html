@@ -1,0 +1,94 @@
+<div class="container">
+
+    <div class="module-heading row">
+        <div class="col-md-12">
+
+            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <h3>Admin</h3>
+
+            <hr class="header-line" />
+            <hr class="header-line" />
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card admin-card">
+                <div class="card-header">
+                    <div class="text-right float-right">
+                        <div class="huge"><h4>0</h4></div>
+                        <div>Users</div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="card-body">
+                        <span class="float-left">View Users</span>
+                        <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card admin-card">
+                <div class="card-header">
+                    <div class="text-right float-right">
+                        <div class="huge"><h4>0</h4></div>
+                        <div>Products</div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="card-body">
+                        <span class="float-left">View Products</span>
+                        <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card admin-card">
+                <div class="card-header">
+                    <div class="text-right float-right">
+                        <div class="huge"><h4>0</h4></div>
+                        <div>Customers</div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="card-body">
+                        <span class="float-left">View Customers</span>
+                        <span class="float-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <jqxButton #allUsersButtonReference (click)="this.suiteRoutes.goAdminAll($event)"
+                [width]="160"
+                [height]="36"
+            >All Users</jqxButton>
+
+            <br /><br />
+
+            <jqxButton #invitationsButtonReference (click)="this.suiteRoutes.goAdminInvitations($event)"
+                [width]="160"
+                [height]="36"
+            >Invitations</jqxButton>
+        </div>
+
+    </div>
+
+</div>

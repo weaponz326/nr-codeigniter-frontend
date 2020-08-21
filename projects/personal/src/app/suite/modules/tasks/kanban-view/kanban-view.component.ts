@@ -13,12 +13,15 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class KanbanViewComponent implements OnInit {
 
-  constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
-
   @ViewChild('kanbanReference') kanban: jqxKanbanComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;
 
   newItemData: any;
+
+  constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
+
+  ngOnInit(): void {
+  }
 
   // inserts task into kanban
   onTaskAdded(taskData: object){
@@ -53,10 +56,7 @@ export class KanbanViewComponent implements OnInit {
     this.kanban.addItem(this.newItemData);
   }
 
-  ngOnInit(): void {
-  }
-
-  // widget
+  // widgets
   // -----------------------------------------------------------------------------------------
 
   // kanban settings

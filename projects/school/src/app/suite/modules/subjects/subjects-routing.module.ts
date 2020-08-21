@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: SubjectsWrapperComponent,
     children: [
-      { path: "all_subjects", component: AllSubjectsComponent },
-      { path: "add_subject", component: AddSubjectComponent },
-      { path: "view_subject", component: ViewSubjectComponent }
+      { path: "", component: AllSubjectsComponent },
+      { path: "all-subjects", component: AllSubjectsComponent },
+      { path: "add-subject", component: AddSubjectComponent },
+      { path: "view-subject", component: ViewSubjectComponent }
     ]
   }  
 ];

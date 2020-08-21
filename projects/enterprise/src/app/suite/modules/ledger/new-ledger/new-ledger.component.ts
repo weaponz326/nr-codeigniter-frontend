@@ -12,8 +12,6 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput/public_
 })
 export class NewLedgerComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("newLedgerReference") newLedger: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -25,11 +23,13 @@ export class NewLedgerComponent implements OnInit {
   @ViewChild("fromDateReference") fromDate: jqxDateTimeInputComponent;
   @ViewChild("toDateReference") toDate: jqxDateTimeInputComponent;
 
-  openWindow(){
-    this.newLedger.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.newLedger.open();
   }
 
 }

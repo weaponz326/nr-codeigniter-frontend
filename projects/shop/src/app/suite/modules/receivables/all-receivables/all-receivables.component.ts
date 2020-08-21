@@ -9,9 +9,15 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllReceivablesComponent implements OnInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -----------------------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Receivable ID", dataField: "receivable_code", width: "8%" },
@@ -23,8 +29,5 @@ export class AllReceivablesComponent implements OnInit {
     { text: "Date Paid", dataField: "date_paid", filtertype: "range", width: "10%" },
     { text: "Outstanding", dataField: "outstanding", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
   ];
-
-  ngOnInit(): void {
-  }
 
 }

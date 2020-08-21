@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: BillsWrapperComponent,
     children: [
-      { path: "all_bills", component: AllBillsComponent },
-      { path: "view_bill", component: ViewBillComponent }
+      { path: "", component: AllBillsComponent },
+      { path: "all-bills", component: AllBillsComponent },
+      { path: "view-bill", component: ViewBillComponent }
     ]
   }
 ];

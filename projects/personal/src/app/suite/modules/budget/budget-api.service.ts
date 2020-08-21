@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
 
-import { environment } from 'projects/personal/src/environments/environment'
+import { environment } from 'projects/personal/src/environments/environment';
 
 
 @Injectable({
@@ -10,9 +10,9 @@ import { environment } from 'projects/personal/src/environments/environment'
 })
 export class BudgetApiService {
 
-  constructor(private http: HttpClient) { }
-
   personalUrl = environment.personalUrl;
+
+  constructor(private http: HttpClient) { }
 
   // get all budgets belonging to a user
   public getBudgets(): Observable<any>{

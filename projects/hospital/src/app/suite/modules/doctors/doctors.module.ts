@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DoctorsRoutingModule } from './doctors-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+
+import { DoctorsRoutingModule } from './doctors-routing.module';
 
 import { DoctorsWrapperComponent } from './doctors-wrapper/doctors-wrapper.component';
 import { NewDoctorComponent } from './new-doctor/new-doctor.component';

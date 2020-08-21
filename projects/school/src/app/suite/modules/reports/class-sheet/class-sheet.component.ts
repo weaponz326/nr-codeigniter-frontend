@@ -10,17 +10,20 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class ClassSheetComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('addAssessmentReference') addAssessment: jqxButtonComponent;
   @ViewChild('classGridReference') classGrid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -----------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Student ID", dataField: "student_code", pinned: "true", width: "8%" },
     { text: "Student Name", dataField: "student_name", pinned: "true", width: "22%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

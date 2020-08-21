@@ -13,8 +13,6 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class PatientFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
   @ViewChild('sexReference') sexRadioButton: jqxRadioButtonComponent;
@@ -31,7 +29,9 @@ export class PatientFormComponent implements OnInit {
   @ViewChild('clinicalNumberReference') clinicNumberInput: jqxInputComponent;
   @ViewChild('insuranceTypeReference') insuranceTypeInput: jqxInputComponent;
   @ViewChild('insuranceNumberReference') insuranceNumberInput: jqxComboBoxComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllReportsComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Report ID", dataField: "report_code", width: "10%" },
@@ -22,8 +28,5 @@ export class AllReportsComponent implements OnInit {
     { text: "Term", dataField: "term", width: "20%" },
     { text: "Class(es)", dataField: "class", width: "25%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

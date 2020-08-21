@@ -11,19 +11,19 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class AddFileComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("addFileReference") addFile: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild("fileNumberReference") fileNumber: jqxInputComponent;
   @ViewChild("fileNameReference") fileName: jqxInputComponent;
- 
-  openWindow(){
-    this.addFile.open();
-  }
+
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.addFile.open();
   }
 
 }

@@ -11,8 +11,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class AddAccountComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("addAccountReference") addAccount: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -20,12 +18,14 @@ export class AddAccountComponent implements OnInit {
   @ViewChild("accountNumberReference") accountNumber: jqxInputComponent;
   @ViewChild("bankNameReference") bankName: jqxInputComponent;
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
   // open add account popup dialog window
   openWindow(){
     this.addAccount.open();
-  }
-
-  ngOnInit(): void {
   }
 
 }

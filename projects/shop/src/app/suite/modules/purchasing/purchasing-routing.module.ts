@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: PurchasingWrapperComponent,
     children: [
-      { path: "all_purchasing", component: AllPurchasingComponent },
-      { path: "view_purchasing", component: ViewPurchasingComponent }
+      { path: "", component: AllPurchasingComponent },
+      { path: "all-purchasing", component: AllPurchasingComponent },
+      { path: "view-purchasing", component: ViewPurchasingComponent }
     ]
   }
 ];

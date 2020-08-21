@@ -10,9 +10,9 @@ import { environment } from 'projects/personal/src/environments/environment';
 })
 export class NotesApiService {
 
-  constructor(private http: HttpClient) { }
-
   personalUrl = environment.personalUrl;
+
+  constructor(private http: HttpClient) { }
 
   // retreive, create and update subject
 

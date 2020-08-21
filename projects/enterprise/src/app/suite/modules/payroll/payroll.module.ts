@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PayrollRoutingModule } from './payroll-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -9,6 +8,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
+
+import { PayrollRoutingModule } from './payroll-routing.module';
 
 import { PayrollWrapperComponent } from './payroll-wrapper/payroll-wrapper.component';
 import { AllPayrollComponent } from './all-payroll/all-payroll.component';

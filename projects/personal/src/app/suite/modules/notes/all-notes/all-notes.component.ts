@@ -15,14 +15,22 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllNotesComponent implements OnInit, AfterViewInit {
 
+  @ViewChild("searchInputReference") searchInput: jqxInputComponent;
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor(
     private router: Router,
     private notesApi: NotesApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
 
-  @ViewChild("searchInputReference") searchInput: jqxInputComponent;
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
 
   getData(){
     this.notesApi.getNotes()
@@ -43,14 +51,6 @@ export class AllNotesComponent implements OnInit, AfterViewInit {
     sessionStorage.setItem('note_id', event.args.row.bounddata.id);
 
     this.router.navigateByUrl('/suite/notes/view-note')
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
   }
 
   // widgets

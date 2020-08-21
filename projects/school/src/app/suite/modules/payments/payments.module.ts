@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PaymentsRoutingModule } from './payments-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+
+import { PaymentsRoutingModule } from './payments-routing.module';
 
 import { PaymentsWrapperComponent } from './payments-wrapper/payments-wrapper.component';
 import { AllPaymentsComponent } from './all-payments/all-payments.component';
@@ -18,10 +19,10 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 @NgModule({
   declarations: [
-    PaymentsWrapperComponent, 
-    AllPaymentsComponent, 
-    NewPaymentComponent, 
-    ViewPaymentComponent, 
+    PaymentsWrapperComponent,
+    AllPaymentsComponent,
+    NewPaymentComponent,
+    ViewPaymentComponent,
     PaymentFormComponent
   ],
   imports: [

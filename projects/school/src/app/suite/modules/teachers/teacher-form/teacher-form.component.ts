@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton'
+import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
@@ -12,8 +12,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
   styleUrls: ['./teacher-form.component.css']
 })
 export class TeacherFormComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild('firstNameReference') firstName: jqxInputComponent;
   @ViewChild('lastNameReference') lastName: jqxInputComponent;
@@ -32,6 +30,8 @@ export class TeacherFormComponent implements OnInit {
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('gradeReference') grade: jqxInputComponent;
   @ViewChild('educationReference') education: jqxInputComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -12,20 +12,20 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 })
 export class NewAttendanceComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("newAttendanceReference") newAttendance: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild('attendanceCodeReference') attendanceCode: jqxInputComponent;
   @ViewChild('attendanceNameReference') attendanceName: jqxInputComponent;
   @ViewChild('yearReference') year: jqxDropDownListComponent;
-  
-  openWindow(){
-    this.newAttendance.open();
-  }
+
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.newAttendance.open();
   }
 
 }

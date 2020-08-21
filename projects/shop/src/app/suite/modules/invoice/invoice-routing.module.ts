@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: InvoiceWrapperComponent,
     children: [
-      { path: "all_invoice", component: AllInvoiceComponent },
-      { path: "view_invoice", component: ViewInvoiceComponent }
+      { path: "", component: AllInvoiceComponent },
+      { path: "all-invoice", component: AllInvoiceComponent },
+      { path: "view-invoice", component: ViewInvoiceComponent }
     ]
   }
 ];

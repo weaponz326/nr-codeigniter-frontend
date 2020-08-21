@@ -10,17 +10,17 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class AddAppointmentComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("addAppointmentReference") addAppointment: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
-  openWindow(){
-    this.addAppointment.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.addAppointment.open();
   }
 
 }

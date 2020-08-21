@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: ProcurementWrapperComponent,
     children: [
-      { path: "all_procurement", component: AllProcurementComponent },
-      { path: "new_order", component: NewOrderComponent },
-      { path: "view_order", component: ViewOrderComponent }
+      { path: "", component: AllProcurementComponent },
+      { path: "all-procurement", component: AllProcurementComponent },
+      { path: "new-order", component: NewOrderComponent },
+      { path: "view-order", component: ViewOrderComponent }
     ]
   }
 ];

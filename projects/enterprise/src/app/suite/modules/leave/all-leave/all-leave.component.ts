@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllLeaveComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -----------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Leave ID", dataField: "leave_id", width: "15%" },
@@ -22,8 +28,5 @@ export class AllLeaveComponent implements OnInit {
     { text: "Date Requested", dataField: "date_requested", width: "20%" },
     { text: "Leave Status", dataField: "leave_status", width: "20%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

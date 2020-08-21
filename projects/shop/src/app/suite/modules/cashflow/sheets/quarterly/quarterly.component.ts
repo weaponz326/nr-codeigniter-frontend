@@ -9,11 +9,17 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class QuarterlyComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("inflowGridReference") inflowGrid: jqxGridComponent;
   @ViewChild("outflowGridReference") outflowGrid: jqxGridComponent;
   @ViewChild("netflowGridReference") netflowGrid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // --------------------------------------------------------------------------------------------------------------------------
 
   // cash inflow grid columns
   inflowColumns: any[] = [
@@ -44,8 +50,5 @@ export class QuarterlyComponent implements OnInit {
     { text: "4th Quarter", dataField: "fourth_quarter", width: "12%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
     { text: "Total", dataField: "total", width: "17%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] }
   ];
-
-  ngOnInit(): void {
-  }
 
 }

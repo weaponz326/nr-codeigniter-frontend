@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllAssetsComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Asset ID", dataField: "asset_id", width: "15%" },
@@ -22,8 +28,5 @@ export class AllAssetsComponent implements OnInit {
     { text: "Location", dataField: "location", width: "20%" },
     { text: "Condition", dataField: "condition", width: "15%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
-import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox'
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 
 @Component({
   selector: 'app-view-services',
@@ -12,13 +12,13 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox'
 })
 export class ViewServicesComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("servicesCodeReference") servicesCode: jqxInputComponent;
   @ViewChild("servicesTypeReference") servicesType: jqxComboBoxComponent;
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

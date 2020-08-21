@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons'
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 @Component({
   selector: 'app-all-payroll',
@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
 })
 export class AllPayrollComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') newButton: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Date Gemerated", dataField: "date_generated", width: "15%" },
@@ -22,8 +28,5 @@ export class AllPayrollComponent implements OnInit {
     { text: "Year", dataField: "year", width: "15%" },
     { text: "Payroll Status", dataField: "payroll_status", width: "20%" },
   ]
-
-  ngOnInit(): void {
-  }
 
 }

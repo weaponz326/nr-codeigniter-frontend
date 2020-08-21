@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: PatientsWrapperComponent,
     children: [
-      { path: "all_patients", component: AllPatientsComponent },
-      { path: "new_patient", component: NewPatientComponent },
-      { path: "view_patient", component: ViewPatientComponent }
+      { path: "", component: AllPatientsComponent },
+      { path: "all-patients", component: AllPatientsComponent },
+      { path: "new-patient", component: NewPatientComponent },
+      { path: "view-patient", component: ViewPatientComponent }
     ]
   }
 ];

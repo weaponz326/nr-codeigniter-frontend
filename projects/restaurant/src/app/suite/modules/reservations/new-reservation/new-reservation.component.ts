@@ -10,17 +10,17 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class NewReservationComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("newReservationReference") newReservation: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
-  openWindow(){
-    this.newReservation.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.newReservation.open();
   }
 
 }

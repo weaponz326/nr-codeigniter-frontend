@@ -11,15 +11,15 @@ import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 })
 export class ProductFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("productCodeReference") productCode: jqxInputComponent;
   @ViewChild("productNameReference") productName: jqxInputComponent;
   @ViewChild("DescriptionReference") description: jqxTextAreaComponent;
   @ViewChild("locationReference") location: jqxInputComponent;
   @ViewChild("priceReference") price: jqxNumberInputComponent;
   @ViewChild("stockReference") stock: jqxNumberInputComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

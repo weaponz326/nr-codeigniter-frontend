@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { GuestPageRoutingModule } from './guest-page-routing.module';
+import { MainPagesModule } from 'projects/personal/src/app/main-pages/main-pages.module';
+
 import { GuestWrapperComponent } from './guest-wrapper/guest-wrapper.component';
-import { SuitePageModule } from 'projects/application/src/app/suite-page/suite-page.module';
 
 
 @NgModule({
@@ -11,7 +12,7 @@ import { SuitePageModule } from 'projects/application/src/app/suite-page/suite-p
   imports: [
     CommonModule,
     GuestPageRoutingModule,
-    SuitePageModule
+    MainPagesModule
   ]
 })
 export class GuestPageModule { }

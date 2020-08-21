@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: PrescriptionsWrapperComponent,
     children: [
-      { path: "all_prescriptions", component: AllPrescriptionsComponent },
-      { path: "view_prescription", component: ViewPrescriptionComponent }
+      { path: "", component: AllPrescriptionsComponent },
+      { path: "all-prescriptions", component: AllPrescriptionsComponent },
+      { path: "view-prescription", component: ViewPrescriptionComponent }
     ]
   }
 ];

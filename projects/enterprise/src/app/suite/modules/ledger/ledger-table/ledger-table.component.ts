@@ -9,9 +9,15 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class LedgerTableComponent implements OnInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // --------------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Date", dataField: "transaction_date", columntype: "datetimeinput", width: "15%" },
@@ -21,8 +27,5 @@ export class LedgerTableComponent implements OnInit {
     { text: "Credit", dataField: "credit", width: "15%", cellsalign: 'right', cellsformat: 'c2' },
     { text: "Balance", dataField: "balance", width: "15%", cellsalign: 'right', cellsformat: 'c2' },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

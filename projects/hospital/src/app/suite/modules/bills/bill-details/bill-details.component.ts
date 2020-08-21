@@ -13,8 +13,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class BillDetailsComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('treatmentInputReference') treatmentInput: jqxNumberInputComponent;
   @ViewChild('doctorsInputReference') doctorsInput: jqxNumberInputComponent;
   @ViewChild('medicineInputReference') medicineInput: jqxNumberInputComponent;
@@ -29,6 +27,8 @@ export class BillDetailsComponent implements OnInit {
   @ViewChild('wardButtonReference') wardButton: jqxButtonComponent;
   @ViewChild('servicesButtonReference') servicesButton: jqxButtonComponent;
   @ViewChild('totalButtonReference') totalButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

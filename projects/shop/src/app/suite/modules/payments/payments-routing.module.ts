@@ -11,9 +11,10 @@ const routes: Routes = [
     path: "",
     component: PaymentsWrapperComponent,
     children: [
-      { path: "all_payments", component: AllPaymentsComponent },
-      { path: "new_payment", component: NewPaymentComponent },
-      { path: "view_payment", component: ViewPaymentComponent }
+      { path: "", component: AllPaymentsComponent },
+      { path: "all-payments", component: AllPaymentsComponent },
+      { path: "new-payment", component: NewPaymentComponent },
+      { path: "view-payment", component: ViewPaymentComponent }
     ]
   }
 ];

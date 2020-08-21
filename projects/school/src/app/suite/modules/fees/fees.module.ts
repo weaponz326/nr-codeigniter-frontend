@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -9,6 +10,7 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { FeesRoutingModule } from './fees-routing.module';
+
 import { FeesWrapperComponent } from './fees-wrapper/fees-wrapper.component';
 import { AllBillsComponent } from './all-bills/all-bills.component';
 import { StudentBillComponent } from './student-bill/student-bill.component';

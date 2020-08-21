@@ -9,10 +9,10 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class AddRoomComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

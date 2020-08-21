@@ -16,9 +16,17 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllAppointmentsComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('gridReference') grid: jqxGridComponent;
+
   constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
 
-  @ViewChild('gridReference') grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
 
   getData(){
     this.calendarApi.getAppointments()
@@ -32,14 +40,6 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
   }
 
   // widgets

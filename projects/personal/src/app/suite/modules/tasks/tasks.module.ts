@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TasksRoutingModule } from './tasks-routing.module';
 import { jqxKanbanModule } from 'jqwidgets-ng/jqxkanban'
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons'
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput'
@@ -10,6 +9,8 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid'
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+
+import { TasksRoutingModule } from './tasks-routing.module';
 
 import { TasksWrapperComponent } from './tasks-wrapper/tasks-wrapper.component';
 import { AllTasksComponent } from './all-tasks/all-tasks.component';
@@ -20,7 +21,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
-    TasksWrapperComponent, 
+    TasksWrapperComponent,
     AllTasksComponent,
     KanbanViewComponent,
     AddTaskComponent,

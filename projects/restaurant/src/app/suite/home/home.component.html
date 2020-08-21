@@ -22,7 +22,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -37,7 +37,7 @@
                     [position]="'mouse'"
                     [content]="'Plan and organize all menu'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goMenuAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Menu</figcaption>
@@ -52,7 +52,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all staff'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Staff</figcaption>
@@ -67,7 +67,7 @@
                     [position]="'mouse'"
                     [content]="'Organize tables and manage other table activities'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goTablesAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Tables</figcaption>
@@ -82,7 +82,7 @@
                     [position]="'mouse'"
                     [content]="'Receive orders and automatically generate bills'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goOrdersAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Orders</figcaption>
@@ -98,7 +98,7 @@
                     [position]="'mouse'"
                     [content]="'Manage delivery operations'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goDeliveriesAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Deliveries</figcaption>
@@ -116,12 +116,42 @@
 
         <div class="row">
 
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #portalTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Interact with customers through netRink portal'">
+
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Portal</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #kitchenStockTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Keep track of the quantity dishes and items'">
+
+                    <a href="#">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Kitchen Stock</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #paymentsTooltipReference
                     [position]="'mouse'"
                     [content]="'Receive payment of bills from customers'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Payments</figcaption>
@@ -136,7 +166,7 @@
                     [position]="'mouse'"
                     [content]="'Receive and plan reservations'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goReservationsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Reservations</figcaption>
@@ -151,7 +181,7 @@
                     [position]="'mouse'"
                     [content]="'Keep track of all your guests and customers'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goCustomersAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Customers</figcaption>
@@ -162,14 +192,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+                <jqxTooltip #billsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Interact with customers through netRink portal'">
+                    [content]="'Automatically generate bills for customers'">
 
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <figcaption>Bills</figcaption>
                         </figure>
                     </a>
 
@@ -177,6 +207,28 @@
             </div>
 
         </div>
+
+		<!-- -----------------------------------------------------------------------------
+        new row -->
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #settingsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Set configuarations for your modules'">
+
+                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Settings</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+		    </div>
 
     </div>
 

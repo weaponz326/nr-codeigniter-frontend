@@ -12,23 +12,26 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class NewBudgetComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('newBudgetReference') BudgetWindow: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild('budgetNameReference') budgetName: jqxInputComponent;
   @ViewChild('budgetTypeReference') budgetType: jqxDropDownListComponent;
 
-  // budget type settings
-  budgetTypeSource: ["Weekly", "Monthly", "Quarterly", "Yearly"];
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   // open new budget popup window
   openWindow(){
     this.BudgetWindow.open();
   }
 
-  ngOnInit(): void {
-  }
+  // widgets
+  // -----------------------------------------------------------------------------------------
+
+  // budget type settings
+  budgetTypeSource: ["Weekly", "Monthly", "Quarterly", "Yearly"];
 
 }

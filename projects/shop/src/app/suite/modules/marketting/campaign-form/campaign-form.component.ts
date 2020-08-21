@@ -12,8 +12,6 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 })
 export class CampaignFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("campaignNameReference") campaignName: jqxInputComponent;
   @ViewChild("campaignTypeReference") campaignType: jqxInputComponent;
   @ViewChild("targetAudienceReference") targetAudience: jqxTextAreaComponent;
@@ -22,7 +20,9 @@ export class CampaignFormComponent implements OnInit {
   @ViewChild("goalsReference") goals: jqxTextAreaComponent;
   @ViewChild("startDateReference") startDate: jqxDateTimeInputComponent;
   @ViewChild("endDateReference") endDate: jqxDateTimeInputComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserPageRoutingModule } from './user-page-routing.module';
-import { SuitePageModule } from 'projects/application/src/app/suite-page/suite-page.module';
+import { MainPagesModule } from 'projects/personal/src/app/main-pages/main-pages.module';
 
 import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
 
@@ -12,7 +12,7 @@ import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
   imports: [
     CommonModule,
     UserPageRoutingModule,
-    SuitePageModule
+    MainPagesModule
   ]
 })
 export class UserPageModule { }

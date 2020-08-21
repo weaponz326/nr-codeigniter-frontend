@@ -12,14 +12,14 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class SubjectFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('subjectCodeReference') subjectCode: jqxInputComponent;
   @ViewChild('subjectNameReference') subjectName: jqxInputComponent;
   @ViewChild('departmentReference') department: jqxComboBoxComponent;
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('descriptionReference') description: jqxTextAreaComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DrugsRoutingModule } from './drugs-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -9,6 +8,8 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+
+import { DrugsRoutingModule } from './drugs-routing.module';
 
 import { DrugsWrapperComponent } from './drugs-wrapper/drugs-wrapper.component';
 import { AllDrugsComponent } from './all-drugs/all-drugs.component';

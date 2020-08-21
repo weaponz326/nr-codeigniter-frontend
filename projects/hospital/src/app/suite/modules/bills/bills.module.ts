@@ -3,7 +3,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BillsRoutingModule } from './bills-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -11,6 +10,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
+
+import { BillsRoutingModule } from './bills-routing.module';
 
 import { BillsWrapperComponent } from './bills-wrapper/bills-wrapper.component';
 import { AllBillsComponent } from './all-bills/all-bills.component';
@@ -27,16 +28,16 @@ import { ServicesComponent } from './edit-bill/services/services.component';
 
 @NgModule({
   declarations: [
-    BillsWrapperComponent, 
-    AllBillsComponent, 
-    NewBillComponent, 
-    ViewBillComponent, 
-    BillDetailsComponent, 
-    TreatmentComponent, 
-    DoctorsComponent, 
-    MedicineComponent, 
-    LaboratoryComponent, 
-    WardComponent, 
+    BillsWrapperComponent,
+    AllBillsComponent,
+    NewBillComponent,
+    ViewBillComponent,
+    BillDetailsComponent,
+    TreatmentComponent,
+    DoctorsComponent,
+    MedicineComponent,
+    LaboratoryComponent,
+    WardComponent,
     ServicesComponent
   ],
   imports: [

@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton'
+import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton';
 
 @Component({
   selector: 'app-staff-form',
@@ -11,8 +11,6 @@ import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton'
   styleUrls: ['./staff-form.component.css']
 })
 export class StaffFormComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild('firstNameReference') firstName: jqxInputComponent;
   @ViewChild('lastNameReference') lastName: jqxInputComponent;
@@ -28,6 +26,8 @@ export class StaffFormComponent implements OnInit {
   @ViewChild('postCodeReference') postCode: jqxInputComponent;
   @ViewChild('staffCodeReference') staffCode: jqxInputComponent;
   @ViewChild('jobReference') job: jqxInputComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 @Component({
   selector: 'app-lab-tests',
@@ -9,15 +9,21 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
 })
 export class LabTestsComponent implements OnInit {
 
+  @ViewChild("testsGridReference") testsGrid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("testsGridReference") testsGrid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // --------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: 'Test ID', dataField: 'test_code', width: "10%" },
     { text: 'Test Name', dataField: 'test_name', width: "30%" },
     { text: 'Remarks', dataField: 'remarks', width: "50%" },
-    { 
+    {
       text: 'Attachments', dataField: 'attachments', columntype: "button", editable: "false", width: "10%",
       cellsrenderer: (): string => {
         return 'Attachments';
@@ -27,8 +33,5 @@ export class LabTestsComponent implements OnInit {
       }
     },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

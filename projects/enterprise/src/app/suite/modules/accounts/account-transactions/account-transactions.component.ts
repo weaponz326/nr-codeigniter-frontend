@@ -9,9 +9,15 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AccountTransactionsComponent implements OnInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ------------------------------------------------------------------------------------------
 
   // transanctoins grid settings
   columns: any[] = [
@@ -20,8 +26,5 @@ export class AccountTransactionsComponent implements OnInit {
     { text: "Transaction Type", dataField: "transaction_type", width: "20%" },
     { text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

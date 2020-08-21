@@ -11,9 +11,10 @@ const routes: Routes = [
     path: "",
     component: AttendanceWrapperComponent,
     children: [
-      { path: "all_attendance", component: AllAttendanceComponent },
-      { path: "view_attendance", component: ViewAttendanceComponent },
-      { path: "check_attendance", component: CheckAttendanceComponent },
+      { path: "", component: AllAttendanceComponent },
+      { path: "all-attendance", component: AllAttendanceComponent },
+      { path: "view-attendance", component: ViewAttendanceComponent },
+      { path: "check-attendance", component: CheckAttendanceComponent },
     ]
   }
 ];

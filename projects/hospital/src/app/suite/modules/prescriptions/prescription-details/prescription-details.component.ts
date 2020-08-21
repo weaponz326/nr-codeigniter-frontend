@@ -9,16 +9,19 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class PrescriptionDetailsComponent implements OnInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // --------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: 'Medicine Name', dataField: 'medicine_name', width: "60%" },
     { text: 'Dosage', dataField: 'dosage', width: "40%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

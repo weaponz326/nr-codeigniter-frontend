@@ -12,9 +12,17 @@ import { AccountsApiService } from '../accounts-api.service';
 })
 export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor(private accountsApi: AccountsApiService) { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
 
   getData(){
     this.accountsApi.getTransactions()
@@ -119,14 +127,6 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
   }
 
   // widgets

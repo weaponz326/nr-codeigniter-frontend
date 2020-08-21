@@ -16,13 +16,13 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewNoteComponent implements OnInit, AfterViewInit {
 
-  constructor(private notesApi: NotesApiService, public suiteRoutes: SuiteRoutesService) { }
-
   @ViewChild("inputReference") input: jqxInputComponent;
   @ViewChild("editorReference") editor: jqxEditorComponent;
   @ViewChild("fileUploadReference") fileUpload: jqxFileUploadComponent;
   @ViewChild("panelReference") panel: jqxPanelComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
+
+  constructor(private notesApi: NotesApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: FilesWrapperComponent,
     children: [
-      { path: "all_folders", component: AllFoldersComponent },
-      { path: "view_folder", component: ViewFolderComponent },
-      { path: "view_file", component: ViewFileComponent }
+      { path: "", component: AllFoldersComponent },
+      { path: "all-folders", component: AllFoldersComponent },
+      { path: "view-folder", component: ViewFolderComponent },
+      { path: "view-file", component: ViewFileComponent }
     ]
   }
 ];

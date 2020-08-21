@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
@@ -15,13 +15,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
   templateUrl: './view-budget.component.html',
   styleUrls: ['./view-budget.component.css']
 })
-export class ViewBudgetComponent implements OnInit {
-
-  constructor(
-    private router: Router,
-    private budgetApi: BudgetApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
+export class ViewBudgetComponent implements OnInit, AfterViewInit {
 
   @ViewChild('budgetNameReference') budgetNameInput: jqxInputComponent;
   @ViewChild('budgetTypeReference') budgetTypeDropDownList: jqxDropDownListComponent;
@@ -30,6 +24,12 @@ export class ViewBudgetComponent implements OnInit {
   @ViewChild('saveBudgetReference') saveButton: jqxButtonComponent;
 
   budgetData: any;
+
+  constructor(
+    private router: Router,
+    private budgetApi: BudgetApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -48,10 +48,6 @@ export class ViewBudgetComponent implements OnInit {
           console.log(err);
         }
       )
-  }
-
-  ngOnDestroy(): void {
-    sessionStorage.removeItem('budget_id');
   }
 
   // widgets

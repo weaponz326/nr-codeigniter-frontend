@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TermsRoutingModule } from './terms-routing.module';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
+
+import { TermsRoutingModule } from './terms-routing.module';
 
 import { TermsWrapperComponent } from './terms-wrapper/terms-wrapper.component';
 import { AllTermsComponent } from './all-terms/all-terms.component';
@@ -18,10 +19,10 @@ import { TermActivitiesComponent } from './term-activities/term-activities.compo
 
 @NgModule({
   declarations: [
-    TermsWrapperComponent, 
-    AllTermsComponent, 
-    NewTermComponent, 
-    ViewTermComponent, 
+    TermsWrapperComponent,
+    AllTermsComponent,
+    NewTermComponent,
+    ViewTermComponent,
     TermFormComponent, TermActivitiesComponent
   ],
   imports: [

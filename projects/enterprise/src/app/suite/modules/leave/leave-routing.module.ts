@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: LeaveWrapperComponent,
     children: [
-      { path: "all_leave", component: AllLeaveComponent },
-      { path: "add_leave", component: AddLeaveComponent },
-      { path: "view_leave", component: ViewLeaveComponent }
+      { path: "", component: AllLeaveComponent },
+      { path: "all-leave", component: AllLeaveComponent },
+      { path: "add-leave", component: AddLeaveComponent },
+      { path: "view-leave", component: ViewLeaveComponent }
     ]
   }
 ];

@@ -11,8 +11,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 })
 export class AdmissionFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('admissionCodeReference') admissionCode: jqxInputComponent;
   @ViewChild('admissionDateReference') admissionDate: jqxDateTimeInputComponent;
   @ViewChild('dateDischargedReference') dateDischarged: jqxDateTimeInputComponent;
@@ -20,7 +18,9 @@ export class AdmissionFormComponent implements OnInit {
   @ViewChild('patientCodeReference') patientCode: jqxDropDownListComponent;
   @ViewChild('assignedDoctorReference') assignedDoctor: jqxDropDownListComponent;
   @ViewChild('wardReference') ward: jqxDropDownListComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BookingsRoutingModule } from './bookings-routing.module';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+
+import { BookingsRoutingModule } from './bookings-routing.module';
 
 import { BookingsWrapperComponent } from './bookings-wrapper/bookings-wrapper.component';
 import { AllBookingsComponent } from './all-bookings/all-bookings.component';
@@ -18,10 +19,10 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
 
 @NgModule({
   declarations: [
-    BookingsWrapperComponent, 
-    AllBookingsComponent, 
-    AddBookingComponent, 
-    ViewBookingComponent, 
+    BookingsWrapperComponent,
+    AllBookingsComponent,
+    AddBookingComponent,
+    ViewBookingComponent,
     BookingDetailsComponent
   ],
   imports: [

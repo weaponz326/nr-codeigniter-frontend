@@ -9,17 +9,20 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
 })
 export class WardPatientsComponent implements OnInit {
 
+  @ViewChild("patientsGridReference") patientsGrid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("patientsGridReference") patientsGrid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // --------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Patient Name", dataField: "patient_name", width: "50%" },
     { text: "Date Admitted", dataField: "admitted_date", filtertype: "range", width: "30%" },
     { text: "Bed No.", dataField: "bed_number", width: "20%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

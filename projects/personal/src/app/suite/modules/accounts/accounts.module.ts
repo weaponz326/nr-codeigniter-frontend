@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AccountsRoutingModule } from './accounts-routing.module';
-import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons'
-import { jqxGridModule } from 'jqwidgets-ng/jqxgrid'
-import { jqxInputModule } from 'jqwidgets-ng/jqxinput'
+import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
+import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
+
+import { AccountsRoutingModule } from './accounts-routing.module';
 
 import { AccountsWrapperComponent } from './accounts-wrapper/accounts-wrapper.component';
 import { AllAccountsComponent } from './all-accounts/all-accounts.component';
@@ -17,12 +18,12 @@ import { AddAccountComponent } from './add-account/add-account.component';
 
 @NgModule({
   declarations: [
-    AccountsWrapperComponent, 
-    AllAccountsComponent, 
-    ViewAccountComponent, 
-    AccountTransactionsComponent, 
-    AllTransactionsComponent, 
-    AddAccountComponent, 
+    AccountsWrapperComponent,
+    AllAccountsComponent,
+    ViewAccountComponent,
+    AccountTransactionsComponent,
+    AllTransactionsComponent,
+    AddAccountComponent,
   ],
   imports: [
     CommonModule,

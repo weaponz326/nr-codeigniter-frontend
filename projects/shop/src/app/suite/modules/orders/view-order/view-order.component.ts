@@ -13,14 +13,14 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 })
 export class ViewOrderComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('orderCodeReference') orderCode: jqxInputComponent;
   @ViewChild('orderDateReference') orderDate: jqxDateTimeInputComponent;
   @ViewChild('customerNameReference') customerName: jqxComboBoxComponent;
   @ViewChild('orderTypeReference') orderType: jqxDropDownListComponent;
   @ViewChild('orderStatusReference') orderStatus: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

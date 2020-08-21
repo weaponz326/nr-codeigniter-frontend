@@ -1,10 +1,10 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons'
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
-import { BudgetApiService } from '../budget-api.service'
+import { BudgetApiService } from '../budget-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
@@ -15,14 +15,22 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllBudgetComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('buttonReference') button: jqxButtonComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
+
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
+
   constructor(
     private router: Router,
     private budgetApi: BudgetApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
-
-  @ViewChild('buttonReference') button: jqxButtonComponent;
-  @ViewChild('gridReference') grid: jqxGridComponent;
 
   getData(){
     this.budgetApi.getBudgets()
@@ -43,14 +51,6 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
     sessionStorage.setItem('budget_id', event.args.row.bounddata.id);
 
     this.router.navigateByUrl('/suite/budget/view-budget')
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
   }
 
   // widgets

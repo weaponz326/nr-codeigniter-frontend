@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ReportsRoutingModule } from './reports-routing.module';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -9,6 +8,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxListBoxModule } from 'jqwidgets-ng/jqxlistbox';
+
+import { ReportsRoutingModule } from './reports-routing.module';
 
 import { ReportsWrapperComponent } from './reports-wrapper/reports-wrapper.component';
 import { AllReportsComponent } from './all-reports/all-reports.component';
@@ -22,13 +23,13 @@ import { StudentSheetComponent } from './student-sheet/student-sheet.component';
 
 @NgModule({
   declarations: [
-    ReportsWrapperComponent, 
-    AllReportsComponent, 
-    NewReportComponent, 
-    ClassReportComponent, 
-    ClassSheetComponent, 
-    AddAssessmentComponent, 
-    StudentReportComponent, 
+    ReportsWrapperComponent,
+    AllReportsComponent,
+    NewReportComponent,
+    ClassReportComponent,
+    ClassSheetComponent,
+    AddAssessmentComponent,
+    StudentReportComponent,
     StudentSheetComponent
   ],
   imports: [

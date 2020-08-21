@@ -13,9 +13,10 @@ const routes: Routes = [
     path: "",
     component: WardsWrapperComponent,
     children: [
-      { path: "all_wards", component: AllWardsComponent },
-      { path: "new_ward", component: NewWardComponent },
-      { path: "view_ward", component: ViewWardComponent }
+      { path: "", component: AllWardsComponent },
+      { path: "all-wards", component: AllWardsComponent },
+      { path: "new-ward", component: NewWardComponent },
+      { path: "view-ward", component: ViewWardComponent }
     ]
   }
 ];

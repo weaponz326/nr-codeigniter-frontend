@@ -11,15 +11,15 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class ProductFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("productCodeReference") productCode: jqxInputComponent;
   @ViewChild("productNameReference") productName: jqxInputComponent;
   @ViewChild("productTypeReference") productType: jqxComboBoxComponent;
   @ViewChild("versionReference") Version: jqxInputComponent;
   @ViewChild("modelNumberReference") modelNumber: jqxInputComponent;
   @ViewChild("DescriptionReference") description: jqxTextAreaComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

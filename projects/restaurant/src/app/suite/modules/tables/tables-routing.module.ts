@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: TablesWrapperComponent,
     children: [
-      { path: "all_tables", component: AllTablesComponent },
-      { path: "add_table", component: AddTableComponent },
-      { path: "view_table", component: ViewTableComponent }
+      { path: "", component: AllTablesComponent },
+      { path: "all-tables", component: AllTablesComponent },
+      { path: "add-table", component: AddTableComponent },
+      { path: "view-table", component: ViewTableComponent }
     ]
   }
 ];

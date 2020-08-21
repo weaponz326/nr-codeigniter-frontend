@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
-
-import { AppointmentsRoutingModule } from './appointments-routing.module';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
+
+import { AppointmentsRoutingModule } from './appointments-routing.module';
 
 import { AppointmentsWrapperComponent } from './appointments-wrapper/appointments-wrapper.component';
 import { AllAppointmentsComponent } from './all-appointments/all-appointments.component';
@@ -20,10 +20,10 @@ import { AppointmentFormComponent } from './appointment-form/appointment-form.co
 
 @NgModule({
   declarations: [
-    AppointmentsWrapperComponent, 
-    AllAppointmentsComponent, 
-    AddAppointmentComponent, 
-    EditAppointmentComponent, 
+    AppointmentsWrapperComponent,
+    AllAppointmentsComponent,
+    AddAppointmentComponent,
+    EditAppointmentComponent,
     AppointmentFormComponent
   ],
   imports: [

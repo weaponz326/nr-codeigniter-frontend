@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ReceivablesRoutingModule } from './receivables-routing.module';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
+
+import { ReceivablesRoutingModule } from './receivables-routing.module';
 
 import { ReceivablesWrapperComponent } from './receivables-wrapper/receivables-wrapper.component';
 import { AllReceivablesComponent } from './all-receivables/all-receivables.component';
@@ -10,8 +11,8 @@ import { AllReceivablesComponent } from './all-receivables/all-receivables.compo
 
 @NgModule({
   declarations: [
-    ReceivablesWrapperComponent, 
-    AllReceivablesComponent, 
+    ReceivablesWrapperComponent,
+    AllReceivablesComponent,
   ],
   imports: [
     CommonModule,

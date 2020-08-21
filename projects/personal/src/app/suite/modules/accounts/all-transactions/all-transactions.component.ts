@@ -13,9 +13,17 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllTransactionsComponent implements OnInit, AfterViewInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor(private accountsApi: AccountsApiService, public suiteRoutes: SuiteRoutesService) { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
 
   getData(){
     this.accountsApi.getAllTransactions()
@@ -29,14 +37,6 @@ export class AllTransactionsComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
   }
 
   // widgets

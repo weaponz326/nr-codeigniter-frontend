@@ -10,7 +10,8 @@ const routes: Routes = [
     path: "",
     component: PayablesWrapperComponent,
     children: [
-      { path: "all_payables", component: AllPayablesComponent }
+      { path: "", component: AllPayablesComponent }
+      { path: "all-payables", component: AllPayablesComponent }
     ]
   }
 ];

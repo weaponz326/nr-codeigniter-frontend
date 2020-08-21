@@ -11,9 +11,10 @@ const routes: Routes = [
     path: "",
     component: GuestsWrapperComponent,
     children: [
-      { path: "all_guests", component: AllGuestsComponent },
-      { path: "new_guest", component: NewGuestComponent },
-      { path: "view_guest", component: ViewGuestComponent }
+      { path: "", component: AllGuestsComponent },
+      { path: "all-guests", component: AllGuestsComponent },
+      { path: "new-guest", component: NewGuestComponent },
+      { path: "view-guest", component: ViewGuestComponent }
     ]
   }
 ];

@@ -12,14 +12,14 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class ViewDiagnosisComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('diagnosisCodeReference') diagnosisCode: jqxInputComponent;
   @ViewChild('diagnosisDateReference') diagnosisDate: jqxDateTimeInputComponent;
   @ViewChild('patientNameReference') patientName: jqxDropDownListComponent;
   @ViewChild('patientCodeReference') patientCode: jqxDropDownListComponent;
   @ViewChild('diagnosingDoctorReference') diagnosingDoctorCode: jqxDropDownListComponent;
   @ViewChild('saveDiagnosisReference') saveButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

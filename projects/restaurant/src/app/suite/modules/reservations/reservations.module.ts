@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ReservationsRoutingModule } from './reservations-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -10,6 +9,8 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+
+import { ReservationsRoutingModule } from './reservations-routing.module';
 
 import { ReservationsWrapperComponent } from './reservations-wrapper/reservations-wrapper.component';
 import { AllReservationsComponent } from './all-reservations/all-reservations.component';
@@ -20,10 +21,10 @@ import { ReservationFormComponent } from './reservation-form/reservation-form.co
 
 @NgModule({
   declarations: [
-    ReservationsWrapperComponent, 
-    AllReservationsComponent, 
-    NewReservationComponent, 
-    EditReservationComponent, 
+    ReservationsWrapperComponent,
+    AllReservationsComponent,
+    NewReservationComponent,
+    EditReservationComponent,
     ReservationFormComponent
   ],
   imports: [

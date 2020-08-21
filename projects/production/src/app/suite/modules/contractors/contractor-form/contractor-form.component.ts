@@ -12,8 +12,6 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class ContractorFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('companyNameReference') companyName: jqxInputComponent;
   @ViewChild('categoryReference') category: jqxComboBoxComponent;
   @ViewChild('phoneReference') phone: jqxInputComponent;
@@ -30,7 +28,9 @@ export class ContractorFormComponent implements OnInit {
   @ViewChild('workDescriptionReference') workDescription: jqxTextAreaComponent;
   @ViewChild('workStartDateReference') workStartDate: jqxDateTimeInputComponent;
   @ViewChild('workEndDateReference') workEndDate: jqxDateTimeInputComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

@@ -22,7 +22,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -37,7 +37,7 @@
                     [position]="'mouse'"
                     [content]="'Manage relations with parents'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goParentsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Parents</figcaption>
@@ -52,7 +52,7 @@
                     [position]="'mouse'"
                     [content]="'Record and process assessments'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAssessmentAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Assessment</figcaption>
@@ -67,7 +67,7 @@
                     [position]="'mouse'"
                     [content]="'Manage and organize subjects or courses'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goSubjectsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Subjects</figcaption>
@@ -82,7 +82,7 @@
                     [position]="'mouse'"
                     [content]="'Take attendance of students and teachers'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAttendanceAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Attendance</figcaption>
@@ -97,7 +97,7 @@
                     [position]="'mouse'"
                     [content]="'Manage student profile'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goStudentsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Students</figcaption>
@@ -114,12 +114,27 @@
 
         <div class="row">
 
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #portalTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Interact with students and parents through netRink portal'">
+
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Portal</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #reportsTooltipReference
                     [position]="'mouse'"
                     [content]="'Generate students\'s academic reports'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goReportsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Reports</figcaption>
@@ -134,7 +149,7 @@
                     [position]="'mouse'"
                     [content]="'Receive payment of fees'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Payments</figcaption>
@@ -149,7 +164,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all non-teaching staff'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Staff</figcaption>
@@ -194,7 +209,7 @@
                     [position]="'mouse'"
                     [content]="'Generate students\' bills'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goClassesAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Fees</figcaption>
@@ -211,15 +226,15 @@
 
         <div class="row">
 
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #teachersTooltipReference
+			    <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #settingsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Manage all teaching staff'">
+                    [content]="'Set configuarations for your modules'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Teachers</figcaption>
+                            <figcaption>Settings</figcaption>
                         </figure>
                     </a>
 
@@ -227,14 +242,44 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+                <jqxTooltip #timestableTooltipReference
                     [position]="'mouse'"
-                    [content]="'Interact with students and parents through netRink portal'">
+                    [content]="'plan and manage academic timetables'">
 
                     <a href="#">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <figcaption>Timetables</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #enrollmentTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Enroll students into a term'">
+
+                    <a href="#">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Enrollment</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #teachersTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Manage all teaching staff'">
+
+                    <a href="#" (click)="suiteRoutes.goTeachersAll($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Teachers</figcaption>
                         </figure>
                     </a>
 

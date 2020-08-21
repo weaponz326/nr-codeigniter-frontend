@@ -12,10 +12,10 @@ import { BudgetApiService } from '../budget-api.service';
 })
 export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
-  constructor(private budgetApi: BudgetApiService) { }
-
   @ViewChild("incomeGridReference") incomeGrid: jqxGridComponent;
   @ViewChild("expenditureGridReference") expenditureGrid: jqxGridComponent;
+
+  constructor(private budgetApi: BudgetApiService) { }
 
   getIncomeData(){
     this.budgetApi.getIncome()

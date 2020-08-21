@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MainNavbarApiService } from 'projects/application/src/app/main-navbar/main-navbar-api.service'
-
 import { jqxTooltipComponent } from 'jqwidgets-ng/jqxtooltip';
+
+import { MainNavbarApiService } from 'projects/application/src/app/main-navbar/main-navbar-api.service';
+import { SuiteRoutesService } from '../suite-routes.service';
+
 
 @Component({
   selector: 'app-home',
@@ -12,8 +14,6 @@ import { jqxTooltipComponent } from 'jqwidgets-ng/jqxtooltip';
   providers: [ MainNavbarApiService ]
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private router: Router, private navbarApi: MainNavbarApiService) { }
 
   @ViewChild("#portalTooltipReference") portalTootip: jqxTooltipComponent;
   @ViewChild("#calendarTooltipReference") calendarTootip: jqxTooltipComponent;
@@ -25,58 +25,11 @@ export class HomeComponent implements OnInit {
 
   isLoggedIn: boolean = false;
 
-  createAccount(){
-    this.router.navigateByUrl("/signup");
-  }
-
-  openCalendar(e){
-    e.preventDefault();
-    this.router.navigateByUrl('/suite/calendar');
-
-    console.log("u are opening calendar...");
-  }
-
-  openBudget(e){
-    e.preventDefault();
-    this.router.navigateByUrl('/suite/budget');
-
-    console.log("u are opening budget...");
-  }
-
-  openNotes(e){
-    e.preventDefault();
-    this.router.navigateByUrl('/suite/notes');
-
-    console.log("u are opening notes...");
-  }
-
-  openAccounts(e){
-    e.preventDefault();
-    this.router.navigateByUrl('/suite/accounts');
-
-    console.log("u are opening accounts...");
-  }
-
-  openTasks(e){
-    e.preventDefault();
-    this.router.navigateByUrl('/suite/tasks');
-
-    console.log("u are opening tasks...");
-  }
-
-  openPortal(e){
-    e.preventDefault();
-    this.router.navigateByUrl('/suite/portal');
-
-    console.log("u are opening portal...");
-  }
-
-  openSettings(e){
-    e.preventDefault();
-    this.router.navigateByUrl('/suite/settings');
-
-    console.log("u are opening settings...");
-  }
+  constructor(
+    private router: Router,
+    private navbarApi: MainNavbarApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
 
   ngOnInit(): void {
     this.navbarApi.getUser()
@@ -95,6 +48,10 @@ export class HomeComponent implements OnInit {
           this.isLoggedIn = false;
         }
       )
+  }
+
+  createAccount(){
+    this.router.navigateByUrl("/signup");
   }
 
 }

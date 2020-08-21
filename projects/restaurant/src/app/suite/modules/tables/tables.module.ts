@@ -8,6 +8,7 @@ import { jqxDropDownListModule} from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { TablesRoutingModule } from './tables-routing.module';
+
 import { TablesWrapperComponent } from './tables-wrapper/tables-wrapper.component';
 import { AllTablesComponent } from './all-tables/all-tables.component';
 import { AddTableComponent } from './add-table/add-table.component';
@@ -17,10 +18,10 @@ import { ViewTableComponent } from './view-table/view-table.component';
 
 @NgModule({
   declarations: [
-    TablesWrapperComponent, 
-    AllTablesComponent, 
-    AddTableComponent, 
-    TableFormComponent, 
+    TablesWrapperComponent,
+    AllTablesComponent,
+    AddTableComponent,
+    TableFormComponent,
     ViewTableComponent
   ],
   imports: [

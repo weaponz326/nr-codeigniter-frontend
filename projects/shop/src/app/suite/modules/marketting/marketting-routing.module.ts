@@ -11,9 +11,10 @@ const routes: Routes = [
     path: "", 
     component: MarkettingWrapperComponent,
     children: [
-      { path: "all_marketting", component: AllMarkettingComponent },
-      { path: "new_campaign", component: NewCampaignComponent },
-      { path: "view_campaign", component: ViewCampaignComponent }
+      { path: "", component: AllMarkettingComponent },
+      { path: "all-marketting", component: AllMarkettingComponent },
+      { path: "new-campaign", component: NewCampaignComponent },
+      { path: "view-campaign", component: ViewCampaignComponent }
     ]
   }
 ];

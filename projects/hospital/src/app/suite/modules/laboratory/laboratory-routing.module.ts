@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: LaboratoryWrapperComponent,
     children: [
-      { path: "all_labs", component: AllLabsComponent },
-      { path: "view_lab", component: ViewLabComponent }
+      { path: "", component: AllLabsComponent },
+      { path: "all-labs", component: AllLabsComponent },
+      { path: "view-lab", component: ViewLabComponent }
     ]
   }
 ];

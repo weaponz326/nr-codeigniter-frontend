@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllProductsComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Product ID", dataField: "product_code", width: "15%" },
@@ -21,8 +27,5 @@ export class AllProductsComponent implements OnInit {
     { text: 'Price', datafield: 'price', width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
     { text: 'Stock', datafield: 'stock', width: "15%", cellsalign: 'right', columntype: 'numberinput' },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

@@ -9,9 +9,15 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class PayrollDetailsComponent implements OnInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Employee ID", dataField: "employee_code", width: "10%" },
@@ -22,8 +28,5 @@ export class PayrollDetailsComponent implements OnInit {
     { text: "Basic Pay", dataField: "basic_pay", width: "10%", cellsalign: 'right', cellsformat: 'c2' },
     { text: "Salary", dataField: "salary", width: "10%", cellsalign: 'right', cellsformat: 'c2' },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

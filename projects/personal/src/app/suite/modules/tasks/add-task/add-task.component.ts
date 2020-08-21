@@ -10,8 +10,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor() { }
-
   @Output() taskAdded = new EventEmitter<object>();
 
   @ViewChild("addTaskReference") addTaskWindow: jqxWindowComponent;
@@ -20,6 +18,11 @@ export class AddTaskComponent implements OnInit {
 
   @ViewChild("taskFormReference") taskForm: any;
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
   openWindow(){
     this.addTaskWindow.open();
   }
@@ -27,9 +30,6 @@ export class AddTaskComponent implements OnInit {
   addTask(taskData: object){
     this.taskAdded.emit(taskData);
     console.log(taskData);
-  }
-
-  ngOnInit(): void {
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons'
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 @Component({
   selector: 'app-all-folders',
@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
 })
 export class AllFoldersComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ---------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Folder No.", dataField: "folder_number", width: "20%" },
@@ -21,8 +27,5 @@ export class AllFoldersComponent implements OnInit {
     { text: "Date Created", dataField: "date_created", filtertype: "range", width: "15%" },
     { text: "Last Updated", dataField: "last_updated", filtertype: "range", width: "15%" },
   ]
-
-  ngOnInit(): void {
-  }
 
 }

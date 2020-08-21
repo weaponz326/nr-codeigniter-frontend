@@ -10,17 +10,20 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllMarkettingComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Campaign Name", dataField: "campaign_name", width: "60%" },
     { text: "Campaign Type", dataField: "campaign_type", width: "40%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: DiagnosisWrapperComponent,
     children: [
-      { path: "all_diagnosis", component: AllDiagnosisComponent },
-      { path: "view_diagnosis", component: ViewDiagnosisComponent }
+      { path: "", component: AllDiagnosisComponent },
+      { path: "all-diagnosis", component: AllDiagnosisComponent },
+      { path: "view-diagnosis", component: ViewDiagnosisComponent }
     ]
   }
 ];

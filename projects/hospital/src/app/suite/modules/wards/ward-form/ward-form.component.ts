@@ -11,14 +11,14 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class WardFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('wardNumberReference') wardNumber: jqxInputComponent;
   @ViewChild('wardNameReference') wardName: jqxInputComponent;
   @ViewChild('locationReference') location: jqxInputComponent;
   @ViewChild('capacityReference') capacity: jqxInputComponent;
   @ViewChild('wardTypeReference') wardType: jqxComboBoxComponent;
   @ViewChild('wardStatusReference') wardStatus: jqxDropDownListComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

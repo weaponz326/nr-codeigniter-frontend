@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: AdmissionsWrapperComponent,
     children: [
-      { path: "all_admissions", component: AllAdmissionsComponent },
-      { path: "new_admission", component: NewAdmissionComponent },
-      { path: "view_admission", component: ViewAdmissionComponent }
+      { path: "", component: AllAdmissionsComponent },
+      { path: "all-admissions", component: AllAdmissionsComponent },
+      { path: "new-admission", component: NewAdmissionComponent },
+      { path: "view-admission", component: ViewAdmissionComponent }
     ]
   }
 ];

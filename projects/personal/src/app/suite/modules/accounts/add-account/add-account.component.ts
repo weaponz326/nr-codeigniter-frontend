@@ -16,12 +16,6 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AddAccountComponent implements OnInit {
 
-  constructor(
-    private router: Router,
-    private accountsApi: AccountsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
-
   @ViewChild("addAccountReference") addAccountWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -30,6 +24,12 @@ export class AddAccountComponent implements OnInit {
   @ViewChild("bankNameReference") bankNameInput: jqxInputComponent;
 
   accountData: any;
+
+  constructor(
+    private router: Router,
+    private accountsApi: AccountsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
 
   ngOnInit(): void {
   }

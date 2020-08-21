@@ -10,10 +10,20 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class MedicineComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("editWindowReference") editWindow: jqxWindowComponent;
   @ViewChild("editGridReference") editGrid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.editWindow.open();
+  }
+
+  // widgets
+  // ------------------------------------------------------------------------------------------------
 
   // grid columns
   columns: any[] = [
@@ -21,12 +31,5 @@ export class MedicineComponent implements OnInit {
     { text: "Description", dataField: "description", width: "50%" },
     { text: "Amount", dataField: "amount", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
   ];
-
-  openWindow(){
-    this.editWindow.open();
-  }
-
-  ngOnInit(): void {
-  }
 
 }

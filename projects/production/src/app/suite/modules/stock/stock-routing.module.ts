@@ -10,7 +10,8 @@ const routes: Routes = [
     path: "",
     component: StockWrapperComponent,
     children: [
-      { path: "all_stock", component: AllStockComponent }
+      { path: "", component: AllStockComponent }
+      { path: "all-stock", component: AllStockComponent }
     ]
   }
 ];

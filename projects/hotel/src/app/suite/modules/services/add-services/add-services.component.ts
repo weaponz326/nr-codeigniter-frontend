@@ -3,8 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
-import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox'
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 
 @Component({
   selector: 'app-add-services',
@@ -12,8 +12,6 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox'
   styleUrls: ['./add-services.component.css']
 })
 export class AddServicesComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild("addServicesReference") addServices: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -23,11 +21,13 @@ export class AddServicesComponent implements OnInit {
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
 
-  openWindow(){
-    this.addServices.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.addServices.open();
   }
 
 }

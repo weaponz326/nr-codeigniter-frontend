@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton'
+import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton';
 
 @Component({
   selector: 'app-doctor-form',
@@ -11,8 +11,6 @@ import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton'
   styleUrls: ['./doctor-form.component.css']
 })
 export class DoctorFormComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
@@ -27,6 +25,8 @@ export class DoctorFormComponent implements OnInit {
   @ViewChild('doctorCodeReference') doctorCodeInput: jqxInputComponent;
   @ViewChild('specialityReference') specialityInput: jqxInputComponent;
   @ViewChild('departmentReference') departmentInput: jqxInputComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

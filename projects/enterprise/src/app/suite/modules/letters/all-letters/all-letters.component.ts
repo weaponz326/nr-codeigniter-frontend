@@ -11,14 +11,20 @@ import { jqxTabsComponent } from 'jqwidgets-ng/jqxtabs';
 })
 export class AllLettersComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('tabReference') tab: jqxTabsComponent;
   @ViewChild('receivedGridReference') receivedGrid: jqxGridComponent;
   @ViewChild('sentGridReference') sentGrid: jqxGridComponent;
   @ViewChild('addReceivedReference') addReceived: jqxButtonComponent;
   @ViewChild('addSentReference') addSent: jqxButtonComponent;
-  
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -----------------------------------------------------------------------------------------
+
   receivedColumns: any[] = [
     { text: "Date Received", dataField: "date_received", filtertype: "range", width: "12%" },
     { text: "Sender", dataField: "sender", width: "24%" },
@@ -36,8 +42,5 @@ export class AllLettersComponent implements OnInit {
     { text: "Letter Date", dataField: "letter_date", filtertype: "range", width: "12%" },
     { text: "Attachments", dataField: "attachments", columntype: "button", width: "7%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

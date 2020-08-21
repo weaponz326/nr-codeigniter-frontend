@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: AppraisalWrapperComponent,
     children: [
-      { path: "all_appraisal", component: AllAppraisalComponent },
-      { path: "view_appraisal", component: ViewAppraisalComponent }
+      { path: "", component: AllAppraisalComponent },
+      { path: "all-appraisal", component: AllAppraisalComponent },
+      { path: "view-appraisal", component: ViewAppraisalComponent }
     ]
   }
 ];

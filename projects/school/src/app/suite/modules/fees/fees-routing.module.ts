@@ -13,10 +13,11 @@ const routes: Routes = [
     path: "",
     component: FeesWrapperComponent,
     children: [
-      { path: "all_bills", component: AllBillsComponent },
-      { path: "student_bill", component: StudentBillComponent },
-      { path: "all_fees", component: AllFeesComponent },
-      { path: "view_fees", component: ViewFeesComponent }
+      { path: "", component: AllBillsComponent },
+      { path: "all-bills", component: AllBillsComponent },
+      { path: "student-bill", component: StudentBillComponent },
+      { path: "all-fees", component: AllFeesComponent },
+      { path: "view-fees", component: ViewFeesComponent }
     ]
   }
 ];

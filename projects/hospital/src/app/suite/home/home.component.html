@@ -22,7 +22,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -37,7 +37,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all patient related operations'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPatientsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Patients</figcaption>
@@ -52,7 +52,7 @@
                     [position]="'mouse'"
                     [content]="'Schedule appointments between doctors and patients'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAppointmentsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Appointments</figcaption>
@@ -67,7 +67,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all non medical staff'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Staff</figcaption>
@@ -82,7 +82,7 @@
                     [position]="'mouse'"
                     [content]="'generate medical bills for patients'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goBillsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Bills</figcaption>
@@ -97,7 +97,7 @@
                     [position]="'mouse'"
                     [content]="'Manage medical doctors of your facility'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goDoctorsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Doctors</figcaption>
@@ -115,11 +115,26 @@
         <div class="row">
 
             <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #portalTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Interact with patients through netRink portal'">
+
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Portal</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #laboratoryTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage patients\' laboratory sessions'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goLaboratoryAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Laboratory</figcaption>
@@ -134,7 +149,7 @@
                     [position]="'mouse'"
                     [content]="'Recieve payment of bills from patients'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Payments</figcaption>
@@ -149,7 +164,7 @@
                     [position]="'mouse'"
                     [content]="'Manage nurses of your facility'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goNursesAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Nurses</figcaption>
@@ -164,7 +179,7 @@
                     [position]="'mouse'"
                     [content]="'Prescribe medications for patients'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPrescriptionsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Prescriptions</figcaption>
@@ -179,25 +194,10 @@
                     [position]="'mouse'"
                     [content]="'Manage all forms patients diagnosis'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goDiagnosisAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Diagnosis</figcaption>
-                        </figure>
-                    </a>
-
-                </jqxTooltip>
-            </div>
-
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #wardsTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Manage operations of patients\' wards'">
-
-                    <a href="#">
-                        <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Wards</figcaption>
                         </figure>
                     </a>
 
@@ -212,11 +212,26 @@
         <div class="row">
 
             <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #settingsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Set configuarations for your modules'">
+
+                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Settings</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #drugsTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage all pharmaceutical drugs'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goDrugsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Drugs</figcaption>
@@ -226,13 +241,12 @@
                 </jqxTooltip>
             </div>
 
-
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #admissionsTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage patients\' admission sessions'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAdmissionsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admissions</figcaption>
@@ -243,14 +257,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+                <jqxTooltip #wardsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Interact with patients through netRink portal'">
+                    [content]="'Manage operations of patients\' wards'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goWardsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <figcaption>Wards</figcaption>
                         </figure>
                     </a>
 

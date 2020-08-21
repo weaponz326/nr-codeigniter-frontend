@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
 
-import { environment } from 'projects/personal/src/environments/environment'
+import { environment } from 'projects/personal/src/environments/environment';
 
 
 @Injectable({
@@ -10,9 +10,9 @@ import { environment } from 'projects/personal/src/environments/environment'
 })
 export class TasksApiService {
 
-  constructor(private http: HttpClient) { }
-
   personalUrl = environment.personalUrl;
+
+  constructor(private http: HttpClient) { }
 
   public getTasks(): Observable<any>{
     return this.http.get(this.personalUrl + "module-tasks/task-list?user=" + localStorage.getItem('personal_id'));

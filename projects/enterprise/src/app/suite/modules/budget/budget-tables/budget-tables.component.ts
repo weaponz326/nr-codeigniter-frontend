@@ -9,7 +9,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class BudgetTablesComponent implements OnInit {
 
+  @ViewChild('incomeGridReference') incomeGrid: jqxGridComponent;
+  @ViewChild('expenditureGridReference') expenditureGrid: jqxGridComponent;
+
   constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // --------------------------------------------------------------------------------------------
 
   // income grid settings
 
@@ -32,8 +41,5 @@ export class BudgetTablesComponent implements OnInit {
   expenditureColumnGroups: any[] = [
     { text: "Expenditure", align: "center", name: "expenditureGroup" }
   ];
-
-  ngOnInit(): void {
-  }
 
 }

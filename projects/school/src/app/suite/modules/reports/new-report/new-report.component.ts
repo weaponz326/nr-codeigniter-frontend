@@ -4,7 +4,7 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
   selector: 'app-new-report',
@@ -12,8 +12,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
   styleUrls: ['./new-report.component.css']
 })
 export class NewReportComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild("newReportReference") newReport: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -24,11 +22,13 @@ export class NewReportComponent implements OnInit {
   @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('classReference') class: jqxDropDownListComponent;
 
-  openWindow(){
-    this.newReport.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.newReport.open();
   }
 
 }

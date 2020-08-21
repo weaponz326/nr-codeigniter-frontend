@@ -11,8 +11,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class EquipmentFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('equipmentCodeReference') equipmentCode: jqxInputComponent;
   @ViewChild('equipmentNameReference') equipmentName: jqxInputComponent;
   @ViewChild('equipmentTypeReference') equipmentType: jqxInputComponent;
@@ -24,7 +22,9 @@ export class EquipmentFormComponent implements OnInit {
   @ViewChild('descriptionReference') description: jqxTextAreaComponent;
   @ViewChild('conditionReference') condition: jqxDropDownListComponent;
   @ViewChild('statusReference') equipmentStatus: jqxDropDownListComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

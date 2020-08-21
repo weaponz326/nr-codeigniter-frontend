@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: OrdersWrapperComponent,
     children: [
-      { path: "all_orders", component: AllOrdersComponent },
-      { path: "view_order", component: ViewOrderComponent }
+      { path: "", component: AllOrdersComponent },
+      { path: "all-orders", component: AllOrdersComponent },
+      { path: "view-order", component: ViewOrderComponent }
     ]
   }
 ];

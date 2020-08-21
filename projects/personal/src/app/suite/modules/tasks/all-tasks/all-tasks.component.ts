@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
-import { TasksApiService } from '../tasks-api.service'
+import { TasksApiService } from '../tasks-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
@@ -13,9 +13,17 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllTasksComponent implements OnInit, AfterViewInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
 
   getData(){
     this.tasksApi.getTasks()
@@ -29,14 +37,6 @@ export class AllTasksComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
   }
 
   // widgets

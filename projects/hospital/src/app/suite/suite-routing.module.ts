@@ -66,6 +66,10 @@ const routes: Routes = [
   {
     path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
+  },
+  {
+    path: "settings",
+    loadChildren: () => import("./modules/settings/settings.module").then(m => m.SettingsModule)
   }
 ];
 

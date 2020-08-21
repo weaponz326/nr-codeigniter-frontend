@@ -16,6 +16,35 @@ export class SuiteRoutesService {
     this.router.navigateByUrl('/suite/home');
   }
 
+  // portal routes
+
+  goPortalTimeline(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/portal/timeline');
+  }
+
+  goPortalNew(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/portal/new-rink');
+  }
+
+  goPortalView(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/portal/view-rink');
+  }
+
+  goPortalSearch(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/portal/search');
+  }
+
+  // settings routes
+
+  goSettingsView(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/settings/view-settings');
+  }
+
   // calendar routes
 
   goCalendarView(e){

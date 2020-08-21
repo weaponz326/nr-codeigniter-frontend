@@ -10,17 +10,17 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class AddReceivedComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('addReceivedReference') addReceived: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
-  
-  openWindow(){
-    this.addReceived.open();
-  }
+
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.addReceived.open();
   }
 
 }

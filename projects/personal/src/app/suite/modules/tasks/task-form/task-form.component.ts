@@ -11,21 +11,21 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class TaskFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("taskNameReference") taskName: jqxInputComponent;
   @ViewChild("descriptionReference") description: jqxTextAreaComponent;
   @ViewChild("priorityReference") priority: jqxDropDownListComponent;
   @ViewChild("progressReference") progress: jqxDropDownListComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   taskData: object = {
     task_name: "this.taskName.val()",
     description: "this.description.val()",
     priority: "this.priority.val()",
     progress: "this.progress.val()"
-  }
-
-  ngOnInit(): void {
   }
 
   // widgets

@@ -11,13 +11,13 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 })
 export class ViewFolderComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("folderNameReference") folderName: jqxInputComponent;
   @ViewChild("folderNumberReference") folderNumber: jqxInputComponent;
   @ViewChild("dateCreatedReference") dateCreated: jqxDateTimeInputComponent;
   @ViewChild("lastUpdatedReference") lastUpdated: jqxDateTimeInputComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

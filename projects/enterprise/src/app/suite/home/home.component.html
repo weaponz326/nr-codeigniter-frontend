@@ -22,7 +22,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -37,7 +37,7 @@
                     [position]="'mouse'"
                     [content]="'Manage financial accounts and transactions'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAccountsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Accounts</figcaption>
@@ -52,7 +52,7 @@
                     [position]="'mouse'"
                     [content]="'Implement payroll for all employees'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPayrollAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Payroll</figcaption>
@@ -67,7 +67,7 @@
                     [position]="'mouse'"
                     [content]="'Take attendance of employees'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAttendanceAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Attendance</figcaption>
@@ -82,7 +82,7 @@
                     [position]="'mouse'"
                     [content]="'Manage and track assets'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAssetsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Assets</figcaption>
@@ -97,7 +97,7 @@
                     [position]="'mouse'"
                     [content]="'Manage employees\' leave'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goLeaveAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Leave</figcaption>
@@ -114,12 +114,27 @@
 
         <div class="row">
 
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #portalTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Connect to other businesses throgh netRink portal'">
+
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Portal</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #budgetTooltipReference
                     [position]="'mouse'"
                     [content]="'Plan and prepare company\'s budget'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goBudgetAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Budget</figcaption>
@@ -134,7 +149,7 @@
                     [position]="'mouse'"
                     [content]="'Manage procurement operations'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goProcurementAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Procurement</figcaption>
@@ -149,7 +164,7 @@
                     [position]="'mouse'"
                     [content]="'Organise all incoming and outgoing letters'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goLettersAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Letters</figcaption>
@@ -164,7 +179,7 @@
                     [position]="'mouse'"
                     [content]="'Conduct appraisal assessment for employees'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAppraisalAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Appraisal</figcaption>
@@ -179,25 +194,10 @@
                     [position]="'mouse'"
                     [content]="'Organise all types of files'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goFilesFolders($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Files</figcaption>
-                        </figure>
-                    </a>
-
-                </jqxTooltip>
-            </div>
-
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #employeesTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Manage all employees'">
-
-                    <a href="#">
-                        <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Employees</figcaption>
                         </figure>
                     </a>
 
@@ -211,15 +211,30 @@
 
         <div class="row">
 
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #settingsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Prepare general ledger'">
+                    [content]="'Set configuarations for your modules'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Ledger</figcaption>
+                            <figcaption>Settings</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #employeesTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Manage all employees'">
+
+                    <a href="#" (click)="suiteRoutes.goEmployeesAll($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Employees</figcaption>
                         </figure>
                     </a>
 
@@ -229,12 +244,12 @@
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #portalTooltipReference
                     [position]="'mouse'"
-                    [content]="'Connect to other businesses throgh netRink portal'">
+                    [content]="'Prepare general ledger'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goLedgerAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <figcaption>Ledger</figcaption>
                         </figure>
                     </a>
 

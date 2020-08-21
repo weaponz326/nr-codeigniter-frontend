@@ -15,12 +15,19 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewCalendarComponent implements OnInit, AfterViewInit {
 
-  constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
-
   @ViewChild('schedulerReference') scheduler: jqxSchedulerComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;
 
   userAppointment: any;
+
+  constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
+
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.getData();
+  }
 
   getData(){
     this.calendarApi.getAppointments()
@@ -33,13 +40,6 @@ export class ViewCalendarComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.getData();
   }
 
   // widgets

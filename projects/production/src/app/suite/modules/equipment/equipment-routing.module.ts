@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: EquipmentWrapperComponent,
     children: [
-      { path: "all_equipment", component: AllEquipmentComponent },
-      { path: "add_equipment", component: AddEquipmentComponent },
-      { path: "view_equipment", component: ViewEquipmentComponent }
+      { path: "", component: AllEquipmentComponent },
+      { path: "all-equipment", component: AllEquipmentComponent },
+      { path: "add-equipment", component: AddEquipmentComponent },
+      { path: "view-equipment", component: ViewEquipmentComponent }
     ]
   }
 ];

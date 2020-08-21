@@ -4,7 +4,7 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
   selector: 'app-new-bill',
@@ -12,8 +12,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
   styleUrls: ['./new-bill.component.css']
 })
 export class NewBillComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild("newBillReference") newBill: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -23,11 +21,13 @@ export class NewBillComponent implements OnInit {
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
 
-  openWindow(){
-    this.newBill.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.newBill.open();
   }
 
 }

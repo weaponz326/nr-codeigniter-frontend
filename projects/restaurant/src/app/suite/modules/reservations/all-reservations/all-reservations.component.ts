@@ -10,10 +10,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllReservationsComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('newReservationReference') newReservationButton: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -----------------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Reservation ID", dataField: "reservation_code", width: "15%" },
@@ -21,8 +27,5 @@ export class AllReservationsComponent implements OnInit {
     { text: "Arrival Date", dataField: "arrival_date", filtertype: "range", width: "20%" },
     { text: "Reservation Status", dataField: "reservation_status", width: "20%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

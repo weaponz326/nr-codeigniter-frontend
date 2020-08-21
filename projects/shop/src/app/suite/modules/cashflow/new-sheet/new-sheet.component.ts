@@ -12,22 +12,25 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class NewSheetComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("newSheetReference") newSheet: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild("sheetNameReference")sheetName: jqxInputComponent;
   @ViewChild("sheeTypeReference")sheetType: jqxDropDownListComponent;
-  
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
   openWindow(){
     this.newSheet.open();
   }
 
+  // widgets
+  // -------------------------------------------------------------------------
+
   // sheet type source for dropdownlist
   typeSource: any[] = ["Weekly", "Monthly", "Quarterly"];
-
-  ngOnInit(): void {
-  }
 
 }

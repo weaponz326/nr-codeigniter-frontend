@@ -22,7 +22,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -37,7 +37,7 @@
                     [position]="'mouse'"
                     [content]="'Take stock of all productio materials'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goStockAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Stock</figcaption>
@@ -52,7 +52,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all production equipment'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goEquipmentAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Equipment</figcaption>
@@ -67,7 +67,7 @@
                     [position]="'mouse'"
                     [content]="'Manage the purchasing of materials'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPurchasingAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Purchasing</figcaption>
@@ -82,7 +82,7 @@
                     [position]="'mouse'"
                     [content]="'Manage manufacturing batches'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goManufacturingAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Manufacturing</figcaption>
@@ -97,7 +97,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all products'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goProductsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Products</figcaption>
@@ -113,6 +113,21 @@
         row -->
 
         <div class="row">
+
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #portalTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Connect with production stakeholders through netRink portal'">
+
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Portal</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
 
           <div class="col-md-2 col-sm-6 text-center">
               <jqxTooltip #projectsTooltipReference
@@ -134,7 +149,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all workers'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goWorkersAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Workers</figcaption>
@@ -149,7 +164,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all sub-contractors'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goContractorsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Contractors</figcaption>
@@ -179,7 +194,7 @@
                     [position]="'mouse'"
                     [content]="'Receive and respond to orders'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goOrdersAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Orders</figcaption>
@@ -189,22 +204,44 @@
                 </jqxTooltip>
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Connect with production stakeholders through netRink portal'">
+        </div>
 
-                    <a href="#">
+		<!-- -----------------------------------------------------------------------------
+        new row -->
+
+        <div class="row">
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #settingsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Set configuarations for your modules'">
+
+                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <figcaption>Settings</figcaption>
                         </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
-        </div>
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #schedulesTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Plan and manage workers\' schedules'">
+
+                    <a href="#">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Schedules</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+		    </div>
 
     </div>
 

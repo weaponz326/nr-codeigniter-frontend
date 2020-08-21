@@ -12,8 +12,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class ViewAppraisalComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("appraisalCodeReference") appraisalCode: jqxInputComponent;
   @ViewChild("employeeNameReference") employeeName: jqxDropDownListComponent;
   @ViewChild("employeeCodeReference") employeeCode: jqxDropDownListComponent;
@@ -21,6 +19,8 @@ export class ViewAppraisalComponent implements OnInit {
   @ViewChild("endDateReference") endDate: jqxDateTimeInputComponent;
   @ViewChild("supervisorReference") supervisor: jqxInputComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

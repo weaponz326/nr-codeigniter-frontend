@@ -9,11 +9,11 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 })
 export class CheckAttendanceComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('attendanceCodeReference') attendanceCode: jqxInputComponent;
   @ViewChild('attendanceNameReference') attendanceName: jqxInputComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

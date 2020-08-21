@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: MenuWrapperComponent,
     children: [
-      { path: "all_menu_items", component: AllMenuItemsComponent },
-      { path: "add_menu_item", component: AddMenuItemComponent },
-      { path: "view_menu_item", component: ViewMenuItemComponent }
+      { path: "", component: AllMenuItemsComponent },
+      { path: "all-items", component: AllMenuItemsComponent },
+      { path: "add-item", component: AddMenuItemComponent },
+      { path: "view-item", component: ViewMenuItemComponent }
     ]
 
   }

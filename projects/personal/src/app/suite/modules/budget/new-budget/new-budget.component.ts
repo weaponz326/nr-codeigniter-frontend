@@ -15,18 +15,18 @@ import { BudgetApiService } from '../budget-api.service';
 })
 export class NewBudgetComponent implements OnInit {
 
-  constructor(private router: Router, private budgetApi: BudgetApiService) { }
-
   @ViewChild('newBudgetReference') newBudgetWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild('budgetNameReference') budgetNameInput: jqxInputComponent;
   @ViewChild('budgetTypeReference') budgetTypeDropDownList: jqxDropDownListComponent;
 
+  budgetData: any;
+
+  constructor(private router: Router, private budgetApi: BudgetApiService) { }
+
   ngOnInit(): void {
   }
-
-  budgetData: any;
 
   // widgets
   // -------------------------------------------------------------------------------------

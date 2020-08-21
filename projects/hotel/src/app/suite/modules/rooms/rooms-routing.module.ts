@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: RoomsWrapperComponent,
     children: [
-      { path: "all_rooms", component: AllRoomsComponent },
-      { path: "add_room", component: AddRoomComponent },
-      { path: "view_room", component: ViewRoomComponent }
+      { path: "", component: AllRoomsComponent },
+      { path: "all-rooms", component: AllRoomsComponent },
+      { path: "add-room", component: AddRoomComponent },
+      { path: "view-room", component: ViewRoomComponent }
     ]
   }
 ];

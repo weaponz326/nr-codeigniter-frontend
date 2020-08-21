@@ -63,6 +63,10 @@ const routes: Routes = [
     path: "cashflow",
     loadChildren: () => import("./modules/cashflow/cashflow.module").then(m => m.CashflowModule)
   },
+  {
+    path: "settings",
+    loadChildren: () => import("./modules/settings/settings.module").then(m => m.SettingsModule)
+  }
 ];
 
 @NgModule({

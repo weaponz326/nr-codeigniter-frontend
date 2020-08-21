@@ -10,7 +10,8 @@ const routes: Routes = [
     path: "",
     component: ManufacturingWrapperComponent,
     children: [
-      { path: "all_manufacturing", component: AllManufacturingComponent }
+      { path: "", component: AllManufacturingComponent }
+      { path: "all-manufacturing", component: AllManufacturingComponent }
     ]
   }
 ];

@@ -9,11 +9,17 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class WeeklyComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("inflowGridReference") inflowGrid: jqxGridComponent;
   @ViewChild("outflowGridReference") outflowGrid: jqxGridComponent;
   @ViewChild("netflowGridReference") netflowGrid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // --------------------------------------------------------------------------------------------------------------------------
 
   // cash inflow grid columns
   inflowColumns: any[] = [
@@ -47,8 +53,5 @@ export class WeeklyComponent implements OnInit {
     { text: "Week 5", dataField: "week_five", width: "10%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
     { text: "Total", dataField: "total", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] }
   ];
-
-  ngOnInit(): void {
-  }
 
 }

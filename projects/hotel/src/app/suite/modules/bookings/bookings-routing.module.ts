@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: BookingsWrapperComponent,
     children: [
-      { path: "all_bookings", component: AllBookingsComponent },
-      { path: "view_booking", component: ViewBookingComponent }
+      { path: "", component: AllBookingsComponent },
+      { path: "all-bookings", component: AllBookingsComponent },
+      { path: "view-booking", component: ViewBookingComponent }
     ]
   }
 ];

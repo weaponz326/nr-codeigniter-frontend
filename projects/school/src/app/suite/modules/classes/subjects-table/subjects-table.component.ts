@@ -9,17 +9,20 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class SubjectsTableComponent implements OnInit {
 
+  @ViewChild("subjectsGridReference") detailsGrid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("subjectsGridReference") detailsGrid: jqxGridComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -----------------------------------------------------------------------------------------------
 
   // grid columns
   columns: any[] = [
     { text: "Subject Code", dataField: "subject_code", width: "30%" },
     { text: "Subject Name", dataField: "subject_name", width: "70%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

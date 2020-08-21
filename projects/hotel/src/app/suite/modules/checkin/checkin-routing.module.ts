@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: CheckinWrapperComponent,
     children: [
-      { path: "all_checkin", component: AllCheckinComponent },
-      { path: "new_checkin", component: NewCheckinComponent },
-      { path: "view_checkin", component: ViewCheckinComponent }
+      { path: "", component: AllCheckinComponent },
+      { path: "all-checkin", component: AllCheckinComponent },
+      { path: "new-checkin", component: NewCheckinComponent },
+      { path: "view-checkin", component: ViewCheckinComponent }
     ]
   }
 ];

@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: StaffWrapperComponent,
     children: [
-      { path: "all_staff", component: AllStaffComponent },
-      { path: "new_staff", component: NewStaffComponent },
-      { path: "view_staff", component: ViewStaffComponent }
+      { path: "", component: AllStaffComponent },
+      { path: "all-staff", component: AllStaffComponent },
+      { path: "new-staff", component: NewStaffComponent },
+      { path: "view-staff", component: ViewStaffComponent }
     ]
   }
 ];

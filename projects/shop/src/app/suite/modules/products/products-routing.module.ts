@@ -11,9 +11,10 @@ const routes: Routes = [
     path: "",
     component: ProductsWrapperComponent,
     children: [
-      { path: "all_products", component: AllProductsComponent },
-      { path: "add_product", component: AddProductComponent },
-      { path: "view_product", component: ViewProductComponent }
+      { path: "", component: AllProductsComponent },
+      { path: "all-products", component: AllProductsComponent },
+      { path: "add-product", component: AddProductComponent },
+      { path: "view-product", component: ViewProductComponent }
     ]
   }
 ];

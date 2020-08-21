@@ -13,8 +13,6 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class LeaveFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('leaveCodeReference') leaveCode: jqxInputComponent;
   @ViewChild('employeeNameReference') employeeName: jqxDropDownListComponent;
   @ViewChild('employeeCodeReference') employeeCode: jqxDropDownListComponent;
@@ -25,6 +23,8 @@ export class LeaveFormComponent implements OnInit {
   @ViewChild('durationReference') duration: jqxNumberInputComponent;
   @ViewChild('reasonReference') reason: jqxTextAreaComponent;
   @ViewChild('statusReference') leaveStatus: jqxDropDownListComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

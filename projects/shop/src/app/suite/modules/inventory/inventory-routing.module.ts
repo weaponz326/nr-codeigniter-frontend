@@ -10,7 +10,8 @@ const routes: Routes = [
     path: "",
     component: InventoryWrapperComponent,
     children: [
-      { path: "all_inventory", component: AllInventoryComponent }
+      { path: "", component: AllInventoryComponent }
+      { path: "all-inventory", component: AllInventoryComponent }
     ]
   }
 ];

@@ -10,18 +10,18 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class EditSentComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('editSentReference') editSent: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
-  
-  openWindow(){
-    this.editSent.open();
-  }
+
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.editSent.open();
   }
 
 }

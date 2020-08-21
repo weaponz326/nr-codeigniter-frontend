@@ -12,8 +12,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class ViewLabComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('labCodeReference') labCode: jqxInputComponent;
   @ViewChild('labDateReference') labDate: jqxDateTimeInputComponent;
   @ViewChild('patientNameReference') patientName: jqxDropDownListComponent;
@@ -21,6 +19,8 @@ export class ViewLabComponent implements OnInit {
   @ViewChild('referedByReference') referedBy: jqxDropDownListComponent;
   @ViewChild('labTypeReference') labType: jqxInputComponent;
   @ViewChild('saveBillReference') saveButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

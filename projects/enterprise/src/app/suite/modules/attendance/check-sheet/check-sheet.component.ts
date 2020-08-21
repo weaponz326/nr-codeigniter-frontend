@@ -10,18 +10,21 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 })
 export class CheckSheetComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('dateReference') grid: jqxDateTimeInputComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Employee ID", dataField: "employee_code", width: "25%" },
     { text: "Employee Name", dataField: "employee_name", width: "60%" },
     { text: "Attendance", dataField: "attendance", editable: "true", columntype: "checkbox", width: "15%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

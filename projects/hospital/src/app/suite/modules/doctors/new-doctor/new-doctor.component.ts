@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+
 @Component({
   selector: 'app-new-doctor',
   templateUrl: './new-doctor.component.html',
@@ -9,10 +10,10 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class NewDoctorComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

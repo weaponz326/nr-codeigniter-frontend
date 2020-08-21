@@ -12,9 +12,10 @@ const routes: Routes = [
     path: "",
     component: CustomersWrapperComponent,
     children: [
-      { path: "all_customers", component: AllCustomersComponent },
-      { path: "add_customer", component: AddCustomerComponent },
-      { path: "view_customer", component: ViewCustomerComponent }
+      { path: "", component: AllCustomersComponent },
+      { path: "all-customers", component: AllCustomersComponent },
+      { path: "add-customer", component: AddCustomerComponent },
+      { path: "view-customer", component: ViewCustomerComponent }
     ]
   }
 ];

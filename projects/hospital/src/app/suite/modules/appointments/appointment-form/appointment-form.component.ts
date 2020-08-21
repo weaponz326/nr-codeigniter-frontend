@@ -12,8 +12,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class AppointmentFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("appointmentCodeReference") appointmentCode: jqxInputComponent;
   @ViewChild("patientNameReference") patientName: jqxInputComponent;
   @ViewChild("patientCodeReference") patientCode: jqxInputComponent;
@@ -23,10 +21,15 @@ export class AppointmentFormComponent implements OnInit {
   @ViewChild("remarksReference") remarks: jqxTextAreaComponent;
   @ViewChild("statusReference") status: jqxDropDownListComponent;
 
-  // source for status dropdownlist
-  statusSource: any[] = ["Scheduled", "Ongoing", "Finished"];
+  constructor() { }
 
   ngOnInit(): void {
   }
+
+  // widgets
+  // ---------------------------------------------------------------------------------
+
+  // source for status dropdownlist
+  statusSource: any[] = ["Scheduled", "Ongoing", "Finished"];
 
 }

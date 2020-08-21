@@ -12,14 +12,14 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class DeliveryFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("deliveryCodeReference") deliveryCode: jqxInputComponent;
   @ViewChild("deliveryDateReference") deliveryDate: jqxDateTimeInputComponent;
   @ViewChild("orderCodeReference") orderCode: jqxDropDownListComponent;
   @ViewChild("customerNameReference") customerName: jqxComboBoxComponent;
   @ViewChild("deliveryStatusReference") deliveryStatus: jqxDropDownListComponent;
- 
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

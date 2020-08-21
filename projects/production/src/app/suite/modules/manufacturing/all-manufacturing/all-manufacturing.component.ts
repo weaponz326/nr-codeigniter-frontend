@@ -9,9 +9,12 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllManufacturingComponent implements OnInit {
 
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
   constructor() { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  ngOnInit(): void {
+  }
 
   columns: any[] = [
     { text: "Manufacturing ID", dataField: "manufacturing_id", width: "10%" },
@@ -22,8 +25,5 @@ export class AllManufacturingComponent implements OnInit {
     { text: "Quantity", dataField: "quantity", width: "10%", cellsalign: 'right' },
     { text: "Manufacturing Status", dataField: "manufacturing_status", width: "15%" },
   ];
-
-  ngOnInit(): void {
-  }
 
 }

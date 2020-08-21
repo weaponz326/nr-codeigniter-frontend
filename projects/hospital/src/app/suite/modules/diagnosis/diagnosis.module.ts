@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DiagnosisRoutingModule } from './diagnosis-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -9,6 +8,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+
+import { DiagnosisRoutingModule } from './diagnosis-routing.module';
 
 import { DiagnosisWrapperComponent } from './diagnosis-wrapper/diagnosis-wrapper.component';
 import { AllDiagnosisComponent } from './all-diagnosis/all-diagnosis.component';

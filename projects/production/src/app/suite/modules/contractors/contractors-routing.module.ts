@@ -11,9 +11,10 @@ const routes: Routes = [
     path: "",
     component: ContractorsWrapperComponent,
     children: [
-      { path: "all_contractors", component: AllContractorsComponent },
-      { path: "add_contractor", component: AddContractorComponent },
-      { path: "view_contractor", component: ViewContractorComponent }
+      { path: "", component: AllContractorsComponent },
+      { path: "all-contractors", component: AllContractorsComponent },
+      { path: "add-contractor", component: AddContractorComponent },
+      { path: "view-contractor", component: ViewContractorComponent }
     ]
   }
 ];

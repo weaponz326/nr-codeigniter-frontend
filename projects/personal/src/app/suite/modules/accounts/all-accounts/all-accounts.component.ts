@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
@@ -15,15 +15,23 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllAccountsComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('newButtonReference') newButton: jqxButtonComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
+  @ViewChild('transactionsButtonReference') transactionsButton: jqxButtonComponent;
+
   constructor(
     private router: Router,
     private accountsApi: AccountsApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
 
-  @ViewChild('newButtonReference') newButton: jqxButtonComponent;
-  @ViewChild('gridReference') grid: jqxGridComponent;
-  @ViewChild('transactionsButtonReference') transactionsButton: jqxButtonComponent;
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.grid.showloadelement();
+    this.getData();
+  }
 
   getData(){
     this.accountsApi.getAccounts()
@@ -44,14 +52,6 @@ export class AllAccountsComponent implements OnInit, AfterViewInit {
     sessionStorage.setItem('account_id', event.args.row.bounddata.id);
 
     this.router.navigateByUrl('/suite/accounts/view-account')
-  }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
   }
 
   // widgets

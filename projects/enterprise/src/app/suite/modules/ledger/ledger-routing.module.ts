@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: LedgerWrapperComponent,
     children: [
-      { path: "all_ledger", component: AllLedgerComponent },
-      { path: "view_ledger", component: ViewLedgerComponent }
+      { path: "", component: AllLedgerComponent },
+      { path: "all-ledger", component: AllLedgerComponent },
+      { path: "view-ledger", component: ViewLedgerComponent }
     ]    
   }
 ];

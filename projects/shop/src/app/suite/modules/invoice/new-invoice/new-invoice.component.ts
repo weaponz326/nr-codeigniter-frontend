@@ -13,8 +13,6 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox/public_api';
 })
 export class NewInvoiceComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("newInvoiceReference") newInvoice: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -24,11 +22,13 @@ export class NewInvoiceComponent implements OnInit {
   @ViewChild("customerContactReference") customerContact: jqxInputComponent;
   @ViewChild("dueDateReference") dueDate: jqxDateTimeInputComponent;
 
-  openWindow(){
-    this.newInvoice.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.newInvoice.open();
   }
 
 }

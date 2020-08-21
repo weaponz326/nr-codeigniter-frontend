@@ -1,14 +1,51 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
+import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxFormModule } from 'jqwidgets-ng/jqxform';
+import { jqxCheckBoxModule } from 'jqwidgets-ng/jqxcheckbox';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
+
 import { AdminRoutingModule } from './admin-routing.module';
+
+import { AdminWrapperComponent } from './admin-wrapper/admin-wrapper.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { ViewUserComponent } from './view-user/view-user.component';
+import { AccessFormComponent } from './access-form/access-form.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { UserSearchComponent } from './user-search/user-search.component';
+import { InvitationsComponent } from './invitations/invitations.component';
+import { ViewInvitationComponent } from './view-invitation/view-invitation.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AdminWrapperComponent,
+    DashboardComponent,
+    AllUsersComponent,
+    ViewUserComponent,
+    AccessFormComponent,
+    SearchResultsComponent,
+    SearchDetailComponent,
+    UserSearchComponent,
+    InvitationsComponent,
+    ViewInvitationComponent,
+  ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    jqxButtonModule,
+    jqxGridModule,
+    jqxInputModule,
+    jqxDropDownListModule,
+    jqxFormModule,
+    jqxCheckBoxModule,
+    jqxPanelModule
   ]
 })
 export class AdminModule { }

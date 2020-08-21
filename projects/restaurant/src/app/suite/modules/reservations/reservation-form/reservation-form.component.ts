@@ -4,7 +4,7 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
-import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput/public_api';
+import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 @Component({
   selector: 'app-reservation-form',
@@ -13,8 +13,6 @@ import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput/public_api';
 })
 export class ReservationFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("reservationCodeReference") reservationCode: jqxInputComponent;
   @ViewChild("reservationDateReference") reservationDate: jqxDateTimeInputComponent;
   @ViewChild("customerNameReference") customerName: jqxComboBoxComponent;
@@ -22,7 +20,9 @@ export class ReservationFormComponent implements OnInit {
   @ViewChild("tablesNumberReference") tablesNumber: jqxNumberInputModule;
   @ViewChild("arrivalDateReference") arrivalDate: jqxDateTimeInputComponent;
   @ViewChild("reservationStatusReference") reservationStatus: jqxDropDownListComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

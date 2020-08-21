@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppraisalRoutingModule } from './appraisal-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -9,6 +8,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxFormModule } from 'jqwidgets-ng/jqxform';
+
+import { AppraisalRoutingModule } from './appraisal-routing.module';
 
 import { AppraisalWrapperComponent } from './appraisal-wrapper/appraisal-wrapper.component';
 import { AllAppraisalComponent } from './all-appraisal/all-appraisal.component';
@@ -19,9 +20,9 @@ import { AppraisalFormComponent } from './appraisal-form/appraisal-form.componen
 
 @NgModule({
   declarations: [
-    AppraisalWrapperComponent, 
-    AllAppraisalComponent, 
-    NewAppraisalComponent, 
+    AppraisalWrapperComponent,
+    AllAppraisalComponent,
+    NewAppraisalComponent,
     ViewAppraisalComponent, AppraisalFormComponent
   ],
   imports: [

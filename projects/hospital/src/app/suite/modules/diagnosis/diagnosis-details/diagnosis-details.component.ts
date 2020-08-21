@@ -11,8 +11,6 @@ import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 })
 export class DiagnosisDetailsComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("bloodGroupReference") bloodGroup: jqxInputComponent;
   @ViewChild("temperatureReference") temperature: jqxInputComponent;
   @ViewChild("weightReference") weight: jqxInputComponent;
@@ -22,6 +20,8 @@ export class DiagnosisDetailsComponent implements OnInit {
   @ViewChild("diagnosisReference") diagnosis: jqxTextAreaComponent;
   @ViewChild("treatmentReference") treatment: jqxTextAreaComponent;
   @ViewChild("remarksReference") remarks: jqxTextAreaComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

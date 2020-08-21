@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons'
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 @Component({
   selector: 'app-all-ledger',
@@ -10,18 +10,21 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid'
 })
 export class AllLedgerComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('newButtonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -----------------------------------------------------------------------------------------------
 
   columns: any[] = [
     { text: "Ledger ID", dataField: "ledger_code", width: "25%" },
     { text: "Ledger Name", dataField: "ledger_name", width: "50%" },
     { text: "Ledger Date", dataField: "ledger_date", width: "25%" },
   ]
-
-  ngOnInit(): void {
-  }
 
 }

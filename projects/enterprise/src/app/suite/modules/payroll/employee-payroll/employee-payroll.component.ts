@@ -12,8 +12,6 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput/public_api'
 })
 export class EmployeePayrollComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("payrollCodeReference") payrollCode: jqxInputComponent;
   @ViewChild("payrollNameReference") payrollName: jqxInputComponent;
   @ViewChild("payrollDateReference") payrollDate: jqxDateTimeInputComponent;
@@ -28,7 +26,9 @@ export class EmployeePayrollComponent implements OnInit {
   @ViewChild("allowanceReference") allowance: jqxNumberInputComponent;
   @ViewChild("taxReference") tax: jqxNumberInputComponent;
   @ViewChild("salaryReference") salary: jqxNumberInputComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

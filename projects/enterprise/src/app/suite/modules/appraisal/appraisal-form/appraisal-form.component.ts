@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxFormComponent } from 'jqwidgets-ng/jqxform'
+import { jqxFormComponent } from 'jqwidgets-ng/jqxform';
 
 @Component({
   selector: 'app-appraisal-form',
@@ -9,9 +9,15 @@ import { jqxFormComponent } from 'jqwidgets-ng/jqxform'
 })
 export class AppraisalFormComponent implements OnInit {
 
+  @ViewChild('formReference') button: jqxFormComponent;
+
   constructor() { }
 
-  @ViewChild('formReference') button: jqxFormComponent;
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // ---------------------------------------------------------
 
   template: any[] = [
 		{ type: 'label', label: 'Job knowledge' },
@@ -148,8 +154,5 @@ export class AppraisalFormComponent implements OnInit {
 		},
 		{ type: 'blank', rowHeight: '10px' },
   ];
-  
-  ngOnInit(): void {
-  }
 
 }

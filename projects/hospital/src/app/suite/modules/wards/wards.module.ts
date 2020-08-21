@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WardsRoutingModule } from './wards-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+
+import { WardsRoutingModule } from './wards-routing.module';
 
 import { WardsWrapperComponent } from './wards-wrapper/wards-wrapper.component';
 import { AllWardsComponent } from './all-wards/all-wards.component';

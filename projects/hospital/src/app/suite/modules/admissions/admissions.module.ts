@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AdmissionsRoutingModule } from './admissions-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+
+import { AdmissionsRoutingModule } from './admissions-routing.module';
 
 import { AdmissionsWrapperComponent } from './admissions-wrapper/admissions-wrapper.component';
 import { AllAdmissionsComponent } from './all-admissions/all-admissions.component';

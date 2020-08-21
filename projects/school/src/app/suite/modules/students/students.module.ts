@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { StudentsRoutingModule } from './students-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -10,6 +9,8 @@ import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+
+import { StudentsRoutingModule } from './students-routing.module';
 
 import { StudentsWrapperComponent } from './students-wrapper/students-wrapper.component';
 import { AllStudentsComponent } from './all-students/all-students.component';
@@ -20,10 +21,10 @@ import { StudentFormComponent } from './student-form/student-form.component';
 
 @NgModule({
   declarations: [
-    StudentsWrapperComponent, 
-    AllStudentsComponent, 
-    NewStudentComponent, 
-    ViewStudentComponent, 
+    StudentsWrapperComponent,
+    AllStudentsComponent,
+    NewStudentComponent,
+    ViewStudentComponent,
     StudentFormComponent
   ],
   imports: [

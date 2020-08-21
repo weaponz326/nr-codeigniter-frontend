@@ -14,8 +14,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 })
 export class NewBillComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("addBillReference") addBill: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -25,11 +23,13 @@ export class NewBillComponent implements OnInit {
   @ViewChild('patientCodeReference') patientCode: jqxDropDownListComponent;
   @ViewChild('admissionCodeReference') admissionCode: jqxDropDownListComponent;
 
-  openWindow(){
-    this.addBill.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.addBill.open();
   }
 
 }

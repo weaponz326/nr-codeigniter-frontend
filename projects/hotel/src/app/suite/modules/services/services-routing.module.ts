@@ -11,8 +11,9 @@ const routes: Routes = [
     path: "",
     component: ServicesWrapperComponent,
     children: [
-      { path: "all_services", component: AllServicesComponent },
-      { path: "view_services", component: ViewServicesComponent }
+      { path: "", component: AllServicesComponent },
+      { path: "all-services", component: AllServicesComponent },
+      { path: "view-service", component: ViewServicesComponent }
     ]
   }
 ];

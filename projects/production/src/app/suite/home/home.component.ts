@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MainNavbarApiService } from 'projects/application/src/app/main-navbar/main-navbar-api.service'
+import { SuiteRoutesService } from '../suite-routes.service';
 
 import { jqxTooltipComponent } from 'jqwidgets-ng/jqxtooltip';
+
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,11 @@ import { jqxTooltipComponent } from 'jqwidgets-ng/jqxtooltip';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private navbarApi: MainNavbarApiService) { }
+  constructor(
+    private router: Router,
+    private navbarApi: MainNavbarApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
 
   @ViewChild("#adminTooltipReference") adminTooltip: jqxTooltipComponent;
   @ViewChild("#stockTooltipReference") stockTooltip: jqxTooltipComponent;
@@ -25,7 +31,9 @@ export class HomeComponent implements OnInit {
   @ViewChild("#workersTooltipReference") workersTooltip: jqxTooltipComponent;
   @ViewChild("#tasksTooltipReference") tasksTooltip: jqxTooltipComponent;
   @ViewChild("#productsTooltipReference") productsTooltip: jqxTooltipComponent;
+  @ViewChild("#schedulesTooltipReference") schedulesTooltip: jqxTooltipComponent;
   @ViewChild("#portalTooltipReference") portalTooltip: jqxTooltipComponent;
+  @ViewChild("#settingsTooltipReference") settingsTooltip: jqxTooltipComponent;
 
   isActive: boolean = false;
 

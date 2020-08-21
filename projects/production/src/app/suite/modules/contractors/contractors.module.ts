@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ContractorsRoutingModule } from './contractors-routing.module';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+
+import { ContractorsRoutingModule } from './contractors-routing.module';
 
 import { ContractorsWrapperComponent } from './contractors-wrapper/contractors-wrapper.component';
 import { AllContractorsComponent } from './all-contractors/all-contractors.component';
@@ -18,10 +19,10 @@ import { ContractorFormComponent } from './contractor-form/contractor-form.compo
 
 @NgModule({
   declarations: [
-    ContractorsWrapperComponent, 
-    AllContractorsComponent, 
-    AddContractorComponent, 
-    ViewContractorComponent, 
+    ContractorsWrapperComponent,
+    AllContractorsComponent,
+    AddContractorComponent,
+    ViewContractorComponent,
     ContractorFormComponent
   ],
   imports: [

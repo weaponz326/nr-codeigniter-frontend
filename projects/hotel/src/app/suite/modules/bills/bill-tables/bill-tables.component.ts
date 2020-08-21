@@ -9,10 +9,16 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class BillTablesComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("roomGridReference") roomGrid: jqxGridComponent;
   @ViewChild("servicesGridReference") servicesGrid: jqxGridComponent;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  // widgets
+  // -------------------------------------------------------------------------------------------------------
 
   // room columns
 
@@ -39,8 +45,5 @@ export class BillTablesComponent implements OnInit {
   servicesColumnGroups: any[] = [
     { text: "Services Charges", align: "center", name: "servicesGroup" }
   ];
-
-  ngOnInit(): void {
-  }
 
 }

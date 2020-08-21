@@ -9,12 +9,12 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class TermActivitiesComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild("classesButtonReference") classesButton: jqxButtonComponent;
   @ViewChild("subjectsButtonReference") subjectsButton: jqxButtonComponent;
   @ViewChild("teachersButtonReference") teachersButton: jqxButtonComponent;
-  
+
+  constructor() { }
+
   ngOnInit(): void {
   }
 

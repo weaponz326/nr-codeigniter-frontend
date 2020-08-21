@@ -4,7 +4,7 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 
 @Component({
@@ -13,8 +13,6 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
   styleUrls: ['./add-order.component.css']
 })
 export class AddOrderComponent implements OnInit {
-
-  constructor() { }
 
   @ViewChild("addOrderReference") addOrder: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -25,11 +23,13 @@ export class AddOrderComponent implements OnInit {
   @ViewChild("orderTypeReference") orderType: jqxDropDownListComponent;
   @ViewChild("orderStatusReference") orderStatus: jqxDropDownListComponent;
 
-  openWindow(){
-    this.addOrder.open();
-  }
+  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.addOrder.open();
   }
 
 }

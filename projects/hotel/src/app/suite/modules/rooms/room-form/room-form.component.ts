@@ -12,14 +12,14 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class RoomFormComponent implements OnInit {
 
-  constructor() { }
-
   @ViewChild('roomNumberReference') roomNumber: jqxInputComponent;
   @ViewChild('roomTypeReference') roomType: jqxDropDownListComponent;
   @ViewChild('locationReference') location: jqxInputComponent;
   @ViewChild('rateReference') rate: jqxNumberInputComponent;
   @ViewChild('featuresReference') features: jqxTextAreaComponent;
   @ViewChild('statusReference') roomStatus: jqxDropDownListComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

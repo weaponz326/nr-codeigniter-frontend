@@ -22,7 +22,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -37,7 +37,7 @@
                     [position]="'mouse'"
                     [content]="'Manage accounts receivables'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goReceivablesAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Receivables</figcaption>
@@ -52,7 +52,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all products'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goProductsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Products</figcaption>
@@ -67,7 +67,7 @@
                     [position]="'mouse'"
                     [content]="'Generate invoice for sales'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goInvoiceAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Invoice</figcaption>
@@ -82,7 +82,7 @@
                     [position]="'mouse'"
                     [content]="'Plan and manage marketting activities'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goMarkettingAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Marketting</figcaption>
@@ -97,7 +97,7 @@
                     [position]="'mouse'"
                     [content]="'Manage accounts payables'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPayablesAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Payables</figcaption>
@@ -114,12 +114,27 @@
 
         <div class="row">
 
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #portalTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Connect with customers through netRink portal'">
+
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Portal</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #salesTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage all sales operations'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goSalesAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Sales</figcaption>
@@ -134,7 +149,7 @@
                     [position]="'mouse'"
                     [content]="'Keep track of customers'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goCustomersAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Customers</figcaption>
@@ -149,7 +164,7 @@
                     [position]="'mouse'"
                     [content]="'Receive payments from customers'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Payments</figcaption>
@@ -164,7 +179,7 @@
                     [position]="'mouse'"
                     [content]="'Receive and respond to orders'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goOrdersAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Orders</figcaption>
@@ -179,25 +194,10 @@
                     [position]="'mouse'"
                     [content]="'Keep track of all products'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goInventoryAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Inventory</figcaption>
-                        </figure>
-                    </a>
-
-                </jqxTooltip>
-            </div>
-
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #purchasingTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Manage  the purchasing of goods and services'">
-
-                    <a href="#">
-                        <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Purchasing</figcaption>
                         </figure>
                     </a>
 
@@ -211,12 +211,27 @@
 
         <div class="row">
 
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #settingsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Set configuarations for your modules'">
+
+                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
+                        <figure>
+                            <img src="#" class="home-icons" />
+                            <figcaption>Settings</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #staffTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage all staff'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Staff</figcaption>
@@ -231,7 +246,7 @@
                     [position]="'mouse'"
                     [content]="'Manage financial transactions'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goCashflowAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
                             <figcaption>Cash Flow</figcaption>
@@ -241,15 +256,15 @@
                 </jqxTooltip>
             </div>
 
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #purchasingTooltipReference
                     [position]="'mouse'"
-                    [content]="'Connect with customers through netRink portal'">
+                    [content]="'Manage  the purchasing of goods and services'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goPurchasingAll($event)">
                         <figure>
                             <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <figcaption>Purchasing</figcaption>
                         </figure>
                     </a>
 
