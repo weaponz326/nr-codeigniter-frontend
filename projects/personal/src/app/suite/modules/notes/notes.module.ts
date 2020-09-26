@@ -10,6 +10,7 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 
 import { NotesRoutingModule } from './notes-routing.module';
+import { UtilitiesModule } from '../../utilities/utilities.module';
 
 import { NotesWrapperComponent } from './notes-wrapper/notes-wrapper.component';
 import { ViewNoteComponent } from './view-note/view-note.component';
@@ -25,6 +26,7 @@ import { AllNotesComponent } from './all-notes/all-notes.component';
   imports: [
     CommonModule,
     NotesRoutingModule,
+    UtilitiesModule,
     jqxInputModule,
     jqxEditorModule,
     jqxFileUploadModule,

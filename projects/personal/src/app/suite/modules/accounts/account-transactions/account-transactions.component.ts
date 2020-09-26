@@ -22,6 +22,13 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.grid.showloadelement();
     this.getData();
+
+    this.getTotalBalance();
+  }
+
+  getTotalBalance() {
+    let totalBalance = this.grid.getcolumnaggregateddata('amount', ['sum']);
+    console.log(totalBalance);
   }
 
   getData(){
@@ -156,11 +163,81 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
+  transactionDateTimeInput;
+  typeDropDownList;
+  amountNumberInput;
+
   columns: any[] = [
-    { text: "Transaction Date", dataField: "transaction_date", columntype: "datetimeinput", width: "20%" },
-    { text: "Description", dataField: "description", width: "45%" },
-    { text: "Transaction Type", dataField: "transaction_type", columntype: "dropdownlist", width: "20%" },
-    { text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
+    {
+      text: "Transaction Date", dataField: "transaction_date", columntype: "datetimeinput", width: "25%",
+      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
+        let container = document.createElement('div');
+        container.id = 'transactionDateTimeInput';
+        container.style.border = 'none';
+        htmlElement[0].appendChild(container);
+        let options = {
+            width: '100%', height: 30, value: null, showTimeButton: true, formatString: 'yyyy-MM-dd HH:mm:ss',
+            popupZIndex: 999999, placeHolder: 'Enter Transaction Date: '
+        };
+        this.transactionDateTimeInput = jqwidgets.createInstance('#transactionDateTimeInput', 'jqxDateTimeInput', options);
+        return container;
+      },
+      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
+          let value = this.transactionDateTimeInput.val();
+          return value;
+      },
+      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
+          this.transactionDateTimeInput.val(null);
+      }
+    },
+    { text: "Description", dataField: "description", width: "40%" },
+    {
+      text: "Transaction Type", dataField: "transaction_type", columntype: "dropdownlist", width: "20%",
+      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
+        let container = document.createElement('div');
+        container.id = 'typeDropDownList';
+        container.style.border = 'none';
+        htmlElement[0].appendChild(container);
+        let options = {
+            width: '100%', height: 30, source: ['Credit', 'Debit'], autoDropDownHeight: true,
+            popupZIndex: 999999, placeHolder: 'Enter Transaction Type: ', selectedIndex: 0
+        };
+        this.typeDropDownList = jqwidgets.createInstance('#typeDropDownList', 'jqxDropDownList', options);
+        return container;
+      },
+      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
+          let selectedItem = this.typeDropDownList.getSelectedItem();
+          if (!selectedItem)
+              return 'Credit';
+          let value = selectedItem.label;
+          return value;
+      },
+      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
+          this.typeDropDownList.clearSelection();
+      }
+    },
+    {
+      text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
+      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
+        let container = document.createElement('div');
+        container.id = 'amountNumberInput';
+        container.style.border = 'none';
+        htmlElement[0].appendChild(container);
+        let options = {
+            width: '100%', height: 30, decimalDigits: 2, inputMode: 'simple',
+        };
+        this.amountNumberInput = jqwidgets.createInstance('#amountNumberInput', 'jqxNumberInput', options);
+        return container;
+      },
+      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
+          let value = this.amountNumberInput.val();
+          if (value == '') value = 0;
+          return parseInt(value);
+      },
+      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
+          this.amountNumberInput.val('');
+      }
+    },
   ];
 
 }

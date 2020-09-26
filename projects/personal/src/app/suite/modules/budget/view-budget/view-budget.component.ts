@@ -6,6 +6,7 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
 import { BudgetApiService } from '../budget-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
@@ -20,8 +21,9 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
   @ViewChild('budgetNameReference') budgetNameInput: jqxInputComponent;
   @ViewChild('budgetTypeReference') budgetTypeDropDownList: jqxDropDownListComponent;
   @ViewChild('createdDateReference') createdDate: jqxDateTimeInputComponent;
-  @ViewChild('updatedDateReference') updatedDate: jqxDateTimeInputComponent;
   @ViewChild('saveBudgetReference') saveButton: jqxButtonComponent;
+
+  @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
   budgetData: any;
 
@@ -42,12 +44,32 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
           this.budgetNameInput.val(res.budget_name);
           this.budgetTypeDropDownList.val(res.budget_type);
           this.createdDate.val(res.created_at);
-          this.updatedDate.val(res.updated_at);
         },
         err => {
           console.log(err);
         }
       )
+  }
+
+  deleteConfirmationSelected(value: string){
+    if (value == 'yes'){
+      console.log("so u are really bent on deleting the item...");
+
+      this.budgetApi.deleteBudget()
+        .subscribe(
+          res => {
+            console.log(res);
+
+            this.router.navigateByUrl('/suite/budget/all-budget');
+          },
+          err => {
+            console.log(err);
+          }
+        )
+    }
+    else if (value == 'no'){
+      console.log("good u changed ur mind");
+    }
   }
 
   // widgets
@@ -60,8 +82,9 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
     console.log("u are updating the account");
 
     this.budgetData = {
-      account_name: this.budgetNameInput.val(),
-      account_number: this.budgetTypeDropDownList.val(),
+      user: localStorage.getItem('personal_id'),
+      budget_name: this.budgetNameInput.val(),
+      budget_type: this.budgetTypeDropDownList.val(),
     }
 
     this.budgetApi.putBudget(this.budgetData)
@@ -80,17 +103,7 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
   deleteBudget(){
     console.log("dude... u are gonna delete the account");
 
-    this.budgetApi.deleteBudget()
-      .subscribe(
-        res => {
-          console.log(res);
-
-          this.router.navigateByUrl('/suite/budget/all-budget');
-        },
-        err => {
-          console.log(err);
-        }
-      )
+    this.deleteConfirmComponent.openWindow();
   }
 
 }

@@ -17,6 +17,27 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   constructor(private budgetApi: BudgetApiService) { }
 
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(){
+    this.incomeGrid.showloadelement();
+    this.getIncomeData();
+
+    this.expenditureGrid.showloadelement();
+    this.getExpenditureData();
+
+    this.getIncomeOverExpenditure;
+  }
+
+  getIncomeOverExpenditure() {
+    let totalIncome = this.incomeGrid.getcolumnaggregateddata('amount', ['sum']);
+    console.log(totalIncome);
+    let totalExpenditure = this.expenditureGrid.getcolumnaggregateddata('amount', ['sum']);
+    console.log(totalExpenditure);
+    // let incomeOverExpenditure = totalIncome - totalExpenditure;
+  }
+
   getIncomeData(){
     this.budgetApi.getIncome()
       .subscribe(
@@ -147,17 +168,6 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
       )
   }
 
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit(){
-    this.incomeGrid.showloadelement();
-    this.getIncomeData();
-
-    this.expenditureGrid.showloadelement();
-    this.getExpenditureData();
-  }
-
   // widgets
   // --------------------------------------------------------------------------------------------
 
@@ -185,9 +195,32 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   incomeDataAdapter: any = new jqx.dataAdapter(this.incomeSource);
 
+  incomeAmountNumberInput;
+
   incomeColumns: any[] = [
     { text: 'Item Description', columngroup: 'incomeGroup', dataField: 'item', width: "70%" },
-    { text: 'Amount', columngroup: 'incomeGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
+    {
+      text: 'Amount', columngroup: 'incomeGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
+      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
+        let container = document.createElement('div');
+        container.id = 'incomeAmountNumberInput';
+        container.style.border = 'none';
+        htmlElement[0].appendChild(container);
+        let options = {
+            width: '100%', height: 30, decimalDigits: 2, inputMode: 'simple',
+        };
+        this.incomeAmountNumberInput = jqwidgets.createInstance('#incomeAmountNumberInput', 'jqxNumberInput', options);
+        return container;
+      },
+      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
+        let value = this.incomeAmountNumberInput.val();
+        if (value == '') value = 0;
+        return parseInt(value);
+      },
+      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
+        this.incomeAmountNumberInput.val('');
+      }
+    },
   ];
 
   incomeColumnGroups: any[] = [
@@ -218,9 +251,32 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   expenditureDataAdapter: any = new jqx.dataAdapter(this.expenditureSource);
 
+  expenditureAmountNumberInput;
+
   expenditureColumns: any[] = [
     { text: 'Item Description', columngroup: 'expenditureGroup', dataField: 'item', width: "70%" },
-    { text: 'Amount', columngroup: 'expenditureGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
+    {
+      text: 'Amount', columngroup: 'expenditureGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
+      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
+        let container = document.createElement('div');
+        container.id = 'expenditureAmountNumberInput';
+        container.style.border = 'none';
+        htmlElement[0].appendChild(container);
+        let options = {
+            width: '100%', height: 30, decimalDigits: 2, inputMode: 'simple',
+        };
+        this.expenditureAmountNumberInput = jqwidgets.createInstance('#expenditureAmountNumberInput', 'jqxNumberInput', options);
+        return container;
+      },
+      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
+        let value = this.expenditureAmountNumberInput.val();
+        if (value == '') value = 0;
+        return parseInt(value);
+      },
+      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
+        this.expenditureAmountNumberInput.val('');
+      }
+    },
   ];
 
   expenditureColumnGroups: any[] = [

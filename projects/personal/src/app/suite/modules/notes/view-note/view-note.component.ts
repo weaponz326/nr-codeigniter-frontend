@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxEditorComponent } from 'jqwidgets-ng/jqxeditor';
@@ -6,6 +7,7 @@ import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
 import { jqxPanelComponent } from 'jqwidgets-ng/jqxPanel';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
 import { NotesApiService } from '../notes-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
@@ -14,15 +16,24 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
   templateUrl: './view-note.component.html',
   styleUrls: ['./view-note.component.css']
 })
-export class ViewNoteComponent implements OnInit, AfterViewInit {
+export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild("inputReference") input: jqxInputComponent;
   @ViewChild("editorReference") editor: jqxEditorComponent;
   @ViewChild("fileUploadReference") fileUpload: jqxFileUploadComponent;
   @ViewChild("panelReference") panel: jqxPanelComponent;
-  @ViewChild("buttonReference") button: jqxButtonComponent;
+  @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
+  @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
+  @ViewChild("allNotesButtonReference") allNotesButton: jqxButtonComponent;
+  @ViewChild("newNoteButtonReference") newNoteButton: jqxButtonComponent;
 
-  constructor(private notesApi: NotesApiService, public suiteRoutes: SuiteRoutesService) { }
+  @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
+
+  constructor(
+    private router: Router,
+    private notesApi: NotesApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -53,6 +64,79 @@ export class ViewNoteComponent implements OnInit, AfterViewInit {
       )
   }
 
+  ngOnDestroy(): void {
+    // blank note will be displayed on init
+    sessionStorage.removeItem('note_id');
+  }
+
+  newNote() {
+    sessionStorage.removeItem('note_id');
+
+    // refresh page
+  }
+
+  saveNote(){
+    // update note if note id is not set in session
+    if(sessionStorage['note_id']) {
+      let noteData = {
+        note_id: sessionStorage.getItem('note_id'),
+        user: localStorage.getItem('personal_id'),
+        subject: this.input.val(),
+        body: this.editor.val()
+      }
+
+      this.notesApi.putNote(noteData)
+        .subscribe(
+          res => {
+            console.log(res);
+          },
+          err => {
+            console.log(err);
+          }
+        )
+    }else{
+      let noteData = {
+        user: localStorage.getItem('personal_id'),
+        subject: this.input.val(),
+        body: this.editor.val()
+      }
+
+      this.notesApi.postNote(noteData)
+        .subscribe(
+          res => {
+            console.log(res);
+            // set note id in session
+            sessionStorage.setItem('note_id', res.note_id);
+          },
+          err => {
+            console.log(err);
+          }
+        )
+    }
+  }
+
+  deleteNote(){
+    this.deleteConfirmComponent.openWindow();
+  }
+
+  deleteConfirmationSelected(value: string){
+    if (value == 'yes'){
+      console.log("so u are really gonna delete the item...");
+
+      this.notesApi.deleteNote()
+        .subscribe(
+          res => {
+            console.log(res);
+
+            // TODO refresh page after delete
+          },
+          err => {
+            console.log(err);
+          }
+        )
+    }
+  }
+
   // widgets
   // --------------------------------------------------------------------------------
 
@@ -76,25 +160,6 @@ export class ViewNoteComponent implements OnInit, AfterViewInit {
         }
       )
     }
-    // else create new note
-    else{
-      let subjectData = {
-        user: localStorage.getItem('personal_id'),
-        subject: event.args.value
-      }
-
-      this.notesApi.postSubject(subjectData)
-        .subscribe(
-          res => {
-            console.log(res);
-            // set note id in session
-            sessionStorage.setItem('note_id', res.note_id);
-          },
-          err => {
-            console.log(err);
-          }
-        )
-    }
   }
 
   sendBody(event: any){
@@ -117,25 +182,6 @@ export class ViewNoteComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
-    }
-    // else create new note
-    else{
-      let bodyData = {
-        user: localStorage.getItem('personal_id'),
-        body: this.editor.val()
-      }
-
-      this.notesApi.postBody(bodyData)
-        .subscribe(
-          res => {
-            console.log(res);
-            // set note id in session
-            sessionStorage.setItem('note_id', res.note_id);
-          },
-          err => {
-            console.log(err);
-          }
-        )
     }
   }
 

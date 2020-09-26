@@ -62,11 +62,20 @@
                 </div>
             </div>
 
+            <!-- delete confirmation window sub component -->
+
+            <app-delete-confirm #deleteConfirmComponentReference (confirmEvent)="deleteConfirmationSelected($event)"></app-delete-confirm>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <h4>Total Balance :</h4>
+            <h1 class="text-huge">$ </h1>
         </div>
     </div>
 
     <!-- account transactions sub component -->
 
-    <app-account-transactions></app-account-transactions>
+    <app-account-transactions #accountTransactionsComponentReference></app-account-transactions>
 
 </div>

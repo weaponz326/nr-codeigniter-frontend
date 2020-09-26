@@ -65,8 +65,8 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'budget_name', type: 'string' },
       { name: 'budget_type', type: 'string' },
-      { name: 'created_at', type: 'date', format: 'yyyy-MM-dd HH:mm' },
-      { name: 'updated_at', type: 'date', format: 'yyyy-MM-dd HH:mm' },
+      { name: 'created_at', type: 'date', format: 'yyyy-MM-dd HH:mm:ss' },
+      { name: 'updated_at', type: 'date', format: 'yyyy-MM-dd HH:mm:ss' },
     ],
     id: 'id',
   };
@@ -76,8 +76,8 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
   columns: any[] = [
     { text: "Budget Name", dataField: "budget_name", width: "36%" },
     { text: "Budget Type", dataField: "budget_type", width: "24%" },
-    { text: "Date Created", dataField: "date_created", filtertype: "range", width: "20%" },
-    { text: "Last Updated", dataField: "last_updated", filtertype: "range", width: "20%" }
+    { text: "Date Created", dataField: "created_at", filtertype: "range", width: "20%" },
+    { text: "Last Updated", dataField: "updated_at", filtertype: "range", width: "20%" }
   ];
 
 }

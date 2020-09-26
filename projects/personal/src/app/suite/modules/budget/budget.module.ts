@@ -7,8 +7,10 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
+import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { BudgetRoutingModule } from './budget-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { BudgetWrapperComponent } from './budget-wrapper/budget-wrapper.component';
 import { AllBudgetComponent } from './all-budget/all-budget.component';
@@ -28,12 +30,14 @@ import { NewBudgetComponent } from './new-budget/new-budget.component';
   imports: [
     CommonModule,
     BudgetRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDropDownListModule,
     jqxDateTimeInputModule,
-    jqxWindowModule
+    jqxWindowModule,
+    jqxNumberInputModule
   ]
 })
 export class BudgetModule { }

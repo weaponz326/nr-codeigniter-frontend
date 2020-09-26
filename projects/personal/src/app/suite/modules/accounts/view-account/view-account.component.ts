@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { AccountTransactionsComponent } from '../account-transactions/account-transactions.component';
+import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
 import { AccountsApiService } from '../accounts-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
@@ -21,7 +23,10 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
 
-  accountData: any;
+  @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
+  @ViewChild('accountTransactionsComponentReference') accountTransactionsComponent: AccountTransactionsComponent;
+
+  totalBalance: any = 0;
 
   constructor(
     private router: Router,
@@ -45,15 +50,35 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
+
+  }
+
+  deleteConfirmationSelected(value: string){
+    if (value == 'yes'){
+      this.accountsApi.deleteAccount()
+        .subscribe(
+          res => {
+            console.log(res);
+
+            this.router.navigateByUrl('/suite/accounts/all-accounts');
+          },
+          err => {
+            console.log(err);
+          }
+        )
+    }
   }
 
   // widgets
   // ---------------------------------------------------------------------------------------
 
+  accountData: any;
+
   saveAccount(){
     console.log("u are updating the account");
 
     this.accountData = {
+      user: localStorage.getItem('personal_id'),
       account_name: this.accountNameInput.val(),
       account_number: this.accountNumberInput.val(),
       bank_name: this.bankNameInput.val()
@@ -75,17 +100,7 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   deleteAccount(){
     console.log("dude... u are gonna delete the account");
 
-    this.accountsApi.deleteAccount()
-      .subscribe(
-        res => {
-          console.log(res);
-
-          this.router.navigateByUrl('/suite/accounts/all-accounts');
-        },
-        err => {
-          console.log(err);
-        }
-      )
+    this.deleteConfirmComponent.openWindow();
   }
 
 }

@@ -1,1 +1,22 @@
-<p>delete-confirm works!</p>
+<jqxWindow #confirmWindowReference
+    [width]="450"
+    [height]="150"
+    [autoOpen]="false"
+    [okButton]="yesButton"
+    [cancelButton]="noButton">
+
+    <div>Confirm Delete</div>
+
+    <div class="text-center">
+        <p>Are you sure you want to delete this item?</p>
+
+        <div class="delete-controls">
+            <jqxButton #yesButtonReference (click)="selectConfirmation('yes')" [width]="60"
+            >Yes</jqxButton>
+
+            <jqxButton #noButtonReference (click)="selectConfirmation('no')" [width]="60"
+            >No</jqxButton>
+        </div>
+    </div>
+
+</jqxWindow>

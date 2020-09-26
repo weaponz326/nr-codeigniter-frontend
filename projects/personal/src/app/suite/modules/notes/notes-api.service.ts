@@ -14,28 +14,34 @@ export class NotesApiService {
 
   constructor(private http: HttpClient) { }
 
-  // retreive, create and update subject
+  // create, update and delete note
+
+  public postNote(note): Observable<any>{
+    return this.http.post(this.personalUrl + "module-notes/note/", note);
+  }
+
+  public putNote(note): Observable<any>{
+    return this.http.put(this.personalUrl + "module-notes/note/"  + sessionStorage.getItem('note_id'), note);
+  }
+
+  public deleteNote(): Observable<any>{
+    return this.http.delete(this.personalUrl + "module-notes/note/" + sessionStorage.getItem('note_id'));
+  }
+
+  // retreive and update subject
 
   public getSubject(): Observable<any>{
     return this.http.get(this.personalUrl + "module-notes/subject?note_id=" + sessionStorage.getItem('note_id'));
-  }
-
-  public postSubject(subject): Observable<any>{
-    return this.http.post(this.personalUrl + "module-notes/subject/", subject);
   }
 
   public putSubject(subject): Observable<any>{
     return this.http.put(this.personalUrl + "module-notes/subject/", subject);
   }
 
-  // retreive, create and update body
+  // retreive and update body
 
   public getBody(): Observable<any>{
     return this.http.get(this.personalUrl + "module-notes/body?note_id=" + sessionStorage.getItem('note_id'));
-  }
-
-  public postBody(body): Observable<any>{
-    return this.http.post(this.personalUrl + "module-notes/body/", body);
   }
 
   public putBody(body): Observable<any>{

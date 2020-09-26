@@ -48,6 +48,22 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #budgetTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Plan and prepare personal budgets'">
+
+                    <a href="#" (click)="suiteRoutes.goBudgetAll($event)">
+                        <figure>
+                            <img src="../../../assets/images/modules/budget.png" class="home-icons" />
+                            <figcaption>Budget</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #notesTooltipReference
                     [position]="'mouse'"
                     [content]="'Put down notes and attach supporting files'">
@@ -90,22 +106,6 @@
                     </a>
 
                 </jqxTooltip>
-            </div>
-
-            <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #budgetTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Plan and prepare personal budgets'">
-
-                    <a href="#" (click)="suiteRoutes.goBudgetAll($event)">
-                        <figure>
-                            <img src="../../../assets/images/modules/budget.png" class="home-icons" />
-                            <figcaption>Budget</figcaption>
-                        </figure>
-                    </a>
-
-                </jqxTooltip>
-
             </div>
 
         </div>
