@@ -5,6 +5,7 @@ import { PortalWrapperComponent } from './portal-wrapper/portal-wrapper.componen
 import { ViewRinkComponent } from './view-rink/view-rink.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { SearchViewComponent } from './search-view/search-view.component';
+import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { NewRinkComponent } from './new-rink/new-rink.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
         path: "search",
         component: SearchViewComponent,
         children: [
-          { path: "", component: SearchResultsComponent },
+          { path: "", component: RecentContactsComponent },
+          { path: "recent-contacts", component: RecentContactsComponent },
           { path: "search-results", component: SearchResultsComponent },
           { path: "search-detail", component: SearchDetailComponent },
         ]

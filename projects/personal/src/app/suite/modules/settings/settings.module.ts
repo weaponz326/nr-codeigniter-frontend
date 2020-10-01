@@ -13,8 +13,8 @@ import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsWrapperComponent } from './settings-wrapper/settings-wrapper.component';
 import { ViewSettingsComponent } from './view-settings/view-settings.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PrivacyComponent } from './privacy/privacy.component';
 import { GeneralComponent } from './general/general.component';
+import { SecurityComponent } from './security/security.component';
 
 
 @NgModule({
@@ -22,8 +22,8 @@ import { GeneralComponent } from './general/general.component';
     SettingsWrapperComponent,
     ViewSettingsComponent,
     ProfileComponent,
-    PrivacyComponent,
     GeneralComponent,
+    SecurityComponent,
   ],
   imports: [
     CommonModule,

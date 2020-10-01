@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
@@ -34,6 +35,7 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
   ],
   imports: [
     CommonModule,
+    ScrollingModule,
     PortalRoutingModule,
     jqxInputModule,
     jqxButtonModule,

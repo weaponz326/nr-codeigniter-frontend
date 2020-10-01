@@ -5,7 +5,7 @@ import { SettingsWrapperComponent } from './settings-wrapper/settings-wrapper.co
 import { ViewSettingsComponent } from './view-settings/view-settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GeneralComponent } from './general/general.component';
-import { PrivacyComponent } from './privacy/privacy.component';
+import { SecurityComponent } from './security/security.component';
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
           { path: "", component: ProfileComponent },
           { path: "profile", component: ProfileComponent },
           { path: "general", component: GeneralComponent },
-          { path: "privacy", component: PrivacyComponent },
+          { path: "security", component: SecurityComponent },
         ]
       },
       {
@@ -30,7 +30,7 @@ const routes: Routes = [
           { path: "", component: ProfileComponent },
           { path: "profile", component: ProfileComponent },
           { path: "general", component: GeneralComponent },
-          { path: "privacy", component: PrivacyComponent },
+          { path: "security", component: SecurityComponent },
         ]
       },
     ]

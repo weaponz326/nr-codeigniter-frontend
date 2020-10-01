@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+
+import { SettingsApiService } from '../settings-api.service';
 
 @Component({
   selector: 'app-general',
@@ -6,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./general.component.css']
 })
 export class GeneralComponent implements OnInit {
+
+  @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
 
   constructor() { }
 

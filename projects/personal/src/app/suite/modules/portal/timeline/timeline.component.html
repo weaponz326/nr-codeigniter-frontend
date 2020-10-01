@@ -16,7 +16,7 @@
     <div class="row top-button-row">
         <div class="col-md-12">
             <jqxButton #newButtonReference
-                (click)="this.suiteRoutes.goPortalNew($event)"
+                (click)="this.suiteRoutes.goPortalSearch($event)"
                 [width]="120"
                 [height]="30"
             >New Rink</jqxButton>
@@ -57,8 +57,6 @@
                         <div class="col-md-5">Appointment</div>
                     </div>
 
-                    <hr />
-
                 </div>
             </div>
 
@@ -94,19 +92,9 @@
                         <div class="col-md-5">Appointment</div>
                     </div>
 
-                    <hr />
-
                 </div>
             </div>
 
-        </div>
-
-        <div class="col-md-4">
-            <jqxButton #goToSearchButtonReference class="float-right"
-                (click)="this.suiteRoutes.goPortalSearch($event)"
-                [width]="120"
-                [height]="30"
-            >Search</jqxButton>
         </div>
 
     </div>

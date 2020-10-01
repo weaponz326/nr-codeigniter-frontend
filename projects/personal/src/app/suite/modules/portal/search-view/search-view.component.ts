@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 
-import { PortalApiService } from '../portal-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
@@ -13,45 +12,42 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
   templateUrl: './search-view.component.html',
   styleUrls: ['./search-view.component.css']
 })
-export class SearchViewComponent implements OnInit {
+export class SearchViewComponent implements OnInit, AfterViewInit {
 
   @ViewChild('searchInputReference') searchInput: jqxInputComponent;
   @ViewChild('searchButtonReference') searchButton: jqxButtonComponent;
+  @ViewChild('recentContactsButtonReference') recentContactsButton: jqxButtonComponent;
+  @ViewChild('myContactsButtonReference') myContactsButton: jqxButtonComponent;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private portalApi: PortalApiService,
     public suiteRoutes: SuiteRoutesService
-  ) {
-    this.route.params.subscribe(params => {
-      console.log(params);
-      if (params['input']){
-        this.searchInput.val(params['input']);
-        this.sendSearch(params['term']);
-      }
-    });
-  }
+  ) { }
 
   ngOnInit(): void {
   }
 
-  sendSearch(input: string){
+  ngAfterViewInit(): void {
+    // set value of serach input
+    this.route.params.subscribe(params => {
+      console.log(params);
 
-    // route to search results as soon as search begins
+      if (params['input']){
+        this.searchInput.val(params['input']);
+      }
+    });
+  }
+
+  doSearch(input: string){
     console.log("u are searching for: " + this.searchInput.val());
+    // route to search results as soon as search begins
+    // put search input in url
     this.router.navigate(['/suite/portal/search/search-results', { input: input }]);
+  }
 
-    this.portalApi.getSearch(this.searchInput.val())
-      .subscribe(
-        res => {
-          console.log(res);
-          this.router.navigate(['/suite/portal/search/search-results'], { state: res });
-        },
-        err => {
-          console.log(err);
-        }
-      )
+  goRecentContacts(){
+    this.router.navigateByUrl('/suite/portal/search/recent-contacts');
   }
 
 }

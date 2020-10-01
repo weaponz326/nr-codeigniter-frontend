@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-
-import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,11 +9,13 @@ import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel';
 })
 export class RecentContactsComponent implements OnInit {
 
-  @ViewChild('contactsPanelReference') contactsPanel: jqxPanelComponent;
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToDetail(){
+    this.router.navigateByUrl('/suite/portal/search/search-detail');
   }
 
 }

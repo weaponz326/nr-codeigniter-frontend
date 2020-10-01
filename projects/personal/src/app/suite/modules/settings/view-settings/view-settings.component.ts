@@ -30,9 +30,9 @@ export class ViewSettingsComponent implements OnInit {
     this.router.navigateByUrl('/suite/settings/view-settings/general');
   }
 
-  goToPrivacy(e){
+  goToSecurity(e){
     e.preventDefault();
-    this.router.navigateByUrl('/suite/settings/view-settings/privacy');
+    this.router.navigateByUrl('/suite/settings/view-settings/security');
   }
 
 }

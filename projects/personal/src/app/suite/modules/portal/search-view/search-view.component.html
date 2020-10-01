@@ -24,7 +24,7 @@
                         [width]="'80%'"
                         [height]="30"
                     ></jqxInput>
-                    <jqxButton #searchButtonReference (click)="sendSearch(this.searchInput.val())"
+                    <jqxButton #searchButtonReference (click)="doSearch(this.searchInput.val())"
                         [width]="'20%'"
                         [height]="30"
                     >Search</jqxButton>
@@ -36,11 +36,20 @@
 
     <div class="row">
         <div class="col-md-8">
+            <!-- router for search results -->
             <router-outlet></router-outlet>
         </div>
 
-        <div class="col-md-4">
-            <app-recent-contacts></app-recent-contacts>
+        <div class="offset-md-1 col-md-3">
+            <jqxButton #myConatactsButtonReference
+                [width]="150"
+                [height]="34"
+            >My Contacts</jqxButton>
+            <br /><br />
+            <jqxButton #recentConatactsButtonReference (click)="goRecentContacts()"
+                [width]="150"
+                [height]="34"
+            >Recent Contacts</jqxButton>
         </div>
     </div>
 

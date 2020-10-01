@@ -39,29 +39,31 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    // load note's subject
-    this.notesApi.getSubject()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.input.val(res.subject);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+    if(sessionStorage['note_id']) {
+      // load note's subject
+      this.notesApi.getSubject()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.input.val(res.subject);
+          },
+          err => {
+            console.log(err);
+          }
+        )
 
-    // load note's body
-    this.notesApi.getBody()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.editor.val(res.body);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+      // load note's body
+      this.notesApi.getBody()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.editor.val(res.body);
+          },
+          err => {
+            console.log(err);
+          }
+        )
+    }
   }
 
   ngOnDestroy(): void {
