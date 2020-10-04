@@ -6,11 +6,11 @@ import { AllOrdersComponent } from './all-orders/all-orders.component';
 
 
 const routes: Routes = [
-  {  
+  {
     path: "",
     component: OrdersWrapperComponent,
     children: [
-      { path: "", component: AllOrdersComponent }
+      { path: "", component: AllOrdersComponent },
       { path: "all-orders", component: AllOrdersComponent }
     ]
   }

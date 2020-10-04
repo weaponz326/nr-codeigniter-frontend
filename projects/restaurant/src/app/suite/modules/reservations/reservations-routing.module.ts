@@ -10,7 +10,7 @@ const routes: Routes = [
     path: "",
     component: ReservationsWrapperComponent,
     children: [
-      { path: "", component: AllReservationsComponent }
+      { path: "", component: AllReservationsComponent },
       { path: "all-reservations", component: AllReservationsComponent }
     ]
   }

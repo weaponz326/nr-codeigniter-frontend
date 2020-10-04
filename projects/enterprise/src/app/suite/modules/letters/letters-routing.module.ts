@@ -10,7 +10,7 @@ const routes: Routes = [
     path: "",
     component: LettersWrapperComponent,
     children: [
-      { path: "", component: AllLettersComponent }
+      { path: "", component: AllLettersComponent },
       { path: "all-letters", component: AllLettersComponent }
     ]
   }

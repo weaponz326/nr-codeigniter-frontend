@@ -18,14 +18,14 @@
         <div class="row">
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #adminTooltipReference
+                <jqxTooltip #portalTooltipReference
                     [position]="'mouse'"
-                    [content]="'Manage users and access levels'">
+                    [content]="'Interact with customers through netRink portal'">
 
-                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Admin</figcaption>
+                            <img src="../../../assets/images/modules/portal.png" class="home-icons" />
+                            <figcaption>Portal</figcaption>
                         </figure>
                     </a>
 
@@ -39,7 +39,7 @@
 
                     <a href="#" (click)="suiteRoutes.goBillsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/bills.png" class="home-icons" />
                             <figcaption>Bills</figcaption>
                         </figure>
                     </a>
@@ -54,7 +54,7 @@
 
                     <a href="#" (click)="suiteRoutes.goStaffAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/staff.png" class="home-icons" />
                             <figcaption>Staff</figcaption>
                         </figure>
                     </a>
@@ -69,7 +69,7 @@
 
                     <a href="#" (click)="suiteRoutes.goGuestsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/guests.png" class="home-icons" />
                             <figcaption>Guests</figcaption>
                         </figure>
                     </a>
@@ -84,7 +84,7 @@
 
                     <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/payments.png" class="home-icons" />
                             <figcaption>Payments</figcaption>
                         </figure>
                     </a>
@@ -95,11 +95,11 @@
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #servicesTooltipReference
                     [position]="'mouse'"
-                    [content]="'Manage auxiliary services'">
+                    [content]="'Manage extra services'">
 
                     <a href="#" (click)="suiteRoutes.goServicesAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/services.png" class="home-icons" />
                             <figcaption>Services</figcaption>
                         </figure>
                     </a>
@@ -114,15 +114,15 @@
 
         <div class="row">
 
-			      <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #adminTooltipReference
                     [position]="'mouse'"
-                    [content]="'Interact with customers through netRink portal'">
+                    [content]="'Manage users and access levels'">
 
-                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <img src="../../../assets/images/modules/admin.png" class="home-icons" />
+                            <figcaption>Admin</figcaption>
                         </figure>
                     </a>
 
@@ -136,14 +136,13 @@
 
                     <a href="#" (click)="suiteRoutes.goCheckinAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/check_in.png" class="home-icons" />
                             <figcaption>Check-In</figcaption>
                         </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
-
 
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #bookingsTooltipReference
@@ -152,7 +151,7 @@
 
                     <a href="#" (click)="suiteRoutes.goBookingsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/bookings.png" class="home-icons" />
                             <figcaption>Bookings</figcaption>
                         </figure>
                     </a>
@@ -167,7 +166,7 @@
 
                     <a href="#" (click)="suiteRoutes.goRoomsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/rooms.png" class="home-icons" />
                             <figcaption>Rooms</figcaption>
                         </figure>
                     </a>
@@ -182,7 +181,7 @@
 
                     <a href="#" (click)="suiteRoutes.goCheckinAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/house_keeping.png" class="home-icons" />
                             <figcaption>House Keeping</figcaption>
                         </figure>
                     </a>
@@ -197,7 +196,7 @@
 
                     <a href="#" (click)="suiteRoutes.goAssetsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/assets.png" class="home-icons" />
                             <figcaption>Assets</figcaption>
                         </figure>
                     </a>
@@ -219,7 +218,7 @@
 
                     <a href="#" (click)="suiteRoutes.goSettingsView($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/settings.png" class="home-icons" />
                             <figcaption>Settings</figcaption>
                         </figure>
                     </a>
@@ -238,7 +237,7 @@
     <ng-template #createAccountBlock>
         <div class="row text-center home-create-button-div">
             <div class="col-md-12">
-                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create netRink account</button>
+                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create Hotel account</button>
             </div>
         </div>
     </ng-template>

@@ -7,10 +7,10 @@ import { AllAppointmentsComponent } from './all-appointments/all-appointments.co
 
 const routes: Routes = [
   {
-    path: "", 
+    path: "",
     component: AppointmentsWrapperComponent,
     children: [
-      { path: "", component: AllAppointmentsComponent }
+      { path: "", component: AllAppointmentsComponent },
       { path: "all-appointments", component: AllAppointmentsComponent }
     ]
   }

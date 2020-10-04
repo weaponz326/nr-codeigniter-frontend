@@ -66,7 +66,6 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
       { name: 'budget_name', type: 'string' },
       { name: 'budget_type', type: 'string' },
       { name: 'created_at', type: 'date', format: 'yyyy-MM-dd HH:mm:ss' },
-      { name: 'updated_at', type: 'date', format: 'yyyy-MM-dd HH:mm:ss' },
     ],
     id: 'id',
   };
@@ -74,10 +73,9 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Budget Name", dataField: "budget_name", width: "36%" },
-    { text: "Budget Type", dataField: "budget_type", width: "24%" },
-    { text: "Date Created", dataField: "created_at", filtertype: "range", width: "20%" },
-    { text: "Last Updated", dataField: "updated_at", filtertype: "range", width: "20%" }
+    { text: "Budget Name", dataField: "budget_name", width: "45%" },
+    { text: "Budget Type", dataField: "budget_type", width: "25%" },
+    { text: "Date Created", dataField: "created_at", filtertype: "range", width: "30%" },
   ];
 
 }

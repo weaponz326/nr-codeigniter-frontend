@@ -18,14 +18,14 @@
         <div class="row">
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #adminTooltipReference
+                <jqxTooltip #portalTooltipReference
                     [position]="'mouse'"
-                    [content]="'Manage users and access levels'">
+                    [content]="'Connect with production stakeholders through netRink portal'">
 
-                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
+                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Admin</figcaption>
+                            <img src="../../../assets/images/modules/portal.png" class="home-icons" />
+                            <figcaption>Portal</figcaption>
                         </figure>
                     </a>
 
@@ -35,11 +35,11 @@
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #stockTooltipReference
                     [position]="'mouse'"
-                    [content]="'Take stock of all productio materials'">
+                    [content]="'Take stock of all production materials'">
 
                     <a href="#" (click)="suiteRoutes.goStockAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/stock.png" class="home-icons" />
                             <figcaption>Stock</figcaption>
                         </figure>
                     </a>
@@ -54,7 +54,7 @@
 
                     <a href="#" (click)="suiteRoutes.goEquipmentAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/equipment.png" class="home-icons" />
                             <figcaption>Equipment</figcaption>
                         </figure>
                     </a>
@@ -69,7 +69,7 @@
 
                     <a href="#" (click)="suiteRoutes.goPurchasingAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/purchasing.png" class="home-icons" />
                             <figcaption>Purchasing</figcaption>
                         </figure>
                     </a>
@@ -84,7 +84,7 @@
 
                     <a href="#" (click)="suiteRoutes.goManufacturingAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/manufacturing.png" class="home-icons" />
                             <figcaption>Manufacturing</figcaption>
                         </figure>
                     </a>
@@ -99,7 +99,7 @@
 
                     <a href="#" (click)="suiteRoutes.goProductsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/products.png" class="home-icons" />
                             <figcaption>Products</figcaption>
                         </figure>
                     </a>
@@ -114,35 +114,35 @@
 
         <div class="row">
 
-			      <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #portalTooltipReference
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #adminTooltipReference
                     [position]="'mouse'"
-                    [content]="'Connect with production stakeholders through netRink portal'">
+                    [content]="'Manage users and access levels'">
 
-                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
-                            <figcaption>Portal</figcaption>
+                            <img src="../../../assets/images/modules/admin.png" class="home-icons" />
+                            <figcaption>Admin</figcaption>
                         </figure>
                     </a>
 
                 </jqxTooltip>
             </div>
 
-          <div class="col-md-2 col-sm-6 text-center">
-              <jqxTooltip #projectsTooltipReference
-                  [position]="'mouse'"
-                  [content]="'Plan and manage projects'">
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #projectsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Plan and manage projects'">
 
-                  <a href="#">
-                      <figure>
-                          <img src="#" class="home-icons" />
-                          <figcaption>Projects</figcaption>
-                      </figure>
-                  </a>
+                    <a href="#">
+                        <figure>
+                            <img src="../../../assets/images/modules/projects.png" class="home-icons" />
+                            <figcaption>Projects</figcaption>
+                        </figure>
+                    </a>
 
-              </jqxTooltip>
-          </div>
+                </jqxTooltip>
+            </div>
 
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #workersTooltipReference
@@ -151,7 +151,7 @@
 
                     <a href="#" (click)="suiteRoutes.goWorkersAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/workers.png" class="home-icons" />
                             <figcaption>Workers</figcaption>
                         </figure>
                     </a>
@@ -166,7 +166,7 @@
 
                     <a href="#" (click)="suiteRoutes.goContractorsAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/contractors.png" class="home-icons" />
                             <figcaption>Contractors</figcaption>
                         </figure>
                     </a>
@@ -181,7 +181,7 @@
 
                     <a href="#">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/tasks.png" class="home-icons" />
                             <figcaption>Tasks</figcaption>
                         </figure>
                     </a>
@@ -196,7 +196,7 @@
 
                     <a href="#" (click)="suiteRoutes.goOrdersAll($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/orders.png" class="home-icons" />
                             <figcaption>Orders</figcaption>
                         </figure>
                     </a>
@@ -218,7 +218,7 @@
 
                     <a href="#" (click)="suiteRoutes.goSettingsView($event)">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/settings.png" class="home-icons" />
                             <figcaption>Settings</figcaption>
                         </figure>
                     </a>
@@ -233,7 +233,7 @@
 
                     <a href="#">
                         <figure>
-                            <img src="#" class="home-icons" />
+                            <img src="../../../assets/images/modules/schedules.png" class="home-icons" />
                             <figcaption>Schedules</figcaption>
                         </figure>
                     </a>
@@ -252,7 +252,7 @@
     <ng-template #createAccountBlock>
         <div class="row text-center home-create-button-div">
             <div class="col-md-12">
-                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create netRink account</button>
+                <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create Production account</button>
             </div>
         </div>
     </ng-template>
