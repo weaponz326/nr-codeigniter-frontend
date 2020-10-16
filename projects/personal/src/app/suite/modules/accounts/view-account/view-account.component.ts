@@ -26,7 +26,7 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
   @ViewChild('accountTransactionsComponentReference') accountTransactionsComponent: AccountTransactionsComponent;
 
-  totalBalance: any = 0;
+  totalBalance = 0;
 
   constructor(
     private router: Router,
@@ -50,7 +50,6 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
           console.log(err);
         }
       )
-
   }
 
   deleteConfirmationSelected(value: string){
@@ -67,6 +66,11 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
           }
         )
     }
+  }
+
+  onBalanceCalculated(balance: any){
+    this.totalBalance = balance.sum;
+    console.log("balance is being calculated");
   }
 
   // widgets

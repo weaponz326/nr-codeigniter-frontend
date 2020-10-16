@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
 import { jqxKanbanComponent } from 'jqwidgets-ng/jqxkanban';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 
 import { TasksApiService } from '../tasks-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
@@ -11,10 +12,12 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
   templateUrl: './kanban-view.component.html',
   styleUrls: ['./kanban-view.component.css']
 })
-export class KanbanViewComponent implements OnInit {
+export class KanbanViewComponent implements OnInit, AfterViewInit {
 
   @ViewChild('kanbanReference') kanban: jqxKanbanComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;
+  @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
+  @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
 
   newItemData: any;
 
@@ -23,16 +26,29 @@ export class KanbanViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // inserts task into kanban
-  onTaskAdded(taskData: object){
-    console.log("u want to add new task");
+  ngAfterViewInit(): void {
+    this.newItemData = {
+      status: 'Doing',
+      text: 'This is a test task',
+      content: 'This task is automatically generated in AfterViewInit life cycle hook',
+      tags: 'Very Urgent'
+    }
 
-    // this.newItemData = {
-    //   status: taskData.progress,
-    //   text: taskData.task_name,
-    //   content: taskData.description,
-    //   tags: taskData.priority
-    // }
+    console.log(this.newItemData);
+    this.kanban.addItem(this.newItemData);
+  }
+
+  // inserts task into kanban
+  onTaskAdded(taskData: any){
+    console.log("u want to add new task");
+    console.log(taskData);
+
+    this.newItemData = {
+      status: taskData.progress,
+      text: taskData.task_name,
+      content: taskData.description,
+      tags: taskData.priority
+    }
 
     // this.tasksApi.postTask(this.newItemData)
     //   .subscribe(
@@ -45,12 +61,6 @@ export class KanbanViewComponent implements OnInit {
     //     }
     //   )
 
-    this.newItemData = {
-      status: "Doing",
-      text: "dfjkdfjk jdkfkd fkdjf",
-      content: "lsklkdmfl skdmflksdmflksdmflksdmfkls",
-      tags: "lkrjkmlk mdslkf"
-    }
 
     console.log(this.newItemData);
     this.kanban.addItem(this.newItemData);

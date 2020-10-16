@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AccountsApiService } from '../accounts-api.service';
 
@@ -13,6 +14,10 @@ import { AccountsApiService } from '../accounts-api.service';
 export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
   @ViewChild("gridReference") grid: jqxGridComponent;
+  @ViewChild("addbuttonReference") addButton: jqxButtonComponent;
+
+  // emit aggregate sum value of transactions
+  @Output() calculateBalance = new EventEmitter<any>();
 
   constructor(private accountsApi: AccountsApiService) { }
 
@@ -22,13 +27,6 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.grid.showloadelement();
     this.getData();
-
-    this.getTotalBalance();
-  }
-
-  getTotalBalance() {
-    let totalBalance = this.grid.getcolumnaggregateddata('amount', ['sum']);
-    console.log(totalBalance);
   }
 
   getData(){
@@ -44,6 +42,64 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         }
       )
   }
+
+  // emits aggregated sum back to parent after being called
+  getTotalBalance() {
+    let totalBalance = this.grid.getcolumnaggregateddata('amount', ['sum']);
+    this.calculateBalance.emit(totalBalance);
+
+    console.log(totalBalance);
+  }
+
+  onAddCommit(transactionData: any) {
+    this.grid.addrow(null, transactionData);
+  }
+
+  onEditCommit(transactionData: any) {
+    this.grid.updaterow(transactionData.id, transactionData);
+  }
+
+  onDeleteCommit(transactionId: number) {
+    this.grid.deleterow(transactionId);
+  }
+
+  // widgets
+  // -------------------------------------------------------------------------------------------
+
+  source: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'id', type: 'string' },
+      { name: 'transaction_date', type: 'date' },
+      { name: 'description', type: 'string' },
+      { name: 'transaction_type', type: 'string' },
+      { name: 'amount', type: 'string' },
+    ],
+    id: 'id',
+    addrow: (rowid, rowdata, position, commit) => {
+      this.addRow(rowid, rowdata, position, commit);
+    },
+    updaterow: (rowid, newdata, commit) => {
+      this.updateRow(rowid, newdata, commit);
+    },
+    deleterow: (rowid, commit) => {
+      this.deleteRow(rowid, commit);
+    }
+  }
+
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+
+  transactionDateTimeInput;
+  typeDropDownList;
+  amountNumberInput;
+
+  columns: any[] = [
+    { text: "Transaction Date", dataField: "transaction_date", columntype: "datetimeinput", width: "25%" },
+    { text: "Description", dataField: "description", width: "40%" },
+    { text: "Transaction Type", dataField: "transaction_type", columntype: "dropdownlist", width: "20%" },
+    { text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
+  ];
 
   addRow(rowid, rowdata, position, commit) {
     console.log("u are about adding a new row...");
@@ -76,7 +132,10 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          commit(true);
+          commit(true, res.id);
+
+          // reclaculate balance after change in table
+          this.getTotalBalance();
         },
         err => {
           console.log(err);
@@ -113,7 +172,10 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          commit(true);
+          commit(true, res.id);
+
+          // reclaculate balance after change in table
+          this.getTotalBalance();
         },
         err => {
           console.log(err);
@@ -129,115 +191,14 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           commit(true);
+
+          // reclaculate balance after change in table
+          this.getTotalBalance();
         },
         err => {
           console.log(err);
         }
       )
   }
-
-  // widgets
-  // -------------------------------------------------------------------------------------------
-
-  source: any = {
-    localdata: null,
-    dataType: 'json',
-    dataFields: [
-      { name: 'id', type: 'string' },
-      { name: 'transaction_date', type: 'string' },
-      { name: 'description', type: 'string' },
-      { name: 'transaction_type', type: 'string' },
-      { name: 'amount', type: 'string' },
-    ],
-    id: 'id',
-    addrow: (rowid, rowdata, position, commit) => {
-      this.addRow(rowid, rowdata, position, commit);
-    },
-    updaterow: (rowid, newdata, commit) => {
-      this.updateRow(rowid, newdata, commit);
-    },
-    deleterow: (rowid, commit) => {
-      this.deleteRow(rowid, commit);
-    }
-  }
-
-  dataAdapter: any = new jqx.dataAdapter(this.source);
-
-  transactionDateTimeInput;
-  typeDropDownList;
-  amountNumberInput;
-
-  columns: any[] = [
-    {
-      text: "Transaction Date", dataField: "transaction_date", columntype: "datetimeinput", width: "25%",
-      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
-        let container = document.createElement('div');
-        container.id = 'transactionDateTimeInput';
-        container.style.border = 'none';
-        htmlElement[0].appendChild(container);
-        let options = {
-            width: '100%', height: 30, value: null, showTimeButton: true, formatString: 'yyyy-MM-dd HH:mm:ss',
-            popupZIndex: 999999, placeHolder: 'Enter Transaction Date: '
-        };
-        this.transactionDateTimeInput = jqwidgets.createInstance('#transactionDateTimeInput', 'jqxDateTimeInput', options);
-        return container;
-      },
-      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
-          let value = this.transactionDateTimeInput.val();
-          return value;
-      },
-      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
-          this.transactionDateTimeInput.val(null);
-      }
-    },
-    { text: "Description", dataField: "description", width: "40%" },
-    {
-      text: "Transaction Type", dataField: "transaction_type", columntype: "dropdownlist", width: "20%",
-      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
-        let container = document.createElement('div');
-        container.id = 'typeDropDownList';
-        container.style.border = 'none';
-        htmlElement[0].appendChild(container);
-        let options = {
-            width: '100%', height: 30, source: ['Credit', 'Debit'], autoDropDownHeight: true,
-            popupZIndex: 999999, placeHolder: 'Enter Transaction Type: ', selectedIndex: 0
-        };
-        this.typeDropDownList = jqwidgets.createInstance('#typeDropDownList', 'jqxDropDownList', options);
-        return container;
-      },
-      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
-          let selectedItem = this.typeDropDownList.getSelectedItem();
-          if (!selectedItem)
-              return 'Credit';
-          let value = selectedItem.label;
-          return value;
-      },
-      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
-          this.typeDropDownList.clearSelection();
-      }
-    },
-    {
-      text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
-      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
-        let container = document.createElement('div');
-        container.id = 'amountNumberInput';
-        container.style.border = 'none';
-        htmlElement[0].appendChild(container);
-        let options = {
-            width: '100%', height: 30, decimalDigits: 2, inputMode: 'simple',
-        };
-        this.amountNumberInput = jqwidgets.createInstance('#amountNumberInput', 'jqxNumberInput', options);
-        return container;
-      },
-      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
-          let value = this.amountNumberInput.val();
-          if (value == '') value = 0;
-          return parseInt(value);
-      },
-      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
-          this.amountNumberInput.val('');
-      }
-    },
-  ];
 
 }

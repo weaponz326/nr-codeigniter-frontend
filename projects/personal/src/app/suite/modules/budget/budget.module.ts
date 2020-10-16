@@ -17,6 +17,10 @@ import { AllBudgetComponent } from './all-budget/all-budget.component';
 import { ViewBudgetComponent } from './view-budget/view-budget.component';
 import { BudgetTablesComponent } from './budget-tables/budget-tables.component';
 import { NewBudgetComponent } from './new-budget/new-budget.component';
+import { AddIncomeComponent } from './add-income/add-income.component';
+import { EditIncomeComponent } from './edit-income/edit-income.component';
+import { AddExpenditureComponent } from './add-expenditure/add-expenditure.component';
+import { EditExpenditureComponent } from './edit-expenditure/edit-expenditure.component';
 
 
 @NgModule({
@@ -26,6 +30,10 @@ import { NewBudgetComponent } from './new-budget/new-budget.component';
     ViewBudgetComponent,
     BudgetTablesComponent,
     NewBudgetComponent,
+    AddIncomeComponent,
+    EditIncomeComponent,
+    AddExpenditureComponent,
+    EditExpenditureComponent,
   ],
   imports: [
     CommonModule,

@@ -3,6 +3,8 @@ import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/cor
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { TaskFormComponent } from '../task-form/task-form.component';
+
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -16,7 +18,7 @@ export class AddTaskComponent implements OnInit {
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
-  @ViewChild("taskFormReference") taskForm: any;
+  @ViewChild("taskFormComponentReference") taskForm: TaskFormComponent;;
 
   constructor() { }
 
@@ -27,7 +29,15 @@ export class AddTaskComponent implements OnInit {
     this.addTaskWindow.open();
   }
 
-  addTask(taskData: object){
+  addTask(){
+    let taskData = {
+      task_name: this.taskForm.taskName.val(),
+      description: this.taskForm.description.val(),
+      priority: this.taskForm.priority.val(),
+      progress: this.taskForm.progress.val(),
+      visibility: this.taskForm.visibility.val()
+    }
+
     this.taskAdded.emit(taskData);
     console.log(taskData);
   }

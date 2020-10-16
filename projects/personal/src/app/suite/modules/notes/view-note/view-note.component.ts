@@ -1,10 +1,11 @@
 import { Component, OnInit, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxEditorComponent } from 'jqwidgets-ng/jqxeditor';
 import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
-import { jqxPanelComponent } from 'jqwidgets-ng/jqxPanel';
+import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
@@ -31,6 +32,7 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private router: Router,
+    private location: Location,
     private notesApi: NotesApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
@@ -72,9 +74,12 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   newNote() {
+    // destroy session and refresh page
     sessionStorage.removeItem('note_id');
-
-    // refresh page
+    this.router.navigateByUrl('suite/notes/view-note', {skipLocationChange: true}).then(() => {
+      // TODO - refresh not working
+      this.router.navigate([decodeURI(this.location.path())]);
+    });
   }
 
   saveNote(){
@@ -118,7 +123,9 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   deleteNote(){
-    this.deleteConfirmComponent.openWindow();
+    if(sessionStorage['note_id']) {
+      this.deleteConfirmComponent.openWindow();
+    }
   }
 
   deleteConfirmationSelected(value: string){

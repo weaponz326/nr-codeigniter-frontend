@@ -16,7 +16,7 @@ export class UserPageApiService {
 
   // get user's hospital accounts
   public getAccounts(): Observable<any>{
-    return this.http.get(this.schoolUrl + "accounts/user-accounts?personal_id=" + localStorage.getItem('personal_id'));
+    return this.http.get(this.schoolUrl + "accounts/user-accounts?personal_id=" + localStorage.getItem('personal_id'), { withCredentials: true });
   }
 
   // send selected account id

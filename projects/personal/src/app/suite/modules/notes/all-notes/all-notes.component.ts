@@ -62,8 +62,8 @@ export class AllNotesComponent implements OnInit, AfterViewInit {
     dataFields: [
       { name: 'id', type: 'string' },
       { name: 'subject', type: 'string' },
-      { name: 'created_at', type: 'date', format: 'yyyy-MM-dd HH:mm:ss' },
-      { name: 'updated_at', type: 'date', format: 'yyyy-MM-dd HH:mm:ss' },
+      { name: 'created_at', type: 'date' },
+      { name: 'updated_at', type: 'date' },
     ],
     id: 'id',
  };

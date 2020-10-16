@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { TasksApiService } from '../tasks-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
@@ -14,6 +15,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 export class AllTasksComponent implements OnInit, AfterViewInit {
 
   @ViewChild("gridReference") grid: jqxGridComponent;
+  @ViewChild("buttonReference") button: jqxGridComponent;
 
   constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
 
@@ -47,9 +49,11 @@ export class AllTasksComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
+      { name: 'date_added', type: 'string' },
       { name: 'task_name', type: 'string' },
       { name: 'priority', type: 'string' },
       { name: 'progress', type: 'string' },
+      { name: 'visibility', type: 'string' },
     ],
     id: 'id',
  };
@@ -57,9 +61,11 @@ export class AllTasksComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Task Name", dataField: "task_name", width: "50%" },
-    { text: "Priority", dataField: "priority", width: "25%" },
-    { text: "Progress", dataField: "progress", width: "25%" },
+    { text: "Date Added", dataField: "date_added", filterType: "range", width: "18%" },
+    { text: "Task Name", dataField: "task_name", width: "37%" },
+    { text: "Priority", dataField: "priority", width: "15%" },
+    { text: "Progress", dataField: "progress", width: "15%" },
+    { text: "Visibility", dataField: "visibility", width: "15%" },
   ];
 
 }

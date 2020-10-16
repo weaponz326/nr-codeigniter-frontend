@@ -24,6 +24,8 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.grid.showloadelement();
     this.getData();
+
+    console.log(sessionStorage.getItem('budget_id'));
   }
 
   constructor(
@@ -49,6 +51,7 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
   viewBudget(event: any){
     console.log(event.args.row.bounddata);
     sessionStorage.setItem('budget_id', event.args.row.bounddata.id);
+    console.log(sessionStorage.getItem('budget_id'));
 
     this.router.navigateByUrl('/suite/budget/view-budget')
   }
@@ -65,7 +68,7 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'budget_name', type: 'string' },
       { name: 'budget_type', type: 'string' },
-      { name: 'created_at', type: 'date', format: 'yyyy-MM-dd HH:mm:ss' },
+      { name: 'created_at', type: 'date' },
     ],
     id: 'id',
   };

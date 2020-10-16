@@ -16,7 +16,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <jqxGrid #gridReference
                 [width]="'100%'"
                 [height]="400"
@@ -26,6 +26,13 @@
                 [showfilterrow]="true"
                 [columns]="columns"
             ></jqxGrid>
+        </div>
+
+        <div class="col-md-2">
+            <jqxButton #buttonReference (click)="this.suiteRoutes.goTasksKanban($event)"
+                [width]="150"
+                [height]="35"
+            >View Kanban</jqxButton>
         </div>
     </div>
 

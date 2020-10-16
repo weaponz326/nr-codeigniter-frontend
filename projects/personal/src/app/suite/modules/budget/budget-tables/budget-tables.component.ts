@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { BudgetApiService } from '../budget-api.service';
 
@@ -14,6 +15,14 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   @ViewChild("incomeGridReference") incomeGrid: jqxGridComponent;
   @ViewChild("expenditureGridReference") expenditureGrid: jqxGridComponent;
+  @ViewChild("addIncomebuttonReference") addIncomeButton: jqxButtonComponent;
+  @ViewChild("addExpenditurebuttonReference") addExpenditureButton: jqxButtonComponent;
+
+  // emit aggregate sum of income and expenditure
+  @Output() calculateIoe = new EventEmitter<any>();
+
+  totalIncome: any;
+  totalExpenditure: any;
 
   constructor(private budgetApi: BudgetApiService) { }
 
@@ -26,16 +35,6 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
     this.expenditureGrid.showloadelement();
     this.getExpenditureData();
-
-    this.getIncomeOverExpenditure;
-  }
-
-  getIncomeOverExpenditure() {
-    let totalIncome = this.incomeGrid.getcolumnaggregateddata('amount', ['sum']);
-    console.log(totalIncome);
-    let totalExpenditure = this.expenditureGrid.getcolumnaggregateddata('amount', ['sum']);
-    console.log(totalExpenditure);
-    // let incomeOverExpenditure = totalIncome - totalExpenditure;
   }
 
   getIncomeData(){
@@ -66,106 +65,41 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
       )
   }
 
-  addIncomeRow(rowid, rowdata, position, commit) {
-    let incomeData = {
-      budget: sessionStorage.getItem('budget_id'),
-      item: rowdata.item,
-      amount: rowdata.amount,
-    }
+  // emits aggregated sum back to parent after being called
+  getIoe() {
+    this.totalIncome = this.incomeGrid.getcolumnaggregateddata('amount', ['sum']);
+    this.totalExpenditure = this.expenditureGrid.getcolumnaggregateddata('amount', ['sum']);
+    console.log(this.totalIncome);
+    console.log(this.totalExpenditure);
 
-    this.budgetApi.postIncome(incomeData)
-      .subscribe(
-        res => {
-          console.log(res);
-          commit(true);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+    let ioe = this.totalIncome.sum - this.totalExpenditure.sum;
+    console.log(ioe)
+
+    this.calculateIoe.emit(ioe);
   }
 
-  updateIncomeRow(rowid, newdata, commit) {
-    let incomeData = {
-      budget: sessionStorage.getItem('budget_id'),
-      item: newdata.item,
-      amount: newdata.amount
-    }
-
-    this.budgetApi.putIncome(rowid, incomeData)
-      .subscribe(
-        res => {
-          console.log(res);
-          commit(true);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+  onIncomeAddCommit(incomeData: any) {
+    this.incomeGrid.addrow(null, incomeData);
   }
 
-  deleteIncomeRow(rowid, commit) {
-    this.budgetApi.deleteIncome(rowid)
-      .subscribe(
-        res => {
-          console.log(res);
-          commit(true);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+  onIncomeEditCommit(incomeData: any) {
+    this.incomeGrid.updaterow(incomeData.id, incomeData);
   }
 
-  addExpenditureRow(rowid, rowdata, position, commit) {
-    let expenditureData = {
-      budget: sessionStorage.getItem('budget_id'),
-      item: rowdata.item,
-      amount: rowdata.amount,
-    }
-
-    this.budgetApi.postExpenditure(expenditureData)
-      .subscribe(
-        res => {
-          console.log(res);
-          commit(true);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+  onIncomeDeleteCommit(incomeId: number) {
+    this.incomeGrid.deleterow(incomeId);
   }
 
-  updateExpenditureRow(rowid, newdata, commit) {
-    let expenditureData = {
-      budget: sessionStorage.getItem('budget_id'),
-      item: newdata.item,
-      amount: newdata.amount,
-    }
-
-    this.budgetApi.putExpenditure(rowid, expenditureData)
-      .subscribe(
-        res => {
-          console.log(res);
-          commit(true);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+  onExpenditureAddCommit(expenditureData: any) {
+    this.expenditureGrid.addrow(null, expenditureData);
   }
 
-  deleteExpenditureRow(rowid, commit) {
-    this.budgetApi.deleteExpenditure(rowid)
-      .subscribe(
-        res => {
-          console.log(res);
-          commit(true);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+  onExpenditureEditCommit(expenditureData: any) {
+    this.expenditureGrid.updaterow(expenditureData.id, expenditureData);
+  }
+
+  onExpenditureDeleteCommit(expenditureId: number) {
+    this.expenditureGrid.deleterow(expenditureId);
   }
 
   // widgets
@@ -199,28 +133,7 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   incomeColumns: any[] = [
     { text: 'Item Description', columngroup: 'incomeGroup', dataField: 'item', width: "70%" },
-    {
-      text: 'Amount', columngroup: 'incomeGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
-      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
-        let container = document.createElement('div');
-        container.id = 'incomeAmountNumberInput';
-        container.style.border = 'none';
-        htmlElement[0].appendChild(container);
-        let options = {
-            width: '100%', height: 30, decimalDigits: 2, inputMode: 'simple',
-        };
-        this.incomeAmountNumberInput = jqwidgets.createInstance('#incomeAmountNumberInput', 'jqxNumberInput', options);
-        return container;
-      },
-      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
-        let value = this.incomeAmountNumberInput.val();
-        if (value == '') value = 0;
-        return parseInt(value);
-      },
-      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
-        this.incomeAmountNumberInput.val('');
-      }
-    },
+    { text: 'Amount', columngroup: 'incomeGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
   ];
 
   incomeColumnGroups: any[] = [
@@ -255,32 +168,135 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   expenditureColumns: any[] = [
     { text: 'Item Description', columngroup: 'expenditureGroup', dataField: 'item', width: "70%" },
-    {
-      text: 'Amount', columngroup: 'expenditureGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
-      createEverPresentRowWidget: (datafield: string, htmlElement: HTMLElement, popup: any, addCallback: any): HTMLElement => {
-        let container = document.createElement('div');
-        container.id = 'expenditureAmountNumberInput';
-        container.style.border = 'none';
-        htmlElement[0].appendChild(container);
-        let options = {
-            width: '100%', height: 30, decimalDigits: 2, inputMode: 'simple',
-        };
-        this.expenditureAmountNumberInput = jqwidgets.createInstance('#expenditureAmountNumberInput', 'jqxNumberInput', options);
-        return container;
-      },
-      getEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement, validate: any): any => {
-        let value = this.expenditureAmountNumberInput.val();
-        if (value == '') value = 0;
-        return parseInt(value);
-      },
-      resetEverPresentRowWidgetValue: (datafield: string, htmlElement: HTMLElement): void => {
-        this.expenditureAmountNumberInput.val('');
-      }
-    },
+    { text: 'Amount', columngroup: 'expenditureGroup', dataField: 'amount', width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
   ];
 
   expenditureColumnGroups: any[] = [
     { text: "Expenditure", align: "center", name: "expenditureGroup" }
   ];
+
+  // income CRUD
+
+  addIncomeRow(rowid, rowdata, position, commit) {
+    let incomeData = {
+      budget: sessionStorage.getItem('budget_id'),
+      item: rowdata.item,
+      amount: rowdata.amount,
+    }
+
+    this.budgetApi.postIncome(incomeData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.id);
+
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
+
+  updateIncomeRow(rowid, newdata, commit) {
+    let incomeData = {
+      budget: sessionStorage.getItem('budget_id'),
+      item: newdata.item,
+      amount: newdata.amount
+    }
+
+    this.budgetApi.putIncome(rowid, incomeData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.id);
+
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
+
+  deleteIncomeRow(rowid, commit) {
+    this.budgetApi.deleteIncome(rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true);
+
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
+
+  // expenditure CRUD
+
+  addExpenditureRow(rowid, rowdata, position, commit) {
+    let expenditureData = {
+      budget: sessionStorage.getItem('budget_id'),
+      item: rowdata.item,
+      amount: rowdata.amount,
+    }
+
+    this.budgetApi.postExpenditure(expenditureData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.id);
+
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
+
+  updateExpenditureRow(rowid, newdata, commit) {
+    let expenditureData = {
+      budget: sessionStorage.getItem('budget_id'),
+      item: newdata.item,
+      amount: newdata.amount,
+    }
+
+    this.budgetApi.putExpenditure(rowid, expenditureData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.id);
+
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
+
+  deleteExpenditureRow(rowid, commit) {
+    this.budgetApi.deleteExpenditure(rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true);
+
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
 
 }

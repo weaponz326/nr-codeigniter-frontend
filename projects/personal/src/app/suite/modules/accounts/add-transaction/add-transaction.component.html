@@ -1,0 +1,26 @@
+<jqxWindow #addTransactionReference (onOpen)="transactionForm.transactionDateInput.focus()"
+    [width]="540"
+    [height]="220"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Add New Transaction</div>
+
+    <div>
+
+        <app-transaction-form #transactionFormComponentReference></app-transaction-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveTransaction()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

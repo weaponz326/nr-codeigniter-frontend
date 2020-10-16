@@ -18,6 +18,9 @@ import { ViewAccountComponent } from './view-account/view-account.component';
 import { AccountTransactionsComponent } from './account-transactions/account-transactions.component';
 import { AllTransactionsComponent } from './all-transactions/all-transactions.component';
 import { AddAccountComponent } from './add-account/add-account.component';
+import { AddTransactionComponent } from './add-transaction/add-transaction.component';
+import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
+import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import { AddAccountComponent } from './add-account/add-account.component';
     AccountTransactionsComponent,
     AllTransactionsComponent,
     AddAccountComponent,
+    AddTransactionComponent,
+    EditTransactionComponent,
+    TransactionFormComponent,
   ],
   imports: [
     CommonModule,

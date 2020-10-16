@@ -9,6 +9,7 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid'
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxCheckBoxModule } from 'jqwidgets-ng/jqxcheckbox';
 
 import { TasksRoutingModule } from './tasks-routing.module';
 
@@ -38,7 +39,8 @@ import { TaskFormComponent } from './task-form/task-form.component';
     jqxGridModule,
     jqxWindowModule,
     jqxDropDownListModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxCheckBoxModule,
   ]
 })
 export class TasksModule { }

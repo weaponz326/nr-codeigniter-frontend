@@ -45,31 +45,31 @@ export class MainNavbarApiService {
   // check if user has any active suite session
 
   public checkActiveHospital(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "accounts/active-account")
+    return this.http.get(this.hospitalUrl + "accounts/active-account/", { withCredentials: true })
   }
 
   public checkActiveRestaurant(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "accounts/active-account")
+    return this.http.get(this.restaurantUrl + "accounts/active-account/", { withCredentials: true })
   }
 
   public checkActiveSchool(): Observable<any>{
-    return this.http.get(this.schoolUrl + "accounts/active-account")
+    return this.http.get(this.schoolUrl + "accounts/active-account/", { withCredentials: true })
   }
 
   public checkActiveEnterprise(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "accounts/active-account")
+    return this.http.get(this.enterpriseUrl + "accounts/active-account/", { withCredentials: true })
   }
 
   public checkActiveHotel(): Observable<any>{
-    return this.http.get(this.hotelUrl + "accounts/active-account")
+    return this.http.get(this.hotelUrl + "accounts/active-account/", { withCredentials: true })
   }
 
   public checkActiveShop(): Observable<any>{
-    return this.http.get(this.shopUrl + "accounts/active-account")
+    return this.http.get(this.shopUrl + "accounts/active-account/", { withCredentials: true })
   }
 
   public checkActiveProduction(): Observable<any>{
-    return this.http.get(this.productionUrl + "accounts/active-account")
+    return this.http.get(this.productionUrl + "accounts/active-account/", { withCredentials: true })
   }
 
 }

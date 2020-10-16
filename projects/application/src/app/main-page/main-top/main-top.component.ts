@@ -2,6 +2,8 @@
 // contains app descriptions, features and button for visiting portal
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'app-main-top',
@@ -10,9 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainTopComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  signup(e){
+    e.stopPropagation();
+    this.router.navigateByUrl("/signup");
+
+    console.log("u wanna sign up ...that's cool");
   }
 
 }

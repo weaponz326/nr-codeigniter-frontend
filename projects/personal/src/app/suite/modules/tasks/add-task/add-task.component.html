@@ -1,6 +1,6 @@
-<jqxWindow #addTaskReference
+<jqxWindow #addTaskReference (onOpen)="taskForm.taskName.focus()"
     [width]="540"
-    [height]="230"
+    [height]="260"
     [autoOpen]="false">
 
     <div>Add Task</div>
@@ -9,14 +9,14 @@
 
         <!-- task form elements -->
 
-        <app-task-form #taskFormReference></app-task-form>
+        <app-task-form #taskFormComponentReference></app-task-form>
 
         <div>
             <div class="edit-dialog-field edit-dialog-buttons">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #okButtonReference (click)="addTask(this.taskForm.taskData)"
+                <jqxButton #okButtonReference (click)="addTask()"
                 >Save</jqxButton>
             </div>
         </div>

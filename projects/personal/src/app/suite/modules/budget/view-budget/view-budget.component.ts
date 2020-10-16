@@ -25,7 +25,7 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
 
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
-  budgetData: any;
+  ioe: any = 0;
 
   constructor(
     private router: Router,
@@ -43,7 +43,7 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.budgetNameInput.val(res.budget_name);
           this.budgetTypeDropDownList.val(res.budget_type);
-          this.createdDate.val(res.created_at);
+          this.createdDate.val(new Date(res.created_at));
         },
         err => {
           console.log(err);
@@ -72,11 +72,18 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
     }
   }
 
+  onIoeCalculated(calculated: any){
+    this.ioe = calculated;
+    console.log("ioe has been emitted here");
+  }
+
   // widgets
   // ----------------------------------------------------------------------------------
 
   // budget type settings
   budgetTypeSource: string[] = ["Weekly", "Monthly", "Quarterly", "Yearly"];
+
+  budgetData: any;
 
   saveBudget(){
     console.log("u are updating the account");

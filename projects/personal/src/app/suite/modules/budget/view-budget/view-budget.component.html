@@ -74,13 +74,13 @@
 
         <div class="col-md-6 text-center">
             <h4>Income over Expenditure :</h4>
-            <h1 class="text-huge">$ </h1>
+            <h1 class="text-huge">$ {{ioe}}</h1>
         </div>
     </div>
 
     <!-- budget tables sub component
     contains income, expenditure and income over expenditure grids -->
 
-    <app-budget-tables></app-budget-tables>
+    <app-budget-tables (calculateIoe)="onIoeCalculated($event)"></app-budget-tables>
 
 </div>

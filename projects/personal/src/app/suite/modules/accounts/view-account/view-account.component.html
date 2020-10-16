@@ -70,12 +70,14 @@
 
         <div class="col-md-6 text-center">
             <h4>Total Balance :</h4>
-            <h1 class="text-huge">$ </h1>
+            <h1 class="text-huge">$ {{totalBalance}}</h1>
         </div>
     </div>
 
     <!-- account transactions sub component -->
 
-    <app-account-transactions #accountTransactionsComponentReference></app-account-transactions>
+    <app-account-transactions #accountTransactionsComponentReference
+        (calculateBalance)="onBalanceCalculated($event)"
+    ></app-account-transactions>
 
 </div>
