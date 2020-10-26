@@ -1,32 +1,17 @@
 <div class="row">
     <div class="col-md-12 text-center text-muted">
-      <small>showing results for <b>"john"</b></small>
+      <small>showing results for <b>"{{this.searchInput}}"</b></small>
     </div>
 </div>
 
-<hr />
+<div *ngFor="let result of searchResults" >
 
-<div class="row" (click)="goToDetail()">
-    <div class="col-md-3"><em class="text-muted">Name: </em></div>
-    <div class="col-md-9">John Okafor</div>
-    <div class="col-md-3"><em class="text-muted">Location: </em></div>
-    <div class="col-md-9">Ogun State - Nigeria</div>
-</div>
+    <hr />
+    <div class="row" (click)="goToDetail(result.id)">
+        <div class="col-md-3"><em class="text-muted">Name: </em></div>
+        <div class="col-md-9">{{result.user.first_name}} {{result.user.last_name}}</div>
+        <div class="col-md-3"><em class="text-muted">Location: </em></div>
+        <div class="col-md-9">{{result.location}}</div>
+    </div>
 
-<hr />
-
-<div class="row" (click)="goToDetail()">
-    <div class="col-md-3"><em class="text-muted">Name: </em></div>
-    <div class="col-md-9">John Jessey Benson</div>
-    <div class="col-md-3"><em class="text-muted">Location: </em></div>
-    <div class="col-md-9">Kuala Lumpur - Malaysia</div>
-</div>
-
-<hr />
-
-<div class="row" (click)="goToDetail()">
-    <div class="col-md-3"><em class="text-muted">Name: </em></div>
-    <div class="col-md-9">John Mitch</div>
-    <div class="col-md-3"><em class="text-muted">Location: </em></div>
-    <div class="col-md-9">Vancouver - Canada</div>
 </div>

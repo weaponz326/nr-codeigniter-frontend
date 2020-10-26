@@ -14,30 +14,37 @@ export class SettingsApiService {
 
   constructor(private http: HttpClient) { }
 
-  // settings profile
+  // get all profile categories
 
-  // send new setings profile
-  public postSettingsProfile(profile): Observable<any>{
-    return this.http.post(this.personalUrl + "module-settings/settings-profile/", profile);
+  public getBasicProfile(): Observable<any>{
+    return this.http.get(this.personalUrl + "module-settings/profile-user/" + localStorage.getItem('personal_id'));
   }
 
-  public getSettingsProifle(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-settings/settings-profile?user=" + localStorage.getItem('personal_id'));
+  public getAdditionalProfile(): Observable<any>{
+    return this.http.get(this.personalUrl + "module-settings/additional-profile/" + localStorage.getItem('personal_id'));
   }
 
-  // update settings profile
-  public putSettingsProfile(profile): Observable<any>{
-    return this.http.put(this.personalUrl + "module-settings/settings-profile/" + localStorage.getItem('personal_id'), profile);
+  public getLocationDetails(): Observable<any>{
+    return this.http.get(this.personalUrl + "module-settings/location-details/" + localStorage.getItem('personal_id'));
   }
 
-  // user profile
+  // send all profile categories
 
-  public getUserProifle(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-settings/user-profile?user=" + localStorage.getItem('personal_id'));
+  public putProfile(profile): Observable<any>{
+    return this.http.put(this.personalUrl + "module-settings/profile/" + localStorage.getItem('personal_id'), profile);
   }
 
-  public putUserProfile(profile): Observable<any>{
-    return this.http.put(this.personalUrl + "module-settings/user-profile/" + localStorage.getItem('personal_id'), profile);
+  public putUser(user): Observable<any>{
+    return this.http.put(this.personalUrl + "module-settings/user/" + localStorage.getItem('personal_id'), user);
   }
+
+  public postAdditionalProfile(additionalProfile): Observable<any>{
+    return this.http.post(this.personalUrl + "module-settings/additional-profile/", additionalProfile);
+  }
+
+  public postLocationDetails(locationDetails): Observable<any>{
+    return this.http.post(this.personalUrl + "module-settings/location-details/", locationDetails);
+  }
+
 
 }

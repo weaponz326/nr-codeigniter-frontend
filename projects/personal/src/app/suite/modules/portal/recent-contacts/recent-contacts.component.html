@@ -4,11 +4,29 @@
     </div>
 </div>
 
-<hr />
+<div *ngFor="let rink of rinks">
 
-<div class="row" (click)="goToDetail()">
-    <div class="col-md-3"><em class="text-muted">Name: </em></div>
-    <div class="col-md-9">John Okafor</div>
-    <div class="col-md-3"><em class="text-muted">Location: </em></div>
-    <div class="col-md-9">Ogun State - Nigeria</div>
+    <hr />
+
+    <div *ngIf="rink.sender.id==personalId; then senderBlock else recipientBlock"></div>
+
+    <ng-template #senderBlock>
+        <div class="row" (click)="goToDetail()">
+            <div class="col-md-3"><em class="text-muted">Name: </em></div>
+            <div class="col-md-9">{{rink.recipient.user.first_name}} {{rink.recipient.user.last_name}}</div>
+            <div class="col-md-3"><em class="text-muted">Location: </em></div>
+            <div class="col-md-9">{{rink.recipient.location}}</div>
+        </div>
+    </ng-template>
+
+    <ng-template #recipientBlock>
+        <div class="row" (click)="goToDetail()">
+            <div class="col-md-3"><em class="text-muted">Name: </em></div>
+            <div class="col-md-9">{{rink.sender.user.first_name}} {{rink.sender.user.last_name}}</div>
+            <div class="col-md-3"><em class="text-muted">Location: </em></div>
+            <div class="col-md-9">{{rink.sender.location}}</div>
+        </div>
+    </ng-template>
+
 </div>
+

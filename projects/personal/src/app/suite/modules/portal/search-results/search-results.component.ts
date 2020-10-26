@@ -11,25 +11,17 @@ import { PortalApiService } from '../portal-api.service'
 })
 export class SearchResultsComponent implements OnInit {
 
-  searchInput: any;
   searchResults: any;
+  searchInput = sessionStorage.getItem('searchInput');
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private portalApi: PortalApiService
-  ) {
-    this.route.params.subscribe(params => {
-      console.log(params);
-
-      if (params['input']){
-        this.searchInput = params['input'];
-      }
-    });
-  }
+  ) { }
 
   ngOnInit(): void {
-    this.portalApi.getSearch(this.searchInput)
+    this.portalApi.getSearch(sessionStorage.getItem('searchInput'), sessionStorage.getItem('searchFilter'))
       .subscribe(
         res => {
           console.log(res);
@@ -41,7 +33,8 @@ export class SearchResultsComponent implements OnInit {
       )
   }
 
-  goToDetail(){
+  goToDetail(userId){
+    sessionStorage.setItem('searchUser', userId)
     this.router.navigateByUrl('/suite/portal/search/search-detail');
   }
 

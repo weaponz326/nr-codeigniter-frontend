@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import { environment } from '../../environments/environment'
 
@@ -8,8 +8,6 @@ import { environment } from '../../environments/environment'
   providedIn: 'root'
 })
 export class MainNavbarApiService {
-
-  constructor(private http: HttpClient) { }
 
   baseUrl = environment.baseUrl;
   personalUrl = environment.personalUrl;
@@ -21,10 +19,10 @@ export class MainNavbarApiService {
   shopUrl = environment.shopUrl;
   productionUrl = environment.productionUrl;
 
-  token = "Token " + localStorage.getItem('token');
-
   headers = new HttpHeaders()
-    .set('Authorization', this.token);
+    .set('Authorization', "Token " + localStorage.getItem('token'));
+
+  constructor(private http: HttpClient) { }
 
   public postSource(source): Observable<any>{
     return this.http.post(this.baseUrl + "main/user-source/", { "user_source": source }, { withCredentials: true });

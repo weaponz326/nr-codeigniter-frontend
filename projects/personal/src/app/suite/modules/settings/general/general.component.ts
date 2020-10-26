@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
+import { jqxPasswordInputComponent } from 'jqwidgets-ng/jqxpasswordinput';
 
 import { SettingsApiService } from '../settings-api.service';
 
@@ -12,8 +14,16 @@ import { SettingsApiService } from '../settings-api.service';
 export class GeneralComponent implements OnInit {
 
   @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
+  @ViewChild('accountEmailInputReference') accountEmailInput: jqxInputComponent;
+  @ViewChild('backupEmailInputReference') backupEmailInput: jqxInputComponent;
+  @ViewChild('phoneInputReference') phoneInput: jqxInputComponent;
+  @ViewChild('saveContactButtonReference') saveEmailButton: jqxButtonComponent;
+  @ViewChild('oldPasswordInputReference') oldPasswordInput: jqxPasswordInputComponent;
+  @ViewChild('newPasswordInputReference') newPasswordInput: jqxPasswordInputComponent;
+  @ViewChild('confirmPasswordInputReference') confirmPasswordInput: jqxPasswordInputComponent;
+  @ViewChild('savePasswordButtonReference') savePasswordButton: jqxButtonComponent;
 
-  constructor() { }
+  constructor(private settingsApi: SettingsApiService) { }
 
   ngOnInit(): void {
   }

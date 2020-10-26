@@ -37,9 +37,9 @@ export class LoginFormComponent implements OnInit {
         console.log(res);
         if (JSON.stringify(res).includes("key")){
           localStorage.setItem('token', res.key);
+
           // reload main navbar after login
           this.navbar.ngOnInit();
-
           this.router.navigateByUrl("/login/success");
         }
       },

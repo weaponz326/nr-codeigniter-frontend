@@ -21,6 +21,35 @@ export class MainNavbarComponent implements OnInit {
   logged_in: any;
   name: any;
 
+  ngOnInit(): void {
+    this.navbarApi.postSource(this.source)
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log(err);
+        }
+      )
+
+    console.log(localStorage.getItem('token'));
+
+    this.navbarApi.getUser()
+      .subscribe(
+        res => {
+          console.log(res);
+
+          this.logged_in = res.logged_in;
+          this.name = res.name;
+          localStorage.setItem('personal_id', res.id);
+        },
+        err => {
+          console.log(err);
+          this.logged_in = false;
+        }
+      )
+  }
+
   // navigates back to home page accourding user source
   goHome(e){
     e.stopPropagation();
@@ -62,7 +91,8 @@ export class MainNavbarComponent implements OnInit {
           localStorage.removeItem("production_id");
 
           // reload page
-          window.location.href = "";
+          this.ngOnInit();
+          this.router.navigateByUrl("/");
         },
         err => {
           console.log(err);
@@ -70,32 +100,6 @@ export class MainNavbarComponent implements OnInit {
       )
 
     console.log("u logging out? ...where u going?");
-  }
-
-  ngOnInit(): void {
-    this.navbarApi.postSource(this.source)
-      .subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
-          console.log(err);
-        }
-      )
-
-      this.navbarApi.getUser()
-      .subscribe(
-        res => {
-          console.log(res);
-
-          this.logged_in = res.logged_in;
-          this.name = res.name;
-          localStorage.setItem('personal_id', res.id);
-        },
-        err => {
-          console.log(err);
-        }
-      )
   }
 
 }

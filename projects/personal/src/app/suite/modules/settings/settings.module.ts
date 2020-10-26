@@ -6,7 +6,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
-import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
+import { jqxPasswordInputModule } from 'jqwidgets-ng/jqxpasswordinput';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { SettingsRoutingModule } from './settings-routing.module';
 
@@ -33,7 +34,8 @@ import { SecurityComponent } from './security/security.component';
     jqxDateTimeInputModule,
     jqxDropDownListModule,
     jqxTextAreaModule,
-    jqxPanelModule,
+    jqxPasswordInputModule,
+    jqxComboBoxModule,
   ]
 })
 export class SettingsModule { }

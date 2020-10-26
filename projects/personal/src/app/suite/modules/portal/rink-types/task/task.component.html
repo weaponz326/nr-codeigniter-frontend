@@ -1,0 +1,22 @@
+<jqxWindow #taskWindowReference
+    [width]="612"
+    [height]="400"
+    [autoOpen]="false">
+
+    <div>Select Task Source</div>
+
+    <div>
+        <jqxGrid #taskGridReference (onRowdoubleclick)="rowSelect($event)"
+            [width]="'100%'"
+            [height]="350"
+            [rowsheight]="24"
+            [source]="dataAdapter"
+            [selectionmode]="'singlerow'"
+            [sortable]="true"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+
+</jqxWindow>

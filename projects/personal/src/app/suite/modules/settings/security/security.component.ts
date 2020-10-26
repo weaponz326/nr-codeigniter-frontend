@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+
+import { SettingsApiService } from '../settings-api.service';
 
 @Component({
   selector: 'app-security',
@@ -7,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecurityComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('twoAuthButtonReference') twoAuthButton: jqxButtonComponent;
+
+  constructor(private settingsApi: SettingsApiService) { }
 
   ngOnInit(): void {
   }

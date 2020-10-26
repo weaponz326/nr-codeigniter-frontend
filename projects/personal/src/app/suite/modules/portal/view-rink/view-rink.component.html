@@ -18,43 +18,83 @@
     <div class="row">
         <div class="col-md-8">
 
-            <div class="row">
-                <div class="col-md-12">RinkOut - Sun, 5th June, 2020. 10:00 AM</div>
-            </div>
+            <div *ngIf="rink.sender.id==personalId; then senderBlock else recipientBlock"></div>
 
-            <br />
-
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                <div class="col-md-5">
-                    <label class="text-muted"><em><small>Name :</small></em></label><br />
-                    Mary Russel
+            <ng-template #senderBlock>
+                <div class="row">
+                    <div class="col-md-12">RinkOut - {{rink.rink_date}}</div>
                 </div>
-                <div class="col-md-5">
-                    <label class="text-muted"><em><small>Location :</small></em></label><br />
-                    Florida, Miami - USA
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Name :</small></em></label><br />
+                        {{rink.recipient.user.first_name}} {{rink.recipient.user.last_name}}
+                    </div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Location :</small></em></label><br />
+                        {{rink.recipient.location}}
+                    </div>
                 </div>
-            </div>
 
-            <br />
+                <br />
 
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                <div class="col-md-5">Appointment</div>
-            </div>
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                    <div class="col-md-5">{{rink.rink_type}}</div>
+                </div>
 
-            <br />
+                <br />
 
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">Comment</label></div>
-                <div class="col-md-8">Pls, this is the appointment for the mid-week Bible studies. Thanks</div>
-            </div>
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Comment</label></div>
+                    <div class="col-md-8">{{rink.comment}}</div>
+                </div>
+            </ng-template>
+
+            <ng-template #recipientBlock>
+                <div class="row">
+                    <div class="col-md-12">RinkOut - {{rink.rink_date}}</div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">From</label></div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Name :</small></em></label><br />
+                        {{rink.sender.user.first_name}} {{rink.sender.user.last_name}}
+                    </div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Location :</small></em></label><br />
+                        {{rink.sender.location}}
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                    <div class="col-md-5">{{rink.rink_type}}</div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Comment</label></div>
+                    <div class="col-md-8">{{rink.comment}}</div>
+                </div>
+            </ng-template>
 
         </div>
     </div>
 
     <hr />
 
-    <app-rink-details></app-rink-details>
+    <!-- rink details router -->
+
+    <router-outlet></router-outlet>
 
 </div>

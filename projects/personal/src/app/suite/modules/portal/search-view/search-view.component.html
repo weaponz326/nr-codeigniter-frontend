@@ -19,13 +19,19 @@
         <div class="col-md-8">
 
             <div class="row">
-                <div class="offset-md-3 col-md-6">
+                <div class="offset-md-2 col-md-8">
                     <jqxInput #searchInputReference
-                        [width]="'80%'"
+                        [width]="'60%'"
                         [height]="30"
                     ></jqxInput>
-                    <jqxButton #searchButtonReference (click)="doSearch(this.searchInput.val())"
-                        [width]="'20%'"
+                    <jqxComboBox #searchComboBoxReference
+                        [width]="'25%'"
+                        [height]="30"
+                        [source]="searchFilter"
+                        [selectedIndex]="0"
+                    ></jqxComboBox>
+                    <jqxButton #searchButtonReference (click)="doSearch(this.searchInput.val(), this.searchComboBox.val())"
+                        [width]="'15%'"
                         [height]="30"
                     >Search</jqxButton>
                 </div>

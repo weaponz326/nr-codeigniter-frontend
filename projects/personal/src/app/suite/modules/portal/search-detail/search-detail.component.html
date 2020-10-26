@@ -2,17 +2,17 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-3 text-muted"><em>Name:</em></div>
-            <div class="col-md-9">John Mitch</div>
+            <div class="col-md-9">{{searchDetail.user.first_name}} {{searchDetail.user.last_name}}</div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-3 text-muted"><em>Location:</em></div>
-            <div class="col-md-9">Vancouver - Canada</div>
+            <div class="col-md-9">{{searchDetail.location}}</div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-3 text-muted"><em>About:</em></div>
-            <div class="col-md-9">An industrious business man, who also loves to have fun</div>
+            <div class="col-md-9">{{searchDetail.about}}</div>
         </div>
     </div>
 </div>
@@ -21,9 +21,9 @@
 
 <div class="row">
     <div class="col-md-12 text-center">
-        <jqxButton #buttonReference (click)="goToNew()"
+        <jqxButton #buttonReference (click)="createRink()"
             [width]="150"
             [height]="35"
-        >New Rink</jqxButton>
+        >Create Rink</jqxButton>
     </div>
 </div>

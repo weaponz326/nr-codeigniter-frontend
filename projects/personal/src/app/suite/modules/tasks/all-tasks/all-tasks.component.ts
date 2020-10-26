@@ -15,7 +15,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 export class AllTasksComponent implements OnInit, AfterViewInit {
 
   @ViewChild("gridReference") grid: jqxGridComponent;
-  @ViewChild("buttonReference") button: jqxGridComponent;
+  @ViewChild("buttonReference") button: jqxButtonComponent;
 
   constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
 

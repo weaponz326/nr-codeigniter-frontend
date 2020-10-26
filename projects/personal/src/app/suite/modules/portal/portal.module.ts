@@ -7,6 +7,9 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
+import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 
 import { PortalRoutingModule } from './portal-routing.module';
 
@@ -17,8 +20,13 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { NewRinkComponent } from './new-rink/new-rink.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchViewComponent } from './search-view/search-view.component';
-import { RinkDetailsComponent } from './rink-details/rink-details.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { TaskComponent } from './rink-types/task/task.component';
+import { NoteComponent } from './rink-types/note/note.component';
+import { AppointmentComponent } from './rink-types/appointment/appointment.component';
+import { TaskDetailComponent } from './rink-details/task-detail/task-detail.component';
+import { AppointmentDetailComponent } from './rink-details/appointment-detail/appointment-detail.component';
+import { NoteDetailComponent } from './rink-details/note-detail/note-detail.component';
 
 
 @NgModule({
@@ -30,8 +38,13 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
     NewRinkComponent,
     SearchResultsComponent,
     SearchViewComponent,
-    RinkDetailsComponent,
     SearchDetailComponent,
+    TaskComponent,
+    NoteComponent,
+    AppointmentComponent,
+    TaskDetailComponent,
+    AppointmentDetailComponent,
+    NoteDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +54,10 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
     jqxButtonModule,
     jqxPanelModule,
     jqxDropDownListModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxComboBoxModule,
+    jqxWindowModule,
+    jqxGridModule,
   ]
 })
 export class PortalModule { }

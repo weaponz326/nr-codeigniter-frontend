@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+
+import { PortalApiService } from '../portal-api.service'
 
 
 @Component({
@@ -13,12 +15,28 @@ export class SearchDetailComponent implements OnInit {
 
   @ViewChild('buttonReference') button: jqxButtonComponent;
 
-  constructor(private router: Router) { }
+  searchDetail: any;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private portalApi: PortalApiService
+  ) { }
 
   ngOnInit(): void {
+    this.portalApi.getDetail(sessionStorage.getItem('searchUser'))
+      .subscribe(
+        res => {
+          console.log(res);
+          this.searchDetail = res;
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
 
-  goToNew(){
+  createRink(){
     this.router.navigateByUrl('suite/portal/new-rink');
   }
 

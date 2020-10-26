@@ -24,79 +24,75 @@
     </div>
 
     <div class="row">
-
         <div class="col-md-8">
 
-            <div class="row" (click)="suiteRoutes.goPortalView($event)">
-                <div class="col-md-12">
+            <div *ngFor="let rink of rinks">
 
-                    <hr />
+                <hr />
 
-                    <div class="row">
-                        <div class="col-md-12"><small>RinkIn - Wed, 8th June, 2020. 10:00 AM</small></div>
-                    </div>
+                <div *ngIf="rink.sender.id==personalId; then senderBlock else recipientBlock"></div>
 
-                    <br />
-
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Name :</small></em></label><br />
-                            John Van Huddelsof
+                <ng-template #senderBlock>
+                    <div (click)="viewRink(rink.id)">
+                        <div class="row">
+                            <div class="col-md-12"><small>RinkOut - {{rink.rink_date}}</small></div>
                         </div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Location :</small></em></label><br />
-                            Wolfburg, Germany
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Name :</small></em></label><br />
+                                {{rink.recipient.user.first_name}} {{rink.recipient.user.last_name}}
+                            </div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                                {{rink.recipient.location}}
+                            </div>
                         </div>
-                    </div>
 
-                    <br />
+                        <br />
 
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                        <div class="col-md-5">Appointment</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- -------------------------------------------------------------------------------------------- -->
-
-            <div class="row" (click)="suiteRoutes.goPortalView($event)">
-                <div class="col-md-12">
-
-                    <hr />
-
-                    <div class="row">
-                        <div class="col-md-12"><small>RinkOut - Sun, 5th June, 2020. 10:00 AM</small></div>
-                    </div>
-
-                    <br />
-
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Name :</small></em></label><br />
-                            Mary Russel
-                        </div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Location :</small></em></label><br />
-                            Florida, Miami - USA
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                            <div class="col-md-5">{{rink.rink_type}}</div>
                         </div>
                     </div>
+                </ng-template>
 
-                    <br />
+                <ng-template #recipientBlock>
+                    <div (click)="viewRink(rink.id)">
+                        <div class="row">
+                            <div class="col-md-12"><small>RinkIn - {{rink.rink_date}}</small></div>
+                        </div>
 
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                        <div class="col-md-5">Appointment</div>
-                    </div>
+                        <br />
 
-                </div>
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">From</label></div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Name :</small></em></label><br />
+                                {{rink.sender.user.first_name}} {{rink.sender.user.last_name}}
+                            </div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                                {{rink.sender.location}}
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                            <div class="col-md-5">{{rink.rink_type}}</div>
+                        </div>
+                      </div>
+                </ng-template>
+
             </div>
 
         </div>
-
     </div>
 
 </div>
