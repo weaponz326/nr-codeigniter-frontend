@@ -3,12 +3,21 @@
         <div class="col-md-12">
             <label>Password</label>
             <input type="password" class="form-control" formControlName="password" placeholder="Enter new your password" required>
+            <div *ngFor="let pass1Err of pass1Errors">
+                <small class="text-danger">{{pass1Err}}</small><br />
+            </div>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-12">
             <label>Confirm Password</label>
             <input type="password" class="form-control" formControlName="confirm" placeholder="Enter your new password again" required>
+        </div>
+        <div *ngFor="let pass2Err of pass2Errors">
+            <small class="text-danger">{{pass2Err}}</small><br />
+        </div>
+        <div *ngFor="let nfErr of nfErrors">
+            <small class="text-danger">{{nfErr}}</small><br />
         </div>
     </div>
     <div class="row form-group">

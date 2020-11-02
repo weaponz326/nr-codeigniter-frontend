@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: "recovery", component: RecoveryFormComponent },
       { path: "await", component: RecoveryAwaitComponent },
       { path: "reset", component: ResetFormComponent },
-      { path: "recsuccess", component: RecoverySuccessComponent },
+      { path: "rec-success", component: RecoverySuccessComponent },
       { path: "**", component: LoginFormComponent },
     ]
   }

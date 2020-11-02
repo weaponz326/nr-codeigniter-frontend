@@ -12,8 +12,6 @@ import { RegisterApiService } from '../register-api.service';
 })
 export class RegisterFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router, private registerApi: RegisterApiService) { }
-
   mergedObject: any;       // for storing merged user id and register form profiles
 
   personalId: any = {
@@ -26,6 +24,19 @@ export class RegisterFormComponent implements OnInit {
     about: ["", Validators.required]
   });
 
+  nameErrors: any[] = [];
+  locErrors: any[] = [];
+  abtErrors: any[] = [];
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private registerApi: RegisterApiService
+  ) { }
+
+  ngOnInit(): void {
+  }
+
   registerSubmit(){
     // merge personal id and profile form jsons
     this.mergedObject = Object.assign(this.registerForm.value, this.personalId);
@@ -36,7 +47,13 @@ export class RegisterFormComponent implements OnInit {
         res => {
           console.log(res);
 
-          this.router.navigateByUrl("/register/success");
+          if(res.status == true){
+            this.router.navigateByUrl("/register/success");
+          }else if(res.status == false){
+            this.nameErrors = res.errors.name;
+            this.locErrors = res.errors.location;
+            this.abtErrors = res.errors.about;
+          }
         },
         err => {
           console.log(err);
@@ -44,9 +61,6 @@ export class RegisterFormComponent implements OnInit {
       )
 
     console.log(this.registerForm.value);
-  }
-
-  ngOnInit(): void {
   }
 
 }

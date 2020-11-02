@@ -30,9 +30,4 @@ export class SignupApiService {
     return this.http.get(this.personalUrl + "users/poll_verification/");
   }
 
-  // send verification mail form
-  public postVerificationEmail(email): Observable<any>{
-    return this.http.post(this.personalUrl + "users/verification-email/", email);
-  }
-
 }

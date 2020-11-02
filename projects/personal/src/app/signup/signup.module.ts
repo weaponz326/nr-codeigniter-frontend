@@ -14,17 +14,15 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { VerificationAwaitComponent } from './verification-await/verification-await.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
-import { VerificationFormComponent } from './verification-form/verification-form.component';
 import { SignupApiService } from './signup-api.service';
 
 @NgModule({
   declarations: [
-    SignupWrapperComponent, 
-    ProfileFormComponent, 
-    AccountFormComponent, 
-    VerificationAwaitComponent, 
-    SignupSuccessComponent, 
-    VerificationFormComponent
+    SignupWrapperComponent,
+    ProfileFormComponent,
+    AccountFormComponent,
+    VerificationAwaitComponent,
+    SignupSuccessComponent,
   ],
   imports: [
     CommonModule,

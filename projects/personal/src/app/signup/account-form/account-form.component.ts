@@ -17,6 +17,17 @@ import { MainNavbarComponent } from 'projects/application/src/app/main-navbar/ma
 })
 export class AccountFormComponent implements OnInit {
 
+  accountForm = this.fb.group({
+    email: ["", Validators.required],
+    password1: ["", Validators.required],
+    password2: ["", Validators.required]
+  })
+
+  emailErrors: any[] = [];
+  pass1Errors: any[] = [];
+  pass2Errors: any[] = [];
+  nfErrors: any[] = [];
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -24,11 +35,8 @@ export class AccountFormComponent implements OnInit {
     private navbar: MainNavbarComponent
   ) { }
 
-  accountForm = this.fb.group({
-    email: ["", Validators.required],
-    password1: ["", Validators.required],
-    password2: ["", Validators.required]
-  })
+  ngOnInit(): void {
+  }
 
   accountSubmit(){
     this.signupApi.postAccount(this.accountForm.value)
@@ -45,6 +53,10 @@ export class AccountFormComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.emailErrors = err.error.email;
+          this.pass1Errors = err.error.password1;
+          this.pass2Errors = err.error.password2;
+          this.nfErrors = err.error.non_field_errors;
         }
       )
 
@@ -58,14 +70,6 @@ export class AccountFormComponent implements OnInit {
   gotoLogin(e){
     e.preventDefault();
     this.router.navigateByUrl("/login");
-  }
-
-  gotoVerification(e){
-    e.preventDefault();
-    this.router.navigateByUrl("/signup/verification");
-  }
-
-  ngOnInit(): void {
   }
 
 }

@@ -18,6 +18,15 @@ import { MainNavbarComponent } from 'projects/application/src/app/main-navbar/ma
 })
 export class LoginFormComponent implements OnInit {
 
+  loginForm = this.fb.group({
+    email: ["", Validators.required],
+    password: ["", Validators.required]
+  })
+
+  emailErrors: any[] = [];
+  passErrors: any[] = [];
+  nfErrors: any[] = [];
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -25,28 +34,29 @@ export class LoginFormComponent implements OnInit {
     private navbar: MainNavbarComponent
   ) { }
 
-  loginForm = this.fb.group({
-    email: ["", Validators.required],
-    password: ["", Validators.required]
-  })
+  ngOnInit(): void {
+  }
 
   loginSubmit(){
     this.loginApi.postLogin(this.loginForm.value)
-    .subscribe(
-      res => {
-        console.log(res);
-        if (JSON.stringify(res).includes("key")){
-          localStorage.setItem('token', res.key);
+      .subscribe(
+        res => {
+          console.log(res);
+          if (JSON.stringify(res).includes("key")){
+            localStorage.setItem('token', res.key);
 
-          // reload main navbar after login
-          this.navbar.ngOnInit();
-          this.router.navigateByUrl("/login/success");
+            // reload main navbar after login
+            this.navbar.ngOnInit();
+            this.router.navigateByUrl("/login/success");
+          }
+        },
+        err => {
+          console.log(err);
+          this.emailErrors = err.error.email;
+          this.passErrors = err.error.password;
+          this.nfErrors = err.error.non_field_errors;
         }
-      },
-      err => {
-        console.log(err);
-      }
-    )
+      )
   }
 
   gotoSignup(e){
@@ -59,9 +69,6 @@ export class LoginFormComponent implements OnInit {
   gotoRecovery(e){
     e.preventDefault();
     this.router.navigateByUrl("/login/recovery");
-  }
-
-  ngOnInit(): void {
   }
 
 }

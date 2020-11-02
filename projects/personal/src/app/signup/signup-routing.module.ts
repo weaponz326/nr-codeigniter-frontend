@@ -8,11 +8,10 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { VerificationAwaitComponent } from './verification-await/verification-await.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
-import { VerificationFormComponent } from './verification-form/verification-form.component';
 
 const routes: Routes = [
-  { 
-    path: "", 
+  {
+    path: "",
     component: SignupWrapperComponent,
     children: [
       { path: "", component: ProfileFormComponent },
@@ -20,9 +19,8 @@ const routes: Routes = [
       { path: "account", component: AccountFormComponent },
       { path: "await", component: VerificationAwaitComponent },
       { path: "success", component: SignupSuccessComponent },
-      { path: "verification", component: VerificationFormComponent },
       { path: "**", component: ProfileFormComponent },
-    ] 
+    ]
   }
 ];
 

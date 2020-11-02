@@ -14,14 +14,22 @@ import { SignupApiService } from '../signup-api.service';
 })
 export class ProfileFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router, private signupApi: SignupApiService) { }
-
   profileForm = this.fb.group({
     first_name: ["", Validators.required],
     last_name: ["", Validators.required],
     location: ["", Validators.required],
     about: ["", Validators.required]
   });
+
+  fnErrors: any[] = [];
+  lnErrors: any[] = [];
+  locErrors: any[] = [];
+  abtErrors: any[] = [];
+
+  constructor(private fb: FormBuilder, private router: Router, private signupApi: SignupApiService) { }
+
+  ngOnInit(): void {
+  }
 
   profileSubmit(){
     this.signupApi.postProfile(this.profileForm.value)
@@ -30,6 +38,11 @@ export class ProfileFormComponent implements OnInit {
           console.log(res);
           if(res.status == true){
             this.router.navigateByUrl("/signup/account");
+          }else if(res.status == false){
+            this.fnErrors = res.errors.first_name;
+            this.lnErrors = res.errors.last_name;
+            this.locErrors = res.errors.location;
+            this.abtErrors = res.errors.about;
           }
         },
         err => {
@@ -43,14 +56,6 @@ export class ProfileFormComponent implements OnInit {
   gotoLogin(e){
     e.preventDefault();
     this.router.navigateByUrl("/login");
-  }
-
-  gotoVerification(e){
-    e.preventDefault();
-    this.router.navigateByUrl("/signup/verification");
-  }
-
-  ngOnInit(): void {
   }
 
 }

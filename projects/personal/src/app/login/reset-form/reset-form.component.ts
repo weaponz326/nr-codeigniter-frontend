@@ -13,22 +13,34 @@ import { LoginApiService } from '../login-api.service';
 })
 export class ResetFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router, private loginApi: LoginApiService) { }
-
   resetForm = this.fb.group({
     password: ["", Validators.required],
     confirm: ["", Validators.required]
   })
 
-  resetSubmit(){
-    this.loginApi.sendReset(this.resetForm.value)
-      .subscribe(data => {
-        console.log(data);
-        this.router.navigateByUrl("/login/recsuccess");
-      })
-  }
+  pass1Errors: any[] = [];
+  pass2Errors: any[] = [];
+  nfErrors: any[] = [];
+
+  constructor(private fb: FormBuilder, private router: Router, private loginApi: LoginApiService) { }
 
   ngOnInit(): void {
+  }
+
+  resetSubmit(){
+    this.loginApi.sendReset(this.resetForm.value)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.router.navigateByUrl("/login/rec-success");
+        },
+        err => {
+          console.log(err);
+          this.pass1Errors = err.error.password1;
+          this.pass2Errors = err.error.password2;
+          this.nfErrors = err.error.non_field_errors;
+        }
+      )
   }
 
 }

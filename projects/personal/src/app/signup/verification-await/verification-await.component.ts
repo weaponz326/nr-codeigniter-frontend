@@ -16,17 +16,12 @@ import { startWith, switchMap } from 'rxjs/operators'
 })
 export class VerificationAwaitComponent implements OnInit {
 
-  constructor(private router: Router, private signupApi: SignupApiService) { }
-
   verStatus = false;
   verMsg = "Verify your email to finish with the registration";
 
-  gotoSuccess(){
-    this.router.navigateByUrl("/signup/success");
-  }
+  constructor(private router: Router, private signupApi: SignupApiService) { }
 
   ngOnInit(): void {
-
     interval(5000)
       .pipe(
         startWith(0),
@@ -45,6 +40,10 @@ export class VerificationAwaitComponent implements OnInit {
           console.log(err);
         }
       )
+  }
+
+  gotoSuccess(){
+    this.router.navigateByUrl("/signup/success");
   }
 
 }

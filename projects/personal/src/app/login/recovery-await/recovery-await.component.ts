@@ -17,10 +17,6 @@ export class RecoveryAwaitComponent implements OnInit {
 
   constructor(private router: Router, private loginApi: LoginApiService) { }
 
-  gotoReset(){
-    this.router.navigateByUrl("login/reset");
-  }
-
   ngOnInit(): void {
     let verStatus = false;
 
@@ -33,6 +29,10 @@ export class RecoveryAwaitComponent implements OnInit {
         verStatus = res.ver_status;
         console.log(res.ver_status);
       })
+  }
+
+  gotoReset(){
+    this.router.navigateByUrl("login/reset");
   }
 
 }
