@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PortalApiService } from '../portal-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -12,14 +13,16 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewRinkComponent implements OnInit {
 
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  personalId = localStorage.getItem('personal_id');
+  rink: any;
+
   constructor(
     private router: Router,
     private portalApi: PortalApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
-
-  personalId = localStorage.getItem('personal_id');
-  rink: any;
 
   ngOnInit(): void {
     console.log("this hook aint working");
@@ -41,6 +44,7 @@ export class ViewRinkComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { PortalApiService } from '../portal-api.service'
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { PortalApiService } from '../portal-api.service'
 export class SearchDetailComponent implements OnInit {
 
   @ViewChild('buttonReference') button: jqxButtonComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   searchDetail: any;
 
@@ -32,6 +35,7 @@ export class SearchDetailComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

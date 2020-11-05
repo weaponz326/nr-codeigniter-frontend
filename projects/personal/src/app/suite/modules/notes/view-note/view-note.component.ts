@@ -8,6 +8,8 @@ import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
 import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
 import { NotesApiService } from '../notes-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
@@ -29,6 +31,8 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("newNoteButtonReference") newNoteButton: jqxButtonComponent;
 
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   constructor(
     private router: Router,
@@ -51,6 +55,7 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
           },
           err => {
             console.log(err);
+            this.connectionNotification.errorNotification.open();
           }
         )
 
@@ -63,6 +68,7 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
           },
           err => {
             console.log(err);
+            this.connectionNotification.errorNotification.open();
           }
         )
     }
@@ -92,13 +98,18 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
         body: this.editor.val()
       }
 
+      this.loadingSpinner.httpLoader.open();
+
       this.notesApi.putNote(noteData)
         .subscribe(
           res => {
             console.log(res);
+            this.loadingSpinner.httpLoader.close();
           },
           err => {
             console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
           }
         )
     }else{
@@ -108,15 +119,20 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
         body: this.editor.val()
       }
 
+      this.loadingSpinner.httpLoader.open();
+
       this.notesApi.postNote(noteData)
         .subscribe(
           res => {
             console.log(res);
+            this.loadingSpinner.httpLoader.close();
             // set note id in session
             sessionStorage.setItem('note_id', res.note_id);
           },
           err => {
             console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
           }
         )
     }
@@ -132,15 +148,19 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
     if (value == 'yes'){
       console.log("so u are really gonna delete the item...");
 
+      this.loadingSpinner.httpLoader.open();
+
       this.notesApi.deleteNote()
         .subscribe(
           res => {
             console.log(res);
-
+            this.connectionNotification.errorNotification.open();
             // TODO refresh page after delete
           },
           err => {
             console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
           }
         )
     }
@@ -159,13 +179,18 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
         subject: event.args.value
       }
 
+      this.loadingSpinner.httpLoader.open();
+
       this.notesApi.putSubject(subjectData)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
     }
@@ -182,13 +207,18 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
         body: this.editor.val()
       }
 
+      this.loadingSpinner.httpLoader.open();
+
       this.notesApi.putBody(bodyData)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
     }

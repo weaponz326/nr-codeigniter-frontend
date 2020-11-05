@@ -10,6 +10,7 @@ import { jqxPasswordInputModule } from 'jqwidgets-ng/jqxpasswordinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { SettingsRoutingModule } from './settings-routing.module';
+import { UtilitiesModule } from '../../utilities/utilities.module';
 
 import { SettingsWrapperComponent } from './settings-wrapper/settings-wrapper.component';
 import { ViewSettingsComponent } from './view-settings/view-settings.component';
@@ -29,6 +30,7 @@ import { SecurityComponent } from './security/security.component';
   imports: [
     CommonModule,
     SettingsRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxInputModule,
     jqxDateTimeInputModule,

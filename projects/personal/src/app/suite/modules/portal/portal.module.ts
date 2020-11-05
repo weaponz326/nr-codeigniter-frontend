@@ -12,6 +12,7 @@ import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 
 import { PortalRoutingModule } from './portal-routing.module';
+import { UtilitiesModule } from '../../utilities/utilities.module';
 
 import { PortalWrapperComponent } from './portal-wrapper/portal-wrapper.component';
 import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
@@ -50,6 +51,7 @@ import { NoteDetailComponent } from './rink-details/note-detail/note-detail.comp
     CommonModule,
     ScrollingModule,
     PortalRoutingModule,
+    UtilitiesModule,
     jqxInputModule,
     jqxButtonModule,
     jqxPanelModule,

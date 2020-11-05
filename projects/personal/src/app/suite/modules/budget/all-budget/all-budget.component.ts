@@ -6,6 +6,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { BudgetApiService } from '../budget-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
 
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+  
   ngOnInit(): void {
   }
 
@@ -44,6 +47,7 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

@@ -8,6 +8,8 @@ import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 
 import { PortalApiService } from '../portal-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { TaskComponent } from '../rink-types/task/task.component';
 import { AppointmentComponent } from '../rink-types/appointment/appointment.component';
 import { NoteComponent } from '../rink-types/note/note.component';
@@ -29,6 +31,8 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
   @ViewChild('sendButtonReference') sendButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
 
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('appointmentSourceComponentReference') appointmentSourceComponent: AppointmentComponent;
   @ViewChild('taskSourceComponentReference') taskSourceComponent: TaskComponent;
   @ViewChild('noteSourceComponentReference') noteSourceComponent: NoteComponent;
@@ -55,6 +59,7 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -107,11 +112,14 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
 
     console.log(rinkData);
 
+    this.loadingSpinner.httpLoader.open();
+
     this.portalApi.postRink(rinkData)
       .subscribe(
         res => {
           console.log(res);
-
+          this.loadingSpinner.httpLoader.close();
+          
           if (res.status == true){
             sessionStorage.setItem('rink_id', res.rink_id);
             this.router.navigateByUrl('/suite/portal/view-rink');
@@ -119,6 +127,8 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

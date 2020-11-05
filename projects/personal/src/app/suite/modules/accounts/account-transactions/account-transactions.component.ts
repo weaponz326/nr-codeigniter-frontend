@@ -4,6 +4,8 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AccountsApiService } from '../accounts-api.service';
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -16,6 +18,9 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("addbuttonReference") addButton: jqxButtonComponent;
 
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+  
   // emit aggregate sum value of transactions
   @Output() calculateBalance = new EventEmitter<any>();
 
@@ -39,6 +44,7 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -128,10 +134,13 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
     console.log(transactionData);
 
+    this.loadingSpinner.httpLoader.open();
+
     this.accountsApi.postTransaction(transactionData)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
           commit(true, res.id);
 
           // reclaculate balance after change in table
@@ -139,6 +148,8 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -168,10 +179,13 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
       }
     }
 
+    this.loadingSpinner.httpLoader.open();
+
     this.accountsApi.putTransaction(rowid, transactionData)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
           commit(true, res.id);
 
           // reclaculate balance after change in table
@@ -179,6 +193,8 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -186,10 +202,13 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
   deleteRow(rowid, commit) {
     console.log("u are about deleting a row...");
 
+    this.loadingSpinner.httpLoader.open();
+
     this.accountsApi.deleteTransaction(rowid)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
           commit(true);
 
           // reclaculate balance after change in table
@@ -197,6 +216,8 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

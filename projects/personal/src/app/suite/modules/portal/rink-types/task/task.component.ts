@@ -4,6 +4,7 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { PortalApiService } from '../../portal-api.service';
+import { ConnectionNotificationComponent } from '../../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class TaskComponent implements OnInit, AfterViewInit {
 
   @ViewChild("taskWindowReference") taskWindow: jqxWindowComponent;
   @ViewChild("taskGridReference") taskGrid: jqxGridComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @Output() sourceSelected = new EventEmitter<object>();
 
@@ -38,6 +41,7 @@ export class TaskComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

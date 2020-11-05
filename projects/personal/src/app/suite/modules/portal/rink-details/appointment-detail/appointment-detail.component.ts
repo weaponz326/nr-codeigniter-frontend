@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { PortalApiService } from '../../portal-api.service';
+import { ConnectionNotificationComponent } from '../../../../utilities/connection-notification/connection-notification.component';
+
 
 @Component({
   selector: 'app-appointment-detail',
@@ -8,6 +10,8 @@ import { PortalApiService } from '../../portal-api.service';
   styleUrls: ['./appointment-detail.component.css']
 })
 export class AppointmentDetailComponent implements OnInit {
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   appointmentDetail: any;
 
@@ -22,6 +26,7 @@ export class AppointmentDetailComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

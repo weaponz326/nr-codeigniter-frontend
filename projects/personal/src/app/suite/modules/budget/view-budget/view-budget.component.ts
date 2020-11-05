@@ -6,6 +6,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
 import { BudgetApiService } from '../budget-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
@@ -23,6 +25,8 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
   @ViewChild('createdDateReference') createdDate: jqxDateTimeInputComponent;
   @ViewChild('saveBudgetReference') saveButton: jqxButtonComponent;
 
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
   ioe: any = 0;
@@ -47,6 +51,7 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -55,15 +60,20 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
     if (value == 'yes'){
       console.log("so u are really bent on deleting the item...");
 
+      this.loadingSpinner.httpLoader.open();
+
       this.budgetApi.deleteBudget()
         .subscribe(
           res => {
             console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
             this.router.navigateByUrl('/suite/budget/all-budget');
           },
           err => {
             console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
           }
         )
     }
@@ -94,13 +104,18 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
       budget_type: this.budgetTypeDropDownList.val(),
     }
 
+    this.loadingSpinner.httpLoader.open();
+
     this.budgetApi.putBudget(this.budgetData)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
 

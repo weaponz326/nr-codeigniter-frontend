@@ -4,6 +4,8 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { PortalApiService } from '../../portal-api.service';
+import { ConnectionNotificationComponent } from '../../../../utilities/connection-notification/connection-notification.component';
+
 
 @Component({
   selector: 'app-appointment',
@@ -14,6 +16,8 @@ export class AppointmentComponent implements OnInit, AfterViewInit {
 
   @ViewChild("appointmentWindowReference") appointmentWindow: jqxWindowComponent;
   @ViewChild("appointmentGridReference") appointmentGrid: jqxGridComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @Output() sourceSelected = new EventEmitter<object>();
 
@@ -37,6 +41,7 @@ export class AppointmentComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

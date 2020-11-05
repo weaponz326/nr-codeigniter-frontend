@@ -6,6 +6,8 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AccountTransactionsComponent } from '../account-transactions/account-transactions.component';
 import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { AccountsApiService } from '../accounts-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
@@ -23,6 +25,8 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
 
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
   @ViewChild('accountTransactionsComponentReference') accountTransactionsComponent: AccountTransactionsComponent;
 
@@ -48,21 +52,27 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
 
   deleteConfirmationSelected(value: string){
     if (value == 'yes'){
+      this.loadingSpinner.httpLoader.open();
+
       this.accountsApi.deleteAccount()
         .subscribe(
           res => {
             console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
             this.router.navigateByUrl('/suite/accounts/all-accounts');
           },
           err => {
             console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
           }
         )
     }
@@ -79,6 +89,7 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   accountData: any;
 
   saveAccount(){
+    this.loadingSpinner.httpLoader.open();
     console.log("u are updating the account");
 
     this.accountData = {
@@ -92,9 +103,12 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
 

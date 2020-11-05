@@ -5,6 +5,8 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { PortalApiService } from '../portal-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
+
 
 @Component({
   selector: 'app-timeline',
@@ -15,6 +17,8 @@ export class TimelineComponent implements OnInit {
 
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('newButtonReference') newSearchbutton: jqxButtonComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   personalId = localStorage.getItem('personal_id');
   rinks: any;
@@ -34,6 +38,7 @@ export class TimelineComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

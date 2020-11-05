@@ -8,6 +8,8 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { SettingsApiService } from '../settings-api.service';
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -31,6 +33,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   @ViewChild('addressReference') addressTextArea: jqxTextAreaComponent;
   @ViewChild('saveLocationButtonReference') saveLocationButton: jqxButtonComponent;
 
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
   constructor(private settingsApi: SettingsApiService) { }
 
   ngOnInit(): void {
@@ -48,6 +53,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
 
@@ -60,6 +66,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
 
@@ -74,6 +81,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -98,23 +106,31 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       about: this.aboutTextArea.val()
     }
 
+    this.loadingSpinner.httpLoader.open();
+
     this.settingsApi.putUser(user)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
 
-      this.settingsApi.putProfile(profile)
+    this.settingsApi.putProfile(profile)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -126,13 +142,18 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       date_of_birth: this.dobInput.val()
     }
 
+    this.loadingSpinner.httpLoader.open();
+
     this.settingsApi.postAdditionalProfile(profile)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
@@ -146,13 +167,18 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       address: this.addressTextArea.val(),
     }
 
+    this.loadingSpinner.httpLoader.open();
+
     this.settingsApi.postLocationDetails(location)
       .subscribe(
         res => {
           console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

@@ -6,6 +6,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { NotesApiService } from '../notes-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class AllNotesComponent implements OnInit, AfterViewInit {
 
   @ViewChild("searchInputReference") searchInput: jqxInputComponent;
   @ViewChild("gridReference") grid: jqxGridComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   constructor(
     private router: Router,
@@ -42,6 +45,7 @@ export class AllNotesComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

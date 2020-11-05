@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { PortalApiService } from '../../portal-api.service';
+import { ConnectionNotificationComponent } from '../../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { PortalApiService } from '../../portal-api.service';
   styleUrls: ['./task-detail.component.css']
 })
 export class TaskDetailComponent implements OnInit {
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   taskDetail: any;
 
@@ -23,6 +26,7 @@ export class TaskDetailComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

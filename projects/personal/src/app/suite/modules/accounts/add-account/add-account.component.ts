@@ -7,6 +7,8 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AccountsApiService } from '../accounts-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -22,6 +24,9 @@ export class AddAccountComponent implements OnInit {
   @ViewChild("accountNameReference") accountNameInput: jqxInputComponent;
   @ViewChild("accountNumberReference") accountNumberInput: jqxInputComponent;
   @ViewChild("bankNameReference") bankNameInput: jqxInputComponent;
+
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   accountData: any;
 
@@ -43,6 +48,8 @@ export class AddAccountComponent implements OnInit {
   }
 
   saveAccount(){
+    this.loadingSpinner.httpLoader.open();
+
     this.accountData = {
       user: localStorage.getItem('personal_id'),
       account_name: this.accountNameInput.val(),
@@ -54,14 +61,17 @@ export class AddAccountComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          if (res.status == true){
-            sessionStorage.setItem('account_id', res.account_id)
+          this.loadingSpinner.httpLoader.close();
 
+          if (res.status == true){
+            sessionStorage.setItem('account_id', res.account_id);
             this.router.navigateByUrl('/suite/accounts/view-account');
           }
         },
         err => {
           console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
         }
       )
 

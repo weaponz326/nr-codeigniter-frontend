@@ -6,6 +6,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { AccountsApiService } from '../accounts-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -18,6 +19,8 @@ export class AllAccountsComponent implements OnInit, AfterViewInit {
   @ViewChild('newButtonReference') newButton: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
   @ViewChild('transactionsButtonReference') transactionsButton: jqxButtonComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   constructor(
     private router: Router,
@@ -43,6 +46,7 @@ export class AllAccountsComponent implements OnInit, AfterViewInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }

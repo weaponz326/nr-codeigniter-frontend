@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { PortalApiService } from '../portal-api.service'
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { PortalApiService } from '../portal-api.service'
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   searchResults: any;
   searchInput = sessionStorage.getItem('searchInput');
@@ -29,6 +32,7 @@ export class SearchResultsComponent implements OnInit {
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
         }
       )
   }
