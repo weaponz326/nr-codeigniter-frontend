@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   @ViewChild("#drugsTooltipReference") drugsTooltip: jqxTooltipComponent;
   @ViewChild("#wardsTooltipReference") wardsTooltip: jqxTooltipComponent;
   @ViewChild("#admissionsTooltipReference") admissionsTooltip: jqxTooltipComponent;
+  @ViewChild("#dispensaryTooltipReference") dispensaryTooltip: jqxTooltipComponent;
   @ViewChild("#portalTooltipReference") portalTooltip: jqxTooltipComponent;
   @ViewChild("#settingsTooltipReference") settingsTooltip: jqxTooltipComponent;
 
@@ -56,7 +57,7 @@ export class HomeComponent implements OnInit {
         err => {
           console.log(err);
           console.log("the error comes from here");
-          // user is hasn't selected an account
+          // user hasn't selected an account
           this.isActive = false;
         }
       )

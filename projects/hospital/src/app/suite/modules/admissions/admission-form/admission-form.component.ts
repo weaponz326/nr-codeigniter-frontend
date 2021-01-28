@@ -4,6 +4,9 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 
+import { SelectPatientComponent } from '../select-patient/select-patient.component'
+
+
 @Component({
   selector: 'app-admission-form',
   templateUrl: './admission-form.component.html',
@@ -13,15 +16,29 @@ export class AdmissionFormComponent implements OnInit {
 
   @ViewChild('admissionCodeReference') admissionCode: jqxInputComponent;
   @ViewChild('admissionDateReference') admissionDate: jqxDateTimeInputComponent;
-  @ViewChild('dateDischargedReference') dateDischarged: jqxDateTimeInputComponent;
-  @ViewChild('patientNameReference') patientName: jqxDropDownListComponent;
-  @ViewChild('patientCodeReference') patientCode: jqxDropDownListComponent;
-  @ViewChild('assignedDoctorReference') assignedDoctor: jqxDropDownListComponent;
-  @ViewChild('wardReference') ward: jqxDropDownListComponent;
+  @ViewChild('dischargeDateReference') dischargeDate: jqxDateTimeInputComponent;
+  @ViewChild('patientNameReference') patientName: jqxInputComponent;
+  @ViewChild('patientCodeReference') patientCode: jqxInputComponent;
+  @ViewChild('admissionStatusReference') admissionStatus: jqxDropDownListComponent;
+  @ViewChild('wardReference') ward: jqxInputComponent;
+
+  @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
+
+  patientIdStore: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  patientSelected(patient: any){
+    console.log(patient);
+
+    this.patientName.val(patient.patient_name);
+    this.patientCode.val(patient.clinical_id);
+    this.patientIdStore = patient.id;
+  }
+
+  statusSource: any[] = ['Treatment', 'Admitted', 'Dischaged'];
 
 }

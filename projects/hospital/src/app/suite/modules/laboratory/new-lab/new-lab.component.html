@@ -1,15 +1,15 @@
-<jqxWindow #newLabReference 
-    [width]="540" 
-    [height]="280" 
+<jqxWindow #newLabReference
+    [width]="540"
+    [height]="180"
     [autoOpen]="false">
-    
+
     <div>Add New Lab</div>
 
     <div>
 
         <div>
-            <div class="edit-dialog-label-alt">Lab ID</div>
-            <div class="edit-dialog-field-alt">
+            <div class="edit-dialog-label">Lab ID</div>
+            <div class="edit-dialog-field">
                 <jqxInput #labCodeReference
                     [width]="'100%'"
                     [height]="25"
@@ -18,49 +18,20 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Lab Date</div>
-            <div class="edit-dialog-field-alt">
+            <div class="edit-dialog-label">Lab Date</div>
+            <div class="edit-dialog-field">
                 <jqxDateTimeInput #labDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Patient Name</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #patientNameReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxDropDownList>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Patient ID</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #patientCodeReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxDropDownList>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Refered By</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #referedByReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxDropDownList>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Lab Type</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #labDescriptionReference
+            <div class="edit-dialog-label">Lab Type</div>
+            <div class="edit-dialog-field">
+                <jqxInput #labTypeReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxInput>
@@ -68,11 +39,11 @@
         </div>
 
         <div>
-            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+            <div class="edit-dialog-field edit-dialog-buttons">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveLab()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -81,3 +52,8 @@
 
 </jqxWindow>
 
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

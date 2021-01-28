@@ -11,12 +11,12 @@ import { UserPageApiService } from '../user-page-api.service'
 })
 export class UserWrapperComponent implements OnInit {
 
+  accounts: any;
+
   constructor(
     private router: Router,
     private userPageApi: UserPageApiService
   ) { }
-
-  accounts: any;
 
   activateAccount(accountId){
     console.log(accountId);
@@ -26,7 +26,7 @@ export class UserWrapperComponent implements OnInit {
         res => {
           console.log(res);
 
-          localStorage.setItem('hospital_id', res.hospital_id);
+          sessionStorage.setItem('hospital_id', res.hospital_id);
           this.router.navigateByUrl('/suite');
         },
         err => {
@@ -37,15 +37,15 @@ export class UserWrapperComponent implements OnInit {
 
   ngOnInit(): void {
     this.userPageApi.getAccounts()
-    .subscribe(
-      res => {
-        console.log(res);
-        this.accounts = res;
-      },
-      err => {
-        console.log(err);
-      }
-    )
+      .subscribe(
+        res => {
+          console.log(res);
+          this.accounts = res;
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
 
 }

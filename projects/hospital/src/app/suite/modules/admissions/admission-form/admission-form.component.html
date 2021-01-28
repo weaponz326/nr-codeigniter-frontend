@@ -17,32 +17,32 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Admission Date :</label></div>
+            <div class="col-md-4"><label>Patient Name :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #admissionDateReference
-                    [width]="'100%'"
-                    [height]="28"
-                ></jqxDateTimeInput>
+                <jqxInput #patientNameReference
+                    [width]="'88%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Date Discharged :</label></div>
-            <div class="col-md-8">
-                <jqxDateTimeInput #dateDischargedReference
-                    [width]="'100%'"
-                    [height]="28"
-                ></jqxDateTimeInput>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4"><label>Assigned Doctor :</label></div>
-            <div class="col-md-8">
-                <jqxDropDownList #assignedDoctorReference
-                    [width]="'100%'"
-                    [height]="28"
-                ></jqxDropDownList>
+            <div class="col-md-4"><label>Patient ID :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #patientCodeReference
+                    [width]="'88%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
 
@@ -51,31 +51,45 @@
     <div class="col-md-6">
 
         <div class="row">
-            <div class="col-md-4"><label>Patient Name :</label></div>
+            <div class="col-md-4"><label>Admission Date :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #patientNameReference
+                <jqxDateTimeInput #admissionDateReference
                     [width]="'100%'"
                     [height]="28"
-                ></jqxDropDownList>
+                    [formatString]="'yyyy-MM-dd'"
+                    ></jqxDateTimeInput>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Patient ID :</label></div>
+            <div class="col-md-4"><label>Discharge Date :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #patientCodeReference
+                <jqxDateTimeInput #dischargeDateReference
                     [width]="'100%'"
                     [height]="28"
-                ></jqxDropDownList>
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4"><label>Ward :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #wardReference
+                <jqxInput #wardReference
                     [width]="'100%'"
                     [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Admission Status :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #admissionStatusReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [autoDropDownHeight]="true"
+                    [source]="statusSource"
                 ></jqxDropDownList>
             </div>
         </div>
@@ -85,3 +99,9 @@
 </div>
 
 <hr />
+
+<!-- select patient and doctor components -->
+
+<app-select-patient #selectPatientComponentReference
+    (patientEvent)="patientSelected($event)"
+></app-select-patient>

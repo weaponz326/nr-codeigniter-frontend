@@ -63,14 +63,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #staffTooltipReference
+                <jqxTooltip #diagnosisTooltipReference
                     [position]="'mouse'"
-                    [content]="'Manage all non medical staff'">
+                    [content]="'Manage all forms patients diagnosis'">
 
-                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
+                    <a href="#" (click)="suiteRoutes.goDiagnosisAll($event)">
                         <figure>
-                            <img src="../../../assets/images/modules/staff.png" class="home-icons" />
-                            <figcaption>Staff</figcaption>
+                            <img src="../../../assets/images/modules/diagnosis.png" class="home-icons" />
+                            <figcaption>Diagnosis</figcaption>
                         </figure>
                     </a>
 
@@ -145,14 +145,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #paymentsTooltipReference
+                <jqxTooltip #dispensaryTooltipReference
                     [position]="'mouse'"
-                    [content]="'Recieve payment of bills from patients'">
+                    [content]="'Dispense drugs to patients'">
 
-                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
+                    <a href="#" (click)="suiteRoutes.goDispensaryAll($event)">
                         <figure>
-                            <img src="../../../assets/images/modules/payments.png" class="home-icons" />
-                            <figcaption>Payments</figcaption>
+                            <img src="../../../assets/images/modules/dispensary.png" class="home-icons" />
+                            <figcaption>Dispensary</figcaption>
                         </figure>
                     </a>
 
@@ -190,14 +190,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #diagnosisTooltipReference
+                <jqxTooltip #staffTooltipReference
                     [position]="'mouse'"
-                    [content]="'Manage all forms patients diagnosis'">
+                    [content]="'Manage all other medical and non medical staff'">
 
-                    <a href="#" (click)="suiteRoutes.goDiagnosisAll($event)">
+                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
                         <figure>
-                            <img src="../../../assets/images/modules/diagnosis.png" class="home-icons" />
-                            <figcaption>Diagnosis</figcaption>
+                            <img src="../../../assets/images/modules/staff.png" class="home-icons" />
+                            <figcaption>Staff</figcaption>
                         </figure>
                     </a>
 
@@ -265,6 +265,21 @@
                         <figure>
                             <img src="../../../assets/images/modules/wards.png" class="home-icons" />
                             <figcaption>Wards</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #paymentsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Recieve payment of bills from patients'">
+
+                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
+                        <figure>
+                            <img src="../../../assets/images/modules/payments.png" class="home-icons" />
+                            <figcaption>Payments</figcaption>
                         </figure>
                     </a>
 

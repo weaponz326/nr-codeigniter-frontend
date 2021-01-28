@@ -1,17 +1,17 @@
 <div class="container">
-            
+
     <div class="module-heading row">
         <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
+
+            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
             <span class="fa fa-angle-double-right"></span>
-            <a href="#"><h3>Staff</h3></a>
+            <a href="#" (click)="this.suiteRoutes.goStaffAll($event)"><h3>Staff</h3></a>
             <span class="fa fa-angle-double-right"></span>
             <h3>View Staff</h3>
-            
+
             <hr class="header-line" />
             <hr class="header-line" />
-        
+
         </div>
     </div>
 
@@ -19,29 +19,33 @@
 
     <!-- staff page form -->
 
-    <app-staff-form></app-staff-form>
+    <app-staff-form #staffFormComponentReference></app-staff-form>
 
     <div class="row page-form-div">
         <div class="col-md-12">
 
             <div class="row">
                 <div class="col-md-12">
-                    
-                    <jqxButton #cancelButtonReference class="float-right"
+
+                    <jqxButton #cancelButtonReference class="float-right" (click)="this.suiteRoutes.goStaffAll($event)"
                         [width]="100"
                         [height]="28"
-                    >Cancel</jqxButton>                    
+                    >Cancel</jqxButton>
 
-                    <jqxButton #deleteButtonReference class="float-right"
+                    <jqxButton #deleteButtonReference class="float-right" (click)="deleteStaff()"
                         [width]="100"
                         [height]="28"
                     >Delete</jqxButton>
 
-                    <jqxButton #saveButtonReference class="float-right"
+                    <jqxButton #saveButtonReference class="float-right" (click)="saveStaff()"
                         [width]="100"
                         [height]="28"
                     >Save</jqxButton>
-                
+
+                    <!-- delete confirmation window sub component -->
+
+                    <app-delete-confirm #deleteConfirmComponentReference (confirmEvent)="deleteConfirmationSelected($event)"></app-delete-confirm>
+
                 </div>
             </div>
 
@@ -49,3 +53,9 @@
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

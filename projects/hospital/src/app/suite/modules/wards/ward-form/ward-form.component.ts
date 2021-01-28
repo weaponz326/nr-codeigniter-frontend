@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
+import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
+import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 
 @Component({
   selector: 'app-ward-form',
@@ -13,10 +14,9 @@ export class WardFormComponent implements OnInit {
 
   @ViewChild('wardNumberReference') wardNumber: jqxInputComponent;
   @ViewChild('wardNameReference') wardName: jqxInputComponent;
-  @ViewChild('locationReference') location: jqxInputComponent;
-  @ViewChild('capacityReference') capacity: jqxInputComponent;
+  @ViewChild('locationReference') location: jqxTextAreaComponent;
+  @ViewChild('capacityReference') capacity: jqxNumberInputComponent;
   @ViewChild('wardTypeReference') wardType: jqxComboBoxComponent;
-  @ViewChild('wardStatusReference') wardStatus: jqxDropDownListComponent;
 
   constructor() { }
 

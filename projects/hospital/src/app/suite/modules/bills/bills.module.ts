@@ -12,18 +12,19 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { BillsRoutingModule } from './bills-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { BillsWrapperComponent } from './bills-wrapper/bills-wrapper.component';
 import { AllBillsComponent } from './all-bills/all-bills.component';
 import { NewBillComponent } from './new-bill/new-bill.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
 import { BillDetailsComponent } from './bill-details/bill-details.component';
-import { TreatmentComponent } from './edit-bill/treatment/treatment.component';
-import { DoctorsComponent } from './edit-bill/doctors/doctors.component';
-import { MedicineComponent } from './edit-bill/medicine/medicine.component';
-import { LaboratoryComponent } from './edit-bill/laboratory/laboratory.component';
-import { WardComponent } from './edit-bill/ward/ward.component';
-import { ServicesComponent } from './edit-bill/services/services.component';
+import { SelectPatientComponent } from './select-patient/select-patient.component';
+import { SelectAdmissionComponent } from './select-admission/select-admission.component';
+import { AddGeneralComponent } from './add-general/add-general.component';
+import { EditGeneralComponent } from './edit-general/edit-general.component';
+import { GeneralFormComponent } from './general-form/general-form.component';
+import { GeneralDetailsComponent } from './general-details/general-details.component';
 
 
 @NgModule({
@@ -33,16 +34,17 @@ import { ServicesComponent } from './edit-bill/services/services.component';
     NewBillComponent,
     ViewBillComponent,
     BillDetailsComponent,
-    TreatmentComponent,
-    DoctorsComponent,
-    MedicineComponent,
-    LaboratoryComponent,
-    WardComponent,
-    ServicesComponent
+    SelectPatientComponent,
+    SelectAdmissionComponent,
+    AddGeneralComponent,
+    EditGeneralComponent,
+    GeneralFormComponent,
+    GeneralDetailsComponent
   ],
   imports: [
     CommonModule,
     BillsRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

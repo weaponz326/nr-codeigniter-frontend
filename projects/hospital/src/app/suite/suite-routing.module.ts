@@ -12,6 +12,14 @@ const routes: Routes = [
     loadChildren: () => import("./modules/admin/admin.module").then(m => m.AdminModule)
   },
   {
+    path: "portal",
+    loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
+  },
+  {
+    path: "settings",
+    loadChildren: () => import("./modules/settings/settings.module").then(m => m.SettingsModule)
+  },
+  {
     path: "patients",
     loadChildren: () => import("./modules/patients/patients.module").then(m => m.PatientsModule)
   },
@@ -64,13 +72,9 @@ const routes: Routes = [
     loadChildren: () => import("./modules/admissions/admissions.module").then(m => m.AdmissionsModule)
   },
   {
-    path: "portal",
-    loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
+    path: "dispensary",
+    loadChildren: () => import("./modules/dispensary/dispensary.module").then(m => m.DispensaryModule)
   },
-  {
-    path: "settings",
-    loadChildren: () => import("./modules/settings/settings.module").then(m => m.SettingsModule)
-  }
 ];
 
 @NgModule({

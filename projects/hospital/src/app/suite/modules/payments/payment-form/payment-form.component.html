@@ -17,6 +17,7 @@
                 <jqxDateTimeInput #paymentDateReference
                     [width]="'100%'"
                     [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -24,20 +25,30 @@
         <div class="row">
             <div class="col-md-4"><label>Patient Name :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #patientNameReference
+                <jqxInput #patientNameReference
                     [width]="'100%'"
                     [height]="28"
-                ></jqxDropDownList>
+                ></jqxInput>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4"><label>Patient ID :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #patientCodeReference
+                <jqxInput #patientCodeReference
                     [width]="'100%'"
                     [height]="28"
-                ></jqxDropDownList>
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Admission ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #admissionCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
             </div>
         </div>
 
@@ -46,16 +57,16 @@
         <div class="row">
             <div class="col-md-4"><label>Bill ID :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #billCodeReference
+                <jqxInput #billCodeReference
                     [width]="'100%'"
                     [height]="28"
-                ></jqxDropDownList>
+                ></jqxInput>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4"><label>Amount Due :</label></div>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <jqxNumberInput #amountDueReference
                     [width]="'100%'"
                     [height]="28"
@@ -69,7 +80,7 @@
 
         <div class="row">
             <div class="col-md-4"><label>Amount Paid :</label></div>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <jqxNumberInput #amountPaidReference
                     [width]="'100%'"
                     [height]="28"
@@ -83,7 +94,7 @@
 
         <div class="row">
             <div class="col-md-4"><label>Balance :</label></div>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <jqxNumberInput #balanceReference
                     [width]="'100%'"
                     [height]="28"
@@ -94,6 +105,6 @@
         </div>
 
         <hr />
-        
+
     </div>
 </div>

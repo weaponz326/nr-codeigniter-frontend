@@ -1,46 +1,117 @@
-<div class="container">
-            
-    <div class="module-heading row">
-        <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#"><h3>Payments</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>New Payment</h3>
-            
-            <hr class="header-line" />
-            <hr class="header-line" />
-        
-        </div>
-    </div>
+<jqxWindow #addPaymentReference
+    [width]="540"
+    [height]="285"
+    [autoOpen]="false">
 
-    <!-- --------------------------------------------------------------------------------------------- -->
+    <div>Add New Payment</div>
 
-    <!-- payment page form -->
+    <div>
 
-    <app-payment-form></app-payment-form>
-
-    <div class="row page-form-div">
-        <div class="col-md-12">
-
-            <div class="row">
-                <div class="col-md-6">
-                    
-                    <jqxButton #cancelButtonReference class="float-right"
-                        [width]="100"
-                        [height]="28"
-                    >Cancel</jqxButton>                    
-
-                    <jqxButton #saveButtonReference class="float-right"
-                        [width]="100"
-                        [height]="28"
-                    >Save</jqxButton>
-                
-                </div>
+        <div>
+            <div class="edit-dialog-label-alt">Payment ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #paymentCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
             </div>
-
         </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Payment Date</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #paymentDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Patient Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #patientNameReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Patient ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #patientCodeReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Admission ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #admissionCodeReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectAdmissionButton (click)="selectAdmission.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Bill ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #billCodeReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectBillButton (click)="selectBill.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="savePayment()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
     </div>
 
-</div>
+</jqxWindow>
+
+<!-- select patient, admission, and bill components -->
+
+<app-select-patient #selectPatientComponentReference
+    (patientEvent)="patientSelected($event)"
+></app-select-patient>
+
+<app-select-admission #selectAdmissionComponentReference
+    (admissionEvent)="admissionSelected($event)"
+></app-select-admission>
+
+<app-select-bill #selectBillComponentReference
+    (billEvent)="billSelected($event)"
+></app-select-bill>

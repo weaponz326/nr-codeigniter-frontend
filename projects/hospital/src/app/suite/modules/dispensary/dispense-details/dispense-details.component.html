@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-10">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Dispense Details</h4>
+            </div>
+        </div>
+
+        <div class="row top-button-row">
+          <div class="col-md-12">
+              <jqxButton #buttonReference (click)="addDetail.openWindow()"
+                  [width]="150"
+                  [height]="30"
+              >Add Drug</jqxButton>
+          </div>
+      </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <jqxGrid #gridReference (onRowdoubleclick)="editDetail.openWindow($event)"
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [source]="dataAdapter"
+                    [rowsheight]="40"
+                    [columns]="columns"
+                ></jqxGrid>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- add and edit medicine detail components -->
+
+<app-add-detail #addDetailComponentReference
+    (addCommit)="onAddCommit($event)"
+></app-add-detail>
+
+<app-edit-detail #editDetailComponentReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-detail>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

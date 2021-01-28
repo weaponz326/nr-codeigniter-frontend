@@ -1,24 +1,24 @@
-<jqxWindow #editAppointmentReference 
-    [width]="540" 
-    [height]="375" 
+<jqxWindow #editAppointmentReference
+    [width]="540"
+    [height]="375"
     [autoOpen]="false">
-    
+
     <div>Edit Appointment</div>
 
     <div>
 
         <!-- appointment window form -->
-        <app-appointment-form></app-appointment-form>
+        <app-appointment-form #appointmentFormComponentReference></app-appointment-form>
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #deleteButtonReference
+                <jqxButton #deleteButtonReference (click)="deleteAppointment()"
                 >Delete</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveAppointment()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -26,4 +26,4 @@
     </div>
 
 </jqxWindow>
-  
+

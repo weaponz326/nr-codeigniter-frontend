@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <h4>General Charges</h4>
+    </div>
+</div>
+
+<div class="row top-button-row">
+    <div class="col-md-12">
+        <jqxButton #buttonReference (click)="addGeneralBillComponentReference.openWindow()"
+            [width]="150"
+            [height]="30"
+        >Add Item</jqxButton>
+    </div>
+</div>
+
+<jqxGrid #gridReference (click)="addGeneralBillComponentReference.openWindow()"
+    [width]="'100%'"
+    [autoheight]="true"
+    [rowsheight]="24"
+    [showstatusbar]="true"
+    [showaggregates]="true"
+    [columns]="columns"
+></jqxGrid>
+
+<!-- add and edit general bill dialogue windows -->
+
+<!-- <app-add-general #addGeneralBillComponentReference
+    (addCommit)="onGeneralBillAddCommit($event)"
+></app-add-general>
+
+<app-edit-general #editGeneralBillComponentReference
+    (editCommit)="onGeneralBillEditCommit($event)"
+    (deleteCommit)="onGeneralBillDeleteCommit($event)"
+></app-edit-general> -->
+
+<app-add-general #addGeneralBillComponentReference
+
+></app-add-general>
+
+<app-edit-general #editGeneralBillComponentReference
+
+></app-edit-general>

@@ -1,145 +1,83 @@
 <div class="row page-form-div">
 
-    <div class="col-md-7">
+    <div class="col-md-6">
 
         <div class="row">
             <div class="col-md-12">
-                <h4>Bill Details</h4>
+                <h4>Admission Charges</h4>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-5"><label>Treatment Charges :</label></div>
-            <div class="col-md-5">
-                <jqxNumberInput #treatmentInputReference
+            <div class="col-md-12">
+                <jqxGrid #appointmentsGridReference
                     [width]="'100%'"
-                    [height]="28"
-                    [inputMode]="'simple'"
-                    [symbol]="'$'"
-                ></jqxNumberInput>
-            </div>
-            <div class="col-md-2">
-                <jqxButton #treatmentButtonReference (click)="treatmentWindowReference.openWindow()"
-                    [width]="'100%'"
-                    [height]="28"
-                >Edit</jqxButton>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5"><label>Doctor's Charges :</label></div>
-            <div class="col-md-5">
-                <jqxNumberInput #doctorsInputReference
-                    [width]="'100%'"
-                    [height]="28"
-                    [inputMode]="'simple'"
-                    [symbol]="'$'"
-                ></jqxNumberInput>
-            </div>
-            <div class="col-md-2">
-                <jqxButton #doctorsButtonReference (click)="doctorsWindowReference.openWindow()"
-                    [width]="'100%'"
-                    [height]="28"
-                >Edit</jqxButton>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5"><label>Medicine Charges :</label></div>
-            <div class="col-md-5">
-                <jqxNumberInput #medicineInputReference
-                    [width]="'100%'"
-                    [height]="28"
-                    [inputMode]="'simple'"
-                    [symbol]="'$'"
-                ></jqxNumberInput>
-            </div>
-            <div class="col-md-2">
-                <jqxButton #medicineButtonReference (click)="medicineWindowReference.openWindow()"
-                    [width]="'100%'"
-                    [height]="28"
-                >Edit</jqxButton>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5"><label>Laboratory Charges :</label></div>
-            <div class="col-md-5">
-                <jqxNumberInput #laboratoryInputReference 
-                    [width]="'100%'"
-                    [height]="28"
-                    [inputMode]="'simple'"
-                    [symbol]="'$'"
-                ></jqxNumberInput>
-            </div>
-            <div class="col-md-2">
-                <jqxButton #laboratoryButtonReference (click)="medicineWindowReference.openWindow()"
-                    [width]="'100%'"
-                    [height]="28"
-                >Edit</jqxButton>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5"><label>Ward Charges :</label></div>
-            <div class="col-md-5">
-                <jqxNumberInput #wardInputReference 
-                    [width]="'100%'"
-                    [height]="28"
-                    [inputMode]="'simple'"
-                    [symbol]="'$'"
-                ></jqxNumberInput>
-            </div>
-            <div class="col-md-2">
-                <jqxButton #wardButtonReference (click)="wardWindowReference.openWindow()"
-                    [width]="'100%'"
-                    [height]="28"
-                >Edit</jqxButton>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5"><label>Services Charges :</label></div>
-            <div class="col-md-5">
-                <jqxNumberInput #servicesInputReference 
-                    [width]="'100%'"
-                    [height]="28"
-                    [inputMode]="'simple'"
-                    [symbol]="'$'"
-                ></jqxNumberInput>
-            </div>
-            <div class="col-md-2">
-                <jqxButton #servicesButtonReference (click)="servicesWindowReference.openWindow()"
-                    [width]="'100%'"
-                    [height]="28"
-                >Edit</jqxButton>
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="appointmentColumns"
+                    [columngroups]="appointmentColumnGroups"
+                ></jqxGrid>
             </div>
         </div>
 
         <br />
 
         <div class="row">
-            <div class="col-md-5"><label>Total Charges :</label></div>
-            <div class="col-md-5">
-                <jqxNumberInput #totalInputReference
+            <div class="col-md-12">
+                <jqxGrid #laboratoryGridReference
                     [width]="'100%'"
-                    [height]="28"
-                    [inputMode]="'simple'"
-                    [symbol]="'$'"
-                ></jqxNumberInput>
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="laboratoryColumns"
+                    [columngroups]="laboratoryColumnGroups"
+                ></jqxGrid>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <jqxGrid #dispensaryGridReference
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="dispensaryColumns"
+                    [columngroups]="dispensaryColumnGroups"
+                ></jqxGrid>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <jqxGrid #wardGridReference
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [rowsheight]="24"
+                    [showstatusbar]="true"
+                    [showaggregates]="true"
+                    [columns]="wardColumns"
+                    [columngroups]="wardColumnGroups"
+                ></jqxGrid>
             </div>
         </div>
 
     </div>
 
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+
+    <div class="col-md-6">
+
+        <app-general-details></app-general-details>
+
+    </div>
+
 </div>
-
-<!-- edit bill popup windows
-for all edit bill types -->
-
-<app-treatment #treatmentWindowReference></app-treatment>
-<app-doctors #doctorsWindowReference></app-doctors>
-<app-medicine #medicineWindowReference></app-medicine>
-<app-laboratory #laboratoryWindowReference></app-laboratory>
-<app-ward #wardWindowReference></app-ward>
-<app-services #servicesWindowReference></app-services>

@@ -1,0 +1,26 @@
+<jqxWindow #addDetailReference (onOpen)="detailForm.drugInput.focus()"
+    [width]="540"
+    [height]="210"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Add Drug Details</div>
+
+    <div>
+
+        <app-detail-form #detailFormComponentReference></app-detail-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveDetail()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

@@ -1,8 +1,8 @@
-<jqxWindow #addDiagnosisReference 
-    [width]="540" 
-    [height]="250" 
+<jqxWindow #addDiagnosisReference
+    [width]="540"
+    [height]="150"
     [autoOpen]="false">
-    
+
     <div>Add New Diagnosis</div>
 
     <div>
@@ -16,44 +16,15 @@
                 ></jqxInput>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label-alt">Diagnosis Date</div>
             <div class="edit-dialog-field-alt">
                 <jqxDateTimeInput #diagnosisDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Patient Name</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #patientNameReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxDropDownList>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Patient ID</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #patientCodeReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxDropDownList>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Diagnosing Doctor</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #diagnosingDoctorReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxDropDownList>
             </div>
         </div>
 
@@ -62,7 +33,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveDiagnosis()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -70,4 +41,9 @@
     </div>
 
 </jqxWindow>
-  
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

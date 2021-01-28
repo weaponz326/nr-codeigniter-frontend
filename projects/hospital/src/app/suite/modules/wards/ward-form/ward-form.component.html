@@ -27,12 +27,15 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Location :</label></div>
-            <div class="col-md-8">
-                <jqxInput #locationReference
+            <div class="col-md-4"><label>Capacity :</label></div>
+            <div class="col-md-4">
+                <jqxNumberInput #capacityReference
                     [width]="'100%'"
                     [height]="28"
-                ></jqxInput>
+                    [decimalDigits]="0"
+                    [inputMode]="'simple'"
+                    [spinButtons]="true"
+                ></jqxNumberInput>
             </div>
         </div>
 
@@ -51,22 +54,12 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Capacity :</label></div>
+            <div class="col-md-4"><label>Location :</label></div>
             <div class="col-md-8">
-                <jqxInput #capacityReference
+                <jqxTextArea #locationReference
                     [width]="'100%'"
-                    [height]="28"
-                ></jqxInput>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4"><label>Ward Status :</label></div>
-            <div class="col-md-8">
-                <jqxDropDownList #wardStatusReference
-                    [width]="'100%'"
-                    [height]="28"
-                ></jqxDropDownList>
+                    [height]="45"
+                ></jqxTextArea>
             </div>
         </div>
 

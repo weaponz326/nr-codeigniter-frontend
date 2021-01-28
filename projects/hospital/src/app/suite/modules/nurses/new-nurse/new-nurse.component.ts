@@ -1,6 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+
+import { NursesApiService } from '../nurses-api.service';
+import { SuiteRoutesService } from '../../../suite-routes.service';
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
+
+import { NurseFormComponent } from '../nurse-form/nurse-form.component'
 
 @Component({
   selector: 'app-new-nurse',
@@ -12,9 +20,59 @@ export class NewNurseComponent implements OnInit {
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
 
-  constructor() { }
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  @ViewChild('nurseFormComponentReference') nurseForm: NurseFormComponent;
+
+  constructor(
+    private router: Router,
+    private nursesApi: NursesApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  saveNurse(){
+    console.log('u are saving a new nurse');
+    this.loadingSpinner.httpLoader.open();
+
+    var nurseData = {
+      hospital_id: sessionStorage.getItem('hospital_id'),
+      first_name: this.nurseForm.firstNameInput.val(),
+      last_name: this.nurseForm.lastNameInput.val(),
+      sex: this.nurseForm.sexDropDownList.val(),
+      date_of_birth: this.nurseForm.dobInput.val(),
+      nationality: this.nurseForm.nationalityInput.val(),
+      religion: this.nurseForm.religionInput.val(),
+      phone: this.nurseForm.phoneInput.val(),
+      email: this.nurseForm.emailInput.val(),
+      address: this.nurseForm.addressInput.val(),
+      state: this.nurseForm.stateInput.val(),
+      city: this.nurseForm.cityInput.val(),
+      post_code: this.nurseForm.postCodeInput.val(),
+      nurse_code: this.nurseForm.nurseCodeInput.val(),
+      department: this.nurseForm.departmentInput.val(),
+      work_status: this.nurseForm.workStatusDropDownList.val(),
+      started_work: this.nurseForm.startedWorkDateInput.val(),
+      ended_work: this.nurseForm.endedWorkDateInput.val(),
+    }
+
+    console.log(nurseData);
+
+    this.nursesApi.postNurse(nurseData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

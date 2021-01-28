@@ -10,6 +10,7 @@ import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { DrugsRoutingModule } from './drugs-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { DrugsWrapperComponent } from './drugs-wrapper/drugs-wrapper.component';
 import { AllDrugsComponent } from './all-drugs/all-drugs.component';
@@ -29,6 +30,7 @@ import { DrugFormComponent } from './drug-form/drug-form.component';
   imports: [
     CommonModule,
     DrugsRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

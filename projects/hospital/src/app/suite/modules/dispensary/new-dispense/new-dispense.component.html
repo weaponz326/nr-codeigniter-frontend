@@ -1,0 +1,49 @@
+<jqxWindow #newDispenseReference
+    [width]="540"
+    [height]="150"
+    [autoOpen]="false">
+
+    <div>Add New Dispense</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Dispense ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #dispenseCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Dispense Date</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #dispenseDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveDispense()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

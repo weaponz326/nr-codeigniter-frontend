@@ -11,30 +11,45 @@
 <div>
     <div class="edit-dialog-label-alt">Patient Name</div>
     <div class="edit-dialog-field-alt">
-        <jqxDropDownList #patientNameReference
-            [width]="'100%'"
+        <jqxInput #patientNameReference
+            [width]="'90%'"
             [height]="25"
-        ></jqxDropDownList>
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
     </div>
 </div>
 
 <div>
     <div class="edit-dialog-label-alt">Patient ID</div>
     <div class="edit-dialog-field-alt">
-        <jqxDropDownList #patientCodeReference
-            [width]="'100%'"
+        <jqxInput #patientCodeReference
+            [width]="'90%'"
             [height]="25"
-        ></jqxDropDownList>
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
     </div>
 </div>
 
 <div>
     <div class="edit-dialog-label-alt">Consultant Name</div>
     <div class="edit-dialog-field-alt">
-        <jqxDropDownList #consultantNameReference
-            [width]="'100%'"
+        <jqxInput #consultantNameReference
+            [width]="'90%'"
             [height]="25"
-        ></jqxDropDownList>
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selecDoctorButton (click)="selectDoctor.openWindow()"
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
     </div>
 </div>
 
@@ -45,6 +60,7 @@
             [width]="'100%'"
             [height]="25"
             [showTimeButton]="true"
+            [formatString]="'yyyy-MM-dd hh:mm:ss'"
         ></jqxDateTimeInput>
     </div>
 </div>
@@ -80,3 +96,13 @@
         ></jqxDropDownList>
     </div>
 </div>
+
+<!-- select patient and doctor components -->
+
+<app-select-patient #selectPatientComponentReference
+  (patientEvent)="patientSelected($event)"
+></app-select-patient>
+
+<app-select-doctor #selectDoctorComponentReference
+  (doctorEvent)="doctorSelected($event)"
+></app-select-doctor>

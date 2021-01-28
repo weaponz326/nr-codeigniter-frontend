@@ -1,0 +1,20 @@
+<jqxWindow #selectAdmissionWindowReference
+    [width]="555"
+    [height]="600"
+    [autoOpen]="false">
+
+    <div>Select Payment's Admission</div>
+
+    <div>
+        <jqxGrid #selectAdmissionGridReference (onRowdoubleclick)="selectAdmission($event)"
+            [width]="540"
+            [height]="555"
+            [source]="dataAdapter"
+            [sortable]="true"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+
+</jqxWindow>

@@ -7,14 +7,17 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxFileUploadModule } from 'jqwidgets-ng/jqxfileupload';
 
 import { LaboratoryRoutingModule } from './laboratory-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { LaboratoryWrapperComponent } from './laboratory-wrapper/laboratory-wrapper.component';
 import { AllLabsComponent } from './all-labs/all-labs.component';
 import { NewLabComponent } from './new-lab/new-lab.component';
 import { ViewLabComponent } from './view-lab/view-lab.component';
-import { LabTestsComponent } from './lab-tests/lab-tests.component';
+import { SelectPatientComponent } from './select-patient/select-patient.component';
+import { SelectDoctorComponent } from './select-doctor/select-doctor.component';
 
 
 @NgModule({
@@ -23,17 +26,20 @@ import { LabTestsComponent } from './lab-tests/lab-tests.component';
     AllLabsComponent,
     NewLabComponent,
     ViewLabComponent,
-    LabTestsComponent
+    SelectPatientComponent,
+    SelectDoctorComponent,
   ],
   imports: [
     CommonModule,
     LaboratoryRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxDropDownListModule,
-    jqxWindowModule
+    jqxWindowModule,
+    jqxFileUploadModule
   ]
 })
 export class LaboratoryModule { }

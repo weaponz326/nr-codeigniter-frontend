@@ -1,0 +1,81 @@
+<div>
+    <div class="edit-dialog-label-alt">Patient Name</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #patientNameReference
+            [width]="'90%'"
+            [height]="25"
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Patient ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #patientCodeReference
+            [width]="'90%'"
+            [height]="25"
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Bed No.</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #bedNumberReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+</div>
+
+<div>
+      <div class="edit-dialog-label-alt">Date Admitted</div>
+      <div class="edit-dialog-field-alt">
+          <jqxDateTimeInput #dateAdmittedReference
+              [width]="'100%'"
+              [height]="25"
+              [showTimeButton]="true"
+              [formatString]="'yyyy-MM-dd'"
+          ></jqxDateTimeInput>
+      </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Date Discharged</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #dateDischargedReference
+            [width]="'100%'"
+            [height]="25"
+            [showTimeButton]="true"
+            [formatString]="'yyyy-MM-dd'"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Status</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #statusReference
+            [source]="statusSource"
+            [width]="'100%'"
+            [height]="25"
+            [autoDropDownHeight]="true"
+        ></jqxDropDownList>
+    </div>
+</div>
+
+<!-- select patient and doctor components -->
+
+<app-select-patient #selectPatientComponentReference
+    (patientEvent)="patientSelected($event)"
+></app-select-patient>

@@ -5,10 +5,12 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { NursesRoutingModule } from './nurses-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { NursesWrapperComponent } from './nurses-wrapper/nurses-wrapper.component';
 import { AllNursesComponent } from './all-nurses/all-nurses.component';
@@ -28,12 +30,14 @@ import { NurseFormComponent } from './nurse-form/nurse-form.component';
   imports: [
     CommonModule,
     NursesRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
-    jqxRadioButtonModule,
-    jqxTextAreaModule
+    jqxDropDownListModule,
+    jqxTextAreaModule,
+    jqxPanelModule,
   ]
 })
 export class NursesModule { }

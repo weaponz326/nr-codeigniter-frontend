@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 
 @Component({
   selector: 'app-doctor-form',
@@ -14,10 +14,12 @@ export class DoctorFormComponent implements OnInit {
 
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
-  @ViewChild('sexReference') sexRadioButton: jqxRadioButtonComponent;
+  @ViewChild('sexReference') sexDropDownList: jqxDropDownListComponent;
   @ViewChild('dobReference') dobInput: jqxDateTimeInputComponent;
   @ViewChild('nationalityReference') nationalityInput: jqxInputComponent;
   @ViewChild('religionReference') religionInput: jqxInputComponent;
+  @ViewChild('phoneReference') phoneInput: jqxInputComponent;
+  @ViewChild('emailReference') emailInput: jqxInputComponent;
   @ViewChild('addressReference') addressInput: jqxTextAreaComponent;
   @ViewChild('stateReference') stateInput: jqxInputComponent;
   @ViewChild('cityReference') cityInput: jqxInputComponent;
@@ -25,6 +27,12 @@ export class DoctorFormComponent implements OnInit {
   @ViewChild('doctorCodeReference') doctorCodeInput: jqxInputComponent;
   @ViewChild('specialityReference') specialityInput: jqxInputComponent;
   @ViewChild('departmentReference') departmentInput: jqxInputComponent;
+  @ViewChild('workStatusReference') workStatusDropDownList: jqxDropDownListComponent;
+  @ViewChild('startedWorkDateReference') startedWorkDateInput: jqxDateTimeInputComponent;
+  @ViewChild('endedWorkDateReference') endedWorkDateInput: jqxDateTimeInputComponent;
+
+  sexSource: any[] = ["Male", "Female"];
+  workStatusSource: any[] = ["Active", "Transfered", "Retired"];
 
   constructor() { }
 

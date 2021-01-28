@@ -13,19 +13,30 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class DrugFormComponent implements OnInit {
 
-  @ViewChild('drugCodeReference') drugCode: jqxInputComponent;
-  @ViewChild('drugCodeReference') drugName: jqxInputComponent;
-  @ViewChild('drugCodeReference') genericName: jqxInputComponent;
-  @ViewChild('drugCodeReference') category: jqxComboBoxComponent;
-  @ViewChild('drugCodeReference') details: jqxTextAreaComponent;
-  @ViewChild('drugCodeReference') manufacturer: jqxInputComponent;
-  @ViewChild('drugCodeReference') quantity: jqxNumberInputComponent;
-  @ViewChild('drugCodeReference') expiryDate: jqxDateTimeInputComponent;
-  @ViewChild('drugCodeReference') storageBin: jqxInputComponent;
+  @ViewChild('ndcNumberReference') ndcNumber: jqxInputComponent;
+  @ViewChild('drugNameReference') drugName: jqxInputComponent;
+  @ViewChild('genericNameReference') genericName: jqxInputComponent;
+  @ViewChild('unitDoseReference') unitDose: jqxInputComponent;
+  @ViewChild('manufacturerReference') manufacturer: jqxInputComponent;
+  @ViewChild('drugTypeReference') drugType: jqxComboBoxComponent;
+  @ViewChild('categoryReference') category: jqxComboBoxComponent;
+  @ViewChild('unitPriceReference') unitPrice: jqxNumberInputComponent;
+  @ViewChild('batchNumberReference') batchNumber: jqxNumberInputComponent;
+  @ViewChild('purchasedDateReference') purchasedDate: jqxDateTimeInputComponent;
+  @ViewChild('initialQuantityReference') initialQuantity: jqxNumberInputComponent;
+  @ViewChild('dispensedQuantityReference') dispensedQuantity: jqxNumberInputComponent;
+  @ViewChild('remainingQuantityReference') remainingQuantity: jqxNumberInputComponent;
+  @ViewChild('manufacturingDateReference') manufacturingDate: jqxDateTimeInputComponent;
+  @ViewChild('expiryDateReference') expiryDate: jqxDateTimeInputComponent;
+  @ViewChild('storageLocationReference') storageLocation: jqxInputComponent;
+  @ViewChild('storageBinReference') storageBin: jqxInputComponent;
+  @ViewChild('refillOrderedReference') refillOrdered: jqxDateTimeInputComponent;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  drugTypeSource: any[] = ['Capsules', 'Syrup', 'Tablets'];
 
 }

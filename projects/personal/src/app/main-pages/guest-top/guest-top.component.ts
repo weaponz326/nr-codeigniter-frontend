@@ -13,17 +13,41 @@ export class GuestTopComponent implements OnInit {
 
   constructor(private router: Router, private navbarApi: MainNavbarApiService) { }
 
-  @Input() source: "string"
-  @Input() suiteName: "string"
-  @Input() primaryCaption: "string"
-  @Input() secondaryCaption: "string"
-  @Input() features: "object"
+  @Input() source: string
+  @Input() suiteName: string
+  @Input() primaryCaption: string
+  @Input() secondaryCaption: string
+  @Input() features: object
 
   createAccount(e){
     e.preventDefault();
-    this.router.navigateByUrl("/signup");     // all suites have a signup route
 
     console.log("u are about to create an account or accounts");
+
+    // for non personal suites
+    if (this.suiteName != "Personal"){
+      this.navbarApi.getUser()
+      .subscribe(
+        res => {
+          console.log(res);
+
+          // move straight to suite registration if user is logged in
+          if (res.logged_in == true){
+            this.router.navigateByUrl("/register");
+          }else{
+            this.router.navigateByUrl("/signup");     // all suites have a signup route
+          }
+        },
+        err => {
+          console.log(err);
+        }
+      )
+    }
+
+    // for pesonal suite
+    else{
+      this.router.navigateByUrl("/signup");
+    }
   }
 
   goForTour(e){

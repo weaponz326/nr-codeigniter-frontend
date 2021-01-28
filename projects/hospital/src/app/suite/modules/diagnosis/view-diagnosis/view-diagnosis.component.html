@@ -1,21 +1,21 @@
 <div class="container">
-            
+
     <div class="module-heading row">
         <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
+
+            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
             <span class="fa fa-angle-double-right"></span>
-            <a href="#"><h3>Diagnosis</h3></a>
+            <a href="#" (click)="this.suiteRoutes.goDiagnosisAll($event)"><h3>Diagnosis</h3></a>
             <span class="fa fa-angle-double-right"></span>
             <h3>View Diagnosis</h3>
 
             <hr class="header-line" />
             <hr class="header-line" />
-        
+
         </div>
     </div>
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------------------------------------- -->
 
     <div class="row page-form-div">
 
@@ -31,52 +31,18 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="col-md-6">
+
             <div class="row">
                 <div class="col-md-4"><label>Diagnosis Date :</label></div>
                 <div class="col-md-8">
                     <jqxDateTimeInput #diagnosisDateReference
                         [width]="'100%'"
                         [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
                     ></jqxDateTimeInput>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4"><label>Patient Name :</label></div>
-                <div class="col-md-8">
-                    <jqxDropDownList #patientNameReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxDropDownList>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4"><label>Patient ID :</label></div>
-                <div class="col-md-8">
-                    <jqxDropDownList #patientCodeReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxDropDownList>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4"><label>Diagnosing Doctor :</label></div>
-                <div class="col-md-8">
-                    <jqxDropDownList #diagnosingDoctorReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxDropDownList>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <jqxButton #saveDiagnosisReference class="float-right"
-                        [width]="100"
-                        [height]="28"
-                    >Save</jqxButton>
                 </div>
             </div>
 
@@ -84,8 +50,118 @@
 
     </div>
 
+    <hr />
+
+<!-- --------------------------------------------------------------------------------------------- -->
+
+    <div class="row page-form-div">
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Patient Name :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #patientNameReference
+                        [width]="'88%'"
+                        [height]="25"
+                        [disabled]="true"
+                    ></jqxInput>
+                    <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                        [width]="'10%'"
+                        [height]="25"
+                    >...</jqxButton>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Patient ID :</label></div>
+                    <div class="col-md-8">
+                        <jqxInput #patientCodeReference
+                        [width]="'88%'"
+                        [height]="25"
+                        [disabled]="true"
+                    ></jqxInput>
+                    <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                        [width]="'10%'"
+                        [height]="25"
+                    >...</jqxButton>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Diagnosing Doctor :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #doctorNameReference
+                        [width]="'88%'"
+                        [height]="25"
+                        [disabled]="true"
+                    ></jqxInput>
+                    <jqxButton #selectDoctorButton (click)="selectDoctor.openWindow()"
+                        [width]="'10%'"
+                        [height]="25"
+                    >...</jqxButton>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr />
+
+    <!-- ------------------------------------------------------------------------------------------------------------------- -->
     <!-- diagnosis details -->
 
-    <app-diagnosis-details></app-diagnosis-details>
+    <app-diagnosis-details #diagnosisDetailsComponentReference></app-diagnosis-details>
+
+    <!-- ------------------------------------------------------------------------------------------------------------------- -->
+
+    <hr />
+
+    <div class="row page-form-div">
+        <div class="col-md-12">
+
+            <jqxButton #cancelLabReference class="float-right" (click)="this.suiteRoutes.goHome($event)"
+                [width]="100"
+                [height]="28"
+            >Cancel</jqxButton>
+
+            <jqxButton #deleteLabReference class="float-right" (click)="deleteDiagnosis()"
+                [width]="100"
+                [height]="28"
+            >Delete</jqxButton>
+
+            <jqxButton #saveLabReference class="float-right" (click)="saveDiagnosis()"
+                [width]="100"
+                [height]="28"
+            >Save</jqxButton>
+
+            <!-- delete confirmation window sub component -->
+
+            <app-delete-confirm #deleteConfirmComponentReference (confirmEvent)="deleteConfirmationSelected($event)"></app-delete-confirm>
+
+        </div>
+    </div>
 
 </div>
+
+<!-- select patient and doctor components -->
+
+<app-select-patient #selectPatientComponentReference
+    (patientEvent)="patientSelected($event)"
+></app-select-patient>
+
+<app-select-doctor #selectDoctorComponentReference
+    (doctorEvent)="doctorSelected($event)"
+></app-select-doctor>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>
+

@@ -1,0 +1,26 @@
+<jqxWindow #addPatientReference
+    [width]="540"
+    [height]="290"
+    [autoOpen]="false">
+
+    <div>Add Ward's Patient</div>
+
+    <div>
+
+        <!-- patient window form -->
+        <app-patient-form #patientFormComponentReference></app-patient-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="savePatient()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
