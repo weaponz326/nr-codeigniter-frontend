@@ -10,12 +10,12 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class ViewAccountComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("accountNameReference") accountName: jqxInputComponent;
   @ViewChild("accountNumberReference") accountNumber: jqxInputComponent;
   @ViewChild("bankNameReference") bankName: jqxInputComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

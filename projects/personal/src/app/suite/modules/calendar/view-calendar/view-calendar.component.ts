@@ -15,12 +15,12 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewCalendarComponent implements OnInit, AfterViewInit {
 
+  constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
+
   @ViewChild('schedulerReference') scheduler: jqxSchedulerComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;
 
   userAppointment: any;
-
-  constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

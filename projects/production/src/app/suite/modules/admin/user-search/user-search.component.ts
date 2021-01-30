@@ -14,9 +14,6 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class UserSearchComponent implements OnInit {
 
-  @ViewChild('searchInputReference') searchInput: jqxInputComponent;
-  @ViewChild('searchButtonReference') searchButton: jqxButtonComponent;
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -31,6 +28,9 @@ export class UserSearchComponent implements OnInit {
       }
     });
   }
+
+  @ViewChild('searchInputReference') searchInput: jqxInputComponent;
+  @ViewChild('searchButtonReference') searchButton: jqxButtonComponent;
 
   ngOnInit(): void {
   }

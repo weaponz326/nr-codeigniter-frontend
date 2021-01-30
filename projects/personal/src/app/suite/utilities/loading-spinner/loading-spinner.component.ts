@@ -8,10 +8,10 @@ import { jqxLoaderComponent } from 'jqwidgets-ng/jqxloader';
 })
 export class LoadingSpinnerComponent implements OnInit {
 
-  @ViewChild('httpLoaderReference', { static: false }) httpLoader: jqxLoaderComponent;
-
   constructor() { }
 
+  @ViewChild('httpLoaderReference', { static: false }) httpLoader: jqxLoaderComponent;
+  
   ngOnInit(): void {
   }
 

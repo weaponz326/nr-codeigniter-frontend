@@ -18,6 +18,12 @@ import { AdmissionFormComponent } from '../admission-form/admission-form.compone
 })
 export class ViewAdmissionComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private admissionsApi: AdmissionsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
@@ -27,12 +33,6 @@ export class ViewAdmissionComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
   @ViewChild('admissionFormComponentReference') admissionForm: AdmissionFormComponent;
-
-  constructor(
-    private router: Router,
-    private admissionsApi: AdmissionsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

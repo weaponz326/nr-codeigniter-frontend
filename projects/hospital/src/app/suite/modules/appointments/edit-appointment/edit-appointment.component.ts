@@ -13,6 +13,8 @@ import { AppointmentFormComponent } from '../appointment-form/appointment-form.c
 })
 export class EditAppointmentComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("editAppointmentReference") editAppointment: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
@@ -25,8 +27,6 @@ export class EditAppointmentComponent implements OnInit {
   @Output() deleteCommit = new EventEmitter<number>();
 
   appointmentId: any;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

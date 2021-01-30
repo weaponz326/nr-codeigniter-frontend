@@ -10,9 +10,9 @@ import { environment } from 'projects/personal/src/environments/environment';
 })
 export class BudgetApiService {
 
-  personalUrl = environment.personalUrl;
-
   constructor(private http: HttpClient) { }
+
+  personalUrl = environment.personalUrl;
 
   // get all budgets belonging to a user
   public getBudgets(): Observable<any>{

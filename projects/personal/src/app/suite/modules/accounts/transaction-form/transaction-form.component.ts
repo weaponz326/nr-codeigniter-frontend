@@ -13,14 +13,14 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class TransactionFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("transactionDateReference") transactionDateInput: jqxDateTimeInputComponent;
   @ViewChild("descriptionReference") descriptionInput: jqxInputComponent;
   @ViewChild("transactionTypeReference") transactionTypeDropDownList: jqxDropDownListComponent;
   @ViewChild("amountReference") amountInput: jqxNumberInputComponent;
 
   transactionTypeSource: any[] = ['Credit', 'Debit'];
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -10,12 +10,12 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class EditTaskComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("editTaskReference") editTaskWindow: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

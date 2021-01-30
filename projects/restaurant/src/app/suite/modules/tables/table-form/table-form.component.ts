@@ -11,12 +11,12 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class TableFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('tableNumberReference') tableNumber: jqxInputComponent;
   @ViewChild('capacityReference') capacity: jqxNumberInputComponent;
   @ViewChild('statusReference') status: jqxDropDownListComponent;
   @ViewChild('locationReference') location: jqxInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

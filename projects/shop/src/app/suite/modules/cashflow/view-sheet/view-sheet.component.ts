@@ -11,14 +11,14 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class ViewSheetComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("sheetNameReference")sheetName: jqxInputComponent;
   @ViewChild("sheetTypeReference")sheetType: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
 
   // show sheet according to sheet type
   showSheet: string = "weekly";
-
-  constructor() { }
 
   ngOnInit(): void {
   }

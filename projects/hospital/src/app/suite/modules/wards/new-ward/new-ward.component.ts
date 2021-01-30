@@ -17,6 +17,8 @@ import { WardFormComponent } from '../ward-form/ward-form.component';
 })
 export class NewWardComponent implements OnInit {
 
+  constructor( private wardsApi: WardsApiService, public suiteRoutes: SuiteRoutesService ) { }
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
 
@@ -24,8 +26,6 @@ export class NewWardComponent implements OnInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @ViewChild('wardFormComponentReference') wardForm: WardFormComponent;
-
-  constructor( private wardsApi: WardsApiService, public suiteRoutes: SuiteRoutesService ) { }
 
   ngOnInit(): void {
   }

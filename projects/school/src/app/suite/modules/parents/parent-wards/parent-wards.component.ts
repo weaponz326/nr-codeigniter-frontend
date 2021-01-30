@@ -9,9 +9,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class ParentWardsComponent implements OnInit {
 
-  @ViewChild('wardsGridReference') wardsGrid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild('wardsGridReference') wardsGrid: jqxGridComponent;
 
   ngOnInit(): void {
   }

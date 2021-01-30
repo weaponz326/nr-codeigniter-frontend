@@ -14,14 +14,14 @@ import { ConnectionNotificationComponent } from '../../../../utilities/connectio
 })
 export class AppointmentComponent implements OnInit, AfterViewInit {
 
+  constructor(private portalApi: PortalApiService) { }
+
   @ViewChild("appointmentWindowReference") appointmentWindow: jqxWindowComponent;
   @ViewChild("appointmentGridReference") appointmentGrid: jqxGridComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @Output() sourceSelected = new EventEmitter<object>();
-
-  constructor(private portalApi: PortalApiService) { }
 
   ngOnInit(): void {
   }

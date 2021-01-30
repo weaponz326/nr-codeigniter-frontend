@@ -9,9 +9,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class SubjectsTableComponent implements OnInit {
 
-  @ViewChild("subjectsGridReference") detailsGrid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild("subjectsGridReference") detailsGrid: jqxGridComponent;
 
   ngOnInit(): void {
   }

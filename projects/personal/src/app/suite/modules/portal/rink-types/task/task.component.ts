@@ -14,14 +14,14 @@ import { ConnectionNotificationComponent } from '../../../../utilities/connectio
 })
 export class TaskComponent implements OnInit, AfterViewInit {
 
+  constructor(private portalApi: PortalApiService) { }
+
   @ViewChild("taskWindowReference") taskWindow: jqxWindowComponent;
   @ViewChild("taskGridReference") taskGrid: jqxGridComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @Output() sourceSelected = new EventEmitter<object>();
-
-  constructor(private portalApi: PortalApiService) { }
 
   ngOnInit(): void {
   }

@@ -9,6 +9,8 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class AccessFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('accountsCheckBoxReference') accountsCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') adminCheckBox: jqxComboBoxComponent;
   @ViewChild('appraisalCheckBoxReference') appraisalCheckBox: jqxComboBoxComponent;
@@ -23,8 +25,6 @@ export class AccessFormComponent implements OnInit {
   @ViewChild('portalCheckBoxReference') portalCheckBox: jqxComboBoxComponent;
   @ViewChild('procurementCheckBoxReference') procurementCheckBox: jqxComboBoxComponent;
   @ViewChild('settingsCheckBoxReference') settingsCheckBox: jqxComboBoxComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

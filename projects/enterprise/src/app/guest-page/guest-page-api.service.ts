@@ -10,9 +10,9 @@ import { environment } from '../../environments/environment'
 })
 export class GuestPageApiService {
 
-  enterpriseUrl = environment.enterpriseUrl;
-
   constructor(private http: HttpClient) { }
+
+  enterpriseUrl = environment.enterpriseUrl;
 
   // check whether user has a hospital account
   public hasAccount(): Observable<any>{

@@ -15,6 +15,12 @@ import { SuiteRoutesService } from '../suite-routes.service';
 })
 export class HomeComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private navbarApi: MainNavbarApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild("#portalTooltipReference") portalTootip: jqxTooltipComponent;
   @ViewChild("#calendarTooltipReference") calendarTootip: jqxTooltipComponent;
   @ViewChild("#notesTooltipReference") notesTootip: jqxTooltipComponent;
@@ -24,12 +30,6 @@ export class HomeComponent implements OnInit {
   @ViewChild("#settingsTooltipReference") settingsTootip: jqxTooltipComponent;
 
   isLoggedIn: boolean = false;
-
-  constructor(
-    private router: Router,
-    private navbarApi: MainNavbarApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
     this.navbarApi.getUser()

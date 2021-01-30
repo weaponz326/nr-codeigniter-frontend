@@ -19,6 +19,12 @@ import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utiliti
 })
 export class NewLabComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private laboratoryApi: LaboratoryApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild("newLabReference") newLab: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -29,12 +35,6 @@ export class NewLabComponent implements OnInit {
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  constructor(
-    private router: Router,
-    private laboratoryApi: LaboratoryApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

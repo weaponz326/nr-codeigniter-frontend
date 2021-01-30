@@ -10,9 +10,9 @@ import { environment } from 'projects/personal/src/environments/environment';
 })
 export class AccountsApiService {
 
-  personalUrl = environment.personalUrl;
-
   constructor(private http: HttpClient) { }
+
+  personalUrl = environment.personalUrl;
 
   // create and get all accounts belonging to user
 

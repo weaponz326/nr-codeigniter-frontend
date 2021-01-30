@@ -15,6 +15,8 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
+  constructor(private budgetApi: BudgetApiService) { }
+
   @ViewChild("incomeGridReference") incomeGrid: jqxGridComponent;
   @ViewChild("expenditureGridReference") expenditureGrid: jqxGridComponent;
   @ViewChild("addIncomebuttonReference") addIncomeButton: jqxButtonComponent;
@@ -22,14 +24,12 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-  
+
   // emit aggregate sum of income and expenditure
   @Output() calculateIoe = new EventEmitter<any>();
 
   totalIncome: any;
   totalExpenditure: any;
-
-  constructor(private budgetApi: BudgetApiService) { }
 
   ngOnInit(): void {
   }
@@ -199,7 +199,7 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
           console.log(res);
           commit(true, res.id);
           this.loadingSpinner.httpLoader.close();
-          
+
           // recalculate ioe on table change
           this.getIoe();
         },

@@ -14,17 +14,17 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class SearchDetailComponent implements OnInit {
 
-  @ViewChild('buttonReference') button: jqxButtonComponent;
-
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  searchDetail: any;
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private portalApi: PortalApiService
   ) { }
+
+  @ViewChild('buttonReference') button: jqxButtonComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  searchDetail: any;
 
   ngOnInit(): void {
     this.portalApi.getDetail(sessionStorage.getItem('searchUser'))

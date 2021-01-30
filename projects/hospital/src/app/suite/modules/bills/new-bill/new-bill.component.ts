@@ -16,6 +16,8 @@ import { SelectAdmissionComponent } from '../select-admission/select-admission.c
 })
 export class NewBillComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("addBillReference") addBill: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -32,8 +34,6 @@ export class NewBillComponent implements OnInit {
   // to be retreived for sending to backend
   patientIdStore: any;
   admissionIdStore: any;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

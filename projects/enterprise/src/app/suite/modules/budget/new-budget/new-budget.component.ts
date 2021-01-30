@@ -12,13 +12,13 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class NewBudgetComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('newBudgetReference') BudgetWindow: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild('budgetNameReference') budgetName: jqxInputComponent;
   @ViewChild('budgetTypeReference') budgetType: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

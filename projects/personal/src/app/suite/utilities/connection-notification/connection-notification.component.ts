@@ -10,9 +10,9 @@ import { jqxNotificationComponent } from 'jqwidgets-ng/jqxnotification';
 })
 export class ConnectionNotificationComponent implements OnInit {
 
-  @ViewChild('errorNotificationReference', { static: false }) errorNotification: jqxNotificationComponent;
-
   constructor() { }
+
+  @ViewChild('errorNotificationReference', { static: false }) errorNotification: jqxNotificationComponent;
 
   ngOnInit(): void {
   }

@@ -14,11 +14,11 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AllTransactionsComponent implements OnInit, AfterViewInit {
 
+  constructor(private accountsApi: AccountsApiService, public suiteRoutes: SuiteRoutesService) { }
+
   @ViewChild("gridReference") grid: jqxGridComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  constructor(private accountsApi: AccountsApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

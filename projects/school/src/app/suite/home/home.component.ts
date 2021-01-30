@@ -37,10 +37,6 @@ export class HomeComponent implements OnInit {
 
   isActive: boolean = false;
 
-  createAccount(){
-    this.router.navigateByUrl("/signup");
-  }
-
   ngOnInit(): void {
     this.navbarApi.checkActiveHospital()
       .subscribe(
@@ -58,6 +54,10 @@ export class HomeComponent implements OnInit {
           this.isActive = false;
         }
       )
+  }
+
+  createAccount(){
+    this.router.navigateByUrl("/signup");
   }
 
 }

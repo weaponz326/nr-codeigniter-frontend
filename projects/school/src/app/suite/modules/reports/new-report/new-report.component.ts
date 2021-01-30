@@ -13,6 +13,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class NewReportComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("newReportReference") newReport: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -21,8 +23,6 @@ export class NewReportComponent implements OnInit {
   @ViewChild('reportDateReference') reportDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('classReference') class: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -12,6 +12,8 @@ import { PatientFormComponent } from '../patient-form/patient-form.component'
 })
 export class AddPatientComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("addPatientReference") addPatient: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -20,8 +22,6 @@ export class AddPatientComponent implements OnInit {
 
   // emit event to commit data into grid in parent component
   @Output() addCommit = new EventEmitter<any>();
-
-  constructor() { }
 
   ngOnInit(): void {
   }

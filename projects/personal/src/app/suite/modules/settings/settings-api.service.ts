@@ -10,9 +10,9 @@ import { environment } from 'projects/personal/src/environments/environment'
 })
 export class SettingsApiService {
 
-  personalUrl = environment.personalUrl;
-
   constructor(private http: HttpClient) { }
+
+  personalUrl = environment.personalUrl;
 
   // get all profile categories
 

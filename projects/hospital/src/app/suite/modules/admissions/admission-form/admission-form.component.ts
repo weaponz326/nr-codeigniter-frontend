@@ -14,6 +14,8 @@ import { SelectPatientComponent } from '../select-patient/select-patient.compone
 })
 export class AdmissionFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('admissionCodeReference') admissionCode: jqxInputComponent;
   @ViewChild('admissionDateReference') admissionDate: jqxDateTimeInputComponent;
   @ViewChild('dischargeDateReference') dischargeDate: jqxDateTimeInputComponent;
@@ -25,8 +27,6 @@ export class AdmissionFormComponent implements OnInit {
   @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
 
   patientIdStore: any;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

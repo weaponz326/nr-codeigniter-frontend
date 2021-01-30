@@ -17,17 +17,17 @@ import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utiliti
 })
 export class AllBillsComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('buttonReference') button: jqxButtonComponent;
-  @ViewChild('gridReference') grid: jqxGridComponent;
-
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
-
   constructor(
     private router: Router,
     private billsApi: BillsApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild('buttonReference') button: jqxButtonComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
   ngOnInit(): void {
   }

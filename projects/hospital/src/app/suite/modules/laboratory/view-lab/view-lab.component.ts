@@ -23,6 +23,12 @@ import { SelectDoctorComponent } from '../select-doctor/select-doctor.component'
 })
 export class ViewLabComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private laboratoryApi: LaboratoryApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('labCodeReference') labCode: jqxInputComponent;
   @ViewChild('labDateReference') labDate: jqxDateTimeInputComponent;
   @ViewChild('patientNameReference') patientName: jqxInputComponent;
@@ -45,12 +51,6 @@ export class ViewLabComponent implements OnInit, AfterViewInit {
   // to be retreived for sending to backend
   patientIdStore: any;
   doctorIdStore: any;
-
-  constructor(
-    private router: Router,
-    private laboratoryApi: LaboratoryApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

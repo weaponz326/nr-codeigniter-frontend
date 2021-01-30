@@ -19,6 +19,12 @@ import { NurseFormComponent } from '../nurse-form/nurse-form.component'
 })
 export class ViewNurseComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private nursesApi: NursesApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
@@ -28,12 +34,6 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
   @ViewChild('nurseFormComponentReference') nurseForm: NurseFormComponent;
-
-  constructor(
-    private router: Router,
-    private nursesApi: NursesApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

@@ -13,6 +13,8 @@ import { TransactionFormComponent } from '../transaction-form/transaction-form.c
 })
 export class AddTransactionComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("addTransactionReference") addTransactionWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -21,8 +23,6 @@ export class AddTransactionComponent implements OnInit {
 
   // emit event to commit data into grid in parent component
   @Output() addCommit = new EventEmitter<object>();
-
-  constructor() { }
 
   ngOnInit(): void {
   }

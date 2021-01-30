@@ -13,6 +13,8 @@ import { AppointmentFormComponent } from '../appointment-form/appointment-form.c
 })
 export class AddAppointmentComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("addAppointmentReference") addAppointment: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -21,8 +23,6 @@ export class AddAppointmentComponent implements OnInit {
 
   // emit event to commit data into grid in parent component
   @Output() addCommit = new EventEmitter<any>();
-
-  constructor() { }
 
   ngOnInit(): void {
   }

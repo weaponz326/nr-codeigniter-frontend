@@ -13,6 +13,8 @@ import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class ReservationFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("reservationCodeReference") reservationCode: jqxInputComponent;
   @ViewChild("reservationDateReference") reservationDate: jqxDateTimeInputComponent;
   @ViewChild("customerNameReference") customerName: jqxComboBoxComponent;
@@ -20,8 +22,6 @@ export class ReservationFormComponent implements OnInit {
   @ViewChild("tablesNumberReference") tablesNumber: jqxNumberInputModule;
   @ViewChild("arrivalDateReference") arrivalDate: jqxDateTimeInputComponent;
   @ViewChild("reservationStatusReference") reservationStatus: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -16,16 +16,16 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AllNotesComponent implements OnInit, AfterViewInit {
 
-  @ViewChild("searchInputReference") searchInput: jqxInputComponent;
-  @ViewChild("gridReference") grid: jqxGridComponent;
-
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
   constructor(
     private router: Router,
     private notesApi: NotesApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild("searchInputReference") searchInput: jqxInputComponent;
+  @ViewChild("gridReference") grid: jqxGridComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   ngOnInit(): void {
   }

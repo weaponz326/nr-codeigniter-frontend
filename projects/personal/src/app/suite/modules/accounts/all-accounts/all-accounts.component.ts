@@ -16,17 +16,17 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AllAccountsComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('newButtonReference') newButton: jqxButtonComponent;
-  @ViewChild('gridReference') grid: jqxGridComponent;
-  @ViewChild('transactionsButtonReference') transactionsButton: jqxButtonComponent;
-
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
   constructor(
     private router: Router,
     private accountsApi: AccountsApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild('newButtonReference') newButton: jqxButtonComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
+  @ViewChild('transactionsButtonReference') transactionsButton: jqxButtonComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   ngOnInit(): void {
   }

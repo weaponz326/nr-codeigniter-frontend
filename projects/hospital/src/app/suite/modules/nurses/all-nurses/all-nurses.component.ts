@@ -16,16 +16,16 @@ import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite
 })
 export class AllNursesComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('buttonReference') button: jqxButtonComponent;
-  @ViewChild('gridReference') grid: jqxGridComponent;
-
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
   constructor(
     private router: Router,
     private nursesApi: NursesApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild('buttonReference') button: jqxButtonComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   ngOnInit(): void {
   }

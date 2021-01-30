@@ -11,12 +11,12 @@ import { UserPageApiService } from '../user-page-api.service'
 })
 export class UserWrapperComponent implements OnInit {
 
-  accounts: any;
-
   constructor(
     private router: Router,
     private userPageApi: UserPageApiService
   ) { }
+
+  accounts: any;
 
   activateAccount(accountId){
     console.log(accountId);

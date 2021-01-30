@@ -10,6 +10,8 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 })
 export class OrderReviewComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('issuedDateReference') issuedDate: jqxDateTimeInputComponent;
   @ViewChild('issuedByReference') issuedBy: jqxDropDownListComponent;
   @ViewChild('receivedDateReference') receivedDate: jqxDateTimeInputComponent;
@@ -20,8 +22,6 @@ export class OrderReviewComponent implements OnInit {
   @ViewChild('acknowledgementByReference') acknowledgementBy: jqxDropDownListComponent;
   @ViewChild('completedDateReference') completedDate: jqxDateTimeInputComponent;
   @ViewChild('completedByReference') completedBy: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

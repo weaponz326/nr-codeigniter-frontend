@@ -10,9 +10,9 @@ import { MainNavbarApiService } from 'projects/application/src/app/main-navbar/m
 })
 export class RegisterSuccessComponent implements OnInit {
 
-  name: any;
-
   constructor(private router: Router, private navbarApi: MainNavbarApiService) { }
+
+  name: any;
 
   ngOnInit(): void {
     this.navbarApi.getUser()

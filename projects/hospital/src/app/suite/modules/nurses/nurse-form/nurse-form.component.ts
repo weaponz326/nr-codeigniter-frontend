@@ -13,6 +13,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 })
 export class NurseFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
   @ViewChild('sexReference') sexDropDownList: jqxDropDownListComponent;
@@ -33,8 +35,6 @@ export class NurseFormComponent implements OnInit {
 
   sexSource: any[] = ["Male", "Female"];
   workStatusSource: any[] = ["Active", "Transfered", "Retired"];
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -13,6 +13,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class NewAssessmentComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("newAssessmentReference") newAssessment: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -23,8 +25,6 @@ export class NewAssessmentComponent implements OnInit {
   @ViewChild('subjectReference') subject: jqxDropDownListComponent;
   @ViewChild('classReference') class: jqxDropDownListComponent;
   @ViewChild('createdByReference') createdBy: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

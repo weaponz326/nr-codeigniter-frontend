@@ -13,6 +13,8 @@ import { DetailFormComponent } from '../detail-form/detail-form.component'
 })
 export class EditDetailComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("editDetailReference") editDetailWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
@@ -23,8 +25,6 @@ export class EditDetailComponent implements OnInit {
   // emit event to commit data into grid in parent component
   @Output() editCommit = new EventEmitter<object>();
   @Output() deleteCommit = new EventEmitter<number>();
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -9,12 +9,12 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class BillDetailsComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("appointmentsGridReference") appointmentsGrid: jqxGridComponent;
   @ViewChild("laboratoryGridReference") laboratoryGrid: jqxGridComponent;
   @ViewChild("dispensaryGridReference") dispensaryGrid: jqxGridComponent;
   @ViewChild("wardGridReference") wardGrid: jqxGridComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

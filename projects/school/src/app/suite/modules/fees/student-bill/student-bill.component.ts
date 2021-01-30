@@ -12,14 +12,14 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class StudentBillComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
   @ViewChild('billNameReference') Name: jqxInputComponent;
   @ViewChild('billDateReference') billDate: jqxDateTimeInputComponent;
   @ViewChild('studentNameReference') studentName: jqxDropDownListComponent;
   @ViewChild('studentCodeReference') studentCode: jqxDropDownListComponent;
   @ViewChild('billTypeReference') billType: jqxComboBoxComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

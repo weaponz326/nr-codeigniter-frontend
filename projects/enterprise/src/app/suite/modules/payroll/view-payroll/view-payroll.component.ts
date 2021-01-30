@@ -12,6 +12,8 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput/public_
 })
 export class ViewPayrollComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("payrollNameReference") payrollName: jqxInputComponent;
   @ViewChild("dateGeneratedReference") dateGenerated: jqxDateTimeInputComponent;
   @ViewChild("monthReference") month: jqxDropDownListComponent;
@@ -19,8 +21,6 @@ export class ViewPayrollComponent implements OnInit {
   @ViewChild("statusReference") payrollStatus: jqxDropDownListComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("generateButtonReference") generateButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

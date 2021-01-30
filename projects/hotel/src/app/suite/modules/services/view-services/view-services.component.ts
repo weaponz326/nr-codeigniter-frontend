@@ -12,13 +12,13 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class ViewServicesComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("servicesCodeReference") servicesCode: jqxInputComponent;
   @ViewChild("servicesTypeReference") servicesType: jqxComboBoxComponent;
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

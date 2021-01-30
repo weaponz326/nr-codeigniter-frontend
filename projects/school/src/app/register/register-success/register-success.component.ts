@@ -10,11 +10,11 @@ export class RegisterSuccessComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  goToUserPage(){
-    this.router.navigateByUrl("/user");
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {
+  goToUserPage(){
+    this.router.navigateByUrl("/user");
   }
 
 }

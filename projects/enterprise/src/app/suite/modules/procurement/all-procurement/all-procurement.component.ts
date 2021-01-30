@@ -10,10 +10,10 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllProcurementComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

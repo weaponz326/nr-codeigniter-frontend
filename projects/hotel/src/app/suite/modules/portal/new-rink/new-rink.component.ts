@@ -15,6 +15,8 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class NewRinkComponent implements OnInit {
 
+  constructor(private portalApi: PortalApiService, public suiteRoutes: SuiteRoutesService) { }
+
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('toInputReference') toInput: jqxInputComponent;
   @ViewChild('typeDropDownListReference') typeDropDownList: jqxDropDownListComponent;
@@ -22,8 +24,6 @@ export class NewRinkComponent implements OnInit {
   @ViewChild('commentButtonReference') commentTextArea: jqxTextAreaComponent;
   @ViewChild('sendButtonReference') sendButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
-
-  constructor(private portalApi: PortalApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

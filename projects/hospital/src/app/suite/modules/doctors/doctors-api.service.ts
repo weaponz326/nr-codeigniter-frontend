@@ -9,9 +9,9 @@ import { environment } from 'projects/hospital/src/environments/environment';
 })
 export class DoctorsApiService {
 
-  hospitalUrl = environment.hospitalUrl;
-
   constructor(private http: HttpClient) { }
+
+  hospitalUrl = environment.hospitalUrl;
 
   // create and get all doctors belonging to user
 

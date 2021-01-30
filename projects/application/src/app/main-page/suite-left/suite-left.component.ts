@@ -14,14 +14,14 @@ export class SuiteLeftComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   @Input() suiteImageSrc: string;
   @Input() suiteDivId: string;
   @Input() suiteName: string;
   @Input() suiteDescription: string;
   @Input() suiteUses: object;
   @Input() suiteButtonLink: string;
+
+  ngOnInit(): void {
+  }
 
 }

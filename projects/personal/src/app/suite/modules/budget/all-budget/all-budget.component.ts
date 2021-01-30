@@ -16,11 +16,17 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AllBudgetComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private budgetApi: BudgetApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-  
+
   ngOnInit(): void {
   }
 
@@ -30,12 +36,6 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
 
     console.log(sessionStorage.getItem('budget_id'));
   }
-
-  constructor(
-    private router: Router,
-    private budgetApi: BudgetApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   getData(){
     this.budgetApi.getBudgets()

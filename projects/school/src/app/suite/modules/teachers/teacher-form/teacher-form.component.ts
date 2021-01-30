@@ -13,6 +13,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class TeacherFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('firstNameReference') firstName: jqxInputComponent;
   @ViewChild('lastNameReference') lastName: jqxInputComponent;
   @ViewChild('sexReference') sex: jqxRadioButtonComponent;
@@ -30,8 +32,6 @@ export class TeacherFormComponent implements OnInit {
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('gradeReference') grade: jqxInputComponent;
   @ViewChild('educationReference') education: jqxInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

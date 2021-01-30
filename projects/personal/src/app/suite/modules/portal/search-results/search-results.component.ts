@@ -12,16 +12,16 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class SearchResultsComponent implements OnInit {
 
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  searchResults: any;
-  searchInput = sessionStorage.getItem('searchInput');
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private portalApi: PortalApiService
   ) { }
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  searchResults: any;
+  searchInput = sessionStorage.getItem('searchInput');
 
   ngOnInit(): void {
     this.portalApi.getSearch(sessionStorage.getItem('searchInput'), sessionStorage.getItem('searchFilter'))

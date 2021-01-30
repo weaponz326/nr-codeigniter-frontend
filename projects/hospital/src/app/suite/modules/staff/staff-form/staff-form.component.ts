@@ -13,6 +13,8 @@ import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel'
 })
 export class StaffFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
   @ViewChild('sexReference') sexDropDownList: jqxDropDownListComponent;
@@ -34,8 +36,6 @@ export class StaffFormComponent implements OnInit {
 
   sexSource: any[] = ["Male", "Female"];
   workStatusSource: any[] = ["Active", "Transfered", "Retired"];
-
-  constructor() { }
 
   ngOnInit(): void {
   }

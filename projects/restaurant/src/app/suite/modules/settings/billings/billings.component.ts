@@ -12,6 +12,8 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class BillingsComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('smallTeamReference') smallTeamRadioButton: jqxRadioButtonComponent;
   @ViewChild('largeTeamReference') largeTeamRadioButton: jqxRadioButtonComponent;
   @ViewChild('comprehensiveReference') comprehensiveRadioButton: jqxRadioButtonComponent;
@@ -28,8 +30,6 @@ export class BillingsComponent implements OnInit {
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
 
   selectedPlan: string;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

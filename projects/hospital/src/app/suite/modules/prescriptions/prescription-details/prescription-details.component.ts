@@ -19,6 +19,8 @@ import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilitie
 })
 export class PrescriptionDetailsComponent implements OnInit, AfterViewInit {
 
+  constructor(private prescriptionsApi: PrescriptionsApiService, public suiteRoutes: SuiteRoutesService) { }
+
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
 
@@ -27,8 +29,6 @@ export class PrescriptionDetailsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
-
-  constructor(private prescriptionsApi: PrescriptionsApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

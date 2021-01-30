@@ -12,13 +12,13 @@ import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 })
 export class WardFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('wardNumberReference') wardNumber: jqxInputComponent;
   @ViewChild('wardNameReference') wardName: jqxInputComponent;
   @ViewChild('locationReference') location: jqxTextAreaComponent;
   @ViewChild('capacityReference') capacity: jqxNumberInputComponent;
   @ViewChild('wardTypeReference') wardType: jqxComboBoxComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

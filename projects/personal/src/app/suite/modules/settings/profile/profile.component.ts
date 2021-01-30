@@ -19,6 +19,8 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
 
+  constructor(private settingsApi: SettingsApiService) { }
+
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
   @ViewChild('locationReference') locationInput: jqxInputComponent;
@@ -35,8 +37,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  constructor(private settingsApi: SettingsApiService) { }
 
   ngOnInit(): void {
   }

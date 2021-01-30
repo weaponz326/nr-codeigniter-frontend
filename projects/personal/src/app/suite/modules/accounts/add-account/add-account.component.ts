@@ -18,6 +18,12 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AddAccountComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private accountsApi: AccountsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild("addAccountReference") addAccountWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -29,12 +35,6 @@ export class AddAccountComponent implements OnInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   accountData: any;
-
-  constructor(
-    private router: Router,
-    private accountsApi: AccountsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

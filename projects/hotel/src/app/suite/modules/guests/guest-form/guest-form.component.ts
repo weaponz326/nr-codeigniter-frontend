@@ -11,6 +11,8 @@ import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton'
 })
 export class GuestFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('customerCodeReference') customerCode: jqxInputComponent;
   @ViewChild('firstNameReference') firstName: jqxInputComponent;
   @ViewChild('lastNameReference') lastName: jqxInputComponent;
@@ -18,8 +20,6 @@ export class GuestFormComponent implements OnInit {
   @ViewChild('phoneReference') phone: jqxInputComponent;
   @ViewChild('emailReference') email: jqxInputComponent;
   @ViewChild('addressReference') address: jqxTextAreaComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

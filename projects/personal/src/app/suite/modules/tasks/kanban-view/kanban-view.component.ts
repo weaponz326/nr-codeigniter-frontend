@@ -14,14 +14,14 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class KanbanViewComponent implements OnInit, AfterViewInit {
 
+  constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
+
   @ViewChild('kanbanReference') kanban: jqxKanbanComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
   @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
 
   newItemData: any;
-
-  constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

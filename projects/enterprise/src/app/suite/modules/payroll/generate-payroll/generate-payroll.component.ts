@@ -12,14 +12,14 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class GeneratePayrollComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("generatePayrollReference") generatePayroll: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild("payrollNameReference") payrollNameInput: jqxInputComponent;
   @ViewChild("month") month: jqxDropDownListComponent;
   @ViewChild("year") year: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

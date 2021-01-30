@@ -12,6 +12,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class NewAttendanceComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("newAttendanceReference") newAttendance: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -19,8 +21,6 @@ export class NewAttendanceComponent implements OnInit {
   @ViewChild('attendanceNameReference') attendanceName: jqxInputComponent;
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('sourceReference') source: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

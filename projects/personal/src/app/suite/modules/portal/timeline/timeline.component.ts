@@ -15,6 +15,12 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class TimelineComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private portalApi: PortalApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('newButtonReference') newSearchbutton: jqxButtonComponent;
 
@@ -22,12 +28,6 @@ export class TimelineComponent implements OnInit {
 
   personalId = localStorage.getItem('personal_id');
   rinks: any;
-
-  constructor(
-    private router: Router,
-    private portalApi: PortalApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
     this.portalApi.getRinks()

@@ -13,6 +13,8 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 })
 export class NewAppraisalComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("newAppraisalReference") newAppraisal: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -22,8 +24,6 @@ export class NewAppraisalComponent implements OnInit {
   @ViewChild("startDateReference") startDate: jqxDateTimeInputComponent;
   @ViewChild("endDateReference") endDate: jqxDateTimeInputComponent;
   @ViewChild("supervisorReference") supervisor: jqxInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -12,6 +12,8 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class AddGeneralComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("addGeneralBillReference") addGeneralBillWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -20,8 +22,6 @@ export class AddGeneralComponent implements OnInit {
 
   // emit event to commit data into grid in parent component
   @Output() addCommit = new EventEmitter<object>();
-
-  constructor() { }
 
   ngOnInit(): void {
   }

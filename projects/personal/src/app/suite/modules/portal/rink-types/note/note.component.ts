@@ -14,14 +14,14 @@ import { ConnectionNotificationComponent } from '../../../../utilities/connectio
 })
 export class NoteComponent implements OnInit, AfterViewInit {
 
+  constructor(private portalApi: PortalApiService) { }
+
   @ViewChild("noteWindowReference") noteWindow: jqxWindowComponent;
   @ViewChild("noteGridReference") noteGrid: jqxGridComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @Output() sourceSelected = new EventEmitter<object>();
-
-  constructor(private portalApi: PortalApiService) { }
 
   ngOnInit(): void {
   }

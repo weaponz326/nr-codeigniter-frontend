@@ -17,6 +17,12 @@ import { PatientFormComponent } from '../patient-form/patient-form.component'
 })
 export class NewPatientComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private patientsApi: PatientsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
 
@@ -24,12 +30,6 @@ export class NewPatientComponent implements OnInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @ViewChild('patientFormComponentReference') patientForm: PatientFormComponent;
-
-  constructor(
-    private router: Router,
-    private patientsApi: PatientsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

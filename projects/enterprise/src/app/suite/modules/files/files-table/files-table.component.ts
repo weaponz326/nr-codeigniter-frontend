@@ -10,10 +10,10 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class FilesTableComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('addButtonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

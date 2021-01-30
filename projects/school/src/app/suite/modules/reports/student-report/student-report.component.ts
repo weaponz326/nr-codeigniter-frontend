@@ -11,13 +11,13 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class StudentReportComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('studentCodeReference') studentCode: jqxDropDownListComponent;
   @ViewChild('studentNameReference') studentName: jqxDropDownListComponent;
   @ViewChild('reportNameReference') reportName: jqxInputComponent;
   @ViewChild('reportDateReference') reportDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

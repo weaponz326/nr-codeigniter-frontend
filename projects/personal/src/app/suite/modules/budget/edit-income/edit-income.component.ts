@@ -12,6 +12,8 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class EditIncomeComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("editIncomeReference") editIncomeWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -22,8 +24,6 @@ export class EditIncomeComponent implements OnInit {
   // emit event to commit data into grid in parent component
   @Output() editCommit = new EventEmitter<object>();
   @Output() deleteCommit = new EventEmitter<number>();
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -13,6 +13,8 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class AssetFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('assetCodeReference') assetCode: jqxInputComponent;
   @ViewChild('assetNameReference') assetName: jqxInputComponent;
   @ViewChild('assetTypeReference') assetType: jqxInputComponent;
@@ -26,8 +28,6 @@ export class AssetFormComponent implements OnInit {
   @ViewChild('locationReference') location: jqxInputComponent;
   @ViewChild('descriptionReference') description: jqxTextAreaComponent;
   @ViewChild('conditionReference') condition: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

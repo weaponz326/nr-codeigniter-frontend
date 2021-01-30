@@ -10,10 +10,10 @@ import { environment } from 'projects/hospital/src/environments/environment';
 })
 export class DiagnosisApiService {
 
-  hospitalUrl = environment.hospitalUrl;
-
   constructor(private http: HttpClient) { }
 
+  hospitalUrl = environment.hospitalUrl;
+  
   // create and get all diagnosis belonging to user
 
   public getAllDiagnosis(): Observable<any>{

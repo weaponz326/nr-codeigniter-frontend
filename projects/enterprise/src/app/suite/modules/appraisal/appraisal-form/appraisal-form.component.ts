@@ -9,9 +9,9 @@ import { jqxFormComponent } from 'jqwidgets-ng/jqxform';
 })
 export class AppraisalFormComponent implements OnInit {
 
-  @ViewChild('formReference') button: jqxFormComponent;
-
   constructor() { }
+
+  @ViewChild('formReference') button: jqxFormComponent;
 
   ngOnInit(): void {
   }

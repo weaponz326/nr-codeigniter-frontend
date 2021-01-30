@@ -17,6 +17,8 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class NewBudgetComponent implements OnInit {
 
+  constructor(private router: Router, private budgetApi: BudgetApiService) { }
+
   @ViewChild('newBudgetReference') newBudgetWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -25,10 +27,8 @@ export class NewBudgetComponent implements OnInit {
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-  
-  budgetData: any;
 
-  constructor(private router: Router, private budgetApi: BudgetApiService) { }
+  budgetData: any;
 
   ngOnInit(): void {
   }

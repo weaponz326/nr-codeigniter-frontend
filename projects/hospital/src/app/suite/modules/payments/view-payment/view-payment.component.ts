@@ -20,6 +20,12 @@ import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilitie
 })
 export class ViewPaymentComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private paymentsApi: PaymentsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('paymentCodeReference') paymentCode: jqxInputComponent;
   @ViewChild('paymentDateReference') paymentDate: jqxDateTimeInputComponent;
   @ViewChild('patientNameReference') patientName: jqxInputComponent;
@@ -37,12 +43,6 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
-
-  constructor(
-    private router: Router,
-    private paymentsApi: PaymentsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

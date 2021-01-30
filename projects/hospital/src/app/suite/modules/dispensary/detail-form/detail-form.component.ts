@@ -11,11 +11,11 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class DetailFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("drugReference") drugInput: jqxInputComponent;
   @ViewChild("ndcNumberReference") ndcNumberInput: jqxInputComponent;
   @ViewChild("remarksReference") remarksTextArea: jqxTextAreaComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

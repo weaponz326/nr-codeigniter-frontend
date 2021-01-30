@@ -21,6 +21,13 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  constructor(
+    private router: Router,
+    private location: Location,
+    private notesApi: NotesApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild("inputReference") input: jqxInputComponent;
   @ViewChild("editorReference") editor: jqxEditorComponent;
   @ViewChild("fileUploadReference") fileUpload: jqxFileUploadComponent;
@@ -33,13 +40,6 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  constructor(
-    private router: Router,
-    private location: Location,
-    private notesApi: NotesApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

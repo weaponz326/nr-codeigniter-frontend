@@ -14,13 +14,13 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class InvitationsComponent implements OnInit {
 
-  @ViewChild('buttonReference') button: jqxButtonComponent;
-  @ViewChild('gridReference') grid: jqxGridComponent;
-
   constructor(
     private adminApi: AdminApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild('buttonReference') button: jqxButtonComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
 
   ngOnInit(): void {
   }

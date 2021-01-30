@@ -11,13 +11,13 @@ import { jqxTabsComponent } from 'jqwidgets-ng/jqxtabs';
 })
 export class AllLettersComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('tabReference') tab: jqxTabsComponent;
   @ViewChild('receivedGridReference') receivedGrid: jqxGridComponent;
   @ViewChild('sentGridReference') sentGrid: jqxGridComponent;
   @ViewChild('addReceivedReference') addReceived: jqxButtonComponent;
   @ViewChild('addSentReference') addSent: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

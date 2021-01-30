@@ -9,9 +9,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllTransactionsComponent implements OnInit {
 
-  @ViewChild("#gridReference") grid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild("#gridReference") grid: jqxGridComponent;
 
   ngOnInit(): void {
   }

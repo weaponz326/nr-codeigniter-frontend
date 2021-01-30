@@ -12,13 +12,13 @@ import { DiagnosisApiService } from '../diagnosis-api.service';
 })
 export class SelectPatientComponent implements OnInit, AfterViewInit {
 
+  constructor(private diagnosisApi: DiagnosisApiService) { }
+
   @ViewChild("selectPatientWindowReference") selectPatientWindow: jqxWindowComponent;
   @ViewChild("selectPatientGridReference") selectPatientGrid: jqxGridComponent;
 
   @Output() patientEvent = new EventEmitter<any>();
-
-  constructor(private diagnosisApi: DiagnosisApiService) { }
-
+  
   ngOnInit(): void {
   }
 

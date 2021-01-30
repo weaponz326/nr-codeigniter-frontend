@@ -17,6 +17,13 @@ import { MainNavbarComponent } from 'projects/application/src/app/main-navbar/ma
 })
 export class AccountFormComponent implements OnInit {
 
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private signupApi: SignupApiService,
+    private navbar: MainNavbarComponent
+  ) { }
+
   accountForm = this.fb.group({
     email: ["", Validators.required],
     password1: ["", Validators.required],
@@ -27,13 +34,6 @@ export class AccountFormComponent implements OnInit {
   pass1Errors: any[] = [];
   pass2Errors: any[] = [];
   nfErrors: any[] = [];
-
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private signupApi: SignupApiService,
-    private navbar: MainNavbarComponent
-  ) { }
 
   ngOnInit(): void {
   }

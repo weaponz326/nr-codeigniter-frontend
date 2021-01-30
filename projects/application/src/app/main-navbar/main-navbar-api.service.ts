@@ -9,6 +9,8 @@ import { environment } from '../../environments/environment'
 })
 export class MainNavbarApiService {
 
+  constructor(private http: HttpClient) { }
+
   baseUrl = environment.baseUrl;
   personalUrl = environment.personalUrl;
   hospitalUrl = environment.hospitalUrl;
@@ -21,8 +23,6 @@ export class MainNavbarApiService {
 
   headers = new HttpHeaders()
     .set('Authorization', "Token " + localStorage.getItem('token'));
-
-  constructor(private http: HttpClient) { }
 
   public postSource(source): Observable<any>{
     return this.http.post(this.baseUrl + "main/user-source/", { "user_source": source }, { withCredentials: true });

@@ -11,12 +11,12 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class TermFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('termNameReference') termName: jqxInputComponent;
   @ViewChild('termBeginReference') termBegin: jqxDateTimeInputComponent;
   @ViewChild('termEndReference') termEnd: jqxDateTimeInputComponent;
   @ViewChild('academicYearReference') academicYear: jqxComboBoxComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -11,11 +11,11 @@ import { ConnectionNotificationComponent } from '../../../../utilities/connectio
 })
 export class NoteDetailComponent implements OnInit {
 
+  constructor(private portalApi: PortalApiService) { }
+
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   noteDetail: any;
-
-  constructor(private portalApi: PortalApiService) { }
 
   ngOnInit(): void {
     this.portalApi.getSingleTask(sessionStorage.getItem('source_id'))

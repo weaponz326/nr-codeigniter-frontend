@@ -18,6 +18,12 @@ import { StaffFormComponent } from '../staff-form/staff-form.component';
 })
 export class ViewStaffComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private staffApi: StaffApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
@@ -27,12 +33,6 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
   @ViewChild('staffFormComponentReference') staffForm: StaffFormComponent;
-
-  constructor(
-    private router: Router,
-    private staffApi: StaffApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

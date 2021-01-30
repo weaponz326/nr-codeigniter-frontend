@@ -14,6 +14,8 @@ import { SignupApiService } from '../signup-api.service';
 })
 export class ProfileFormComponent implements OnInit {
 
+  constructor(private fb: FormBuilder, private router: Router, private signupApi: SignupApiService) { }
+
   profileForm = this.fb.group({
     first_name: ["", Validators.required],
     last_name: ["", Validators.required],
@@ -25,8 +27,6 @@ export class ProfileFormComponent implements OnInit {
   lnErrors: any[] = [];
   locErrors: any[] = [];
   abtErrors: any[] = [];
-
-  constructor(private fb: FormBuilder, private router: Router, private signupApi: SignupApiService) { }
 
   ngOnInit(): void {
   }

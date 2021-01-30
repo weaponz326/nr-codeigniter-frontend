@@ -16,9 +16,9 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllAppointmentsComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('gridReference') grid: jqxGridComponent;
-
   constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
+
+  @ViewChild('gridReference') grid: jqxGridComponent;
 
   ngOnInit(): void {
   }

@@ -14,10 +14,10 @@ import { MainNavbarApiService } from 'projects/application/src/app/main-navbar/m
 })
 export class SignupSuccessComponent implements OnInit {
 
+  constructor(private router: Router, private navbarApi: MainNavbarApiService) { }
+
   name: any;
   redirectionMsg: any;
-
-  constructor(private router: Router, private navbarApi: MainNavbarApiService) { }
 
   ngOnInit(): void {
     this.navbarApi.getUser()

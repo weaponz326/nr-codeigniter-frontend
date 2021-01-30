@@ -10,9 +10,9 @@ import { environment } from '../../environments/environment'
 })
 export class UserPageApiService {
 
-  restaurantUrl = environment.restaurantUrl;
-
   constructor(private http: HttpClient) { }
+
+  restaurantUrl = environment.restaurantUrl;
 
   // get user's hospital accounts
   public getAccounts(): Observable<any>{

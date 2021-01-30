@@ -12,6 +12,8 @@ import { TaskFormComponent } from '../task-form/task-form.component';
 })
 export class AddTaskComponent implements OnInit {
 
+  constructor() { }
+
   @Output() taskAdded = new EventEmitter<object>();
 
   @ViewChild("addTaskReference") addTaskWindow: jqxWindowComponent;
@@ -19,8 +21,6 @@ export class AddTaskComponent implements OnInit {
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
   @ViewChild("taskFormComponentReference") taskForm: TaskFormComponent;;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

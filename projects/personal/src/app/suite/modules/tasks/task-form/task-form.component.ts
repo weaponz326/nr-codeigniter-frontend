@@ -12,13 +12,13 @@ import { jqxCheckBoxComponent } from 'jqwidgets-ng/jqxcheckbox';
 })
 export class TaskFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("taskNameReference") taskName: jqxInputComponent;
   @ViewChild("descriptionReference") description: jqxTextAreaComponent;
   @ViewChild("priorityReference") priority: jqxDropDownListComponent;
   @ViewChild("progressReference") progress: jqxDropDownListComponent;
   @ViewChild("visibilityReference") visibility: jqxCheckBoxComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

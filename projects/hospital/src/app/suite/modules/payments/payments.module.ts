@@ -16,7 +16,6 @@ import { PaymentsWrapperComponent } from './payments-wrapper/payments-wrapper.co
 import { AllPaymentsComponent } from './all-payments/all-payments.component';
 import { NewPaymentComponent } from './new-payment/new-payment.component';
 import { ViewPaymentComponent } from './view-payment/view-payment.component';
-import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { SelectPatientComponent } from './select-patient/select-patient.component';
 import { SelectBillComponent } from './select-bill/select-bill.component';
 import { SelectAdmissionComponent } from './select-admission/select-admission.component';
@@ -28,7 +27,6 @@ import { SelectAdmissionComponent } from './select-admission/select-admission.co
     AllPaymentsComponent,
     NewPaymentComponent,
     ViewPaymentComponent,
-    PaymentFormComponent,
     SelectPatientComponent,
     SelectBillComponent,
     SelectAdmissionComponent

@@ -10,9 +10,9 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class SearchDetailComponent implements OnInit {
 
-  @ViewChild('buttonReference') button: jqxButtonComponent;
-
   constructor(private router: Router) { }
+
+  @ViewChild('buttonReference') button: jqxButtonComponent;
 
   ngOnInit(): void {
   }

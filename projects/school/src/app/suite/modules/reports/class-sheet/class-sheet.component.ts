@@ -10,10 +10,10 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class ClassSheetComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('addAssessmentReference') addAssessment: jqxButtonComponent;
   @ViewChild('classGridReference') classGrid: jqxGridComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

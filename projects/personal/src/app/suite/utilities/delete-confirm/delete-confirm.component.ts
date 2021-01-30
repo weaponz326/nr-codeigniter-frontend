@@ -11,14 +11,14 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class DeleteConfirmComponent implements OnInit {
 
+  constructor() { }
+
   @Output() confirmEvent = new EventEmitter<string>();
 
   @ViewChild('confirmWindowReference') confirmWindow: jqxWindowComponent;
   @ViewChild("yesButtonReference") yesButton: jqxButtonComponent;
   @ViewChild("noButtonReference") noButton: jqxButtonComponent;
-
-  constructor() { }
-
+  
   ngOnInit(): void {
   }
 

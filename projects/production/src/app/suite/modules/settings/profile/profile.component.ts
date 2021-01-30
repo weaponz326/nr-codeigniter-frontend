@@ -13,14 +13,14 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class ProfileComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('firstNameReference') nameInput: jqxInputComponent;
   @ViewChild('typeReference') typeComboBox: jqxComboBoxComponent;
   @ViewChild('locationReference') locationInput: jqxInputComponent;
   @ViewChild('aboutReference') aboutTextArea: jqxTextAreaComponent;
   @ViewChild('logoPanelReference') logoPanel: jqxPanelComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

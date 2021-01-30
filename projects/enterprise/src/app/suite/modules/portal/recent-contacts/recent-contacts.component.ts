@@ -9,9 +9,9 @@ import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel';
 })
 export class RecentContactsComponent implements OnInit {
 
-  @ViewChild('contactsPanelReference') contactsPanel: jqxPanelComponent;
-
   constructor() { }
+
+  @ViewChild('contactsPanelReference') contactsPanel: jqxPanelComponent;
 
   ngOnInit(): void {
   }

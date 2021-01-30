@@ -20,6 +20,8 @@ import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilitie
 })
 export class DispenseDetailsComponent implements OnInit, AfterViewInit {
 
+  constructor(private dispensaryApi: DispensaryApiService, public suiteRoutes: SuiteRoutesService) { }
+
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
 
@@ -28,8 +30,6 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
-
-  constructor(private dispensaryApi: DispensaryApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

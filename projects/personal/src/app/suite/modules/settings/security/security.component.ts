@@ -11,9 +11,9 @@ import { SettingsApiService } from '../settings-api.service';
 })
 export class SecurityComponent implements OnInit {
 
-  @ViewChild('twoAuthButtonReference') twoAuthButton: jqxButtonComponent;
-
   constructor(private settingsApi: SettingsApiService) { }
+
+  @ViewChild('twoAuthButtonReference') twoAuthButton: jqxButtonComponent;
 
   ngOnInit(): void {
   }

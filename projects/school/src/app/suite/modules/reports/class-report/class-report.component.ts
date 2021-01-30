@@ -12,14 +12,14 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class ClassReportComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('reportCodeReference') reportCode: jqxInputComponent;
   @ViewChild('reportNameReference') reportName: jqxInputComponent;
   @ViewChild('reportDateReference') reportDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('classReference') class: jqxDropDownListComponent;
   @ViewChild('saveReportReference') saveButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

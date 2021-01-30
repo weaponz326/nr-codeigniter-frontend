@@ -13,10 +13,10 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class TimelineComponent implements OnInit {
 
+  constructor(private portalApi: PortalApiService, public suiteRoutes: SuiteRoutesService) { }
+
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('newButtonReference') newSearchbutton: jqxButtonComponent;
-
-  constructor(private portalApi: PortalApiService, public suiteRoutes: SuiteRoutesService) { }
 
   ngOnInit(): void {
   }

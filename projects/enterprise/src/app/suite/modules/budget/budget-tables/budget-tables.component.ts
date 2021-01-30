@@ -9,10 +9,10 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class BudgetTablesComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('incomeGridReference') incomeGrid: jqxGridComponent;
   @ViewChild('expenditureGridReference') expenditureGrid: jqxGridComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

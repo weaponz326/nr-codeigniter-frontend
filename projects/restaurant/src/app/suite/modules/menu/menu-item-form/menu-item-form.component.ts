@@ -12,13 +12,13 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class MenuItemFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('itemCodeReference') itemCode: jqxInputComponent;
   @ViewChild('itemNameReference') itemName: jqxInputComponent;
   @ViewChild('categoryReference') category: jqxComboBoxComponent;
   @ViewChild('priceReference') price: jqxNumberInputComponent;
   @ViewChild('descriptionReference') description: jqxTextAreaComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

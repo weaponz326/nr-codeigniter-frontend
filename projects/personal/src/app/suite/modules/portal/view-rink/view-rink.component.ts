@@ -13,16 +13,16 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class ViewRinkComponent implements OnInit {
 
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  personalId = localStorage.getItem('personal_id');
-  rink: any;
-
   constructor(
     private router: Router,
     private portalApi: PortalApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  personalId = localStorage.getItem('personal_id');
+  rink: any;
 
   ngOnInit(): void {
     console.log("this hook aint working");

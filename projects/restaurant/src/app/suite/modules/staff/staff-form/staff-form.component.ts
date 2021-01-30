@@ -12,6 +12,8 @@ import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton';
 })
 export class StaffFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
   @ViewChild('sexReference') sexRadioButton: jqxRadioButtonComponent;
@@ -26,8 +28,6 @@ export class StaffFormComponent implements OnInit {
   @ViewChild('postCodeReference') postCodeInput: jqxInputComponent;
   @ViewChild('staffCodeReference') staffCodeInput: jqxInputComponent;
   @ViewChild('jobReference') jobInput: jqxInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

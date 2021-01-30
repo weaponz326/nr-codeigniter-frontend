@@ -9,9 +9,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class PayrollDetailsComponent implements OnInit {
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild("gridReference") grid: jqxGridComponent;
 
   ngOnInit(): void {
   }

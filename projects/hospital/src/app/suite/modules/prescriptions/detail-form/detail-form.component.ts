@@ -9,11 +9,11 @@ import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 })
 export class DetailFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("medicineReference") medicineTextArea: jqxTextAreaComponent;
   @ViewChild("dosageReference") dosageTextArea: jqxTextAreaComponent;
   @ViewChild("remarksReference") remarksTextArea: jqxTextAreaComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

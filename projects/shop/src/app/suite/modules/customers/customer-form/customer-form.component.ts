@@ -10,13 +10,13 @@ import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 })
 export class CustomerFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('customerCodeReference') customerCode: jqxInputComponent;
   @ViewChild('customerNameReference') customerName: jqxInputComponent;
   @ViewChild('phoneReference') phone: jqxInputComponent;
   @ViewChild('emailReference') email: jqxInputComponent;
   @ViewChild('addressReference') address: jqxTextAreaComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

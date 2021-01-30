@@ -12,6 +12,8 @@ import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
 })
 export class ViewFileComponent implements OnInit {
 
+    constructor() { }
+
   @ViewChild("folderNameReference") folderName: jqxInputComponent;
   @ViewChild("folderNumberReference") folderNumber: jqxInputComponent;
   @ViewChild("fileNameReference") fileName: jqxInputComponent;
@@ -19,8 +21,6 @@ export class ViewFileComponent implements OnInit {
   @ViewChild("dateAddedReference") dateAdded: jqxDateTimeInputComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("attachmentsReference") attachments: jqxFileUploadComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

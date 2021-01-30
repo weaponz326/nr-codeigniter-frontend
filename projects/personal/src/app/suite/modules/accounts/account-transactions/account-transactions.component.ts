@@ -15,16 +15,16 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
+  constructor(private accountsApi: AccountsApiService) { }
+
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("addbuttonReference") addButton: jqxButtonComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-  
+
   // emit aggregate sum value of transactions
   @Output() calculateBalance = new EventEmitter<any>();
-
-  constructor(private accountsApi: AccountsApiService) { }
 
   ngOnInit(): void {
   }

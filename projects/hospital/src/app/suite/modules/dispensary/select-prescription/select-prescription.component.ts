@@ -12,12 +12,12 @@ import { DispensaryApiService } from '../dispensary-api.service';
 })
 export class SelectPrescriptionComponent implements OnInit, AfterViewInit {
 
+  constructor(private dispensaryApi: DispensaryApiService) { }
+
   @ViewChild("selectPrescriptionWindowReference") selectPrescriptionWindow: jqxWindowComponent;
   @ViewChild("selectPrescriptionGridReference") selectPrescriptionGrid: jqxGridComponent;
 
   @Output() prescriptionEvent = new EventEmitter<any>();
-
-  constructor(private dispensaryApi: DispensaryApiService) { }
 
   ngOnInit(): void {
   }

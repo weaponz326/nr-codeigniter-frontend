@@ -13,6 +13,8 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 })
 export class OrderFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('orderCodeReference') orderCode: jqxInputComponent;
   @ViewChild('orderTypeReference') orderType: jqxComboBoxComponent;
   @ViewChild('orderDateReference') orderDate: jqxDateTimeInputComponent;
@@ -24,8 +26,6 @@ export class OrderFormComponent implements OnInit {
   @ViewChild('vendorEmailReference') vendorEmail: jqxInputComponent;
   @ViewChild('vendorAddressReference') vendorAddress: jqxTextAreaComponent;
   @ViewChild('statusReference') orderStatus: jqxDropDownListComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -13,12 +13,12 @@ import { PaymentsApiService } from '../payments-api.service';
 })
 export class SelectBillComponent implements OnInit, AfterViewInit {
 
+  constructor(private paymentsApi: PaymentsApiService) { }
+
   @ViewChild("selectBillWindowReference") selectBillWindow: jqxWindowComponent;
   @ViewChild("selectBillGridReference") selectBillGrid: jqxGridComponent;
 
   @Output() patientEvent = new EventEmitter<any>();
-
-  constructor(private paymentsApi: PaymentsApiService) { }
 
   ngOnInit(): void {
   }

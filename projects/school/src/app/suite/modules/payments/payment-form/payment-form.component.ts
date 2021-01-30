@@ -12,6 +12,8 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class PaymentFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("paymentCodeReference") paymentCode: jqxInputComponent;
   @ViewChild("paymentDateReference") paymentDate: jqxDateTimeInputComponent;
   @ViewChild("termReference") term: jqxDropDownListComponent;
@@ -21,8 +23,6 @@ export class PaymentFormComponent implements OnInit {
   @ViewChild("amountDueReference") amountDue: jqxNumberInputComponent;
   @ViewChild("amountPaidReference") amountPaid: jqxNumberInputComponent;
   @ViewChild("balanceReference") amountbalancePayed: jqxNumberInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -9,9 +9,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class InvoiceTableComponent implements OnInit {
 
-  @ViewChild("editGridReference") editGrid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild("editGridReference") editGrid: jqxGridComponent;
 
   ngOnInit(): void {
   }

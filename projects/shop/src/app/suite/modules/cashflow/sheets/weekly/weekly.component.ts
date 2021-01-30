@@ -9,11 +9,11 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class WeeklyComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("inflowGridReference") inflowGrid: jqxGridComponent;
   @ViewChild("outflowGridReference") outflowGrid: jqxGridComponent;
   @ViewChild("netflowGridReference") netflowGrid: jqxGridComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

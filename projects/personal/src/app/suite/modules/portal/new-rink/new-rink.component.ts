@@ -22,6 +22,12 @@ import { NoteComponent } from '../rink-types/note/note.component';
 })
 export class NewRinkComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private portalApi: PortalApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('nameInputReference') nameInput: jqxInputComponent;
   @ViewChild('locationInputReference') locationInput: jqxInputComponent;
@@ -39,12 +45,6 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
 
   selectedSourceId: any;
   selectedSource: string;
-
-  constructor(
-    private router: Router,
-    private portalApi: PortalApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }
@@ -119,7 +119,7 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          
+
           if (res.status == true){
             sessionStorage.setItem('rink_id', res.rink_id);
             this.router.navigateByUrl('/suite/portal/view-rink');

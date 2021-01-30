@@ -12,14 +12,14 @@ import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox/public_api';
 })
 export class ViewInvoiceComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("invoiceNumberReference")invoiceNumber: jqxInputComponent;
   @ViewChild("invoiceDateReference") invoiceDate: jqxDateTimeInputComponent;
   @ViewChild("customerNameReference") customerName: jqxComboBoxComponent;
   @ViewChild("customerContactReference") customerContact: jqxInputComponent;
   @ViewChild("dueDateReference") dueDate: jqxDateTimeInputComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

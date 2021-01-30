@@ -9,9 +9,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AssessmentTableComponent implements OnInit {
 
-  @ViewChild('gridReference') grid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild('gridReference') grid: jqxGridComponent;
 
   ngOnInit(): void {
   }

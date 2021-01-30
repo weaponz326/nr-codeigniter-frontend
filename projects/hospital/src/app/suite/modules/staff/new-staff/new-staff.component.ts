@@ -17,6 +17,12 @@ import { StaffFormComponent } from '../staff-form/staff-form.component';
 })
 export class NewStaffComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private staffApi: StaffApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
 
@@ -24,12 +30,6 @@ export class NewStaffComponent implements OnInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   @ViewChild('staffFormComponentReference') staffForm: StaffFormComponent;
-
-  constructor(
-    private router: Router,
-    private staffApi: StaffApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

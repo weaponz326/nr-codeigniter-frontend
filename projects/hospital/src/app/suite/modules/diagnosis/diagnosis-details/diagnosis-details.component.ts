@@ -12,6 +12,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class DiagnosisDetailsComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("bloodGroupReference") bloodGroup: jqxDropDownListComponent;
   @ViewChild("temperatureReference") temperature: jqxInputComponent;
   @ViewChild("weightReference") weight: jqxInputComponent;
@@ -21,8 +23,6 @@ export class DiagnosisDetailsComponent implements OnInit {
   @ViewChild("diagnosisDetailReference") diagnosisDetail: jqxTextAreaComponent;
   @ViewChild("treatmentReference") treatment: jqxTextAreaComponent;
   @ViewChild("remarksReference") remarks: jqxTextAreaComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

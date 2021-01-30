@@ -11,14 +11,14 @@ import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
 })
 export class ReceivedFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("dateReceivedReference") dateReceived: jqxDateTimeInputComponent;
   @ViewChild("senderReference") sender: jqxInputComponent;
   @ViewChild("subjectReference") subject: jqxInputComponent;
   @ViewChild("referenceNumberReference") referenceNumber: jqxInputComponent;
   @ViewChild("letterDateReference") letterDate: jqxDateTimeInputComponent;
   @ViewChild("attachmentReference") attachment: jqxFileUploadComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

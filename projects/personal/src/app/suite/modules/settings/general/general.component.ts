@@ -13,6 +13,8 @@ import { SettingsApiService } from '../settings-api.service';
 })
 export class GeneralComponent implements OnInit {
 
+  constructor(private settingsApi: SettingsApiService) { }
+
   @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
   @ViewChild('accountEmailInputReference') accountEmailInput: jqxInputComponent;
   @ViewChild('backupEmailInputReference') backupEmailInput: jqxInputComponent;
@@ -22,8 +24,6 @@ export class GeneralComponent implements OnInit {
   @ViewChild('newPasswordInputReference') newPasswordInput: jqxPasswordInputComponent;
   @ViewChild('confirmPasswordInputReference') confirmPasswordInput: jqxPasswordInputComponent;
   @ViewChild('savePasswordButtonReference') savePasswordButton: jqxButtonComponent;
-
-  constructor(private settingsApi: SettingsApiService) { }
 
   ngOnInit(): void {
   }

@@ -10,10 +10,10 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 })
 export class CheckSheetComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('dateReference') grid: jqxDateTimeInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

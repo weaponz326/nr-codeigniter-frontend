@@ -11,13 +11,13 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class NewFolderComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("newFolderReference") newFolder: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild("folderNumberReference") folderNumber: jqxInputComponent;
   @ViewChild("folderNameReference") folderName: jqxInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

@@ -10,9 +10,9 @@ import { environment } from 'projects/personal/src/environments/environment';
 })
 export class TasksApiService {
 
-  personalUrl = environment.personalUrl;
-
   constructor(private http: HttpClient) { }
+
+  personalUrl = environment.personalUrl;
 
   public getTasks(): Observable<any>{
     return this.http.get(this.personalUrl + "module-tasks/task-list?user=" + localStorage.getItem('personal_id'));

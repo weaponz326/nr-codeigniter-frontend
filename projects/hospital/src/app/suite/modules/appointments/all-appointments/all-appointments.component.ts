@@ -24,17 +24,17 @@ import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utiliti
 })
 export class AllAppointmentsComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('addAppointmentReference') addAppointmentButton: jqxButtonComponent;
-  @ViewChild('gridReference') grid: jqxGridComponent;
-
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
-
   constructor(
     private router: Router,
     private appointmentsApi: AppointmentsApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild('addAppointmentReference') addAppointmentButton: jqxButtonComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
+
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
   ngOnInit(): void {
   }

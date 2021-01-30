@@ -13,6 +13,8 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class DrugFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('ndcNumberReference') ndcNumber: jqxInputComponent;
   @ViewChild('drugNameReference') drugName: jqxInputComponent;
   @ViewChild('genericNameReference') genericName: jqxInputComponent;
@@ -31,8 +33,6 @@ export class DrugFormComponent implements OnInit {
   @ViewChild('storageLocationReference') storageLocation: jqxInputComponent;
   @ViewChild('storageBinReference') storageBin: jqxInputComponent;
   @ViewChild('refillOrderedReference') refillOrdered: jqxDateTimeInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

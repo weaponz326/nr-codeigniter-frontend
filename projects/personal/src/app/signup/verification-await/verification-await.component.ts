@@ -16,10 +16,10 @@ import { startWith, switchMap } from 'rxjs/operators'
 })
 export class VerificationAwaitComponent implements OnInit {
 
+  constructor(private router: Router, private signupApi: SignupApiService) { }
+
   verStatus = false;
   verMsg = "Verify your email to finish with the registration";
-
-  constructor(private router: Router, private signupApi: SignupApiService) { }
 
   ngOnInit(): void {
     interval(5000)

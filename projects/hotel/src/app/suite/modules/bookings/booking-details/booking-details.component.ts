@@ -9,9 +9,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class BookingDetailsComponent implements OnInit {
 
-  @ViewChild("roomGridReference") roomGrid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild("roomGridReference") roomGrid: jqxGridComponent;
 
   ngOnInit(): void {
   }

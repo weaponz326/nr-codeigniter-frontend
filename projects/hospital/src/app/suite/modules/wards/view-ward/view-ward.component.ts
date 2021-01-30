@@ -19,6 +19,12 @@ import { WardFormComponent } from '../ward-form/ward-form.component';
 })
 export class ViewWardComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private wardsApi: WardsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
@@ -28,12 +34,6 @@ export class ViewWardComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
   @ViewChild('wardFormComponentReference') wardForm: WardFormComponent;
-
-  constructor(
-    private router: Router,
-    private wardsApi: WardsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

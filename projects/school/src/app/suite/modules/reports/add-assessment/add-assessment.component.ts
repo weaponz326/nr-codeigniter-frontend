@@ -12,6 +12,8 @@ import { jqxListBoxComponent } from 'jqwidgets-ng/jqxlistbox';
 })
 export class AddAssessmentComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("addAssessmentReference") addAssessment: jqxWindowComponent;
   @ViewChild("termReference") term: jqxDropDownListComponent;
   @ViewChild("subjectReference") subject: jqxDropDownListComponent;
@@ -19,8 +21,6 @@ export class AddAssessmentComponent implements OnInit {
   @ViewChild("selectAsessmentReference") selectAssessment: jqxListBoxComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

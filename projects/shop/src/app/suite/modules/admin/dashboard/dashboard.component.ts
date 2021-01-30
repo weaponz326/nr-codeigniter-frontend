@@ -13,13 +13,13 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class DashboardComponent implements OnInit {
 
-  @ViewChild('invitationsButtonReference') invitationsButton: jqxButtonComponent;
-  @ViewChild('allUsersButtonReference') allUsersButton: jqxButtonComponent;
-
   constructor(
     private adminApi: AdminApiService,
     public suiteRoutes: SuiteRoutesService
   ) { }
+
+  @ViewChild('invitationsButtonReference') invitationsButton: jqxButtonComponent;
+  @ViewChild('allUsersButtonReference') allUsersButton: jqxButtonComponent;
 
   ngOnInit(): void {
   }

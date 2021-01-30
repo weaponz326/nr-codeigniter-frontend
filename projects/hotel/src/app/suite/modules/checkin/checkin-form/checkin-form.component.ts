@@ -12,6 +12,8 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class CheckinFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('checkinCodeReference') checkinCode: jqxInputComponent;
   @ViewChild('guestNameReference') guestName: jqxDropDownListComponent;
   @ViewChild('guestCodeReference') guestCode: jqxDropDownListComponent;
@@ -19,8 +21,6 @@ export class CheckinFormComponent implements OnInit {
   @ViewChild('checkoutDateReference') checkoutDate: jqxDateTimeInputComponent;
   @ViewChild('nightsNumberReference') nightsNumber: jqxNumberInputComponent;
   @ViewChild('roomNumberReference') roomNumber: jqxInputComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

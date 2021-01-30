@@ -12,13 +12,13 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class ViewBillComponent implements OnInit {
 
-  @ViewChild('billCodeReference') orderCode: jqxInputComponent;
-  @ViewChild('billDateReference') orderDate: jqxDateTimeInputComponent;
+  constructor() { }
+
+  @ViewChild('billCodeReference') billCode: jqxInputComponent;
+  @ViewChild('billDateReference') billDate: jqxDateTimeInputComponent;
   @ViewChild('guestNameReference') guestName: jqxDropDownListComponent;
   @ViewChild('guestCodeReference') guestCode: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

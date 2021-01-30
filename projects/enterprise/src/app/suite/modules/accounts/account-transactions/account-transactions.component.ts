@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
+
 @Component({
   selector: 'app-account-transactions',
   templateUrl: './account-transactions.component.html',
@@ -9,9 +10,9 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AccountTransactionsComponent implements OnInit {
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
-
   constructor() { }
+
+  @ViewChild("gridReference") grid: jqxGridComponent;
 
   ngOnInit(): void {
   }

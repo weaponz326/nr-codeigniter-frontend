@@ -10,10 +10,10 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class ViewSheetComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild('sheetButtonReference') button: jqxButtonComponent;
   @ViewChild('sheetGridReference') grid: jqxGridComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

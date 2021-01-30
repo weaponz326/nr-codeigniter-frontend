@@ -12,6 +12,8 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 })
 export class ViewBookingComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("bookingCodeReference") bookingCode: jqxInputComponent;
   @ViewChild("bookingDateReference") bookingDate: jqxDateTimeInputComponent;
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
@@ -19,8 +21,6 @@ export class ViewBookingComponent implements OnInit {
   @ViewChild("arrivalDateReference") arrivalDate: jqxDateTimeInputComponent;
   @ViewChild("statusReference") status: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

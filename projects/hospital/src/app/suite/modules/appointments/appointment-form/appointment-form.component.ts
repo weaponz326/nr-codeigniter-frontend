@@ -16,6 +16,9 @@ import { SelectDoctorComponent } from '../select-doctor/select-doctor.component'
 })
 export class AppointmentFormComponent implements OnInit {
 
+  @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
+  @ViewChild("selectDoctorComponentReference") selectDoctor: SelectDoctorComponent;
+
   @ViewChild("appointmentCodeReference") appointmentCode: jqxInputComponent;
   @ViewChild("patientNameReference") patientName: jqxInputComponent;
   @ViewChild("patientCodeReference") patientCode: jqxInputComponent;
@@ -24,9 +27,6 @@ export class AppointmentFormComponent implements OnInit {
   @ViewChild("appointmentForReference") appointmentFor: jqxInputComponent;
   @ViewChild("remarksReference") remarks: jqxTextAreaComponent;
   @ViewChild("statusReference") appointmentStatus: jqxDropDownListComponent;
-
-  @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
-  @ViewChild("selectDoctorComponentReference") selectDoctor: SelectDoctorComponent;
 
   // stores db table ids of selected patient and doctor
   // to be retreived for sending to backend

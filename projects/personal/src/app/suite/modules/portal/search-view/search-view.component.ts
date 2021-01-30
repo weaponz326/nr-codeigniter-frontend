@@ -15,6 +15,12 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class SearchViewComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('searchInputReference') searchInput: jqxInputComponent;
   @ViewChild('searchButtonReference') searchButton: jqxButtonComponent;
   @ViewChild('searchComboBoxReference') searchComboBox: jqxComboBoxComponent;
@@ -22,12 +28,6 @@ export class SearchViewComponent implements OnInit, AfterViewInit {
   @ViewChild('myContactsButtonReference') myContactsButton: jqxButtonComponent;
 
   searchFilter: any[] = ['All', 'Personal', 'Hospital', 'Restaurant', 'School', 'Enterprise', 'Hotel', 'Shop', 'Production'];
-
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

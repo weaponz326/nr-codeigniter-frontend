@@ -10,9 +10,9 @@ import { environment } from 'projects/hospital/src/environments/environment';
 })
 export class DrugsApiService {
 
-  hospitalUrl = environment.hospitalUrl;
-
   constructor(private http: HttpClient) { }
+
+  hospitalUrl = environment.hospitalUrl;
 
   // create and get all drugs belonging to user
 

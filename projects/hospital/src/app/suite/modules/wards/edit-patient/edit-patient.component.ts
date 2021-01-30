@@ -12,6 +12,8 @@ import { PatientFormComponent } from '../patient-form/patient-form.component'
 })
 export class EditPatientComponent implements OnInit, AfterViewInit {
 
+  constructor() { }
+
   @ViewChild("editPatientReference") editPatient: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;

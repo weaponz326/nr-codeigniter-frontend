@@ -10,9 +10,9 @@ import { environment } from 'projects/hospital/src/environments/environment';
 })
 export class StaffApiService {
 
-  hospitalUrl = environment.hospitalUrl;
-
   constructor(private http: HttpClient) { }
+
+  hospitalUrl = environment.hospitalUrl;
 
   // create and get all staffs belonging to user
 

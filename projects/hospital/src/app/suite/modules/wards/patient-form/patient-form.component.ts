@@ -14,6 +14,8 @@ import { SelectPatientComponent } from '../select-patient/select-patient.compone
 })
 export class PatientFormComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("patientNameReference") patientName: jqxInputComponent;
   @ViewChild("patientCodeReference") patientCode: jqxInputComponent;
   @ViewChild("bedNumberReference") bedNumber: jqxInputComponent;
@@ -27,8 +29,6 @@ export class PatientFormComponent implements OnInit {
   // to be retreived for sending to backend
   patientIdStore: any;
   doctorIdStore: any;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

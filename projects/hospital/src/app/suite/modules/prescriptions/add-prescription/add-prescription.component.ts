@@ -5,7 +5,6 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 
 import { PrescriptionsApiService } from '../prescriptions-api.service';
 import { SuiteRoutesService } from '../../../suite-routes.service';
@@ -20,6 +19,12 @@ import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utiliti
 })
 export class AddPrescriptionComponent implements OnInit {
 
+  constructor(
+    private router: Router,
+    private prescriptionsApi: PrescriptionsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild("addPrescriptionReference") addPrescription: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -29,12 +34,6 @@ export class AddPrescriptionComponent implements OnInit {
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  constructor(
-    private router: Router,
-    private prescriptionsApi: PrescriptionsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }
