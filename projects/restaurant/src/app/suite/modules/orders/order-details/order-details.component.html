@@ -7,24 +7,43 @@
             </div>
         </div>
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #buttonReference (click)="addItem.openWindow()"
+                    [width]="150"
+                    [height]="30"
+                >Add Order Item</jqxButton>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
-                <div>
-                    <jqxGrid #detailsGridReference
-                        [width]="'100%'"
-                        [autoheight]="true"
-                        [rowsheight]="24"
-                        [showemptyrow]="false"
-                        [selectionmode]="'singlerow'"
-                        [showeverpresentrow]="true"
-                        [everpresentrowactions]="'add update delete reset'"
-                        [showstatusbar]="true"
-                        [showaggregates]="true"
-                        [columns]="columns"
-                    ></jqxGrid>
-                </div>
+                <jqxGrid #gridReference (onRowdoubleclick)="editItem.openWindow($event)"
+                    [width]="'100%'"
+                    [autoheight]="true"
+                    [source]="dataAdapter"
+                    [rowsheight]="40"
+                    [columns]="columns"
+                ></jqxGrid>
             </div>
         </div>
 
     </div>
 </div>
+
+<!-- add and edit order item components -->
+
+<app-add-item #addItemComponentReference
+    (addCommit)="onAddCommit($event)"
+></app-add-item>
+
+<app-edit-item #editDetailComponentReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-item>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

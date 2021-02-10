@@ -44,7 +44,19 @@ const routes: Routes = [
     loadChildren: () => import("./modules/customers/customers.module").then(m => m.CustomersModule)
   },
   {
-    path: "reservations",
+    path: "sittings",
+    loadChildren: () => import("./modules/sittings/sittings.module").then(m => m.SittingsModule)
+  },
+  {
+    path: "stock",
+    loadChildren: () => import("./modules/stock/stock.module").then(m => m.StockModule)
+  },
+  {
+    path: "bills",
+    loadChildren: () => import("./modules/bills/bills.module").then(m => m.BillsModule)
+  },
+  {
+    path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },
   {

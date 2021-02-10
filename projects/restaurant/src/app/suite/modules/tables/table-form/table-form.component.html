@@ -17,8 +17,18 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Capacity :</label></div>
+            <div class="col-md-4"><label>Table Type :</label></div>
             <div class="col-md-8">
+                <jqxComboBox #tableTypeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxComboBox>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Capacity :</label></div>
+            <div class="col-md-4">
                 <jqxNumberInput #capacityReference
                     [width]="'100%'"
                     [height]="28"
@@ -41,9 +51,11 @@
         <div class="row">
             <div class="col-md-4"><label>Status :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #statusReference
+                <jqxDropDownList #tableStatusReference
                     [width]="'100%'"
                     [height]="28"
+                    [source]="statusSource"
+                    [autoDropDownHeight]="true"
                 ></jqxDropDownList>
             </div>
         </div>

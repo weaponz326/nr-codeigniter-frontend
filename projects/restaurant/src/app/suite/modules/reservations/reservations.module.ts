@@ -11,6 +11,7 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { ReservationsRoutingModule } from './reservations-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { ReservationsWrapperComponent } from './reservations-wrapper/reservations-wrapper.component';
 import { AllReservationsComponent } from './all-reservations/all-reservations.component';
@@ -30,6 +31,7 @@ import { ReservationFormComponent } from './reservation-form/reservation-form.co
   imports: [
     CommonModule,
     ReservationsRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

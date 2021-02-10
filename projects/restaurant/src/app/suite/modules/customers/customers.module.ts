@@ -5,8 +5,12 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { CustomersRoutingModule } from './customers-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { CustomersWrapperComponent } from './customers-wrapper/customers-wrapper.component';
 import { AllCustomersComponent } from './all-customers/all-customers.component';
@@ -21,14 +25,19 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
     AllCustomersComponent,
     NewCustomerComponent,
     ViewCustomerComponent,
-    CustomerFormComponent],
+    CustomerFormComponent
+  ],
   imports: [
     CommonModule,
     CustomersRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxTextAreaModule,
+    jqxDropDownListModule,
+    jqxPanelModule,
+    jqxComboBoxModule,
   ]
 })
 export class CustomersModule { }

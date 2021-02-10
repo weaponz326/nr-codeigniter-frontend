@@ -1,0 +1,29 @@
+<jqxWindow #editItemReference
+    [width]="540"
+    [height]="285"
+    [autoOpen]="false">
+
+    <div>Edit Item</div>
+
+    <div>
+
+        <!-- item window form -->
+        <app-item-form #itemFormCOmponentReference></app-item-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteItem()"
+                >Delete</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveItem()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

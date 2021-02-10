@@ -19,6 +19,12 @@ import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilitie
 })
 export class ViewBillComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private billsApi: BillsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
   @ViewChild('billDateReference') billDate: jqxDateTimeInputComponent;
   @ViewChild('patientNameReference') patientName: jqxInputComponent;
@@ -31,12 +37,6 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
-
-  constructor(
-    private router: Router,
-    private billsApi: BillsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

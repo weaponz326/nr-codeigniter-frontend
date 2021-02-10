@@ -1,15 +1,18 @@
+<!-- ---------------------------------------------------------------------------------------------
+personal details -->
+
 <div class="row page-form-div">
 
     <div class="col-md-12">
-        <h4>Customer Details</h4>
+        <h4>Personal Details</h4>
     </div>
 
     <div class="col-md-6">
 
         <div class="row">
-            <div class="col-md-4"><label>Customer ID :</label></div>
+            <div class="col-md-4"><label>First Name :</label></div>
             <div class="col-md-8">
-                <jqxInput #customerCodeReference
+                <jqxInput #firstNameReference
                     [width]="'100%'"
                     [height]="28"
                 ></jqxInput>
@@ -17,15 +20,67 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Customer Name :</label></div>
+            <div class="col-md-4"><label>Last Name :</label></div>
             <div class="col-md-8">
-                <jqxInput #customerNameReference
+                <jqxInput #lastNameReference
                     [width]="'100%'"
                     [height]="28"
                 ></jqxInput>
             </div>
         </div>
 
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Sex :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #sexReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [source]="sexSource"
+                    [autoDropDownHeight]="true">
+                </jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+
+<!-- --------------------------------------------------------------------------------------------
+photo -->
+
+<div class="row page-form-div">
+
+  <div class="col-md-6">
+      <div class="row">
+
+          <div class="col-md-4"><label>Photo :</label></div>
+          <div class="col-md-8">
+              <jqxPanel #photoReference
+                  [width]="160"
+                  [height]="160"
+              ></jqxPanel>
+          </div>
+
+      </div>
+  </div>
+
+</div>
+
+<hr />
+
+<!-- --------------------------------------------------------------------------------------------------
+contact details -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-12">
+        <h4>Contact Details</h4>
     </div>
 
     <div class="col-md-6">
@@ -53,7 +108,104 @@
         <div class="row">
             <div class="col-md-4"><label>Address :</label></div>
             <div class="col-md-8">
-                <jqxTextArea #occupationReference
+                <jqxTextArea #addressReference
+                    [width]="'100%'"
+                    [height]="50"
+                ></jqxTextArea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>State/Region :</label></div>
+            <div class="col-md-8">
+                <jqxInput #stateReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>City/Town :</label></div>
+            <div class="col-md-8">
+                <jqxInput #cityReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Post Code :</label></div>
+            <div class="col-md-8">
+                <jqxInput #postCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+
+<!-- -------------------------------------------------------------------------------------------------
+clinic details -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-12">
+        <h4>Restaurant Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Customer ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #customerCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Religion :</label></div>
+            <div class="col-md-8">
+                <jqxComboBox #religionReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxComboBox>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Allergies :</label></div>
+            <div class="col-md-8">
+                <jqxTextArea #allergiesReference
+                    [width]="'100%'"
+                    [height]="50"
+                ></jqxTextArea>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-4"><label>Preferences :</label></div>
+            <div class="col-md-8">
+                <jqxTextArea #preferencesReference
                     [width]="'100%'"
                     [height]="50"
                 ></jqxTextArea>

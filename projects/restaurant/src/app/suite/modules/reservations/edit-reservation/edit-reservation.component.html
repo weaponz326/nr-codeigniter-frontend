@@ -1,24 +1,24 @@
-<jqxWindow #editReservationReference 
-    [width]="540" 
-    [height]="310" 
+<jqxWindow #editReservationReference (onOpen)="reservationForm.reservationCode.focus()"
+    [width]="540"
+    [height]="310"
     [autoOpen]="false">
-    
+
     <div>Edit Reservation</div>
 
     <div>
 
         <!-- reservation window form -->
-        <app-reservation-form></app-reservation-form>
+        <app-reservation-form #reservationFormComponentReference></app-reservation-form>
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #deleteButtonReference
+                <jqxButton #deleteButtonReference (click)="deleteReservation()"
                 >Delete</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveReservation()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -26,4 +26,4 @@
     </div>
 
 </jqxWindow>
-  
+

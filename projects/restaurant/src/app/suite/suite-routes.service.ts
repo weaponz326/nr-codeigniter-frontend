@@ -85,7 +85,7 @@ export class SuiteRoutesService {
 
   goMenuAdd(e){
     e.preventDefault();
-    this.router.navigateByUrl('/suite/menu/new-item');
+    this.router.navigateByUrl('/suite/menu/add-item');
   }
 
   goMenuView(e){
@@ -148,7 +148,14 @@ export class SuiteRoutesService {
 
   goDeliveriesAll(e){
     e.preventDefault();
-    this.router.navigateByUrl('/suite/deliveiries/all-deliveries');
+    this.router.navigateByUrl('/suite/deliveries/all-deliveries');
+  }
+
+  // kitchen stock routes
+
+  goStockAll(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/stock/all-items');
   }
 
   // payments routes
@@ -185,6 +192,25 @@ export class SuiteRoutesService {
   goOrdersView(e){
     e.preventDefault();
     this.router.navigateByUrl('/suite/orders/view-order');
+  }
+
+  // sittings
+
+  goSittingsAll(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/sittings/all-sittings');
+  }
+
+  // bills
+
+  goBillsAll(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/bills/all-bills');
+  }
+
+  goBillsView(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/bills/view-bill');
   }
 
 }

@@ -6,8 +6,10 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule} from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { TablesRoutingModule } from './tables-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { TablesWrapperComponent } from './tables-wrapper/tables-wrapper.component';
 import { AllTablesComponent } from './all-tables/all-tables.component';
@@ -27,11 +29,13 @@ import { ViewTableComponent } from './view-table/view-table.component';
   imports: [
     CommonModule,
     TablesRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxNumberInputModule,
-    jqxDropDownListModule
+    jqxDropDownListModule,
+    jqxComboBoxModule,
   ]
 })
 export class TablesModule { }

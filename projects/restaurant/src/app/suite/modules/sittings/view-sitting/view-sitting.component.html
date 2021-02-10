@@ -1,0 +1,29 @@
+<jqxWindow #viewSittingReference
+    [width]="540"
+    [height]="285"
+    [autoOpen]="false">
+
+    <div>Edit Sitting</div>
+
+    <div>
+
+        <!-- sitting window form -->
+        <app-sitting-form #sittingFormComponentReference></app-sitting-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteSitting()"
+                >Delete</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveSitting()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

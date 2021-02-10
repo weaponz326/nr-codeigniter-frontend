@@ -1,0 +1,69 @@
+<div>
+    <div class="edit-dialog-label-alt">Sitting ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #sittingCodeReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Sitting Date</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #sittingDateReference
+            [width]="'100%'"
+            [height]="25"
+            [formatString]="'yyyy-MM-dd'"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Arrival Time</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #arrivalTimeReference
+            [width]="'100%'"
+            [height]="25"
+            [showTimeButton]="true"
+            [showCalendarButton]="false"
+            [formatString]="'hh:mm:ss'"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Departure Time</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #departureTimeReference
+            [width]="'100%'"
+            [height]="25"
+            [showTimeButton]="true"
+            [showCalendarButton]="false"
+            [formatString]="'hh:mm:ss'"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Customer Name</div>
+    <div class="edit-dialog-field-alt">
+        <jqxComboBox #customerNameReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxComboBox>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Number of Guests</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #numberGuestsReference
+            [width]="'100%'"
+            [height]="25"
+            [inputMode]="'simple'"
+            [decimalDigits]="0"
+            [spinButtons]="true"
+        ></jqxNumberInput>
+    </div>
+</div>

@@ -1,21 +1,21 @@
-<jqxWindow #newDeliveryReference 
-    [width]="540" 
-    [height]="255" 
+<jqxWindow #newDeliveryReference (onOpen)="deliveryForm.deliveryCode.focus()"
+    [width]="540"
+    [height]="255"
     [autoOpen]="false">
-    
+
     <div>New Delivery</div>
 
     <div>
 
         <!-- delivery window form -->
-        <app-delivery-form></app-delivery-form>
+        <app-delivery-form #deliveryFormComponentReference></app-delivery-form>
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveDelivery()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -23,4 +23,4 @@
     </div>
 
 </jqxWindow>
-  
+

@@ -30,13 +30,14 @@ export class HomeComponent implements OnInit {
   @ViewChild("#ordersTooltipReference") ordersTooltip: jqxTooltipComponent;
   @ViewChild("#kitchenStockTooltipReference") kitchenStockTooltip: jqxTooltipComponent;
   @ViewChild("#billsTooltipReference") billsTooltip: jqxTooltipComponent;
+  @ViewChild("#sittingsTooltipReference") sittingsTooltip: jqxTooltipComponent;
   @ViewChild("#portalTooltipReference") portalTooltip: jqxTooltipComponent;
   @ViewChild("#settingsTooltipReference") settingsTooltip: jqxTooltipComponent;
 
   isActive: boolean = false;
 
   ngOnInit(): void {
-    this.navbarApi.checkActiveHospital()
+    this.navbarApi.checkActiveRestaurant()
       .subscribe(
         res => {
           console.log(res);

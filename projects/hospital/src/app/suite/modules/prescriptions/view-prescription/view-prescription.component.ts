@@ -22,6 +22,12 @@ import { SelectDoctorComponent } from '../select-doctor/select-doctor.component'
 })
 export class ViewPrescriptionComponent implements OnInit, AfterViewInit {
 
+  constructor(
+    private router: Router,
+    private prescriptionsApi: PrescriptionsApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('prescriptionCodeReference') prescriptionCode: jqxInputComponent;
   @ViewChild('prescriptionDateReference') prescriptionDate: jqxDateTimeInputComponent;
   @ViewChild('patientNameReference') patientName: jqxInputComponent;
@@ -42,12 +48,6 @@ export class ViewPrescriptionComponent implements OnInit, AfterViewInit {
   // to be retreived for sending to backend
   patientIdStore: any;
   doctorIdStore: any;
-
-  constructor(
-    private router: Router,
-    private prescriptionsApi: PrescriptionsApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
 
   ngOnInit(): void {
   }

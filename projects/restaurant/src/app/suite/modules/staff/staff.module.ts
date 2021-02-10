@@ -5,10 +5,12 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { StaffRoutingModule } from './staff-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { AllStaffComponent } from './all-staff/all-staff.component';
 import { StaffWrapperComponent } from './staff-wrapper/staff-wrapper.component';
@@ -28,12 +30,14 @@ import { StaffFormComponent } from './staff-form/staff-form.component';
   imports: [
     CommonModule,
     StaffRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
-    jqxRadioButtonModule,
-    jqxTextAreaModule
+    jqxDropDownListModule,
+    jqxTextAreaModule,
+    jqxPanelModule,
   ]
 })
 export class StaffModule { }

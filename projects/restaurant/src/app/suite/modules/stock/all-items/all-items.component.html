@@ -1,0 +1,58 @@
+<div class="container">
+
+    <div class="module-heading row">
+        <div class="col-md-12">
+
+            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
+            <span class="fa fa-angle-double-right"></span>
+            <h3>Kitchen Stock</h3>
+
+            <hr class="header-line" />
+            <hr class="header-line" />
+
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------------------- -->
+
+    <div class="row top-button-row">
+        <div class="col-md-12">
+            <jqxButton #addItemReference (click)="addItemWindowReference.openWindow()"
+                [width]="150"
+                [height]="30"
+            >Add Item</jqxButton>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <jqxGrid #gridReference (onRowdoubleclick)="editItemWindowReference.openWindow($event)"
+                [width]="'100%'"
+                [height]="450"
+                [source]="dataAdapter"
+                [sortable]="true"
+                [filterable]="true"
+                [showfilterrow]="true"
+                [columns]="columns"
+            ></jqxGrid>
+        </div>
+    </div>
+
+</div>
+
+<!-- add delivery dialog window -->
+<app-add-item #addItemWindowReference
+    (addCommit)="onAddCommit($event)"
+></app-add-item>
+
+<!-- edit delivery dialog window -->
+<app-edit-item #editItemWindowReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-item>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -26,7 +26,7 @@ export class UserWrapperComponent implements OnInit {
         res => {
           console.log(res);
 
-          localStorage.setItem('restaurant_id', res.restaurant_id);
+          sessionStorage.setItem('restaurant_id', res.restaurant_id);
           this.router.navigateByUrl('/suite');
         },
         err => {

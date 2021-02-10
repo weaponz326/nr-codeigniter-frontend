@@ -9,6 +9,7 @@ import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { MenuRoutingModule } from './menu-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 
 import { MenuWrapperComponent } from './menu-wrapper/menu-wrapper.component';
 import { AllMenuItemsComponent } from './all-menu-items/all-menu-items.component';
@@ -28,6 +29,7 @@ import { MenuItemFormComponent } from './menu-item-form/menu-item-form.component
   imports: [
     CommonModule,
     MenuRoutingModule,
+    UtilitiesModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

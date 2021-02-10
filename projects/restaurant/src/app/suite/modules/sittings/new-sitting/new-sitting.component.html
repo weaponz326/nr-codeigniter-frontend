@@ -1,0 +1,26 @@
+<jqxWindow #newSittingReference (onOpen)="sittingForm.sittingCode.focus()"
+    [width]="540"
+    [height]="285"
+    [autoOpen]="false">
+
+    <div>Add New Sitting</div>
+
+    <div>
+
+        <!-- sitting form component -->
+        <app-sitting-form #sittingFormComponentReference></app-sitting-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveSitting()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

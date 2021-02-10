@@ -71,7 +71,7 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
 
   // -------------------------------------------------------------------------------------------------
 
-  saveBill(){
+  savePayment(){
     let paymentData = {
       hospital_id: sessionStorage.getItem('hospital_id'),
       payment_code: this.paymentCode.val(),
@@ -96,7 +96,7 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
     console.log(paymentData);
   }
 
-  deleteBill(){
+  deletePayment(){
     console.log("dude... u are gonna delete the bill?");
 
     this.deleteConfirmComponent.openWindow();

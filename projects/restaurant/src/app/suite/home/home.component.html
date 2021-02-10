@@ -63,14 +63,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #tablesTooltipReference
+                <jqxTooltip #paymentsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Organize tables and manage other table activities'">
+                    [content]="'Receive payment of bills from customers'">
 
-                    <a href="#" (click)="suiteRoutes.goTablesAll($event)">
+                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
                         <figure>
-                            <img src="../../../assets/images/modules/tables.png" class="home-icons" />
-                            <figcaption>Tables</figcaption>
+                            <img src="../../../assets/images/modules/payments.png" class="home-icons" />
+                            <figcaption>Payments</figcaption>
                         </figure>
                     </a>
 
@@ -136,7 +136,7 @@
                     [position]="'mouse'"
                     [content]="'Keep track of the quantity dishes and items'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goStockAll($event)">
                         <figure>
                             <img src="../../../assets/images/modules/kitchen_stock.png" class="home-icons" />
                             <figcaption>Kitchen Stock</figcaption>
@@ -147,14 +147,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #paymentsTooltipReference
+                <jqxTooltip #sittingsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Receive payment of bills from customers'">
+                    [content]="'Manage sitting sessions of guests'">
 
-                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
+                    <a href="#" (click)="suiteRoutes.goSittingsAll($event)">
                         <figure>
-                            <img src="../../../assets/images/modules/payments.png" class="home-icons" />
-                            <figcaption>Payments</figcaption>
+                            <img src="../../../assets/images/modules/sittings.png" class="home-icons" />
+                            <figcaption>Sittings</figcaption>
                         </figure>
                     </a>
 
@@ -196,7 +196,7 @@
                     [position]="'mouse'"
                     [content]="'Automatically generate bills for customers'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goBillsAll($event)">
                         <figure>
                             <img src="../../../assets/images/modules/bills.png" class="home-icons" />
                             <figcaption>Bills</figcaption>
@@ -222,6 +222,21 @@
                         <figure>
                             <img src="../../../assets/images/modules/settings.png" class="home-icons" />
                             <figcaption>Settings</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #tablesTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Organize tables and manage other table activities'">
+
+                    <a href="#" (click)="suiteRoutes.goTablesAll($event)">
+                        <figure>
+                            <img src="../../../assets/images/modules/tables.png" class="home-icons" />
+                            <figcaption>Tables</figcaption>
                         </figure>
                     </a>
 
