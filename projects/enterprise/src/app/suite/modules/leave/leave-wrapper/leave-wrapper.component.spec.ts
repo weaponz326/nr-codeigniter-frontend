@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LeaveWrapperComponent } from './leave-wrapper.component';
 
@@ -6,7 +6,7 @@ describe('LeaveWrapperComponent', () => {
   let component: LeaveWrapperComponent;
   let fixture: ComponentFixture<LeaveWrapperComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LeaveWrapperComponent ]
     })

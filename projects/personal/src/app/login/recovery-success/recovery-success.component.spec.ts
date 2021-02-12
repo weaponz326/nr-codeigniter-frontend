@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RecoverySuccessComponent } from './recovery-success.component';
 
@@ -6,7 +6,7 @@ describe('RecoverySuccessComponent', () => {
   let component: RecoverySuccessComponent;
   let fixture: ComponentFixture<RecoverySuccessComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ RecoverySuccessComponent ]
     })

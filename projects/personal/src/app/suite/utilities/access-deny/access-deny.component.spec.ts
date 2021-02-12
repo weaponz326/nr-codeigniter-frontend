@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AccessDenyComponent } from './access-deny.component';
 
@@ -6,7 +6,7 @@ describe('AccessDenyComponent', () => {
   let component: AccessDenyComponent;
   let fixture: ComponentFixture<AccessDenyComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AccessDenyComponent ]
     })

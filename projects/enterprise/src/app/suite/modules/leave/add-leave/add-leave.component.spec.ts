@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AddLeaveComponent } from './add-leave.component';
 
@@ -6,7 +6,7 @@ describe('AddLeaveComponent', () => {
   let component: AddLeaveComponent;
   let fixture: ComponentFixture<AddLeaveComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AddLeaveComponent ]
     })

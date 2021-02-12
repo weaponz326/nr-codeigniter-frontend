@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NewLedgerComponent } from './new-ledger.component';
 
@@ -6,7 +6,7 @@ describe('NewLedgerComponent', () => {
   let component: NewLedgerComponent;
   let fixture: ComponentFixture<NewLedgerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NewLedgerComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ViewLedgerComponent } from './view-ledger.component';
 
@@ -6,7 +6,7 @@ describe('ViewLedgerComponent', () => {
   let component: ViewLedgerComponent;
   let fixture: ComponentFixture<ViewLedgerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ViewLedgerComponent ]
     })

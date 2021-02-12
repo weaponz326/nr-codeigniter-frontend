@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ViewRinkComponent } from './view-rink.component';
 
@@ -6,7 +6,7 @@ describe('ViewRinkComponent', () => {
   let component: ViewRinkComponent;
   let fixture: ComponentFixture<ViewRinkComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ViewRinkComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MainScrollnavComponent } from './main-scrollnav.component';
 
@@ -6,7 +6,7 @@ describe('MainScrollnavComponent', () => {
   let component: MainScrollnavComponent;
   let fixture: ComponentFixture<MainScrollnavComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MainScrollnavComponent ]
     })

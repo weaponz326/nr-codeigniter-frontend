@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ResetFormComponent } from './reset-form.component';
 
@@ -6,7 +6,7 @@ describe('ResetFormComponent', () => {
   let component: ResetFormComponent;
   let fixture: ComponentFixture<ResetFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ResetFormComponent ]
     })

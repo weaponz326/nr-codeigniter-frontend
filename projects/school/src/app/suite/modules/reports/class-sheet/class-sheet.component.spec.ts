@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ClassSheetComponent } from './class-sheet.component';
 
@@ -6,7 +6,7 @@ describe('ClassSheetComponent', () => {
   let component: ClassSheetComponent;
   let fixture: ComponentFixture<ClassSheetComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ClassSheetComponent ]
     })

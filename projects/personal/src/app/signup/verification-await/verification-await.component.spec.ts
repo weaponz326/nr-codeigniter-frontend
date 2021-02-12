@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { VerificationAwaitComponent } from './verification-await.component';
 
@@ -6,7 +6,7 @@ describe('VerificationAwaitComponent', () => {
   let component: VerificationAwaitComponent;
   let fixture: ComponentFixture<VerificationAwaitComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ VerificationAwaitComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ViewFolderComponent } from './view-folder.component';
 
@@ -6,7 +6,7 @@ describe('ViewFolderComponent', () => {
   let component: ViewFolderComponent;
   let fixture: ComponentFixture<ViewFolderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ViewFolderComponent ]
     })

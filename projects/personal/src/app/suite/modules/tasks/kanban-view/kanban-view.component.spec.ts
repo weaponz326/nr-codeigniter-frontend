@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { KanbanViewComponent } from './kanban-view.component';
 
@@ -6,7 +6,7 @@ describe('KanbanViewComponent', () => {
   let component: KanbanViewComponent;
   let fixture: ComponentFixture<KanbanViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ KanbanViewComponent ]
     })

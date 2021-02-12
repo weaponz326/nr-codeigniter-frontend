@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ParentWardsComponent } from './parent-wards.component';
 
@@ -6,7 +6,7 @@ describe('ParentWardsComponent', () => {
   let component: ParentWardsComponent;
   let fixture: ComponentFixture<ParentWardsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ParentWardsComponent ]
     })
