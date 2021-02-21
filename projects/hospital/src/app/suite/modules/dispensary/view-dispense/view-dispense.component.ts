@@ -40,6 +40,11 @@ export class ViewDispenseComponent implements OnInit, AfterViewInit {
 
   @ViewChild("selectPrescriptionComponentReference") selectPrescription: SelectPrescriptionComponent;
 
+  navHeading: any[] = [
+    { text: "All Dispenses", url: "/suite/dispensary/all-dispense" },
+    { text: "View Dispense", url: "/suite/dispensary/view-dispense" },
+  ];
+
   // stores db table ids of selected patient and doctor
   // to be retreived for sending to backend
   prescriptionIdStore: any;

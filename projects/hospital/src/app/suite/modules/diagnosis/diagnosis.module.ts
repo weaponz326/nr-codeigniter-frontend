@@ -11,6 +11,7 @@ import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { DiagnosisRoutingModule } from './diagnosis-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { DiagnosisWrapperComponent } from './diagnosis-wrapper/diagnosis-wrapper.component';
 import { AllDiagnosisComponent } from './all-diagnosis/all-diagnosis.component';
@@ -19,6 +20,8 @@ import { ViewDiagnosisComponent } from './view-diagnosis/view-diagnosis.componen
 import { DiagnosisDetailsComponent } from './diagnosis-details/diagnosis-details.component';
 import { SelectPatientComponent } from './select-patient/select-patient.component';
 import { SelectDoctorComponent } from './select-doctor/select-doctor.component';
+import { SettingsComponent } from './settings/settings.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -30,11 +33,14 @@ import { SelectDoctorComponent } from './select-doctor/select-doctor.component';
     DiagnosisDetailsComponent,
     SelectPatientComponent,
     SelectDoctorComponent,
+    SettingsComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
     DiagnosisRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

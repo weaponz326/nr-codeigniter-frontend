@@ -73,7 +73,7 @@ export class SuiteRoutesService {
 
   goSettingsView(e){
     e.preventDefault();
-    this.router.navigateByUrl('/suite/settings/view-settings');
+    this.router.navigateByUrl('/suite/settings/dashboard');
   }
 
   // patients routes

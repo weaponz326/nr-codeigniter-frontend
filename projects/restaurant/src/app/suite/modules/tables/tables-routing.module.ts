@@ -5,6 +5,8 @@ import { TablesWrapperComponent } from './tables-wrapper/tables-wrapper.componen
 import { AllTablesComponent } from './all-tables/all-tables.component';
 import { AddTableComponent } from './add-table/add-table.component';
 import { ViewTableComponent } from './view-table/view-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: TablesWrapperComponent,
     children: [
       { path: "", component: AllTablesComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "settings", component: SettingsComponent },
       { path: "all-tables", component: AllTablesComponent },
       { path: "add-table", component: AddTableComponent },
       { path: "view-table", component: ViewTableComponent }

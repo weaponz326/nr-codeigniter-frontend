@@ -9,6 +9,10 @@ export class DispensaryWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Dispenses", url: "/suite/dispensary/all-dispense", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

@@ -32,6 +32,10 @@ export class AddTableComponent implements OnInit {
 
   @ViewChild('tableFormComponentReference') tableForm: TableFormComponent;
 
+  navHeading: any[] = [
+    { text: "Add Table", url: "/suite/tables/add-table" },
+  ];
+
   ngOnInit(): void {
   }
 

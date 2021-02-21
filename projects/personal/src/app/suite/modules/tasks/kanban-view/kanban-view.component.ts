@@ -21,6 +21,10 @@ export class KanbanViewComponent implements OnInit, AfterViewInit {
   @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
   @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
 
+  navHeading: any[] = [
+    { text: "Kanban View", url: "/suite/tasks/kanban-view" },
+  ];
+
   newItemData: any;
 
   ngOnInit(): void {
@@ -60,7 +64,6 @@ export class KanbanViewComponent implements OnInit, AfterViewInit {
     //       console.log(err);
     //     }
     //   )
-
 
     console.log(this.newItemData);
     this.kanban.addItem(this.newItemData);

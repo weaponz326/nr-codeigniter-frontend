@@ -35,6 +35,11 @@ export class ViewTableComponent implements OnInit, AfterViewInit {
 
   @ViewChild('tableFormComponentReference') tableForm: TableFormComponent;
 
+  navHeading: any[] = [
+    { text: "All Tables", url: "/suite/tables/all-tables" },
+    { text: "View Table", url: "/suite/tables/view-table" },
+  ];
+
   ngOnInit(): void {
   }
 

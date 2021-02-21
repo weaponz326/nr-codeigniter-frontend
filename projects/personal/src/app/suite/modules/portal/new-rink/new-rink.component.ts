@@ -43,6 +43,11 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
   @ViewChild('taskSourceComponentReference') taskSourceComponent: TaskComponent;
   @ViewChild('noteSourceComponentReference') noteSourceComponent: NoteComponent;
 
+  navHeading: any[] = [
+    { text: "New Rink", url: "/suite/portal/search" },
+    { text: "Send Rink", url: "/suite/portal/search/new-rink" },
+  ];
+
   selectedSourceId: any;
   selectedSource: string;
 

@@ -9,6 +9,11 @@ export class DrugsWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Drugs", url: "/suite/drugs/all-drugs", icon: "fa fa-fw fa-list" },
+    { text: "New Drug", url: "/suite/drugs/new-drug", icon: "fa fa-fw fa-plus" }
+  ]
+
   ngOnInit(): void {
   }
 

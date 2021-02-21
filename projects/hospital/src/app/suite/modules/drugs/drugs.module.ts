@@ -11,12 +11,15 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { DrugsRoutingModule } from './drugs-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { DrugsWrapperComponent } from './drugs-wrapper/drugs-wrapper.component';
 import { AllDrugsComponent } from './all-drugs/all-drugs.component';
 import { NewDrugComponent } from './new-drug/new-drug.component';
 import { ViewDrugComponent } from './view-drug/view-drug.component';
 import { DrugFormComponent } from './drug-form/drug-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -25,12 +28,15 @@ import { DrugFormComponent } from './drug-form/drug-form.component';
     AllDrugsComponent,
     NewDrugComponent,
     ViewDrugComponent,
-    DrugFormComponent
+    DrugFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     DrugsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

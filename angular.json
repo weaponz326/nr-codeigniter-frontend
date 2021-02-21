@@ -24,15 +24,14 @@
               "projects/application/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "projects/application/src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css",
-              "projects/personal/src/assets/css/sb-admin-2.css"
+              "node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "projects/personal/src/assets/css/sb-admin-2.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -95,6 +94,7 @@
               "projects/application/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "projects/application/src/styles.css"
             ],
             "scripts": []
@@ -151,11 +151,13 @@
               "projects/personal/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
@@ -274,11 +276,13 @@
               "projects/hospital/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
@@ -397,11 +401,13 @@
               "projects/restaurant/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
@@ -520,11 +526,13 @@
               "projects/school/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
@@ -643,11 +651,13 @@
               "projects/hotel/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
@@ -766,11 +776,13 @@
               "projects/enterprise/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
@@ -889,11 +901,13 @@
               "projects/shop/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {
@@ -1012,11 +1026,13 @@
               "projects/production/src/styles.css",
               "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
             ]
           },
           "configurations": {

@@ -11,6 +11,7 @@ import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { PrescriptionsRoutingModule } from './prescriptions-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { PrescriptionsWrapperComponent } from './prescriptions-wrapper/prescriptions-wrapper.component';
 import { AllPrescriptionsComponent } from './all-prescriptions/all-prescriptions.component';
@@ -22,6 +23,8 @@ import { SelectDoctorComponent } from './select-doctor/select-doctor.component';
 import { AddDetailComponent } from './add-detail/add-detail.component';
 import { EditDetailComponent } from './edit-detail/edit-detail.component';
 import { DetailFormComponent } from './detail-form/detail-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -35,12 +38,15 @@ import { DetailFormComponent } from './detail-form/detail-form.component';
     SelectDoctorComponent,
     AddDetailComponent,
     EditDetailComponent,
-    DetailFormComponent
+    DetailFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     PrescriptionsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

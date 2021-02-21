@@ -19,6 +19,10 @@ export class AllTasksComponent implements OnInit, AfterViewInit {
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "All Tasks", url: "/suite/tasks/all-tasks" },
+  ];
+
   ngOnInit(): void {
   }
 

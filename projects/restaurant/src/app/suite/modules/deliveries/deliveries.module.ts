@@ -11,6 +11,7 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { DeliveriesRoutingModule } from './deliveries-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { DeliveriesWrapperComponent } from './deliveries-wrapper/deliveries-wrapper.component';
 import { AllDeliveriesComponent } from './all-deliveries/all-deliveries.component';
@@ -18,6 +19,8 @@ import { NewDeliveryComponent } from './new-delivery/new-delivery.component';
 import { EditDeliveryComponent } from './edit-delivery/edit-delivery.component';
 import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 import { SelectOrderComponent } from './select-order/select-order.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -28,11 +31,14 @@ import { SelectOrderComponent } from './select-order/select-order.component';
     EditDeliveryComponent,
     DeliveryFormComponent,
     SelectOrderComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
     DeliveriesRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

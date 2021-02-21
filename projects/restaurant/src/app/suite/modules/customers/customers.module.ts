@@ -11,12 +11,15 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { CustomersRoutingModule } from './customers-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { CustomersWrapperComponent } from './customers-wrapper/customers-wrapper.component';
 import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -25,12 +28,15 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
     AllCustomersComponent,
     NewCustomerComponent,
     ViewCustomerComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     CustomersRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

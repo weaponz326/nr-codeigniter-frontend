@@ -9,6 +9,11 @@ export class TasksWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "Kanban View", url: "/suite/tasks/kanban-view", icon: "fa fa-fw fa-eye" },
+    { text: "All Tasks", url: "/suite/tasks/all-tasks", icon: "fa fa-fw fa-list" }
+  ]
+
   ngOnInit(): void {
   }
 

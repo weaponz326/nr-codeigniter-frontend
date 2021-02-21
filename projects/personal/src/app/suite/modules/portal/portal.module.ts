@@ -13,6 +13,7 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 
 import { PortalRoutingModule } from './portal-routing.module';
 import { UtilitiesModule } from '../../utilities/utilities.module';
+import { DashboardModule } from '../../dashboard/dashboard.module';
 
 import { PortalWrapperComponent } from './portal-wrapper/portal-wrapper.component';
 import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
@@ -28,6 +29,8 @@ import { AppointmentComponent } from './rink-types/appointment/appointment.compo
 import { TaskDetailComponent } from './rink-details/task-detail/task-detail.component';
 import { AppointmentDetailComponent } from './rink-details/appointment-detail/appointment-detail.component';
 import { NoteDetailComponent } from './rink-details/note-detail/note-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -46,12 +49,15 @@ import { NoteDetailComponent } from './rink-details/note-detail/note-detail.comp
     TaskDetailComponent,
     AppointmentDetailComponent,
     NoteDetailComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
     ScrollingModule,
     PortalRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxInputModule,
     jqxButtonModule,
     jqxPanelModule,

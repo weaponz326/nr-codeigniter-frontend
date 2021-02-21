@@ -24,6 +24,10 @@ export class AllDeliveriesComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
+  navHeading: any[] = [
+    { text: "All Deliveries", url: "/suite/deliveries/all-deliveries" },
+  ];
+
   ngOnInit(): void {
   }
 

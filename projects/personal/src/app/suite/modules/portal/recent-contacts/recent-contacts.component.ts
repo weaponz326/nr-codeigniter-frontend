@@ -31,8 +31,9 @@ export class RecentContactsComponent implements OnInit {
       )
   }
 
-  goToDetail(){
-    // this.router.navigateByUrl('/suite/portal/search/search-detail');
+  goToDetail(userId){
+    sessionStorage.setItem('searchUser', userId)
+    this.router.navigateByUrl('/suite/portal/search/search-detail');
   }
 
 }

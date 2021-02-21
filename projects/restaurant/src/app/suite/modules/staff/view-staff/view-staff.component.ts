@@ -35,6 +35,11 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
 
   @ViewChild('staffFormComponentReference') staffForm: StaffFormComponent;
 
+  navHeading: any[] = [
+    { text: "All Staff", url: "/suite/staff/all-staff" },
+    { text: "View Staff", url: "/suite/staff/view-staff" },
+  ];
+
   ngOnInit(): void {
   }
 

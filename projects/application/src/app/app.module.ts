@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavbarModule } from './main-navbar/main-navbar.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MainNavbarModule } from './main-navbar/main-navbar.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MainNavbarModule
+    MainNavbarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -35,6 +35,11 @@ export class ViewMenuItemComponent implements OnInit, AfterViewInit {
 
   @ViewChild('menuItemFormComponentReference') menuItemForm: MenuItemFormComponent;
 
+  navHeading: any[] = [
+    { text: "All Items", url: "/suite/menu/all-items" },
+    { text: "View Item", url: "/suite/menu/view-item" },
+  ];
+
   ngOnInit(): void {
   }
 

@@ -20,6 +20,10 @@ export class AllTransactionsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Transactions", url: "/suite/accounts/all-transactions" },
+  ];
+
   ngOnInit(): void {
   }
 

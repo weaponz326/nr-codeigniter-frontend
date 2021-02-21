@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxEditorComponent } from 'jqwidgets-ng/jqxeditor';
 import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
-import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel';
+import { jqxListBoxComponent } from 'jqwidgets-ng/jqxlistbox';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
@@ -31,7 +31,7 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("inputReference") input: jqxInputComponent;
   @ViewChild("editorReference") editor: jqxEditorComponent;
   @ViewChild("fileUploadReference") fileUpload: jqxFileUploadComponent;
-  @ViewChild("panelReference") panel: jqxPanelComponent;
+  @ViewChild("lsitBoxReference") listBox: jqxListBoxComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
   @ViewChild("allNotesButtonReference") allNotesButton: jqxButtonComponent;
@@ -40,6 +40,10 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  navHeading: any[] = [
+    { text: "View Note", url: "/suite/notes/view-note" },
+  ];
 
   ngOnInit(): void {
   }

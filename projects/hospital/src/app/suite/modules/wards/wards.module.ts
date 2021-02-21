@@ -13,6 +13,7 @@ import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { WardsRoutingModule } from './wards-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { WardsWrapperComponent } from './wards-wrapper/wards-wrapper.component';
 import { AllWardsComponent } from './all-wards/all-wards.component';
@@ -24,6 +25,8 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
 import { EditPatientComponent } from './edit-patient/edit-patient.component';
 import { PatientFormComponent } from './patient-form/patient-form.component';
 import { SelectPatientComponent } from './select-patient/select-patient.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -37,12 +40,15 @@ import { SelectPatientComponent } from './select-patient/select-patient.componen
     AddPatientComponent,
     EditPatientComponent,
     PatientFormComponent,
-    SelectPatientComponent
+    SelectPatientComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     WardsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

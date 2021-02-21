@@ -11,6 +11,7 @@ import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { AppointmentsRoutingModule } from './appointments-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AppointmentsWrapperComponent } from './appointments-wrapper/appointments-wrapper.component';
 import { AllAppointmentsComponent } from './all-appointments/all-appointments.component';
@@ -19,6 +20,8 @@ import { EditAppointmentComponent } from './edit-appointment/edit-appointment.co
 import { AppointmentFormComponent } from './appointment-form/appointment-form.component';
 import { SelectPatientComponent } from './select-patient/select-patient.component';
 import { SelectDoctorComponent } from './select-doctor/select-doctor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -29,12 +32,15 @@ import { SelectDoctorComponent } from './select-doctor/select-doctor.component';
     EditAppointmentComponent,
     AppointmentFormComponent,
     SelectPatientComponent,
-    SelectDoctorComponent
+    SelectDoctorComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     AppointmentsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

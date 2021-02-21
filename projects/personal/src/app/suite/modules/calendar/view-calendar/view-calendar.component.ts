@@ -20,6 +20,10 @@ export class ViewCalendarComponent implements OnInit, AfterViewInit {
   @ViewChild('schedulerReference') scheduler: jqxSchedulerComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "View Calendar", url: "/suite/calendar/view-calendar" },
+  ];
+
   userAppointment: any;
 
   ngOnInit(): void {

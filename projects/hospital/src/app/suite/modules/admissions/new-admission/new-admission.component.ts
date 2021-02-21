@@ -31,6 +31,10 @@ export class NewAdmissionComponent implements OnInit {
 
   @ViewChild('admissionFormComponentReference') admissionForm: AdmissionFormComponent;
 
+  navHeading: any[] = [
+    { text: "New Admission", url: "/suite/admissions/new-admission" },
+  ];
+
   ngOnInit(): void {
   }
 

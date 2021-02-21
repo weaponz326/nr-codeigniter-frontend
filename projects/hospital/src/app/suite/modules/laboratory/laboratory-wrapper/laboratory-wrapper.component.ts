@@ -9,6 +9,10 @@ export class LaboratoryWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Laboaratory", url: "/suite/laboratory/all-labs", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

@@ -35,6 +35,11 @@ export class ViewCustomerComponent implements OnInit, AfterViewInit {
 
   @ViewChild('customerFormComponentReference') customerForm: CustomerFormComponent;
 
+  navHeading: any[] = [
+    { text: "All Customers", url: "/suite/customers/all-customers" },
+    { text: "View Customer", url: "/suite/customers/view-customer" },
+  ];
+
   ngOnInit(): void {
   }
 

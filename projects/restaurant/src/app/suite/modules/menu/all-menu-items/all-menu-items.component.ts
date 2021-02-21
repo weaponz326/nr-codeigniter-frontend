@@ -26,6 +26,10 @@ export class AllMenuItemsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Items", url: "/suite/menu/all-items" },
+  ];
+
   ngOnInit(): void {
   }
 

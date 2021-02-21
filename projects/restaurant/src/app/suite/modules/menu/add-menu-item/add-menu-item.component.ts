@@ -32,6 +32,10 @@ export class AddMenuItemComponent implements OnInit {
 
   @ViewChild('menuItemFormComponentReference') menuItemForm: MenuItemFormComponent;
 
+  navHeading: any[] = [
+    { text: "Add Item", url: "/suite/menu/add-item" },
+  ];
+
   ngOnInit(): void {
   }
 

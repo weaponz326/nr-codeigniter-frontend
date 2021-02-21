@@ -9,6 +9,11 @@ export class NursesWrapperComponent implements OnInit {
 
   constructor() { }
 
+    navLinks: any[] = [
+    { text: "All Nurses", url: "/suite/nurses/all-nurses", icon: "fa fa-fw fa-list" },
+    { text: "New Nurse", url: "/suite/nurses/new-nurse", icon: "fa fa-fw fa-plus" }
+  ]
+
   ngOnInit(): void {
   }
 

@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { SuiteRoutesService } from '../../../suite-routes.service';
 
@@ -23,9 +23,14 @@ export class SearchViewComponent implements OnInit, AfterViewInit {
 
   @ViewChild('searchInputReference') searchInput: jqxInputComponent;
   @ViewChild('searchButtonReference') searchButton: jqxButtonComponent;
-  @ViewChild('searchComboBoxReference') searchComboBox: jqxComboBoxComponent;
+  @ViewChild('searchDropDownListReference') searchDropDownList: jqxDropDownListComponent;
   @ViewChild('recentContactsButtonReference') recentContactsButton: jqxButtonComponent;
   @ViewChild('myContactsButtonReference') myContactsButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "New Rink", url: "/suite/portal/search" },
+    { text: "Search", url: "/suite/portal/search/recent-contacts" },
+  ];
 
   searchFilter: any[] = ['All', 'Personal', 'Hospital', 'Restaurant', 'School', 'Enterprise', 'Hotel', 'Shop', 'Production'];
 
@@ -35,14 +40,14 @@ export class SearchViewComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // set value of serach input and filter
     this.searchInput.val(sessionStorage.getItem('searchInput'));
-    this.searchComboBox.val(sessionStorage.getItem('searchFilter'));
+    this.searchDropDownList.val(sessionStorage.getItem('searchFilter'));
 
     console.log(sessionStorage.getItem('searchInput'));
     console.log(sessionStorage.getItem('searchFilter'));
   }
 
   doSearch(input: string, filter: string){
-    console.log("u are searching for: " + this.searchInput.val() + " with filter: " + this.searchComboBox.val());
+    console.log("u are searching for: " + this.searchInput.val() + " with filter: " + this.searchDropDownList.val());
     // route to search results as soon as search begins
     // put search input in url
     this.router.navigate(['/suite/portal/search/search-results', { input: input, filter: filter }]);

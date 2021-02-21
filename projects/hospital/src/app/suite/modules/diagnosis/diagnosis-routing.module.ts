@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DiagnosisWrapperComponent } from './diagnosis-wrapper/diagnosis-wrapper.component';
 import { AllDiagnosisComponent } from './all-diagnosis/all-diagnosis.component';
 import { ViewDiagnosisComponent } from './view-diagnosis/view-diagnosis.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -12,6 +14,8 @@ const routes: Routes = [
     component: DiagnosisWrapperComponent,
     children: [
       { path: "", component: AllDiagnosisComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-diagnosis", component: AllDiagnosisComponent },
       { path: "view-diagnosis", component: ViewDiagnosisComponent }
     ]

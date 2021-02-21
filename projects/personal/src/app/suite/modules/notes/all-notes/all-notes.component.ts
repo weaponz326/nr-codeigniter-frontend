@@ -27,6 +27,10 @@ export class AllNotesComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Notes", url: "/suite/notes/all-notes" },
+  ];
+
   ngOnInit(): void {
   }
 

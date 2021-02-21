@@ -1,10 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
-import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
-import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxPanelComponent } from 'jqwidgets-ng/jqxpanel';
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxTabsComponent } from 'jqwidgets-ng/jqxtabs';
+
+import { BasicComponent } from '../profile-content/basic/basic.component';
+import { LogoComponent } from '../profile-content/logo/logo.component';
+import { LocationComponent } from '../profile-content/location/location.component';
+import { ContactComponent } from '../profile-content/contact/contact.component';
+
+import { SettingsApiService } from '../settings-api.service';
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-profile',
@@ -13,14 +18,21 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settingsApi: SettingsApiService) { }
 
-  @ViewChild('firstNameReference') nameInput: jqxInputComponent;
-  @ViewChild('typeReference') typeComboBox: jqxComboBoxComponent;
-  @ViewChild('locationReference') locationInput: jqxInputComponent;
-  @ViewChild('aboutReference') aboutTextArea: jqxTextAreaComponent;
-  @ViewChild('logoPanelReference') logoPanel: jqxPanelComponent;
-  @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
+  @ViewChild('tabReference') tab: jqxTabsComponent;
+
+  @ViewChild('basicComponentReference') basic: BasicComponent;
+  @ViewChild('logoReference') logo: LogoComponent;
+  @ViewChild('locationComponentReference') location: LocationComponent;
+  @ViewChild('contactComponentReference') contact: ContactComponent;
+
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  navHeading: any[] = [
+    { text: "Profile", url: "/suite/settings/profile" },
+  ];
 
   ngOnInit(): void {
   }

@@ -1,22 +1,11 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Accounts</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
-    </div>
 
     <div class="row top-button-row">
         <div class="col-md-12">
             <jqxButton #newButtonReference (click)="addAccountComponentReference.openWindow()"
-                [width]="120"
+                [width]="150"
                 [height]="30"
             >New Account</jqxButton>
         </div>

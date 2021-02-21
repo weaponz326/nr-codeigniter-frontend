@@ -27,6 +27,10 @@ export class AllWardsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Wards", url: "/suite/wards/all-wards" },
+  ];
+
   ngOnInit(): void {
   }
 

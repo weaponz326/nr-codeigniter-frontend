@@ -12,6 +12,8 @@ import { NewRinkComponent } from './new-rink/new-rink.component';
 import { TaskDetailComponent } from './rink-details/task-detail/task-detail.component';
 import { AppointmentDetailComponent } from './rink-details/appointment-detail/appointment-detail.component';
 import { NoteDetailComponent } from './rink-details/note-detail/note-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
     path: "",
     component: PortalWrapperComponent,
     children: [
+      { path: "dashboard", component: DashboardComponent },
+      { path: "settings", component: SettingsComponent },
       { path: "", component: TimelineComponent },
       { path: "timeline", component: TimelineComponent },
       {
@@ -37,7 +41,7 @@ const routes: Routes = [
         component: ViewRinkComponent,
         children: [
           { path: "task", component: TaskDetailComponent },
-          { path: "appoitment", component: AppointmentDetailComponent },
+          { path: "appointment", component: AppointmentDetailComponent },
           { path: "note", component: NoteDetailComponent },
         ]
       },

@@ -8,10 +8,14 @@
 
     <hr />
     <div class="row" (click)="goToDetail(result.id)">
-        <div class="col-md-3"><em class="text-muted">Name: </em></div>
-        <div class="col-md-9">{{result.user.first_name}} {{result.user.last_name}}</div>
-        <div class="col-md-3"><em class="text-muted">Location: </em></div>
-        <div class="col-md-9">{{result.location}}</div>
+        <div class="col-md-6">
+            <label class="text-muted"><em><small>Name :</small></em></label><br />
+            {{result.user.first_name}} {{result.user.last_name}}
+        </div>
+        <div class="col-md-6">
+            <label class="text-muted"><em><small>Name :</small></em></label><br />
+            {{result.location}}
+        </div>
     </div>
 
 </div>

@@ -16,6 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { GeneralComponent } from './general/general.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { BillingsComponent } from './billings/billings.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { BillingsComponent } from './billings/billings.component';
     GeneralComponent,
     PrivacyComponent,
     BillingsComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,

@@ -21,6 +21,7 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { InvitationsComponent } from './invitations/invitations.component';
 import { ViewInvitationComponent } from './view-invitation/view-invitation.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ViewInvitationComponent } from './view-invitation/view-invitation.compo
     UserSearchComponent,
     InvitationsComponent,
     ViewInvitationComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,10 @@ export class BillsWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Bills", url: "/suite/bills/all-bills", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

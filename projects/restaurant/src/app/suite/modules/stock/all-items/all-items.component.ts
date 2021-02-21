@@ -24,6 +24,10 @@ export class AllItemsComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
+  navHeading: any[] = [
+    { text: "All Items", url: "/suite/stock/all-items" },
+  ];
+
   ngOnInit(): void {
   }
 

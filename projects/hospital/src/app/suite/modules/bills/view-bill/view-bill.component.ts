@@ -38,6 +38,11 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
+  navHeading: any[] = [
+    { text: "All Bills", url: "/suite/bills/all-bills" },
+    { text: "View Bill", url: "/suite/bills/view-bill" },
+  ];
+
   ngOnInit(): void {
   }
 

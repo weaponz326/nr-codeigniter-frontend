@@ -24,6 +24,10 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
+  navHeading: any[] = [
+    { text: "All Reservations", url: "/suite/reservations/all-reservations" },
+  ];
+
   ngOnInit(): void {
   }
 

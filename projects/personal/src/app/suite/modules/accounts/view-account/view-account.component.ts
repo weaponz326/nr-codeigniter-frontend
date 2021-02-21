@@ -36,6 +36,11 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
   @ViewChild('accountTransactionsComponentReference') accountTransactionsComponent: AccountTransactionsComponent;
 
+  navHeading: any[] = [
+    { text: "All Accounts", url: "/suite/accounts/all-accounts" },
+    { text: "View Account", url: "/suite/accounts/view-account" },
+  ];
+
   totalBalance = 0;
 
   ngOnInit(): void {

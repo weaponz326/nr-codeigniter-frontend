@@ -12,6 +12,7 @@ import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { OrdersRoutingModule } from './orders-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { OrdersWrapperComponent } from './orders-wrapper/orders-wrapper.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
@@ -21,6 +22,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { ItemFormComponent } from './item-form/item-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -33,11 +36,14 @@ import { ItemFormComponent } from './item-form/item-form.component';
     AddItemComponent,
     EditItemComponent,
     ItemFormComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
     OrdersRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

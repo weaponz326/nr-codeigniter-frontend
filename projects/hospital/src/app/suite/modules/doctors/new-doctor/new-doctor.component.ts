@@ -32,6 +32,10 @@ export class NewDoctorComponent implements OnInit {
 
   @ViewChild('doctorFormComponentReference') doctorForm: DoctorFormComponent;
 
+  navHeading: any[] = [
+    { text: "New Doctor", url: "/suite/doctors/new-doctor" },
+  ];
+
   ngOnInit(): void {
   }
 

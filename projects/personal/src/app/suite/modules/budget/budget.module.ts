@@ -11,6 +11,7 @@ import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { BudgetRoutingModule } from './budget-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { BudgetWrapperComponent } from './budget-wrapper/budget-wrapper.component';
 import { AllBudgetComponent } from './all-budget/all-budget.component';
@@ -21,6 +22,8 @@ import { AddIncomeComponent } from './add-income/add-income.component';
 import { EditIncomeComponent } from './edit-income/edit-income.component';
 import { AddExpenditureComponent } from './add-expenditure/add-expenditure.component';
 import { EditExpenditureComponent } from './edit-expenditure/edit-expenditure.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -34,11 +37,14 @@ import { EditExpenditureComponent } from './edit-expenditure/edit-expenditure.co
     EditIncomeComponent,
     AddExpenditureComponent,
     EditExpenditureComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
     BudgetRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

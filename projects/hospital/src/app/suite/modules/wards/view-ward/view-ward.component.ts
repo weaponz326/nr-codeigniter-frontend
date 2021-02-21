@@ -35,6 +35,11 @@ export class ViewWardComponent implements OnInit, AfterViewInit {
 
   @ViewChild('wardFormComponentReference') wardForm: WardFormComponent;
 
+  navHeading: any[] = [
+    { text: "All Wards", url: "/suite/wards/all-wards" },
+    { text: "View Ward", url: "/suite/wards/view-ward" },
+  ];
+
   ngOnInit(): void {
   }
 

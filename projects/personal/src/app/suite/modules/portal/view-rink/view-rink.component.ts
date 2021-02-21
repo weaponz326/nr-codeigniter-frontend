@@ -21,6 +21,11 @@ export class ViewRinkComponent implements OnInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "Timeline", url: "/suite/portal/timeline" },
+    { text: "View Rink", url: "/suite/portal/view-rink" },
+  ];
+
   personalId = localStorage.getItem('personal_id');
   rink: any;
 

@@ -28,6 +28,10 @@ export class AllLabsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Laboratory", url: "/suite/laboratory/all-labs" },
+  ];
+
   ngOnInit(): void {
   }
 

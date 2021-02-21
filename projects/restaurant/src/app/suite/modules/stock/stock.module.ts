@@ -10,12 +10,15 @@ import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { StockRoutingModule } from './stock-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { StockWrapperComponent } from './stock-wrapper/stock-wrapper.component';
 import { AllItemsComponent } from './all-items/all-items.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { ItemFormComponent } from './item-form/item-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -25,11 +28,14 @@ import { ItemFormComponent } from './item-form/item-form.component';
     AddItemComponent,
     EditItemComponent,
     ItemFormComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
     StockRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

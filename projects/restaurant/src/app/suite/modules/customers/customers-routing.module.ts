@@ -5,6 +5,8 @@ import { CustomersWrapperComponent } from './customers-wrapper/customers-wrapper
 import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: CustomersWrapperComponent,
     children: [
       { path: "", component: AllCustomersComponent },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "settings", component: SettingsComponent },
       { path: "all-customers", component: AllCustomersComponent },
       { path: "new-customer", component: NewCustomerComponent },
       { path: "view-customer", component: ViewCustomerComponent }

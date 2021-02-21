@@ -13,6 +13,7 @@ import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { BillsRoutingModule } from './bills-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { BillsWrapperComponent } from './bills-wrapper/bills-wrapper.component';
 import { AllBillsComponent } from './all-bills/all-bills.component';
@@ -25,6 +26,8 @@ import { AddGeneralComponent } from './add-general/add-general.component';
 import { EditGeneralComponent } from './edit-general/edit-general.component';
 import { GeneralFormComponent } from './general-form/general-form.component';
 import { GeneralDetailsComponent } from './general-details/general-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -39,12 +42,15 @@ import { GeneralDetailsComponent } from './general-details/general-details.compo
     AddGeneralComponent,
     EditGeneralComponent,
     GeneralFormComponent,
-    GeneralDetailsComponent
+    GeneralDetailsComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     BillsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

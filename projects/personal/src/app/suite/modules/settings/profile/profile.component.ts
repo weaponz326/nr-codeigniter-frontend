@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
-import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
-import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxTabsComponent } from 'jqwidgets-ng/jqxtabs';
+
+import { BasicComponent } from '../profile-content/basic/basic.component';
+import { AdditionalComponent } from '../profile-content/additional/additional.component';
+import { PhotoComponent } from '../profile-content/photo/photo.component';
+import { LocationComponent } from '../profile-content/location/location.component';
+import { ContactComponent } from '../profile-content/contact/contact.component';
 
 import { SettingsApiService } from '../settings-api.service';
 import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
@@ -21,35 +22,34 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   constructor(private settingsApi: SettingsApiService) { }
 
-  @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
-  @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
-  @ViewChild('locationReference') locationInput: jqxInputComponent;
-  @ViewChild('aboutReference') aboutTextArea: jqxTextAreaComponent;
-  @ViewChild('saveBasicButtonReference') saveBasicButton: jqxButtonComponent;
-  @ViewChild('dobReference') dobInput: jqxDateTimeInputComponent;
-  @ViewChild('genderReference') genderDropDownList: jqxDropDownListComponent;
-  @ViewChild('saveAdditionalButtonReference') saveAdditionalButton: jqxButtonComponent;
-  @ViewChild('countryReference') countryInput: jqxComboBoxComponent;
-  @ViewChild('stateReference') stateInput: jqxComboBoxComponent;
-  @ViewChild('cityReference') cityInput: jqxComboBoxComponent;
-  @ViewChild('addressReference') addressTextArea: jqxTextAreaComponent;
-  @ViewChild('saveLocationButtonReference') saveLocationButton: jqxButtonComponent;
+  @ViewChild('tabReference') tab: jqxTabsComponent;
 
+  @ViewChild('basicComponentReference') basic: BasicComponent;
+  @ViewChild('addtionalComponentReference') additional: AdditionalComponent;
+  @ViewChild('photoComponentReference') photo: PhotoComponent;
+  @ViewChild('locationComponentReference') location: LocationComponent;
+  @ViewChild('contactComponentReference') contact: ContactComponent;
+  
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  navHeading: any[] = [
+    { text: "Profile", url: "/suite/settings/profile" },
+  ];
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    this.settingsApi.getBasicProfile()
+    // get basic profile
+    // gets both user and profile at the same time
+
+    this.settingsApi.getUser()
       .subscribe(
         res => {
           console.log(res);
-          this.firstNameInput.val(res.user.first_name);
-          this.lastNameInput.val(res.user.last_name);
-          this.locationInput.val(res.location);
-          this.aboutTextArea.val(res.about);
+          this.basic.firstNameInput.val(res.first_name);
+          this.basic.lastNameInput.val(res.last_name);
         },
         err => {
           console.log(err);
@@ -57,27 +57,34 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         }
       )
 
-    this.settingsApi.getAdditionalProfile()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.dobInput.val(new Date(res.date_of_birth));
-          this.genderDropDownList.val(res.gender);
-        },
-        err => {
-          console.log(err);
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+      this.settingsApi.getProfile()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.basic.locationInput.val(res.location);
+            this.basic.aboutTextArea.val(res.about);
+          },
+          err => {
+            console.log(err);
+            this.connectionNotification.errorNotification.open();
+          }
+        )
 
-    this.settingsApi.getLocationDetails()
+    // get extended profile
+    // gets additional, location, contact
+    this.settingsApi.getExtendedProfile()
       .subscribe(
         res => {
           console.log(res);
-          this.countryInput.val(res.country);
-          this.stateInput.val(res.state);
-          this.cityInput.val(res.city);
-          this.addressTextArea.val(res.address);
+          this.additional.dobInput.val(new Date(res.date_of_birth));
+          this.additional.genderDropDownList.val(res.gender);
+          this.location.countryInput.val(res.country);
+          this.location.stateInput.val(res.state);
+          this.location.cityInput.val(res.city);
+          this.contact.phoneInput.val(res.phone);
+          this.contact.emailInput.val(res.email);
+          this.contact.addressTextArea.val(res.address);
+
         },
         err => {
           console.log(err);
@@ -86,24 +93,20 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       )
   }
 
-  // widgets
-  // ---------------------------------------------------------------------------------------
+  // saving profile
+  // --------------------------------------------------------------------------------------------------------------------
 
-  genderSource: any[] = ['Male', 'Female'];
-
-  saveBasicProfile(){
-    console.log("u are updating the profile");
-
-    // user and profile are updated seperately
-    // cos drf can't update nested serializers
+  // save basic profile
+  // user and profile are sent seperately
+  saveBasic(basic){
     let user = {
-      first_name: this.firstNameInput.val(),
-      last_name: this.lastNameInput.val()
+      first_name: basic.first_name,
+      last_name: basic.last_name
     }
 
     let profile = {
-      location: this.locationInput.val(),
-      about: this.aboutTextArea.val()
+      location: basic.location,
+      about: basic.about
     }
 
     this.loadingSpinner.httpLoader.open();
@@ -135,16 +138,16 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       )
   }
 
-  saveAdditionalProfile(){
-    let profile = {
+  saveAdditional(data){
+    let additional = {
       user: localStorage.getItem('personal_id'),
-      gender: this.genderDropDownList.val(),
-      date_of_birth: this.dobInput.val()
+      gender: data.gender,
+      date_of_birth: data.date_of_birth
     }
 
     this.loadingSpinner.httpLoader.open();
 
-    this.settingsApi.postAdditionalProfile(profile)
+    this.settingsApi.postAdditionalProfile(additional)
       .subscribe(
         res => {
           console.log(res);
@@ -158,18 +161,41 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       )
   }
 
-  saveLocationDetails(){
+  saveLocation(data){
     let location = {
       user: localStorage.getItem('personal_id'),
-      country: this.countryInput.val(),
-      state: this.stateInput.val(),
-      city: this.cityInput.val(),
-      address: this.addressTextArea.val(),
+      country: data.country,
+      state: data.state,
+      city: data.city
     }
 
     this.loadingSpinner.httpLoader.open();
 
-    this.settingsApi.postLocationDetails(location)
+    this.settingsApi.postLocationProfile(location)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  saveContact(data){
+    let location = {
+      user: localStorage.getItem('personal_id'),
+      phone: data.phone,
+      email: data.email,
+      address: data.address
+    }
+
+    this.loadingSpinner.httpLoader.open();
+
+    this.settingsApi.postContactProfile(location)
       .subscribe(
         res => {
           console.log(res);

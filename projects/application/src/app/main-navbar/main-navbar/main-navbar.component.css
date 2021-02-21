@@ -14,3 +14,7 @@
 #navDropdownMenu {
   z-index: 1500;
 }
+
+.dropdown-menu i{
+  padding-right: 6px;
+}

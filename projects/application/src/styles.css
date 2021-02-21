@@ -2,3 +2,5 @@
 
 @import "../../application/src/assets/styles/main.css";
 @import "../../application/src/assets/styles/forms.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

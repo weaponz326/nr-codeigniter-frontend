@@ -1,165 +1,58 @@
-<div class="row">
-    <div class="offset-md-4 col-md-8">
-        <h4>Profile</h4>
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <jqxTabs class="profile-tabs" style="border: none;"
+                [width]="'100%'"
+            >
+
+                <ul>
+                    <li>Basic Profile</li>
+                    <li>Bio Profile</li>
+                    <li>Profile Photo</li>
+                    <li>Location Details</li>
+                    <li>Contact Details</li>
+                </ul>
+
+                <!-- profile tabs contents components -->
+
+                <div class="profile-content-div">
+                    <app-basic #basicComponentReference
+                        (additionalEvent)="saveBasic($event)"
+                    ></app-basic>
+                </div>
+                <div  class="profile-content-div">
+                    <app-additional
+                        #additionalComponentReference
+                        (additionalEvent)="saveAdditional($event)"
+                    ></app-additional>
+                </div>
+                <div class="profile-content-div">
+                    <app-photo
+                        #photoComponentReference
+                    ></app-photo>
+                </div>
+                <div class="profile-content-div">
+                    <app-location
+                        #locationComponentReference
+                        (locationEvent)="saveLocation($event)"
+                    ></app-location>
+                </div>
+                <div class="profile-content-div">
+                    <app-contact
+                        #contactComponentReference
+                        (contactEvent)="saveContact($event)"
+                    ></app-contact>
+                </div>
+
+              </jqxTabs>
+
+        </div>
     </div>
-</div>
 
-<hr />
-
-<div class="row">
-    <div class="col-md-12">
-        <h5>Basic Profile</h5>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>First Name :</label></div>
-    <div class="col-md-8">
-        <jqxInput #firstNameReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxInput>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>Last Name :</label></div>
-    <div class="col-md-8">
-        <jqxInput #lastNameReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxInput>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>Location :</label></div>
-    <div class="col-md-8">
-        <jqxInput #locationReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxInput>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>About :</label></div>
-    <div class="col-md-8">
-        <jqxTextArea #aboutReference
-            [width]="'100%'"
-            [height]="65"
-        ></jqxTextArea>
-    </div>
-</div>
-
-<div class="row page-form-div">
-    <div class="col-md-12 textarea-button">
-        <jqxButton #saveBasicButtonReference class="float-right" (click)="saveBasicProfile()"
-            [width]="100"
-            [height]="28"
-        >Save</jqxButton>
-    </div>
-</div>
-
-<!-- -------------------------------------------------------------------------------- -->
-
-<hr />
-
-<div class="row">
-    <div class="col-md-12">
-        <h5>Additional Profile</h5>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>Date of Birth :</label></div>
-    <div class="col-md-8">
-        <jqxDateTimeInput #dobReference
-            [width]="'100%'"
-            [height]="28"
-            [formatString]="'yyyy-MM-dd'"
-        ></jqxDateTimeInput>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>Gender :</label></div>
-    <div class="col-md-8">
-        <jqxDropDownList #genderReference
-            [width]="'100%'"
-            [height]="28"
-            [source]="genderSource"
-            [autoDropDownHeight]="true"
-        ></jqxDropDownList>
-    </div>
-</div>
-
-<div class="row page-form-div">
-    <div class="col-md-12">
-        <jqxButton #saveAdditionalButtonReference class="float-right" (click)="saveAdditionalProfile()"
-            [width]="100"
-            [height]="28"
-        >Save</jqxButton>
-    </div>
-</div>
-
-<!-- --------------------------------------------------------------------------------------- -->
-
-<hr />
-
-<div class="row">
-    <div class="col-md-12">
-        <h5>Location Details</h5>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>Country :</label></div>
-    <div class="col-md-8">
-        <jqxComboBox #countryReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxComboBox>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>State/Region :</label></div>
-    <div class="col-md-8">
-        <jqxComboBox #stateReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxComboBox>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>City/Town :</label></div>
-    <div class="col-md-8">
-        <jqxComboBox #cityReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxComboBox>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>Address :</label></div>
-    <div class="col-md-8">
-        <jqxTextArea #addressReference
-            [width]="'100%'"
-            [height]="65"
-        ></jqxTextArea>
-    </div>
-</div>
-
-<div class="row page-form-div">
-    <div class="col-md-12 textarea-button">
-        <jqxButton #saveLocationButtonReference class="float-right" (click)="saveLocationDetails()"
-            [width]="100"
-            [height]="28"
-        >Save</jqxButton>
-    </div>
 </div>
 
 <!-- http loader spinner and connection notification components -->

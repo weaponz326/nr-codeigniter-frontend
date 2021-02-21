@@ -40,6 +40,11 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
+  navHeading: any[] = [
+    { text: "All Payments", url: "/suite/payments/all-payments" },
+    { text: "View Payment", url: "/suite/payments/view-payment" },
+  ];
+
   ngOnInit(): void {
   }
 

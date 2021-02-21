@@ -35,6 +35,11 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
 
   @ViewChild('nurseFormComponentReference') nurseForm: NurseFormComponent;
 
+  navHeading: any[] = [
+    { text: "All Nurses", url: "/suite/nurses/all-nurses" },
+    { text: "View Nurse", url: "/suite/nurses/view-nurse" },
+  ];
+
   ngOnInit(): void {
   }
 

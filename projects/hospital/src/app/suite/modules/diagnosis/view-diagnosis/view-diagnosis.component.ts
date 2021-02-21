@@ -46,6 +46,11 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
   @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
   @ViewChild("selectDoctorComponentReference") selectDoctor: SelectDoctorComponent;
 
+  navHeading: any[] = [
+    { text: "All Diagnosis", url: "/suite/diagnosis/all-diagnosis" },
+    { text: "View Diagnosis", url: "/suite/diagnosis/view-diagnosis" },
+  ];
+
   // stores db table ids of selected patient and doctor
   // to be retreived for sending to backend
   patientIdStore: any;

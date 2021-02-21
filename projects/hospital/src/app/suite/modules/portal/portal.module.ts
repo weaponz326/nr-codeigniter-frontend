@@ -7,8 +7,9 @@ import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
-
 import { PortalRoutingModule } from './portal-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { PortalWrapperComponent } from './portal-wrapper/portal-wrapper.component';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -19,6 +20,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
 import { RinkDetailsComponent } from './rink-details/rink-details.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -32,10 +35,14 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
     RecentContactsComponent,
     RinkDetailsComponent,
     SearchDetailComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
     PortalRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxInputModule,
     jqxButtonModule,
     jqxPanelModule,

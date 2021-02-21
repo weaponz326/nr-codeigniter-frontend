@@ -12,12 +12,15 @@ import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { PatientsRoutingModule } from './patients-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { PatientsWrapperComponent } from './patients-wrapper/patients-wrapper.component';
 import { AllPatientsComponent } from './all-patients/all-patients.component';
 import { ViewPatientComponent } from './view-patient/view-patient.component';
 import { PatientFormComponent } from './patient-form/patient-form.component';
 import { NewPatientComponent } from './new-patient/new-patient.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -26,12 +29,15 @@ import { NewPatientComponent } from './new-patient/new-patient.component';
     AllPatientsComponent,
     ViewPatientComponent,
     PatientFormComponent,
-    NewPatientComponent
+    NewPatientComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     PatientsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxTextAreaModule,

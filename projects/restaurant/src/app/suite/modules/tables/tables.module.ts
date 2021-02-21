@@ -10,12 +10,15 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { TablesRoutingModule } from './tables-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { TablesWrapperComponent } from './tables-wrapper/tables-wrapper.component';
 import { AllTablesComponent } from './all-tables/all-tables.component';
 import { AddTableComponent } from './add-table/add-table.component';
 import { TableFormComponent } from './table-form/table-form.component';
 import { ViewTableComponent } from './view-table/view-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -24,12 +27,15 @@ import { ViewTableComponent } from './view-table/view-table.component';
     AllTablesComponent,
     AddTableComponent,
     TableFormComponent,
-    ViewTableComponent
+    ViewTableComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     TablesRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

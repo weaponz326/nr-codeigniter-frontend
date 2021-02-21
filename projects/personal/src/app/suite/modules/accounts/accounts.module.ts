@@ -11,6 +11,7 @@ import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { AccountsRoutingModule } from './accounts-routing.module';
 import { UtilitiesModule } from '../../utilities/utilities.module';
+import { DashboardModule } from '../../dashboard/dashboard.module';
 
 import { AccountsWrapperComponent } from './accounts-wrapper/accounts-wrapper.component';
 import { AllAccountsComponent } from './all-accounts/all-accounts.component';
@@ -21,6 +22,8 @@ import { AddAccountComponent } from './add-account/add-account.component';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 import { EditTransactionComponent } from './edit-transaction/edit-transaction.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -34,11 +37,14 @@ import { TransactionFormComponent } from './transaction-form/transaction-form.co
     AddTransactionComponent,
     EditTransactionComponent,
     TransactionFormComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
     AccountsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

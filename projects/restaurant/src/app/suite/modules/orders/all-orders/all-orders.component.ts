@@ -27,6 +27,10 @@ export class AllOrdersComponent implements OnInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Orders", url: "/suite/orders/all-orders" },
+  ];
+
   ngOnInit(): void {
   }
 

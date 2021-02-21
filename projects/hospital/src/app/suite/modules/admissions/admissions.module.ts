@@ -10,6 +10,7 @@ import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { AdmissionsRoutingModule } from './admissions-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AdmissionsWrapperComponent } from './admissions-wrapper/admissions-wrapper.component';
 import { AllAdmissionsComponent } from './all-admissions/all-admissions.component';
@@ -18,6 +19,8 @@ import { ViewAdmissionComponent } from './view-admission/view-admission.componen
 import { AdmissionFormComponent } from './admission-form/admission-form.component';
 import { AdmissionActivitiesComponent } from './admission-activities/admission-activities.component';
 import { SelectPatientComponent } from './select-patient/select-patient.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -28,12 +31,15 @@ import { SelectPatientComponent } from './select-patient/select-patient.componen
     ViewAdmissionComponent,
     AdmissionFormComponent,
     AdmissionActivitiesComponent,
-    SelectPatientComponent
+    SelectPatientComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     AdmissionsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

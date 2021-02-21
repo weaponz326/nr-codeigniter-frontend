@@ -1,0 +1,56 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-light sidebar sidebar-light accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex" routerLink="./">
+        <div class="sidebar-brand-text"><h3>{{heading}}</h3></div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="dashboard">
+            <i class="fa fa-fw fa-tachometer"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li *ngFor="let link of navLinks" class="nav-item">
+        <a class="nav-link" routerLink={{link.url}}>
+            <i class={{link.icon}}></i>
+            <span>{{link.text}}</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Settings -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="settings">
+            <i class="fa fa-fw fa-cog"></i>
+            <span>Settings</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+    <!-- Sidebar Message -->
+    <div class="sidebar-card">
+        <i class="fa fa-home sidebar-card-illustration mb-2 home-icon"></i>
+        <a class="btn btn-secondary btn-sm" routerLink="/suite/home">go Home</a>
+    </div>
+
+</ul>
+<!-- End of Sidebar -->

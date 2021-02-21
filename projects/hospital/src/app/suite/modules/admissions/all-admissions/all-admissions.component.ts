@@ -27,6 +27,10 @@ export class AllAdmissionsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Admissions", url: "/suite/admissions/all-admissions" },
+  ];
+
   ngOnInit(): void {
   }
 
@@ -67,7 +71,7 @@ export class AllAdmissionsComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'admission_code', type: 'string' },
       { name: 'admission_date', type: 'string' },
-      { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
+      { name: 'admission_name', map: 'admission>admission_name', type: 'string' },
     ],
     id: 'id',
   }
@@ -76,7 +80,7 @@ export class AllAdmissionsComponent implements OnInit, AfterViewInit {
 
   columns: any[] = [
     { text: "Admission ID", dataField: "admission_code", width: "25%" },
-    { text: "Patient Name", dataField: "patient_name", width: "50%" },
+    { text: "Patient Name", dataField: "admission_name", width: "50%" },
     { text: "Admission Date", dataField: "admission_date", filtertype: "range", width: "25%" },
   ];
 

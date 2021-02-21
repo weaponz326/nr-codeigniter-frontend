@@ -32,6 +32,10 @@ export class NewCustomerComponent implements OnInit {
 
   @ViewChild('customerFormComponentReference') customerForm: CustomerFormComponent;
 
+  navHeading: any[] = [
+    { text: "New Customer", url: "/suite/customers/new-customer" },
+  ];
+
   ngOnInit(): void {
   }
 

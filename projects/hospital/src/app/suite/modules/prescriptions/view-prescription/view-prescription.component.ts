@@ -44,6 +44,11 @@ export class ViewPrescriptionComponent implements OnInit, AfterViewInit {
   @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
   @ViewChild("selectDoctorComponentReference") selectDoctor: SelectDoctorComponent;
 
+  navHeading: any[] = [
+    { text: "All Prescriptions", url: "/suite/prescriptions/all-prescriptions" },
+    { text: "View Prescription", url: "/suite/prescriptions/view-prescription" },
+  ];
+
   // stores db table ids of selected patient and doctor
   // to be retreived for sending to backend
   patientIdStore: any;

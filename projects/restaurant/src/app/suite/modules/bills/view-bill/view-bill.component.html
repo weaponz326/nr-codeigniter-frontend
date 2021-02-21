@@ -1,21 +1,6 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#" (click)="this.suiteRoutes.goBillsAll($event)"><h3>Bills</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>View Bill</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
-    </div>
-
-    <!-- --------------------------------------------------------------------------------------------------- -->
 
     <div class="row page-form-div">
 
@@ -75,7 +60,7 @@
 
             <!-- when bill type == order -->
 
-            <div *ngIf="billType.val() == 'Order'">
+            <!-- <div *ngIf="billType.val() == 'Order'">
                 <div class="row">
                     <div class="col-md-4"><label>Order ID :</label></div>
                     <div class="col-md-8">
@@ -97,11 +82,11 @@
                         ></jqxDateTimeInput>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- when bill type == sitting -->
 
-            <div *ngIf="billType.val() == 'Sitting'">
+            <!-- <div *ngIf="billType.val() == 'Sitting'">
                 <div class="row">
                     <div class="col-md-4"><label>Sitting ID :</label></div>
                     <div class="col-md-8">
@@ -123,11 +108,11 @@
                         ></jqxDateTimeInput>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- when bill type == delivery -->
 
-            <div *ngIf="billType.val() == 'Delivery'">
+            <!-- <div *ngIf="billType.val() == 'Delivery'">
                 <div class="row">
                     <div class="col-md-4"><label>Delivery ID :</label></div>
                     <div class="col-md-8">
@@ -149,7 +134,7 @@
                         ></jqxDateTimeInput>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="row">
                 <div class="col-md-4"><label>Customer Name :</label></div>

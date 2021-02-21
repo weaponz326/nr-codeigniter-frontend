@@ -45,6 +45,11 @@ export class SuiteRoutesService {
     this.router.navigateByUrl('/suite/settings/view-settings');
   }
 
+  goSettingsProfile(e){
+    e.preventDefault();
+    this.router.navigateByUrl('/suite/settings/profile');
+  }
+
   // calendar routes
 
   goCalendarView(e){

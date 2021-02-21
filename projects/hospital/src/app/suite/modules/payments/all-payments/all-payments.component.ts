@@ -29,6 +29,10 @@ export class AllPaymentsComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
+  navHeading: any[] = [
+    { text: "All Payments", url: "/suite/payments/all-payments" },
+  ];
+
   ngOnInit(): void {
   }
 

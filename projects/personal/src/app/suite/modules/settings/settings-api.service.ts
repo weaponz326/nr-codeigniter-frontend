@@ -16,35 +16,41 @@ export class SettingsApiService {
 
   // get all profile categories
 
-  public getBasicProfile(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-settings/profile-user/" + localStorage.getItem('personal_id'));
+  public getUser(): Observable<any>{
+    return this.http.get(this.personalUrl + "module-settings/user/" + localStorage.getItem('personal_id'));
   }
 
-  public getAdditionalProfile(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-settings/additional-profile/" + localStorage.getItem('personal_id'));
+  public getProfile(): Observable<any>{
+    return this.http.get(this.personalUrl + "module-settings/profile/" + localStorage.getItem('personal_id'));
   }
 
-  public getLocationDetails(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-settings/location-details/" + localStorage.getItem('personal_id'));
+  public getExtendedProfile(): Observable<any>{
+    return this.http.get(this.personalUrl + "module-settings/extended-profile/" + localStorage.getItem('personal_id'));
   }
 
-  // send all profile categories
-
-  public putProfile(profile): Observable<any>{
-    return this.http.put(this.personalUrl + "module-settings/profile/" + localStorage.getItem('personal_id'), profile);
-  }
+  // send basic profile
+  // both user and profile sent at the same time
 
   public putUser(user): Observable<any>{
     return this.http.put(this.personalUrl + "module-settings/user/" + localStorage.getItem('personal_id'), user);
   }
 
-  public postAdditionalProfile(additionalProfile): Observable<any>{
-    return this.http.post(this.personalUrl + "module-settings/additional-profile/", additionalProfile);
+  public putProfile(profile): Observable<any>{
+    return this.http.put(this.personalUrl + "module-settings/profile/" + localStorage.getItem('personal_id'), profile);
   }
 
-  public postLocationDetails(locationDetails): Observable<any>{
-    return this.http.post(this.personalUrl + "module-settings/location-details/", locationDetails);
+  // send extended profile
+
+  public postAdditionalProfile(additional): Observable<any>{
+    return this.http.post(this.personalUrl + "module-settings/additional-extended/", additional);
   }
 
+  public postLocationProfile(location): Observable<any>{
+    return this.http.post(this.personalUrl + "module-settings/location-extended/", location);
+  }
+
+  public postContactProfile(contact): Observable<any>{
+    return this.http.post(this.personalUrl + "module-settings/contact-extended/", contact);
+  }
 
 }

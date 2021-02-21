@@ -27,6 +27,10 @@ export class AllDoctorsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Doctors", url: "/suite/doctors/all-doctors" },
+  ];
+
   ngOnInit(): void {
   }
 

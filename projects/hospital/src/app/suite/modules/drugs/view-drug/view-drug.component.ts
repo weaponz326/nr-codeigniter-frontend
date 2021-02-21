@@ -35,6 +35,11 @@ export class ViewDrugComponent implements OnInit, AfterViewInit {
 
   @ViewChild('drugFormComponentReference') drugForm: DrugFormComponent;
 
+  navHeading: any[] = [
+    { text: "All Drugs", url: "/suite/drugs/all-drugs" },
+    { text: "View Drug", url: "/suite/drugs/view-drug" },
+  ];
+
   ngOnInit(): void {
   }
 

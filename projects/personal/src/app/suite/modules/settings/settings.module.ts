@@ -8,15 +8,24 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxPasswordInputModule } from 'jqwidgets-ng/jqxpasswordinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
+import { jqxTabsModule } from 'jqwidgets-ng/jqxtabs';
 
 import { SettingsRoutingModule } from './settings-routing.module';
 import { UtilitiesModule } from '../../utilities/utilities.module';
+import { DashboardModule } from '../../dashboard/dashboard.module';
 
 import { SettingsWrapperComponent } from './settings-wrapper/settings-wrapper.component';
 import { ViewSettingsComponent } from './view-settings/view-settings.component';
 import { ProfileComponent } from './profile/profile.component';
-import { GeneralComponent } from './general/general.component';
-import { SecurityComponent } from './security/security.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { BasicComponent } from './profile-content/basic/basic.component';
+import { AdditionalComponent } from './profile-content/additional/additional.component';
+import { PhotoComponent } from './profile-content/photo/photo.component';
+import { LocationComponent } from './profile-content/location/location.component';
+import { ContactComponent } from './profile-content/contact/contact.component';
 
 
 @NgModule({
@@ -24,13 +33,20 @@ import { SecurityComponent } from './security/security.component';
     SettingsWrapperComponent,
     ViewSettingsComponent,
     ProfileComponent,
-    GeneralComponent,
-    SecurityComponent,
+    DashboardComponent,
+    SettingsComponent,
+    PrivacyComponent,
+    BasicComponent,
+    AdditionalComponent,
+    PhotoComponent,
+    LocationComponent,
+    ContactComponent,
   ],
   imports: [
     CommonModule,
     SettingsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxInputModule,
     jqxDateTimeInputModule,
@@ -38,6 +54,8 @@ import { SecurityComponent } from './security/security.component';
     jqxTextAreaModule,
     jqxPasswordInputModule,
     jqxComboBoxModule,
+    jqxPanelModule,
+    jqxTabsModule
   ]
 })
 export class SettingsModule { }

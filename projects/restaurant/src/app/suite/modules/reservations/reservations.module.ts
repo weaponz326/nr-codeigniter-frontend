@@ -12,12 +12,15 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { ReservationsRoutingModule } from './reservations-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { ReservationsWrapperComponent } from './reservations-wrapper/reservations-wrapper.component';
 import { AllReservationsComponent } from './all-reservations/all-reservations.component';
 import { NewReservationComponent } from './new-reservation/new-reservation.component';
 import { EditReservationComponent } from './edit-reservation/edit-reservation.component';
 import { ReservationFormComponent } from './reservation-form/reservation-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -26,12 +29,15 @@ import { ReservationFormComponent } from './reservation-form/reservation-form.co
     AllReservationsComponent,
     NewReservationComponent,
     EditReservationComponent,
-    ReservationFormComponent
+    ReservationFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     ReservationsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

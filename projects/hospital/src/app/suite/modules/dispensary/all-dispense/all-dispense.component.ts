@@ -28,6 +28,10 @@ export class AllDispenseComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Dispenses", url: "/suite/dispensary/all-dispense" },
+  ];
+
   ngOnInit(): void {
   }
 

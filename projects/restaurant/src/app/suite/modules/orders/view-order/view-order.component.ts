@@ -40,6 +40,11 @@ export class ViewOrderComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
+  navHeading: any[] = [
+    { text: "All Orders", url: "/suite/orders/all-orders" },
+    { text: "View Order", url: "/suite/orders/view-order" },
+  ];
+
   orderTypeSource: any[] = ["Sitting", "Delivery", "Drive Through", "Take Away"];
   orderStatusSource: any[] = ["Ordered", "Processing", "Delivered"];
 

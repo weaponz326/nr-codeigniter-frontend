@@ -5,14 +5,18 @@ import { NursesWrapperComponent } from './nurses-wrapper/nurses-wrapper.componen
 import { AllNursesComponent } from './all-nurses/all-nurses.component';
 import { NewNurseComponent } from './new-nurse/new-nurse.component';
 import { ViewNurseComponent } from './view-nurse/view-nurse.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
   {
-    path: "", 
+    path: "",
     component: NursesWrapperComponent,
     children: [
       { path: "", component: AllNursesComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-nurses", component: AllNursesComponent },
       { path: "new-nurse", component: NewNurseComponent },
       { path: "view-nurse", component: ViewNurseComponent }

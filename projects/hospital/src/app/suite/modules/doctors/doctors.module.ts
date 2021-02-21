@@ -11,12 +11,15 @@ import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { DoctorsRoutingModule } from './doctors-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { DoctorsWrapperComponent } from './doctors-wrapper/doctors-wrapper.component';
 import { NewDoctorComponent } from './new-doctor/new-doctor.component';
 import { ViewDoctorComponent } from './view-doctor/view-doctor.component';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -25,12 +28,15 @@ import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
     NewDoctorComponent,
     ViewDoctorComponent,
     DoctorFormComponent,
-    AllDoctorsComponent
+    AllDoctorsComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     DoctorsRoutingModule,
     UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

@@ -29,6 +29,11 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
+  navHeading: any[] = [
+    { text: "All Budgets", url: "/suite/budget/all-budget" },
+    { text: "View Budget", url: "/suite/budget/view-budget" },
+  ];
+
   ioe: any = 0;
 
   constructor(

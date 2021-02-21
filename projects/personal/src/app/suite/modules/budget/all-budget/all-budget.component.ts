@@ -27,6 +27,10 @@ export class AllBudgetComponent implements OnInit, AfterViewInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Budgets", url: "/suite/budget/all-budget" },
+  ];
+
   ngOnInit(): void {
   }
 

@@ -27,6 +27,10 @@ export class AllTablesComponent implements OnInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  navHeading: any[] = [
+    { text: "All Tables", url: "/suite/tables/all-tables" },
+  ];
+
   ngOnInit(): void {
   }
 

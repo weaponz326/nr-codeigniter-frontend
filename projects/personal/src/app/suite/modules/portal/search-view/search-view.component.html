@@ -1,39 +1,34 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#" (click)="this.suiteRoutes.goPortalTimeline($event)"><h3>Portal</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Search</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
-    </div>
 
     <div class="row" id="searchDiv">
         <div class="col-md-8">
 
             <div class="row">
                 <div class="offset-md-2 col-md-8">
-                    <jqxInput #searchInputReference
-                        [width]="'60%'"
-                        [height]="30"
-                    ></jqxInput>
-                    <jqxComboBox #searchComboBoxReference
-                        [width]="'25%'"
-                        [height]="30"
-                        [source]="searchFilter"
-                        [selectedIndex]="0"
-                    ></jqxComboBox>
-                    <jqxButton #searchButtonReference (click)="doSearch(this.searchInput.val(), this.searchComboBox.val())"
-                        [width]="'15%'"
-                        [height]="30"
-                    >Search</jqxButton>
+                    <div id="searchComboBoxDiv">
+                        <jqxDropDownList #searchDropDownListReference
+                            [width]="'100%'"
+                            [height]="30"
+                            [source]="searchFilter"
+                            [selectedIndex]="0"
+                        ></jqxDropDownList>
+                    </div>
+                    <div id="searchInputDiv">
+                        <jqxInput #searchInputReference 
+                            [width]="'100%'"
+                            [height]="30"
+                            [placeHolder]="'Search for users'"
+                        ></jqxInput>
+                    </div>                    
+                    <div id="searchButtonDiv">
+                        <jqxButton #searchButtonReference class="search-elements"
+                            (click)="doSearch(this.searchInput.val(), this.searchDropDownList.val())"
+                            [width]="'100%'"
+                            [height]="30"
+                        >Search</jqxButton>
+                    </div>
                 </div>
             </div>
 
@@ -47,11 +42,6 @@
         </div>
 
         <div class="offset-md-1 col-md-3">
-            <jqxButton #myConatactsButtonReference
-                [width]="150"
-                [height]="34"
-            >My Contacts</jqxButton>
-            <br /><br />
             <jqxButton #recentConatactsButtonReference (click)="goRecentContacts()"
                 [width]="150"
                 [height]="34"

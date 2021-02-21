@@ -5,6 +5,8 @@ import { PatientsWrapperComponent } from './patients-wrapper/patients-wrapper.co
 import { AllPatientsComponent } from './all-patients/all-patients.component';
 import { ViewPatientComponent } from './view-patient/view-patient.component';
 import { NewPatientComponent } from './new-patient/new-patient.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: PatientsWrapperComponent,
     children: [
       { path: "", component: AllPatientsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-patients", component: AllPatientsComponent },
       { path: "new-patient", component: NewPatientComponent },
       { path: "view-patient", component: ViewPatientComponent }

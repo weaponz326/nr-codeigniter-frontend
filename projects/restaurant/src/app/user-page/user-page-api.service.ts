@@ -14,7 +14,7 @@ export class UserPageApiService {
 
   restaurantUrl = environment.restaurantUrl;
 
-  // get user's hospital accounts
+  // get user's restaurant accounts
   public getAccounts(): Observable<any>{
     return this.http.get(this.restaurantUrl + "accounts/user-accounts?personal_id=" + localStorage.getItem('personal_id'));
   }

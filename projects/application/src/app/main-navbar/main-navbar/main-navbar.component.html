@@ -1,36 +1,47 @@
 <nav class="navbar navbar-dark navbar-expand-sm bg-dark" id="mainNavbar">
-	<div class="container">
+    <div class="container">
 
-		<div class="navbar-header">
-			<a href="#" (click)="goHome($event)" class="navbar-brand">{{navBrand}}</a>
-		</div>
-
-    <div *ngIf="this.logged_in == true; then loggedinBlock else notLoggedinBlock"></div>
-
-    <ng-template #notLoggedinBlock>
-      <form class="form-inline nav-form">
-        <a (click)="login($event)" class="nav-link">
-          <button class="btn btn-secondary nav-item" type="button">Log in</button>
-        </a>
-        <a (click)="signup($event)" class="nav-link">
-          <button class="btn btn-secondary nav-item" type="button">Sign up</button>
-        </a>
-      </form>
-    </ng-template>
-
-    <ng-template #loggedinBlock>
-      <form class="form-inline dropdown">
-        <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Hi {{ this.name }}
-        </a>
-
-        <div class="dropdown-menu" id="navDropdownMenu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Accounts</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" (click)="logout($event)">Logout</a>
+        <div class="navbar-header">
+           <a href="#" (click)="goHome($event)" class="navbar-brand">{{navBrand}}</a>
         </div>
-      </form>
-    </ng-template>
 
-	</div>
+        <div *ngIf="this.logged_in == true; then loggedinBlock else notLoggedinBlock"></div>
+
+        <ng-template #notLoggedinBlock>
+            <form class="form-inline nav-form">
+                <a (click)="login($event)" class="nav-link">
+                    <button class="btn btn-secondary nav-item" type="button">Log in</button>
+                </a>
+                <a (click)="signup($event)" class="nav-link">
+                    <button class="btn btn-secondary nav-item" type="button">Sign up</button>
+                </a>
+            </form>
+        </ng-template>
+
+        <ng-template #loggedinBlock>
+            <form class="form-inline dropdown">
+                <a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hi {{ this.name }}
+                </a>
+
+                <div class="dropdown-menu" id="navDropdownMenu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-user"></i>My Account
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-info-circle"></i>Activity Log
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                      <i class="fa fa-question-circle"></i>Help
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" (click)="logout($event)">
+                        <i class="fa fa-sign-out"></i>Logout
+                    </a>
+                </div>
+            </form>
+        </ng-template>
+
+    </div>
 </nav>

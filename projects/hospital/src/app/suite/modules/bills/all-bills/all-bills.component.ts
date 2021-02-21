@@ -29,6 +29,10 @@ export class AllBillsComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
+  navHeading: any[] = [
+    { text: "All Bills", url: "/suite/bills/all-bills" },
+  ];
+
   ngOnInit(): void {
   }
 

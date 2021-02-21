@@ -19,6 +19,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
 import { RinkDetailsComponent } from './rink-details/rink-details.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
     RecentContactsComponent,
     RinkDetailsComponent,
     SearchDetailComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,

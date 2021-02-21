@@ -20,6 +20,10 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('gridReference') grid: jqxGridComponent;
 
+  navHeading: any[] = [
+    { text: "All Appointments", url: "/suite/calendar/all-appointments" },
+  ];
+
   ngOnInit(): void {
   }
 
