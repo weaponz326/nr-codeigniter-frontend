@@ -9,6 +9,8 @@ import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 
 import { PortalRoutingModule } from './portal-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { PortalWrapperComponent } from './portal-wrapper/portal-wrapper.component';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -40,6 +42,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     PortalRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxInputModule,
     jqxButtonModule,
     jqxPanelModule,

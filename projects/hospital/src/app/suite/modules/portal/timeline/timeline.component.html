@@ -1,114 +1,97 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Portal</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
-    </div>
 
     <div class="row top-button-row">
         <div class="col-md-12">
             <jqxButton #newButtonReference
-                (click)="this.suiteRoutes.goPortalNew($event)"
-                [width]="120"
+                (click)="this.suiteRoutes.goPortalSearch($event)"
+                [width]="150"
                 [height]="30"
             >New Rink</jqxButton>
         </div>
     </div>
 
     <div class="row">
-
         <div class="col-md-8">
 
-            <div class="row" (click)="suiteRoutes.goPortalView($event)">
-                <div class="col-md-12">
+            <div *ngFor="let rink of rinks">
 
-                    <hr />
+                <hr />
 
-                    <div class="row">
-                        <div class="col-md-12"><small>RinkIn - Wed, 8th June, 2020. 10:00 AM</small></div>
-                    </div>
+                <div *ngIf="rink.sender.id==personalId; then senderBlock else recipientBlock"></div>
 
-                    <br />
-
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Hospital Name :</small></em></label><br />
-                            Ridge Hospital
+                <ng-template #senderBlock>
+                    <div (click)="viewRink(rink.id)">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <i class="fa fa-arrow-alt-circle-up rinkout-icon"></i>
+                                <small>RinkOut - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</small>
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Location :</small></em></label><br />
-                            Accra, Ghana
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Name :</small></em></label><br />
+                                {{rink.recipient.name}}
+                            </div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                                {{rink.recipient.location}}
+                            </div>
                         </div>
-                    </div>
 
-                    <br />
+                        <br />
 
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                        <div class="col-md-5">Admission</div>
-                    </div>
-
-                    <hr />
-
-                </div>
-            </div>
-
-            <!-- -------------------------------------------------------------------------------------------- -->
-
-            <div class="row" (click)="suiteRoutes.goPortalView($event)">
-                <div class="col-md-12">
-
-                    <hr />
-
-                    <div class="row">
-                        <div class="col-md-12"><small>RinkOut - Sun, 5th June, 2020. 10:00 AM</small></div>
-                    </div>
-
-                    <br />
-
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Hospital Name :</small></em></label><br />
-                            Oak Central Hospital
-                        </div>
-                        <div class="col-md-5">
-                            <label class="text-muted"><em><small>Location :</small></em></label><br />
-                            Hong Kong
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                            <div class="col-md-5">{{rink.rink_type}}</div>
                         </div>
                     </div>
+                </ng-template>
 
-                    <br />
+                <ng-template #recipientBlock>
+                    <div (click)="viewRink(rink.id)">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <i class="fa fa-arrow-alt-circle-down rinkin-icon"></i>
+                                <small>RinkIn - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</small>
+                            </div>
+                        </div>
 
-                    <div class="row">
-                        <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                        <div class="col-md-5">Patient</div>
-                    </div>
+                        <br />
 
-                    <hr />
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">From</label></div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Name :</small></em></label><br />
+                                {{rink.sender.name}}
+                            </div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                                {{rink.sender.location}}
+                            </div>
+                        </div>
 
-                </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                            <div class="col-md-5">{{rink.rink_type}}</div>
+                        </div>
+                      </div>
+                </ng-template>
+
             </div>
 
         </div>
-
-        <div class="col-md-4">
-            <jqxButton #goToSearchButtonReference class="float-right"
-                (click)="this.suiteRoutes.goPortalSearch($event)"
-                [width]="120"
-                [height]="30"
-            >Search</jqxButton>
-        </div>
-
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

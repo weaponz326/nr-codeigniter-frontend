@@ -1,18 +1,18 @@
 <div class="row">
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-3 text-muted"><em>Hospital Name:</em></div>
-            <div class="col-md-9">Grace Clinic</div>
+            <div class="col-md-3 text-muted"><em>Name:</em></div>
+            <div class="col-md-9">{{searchDetail.name}}</div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-3 text-muted"><em>Location:</em></div>
-            <div class="col-md-9">Vancouver - Canada</div>
+            <div class="col-md-9">{{searchDetail.location}}</div>
         </div>
         <br />
         <div class="row">
             <div class="col-md-3 text-muted"><em>About:</em></div>
-            <div class="col-md-9">A non-profit neighborhood clinic</div>
+            <div class="col-md-9">{{searchDetail.about}}</div>
         </div>
     </div>
 </div>
@@ -21,9 +21,13 @@
 
 <div class="row">
     <div class="col-md-12 text-center">
-        <jqxButton #buttonReference (click)="goToNew()"
+        <jqxButton #buttonReference (click)="createRink()"
             [width]="150"
             [height]="35"
-        >New Rink</jqxButton>
-  </div>
+        >Create Rink</jqxButton>
+    </div>
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

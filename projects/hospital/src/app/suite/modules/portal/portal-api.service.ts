@@ -35,37 +35,45 @@ export class PortalApiService {
     return this.http.get(this.hospitalUrl + "module-portal/search-detail/" + user);
   }
 
-  // // get source for rink types window
+  // get source for rink types window
 
-  // public getTasks(): Observable<any>{
-  //   return this.http.get(this.hospitalUrl + "module-portal/task-list?user=" + localStorage.getItem('hospital_id'));
-  // }
+  public getAdmissions(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/admission-list?user=" + localStorage.getItem('hospital_id'));
+  }
 
-  // public getAppointments(): Observable<any>{
-  //   return this.http.get(this.hospitalUrl + "module-portal/appointment-list?user=" + localStorage.getItem('hospital_id'));
-  // }
+  public getPatients(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/patient-list?user=" + localStorage.getItem('hospital_id'));
+  }
 
-  // public getNotes(): Observable<any>{
-  //   return this.http.get(this.hospitalUrl + "module-portal/note-list?user=" + localStorage.getItem('hospital_id'));
-  // }
+  public getDoctors(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/doctor-list?user=" + localStorage.getItem('hospital_id'));
+  }
 
-  // // get users rinks with detailed detailed sender and recipient
-  // public getSingleRink(rinkId): Observable<any>{
-  //   return this.http.get(this.hospitalUrl + "module-portal/rink/" + rinkId);
-  // }
+  public getNurses(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/nurse-list?user=" + localStorage.getItem('hospital_id'));
+  }
 
-  // // get single source for rink details
+  // get users rinks with detailed detailed sender and recipient
+  public getSingleRink(rinkId): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/rink/" + rinkId);
+  }
 
-  // public getSingleTask(taskId): Observable<any>{
-  //   return this.http.get(this.hospitalUrl + "module-portal/task/" + taskId);
-  // }
+  // get single source for rink details
 
-  // public getSingleAppointment(appointmentId): Observable<any>{
-  //   return this.http.get(this.hospitalUrl + "module-portal/appointment/" + appointmentId);
-  // }
+  public getSingleAdmission(admissionId): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/admission/" + admissionId);
+  }
 
-  // public getSingleNote(noteId): Observable<any>{
-  //   return this.http.get(this.hospitalUrl + "module-portal/note/" + noteId);
-  // }
+  public getSinglePatient(patientId): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/patient/" + patientId);
+  }
+
+  public getSingleDoctor(doctorId): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/doctor/" + doctorId);
+  }
+
+  public getSingleNurse(nurseId): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-portal/nurse/" + nurseId);
+  }
 
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PortalApiService } from '../portal-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({

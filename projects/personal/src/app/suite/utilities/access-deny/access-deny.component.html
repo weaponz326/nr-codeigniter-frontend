@@ -1,1 +1,14 @@
-<p>access-deny works!</p>
+<jqxNotification #errorNotificationReference
+    [width]="250"
+    [position]="'top-right'"
+    [opacity]="0.9"
+    [autoOpen]="false"
+    [autoClose]="true"
+    [animationOpenDelay]="1000"
+    [autoCloseDelay]="5000"
+    [template]="'warn'">
+    <div>
+        You do not have access to this module <br />
+        Contact your admin
+    </div>
+</jqxNotification>

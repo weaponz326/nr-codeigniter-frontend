@@ -22,6 +22,10 @@ export class AllUsersComponent implements OnInit {
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
 
+  navHeading: any[] = [
+    { text: "All Users", url: "/suite/admin/all-users" },
+  ];
+
   ngOnInit(): void {
   }
 

@@ -27,7 +27,7 @@ const routes: Routes = [
         path: "search",
         component: SearchViewComponent,
         children: [
-          { path: "", component: SearchResultsComponent },
+          { path: "", component: RecentContactsComponent },
           { path: "recent-contacts", component: RecentContactsComponent },
           { path: "search-results", component: SearchResultsComponent },
           { path: "search-detail", component: SearchDetailComponent },

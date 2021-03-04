@@ -50,13 +50,6 @@ export class GuestTopComponent implements OnInit {
     }
   }
 
-  goForTour(e){
-    e.preventDefault();
-    this.router.navigateByUrl("/suite");
-
-    console.log("strap in and enjoy the ride :D");
-  }
-
   ngOnInit(): void {
   }
 

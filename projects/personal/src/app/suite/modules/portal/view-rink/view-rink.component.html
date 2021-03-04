@@ -9,7 +9,7 @@
 
             <ng-template #senderBlock>
                 <div class="row">
-                    <div class="col-md-12">RinkOut - {{rink.rink_date}}</div>
+                    <div class="col-md-12">RinkOut - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</div>
                 </div>
 
                 <br />
@@ -43,7 +43,7 @@
 
             <ng-template #recipientBlock>
                 <div class="row">
-                    <div class="col-md-12">RinkOut - {{rink.rink_date}}</div>
+                    <div class="col-md-12">RinkOut - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</div>
                 </div>
 
                 <br />

@@ -14,6 +14,11 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewUserComponent implements OnInit {
 
+  constructor(
+    private adminApi: AdminApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
+
   @ViewChild('accessFormComponentReference') accessFormComponent;
 
   @ViewChild('userNameReference') userNameInput: jqxInputComponent;
@@ -22,10 +27,10 @@ export class ViewUserComponent implements OnInit {
   @ViewChild('deleteReference') deleteButton: jqxButtonComponent;
   @ViewChild('cancelReference') cancelButton: jqxButtonComponent;
 
-  constructor(
-    private adminApi: AdminApiService,
-    public suiteRoutes: SuiteRoutesService
-  ) { }
+  navHeading: any[] = [
+    { text: "All Users", url: "/suite/admin/all-users" },
+    { text: "View User", url: "/suite/admin/view-user" },
+  ];
 
   ngOnInit(): void {
   }

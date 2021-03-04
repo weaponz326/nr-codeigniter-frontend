@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   @ViewChild('photoComponentReference') photo: PhotoComponent;
   @ViewChild('locationComponentReference') location: LocationComponent;
   @ViewChild('contactComponentReference') contact: ContactComponent;
-  
+
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
@@ -57,18 +57,18 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         }
       )
 
-      this.settingsApi.getProfile()
-        .subscribe(
-          res => {
-            console.log(res);
-            this.basic.locationInput.val(res.location);
-            this.basic.aboutTextArea.val(res.about);
-          },
-          err => {
-            console.log(err);
-            this.connectionNotification.errorNotification.open();
-          }
-        )
+    this.settingsApi.getProfile()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.basic.locationInput.val(res.location);
+          this.basic.aboutTextArea.val(res.about);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     // get extended profile
     // gets additional, location, contact
@@ -76,7 +76,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          this.additional.dobInput.val(new Date(res.date_of_birth));
+          this.additional.dobInput.val(res.date_of_birth);
           this.additional.genderDropDownList.val(res.gender);
           this.location.countryInput.val(res.country);
           this.location.stateInput.val(res.state);

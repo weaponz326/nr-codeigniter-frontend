@@ -1,60 +1,91 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#" (click)="this.suiteRoutes.goPortalTimeline($event)"><h3>Portal</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>View Rink</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-8">
 
-            <div class="row">
-                <div class="col-md-12">RinkOut - Sun, 5th June, 2020. 10:00 AM</div>
-            </div>
+            <div *ngIf="rink.sender.id==hospitalId; then senderBlock else recipientBlock"></div>
 
-            <br />
-
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                <div class="col-md-5">
-                    <label class="text-muted"><em><small>Hospital Name :</small></em></label><br />
-                    Oak Central Hospital
+            <ng-template #senderBlock>
+                <div class="row">
+                    <div class="col-md-12">RinkOut - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</div>
                 </div>
-                <div class="col-md-5">
-                    <label class="text-muted"><em><small>Location :</small></em></label><br />
-                    Hong Kong
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Name :</small></em></label><br />
+                        {{rink.recipient.name}}
+                    </div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Location :</small></em></label><br />
+                        {{rink.recipient.location}}
+                    </div>
                 </div>
-            </div>
 
-            <br />
+                <br />
 
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                <div class="col-md-5">Patient</div>
-            </div>
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                    <div class="col-md-5">{{rink.rink_type}}</div>
+                </div>
 
-            <br />
+                <br />
 
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">Comment</label></div>
-                <div class="col-md-8">Details of patient being transfered</div>
-            </div>
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Comment</label></div>
+                    <div class="col-md-8">{{rink.comment}}</div>
+                </div>
+            </ng-template>
+
+            <ng-template #recipientBlock>
+                <div class="row">
+                    <div class="col-md-12">RinkIn - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">From</label></div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Name :</small></em></label><br />
+                        {{rink.sender.name}}
+                    </div>
+                    <div class="col-md-5">
+                        <label class="text-muted"><em><small>Location :</small></em></label><br />
+                        {{rink.sender.location}}
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                    <div class="col-md-5">{{rink.rink_type}}</div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-2 text-muted"><label class="float-right">Comment</label></div>
+                    <div class="col-md-8">{{rink.comment}}</div>
+                </div>
+            </ng-template>
 
         </div>
     </div>
 
     <hr />
 
-    <app-rink-details></app-rink-details>
+    <!-- rink details router -->
+
+    <router-outlet></router-outlet>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -35,6 +35,10 @@
 	margin-top: 40px;
 }
 
+.content-wrapper{
+  margin-bottom: 50px;
+}
+
 .module-heading h3{
 	display: inline-block;
 	font-size: 25px;

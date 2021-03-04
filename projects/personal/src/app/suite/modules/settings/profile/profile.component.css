@@ -1,7 +1,8 @@
-.textarea-button{
+/* .textarea-button{
   margin-top: 6px;
+} */
+
+.profile-content-div{
+  overflow: hidden;
 }
 
-/* .profile-tabs{
-  border: none !important;
-} */

@@ -2,7 +2,11 @@
 	margin-bottom: 12px;
 }
 
-#pricingDiv .card-footer {
+#pricingDiv .card-body {
 	padding-top: 45px;
 	padding-bottom: 35px;
+}
+
+#pricingDiv .card{
+	height: 100%;
 }

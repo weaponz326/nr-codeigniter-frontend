@@ -8,6 +8,7 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxFormModule } from 'jqwidgets-ng/jqxform';
 import { jqxCheckBoxModule } from 'jqwidgets-ng/jqxcheckbox';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
+import { jqxListBoxModule } from 'jqwidgets-ng/jqxlistbox';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -24,6 +25,9 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { InvitationsComponent } from './invitations/invitations.component';
 import { ViewInvitationComponent } from './view-invitation/view-invitation.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AllActivitiesComponent } from './all-activities/all-activities.component';
+import { UserActivitiesComponent } from './user-activities/user-activities.component';
+import { UserMiniActivitiesComponent } from './user-mini-activities/user-mini-activities.component';
 
 
 @NgModule({
@@ -39,6 +43,9 @@ import { SettingsComponent } from './settings/settings.component';
     InvitationsComponent,
     ViewInvitationComponent,
     SettingsComponent,
+    AllActivitiesComponent,
+    UserActivitiesComponent,
+    UserMiniActivitiesComponent,
   ],
   imports: [
     CommonModule,
@@ -51,7 +58,8 @@ import { SettingsComponent } from './settings/settings.component';
     jqxDropDownListModule,
     jqxFormModule,
     jqxCheckBoxModule,
-    jqxPanelModule
+    jqxPanelModule,
+    jqxListBoxModule,
   ]
 })
 export class AdminModule { }
