@@ -9,6 +9,11 @@ export class AssessmentWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Assessment", url: "/suite/assessment/all-assessment", icon: "fa fa-fw fa-list" },
+    { text: "New Assessment", url: "/suite/assessment/new-assessment", icon: "fa fa-fw fa-plus" },
+  ]
+
   ngOnInit(): void {
   }
 

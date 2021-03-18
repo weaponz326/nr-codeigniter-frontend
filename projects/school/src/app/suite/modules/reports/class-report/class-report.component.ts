@@ -21,6 +21,11 @@ export class ClassReportComponent implements OnInit {
   @ViewChild('classReference') class: jqxDropDownListComponent;
   @ViewChild('saveReportReference') saveButton: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "All Reports", url: "/suite/reports/all-reports" },
+    { text: "Class Report", url: "/suite/reports/class-report" },
+  ];
+
   ngOnInit(): void {
   }
 

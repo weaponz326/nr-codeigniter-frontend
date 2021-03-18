@@ -17,7 +17,7 @@ export class PortalApiService {
   // create and get all rinks belonging to user
 
   public getRinks(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-portal/rink-list?user=" + localStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-portal/rink-list?user=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postRink(rink): Observable<any>{
@@ -38,19 +38,19 @@ export class PortalApiService {
   // get source for rink types window
 
   public getAdmissions(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-portal/admission-list?user=" + localStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-portal/admission-list?user=" + sessionStorage.getItem('hospital_id'));
   }
 
   public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-portal/patient-list?user=" + localStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-portal/patient-list?user=" + sessionStorage.getItem('hospital_id'));
   }
 
   public getDoctors(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-portal/doctor-list?user=" + localStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-portal/doctor-list?user=" + sessionStorage.getItem('hospital_id'));
   }
 
   public getNurses(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-portal/nurse-list?user=" + localStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-portal/nurse-list?user=" + sessionStorage.getItem('hospital_id'));
   }
 
   // get users rinks with detailed detailed sender and recipient

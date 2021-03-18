@@ -1,8 +1,8 @@
-<jqxWindow #newAttendanceReference 
-    [width]="540" 
-    [height]="220" 
+<jqxWindow #newAttendanceReference
+    [width]="540"
+    [height]="220"
     [autoOpen]="false">
-    
+
     <div>Add New Attendance</div>
 
     <div>
@@ -26,24 +26,34 @@
                 ></jqxInput>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label-alt">Term</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #termReference
-                    [width]="'100%'"
+                <jqxInput #termReference
+                    [width]="'90%'"
                     [height]="25"
-                ></jqxDropDownList>
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectTermButton (click)="selectTerm.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
 
         <div>
             <div class="edit-dialog-label-alt">Source</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #sourceReference
-                    [width]="'100%'"
+                <jqxInput #sourceReference
+                    [width]="'90%'"
                     [height]="25"
-                ></jqxDropDownList>
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectTermButton (click)="selectClass.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
 
@@ -52,7 +62,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveAttendance()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -60,4 +70,19 @@
     </div>
 
 </jqxWindow>
-  
+
+<!-- select term and class components -->
+
+<app-select-term #selectTermComponentReference
+    (termEvent)="termSelected($event)"
+></app-select-term>
+
+<app-select-class #selectClassComponentReference
+    (classEvent)="classSelected($event)"
+></app-select-class>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

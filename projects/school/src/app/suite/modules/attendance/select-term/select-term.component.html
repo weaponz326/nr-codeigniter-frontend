@@ -1,0 +1,20 @@
+<jqxWindow #selectTermWindowReference
+    [width]="555"
+    [height]="600"
+    [autoOpen]="false">
+
+    <div>Select Attendance Term</div>
+
+    <div>
+        <jqxGrid #selectTermGridReference (onRowdoubleclick)="selectTerm($event)"
+            [width]="540"
+            [height]="555"
+            [source]="dataAdapter"
+            [sortable]="true"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+
+</jqxWindow>

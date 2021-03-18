@@ -1,7 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+
+import { FeesApiService } from '../fees-api.service';
+import { SuiteRoutesService } from '../../../suite-routes.service';
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
 @Component({
   selector: 'app-all-bills',
@@ -10,11 +15,19 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class AllBillsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private feesApi: FeesApiService,
+    public suiteRoutes: SuiteRoutesService
+  ) { }
 
   @ViewChild('gridReference') grid: jqxGridComponent;
   @ViewChild('generateFeesReference') generateFees: jqxButtonComponent;
   @ViewChild('otherButtonReference') otherButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "All Bills", url: "/suite/fees/all-bills" },
+  ];
 
   ngOnInit(): void {
   }
@@ -23,10 +36,11 @@ export class AllBillsComponent implements OnInit {
   // ----------------------------------------------------------------------------------------------------------
 
   columns: any[] = [
-    { text: "Student ID", dataField: "student_code", width: "20%" },
-    { text: "Student Name", dataField: "student_name", width: "40%" },
+    { text: "Student ID", dataField: "student_code", width: "15%" },
+    { text: "Student Name", dataField: "student_name", width: "35%" },
+    { text: "Bill ID", dataField: "bill_code", width: "15%" },
     { text: "Bill Date", dataField: "bill_date", width: "20%" },
-    { text: "Amount", dataField: "amount", width: "20%", cellsalign: 'right', cellsformat: 'c2'}
+    { text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2'}
   ];
 
 }

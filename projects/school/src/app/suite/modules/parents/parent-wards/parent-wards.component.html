@@ -1,3 +1,4 @@
+
 <hr />
 
 <div class="row">
@@ -9,15 +10,29 @@
             </div>
         </div>
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #addWardButtonReference (click)="selectWard.openWindow()"
+                    [width]="150"
+                    [height]="30"
+                >Add Ward</jqxButton>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-8">
                 <jqxGrid #wardsGridReference
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="dataAdapter"
                     [columns]="columns"
                 ></jqxGrid>
             </div>
         </div>
-    
+
     </div>
 </div>
+
+<!-- select ward component -->
+
+<app-select-ward #selectWardComponentReference (wardEvent)="wardSelected($event)"></app-select-ward>

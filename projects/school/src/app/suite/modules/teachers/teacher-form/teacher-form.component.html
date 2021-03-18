@@ -32,16 +32,12 @@ personal details -->
         <div class="row">
             <div class="col-md-4"><label>Sex :</label></div>
             <div class="col-md-8">
-                <jqxRadioButton #sexRadioButton
-                    [width]="'50%'"
-                    [height]="28"> 
-                    <span>Male</span>
-                </jqxRadioButton>
-                <jqxRadioButton #sexRadioButton
-                    [width]="'50%'"
-                    [height]="28"> 
-                    <span>Female</span>
-                </jqxRadioButton>
+                <jqxDropDownList #sexReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [source]="sexSource"
+                    [autoDropDownHeight]="true">
+                </jqxDropDownList>
             </div>
         </div>
 
@@ -51,6 +47,7 @@ personal details -->
                 <jqxDateTimeInput #dobReference
                     [width]="'100%'"
                     [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -95,7 +92,7 @@ contact details -->
     </div>
 
     <div class="col-md-6">
-    
+
         <div class="row">
             <div class="col-md-4"><label>Phone No. :</label></div>
             <div class="col-md-8">
@@ -119,7 +116,7 @@ contact details -->
         <div class="row">
             <div class="col-md-4"><label>Address :</label></div>
             <div class="col-md-8">
-                <jqxTextArea #occupationReference
+                <jqxTextArea #addressReference
                     [width]="'100%'"
                     [height]="50"
                 ></jqxTextArea>
@@ -127,7 +124,7 @@ contact details -->
         </div>
 
     </div>
-    
+
     <div class="col-md-6">
 
         <div class="row">
@@ -161,10 +158,10 @@ contact details -->
         </div>
 
     </div>
-    
+
 </div>
 
-<hr /> 
+<hr />
 
 <!-- -------------------------------------------------------------------------------------------------
 staff details -->
@@ -176,6 +173,16 @@ staff details -->
     </div>
 
     <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Term :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #termReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxDropDownList>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-4"><label>Teacher ID :</label></div>
@@ -197,16 +204,6 @@ staff details -->
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-4"><label>Term :</label></div>
-            <div class="col-md-8">
-                <jqxDropDownList #termReference
-                    [width]="'100%'"
-                    [height]="28"
-                ></jqxDropDownList>
-            </div>
-        </div>  
-        
     </div>
 
     <div class="col-md-6">
@@ -222,7 +219,7 @@ staff details -->
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Education :</label></div>
+            <div class="col-md-4"><label>Education Level :</label></div>
             <div class="col-md-8">
                 <jqxInput #educationReference
                     [width]="'100%'"

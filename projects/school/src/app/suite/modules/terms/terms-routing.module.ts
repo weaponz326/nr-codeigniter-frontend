@@ -12,9 +12,9 @@ const routes: Routes = [
     path: "",
     component: TermsWrapperComponent,
     children: [
-      { path: "all_terms", component: AllTermsComponent },
-      { path: "new_term", component: NewTermComponent },
-      { path: "view_term", component: ViewTermComponent }
+      { path: "all-terms", component: AllTermsComponent },
+      { path: "new-term", component: NewTermComponent },
+      { path: "view-term", component: ViewTermComponent }
     ]
   }
 ];

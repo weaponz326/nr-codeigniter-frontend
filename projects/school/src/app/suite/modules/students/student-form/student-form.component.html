@@ -32,16 +32,12 @@ personal details -->
         <div class="row">
             <div class="col-md-4"><label>Sex :</label></div>
             <div class="col-md-8">
-                <jqxRadioButton #sexRadioButton
-                    [width]="'50%'"
-                    [height]="28"> 
-                    <span>Male</span>
-                </jqxRadioButton>
-                <jqxRadioButton #sexRadioButton
-                    [width]="'50%'"
-                    [height]="28"> 
-                    <span>Female</span>
-                </jqxRadioButton>
+                <jqxDropDownList #sexReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [source]="sexSource"
+                    [autoDropDownHeight]="true">
+                </jqxDropDownList>
             </div>
         </div>
 
@@ -51,6 +47,7 @@ personal details -->
                 <jqxDateTimeInput #dobReference
                     [width]="'100%'"
                     [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -119,7 +116,7 @@ contact details -->
         <div class="row">
             <div class="col-md-4"><label>Address :</label></div>
             <div class="col-md-8">
-                <jqxTextArea #occupationReference
+                <jqxTextArea #addressReference
                     [width]="'100%'"
                     [height]="50"
                 ></jqxTextArea>
@@ -190,9 +187,10 @@ clinic details -->
         <div class="row">
             <div class="col-md-4"><label>Admission Date :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #admissionDateCodeReference
+                <jqxDateTimeInput #admissionDateReference
                     [width]="'100%'"
                     [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -230,43 +228,6 @@ clinic details -->
                 ></jqxDropDownList>
             </div>
         </div>  
-
-    </div>
-
-</div>
-
-<hr />
-
-<!-- -------------------------------------------------------------------------------------------------
-parent details -->
-
-<div class="row page-form-div">
-
-    <div class="col-md-12">
-        <h4>Parent Details</h4>
-    </div>
-
-    <div class="col-md-6">
-
-        <div class="row">
-            <div class="col-md-4"><label>Parent Name :</label></div>
-            <div class="col-md-8">
-                <jqxInput #parentNameReference
-                    [width]="'100%'"
-                    [height]="28"
-                ></jqxInput>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-md-4"><label>Relationship :</label></div>
-            <div class="col-md-8">
-                <jqxComboBox #relationshipReference
-                    [width]="'100%'"
-                    [height]="28"
-                ></jqxComboBox>
-            </div>
-        </div>
 
     </div>
 

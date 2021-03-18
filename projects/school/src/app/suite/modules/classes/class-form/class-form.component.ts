@@ -16,8 +16,8 @@ export class ClassFormComponent implements OnInit {
   @ViewChild('classNameReference') className: jqxInputComponent;
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('departmentReference') department: jqxComboBoxComponent;
-  @ViewChild('location') location: jqxInputComponent;
-  @ViewChild('classTeacher') classTeacher: jqxDropDownListComponent;
+  @ViewChild('locationReference') location: jqxInputComponent;
+  @ViewChild('classTeacherReference') classTeacher: jqxDropDownListComponent;
 
   ngOnInit(): void {
   }

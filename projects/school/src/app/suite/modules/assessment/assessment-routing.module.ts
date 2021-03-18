@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AssessmentWrapperComponent } from './assessment-wrapper/assessment-wrapper.component';
 import { AllAssessmentComponent } from './all-assessment/all-assessment.component';
+import { NewAssessmentComponent } from './new-assessment/new-assessment.component';
 import { ViewAssessmentComponent } from './view-assessment/view-assessment.component';
 
 
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: "", component: AllAssessmentComponent },
       { path: "all-assessment", component: AllAssessmentComponent },
+      { path: "new-assessment", component: NewAssessmentComponent },
       { path: "view-assessment", component: ViewAssessmentComponent }
     ]
   }

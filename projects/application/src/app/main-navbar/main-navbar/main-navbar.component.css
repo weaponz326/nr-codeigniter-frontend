@@ -18,3 +18,8 @@
 .dropdown-menu i{
   padding-right: 6px;
 }
+
+.btn-outline-light:hover{
+	color: #f8f9fc;
+	background-color: transparent;
+}

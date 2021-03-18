@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   isActive: boolean = false;
 
   ngOnInit(): void {
-    this.navbarApi.checkActiveHospital()
+    this.navbarApi.checkActiveSchool()
       .subscribe(
         res => {
           console.log(res);

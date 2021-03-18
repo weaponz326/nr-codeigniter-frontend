@@ -19,6 +19,11 @@ export class ViewAttendanceComponent implements OnInit {
   @ViewChild('sourceReference') source: jqxDropDownListComponent;
   @ViewChild('saveAttendanceReference') saveButton: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "All Attendance", url: "/suite/attendance/all-attendance" },
+    { text: "View Attendance", url: "/suite/attendance/view-attendance" },
+  ];
+
   ngOnInit(): void {
   }
 

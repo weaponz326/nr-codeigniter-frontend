@@ -21,6 +21,11 @@ export class ViewFeesComponent implements OnInit {
   @ViewChild("targetStudentReference") targetStudent: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "All Fees", url: "/suite/fees/all-fees" },
+    { text: "View Fees", url: "/suite/fees/view-fees" },
+  ];
+
   ngOnInit(): void {
   }
 

@@ -33,8 +33,8 @@ export class StudentFormComponent implements OnInit {
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('admissionDateReference') admissionDate: jqxDateTimeInputComponent;
   @ViewChild('previousSchoolReference') previousSchool: jqxInputComponent;
-  @ViewChild('parentNameReference') parentName: jqxDropDownListComponent;
-  @ViewChild('relationshipReference') relationship: jqxComboBoxComponent;
+
+  sexSource: any[] = ["Male", "Female"];
 
   ngOnInit(): void {
   }

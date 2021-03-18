@@ -19,6 +19,12 @@ export class StudentReportComponent implements OnInit {
   @ViewChild('reportDateReference') reportDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
 
+  navHeading: any[] = [
+    { text: "All Reports", url: "/suite/reports/all-reports" },
+    { text: "Class Report", url: "/suite/reports/class-report" },
+    { text: "Student Report", url: "/suite/reports/student-report" },
+  ];
+
   ngOnInit(): void {
   }
 

@@ -17,21 +17,23 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Term Begin :</label></div>
+            <div class="col-md-4"><label>Term Begins :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #termBeginReference
+                <jqxDateTimeInput #termBeginsReference
                     [width]="'100%'"
                     [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Term End :</label></div>
+            <div class="col-md-4"><label>Term Ends :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #termEndReference
+                <jqxDateTimeInput #termEndsReference
                     [width]="'100%'"
                     [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -43,6 +45,18 @@
                     [width]="'100%'"
                     [height]="28"
                 ></jqxComboBox>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Term status :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #termStatusReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [source]="statusSource"
+                    [autoDropDownHeight]="true"
+                ></jqxDropDownList>
             </div>
         </div>
 

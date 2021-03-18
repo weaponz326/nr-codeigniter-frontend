@@ -11,12 +11,16 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { StudentsRoutingModule } from './students-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { StudentsWrapperComponent } from './students-wrapper/students-wrapper.component';
 import { AllStudentsComponent } from './all-students/all-students.component';
 import { NewStudentComponent } from './new-student/new-student.component';
 import { ViewStudentComponent } from './view-student/view-student.component';
 import { StudentFormComponent } from './student-form/student-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -25,11 +29,15 @@ import { StudentFormComponent } from './student-form/student-form.component';
     AllStudentsComponent,
     NewStudentComponent,
     ViewStudentComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     StudentsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

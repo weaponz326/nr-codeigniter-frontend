@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../../application/src/assets/styles/main.css";
-@import "../../application/src/assets/styles/forms.css";
+@import "../../application/src/assets/css/main.css";
+@import "../../application/src/assets/css/forms.css";
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

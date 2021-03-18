@@ -42,16 +42,12 @@ personal details -->
         <div class="row">
             <div class="col-md-4"><label>Sex :</label></div>
             <div class="col-md-8">
-                <jqxRadioButton #sexRadioButton
-                    [width]="'50%'"
-                    [height]="28"> 
-                    <span>Male</span>
-                </jqxRadioButton>
-                <jqxRadioButton #sexRadioButton
-                    [width]="'50%'"
-                    [height]="28"> 
-                    <span>Female</span>
-                </jqxRadioButton>
+                <jqxDropDownList #sexReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [source]="sexSource"
+                    [autoDropDownHeight]="true">
+                </jqxDropDownList>
             </div>
         </div>
 
@@ -129,7 +125,7 @@ contact details -->
         <div class="row">
             <div class="col-md-4"><label>Address :</label></div>
             <div class="col-md-8">
-                <jqxTextArea #occupationReference
+                <jqxTextArea #addressReference
                     [width]="'100%'"
                     [height]="50"
                 ></jqxTextArea>

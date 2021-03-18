@@ -7,17 +7,23 @@
             </div>
         </div>
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #buttonReference (click)="addItemComponentReference.openWindow()"
+                    [width]="150"
+                    [height]="30"
+                >Add Item</jqxButton>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <jqxGrid #editGridReference
+                    <jqxGrid #editGridReference (onRowdoubleclick)="editItemComponentReference.openWindow($event)"
                         [width]="'100%'"
                         [autoheight]="true"
                         [rowsheight]="24"
                         [showemptyrow]="false"
-                        [selectionmode]="'singlerow'"
-                        [showeverpresentrow]="true"
-                        [everpresentrowactions]="'add update delete reset'"
                         [showstatusbar]="true"
                         [showaggregates]="true"
                         [columns]="columns"
@@ -28,3 +34,12 @@
 
     </div>
 </div>
+
+<app-add-item #addItemComponentReference
+    (addCommit)="onItemAddCommit($event)"
+></app-add-item>
+
+<app-edit-item #editItemComponentReference
+    (editCommit)="onItemEditCommit($event)"
+    (deleteCommit)="onItemDeleteCommit($event)"
+></app-edit-item>

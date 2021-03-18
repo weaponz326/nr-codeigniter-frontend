@@ -1,8 +1,8 @@
-<jqxWindow #createFeesReference 
-    [width]="540" 
-    [height]="250" 
+<jqxWindow #createFeesReference
+    [width]="540"
+    [height]="200"
     [autoOpen]="false">
-    
+
     <div>Create New Fees</div>
 
     <div>
@@ -33,29 +33,8 @@
                 <jqxDateTimeInput #feesDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Target Class(es)</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #targetClassReference
-                    [width]="'100%'"
-                    [height]="25"
-                    [checkboxes]="true"
-                ></jqxDropDownList>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Target Student(s)</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #targetStudentReference
-                    [width]="'100%'"
-                    [height]="25"
-                    [checkboxes]="true"
-                ></jqxDropDownList>
             </div>
         </div>
 
@@ -72,4 +51,4 @@
     </div>
 
 </jqxWindow>
-  
+

@@ -56,6 +56,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/fees/fees.module").then(m => m.FeesModule)
   },
   {
+    path: "timetables",
+    loadChildren: () => import("./modules/timetables/timetables.module").then(m => m.TimetablesModule)
+  },
+  {
     path: "teachers",
     loadChildren: () => import("./modules/teachers/teachers.module").then(m => m.TeachersModule)
   },

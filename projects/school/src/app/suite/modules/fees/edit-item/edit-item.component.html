@@ -1,0 +1,51 @@
+<jqxWindow #editItemReference (onOpen)="descriptionInput.focus()"
+    [width]="540"
+    [height]="150"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Edit Item</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Description</div>
+            <div class="edit-dialog-field">
+                <jqxInput #descriptionReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Amount</div>
+            <div class="edit-dialog-field">
+                <jqxNumberInput #amountReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [inputMode]="'simple'"
+                    [decimalDigits]="2"
+                    [textAlign]="'left'"
+                    [symbol]="'$'"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteItem()"
+                >Delete</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveItem()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

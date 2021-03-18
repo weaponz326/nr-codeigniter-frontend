@@ -1,28 +1,15 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <a href="#" (click)="this.suiteRoutes.goHome($event)"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#" (click)="this.suiteRoutes.goPortalTimeline($event)"><h3>Portal</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>New Rink</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
-    </div>
 
     <div class="row">
 
         <div class="col-md-8">
 
             <div class="row">
-                <div class="col-md-3"><label>To :</label></div>
+                <div class="col-md-3"><label>Recipient Name :</label></div>
                 <div class="col-md-6">
-                    <jqxInput #toReference
+                    <jqxInput #nameInputReference
                         [width]="'100%'"
                         [height]="28"
                         [disabled]="true"
@@ -31,24 +18,39 @@
             </div>
 
             <div class="row">
-                <div class="col-md-3"><label>Type :</label></div>
+                <div class="col-md-3"><label>Recipient Location :</label></div>
                 <div class="col-md-6">
-                    <jqxDropDownList #typeReference
+                    <jqxInput #locationInputReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-3"><label>Rink Type :</label></div>
+                <div class="col-md-6">
+                    <jqxDropDownList #typeDropDownListReference (onSelect)="enableSourceButton()"
                         [width]="'100%'"
                         [height]="28"
                         [source]="typeSource"
+                        [autoDropDownHeight]="true"
                     ></jqxDropDownList>
                 </div>
             </div>
 
             <div class="row">
-                <div class="offset-md-3 col-md-3">
-                    <jqxButton #sourceButtonReference
+                <div class="offset-md-3 col-md-9">
+                    <jqxButton #sourceButtonReference (click)="openSourceWindow()"
                         [width]="100"
                         [height]="28"
+                        [disabled]="true"
                     >Source</jqxButton>
+                    {{this.selectedSource}}
                 </div>
-                <div class="col-md-6">Name of selected here</div>
             </div>
 
             <br />
@@ -56,7 +58,7 @@
             <div class="row">
                 <div class="col-md-3"><label>Comment :</label></div>
                 <div class="col-md-6">
-                    <jqxTextArea #commentReference
+                    <jqxTextArea #commentTextAreaReference
                         [width]="'100%'"
                         [height]="75"
                     ></jqxTextArea>
@@ -72,7 +74,7 @@
                       [height]="28"
                   >Cancel</jqxButton>
 
-                  <jqxButton #sendButtonReference class="float-right"
+                  <jqxButton #sendButtonReference class="float-right" (click)="sendRink()"
                       [width]="100"
                       [height]="28"
                   >Send</jqxButton>
@@ -92,3 +94,13 @@
     </div>
 
 </div>
+
+<!-- rink type source window components -->
+
+
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

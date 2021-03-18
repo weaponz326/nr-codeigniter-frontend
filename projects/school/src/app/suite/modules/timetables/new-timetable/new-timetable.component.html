@@ -1,0 +1,74 @@
+<jqxWindow #newTimetableReference
+    [width]="540"
+    [height]="220"
+    [autoOpen]="false">
+
+    <div>Add New Timetable</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Timetable ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #timetableCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Timetable Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #timetableNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Timetable Date</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #timetableDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Term</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #termReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectTermButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveTimetable()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

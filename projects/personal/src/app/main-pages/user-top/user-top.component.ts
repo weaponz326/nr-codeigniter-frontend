@@ -23,6 +23,7 @@ export class UserTopComponent implements OnInit {
 
   accountSelected(accountId){
     this.selectAccount.emit(accountId);
+    console.log(accountId);
   }
 
   register(){

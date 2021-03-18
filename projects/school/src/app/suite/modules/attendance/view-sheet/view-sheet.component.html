@@ -1,9 +1,14 @@
 <div class="row top-button-row">
     <div class="col-md-12">
-        <jqxButton #sheetButtonReference class="float-right"
+        <jqxButton #sheetButtonReference class="float-left" (click)="this.suiteRoutes.goAttendanceCheck($event)"
             [width]="150"
             [height]="30"
         >Check Attendance</jqxButton>
+
+        <jqxButton #refereshButtonReference class="float-right"
+            [width]="150"
+            [height]="30"
+        >Refresh Sheet</jqxButton>
     </div>
 </div>
 

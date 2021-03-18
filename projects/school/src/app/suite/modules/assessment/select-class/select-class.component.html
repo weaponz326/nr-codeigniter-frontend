@@ -1,0 +1,46 @@
+<jqxWindow #selectClassWindowReference
+    [width]="555"
+    [height]="600"
+    [autoOpen]="false">
+
+    <div>Select Assesment's Class(es)</div>
+
+    <div>
+
+        <div class="row my-1">
+            <div class="col-md-12">
+                <label class="float-left"><small>Drag and drop subjects</small></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <jqxListBox #allClassesListBoxReference
+                    [width]="'100%'"
+                    [height]="400"
+                    [allowDrag]="true"
+                    [allowDrop]="true"
+                ></jqxListBox>
+            </div>
+            <div class="col-md-6">
+                <jqxListBox #assessmentClassesListBoxReference
+                    [width]="'100%'"
+                    [height]="400"
+                    [allowDrag]="true"
+                    [allowDrop]="true"
+                ></jqxListBox>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <jqxButton #saveButtonReference class="float-right" (click)="selectClass()"
+                    [width]="100"
+                    [height]="28"
+                >Submit</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

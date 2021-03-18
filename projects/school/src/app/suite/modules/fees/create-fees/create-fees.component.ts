@@ -21,8 +21,6 @@ export class CreateFeesComponent implements OnInit {
   @ViewChild("feesCodeReference") feesCode: jqxInputComponent;
   @ViewChild("feesDescriptionReference") feesDescription: jqxInputComponent;
   @ViewChild("feesDateReference") feesDate: jqxDateTimeInputComponent;
-  @ViewChild("targetClassReference") targetClass: jqxDropDownListComponent;
-  @ViewChild("targetStudentReference") targetStudent: jqxDropDownListComponent;
 
   ngOnInit(): void {
   }

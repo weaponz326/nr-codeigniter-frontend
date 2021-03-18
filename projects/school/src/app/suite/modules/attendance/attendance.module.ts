@@ -9,6 +9,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 
 import { AttendanceRoutingModule } from './attendance-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AttendanceWrapperComponent } from './attendance-wrapper/attendance-wrapper.component';
 import { AllAttendanceComponent } from './all-attendance/all-attendance.component';
@@ -16,7 +18,10 @@ import { NewAttendanceComponent } from './new-attendance/new-attendance.componen
 import { CheckAttendanceComponent } from './check-attendance/check-attendance.component';
 import { ViewAttendanceComponent } from './view-attendance/view-attendance.component';
 import { ViewSheetComponent } from './view-sheet/view-sheet.component';
-import { CheckSheetComponent } from './check-sheet/check-sheet.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SelectTermComponent } from './select-term/select-term.component';
+import { SelectClassComponent } from './select-class/select-class.component';
 
 
 @NgModule({
@@ -25,17 +30,24 @@ import { CheckSheetComponent } from './check-sheet/check-sheet.component';
     AllAttendanceComponent,
     NewAttendanceComponent,
     ViewAttendanceComponent,
-    CheckAttendanceComponent, ViewSheetComponent, CheckSheetComponent
+    CheckAttendanceComponent,
+    ViewSheetComponent,
+    DashboardComponent,
+    SettingsComponent,
+    SelectTermComponent,
+    SelectClassComponent,
   ],
   imports: [
     CommonModule,
     AttendanceRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,
     jqxDropDownListModule,
     jqxInputModule,
-    jqxDateTimeInputModule
+    jqxDateTimeInputModule,
   ]
 })
 export class AttendanceModule { }

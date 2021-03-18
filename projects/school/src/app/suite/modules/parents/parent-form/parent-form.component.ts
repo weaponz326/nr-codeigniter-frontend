@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist'
 
 @Component({
   selector: 'app-parent-form',
@@ -16,7 +16,7 @@ export class ParentFormComponent implements OnInit {
   @ViewChild('parentCodeReference') parentCode: jqxInputComponent;
   @ViewChild('firstNameReference') firstName: jqxInputComponent;
   @ViewChild('lastNameReference') lastName: jqxInputComponent;
-  @ViewChild('sexReference') sex: jqxRadioButtonComponent;
+  @ViewChild('sexReference') sex: jqxDropDownListComponent;
   @ViewChild('nationalityReference') nationality: jqxInputComponent;
   @ViewChild('occupationReference') occupation: jqxInputComponent;
   @ViewChild('religionReference') religion: jqxInputComponent;
@@ -27,6 +27,8 @@ export class ParentFormComponent implements OnInit {
   @ViewChild('stateReference') state: jqxInputComponent;
   @ViewChild('cityReference') city: jqxInputComponent;
   @ViewChild('postCodeReference') postCode: jqxInputComponent;
+
+  sexSource: any[] = ["Male", "Female"];
 
   ngOnInit(): void {
   }

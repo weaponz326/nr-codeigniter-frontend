@@ -24,4 +24,16 @@ export class FeesDetailsComponent implements OnInit {
     { text: "Amount", dataField: "amount", width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
   ];
 
+  onItemAddCommit(e: any){
+
+  }
+
+  onItemEditCommit(e: any){
+
+  }
+
+  onItemDeleteCommit(e: any){
+
+  }
+
 }

@@ -1,40 +1,40 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
             
-    <div class="module-heading row">
-        <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#"><h3>Subjects</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Add Subject</h3>
+
+    <div class="row">
+        <div class="col-md-6">
+    
+            <!-- subject page form -->
+
+            <app-subject-form #subjectFormComponentReference></app-subject-form>
             
-            <hr class="header-line" />
-            <hr class="header-line" />
+            <hr />
+            
+            <div class="row page-form-div">
+                <div class="col-md-12">
+                            
+                    <jqxButton #cancelButtonReference class="float-right" (click)="this.suiteRoutes.goSubjectsAll($event)"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>                    
+
+                    <jqxButton #saveButtonReference class="float-right" (click)="this.saveSubject()"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+
+                </div>
+            </div>
         
         </div>
     </div>
 
-    <!-- --------------------------------------------------------------------------------------------- -->
-
-    <!-- subject page form -->
-
-    <app-subject-form></app-subject-form>
-    
-    <div class="row page-form-div">
-        <div class="col-md-12">
-                    
-            <jqxButton #cancelButtonReference class="float-right"
-                [width]="100"
-                [height]="28"
-            >Cancel</jqxButton>                    
-
-            <jqxButton #saveButtonReference class="float-right"
-                [width]="100"
-                [height]="28"
-            >Save</jqxButton>
-
-        </div>
-    </div>
-
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

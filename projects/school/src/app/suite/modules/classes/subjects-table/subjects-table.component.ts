@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+import { jqxListBoxComponent } from 'jqwidgets-ng/jqxlistbox';
 
 @Component({
   selector: 'app-subjects-table',
@@ -11,18 +11,10 @@ export class SubjectsTableComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("subjectsGridReference") detailsGrid: jqxGridComponent;
+  @ViewChild('allSubjectsReference') allSubjects: jqxListBoxComponent;
+  @ViewChild('classSubjectsReference') classSubjects: jqxListBoxComponent;
 
   ngOnInit(): void {
   }
-
-  // widgets
-  // -----------------------------------------------------------------------------------------------
-
-  // grid columns
-  columns: any[] = [
-    { text: "Subject Code", dataField: "subject_code", width: "30%" },
-    { text: "Subject Name", dataField: "subject_name", width: "70%" },
-  ];
 
 }

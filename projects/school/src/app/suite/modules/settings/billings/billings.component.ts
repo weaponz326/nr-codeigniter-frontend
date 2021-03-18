@@ -29,6 +29,10 @@ export class BillingsComponent implements OnInit {
   @ViewChild('secretCodeReference') secretCodeInput: jqxInputComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "Billings", url: "/suite/settings/billings" },
+  ];
+  
   selectedPlan: string;
 
   ngOnInit(): void {

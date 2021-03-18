@@ -10,12 +10,16 @@ import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { TeachersRoutingModule } from './teachers-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { TeachersWrapperComponent } from './teachers-wrapper/teachers-wrapper.component';
 import { AllTeachersComponent } from './all-teachers/all-teachers.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { ViewTeacherComponent } from './view-teacher/view-teacher.component';
 import { TeacherFormComponent } from './teacher-form/teacher-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -24,11 +28,15 @@ import { TeacherFormComponent } from './teacher-form/teacher-form.component';
     AllTeachersComponent,
     AddTeacherComponent,
     ViewTeacherComponent,
-    TeacherFormComponent
+    TeacherFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     TeachersRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

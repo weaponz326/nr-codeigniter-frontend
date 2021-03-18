@@ -17,7 +17,7 @@ export class PortalApiService {
   // create and get all rinks belonging to user
 
   public getRinks(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-portal/rink-list?user=" + localStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-portal/rink-list?user=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postRink(rink): Observable<any>{
@@ -38,15 +38,15 @@ export class PortalApiService {
   // get source for rink types window
 
   public getStaff(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-portal/staff-list?user=" + localStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-portal/staff-list?user=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public getCustomers(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-portal/customer-list?user=" + localStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-portal/customer-list?user=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public getMenus(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-portal/menu-list?user=" + localStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-portal/menu-list?user=" + sessionStorage.getItem('restaurant_id'));
   }
 
   // get users rinks with detailed detailed sender and recipient

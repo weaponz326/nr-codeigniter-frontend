@@ -17,7 +17,7 @@ export class TeacherFormComponent implements OnInit {
 
   @ViewChild('firstNameReference') firstName: jqxInputComponent;
   @ViewChild('lastNameReference') lastName: jqxInputComponent;
-  @ViewChild('sexReference') sex: jqxRadioButtonComponent;
+  @ViewChild('sexReference') sex: jqxDropDownListComponent;
   @ViewChild('dobReference') dob: jqxDateTimeInputComponent;
   @ViewChild('nationalityReference') nationality: jqxInputComponent;
   @ViewChild('religionReference') religion: jqxInputComponent;
@@ -32,6 +32,8 @@ export class TeacherFormComponent implements OnInit {
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('gradeReference') grade: jqxInputComponent;
   @ViewChild('educationReference') education: jqxInputComponent;
+
+  sexSource: any[] = ["Male", "Female"];
 
   ngOnInit(): void {
   }

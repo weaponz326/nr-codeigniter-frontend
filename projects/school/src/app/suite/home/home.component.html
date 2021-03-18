@@ -1,17 +1,12 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar homebar mb-4 static-top shadow">
+  <div class="module-heading text-center">
+      <a routerLink="./">
+          <h3><i class="fa fa-home sidebar-card-illustration mb-2"></i> Home</h3>
+      </a>
+  </div>
+</nav>
+
 <div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <h3>Home</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
-    </div>
-
-    <!-- --------------------------------------------------------------------------------------------------- -->
 
     <div class="home-div">
 
@@ -179,7 +174,7 @@
                     [position]="'mouse'"
                     [content]="'Plan and organize terms or semesters'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goTermsAll($event)">
                         <figure>
                             <img src="../../../assets/images/modules/terms.png" class="home-icons" />
                             <figcaption>Terms</figcaption>
@@ -194,7 +189,7 @@
                     [position]="'mouse'"
                     [content]="'Manage classes and class activities'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goClassesAll($event)">
                         <figure>
                             <img src="../../../assets/images/modules/classes.png" class="home-icons" />
                             <figcaption>Classes</figcaption>
@@ -231,7 +226,7 @@
                     [position]="'mouse'"
                     [content]="'Generate students\' bills'">
 
-                    <a href="#" (click)="suiteRoutes.goClassesAll($event)">
+                    <a href="#" (click)="suiteRoutes.goFeesAll($event)">
                         <figure>
                             <img src="../../../assets/images/modules/fees.png" class="home-icons" />
                             <figcaption>Fees</figcaption>
@@ -246,25 +241,10 @@
                     [position]="'mouse'"
                     [content]="'plan and manage academic timetables'">
 
-                    <a href="#">
+                    <a href="#" (click)="suiteRoutes.goTimetablesAll($event)">
                         <figure>
                             <img src="../../../assets/images/modules/timetables.png" class="home-icons" />
                             <figcaption>Timetables</figcaption>
-                        </figure>
-                    </a>
-
-                </jqxTooltip>
-            </div>
-
-			      <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #enrollmentTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Enroll students into a term'">
-
-                    <a href="#">
-                        <figure>
-                            <img src="../../../assets/images/modules/enrollment.png" class="home-icons" />
-                            <figcaption>Enrollment</figcaption>
                         </figure>
                     </a>
 

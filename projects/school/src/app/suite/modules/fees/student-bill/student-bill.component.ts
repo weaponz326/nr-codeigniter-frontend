@@ -17,9 +17,13 @@ export class StudentBillComponent implements OnInit {
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
   @ViewChild('billNameReference') Name: jqxInputComponent;
   @ViewChild('billDateReference') billDate: jqxDateTimeInputComponent;
-  @ViewChild('studentNameReference') studentName: jqxDropDownListComponent;
-  @ViewChild('studentCodeReference') studentCode: jqxDropDownListComponent;
-  @ViewChild('billTypeReference') billType: jqxComboBoxComponent;
+  @ViewChild('studentNameReference') studentName: jqxInputComponent;
+  @ViewChild('studentCodeReference') studentCode: jqxInputComponent;
+
+  navHeading: any[] = [
+    { text: "All Bills", url: "/suite/fees/all-bills" },
+    { text: "Student Bill", url: "/suite/fees/student-bill" },
+  ];
 
   ngOnInit(): void {
   }

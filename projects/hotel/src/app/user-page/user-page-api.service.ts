@@ -21,7 +21,7 @@ export class UserPageApiService {
 
   // send selected account id
   public postAccount(accountId): Observable<any>{
-    return this.http.post(this.hotelUrl + "accounts/active-account/", { active_account: accountId });
+    return this.http.post(this.hotelUrl + "accounts/active-account/", { active_account: accountId }, { withCredentials: true });
   }
 
 }
