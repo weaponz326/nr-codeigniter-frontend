@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { OrdersWrapperComponent } from './orders-wrapper/orders-wrapper.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -12,6 +14,8 @@ const routes: Routes = [
     component: OrdersWrapperComponent,
     children: [
       { path: "", component: AllOrdersComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-orders", component: AllOrdersComponent },
       { path: "view-order", component: ViewOrderComponent }
     ]

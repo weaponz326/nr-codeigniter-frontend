@@ -19,6 +19,8 @@ import { ReceivedFormComponent } from './received-form/received-form.component';
 import { AddSentComponent } from './add-sent/add-sent.component';
 import { EditSentComponent } from './edit-sent/edit-sent.component';
 import { SentFormComponent } from './sent-form/sent-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { SentFormComponent } from './sent-form/sent-form.component';
     ReceivedFormComponent,
     AddSentComponent,
     EditSentComponent,
-    SentFormComponent
+    SentFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

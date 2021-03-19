@@ -15,6 +15,8 @@ import { AllBudgetComponent } from './all-budget/all-budget.component';
 import { NewBudgetComponent } from './new-budget/new-budget.component';
 import { ViewBudgetComponent } from './view-budget/view-budget.component';
 import { BudgetTablesComponent } from './budget-tables/budget-tables.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { BudgetTablesComponent } from './budget-tables/budget-tables.component';
     AllBudgetComponent,
     NewBudgetComponent,
     ViewBudgetComponent,
-    BudgetTablesComponent
+    BudgetTablesComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

@@ -15,6 +15,8 @@ import { AllBillsComponent } from './all-bills/all-bills.component';
 import { NewBillComponent } from './new-bill/new-bill.component';
 import { ViewBillComponent } from './view-bill/view-bill.component';
 import { BillTablesComponent } from './bill-tables/bill-tables.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { BillTablesComponent } from './bill-tables/bill-tables.component';
     AllBillsComponent,
     NewBillComponent,
     ViewBillComponent,
-    BillTablesComponent
+    BillTablesComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

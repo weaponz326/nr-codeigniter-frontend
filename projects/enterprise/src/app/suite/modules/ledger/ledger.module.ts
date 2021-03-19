@@ -13,6 +13,8 @@ import { AllLedgerComponent } from './all-ledger/all-ledger.component';
 import { NewLedgerComponent } from './new-ledger/new-ledger.component';
 import { ViewLedgerComponent } from './view-ledger/view-ledger.component';
 import { LedgerTableComponent } from './ledger-table/ledger-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { LedgerTableComponent } from './ledger-table/ledger-table.component';
     AllLedgerComponent, 
     NewLedgerComponent, 
     ViewLedgerComponent, 
-    LedgerTableComponent
+    LedgerTableComponent, DashboardComponent, SettingsComponent
   ],
   imports: [
     CommonModule,

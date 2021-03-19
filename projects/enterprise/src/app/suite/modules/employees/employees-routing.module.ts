@@ -5,6 +5,8 @@ import { EmployeesWrapperComponent } from './employees-wrapper/employees-wrapper
 import { AllEmployeesComponent } from './all-employees/all-employees.component';
 import { NewEmployeeComponent } from './new-employee/new-employee.component';
 import { ViewEmployeeComponent } from './view-employee/view-employee.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: EmployeesWrapperComponent,
     children: [
       { path: "", component: AllEmployeesComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-employees", component: AllEmployeesComponent },
       { path: "new-employee", component: NewEmployeeComponent },
       { path: "view-employee", component: ViewEmployeeComponent }

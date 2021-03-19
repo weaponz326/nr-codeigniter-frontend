@@ -7,12 +7,16 @@ import { StockRoutingModule } from './stock-routing.module';
 
 import { StockWrapperComponent } from './stock-wrapper/stock-wrapper.component';
 import { AllStockComponent } from './all-stock/all-stock.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
   declarations: [
     StockWrapperComponent,
-    AllStockComponent
+    AllStockComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

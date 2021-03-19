@@ -15,6 +15,8 @@ import { AllContractorsComponent } from './all-contractors/all-contractors.compo
 import { AddContractorComponent } from './add-contractor/add-contractor.component';
 import { ViewContractorComponent } from './view-contractor/view-contractor.component';
 import { ContractorFormComponent } from './contractor-form/contractor-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ContractorFormComponent } from './contractor-form/contractor-form.compo
     AllContractorsComponent,
     AddContractorComponent,
     ViewContractorComponent,
-    ContractorFormComponent
+    ContractorFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

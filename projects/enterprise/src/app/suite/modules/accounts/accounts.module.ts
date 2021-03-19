@@ -14,6 +14,8 @@ import { AddAccountComponent } from './add-account/add-account.component';
 import { ViewAccountComponent } from './view-account/view-account.component';
 import { AccountTransactionsComponent } from './account-transactions/account-transactions.component';
 import { AllTransactionsComponent } from './all-transactions/all-transactions.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { AllTransactionsComponent } from './all-transactions/all-transactions.co
     AddAccountComponent,
     ViewAccountComponent,
     AccountTransactionsComponent,
-    AllTransactionsComponent
+    AllTransactionsComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

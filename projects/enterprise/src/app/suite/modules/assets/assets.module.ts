@@ -16,6 +16,8 @@ import { AllAssetsComponent } from './all-assets/all-assets.component';
 import { AddAssetComponent } from './add-asset/add-asset.component';
 import { ViewAssetComponent } from './view-asset/view-asset.component';
 import { AssetFormComponent } from './asset-form/asset-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { AssetFormComponent } from './asset-form/asset-form.component';
     AllAssetsComponent,
     AddAssetComponent,
     ViewAssetComponent,
-    AssetFormComponent
+    AssetFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

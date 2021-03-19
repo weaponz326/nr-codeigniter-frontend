@@ -16,6 +16,8 @@ import { ViewSheetComponent } from './view-sheet/view-sheet.component';
 import { WeeklyComponent } from './sheets/weekly/weekly.component';
 import { MonthlyComponent } from './sheets/monthly/monthly.component';
 import { QuarterlyComponent } from './sheets/quarterly/quarterly.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { QuarterlyComponent } from './sheets/quarterly/quarterly.component';
     ViewSheetComponent,
     WeeklyComponent,
     MonthlyComponent,
-    QuarterlyComponent
+    QuarterlyComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

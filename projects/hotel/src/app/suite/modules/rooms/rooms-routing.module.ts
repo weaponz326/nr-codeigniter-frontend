@@ -5,6 +5,8 @@ import { RoomsWrapperComponent } from './rooms-wrapper/rooms-wrapper.component';
 import { AllRoomsComponent } from './all-rooms/all-rooms.component';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { ViewRoomComponent } from './view-room/view-room.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: RoomsWrapperComponent,
     children: [
       { path: "", component: AllRoomsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-rooms", component: AllRoomsComponent },
       { path: "add-room", component: AddRoomComponent },
       { path: "view-room", component: ViewRoomComponent }

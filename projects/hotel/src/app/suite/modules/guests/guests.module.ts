@@ -14,6 +14,8 @@ import { AllGuestsComponent } from './all-guests/all-guests.component';
 import { NewGuestComponent } from './new-guest/new-guest.component';
 import { ViewGuestComponent } from './view-guest/view-guest.component';
 import { GuestFormComponent } from './guest-form/guest-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { GuestFormComponent } from './guest-form/guest-form.component';
     AllGuestsComponent,
     NewGuestComponent,
     ViewGuestComponent,
-    GuestFormComponent
+    GuestFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

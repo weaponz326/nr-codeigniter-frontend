@@ -5,6 +5,8 @@ import { PaymentsWrapperComponent } from './payments-wrapper/payments-wrapper.co
 import { AllPaymentsComponent } from './all-payments/all-payments.component';
 import { NewPaymentComponent } from './new-payment/new-payment.component';
 import { ViewPaymentComponent } from './view-payment/view-payment.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: PaymentsWrapperComponent,
     children: [
       { path: "", component: AllPaymentsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-payments", component: AllPaymentsComponent },
       { path: "new-payment", component: NewPaymentComponent },
       { path: "view-payment", component: ViewPaymentComponent }

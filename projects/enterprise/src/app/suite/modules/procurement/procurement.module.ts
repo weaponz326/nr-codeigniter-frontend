@@ -17,6 +17,8 @@ import { NewOrderComponent } from './new-order/new-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderReviewComponent } from './order-review/order-review.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { OrderReviewComponent } from './order-review/order-review.component';
     NewOrderComponent,
     ViewOrderComponent,
     OrderFormComponent,
-    OrderReviewComponent
+    OrderReviewComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

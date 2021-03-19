@@ -15,6 +15,8 @@ import { AllServicesComponent } from './all-services/all-services.component';
 import { ServicesDetailsComponent } from './services-details/services-details.component';
 import { ViewServicesComponent } from './view-services/view-services.component';
 import { AddServicesComponent } from './add-services/add-services.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { AddServicesComponent } from './add-services/add-services.component';
     AllServicesComponent,
     ServicesDetailsComponent,
     ViewServicesComponent,
-    AddServicesComponent
+    AddServicesComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

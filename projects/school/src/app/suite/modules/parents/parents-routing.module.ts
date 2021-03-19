@@ -5,6 +5,8 @@ import { ParentsWrapperComponent } from './parents-wrapper/parents-wrapper.compo
 import { AllParentsComponent } from './all-parents/all-parents.component';
 import { NewParentComponent } from './new-parent/new-parent.component';
 import { ViewParentComponent } from './view-parent/view-parent.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: ParentsWrapperComponent,
     children: [
       { path: "", component: AllParentsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-parents", component: AllParentsComponent },
       { path: "new-parent", component: NewParentComponent },
       { path: "view-parent", component: ViewParentComponent }

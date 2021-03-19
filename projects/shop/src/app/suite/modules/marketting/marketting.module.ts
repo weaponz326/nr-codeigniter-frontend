@@ -15,6 +15,8 @@ import { AllMarkettingComponent } from './all-marketting/all-marketting.componen
 import { NewCampaignComponent } from './new-campaign/new-campaign.component';
 import { ViewCampaignComponent } from './view-campaign/view-campaign.component';
 import { CampaignFormComponent } from './campaign-form/campaign-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { CampaignFormComponent } from './campaign-form/campaign-form.component';
     AllMarkettingComponent,
     NewCampaignComponent,
     ViewCampaignComponent,
-    CampaignFormComponent
+    CampaignFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

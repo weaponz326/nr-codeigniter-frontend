@@ -16,6 +16,8 @@ import { AllAppraisalComponent } from './all-appraisal/all-appraisal.component';
 import { NewAppraisalComponent } from './new-appraisal/new-appraisal.component';
 import { ViewAppraisalComponent } from './view-appraisal/view-appraisal.component';
 import { AppraisalFormComponent } from './appraisal-form/appraisal-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,7 @@ import { AppraisalFormComponent } from './appraisal-form/appraisal-form.componen
     AppraisalWrapperComponent,
     AllAppraisalComponent,
     NewAppraisalComponent,
-    ViewAppraisalComponent, AppraisalFormComponent
+    ViewAppraisalComponent, AppraisalFormComponent, DashboardComponent, SettingsComponent
   ],
   imports: [
     CommonModule,

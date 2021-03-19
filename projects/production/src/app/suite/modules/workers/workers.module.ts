@@ -15,6 +15,8 @@ import { WorkersWrapperComponent } from './workers-wrapper/workers-wrapper.compo
 import { NewWorkerComponent } from './new-worker/new-worker.component';
 import { ViewWorkerComponent } from './view-worker/view-worker.component';
 import { WorkerFormComponent } from './worker-form/worker-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { WorkerFormComponent } from './worker-form/worker-form.component';
     WorkersWrapperComponent,
     NewWorkerComponent,
     ViewWorkerComponent,
-    WorkerFormComponent
+    WorkerFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

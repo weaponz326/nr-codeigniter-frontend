@@ -13,6 +13,8 @@ import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
     AllCustomersComponent,
     AddCustomerComponent,
     ViewCustomerComponent,
-    CustomerFormComponent
+    CustomerFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

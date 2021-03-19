@@ -17,6 +17,8 @@ import { ViewFolderComponent } from './view-folder/view-folder.component';
 import { FilesTableComponent } from './files-table/files-table.component';
 import { ViewFileComponent } from './view-file/view-file.component';
 import { AddFileComponent } from './add-file/add-file.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AddFileComponent } from './add-file/add-file.component';
     ViewFolderComponent,
     FilesTableComponent,
     ViewFileComponent,
-    AddFileComponent
+    AddFileComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

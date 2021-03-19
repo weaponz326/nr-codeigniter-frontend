@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CashflowWrapperComponent } from './cashflow-wrapper/cashflow-wrapper.component';
 import { AllCashflowComponent } from './all-cashflow/all-cashflow.component';
 import { ViewSheetComponent } from './view-sheet/view-sheet.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -12,6 +14,8 @@ const routes: Routes = [
     component: CashflowWrapperComponent,
     children: [
       { path: "", component: AllCashflowComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-cashflow", component: AllCashflowComponent },
       { path: "view-sheet", component: ViewSheetComponent }
     ]

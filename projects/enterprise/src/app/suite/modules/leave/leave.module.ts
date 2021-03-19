@@ -16,6 +16,8 @@ import { AllLeaveComponent } from './all-leave/all-leave.component';
 import { AddLeaveComponent } from './add-leave/add-leave.component';
 import { ViewLeaveComponent } from './view-leave/view-leave.component';
 import { LeaveFormComponent } from './leave-form/leave-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { LeaveFormComponent } from './leave-form/leave-form.component';
     AllLeaveComponent,
     AddLeaveComponent,
     ViewLeaveComponent,
-    LeaveFormComponent
+    LeaveFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

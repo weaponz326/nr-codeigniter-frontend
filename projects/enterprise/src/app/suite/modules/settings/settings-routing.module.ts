@@ -8,6 +8,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { GeneralComponent } from './general/general.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { BillingsComponent } from './billings/billings.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
         path: "",
         component: ViewSettingsComponent,
         children: [
+          { path: 'dashboard', component: DashboardComponent },
+          { path: 'settings', component: SettingsComponent },
           { path: "", component: ProfileComponent },
           { path: "profile", component: ProfileComponent },
           { path: "general", component: GeneralComponent },

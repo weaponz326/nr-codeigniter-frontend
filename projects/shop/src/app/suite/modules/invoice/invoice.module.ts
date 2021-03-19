@@ -15,6 +15,8 @@ import { AllInvoiceComponent } from './all-invoice/all-invoice.component';
 import { NewInvoiceComponent } from './new-invoice/new-invoice.component';
 import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
 import { InvoiceTableComponent } from './invoice-table/invoice-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { InvoiceTableComponent } from './invoice-table/invoice-table.component';
     AllInvoiceComponent,
     NewInvoiceComponent,
     ViewInvoiceComponent,
-    InvoiceTableComponent
+    InvoiceTableComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

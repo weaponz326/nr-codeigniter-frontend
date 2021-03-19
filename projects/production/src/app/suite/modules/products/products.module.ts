@@ -14,6 +14,8 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { ProductFormComponent } from './product-form/product-form.component';
     AllProductsComponent,
     NewProductComponent,
     ViewProductComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

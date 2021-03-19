@@ -7,6 +7,8 @@ import { StudentBillComponent } from './student-bill/student-bill.component';
 import { AllFeesComponent } from './all-fees/all-fees.component';
 import { CreateFeesComponent } from './create-fees/create-fees.component';
 import { ViewFeesComponent } from './view-fees/view-fees.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
     component: FeesWrapperComponent,
     children: [
       { path: "", component: AllBillsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-bills", component: AllBillsComponent },
       { path: "student-bill", component: StudentBillComponent },
       { path: "all-fees", component: AllFeesComponent },

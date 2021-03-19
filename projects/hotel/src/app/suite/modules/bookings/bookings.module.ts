@@ -15,6 +15,8 @@ import { AllBookingsComponent } from './all-bookings/all-bookings.component';
 import { AddBookingComponent } from './add-booking/add-booking.component';
 import { ViewBookingComponent } from './view-booking/view-booking.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
     AllBookingsComponent,
     AddBookingComponent,
     ViewBookingComponent,
-    BookingDetailsComponent
+    BookingDetailsComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

@@ -15,6 +15,8 @@ import { AllPurchasingComponent } from './all-purchasing/all-purchasing.componen
 import { NewPurchasingComponent } from './new-purchasing/new-purchasing.component';
 import { ViewPurchasingComponent } from './view-purchasing/view-purchasing.component';
 import { PurchasingDetailsComponent } from './purchasing-details/purchasing-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { PurchasingDetailsComponent } from './purchasing-details/purchasing-deta
     AllPurchasingComponent,
     NewPurchasingComponent,
     ViewPurchasingComponent,
-    PurchasingDetailsComponent
+    PurchasingDetailsComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

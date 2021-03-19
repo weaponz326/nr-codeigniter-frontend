@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AllSalesComponent } from './all-sales/all-sales.component';
 import { SalesWrapperComponent } from './sales-wrapper/sales-wrapper.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
     component: SalesWrapperComponent,
     children: [
       { path: "", component: AllSalesComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-sales", component: AllSalesComponent }
     ]
   }

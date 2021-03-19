@@ -15,6 +15,8 @@ import { AllRoomsComponent } from './all-rooms/all-rooms.component';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { ViewRoomComponent } from './view-room/view-room.component';
 import { RoomFormComponent } from './room-form/room-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { RoomFormComponent } from './room-form/room-form.component';
     AllRoomsComponent,
     AddRoomComponent,
     ViewRoomComponent,
-    RoomFormComponent
+    RoomFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

@@ -16,6 +16,8 @@ import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     AllOrdersComponent,
     AddOrderComponent,
     ViewOrderComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

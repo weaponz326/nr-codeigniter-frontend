@@ -14,6 +14,8 @@ import { AllEquipmentComponent } from './all-equipment/all-equipment.component';
 import { AddEquipmentComponent } from './add-equipment/add-equipment.component';
 import { ViewEquipmentComponent } from './view-equipment/view-equipment.component';
 import { EquipmentFormComponent } from './equipment-form/equipment-form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { EquipmentFormComponent } from './equipment-form/equipment-form.componen
     AllEquipmentComponent,
     AddEquipmentComponent,
     ViewEquipmentComponent,
-    EquipmentFormComponent
+    EquipmentFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,

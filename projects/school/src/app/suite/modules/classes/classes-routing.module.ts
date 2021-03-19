@@ -5,6 +5,8 @@ import { ClassesWrapperComponent } from './classes-wrapper/classes-wrapper.compo
 import { AllClassesComponent } from './all-classes/all-classes.component';
 import { NewClassComponent } from './new-class/new-class.component';
 import { ViewClassComponent } from './view-class/view-class.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: ClassesWrapperComponent,
     children: [
       { path: "", component: AllClassesComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-classes", component: AllClassesComponent },
       { path: "new-class", component: NewClassComponent },
       { path: "view-class", component: ViewClassComponent }

@@ -17,6 +17,8 @@ import { GeneratePayrollComponent } from './generate-payroll/generate-payroll.co
 import { ViewPayrollComponent } from './view-payroll/view-payroll.component';
 import { EmployeePayrollComponent } from './employee-payroll/employee-payroll.component';
 import { PayrollDetailsComponent } from './payroll-details/payroll-details.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { PayrollDetailsComponent } from './payroll-details/payroll-details.compo
     ViewPayrollComponent,
     EmployeePayrollComponent,
     PayrollDetailsComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,

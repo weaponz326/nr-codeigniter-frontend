@@ -5,6 +5,8 @@ import { AssessmentWrapperComponent } from './assessment-wrapper/assessment-wrap
 import { AllAssessmentComponent } from './all-assessment/all-assessment.component';
 import { NewAssessmentComponent } from './new-assessment/new-assessment.component';
 import { ViewAssessmentComponent } from './view-assessment/view-assessment.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: AssessmentWrapperComponent,
     children: [
       { path: "", component: AllAssessmentComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'settings', component: SettingsComponent },
       { path: "all-assessment", component: AllAssessmentComponent },
       { path: "new-assessment", component: NewAssessmentComponent },
       { path: "view-assessment", component: ViewAssessmentComponent }

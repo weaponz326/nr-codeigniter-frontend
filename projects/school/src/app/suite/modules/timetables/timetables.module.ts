@@ -19,6 +19,8 @@ import { FullTimetableComponent } from './full-timetable/full-timetable.componen
 import { ClassTimetableComponent } from './class-timetable/class-timetable.component';
 import { NewTimetableComponent } from './new-timetable/new-timetable.component';
 import { EditTimetableComponent } from './edit-timetable/edit-timetable.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { EditTimetableComponent } from './edit-timetable/edit-timetable.componen
     ClassTimetableComponent,
     NewTimetableComponent,
     EditTimetableComponent,
+    DashboardComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
