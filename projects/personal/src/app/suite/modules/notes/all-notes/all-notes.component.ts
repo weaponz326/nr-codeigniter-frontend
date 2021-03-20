@@ -5,7 +5,6 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { NotesApiService } from '../notes-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
@@ -19,7 +18,6 @@ export class AllNotesComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private notesApi: NotesApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("searchInputReference") searchInput: jqxInputComponent;

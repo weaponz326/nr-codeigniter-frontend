@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AdminApiService } from '../admin-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
@@ -17,7 +16,6 @@ export class ViewInvitationComponent implements OnInit {
   constructor(
     private router: Router,
     private adminApi: AdminApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;

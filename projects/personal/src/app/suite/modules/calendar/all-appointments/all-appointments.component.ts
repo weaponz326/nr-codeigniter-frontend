@@ -6,7 +6,6 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { CalendarApiService } from '../calendar-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -16,7 +15,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllAppointmentsComponent implements OnInit, AfterViewInit {
 
-  constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private calendarApi: CalendarApiService) { }
 
   @ViewChild('gridReference') grid: jqxGridComponent;
 

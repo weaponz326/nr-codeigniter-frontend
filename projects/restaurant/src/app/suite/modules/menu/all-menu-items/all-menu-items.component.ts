@@ -5,7 +5,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { MenuApiService } from '../menu-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
 @Component({
@@ -18,7 +17,6 @@ export class AllMenuItemsComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private menuApi: MenuApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('buttonReference') button: jqxButtonComponent;

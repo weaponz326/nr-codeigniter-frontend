@@ -6,7 +6,7 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 
 import { PortalApiService } from '../portal-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
+
 
 @Component({
   selector: 'app-new-rink',
@@ -15,7 +15,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class NewRinkComponent implements OnInit {
 
-  constructor(private portalApi: PortalApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private portalApi: PortalApiService) { }
 
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('toInputReference') toInput: jqxInputComponent;

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { jqxTooltipComponent } from 'jqwidgets-ng/jqxtooltip';
 
 import { MainNavbarApiService } from 'projects/application/src/app/main-navbar/main-navbar-api.service';
-import { SuiteRoutesService } from '../suite-routes.service';
 
 
 @Component({
@@ -18,7 +17,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private navbarApi: MainNavbarApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("#portalTooltipReference") portalTootip: jqxTooltipComponent;

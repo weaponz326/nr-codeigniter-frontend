@@ -8,7 +8,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 
 import { OrdersApiService } from '../orders-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
@@ -24,7 +23,6 @@ export class ViewOrderComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private ordersApi: OrdersApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('orderCodeReference') orderCode: jqxInputComponent;

@@ -12,7 +12,7 @@ import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/load
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
 import { NotesApiService } from '../notes-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
+
 
 @Component({
   selector: 'app-view-note',
@@ -25,7 +25,6 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
     private router: Router,
     private location: Location,
     private notesApi: NotesApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("inputReference") input: jqxInputComponent;

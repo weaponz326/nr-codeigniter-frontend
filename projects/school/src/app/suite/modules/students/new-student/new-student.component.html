@@ -5,23 +5,23 @@
     <!-- student page form -->
 
     <app-student-form #studentFormComponentReference></app-student-form>
-    
+
     <div class="row page-form-div">
         <div class="col-md-12">
 
             <div class="row">
                 <div class="col-md-12">
-                    
-                    <jqxButton #cancelButtonReference class="float-right" class="float-right" (click)="this.suiteRoutes.goStudentsAll($event)"
+
+                    <jqxButton #cancelButtonReference class="float-right" class="float-right" routerLink="/suite/students/new-student"
                         [width]="100"
                         [height]="28"
-                    >Cancel</jqxButton>                    
+                    >Cancel</jqxButton>
 
                     <jqxButton #saveButtonReference class="float-right" (click)="this.saveStudent()"
                         [width]="100"
                         [height]="28"
                     >Save</jqxButton>
-                
+
                 </div>
             </div>
 

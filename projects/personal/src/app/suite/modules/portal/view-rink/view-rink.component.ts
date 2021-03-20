@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PortalApiService } from '../portal-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
@@ -16,7 +15,6 @@ export class ViewRinkComponent implements OnInit {
   constructor(
     private router: Router,
     private portalApi: PortalApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;

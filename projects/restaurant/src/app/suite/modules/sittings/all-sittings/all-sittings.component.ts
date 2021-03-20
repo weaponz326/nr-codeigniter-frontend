@@ -5,7 +5,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { SittingsApiService } from '../sittings-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -20,7 +19,6 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private sittingsApi: SittingsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('newSittingReference') newSittingButton: jqxButtonComponent;

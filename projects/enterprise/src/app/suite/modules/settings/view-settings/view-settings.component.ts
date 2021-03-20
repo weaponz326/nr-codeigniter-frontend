@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SettingsApiService } from '../settings-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -15,7 +14,6 @@ export class ViewSettingsComponent implements OnInit {
   constructor(
     private router: Router,
     private settingsApi: SettingsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   ngOnInit(): void {

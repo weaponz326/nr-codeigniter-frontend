@@ -10,7 +10,6 @@ import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/load
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete-confirm.component';
 import { BudgetApiService } from '../budget-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -39,7 +38,6 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private budgetApi: BudgetApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   ngOnInit(): void {

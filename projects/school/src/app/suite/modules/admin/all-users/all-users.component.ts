@@ -4,7 +4,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { AdminApiService } from '../admin-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -16,7 +15,6 @@ export class AllUsersComponent implements OnInit {
 
   constructor(
     private adminApi: AdminApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('buttonReference') button: jqxButtonComponent;

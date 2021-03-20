@@ -5,7 +5,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { PrescriptionsApiService } from '../prescriptions-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
@@ -20,7 +19,6 @@ export class AllPrescriptionsComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private prescriptionsApi: PrescriptionsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('buttonReference') button: jqxButtonComponent;

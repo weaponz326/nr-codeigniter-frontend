@@ -5,7 +5,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 
 import { AdminApiService } from '../admin-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 @Component({
   selector: 'app-user-search',
@@ -17,7 +16,6 @@ export class UserSearchComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('searchInputReference') searchInput: jqxInputComponent;

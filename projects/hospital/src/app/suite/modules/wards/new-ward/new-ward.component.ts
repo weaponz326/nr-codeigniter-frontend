@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { WardsApiService } from '../wards-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -17,7 +16,7 @@ import { WardFormComponent } from '../ward-form/ward-form.component';
 })
 export class NewWardComponent implements OnInit {
 
-  constructor( private wardsApi: WardsApiService, public suiteRoutes: SuiteRoutesService ) { }
+  constructor( private wardsApi: WardsApiService) { }
 
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;

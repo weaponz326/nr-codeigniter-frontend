@@ -5,7 +5,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { AccountsApiService } from '../accounts-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
@@ -19,7 +18,6 @@ export class AllAccountsComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private accountsApi: AccountsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('newButtonReference') newButton: jqxButtonComponent;

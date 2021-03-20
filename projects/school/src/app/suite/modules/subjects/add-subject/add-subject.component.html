@@ -1,24 +1,24 @@
 <app-topnav [headings]="navHeading"></app-topnav>
 
 <div class="container">
-            
+
 
     <div class="row">
         <div class="col-md-6">
-    
+
             <!-- subject page form -->
 
             <app-subject-form #subjectFormComponentReference></app-subject-form>
-            
+
             <hr />
-            
+
             <div class="row page-form-div">
                 <div class="col-md-12">
-                            
-                    <jqxButton #cancelButtonReference class="float-right" (click)="this.suiteRoutes.goSubjectsAll($event)"
+
+                    <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/subjects/all-subjects"
                         [width]="100"
                         [height]="28"
-                    >Cancel</jqxButton>                    
+                    >Cancel</jqxButton>
 
                     <jqxButton #saveButtonReference class="float-right" (click)="this.saveSubject()"
                         [width]="100"
@@ -27,7 +27,7 @@
 
                 </div>
             </div>
-        
+
         </div>
     </div>
 

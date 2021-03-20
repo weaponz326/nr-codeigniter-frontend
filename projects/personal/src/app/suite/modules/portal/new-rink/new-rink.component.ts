@@ -7,7 +7,7 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 
 import { PortalApiService } from '../portal-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
+
 import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { TaskComponent } from '../rink-types/task/task.component';
@@ -25,7 +25,6 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private portalApi: PortalApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;

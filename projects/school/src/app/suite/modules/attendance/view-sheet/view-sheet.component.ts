@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -13,7 +12,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewSheetComponent implements OnInit {
 
-  constructor(public suiteRoutes: SuiteRoutesService) { }
+  constructor() { }
 
   @ViewChild('sheetButtonReference') button: jqxButtonComponent;
   @ViewChild('sheetGridReference') grid: jqxGridComponent;

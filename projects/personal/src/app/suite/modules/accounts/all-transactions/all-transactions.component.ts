@@ -3,7 +3,6 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { AccountsApiService } from '../accounts-api.service'
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
@@ -14,7 +13,7 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AllTransactionsComponent implements OnInit, AfterViewInit {
 
-  constructor(private accountsApi: AccountsApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private accountsApi: AccountsApiService) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
 

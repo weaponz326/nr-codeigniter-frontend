@@ -6,7 +6,6 @@ import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AccountsApiService } from '../accounts-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
@@ -21,7 +20,6 @@ export class AddAccountComponent implements OnInit {
   constructor(
     private router: Router,
     private accountsApi: AccountsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("addAccountReference") addAccountWindow: jqxWindowComponent;

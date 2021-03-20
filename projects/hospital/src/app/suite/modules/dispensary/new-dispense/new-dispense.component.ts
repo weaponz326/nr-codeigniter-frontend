@@ -22,7 +22,6 @@ export class NewDispenseComponent implements OnInit {
   constructor(
     private router: Router,
     private dispensaryApi: DispensaryApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("newDispenseReference") newDispense: jqxWindowComponent;

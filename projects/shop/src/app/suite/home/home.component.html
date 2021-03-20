@@ -22,7 +22,7 @@
                     [position]="'mouse'"
                     [content]="'Connect with customers through netRink portal'">
 
-                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                    <a routerLink="/suite/portal/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/portal.png" class="home-icons" />
                             <figcaption>Portal</figcaption>
@@ -37,7 +37,7 @@
                     [position]="'mouse'"
                     [content]="'Manage accounts receivables'">
 
-                    <a href="#" (click)="suiteRoutes.goReceivablesAll($event)">
+                    <a routerLink="/suite/receivables/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/receivables.png" class="home-icons" />
                             <figcaption>Receivables</figcaption>
@@ -52,7 +52,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all products'">
 
-                    <a href="#" (click)="suiteRoutes.goProductsAll($event)">
+                    <a routerLink="/suite/products/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/products.png" class="home-icons" />
                             <figcaption>Products</figcaption>
@@ -67,7 +67,7 @@
                     [position]="'mouse'"
                     [content]="'Generate invoice for sales'">
 
-                    <a href="#" (click)="suiteRoutes.goInvoiceAll($event)">
+                    <a routerLink="/suite/invoice/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/invoice.png" class="home-icons" />
                             <figcaption>Invoice</figcaption>
@@ -82,7 +82,7 @@
                     [position]="'mouse'"
                     [content]="'Plan and manage marketting activities'">
 
-                    <a href="#" (click)="suiteRoutes.goMarkettingAll($event)">
+                    <a routerLink="/suite/marketting/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/marketting.png" class="home-icons" />
                             <figcaption>Marketting</figcaption>
@@ -97,7 +97,7 @@
                     [position]="'mouse'"
                     [content]="'Manage accounts payables'">
 
-                    <a href="#" (click)="suiteRoutes.goPayablesAll($event)">
+                    <a routerLink="/suite/payables/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/payables.png" class="home-icons" />
                             <figcaption>Payables</figcaption>
@@ -119,7 +119,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
+                    <a routerLink="/suite/admin/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/admin.png" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -134,7 +134,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all sales operations'">
 
-                    <a href="#" (click)="suiteRoutes.goSalesAll($event)">
+                    <a routerLink="/suite/sales/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/sales.png" class="home-icons" />
                             <figcaption>Sales</figcaption>
@@ -149,7 +149,7 @@
                     [position]="'mouse'"
                     [content]="'Keep track of customers'">
 
-                    <a href="#" (click)="suiteRoutes.goCustomersAll($event)">
+                    <a routerLink="/suite/customers/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/customers.png" class="home-icons" />
                             <figcaption>Customers</figcaption>
@@ -164,7 +164,7 @@
                     [position]="'mouse'"
                     [content]="'Receive payments from customers'">
 
-                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
+                    <a routerLink="/suite/payments/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/payments.png" class="home-icons" />
                             <figcaption>Payments</figcaption>
@@ -179,7 +179,7 @@
                     [position]="'mouse'"
                     [content]="'Receive and respond to orders'">
 
-                    <a href="#" (click)="suiteRoutes.goOrdersAll($event)">
+                    <a routerLink="/suite/orders/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/orders.png" class="home-icons" />
                             <figcaption>Orders</figcaption>
@@ -194,7 +194,7 @@
                     [position]="'mouse'"
                     [content]="'Keep track of all products'">
 
-                    <a href="#" (click)="suiteRoutes.goInventoryAll($event)">
+                    <a routerLink="/suite/inventory/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/inventory.png" class="home-icons" />
                             <figcaption>Inventory</figcaption>
@@ -216,7 +216,7 @@
                     [position]="'mouse'"
                     [content]="'Set configuarations for your modules'">
 
-                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
+                    <a routerLink="/suite/settings/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/settings.png" class="home-icons" />
                             <figcaption>Settings</figcaption>
@@ -231,7 +231,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all staff'">
 
-                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
+                    <a routerLink="/suite/staff/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/staff.png" class="home-icons" />
                             <figcaption>Staff</figcaption>
@@ -246,7 +246,7 @@
                     [position]="'mouse'"
                     [content]="'Manage financial transactions'">
 
-                    <a href="#" (click)="suiteRoutes.goCashflowAll($event)">
+                    <a routerLink="/suite/cashflow/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/cash_flow.png" class="home-icons" />
                             <figcaption>Cash Flow</figcaption>
@@ -256,12 +256,12 @@
                 </jqxTooltip>
             </div>
 
-			      <div class="col-md-2 col-sm-6 text-center">
+			<div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #purchasingTooltipReference
                     [position]="'mouse'"
                     [content]="'Manage  the purchasing of goods and services'">
 
-                    <a href="#" (click)="suiteRoutes.goPurchasingAll($event)">
+                    <a routerLink="/suite/purchasing/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/purchasing.png" class="home-icons" />
                             <figcaption>Purchasing</figcaption>

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { SubjectsApiService } from '../subjects-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -21,7 +20,6 @@ export class AddSubjectComponent implements OnInit {
   constructor(
     private router: Router,
     private subjectsApi: SubjectsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;

@@ -7,7 +7,6 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 
 import { PrescriptionsApiService } from '../prescriptions-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -22,7 +21,6 @@ export class AddPrescriptionComponent implements OnInit {
   constructor(
     private router: Router,
     private prescriptionsApi: PrescriptionsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("addPrescriptionReference") addPrescription: jqxWindowComponent;

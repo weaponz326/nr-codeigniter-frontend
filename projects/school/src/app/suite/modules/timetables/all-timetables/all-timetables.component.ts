@@ -5,7 +5,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { TimetablesApiService } from '../timetables-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
 
@@ -19,7 +18,6 @@ export class AllTimetablesComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private timetablesApi: TimetablesApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('buttonReference') button: jqxButtonComponent;

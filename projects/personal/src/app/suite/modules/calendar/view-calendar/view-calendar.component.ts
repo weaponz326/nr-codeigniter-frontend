@@ -6,7 +6,6 @@ import { jqxSchedulerComponent } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { CalendarApiService } from '../calendar-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 @Component({
   selector: 'app-view-calendar',
@@ -15,7 +14,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewCalendarComponent implements OnInit, AfterViewInit {
 
-  constructor(private calendarApi: CalendarApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private calendarApi: CalendarApiService) { }
 
   @ViewChild('schedulerReference') scheduler: jqxSchedulerComponent;
   @ViewChild('buttonReference') button: jqxButtonComponent;

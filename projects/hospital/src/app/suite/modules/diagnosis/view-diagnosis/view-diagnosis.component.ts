@@ -6,7 +6,6 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { DiagnosisApiService } from '../diagnosis-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
@@ -26,7 +25,6 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private diagnosisApi: DiagnosisApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('diagnosisCodeReference') diagnosisCode: jqxInputComponent;
@@ -55,7 +53,7 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
   // to be retreived for sending to backend
   patientIdStore: any;
   doctorIdStore: any;
-  
+
   ngOnInit(): void {
   }
 

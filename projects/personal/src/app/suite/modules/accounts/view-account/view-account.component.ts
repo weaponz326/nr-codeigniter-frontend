@@ -9,7 +9,6 @@ import { DeleteConfirmComponent } from '../../../utilities/delete-confirm/delete
 import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 import { AccountsApiService } from '../accounts-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -22,7 +21,6 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private accountsApi: AccountsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("accountNameReference") accountNameInput: jqxInputComponent;

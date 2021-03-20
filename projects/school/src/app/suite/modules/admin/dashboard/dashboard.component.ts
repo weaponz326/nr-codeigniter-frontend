@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AdminApiService } from '../admin-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -15,7 +14,6 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private adminApi: AdminApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('invitationsButtonReference') invitationsButton: jqxButtonComponent;

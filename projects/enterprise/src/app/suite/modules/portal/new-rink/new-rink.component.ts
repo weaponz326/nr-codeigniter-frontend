@@ -6,7 +6,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 
 import { PortalApiService } from '../portal-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 @Component({
   selector: 'app-new-rink',
@@ -23,7 +22,7 @@ export class NewRinkComponent implements OnInit {
   @ViewChild('sendButtonReference') sendButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
 
-  constructor(private portalApi: PortalApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private portalApi: PortalApiService) { }
 
   ngOnInit(): void {
   }

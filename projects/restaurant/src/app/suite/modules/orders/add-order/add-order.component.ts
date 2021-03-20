@@ -9,7 +9,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 
 import { OrdersApiService } from '../orders-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -24,7 +23,6 @@ export class AddOrderComponent implements OnInit {
   constructor(
     private router: Router,
     private ordersApi: OrdersApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
 

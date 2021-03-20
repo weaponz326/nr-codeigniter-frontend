@@ -17,7 +17,7 @@
                     [position]="'mouse'"
                     [content]="'Interact with students and parents through netRink portal'">
 
-                    <a href="#" (click)="suiteRoutes.goPortalTimeline($event)">
+                    <a routerLink="/suite/portal/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/portal.png" class="home-icons" />
                             <figcaption>Portal</figcaption>
@@ -32,7 +32,7 @@
                     [position]="'mouse'"
                     [content]="'Manage relations with parents'">
 
-                    <a href="#" (click)="suiteRoutes.goParentsAll($event)">
+                    <a routerLink="/suite/parents/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/parents.png" class="home-icons" />
                             <figcaption>Parents</figcaption>
@@ -47,7 +47,7 @@
                     [position]="'mouse'"
                     [content]="'Record and process assessments'">
 
-                    <a href="#" (click)="suiteRoutes.goAssessmentAll($event)">
+                    <a routerLink="/suite/assessment/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/assessment.png" class="home-icons" />
                             <figcaption>Assessment</figcaption>
@@ -62,7 +62,7 @@
                     [position]="'mouse'"
                     [content]="'Manage and organize subjects or courses'">
 
-                    <a href="#" (click)="suiteRoutes.goSubjectsAll($event)">
+                    <a routerLink="/suite/subjects/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/subjects.png" class="home-icons" />
                             <figcaption>Subjects</figcaption>
@@ -77,7 +77,7 @@
                     [position]="'mouse'"
                     [content]="'Take attendance of students and teachers'">
 
-                    <a href="#" (click)="suiteRoutes.goAttendanceAll($event)">
+                    <a routerLink="/suite/attendance/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/attendance.png" class="home-icons" />
                             <figcaption>Attendance</figcaption>
@@ -92,7 +92,7 @@
                     [position]="'mouse'"
                     [content]="'Manage student profile'">
 
-                    <a href="#" (click)="suiteRoutes.goStudentsAll($event)">
+                    <a routerLink="/suite/students/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/students.png" class="home-icons" />
                             <figcaption>Students</figcaption>
@@ -114,7 +114,7 @@
                     [position]="'mouse'"
                     [content]="'Manage users and access levels'">
 
-                    <a href="#" (click)="suiteRoutes.goAdminDashboard($event)">
+                    <a routerLink="/suite/admin/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/admin.png" class="home-icons" />
                             <figcaption>Admin</figcaption>
@@ -129,7 +129,7 @@
                     [position]="'mouse'"
                     [content]="'Generate students\'s academic reports'">
 
-                    <a href="#" (click)="suiteRoutes.goReportsAll($event)">
+                    <a routerLink="/suite/reports/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/reports.png" class="home-icons" />
                             <figcaption>Reports</figcaption>
@@ -144,7 +144,7 @@
                     [position]="'mouse'"
                     [content]="'Receive payment of fees'">
 
-                    <a href="#" (click)="suiteRoutes.goPaymentsAll($event)">
+                    <a routerLink="/suite/payments/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/payments.png" class="home-icons" />
                             <figcaption>Payments</figcaption>
@@ -159,7 +159,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all non-teaching staff'">
 
-                    <a href="#" (click)="suiteRoutes.goStaffAll($event)">
+                    <a routerLink="/suite/staff/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/staff.png" class="home-icons" />
                             <figcaption>Staff</figcaption>
@@ -174,7 +174,7 @@
                     [position]="'mouse'"
                     [content]="'Plan and organize terms or semesters'">
 
-                    <a href="#" (click)="suiteRoutes.goTermsAll($event)">
+                    <a routerLink="/suite/terms/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/terms.png" class="home-icons" />
                             <figcaption>Terms</figcaption>
@@ -189,7 +189,7 @@
                     [position]="'mouse'"
                     [content]="'Manage classes and class activities'">
 
-                    <a href="#" (click)="suiteRoutes.goClassesAll($event)">
+                    <a routerLink="/suite/classes/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/classes.png" class="home-icons" />
                             <figcaption>Classes</figcaption>
@@ -206,15 +206,15 @@
 
         <div class="row">
 
-			      <div class="col-md-2 col-sm-6 text-center">
+			<div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #settingsTooltipReference
                     [position]="'mouse'"
                     [content]="'Set configuarations for your modules'">
 
-                    <a href="#" (click)="suiteRoutes.goSettingsView($event)">
+                    <a routerLink="/suite/settings/dashboard">
                         <figure>
-                        <img src="../../../assets/images/modules/settings.png" class="home-icons" />
-                        <figcaption>Settings</figcaption>
+                            <img src="../../../assets/images/modules/settings.png" class="home-icons" />
+                            <figcaption>Settings</figcaption>
                         </figure>
                     </a>
 
@@ -226,7 +226,7 @@
                     [position]="'mouse'"
                     [content]="'Generate students\' bills'">
 
-                    <a href="#" (click)="suiteRoutes.goFeesAll($event)">
+                    <a routerLink="/suite/fees/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/fees.png" class="home-icons" />
                             <figcaption>Fees</figcaption>
@@ -241,7 +241,7 @@
                     [position]="'mouse'"
                     [content]="'plan and manage academic timetables'">
 
-                    <a href="#" (click)="suiteRoutes.goTimetablesAll($event)">
+                    <a routerLink="/suite/timetables/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/timetables.png" class="home-icons" />
                             <figcaption>Timetables</figcaption>
@@ -256,7 +256,7 @@
                     [position]="'mouse'"
                     [content]="'Manage all teaching staff'">
 
-                    <a href="#" (click)="suiteRoutes.goTeachersAll($event)">
+                    <a routerLink="/suite/teachers/dashboard">
                         <figure>
                             <img src="../../../assets/images/modules/teachers.png" class="home-icons" />
                             <figcaption>Teachers</figcaption>

@@ -5,7 +5,7 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 
 import { PortalApiService } from '../portal-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
+
 
 @Component({
   selector: 'app-search-view',
@@ -18,7 +18,6 @@ export class SearchViewComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private portalApi: PortalApiService,
-    public suiteRoutes: SuiteRoutesService
   ) {
     this.route.params.subscribe(params => {
       console.log(params);

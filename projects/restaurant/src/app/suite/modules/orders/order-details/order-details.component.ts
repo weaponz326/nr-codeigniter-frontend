@@ -4,7 +4,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { OrdersApiService } from '../orders-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { AddItemComponent } from '../add-item/add-item.component'
 import { EditItemComponent } from '../edit-item/edit-item.component'
 
@@ -19,7 +18,7 @@ import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilitie
 })
 export class OrderDetailsComponent implements OnInit, AfterViewInit {
 
-  constructor(private ordersApi: OrdersApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private ordersApi: OrdersApiService) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;

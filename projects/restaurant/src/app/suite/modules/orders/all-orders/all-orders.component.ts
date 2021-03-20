@@ -5,9 +5,8 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { OrdersApiService } from '../orders-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
-
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+
 
 @Component({
   selector: 'app-all-orders',
@@ -19,7 +18,6 @@ export class AllOrdersComponent implements OnInit {
   constructor(
     private router: Router,
     private ordersApi: OrdersApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('buttonReference') button: jqxButtonComponent;

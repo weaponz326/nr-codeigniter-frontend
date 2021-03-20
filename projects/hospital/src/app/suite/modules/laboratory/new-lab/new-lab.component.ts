@@ -7,7 +7,6 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 
 import { LaboratoryApiService } from '../laboratory-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -22,7 +21,6 @@ export class NewLabComponent implements OnInit {
   constructor(
     private router: Router,
     private laboratoryApi: LaboratoryApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("newLabReference") newLab: jqxWindowComponent;

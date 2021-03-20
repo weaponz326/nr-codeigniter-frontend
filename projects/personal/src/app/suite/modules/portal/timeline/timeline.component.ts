@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { PortalApiService } from '../portal-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
@@ -18,7 +17,6 @@ export class TimelineComponent implements OnInit {
   constructor(
     private router: Router,
     private portalApi: PortalApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;

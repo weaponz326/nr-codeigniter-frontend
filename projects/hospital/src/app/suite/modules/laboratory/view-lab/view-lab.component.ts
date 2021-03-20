@@ -7,7 +7,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
 
 import { LaboratoryApiService } from '../laboratory-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
@@ -26,7 +25,6 @@ export class ViewLabComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private laboratoryApi: LaboratoryApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('labCodeReference') labCode: jqxInputComponent;

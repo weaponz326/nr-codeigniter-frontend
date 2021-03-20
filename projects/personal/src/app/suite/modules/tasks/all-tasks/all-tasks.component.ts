@@ -4,7 +4,6 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { TasksApiService } from '../tasks-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 
 @Component({
@@ -14,7 +13,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class AllTasksComponent implements OnInit, AfterViewInit {
 
-  constructor(private tasksApi: TasksApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private tasksApi: TasksApiService) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;

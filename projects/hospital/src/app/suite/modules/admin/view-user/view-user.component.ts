@@ -5,7 +5,6 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { AdminApiService } from '../admin-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 @Component({
   selector: 'app-view-user',
@@ -16,7 +15,6 @@ export class ViewUserComponent implements OnInit {
 
   constructor(
     private adminApi: AdminApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('accessFormComponentReference') accessFormComponent;

@@ -7,7 +7,6 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { AttendanceApiService } from '../attendance-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -25,7 +24,6 @@ export class NewAttendanceComponent implements OnInit {
   constructor(
     private router: Router,
     private attendanceApi: AttendanceApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("newAttendanceReference") newAttendance: jqxWindowComponent;

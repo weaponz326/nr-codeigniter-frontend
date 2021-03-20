@@ -8,7 +8,6 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { TimetablesApiService } from '../timetables-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -23,7 +22,6 @@ export class NewTimetableComponent implements OnInit {
   constructor(
     private router: Router,
     private timetablesApi: TimetablesApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("newTimetableReference") newTimetable: jqxWindowComponent;

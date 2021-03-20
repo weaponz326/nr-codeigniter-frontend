@@ -5,7 +5,7 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 
 import { AdminApiService } from '../admin-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
+
 
 @Component({
   selector: 'app-user-search',
@@ -18,7 +18,6 @@ export class UserSearchComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private AdminApi: AdminApiService,
-    public suiteRoutes: SuiteRoutesService
   ) {
     this.route.params.subscribe(params => {
       console.log(params);

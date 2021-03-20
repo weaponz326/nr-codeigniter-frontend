@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { MenuApiService } from '../menu-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -21,7 +20,6 @@ export class AddMenuItemComponent implements OnInit {
   constructor(
     private router: Router,
     private menuApi: MenuApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;

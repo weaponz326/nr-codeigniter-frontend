@@ -4,7 +4,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { StockApiService } from '../stock-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -16,7 +15,7 @@ import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utiliti
 })
 export class AllItemsComponent implements OnInit, AfterViewInit {
 
-  constructor(private stockApi: StockApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private stockApi: StockApiService) { }
 
   @ViewChild('addItemReference') addItemButton: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;

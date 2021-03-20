@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AdminApiService } from '../admin-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 
 @Component({
   selector: 'app-view-invitation',
@@ -10,7 +9,7 @@ import { SuiteRoutesService } from '../../../suite-routes.service';
 })
 export class ViewInvitationComponent implements OnInit {
 
-  constructor(private adminApi: AdminApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private adminApi: AdminApiService) { }
 
   ngOnInit(): void {
   }

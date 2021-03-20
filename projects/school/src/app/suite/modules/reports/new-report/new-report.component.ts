@@ -8,7 +8,6 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { ReportsApiService } from '../reports-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
@@ -26,7 +25,6 @@ export class NewReportComponent implements OnInit {
   constructor(
     private router: Router,
     private reportsApi: ReportsApiService,
-    public suiteRoutes: SuiteRoutesService
   ) { }
 
   @ViewChild("newReportReference") newReport: jqxWindowComponent;

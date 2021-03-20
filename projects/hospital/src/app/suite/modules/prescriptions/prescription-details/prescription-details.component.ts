@@ -4,7 +4,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { PrescriptionsApiService } from '../prescriptions-api.service';
-import { SuiteRoutesService } from '../../../suite-routes.service';
 import { AddDetailComponent } from '../add-detail/add-detail.component'
 import { EditDetailComponent } from '../edit-detail/edit-detail.component'
 
@@ -19,7 +18,7 @@ import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilitie
 })
 export class PrescriptionDetailsComponent implements OnInit, AfterViewInit {
 
-  constructor(private prescriptionsApi: PrescriptionsApiService, public suiteRoutes: SuiteRoutesService) { }
+  constructor(private prescriptionsApi: PrescriptionsApiService) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
