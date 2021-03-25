@@ -10,6 +10,8 @@ import { PrescriptionsApiService } from '../prescriptions-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
+import { SelectPatientComponent } from '../select-patient/select-patient.component'
+
 
 @Component({
   selector: 'app-add-prescription',
@@ -29,9 +31,15 @@ export class AddPrescriptionComponent implements OnInit {
 
   @ViewChild('prescriptionCodeReference') prescriptionCode: jqxInputComponent;
   @ViewChild('prescriptionDateReference') prescriptionDate: jqxDateTimeInputComponent;
+  @ViewChild('patientNameReference') patientName: jqxInputComponent;
+  @ViewChild('patientCodeReference') patientCode: jqxInputComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
+
+  patientIdStore: any;
 
   ngOnInit(): void {
   }
@@ -40,13 +48,22 @@ export class AddPrescriptionComponent implements OnInit {
     this.addPrescription.open();
   }
 
+  patientSelected(patient: any){
+    console.log(patient);
+
+    this.patientName.val(patient.patient_name);
+    this.patientCode.val(patient.clinical_id);
+    this.patientIdStore = patient.id;
+  }
+
   savePrescription(){
     this.loadingSpinner.httpLoader.open();
 
     let prescriptionData = {
-      hospital: localStorage.getItem('hospital_id'),
+      hospital_id: localStorage.getItem('hospital_id'),
       prescription_code: this.prescriptionCode.val(),
       prescription_date: this.prescriptionDate.val(),
+      patient: this.patientIdStore
     }
 
     this.prescriptionsApi.postPrescription(prescriptionData)

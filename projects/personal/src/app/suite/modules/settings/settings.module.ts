@@ -16,7 +16,6 @@ import { UtilitiesModule } from '../../utilities/utilities.module';
 import { DashboardModule } from '../../dashboard/dashboard.module';
 
 import { SettingsWrapperComponent } from './settings-wrapper/settings-wrapper.component';
-import { ViewSettingsComponent } from './view-settings/view-settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -31,7 +30,6 @@ import { ContactComponent } from './profile-content/contact/contact.component';
 @NgModule({
   declarations: [
     SettingsWrapperComponent,
-    ViewSettingsComponent,
     ProfileComponent,
     DashboardComponent,
     SettingsComponent,

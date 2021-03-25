@@ -56,6 +56,11 @@ export class NewClassComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('class_id', res.class_id);
+            this.router.navigateByUrl('/suite/classes/view-class');
+          }
         },
         err => {
           console.log(err);

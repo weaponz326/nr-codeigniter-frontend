@@ -52,7 +52,7 @@ export class AddOrderComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let orderData = {
-      hospital: localStorage.getItem('restaurant_id'),
+      restaurant_id: localStorage.getItem('restaurant_id'),
       order_code: this.orderCode.val(),
       order_date: this.orderDate.val(),
       order_type: this.orderType.val(),

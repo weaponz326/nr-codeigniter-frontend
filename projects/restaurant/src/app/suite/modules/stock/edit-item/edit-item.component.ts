@@ -47,7 +47,7 @@ export class EditItemComponent implements OnInit {
 
   saveItem(){
     var itemData = {
-      restaurant: sessionStorage.getItem('restaurnat_id'),
+      restaurant_id: sessionStorage.getItem('restaurnat_id'),
       item_code: this.itemForm.itemCode.val(),
       item_name: this.itemForm.itemName.val(),
       category: this.itemForm.category.val(),

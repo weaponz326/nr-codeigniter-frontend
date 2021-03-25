@@ -13,7 +13,7 @@ export class DiagnosisApiService {
   constructor(private http: HttpClient) { }
 
   hospitalUrl = environment.hospitalUrl;
-  
+
   // create and get all diagnosis belonging to user
 
   public getAllDiagnosis(): Observable<any>{
@@ -21,13 +21,13 @@ export class DiagnosisApiService {
   }
 
   public postDiagnosis(diagnosis): Observable<any>{
-    return this.http.post(this.hospitalUrl + "module-diagnosis/diagnosis/", diagnosis);
+    return this.http.post(this.hospitalUrl + "module-diagnosis/new-diagnosis/", diagnosis);
   }
 
   // retreive, update and delete diagnosis
 
   public getSingleDiagnosis(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-diagnosis/diagnosis/" + sessionStorage.getItem('diagnosis_id'));
+    return this.http.get(this.hospitalUrl + "module-diagnosis/diagnosis-detail/" + sessionStorage.getItem('diagnosis_id'));
   }
 
   public putDiagnosis(diagnosis): Observable<any>{

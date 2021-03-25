@@ -68,6 +68,11 @@ export class NewNurseComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('nurse_id', res.nurse_id);
+            this.router.navigateByUrl('/suite/nurses/view-nurse');
+          }
         },
         err => {
           console.log(err);

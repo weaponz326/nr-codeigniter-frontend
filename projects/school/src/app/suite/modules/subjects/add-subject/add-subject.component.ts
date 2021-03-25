@@ -57,6 +57,11 @@ export class AddSubjectComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('subject_id', res.subject_id);
+            this.router.navigateByUrl('/suite/subjects/view-subject');
+          }
         },
         err => {
           console.log(err);

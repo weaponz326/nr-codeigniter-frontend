@@ -1,6 +1,6 @@
 <jqxWindow #addPrescriptionReference
     [width]="540"
-    [height]="150"
+    [height]="210"
     [autoOpen]="false">
 
     <div>Add New Prescription</div>
@@ -29,6 +29,36 @@
         </div>
 
         <div>
+            <div class="edit-dialog-label-alt">Patient Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #patientNameReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Patient ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #patientCodeReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
@@ -41,6 +71,12 @@
     </div>
 
 </jqxWindow>
+
+<!-- select patient and admission components -->
+
+<app-select-patient #selectPatientComponentReference
+    (patientEvent)="patientSelected($event)"
+></app-select-patient>
 
 <!-- http loader spinner and connection notification components -->
 

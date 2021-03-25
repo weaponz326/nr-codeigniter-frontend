@@ -40,7 +40,7 @@ export class EditAppointmentComponent implements OnInit {
     this.appointmentForm.appointmentCode.val(event.args.row.bounddata.appointment_code);
     this.appointmentForm.patientIdStore = event.args.row.bounddata.patient_id;
     this.appointmentForm.patientName.val(event.args.row.bounddata.patient_name);
-    this.appointmentForm.patientCode.val(event.args.row.bounddata.clinical_id);
+    this.appointmentForm.patientCode.val(event.args.row.bounddata.patient_code);
     this.appointmentForm.doctorIdStore = event.args.row.bounddata.doctor_id;
     this.appointmentForm.consultantName.val(event.args.row.bounddata.consultant_name);
     this.appointmentForm.appointmentDate.val(event.args.row.bounddata.appointment_date);

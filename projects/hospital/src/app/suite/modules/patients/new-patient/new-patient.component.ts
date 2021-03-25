@@ -67,6 +67,11 @@ export class NewPatientComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('patient_id', res.patient_id);
+            this.router.navigateByUrl('/suite/patients/view-patient');
+          }
         },
         err => {
           console.log(err);

@@ -10,6 +10,9 @@ import { DiagnosisApiService } from '../diagnosis-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
+import { SelectPatientComponent } from '../select-patient/select-patient.component'
+
+
 @Component({
   selector: 'app-add-diagnosis',
   templateUrl: './add-diagnosis.component.html',
@@ -25,11 +28,18 @@ export class AddDiagnosisComponent implements OnInit {
   @ViewChild("addDiagnosisReference") addDiagnosis: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
+
   @ViewChild('diagnosisCodeReference') diagnosisCode: jqxInputComponent;
   @ViewChild('diagnosisDateReference') diagnosisDate: jqxDateTimeInputComponent;
+  @ViewChild('patientNameReference') patientName: jqxInputComponent;
+  @ViewChild('patientCodeReference') patientCode: jqxInputComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
+
+  patientIdStore: any;
 
   ngOnInit(): void {
   }
@@ -38,13 +48,22 @@ export class AddDiagnosisComponent implements OnInit {
     this.addDiagnosis.open();
   }
 
+  patientSelected(patient: any){
+    console.log(patient);
+
+    this.patientName.val(patient.patient_name);
+    this.patientCode.val(patient.clinical_id);
+    this.patientIdStore = patient.id;
+  }
+
   saveDiagnosis(){
     this.loadingSpinner.httpLoader.open();
 
     let diagnosisData = {
-      hospital: localStorage.getItem('hospital_id'),
-      lab_code: this.diagnosisCode.val(),
-      lab_date: this.diagnosisDate.val(),
+      hospital_id: localStorage.getItem('hospital_id'),
+      diagnosis_code: this.diagnosisCode.val(),
+      diagnosis_date: this.diagnosisDate.val(),
+      patient: this.patientIdStore
     }
 
     this.diagnosisApi.postDiagnosis(diagnosisData)
@@ -54,8 +73,8 @@ export class AddDiagnosisComponent implements OnInit {
           this.loadingSpinner.httpLoader.close();
 
           if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
-            this.router.navigateByUrl('/suite/diagnsis/view-diagnosis');
+            sessionStorage.setItem('diagnosis_id', res.diagnosis_id);
+            this.router.navigateByUrl('/suite/diagnosis/view-diagnosis');
           }
         },
         err => {

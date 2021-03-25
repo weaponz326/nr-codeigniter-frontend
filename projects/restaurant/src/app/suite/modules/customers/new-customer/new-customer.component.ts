@@ -65,6 +65,11 @@ export class NewCustomerComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('customer_id', res.customer_id);
+            this.router.navigateByUrl('/suite/customers/view-customer');
+          }
         },
         err => {
           console.log(err);

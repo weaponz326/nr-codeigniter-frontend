@@ -70,6 +70,11 @@ export class NewDrugComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('drug_id', res.drug_id);
+            this.router.navigateByUrl('/suite/drugs/view-drug');
+          }
         },
         err => {
           console.log(err);

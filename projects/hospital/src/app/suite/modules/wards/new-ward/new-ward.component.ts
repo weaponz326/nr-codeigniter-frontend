@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
@@ -16,7 +17,7 @@ import { WardFormComponent } from '../ward-form/ward-form.component';
 })
 export class NewWardComponent implements OnInit {
 
-  constructor( private wardsApi: WardsApiService) { }
+  constructor(private router: Router, private wardsApi: WardsApiService) { }
 
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
@@ -53,6 +54,11 @@ export class NewWardComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('ward_id', res.ward_id);
+            this.router.navigateByUrl('/suite/wards/view-ward');
+          }
         },
         err => {
           console.log(err);

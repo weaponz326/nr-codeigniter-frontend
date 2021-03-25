@@ -56,6 +56,11 @@ export class NewAdmissionComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('admission_id', res.admission_id);
+            this.router.navigateByUrl('/suite/admissions/view-admission');
+          }
         },
         err => {
           console.log(err);

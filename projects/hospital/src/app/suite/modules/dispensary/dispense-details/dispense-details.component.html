@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
 
         <div class="row">
             <div class="col-md-12">
@@ -18,13 +18,21 @@
 
 
         <div class="row">
-            <div class="col-md-12">
-                <jqxGrid #gridReference (onRowdoubleclick)="editDetail.openWindow($event)"
+            <div class="col-md-8">
+                <jqxGrid #dispenseGridReference (onRowdoubleclick)="editDetail.openWindow($event)"
                     [width]="'100%'"
                     [autoheight]="true"
                     [source]="dataAdapter"
                     [rowsheight]="40"
-                    [columns]="columns"
+                    [columns]="dispenseColumns"
+                ></jqxGrid>
+            </div>
+
+            <div class="col-md-4">
+                <jqxGrid #prescriptionsGridReference
+                    [width]="'100%'"
+                    [height]="200"
+                    [columns]="prescriptionsColumns"
                 ></jqxGrid>
             </div>
         </div>

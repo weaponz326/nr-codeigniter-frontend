@@ -57,6 +57,11 @@ export class AddTableComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('table_id', res.table_id);
+            this.router.navigateByUrl('/suite/tables/view-table');
+          }
         },
         err => {
           console.log(err);

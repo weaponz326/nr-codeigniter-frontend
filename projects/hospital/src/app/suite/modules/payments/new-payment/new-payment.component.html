@@ -1,6 +1,6 @@
 <jqxWindow #addPaymentReference
     [width]="540"
-    [height]="285"
+    [height]="180"
     [autoOpen]="false">
 
     <div>Add New Payment</div>
@@ -25,51 +25,6 @@
                     [height]="25"
                     [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Patient Name</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #patientNameReference
-                    [width]="'90%'"
-                    [height]="25"
-                    [disabled]="true"
-                ></jqxInput>
-                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
-                    [width]="'10%'"
-                    [height]="25"
-                >...</jqxButton>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Patient ID</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #patientCodeReference
-                    [width]="'90%'"
-                    [height]="25"
-                    [disabled]="true"
-                ></jqxInput>
-                <jqxButton #selectPatientButton (click)="selectPatient.openWindow()"
-                    [width]="'10%'"
-                    [height]="25"
-                >...</jqxButton>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Admission ID</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #admissionCodeReference
-                    [width]="'90%'"
-                    [height]="25"
-                    [disabled]="true"
-                ></jqxInput>
-                <jqxButton #selectAdmissionButton (click)="selectAdmission.openWindow()"
-                    [width]="'10%'"
-                    [height]="25"
-                >...</jqxButton>
             </div>
         </div>
 
@@ -103,14 +58,6 @@
 </jqxWindow>
 
 <!-- select patient, admission, and bill components -->
-
-<app-select-patient #selectPatientComponentReference
-    (patientEvent)="patientSelected($event)"
-></app-select-patient>
-
-<app-select-admission #selectAdmissionComponentReference
-    (admissionEvent)="admissionSelected($event)"
-></app-select-admission>
 
 <app-select-bill #selectBillComponentReference
     (billEvent)="billSelected($event)"

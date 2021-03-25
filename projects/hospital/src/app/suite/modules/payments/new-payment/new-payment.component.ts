@@ -5,8 +5,6 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 
-import { SelectPatientComponent } from '../select-patient/select-patient.component'
-import { SelectAdmissionComponent } from '../select-admission/select-admission.component'
 import { SelectBillComponent } from '../select-bill/select-bill.component'
 
 @Component({
@@ -28,14 +26,10 @@ export class NewPaymentComponent implements OnInit {
   @ViewChild('admissionCodeReference') admissionCode: jqxInputComponent;
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
 
-  @ViewChild("selectPatientComponentReference") selectPatient: SelectPatientComponent;
-  @ViewChild("selectAdmissionComponentReference") selectAdmission: SelectAdmissionComponent;
   @ViewChild("selectBillComponentReference") selectBill: SelectBillComponent;
 
   // stores db table ids of selected patient and admission
   // to be retreived for sending to backend
-  patientIdStore: any;
-  admissionIdStore: any;
   billIdStore: any;
 
   ngOnInit(): void {
@@ -43,21 +37,6 @@ export class NewPaymentComponent implements OnInit {
 
   openWindow(){
     this.addPayment.open();
-  }
-
-  patientSelected(patient: any){
-    console.log(patient);
-
-    this.patientName.val(patient.patient_name);
-    this.patientCode.val(patient.clinical_id);
-    this.patientIdStore = patient.id;
-  }
-
-  admissionSelected(admission: any){
-    console.log(admission);
-
-    this.admissionCode.val(admission.admission_code);
-    this.admissionIdStore = admission.id;
   }
 
   billSelected(bill: any){

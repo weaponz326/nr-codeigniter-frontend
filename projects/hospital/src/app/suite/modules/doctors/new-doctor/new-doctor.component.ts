@@ -70,6 +70,11 @@ export class NewDoctorComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('doctor_id', res.doctor_id);
+            this.router.navigateByUrl('/suite/doctors/view-doctor');
+          }
         },
         err => {
           console.log(err);

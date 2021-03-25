@@ -17,39 +17,26 @@ export class UserSearchComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private AdminApi: AdminApiService,
-  ) {
-    this.route.params.subscribe(params => {
-      console.log(params);
-      if (params['input']){
-        this.searchInput.val(params['input']);
-        this.sendSearch(params['term']);
-      }
-    });
-  }
+  ) { }
 
   @ViewChild('searchInputReference') searchInput: jqxInputComponent;
   @ViewChild('searchButtonReference') searchButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "New User", url: "/suite/admin/search" },
+    { text: "Search", url: "/suite/admin/search" },
+  ];
 
   ngOnInit(): void {
   }
 
   sendSearch(input: string){
-
-    // route to search results as soon as search begins
     console.log("u are searching for: " + this.searchInput.val());
+    // route to search results as soon as search begins
+    // put search input in url
     this.router.navigate(['/suite/admin/search/search-results', { input: input }]);
 
-    // this.adminApi.getSearch(this.searchInput.val())
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.router.navigate(['/suite/admin/search/search-results'], { state: res });
-    //     },
-    //     err => {
-    //       console.log(err);
-    //     }
-    //   )
+    sessionStorage.setItem('searchInput', input);
   }
 
 }

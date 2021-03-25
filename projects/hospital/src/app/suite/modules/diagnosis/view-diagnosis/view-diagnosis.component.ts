@@ -66,7 +66,7 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
           this.diagnosisDate.val(res.diagnosis_date);
           this.patientIdStore = res.patient.id;
           this.patientName.val(res.patient.patient_name);
-          this.patientCode.val(res.patient.clinical_id);
+          this.patientCode.val(res.patient.clinical_number);
           this.doctorIdStore = res.doctor.id;
           this.doctorName.val(res.doctor.doctor_name);
           this.diagnosisDetails.bloodGroup.val(res.blood_group);
@@ -107,10 +107,10 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
   saveDiagnosis(){
     let diagnosisData = {
       hospital_id: sessionStorage.getItem('hospital_id'),
-      lab_code: this.diagnosisCode.val(),
-      lab_date: this.diagnosisDate.val(),
-      patient_id: this.patientIdStore,
-      doctor_id: this.doctorIdStore,
+      diagnosis_code: this.diagnosisCode.val(),
+      diagnosis_date: this.diagnosisDate.val(),
+      patient: this.patientIdStore,
+      doctor: this.doctorIdStore,
       blood_group: this.diagnosisDetails.bloodGroup.val(),
       temperature: this.diagnosisDetails.temperature.val(),
       weight: this.diagnosisDetails.weight.val(),
@@ -121,6 +121,8 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
       treatment: this.diagnosisDetails.treatment.val(),
       remarks: this.diagnosisDetails.remarks.val(),
     }
+
+    this.loadingSpinner.httpLoader.open();
 
     this.diagnosisApi.putDiagnosis(diagnosisData)
       .subscribe(

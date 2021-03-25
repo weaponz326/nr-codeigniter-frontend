@@ -68,6 +68,11 @@ export class AddTeacherComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('teacher_id', res.teacher_id);
+            this.router.navigateByUrl('/suite/teachers/view-teacher');
+          }
         },
         err => {
           console.log(err);

@@ -65,6 +65,11 @@ export class NewParentComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('parent_id', res.parent_id);
+            this.router.navigateByUrl('/suite/parents/view-parent');
+          }
         },
         err => {
           console.log(err);

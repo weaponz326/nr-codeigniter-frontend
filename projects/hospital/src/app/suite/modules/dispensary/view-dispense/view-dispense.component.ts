@@ -91,12 +91,6 @@ export class ViewDispenseComponent implements OnInit, AfterViewInit {
   // widgets
   // ----------------------------------------------------------------------------------------
 
-  prescriptionColumns: any[] = [
-    { text: "Prescription ID", dataField: "prescription_code", width: "30%" },
-    { text: "Patient Name", dataField: "patient_name", width: "50%" },
-    { text: "Prescription Date", dataField: "prescription_date", width: "30%" },
-  ];
-
   saveDispense(){
     let dispenseData = {
       hospital_id: sessionStorage.getItem('hospital_id'),

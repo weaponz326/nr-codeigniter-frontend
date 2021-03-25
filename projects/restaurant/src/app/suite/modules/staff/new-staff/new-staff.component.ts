@@ -70,6 +70,11 @@ export class NewStaffComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('staff_id', res.staff_id);
+            this.router.navigateByUrl('/suite/staff/view-staff');
+          }
         },
         err => {
           console.log(err);

@@ -90,7 +90,7 @@ export class AllItemsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let itemData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      restaurant_id: sessionStorage.getItem('restaurant_id'),
       item_code: rowdata.item_code,
       item_name: rowdata.item_name,
       category: rowdata.category,
@@ -123,7 +123,7 @@ export class AllItemsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let itemData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      restaurant_id: sessionStorage.getItem('restaurant_id'),
       item_code: newdata.item_code,
       item_name: newdata.item_name,
       category: newdata.category,

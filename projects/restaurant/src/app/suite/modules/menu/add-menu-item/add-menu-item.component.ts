@@ -57,6 +57,11 @@ export class AddMenuItemComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('menu_item_id', res.menu_item_id);
+            this.router.navigateByUrl('/suite/menu/view-item');
+          }
         },
         err => {
           console.log(err);

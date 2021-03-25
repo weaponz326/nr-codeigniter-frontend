@@ -57,6 +57,11 @@ export class NewTermComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('term_id', res.term_id);
+            this.router.navigateByUrl('/suite/terms/view-term');
+          }
         },
         err => {
           console.log(err);

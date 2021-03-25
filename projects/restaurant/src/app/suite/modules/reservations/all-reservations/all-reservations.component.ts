@@ -93,7 +93,7 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let rservationData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      restaurant_id: sessionStorage.getItem('restaurant_id'),
       reservation_code: rowdata.reservation_code,
       reservation_date: rowdata.reservation_date,
       customer_name: rowdata.customer_name,
@@ -127,7 +127,7 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let rservationData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      restaurant_id: sessionStorage.getItem('restaurant_id'),
       reservation_code: newdata.reservation_code,
       reservation_date: newdata.reservation_date,
       customer_name: newdata.customer_name,

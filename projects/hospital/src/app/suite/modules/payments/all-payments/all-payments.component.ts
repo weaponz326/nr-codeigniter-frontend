@@ -71,7 +71,8 @@ export class AllPaymentsComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'payment_code', type: 'string' },
       { name: 'payment_date', type: 'string' },
-      { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
+      { name: 'bill_code', map: 'bill>bill_code', type: 'string' },
+      { name: 'patient_name', map: 'bill>patient>patient_name', type: 'string' },
       { name: 'amount_paid', map: 'amount_paid', type: 'string' },
     ],
     id: 'id',
@@ -80,10 +81,11 @@ export class AllPaymentsComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Payment ID", dataField: "payment_code", width: "20%" },
+    { text: "Payment ID", dataField: "payment_code", width: "15%" },
     { text: "Payment Date", dataField: "payment_date", filtertype: "range", width: "20%" },
-    { text: "Patient Name", dataField: "patient_name", width: "40%" },
-    { text: 'Amount Paid', dataField: 'amount_paid', width: "20%", cellsalign: 'right', cellsformat: 'c2' }
+    { text: "Bill ID", dataField: "bill_code", width: "15%" },
+    { text: "Patient Name", dataField: "patient_name", width: "35%" },
+    { text: 'Amount Paid', dataField: 'amount_paid', width: "15%", cellsalign: 'right', cellsformat: 'c2' }
   ];
 
 }

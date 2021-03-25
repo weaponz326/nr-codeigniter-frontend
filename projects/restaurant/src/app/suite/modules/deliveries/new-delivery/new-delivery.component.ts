@@ -33,7 +33,7 @@ export class NewDeliveryComponent implements OnInit {
 
   saveDelivery(){
     var deliveryData = {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      restaurant_id: sessionStorage.getItem('restaurant_id'),
       order_id: this.deliveryForm.orderIdStore,
       delivery_code: this.deliveryForm.deliveryCode.val(),
       delivery_date: this.deliveryForm.deliveryDate.val(),

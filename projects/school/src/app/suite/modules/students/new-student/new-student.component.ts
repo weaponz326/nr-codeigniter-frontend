@@ -67,6 +67,11 @@ export class NewStudentComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if (res.status == true){
+            sessionStorage.setItem('student_id', res.student_id);
+            this.router.navigateByUrl('/suite/students/view-student');
+          }
         },
         err => {
           console.log(err);

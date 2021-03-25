@@ -94,12 +94,12 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let sittingData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      restaurant_id: sessionStorage.getItem('restaurant_id'),
       sitting_code: rowdata.sitting_code,
       sitting_date: rowdata.sitting_date,
       arrival_time: rowdata.arrival_time,
       departure_time: rowdata.departure_time,
-      consultant_name: rowdata.consultant_name,
+      customer_name: rowdata.customer_name,
       number_guests: rowdata.number_guests,
     }
 
@@ -127,12 +127,12 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let sittingData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      restaurant_id: sessionStorage.getItem('restaurant_id'),
       sitting_code: newdata.sitting_code,
       sitting_date: newdata.sitting_date,
       arrival_time: newdata.arrival_time,
       departure_time: newdata.departure_time,
-      consultant_name: newdata.consultant_name,
+      customer_name: newdata.customer_name,
       number_guests: newdata.number_guests,
     }
 

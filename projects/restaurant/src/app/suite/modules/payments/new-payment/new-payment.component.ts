@@ -21,7 +21,6 @@ export class NewPaymentComponent implements OnInit {
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild('paymentCodeReference') paymentCode: jqxInputComponent;
   @ViewChild('paymentDateReference')paymentDate: jqxDateTimeInputComponent;
-  @ViewChild('customerNameReference') customerNameName: jqxInputComponent;
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
 
   @ViewChild("selectBillComponentReference") selectBill: SelectBillComponent;

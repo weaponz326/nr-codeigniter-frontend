@@ -20,6 +20,10 @@ export class InvitationsComponent implements OnInit {
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
 
+  navHeading: any[] = [
+    { text: "Invitations", url: "/suite/admin/invitations" },
+  ];
+
   ngOnInit(): void {
   }
 

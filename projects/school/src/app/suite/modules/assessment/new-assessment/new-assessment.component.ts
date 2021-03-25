@@ -57,6 +57,11 @@ export class NewAssessmentComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+
+          if(res.status == true){
+            sessionStorage.setItem('assessment_id', res.assessment_id);
+            this.router.navigateByUrl('/suite/assessment/view-assessment');
+          }
         },
         err => {
           console.log(err);

@@ -70,7 +70,7 @@ export class AllLabsComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'lab_code', type: 'string' },
       { name: 'lab_date', type: 'string' },
-      { name: 'patient_name', type: 'string' },
+      { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
       { name: 'lab_type', type: 'string' },
     ],
     id: 'id',

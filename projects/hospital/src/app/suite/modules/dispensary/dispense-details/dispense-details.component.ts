@@ -21,7 +21,8 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
 
   constructor(private dispensaryApi: DispensaryApiService) { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
+  @ViewChild("dispsenseGridReference") dispsenseGrid: jqxGridComponent;
+  @ViewChild("prescriptionsGridReference") prescriptionsGrid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
 
   @ViewChild('addDetailComponentReference') addDetail: AddDetailComponent;
@@ -34,7 +35,7 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.grid.showloadelement();
+    this.dispsenseGrid.showloadelement();
     this.getData();
   }
 
@@ -44,7 +45,7 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.source.localdata = res;
-          this.grid.updatebounddata();
+          this.dispsenseGrid.updatebounddata();
         },
         err => {
           console.log(err);
@@ -54,19 +55,29 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
   }
 
   onAddCommit(detailData: any) {
-    this.grid.addrow(null, detailData);
+    this.dispsenseGrid.addrow(null, detailData);
   }
 
   onEditCommit(detailData: any) {
-    this.grid.updaterow(detailData.id, detailData);
+    this.dispsenseGrid.updaterow(detailData.id, detailData);
   }
 
   onDeleteCommit(detailId: number) {
-    this.grid.deleterow(detailId);
+    this.dispsenseGrid.deleterow(detailId);
   }
 
 // widgets
   // --------------------------------------------------------------------------------------------
+
+  // prescriptions grid
+
+  prescriptionsColumns: any[] = [
+    { text: 'Drug Name', dataField: 'drug_name', width: "70%" },
+    { text: 'NDC No.', dataField: 'ndc_number', width: "30%" },
+  ];
+
+
+  // dispense grid
 
   source: any = {
     localdata: null,
@@ -91,7 +102,7 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
 
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
-  columns: any[] = [
+  dispenseColumns: any[] = [
     { text: 'Drug Name', dataField: 'drug_name', width: "35%" },
     { text: 'NDC No.', dataField: 'ndc_number', width: "20%" },
     { text: 'Remarks', dataField: 'remarks', width: "45%" },
