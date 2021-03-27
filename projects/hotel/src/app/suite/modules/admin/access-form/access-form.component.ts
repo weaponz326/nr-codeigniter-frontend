@@ -12,17 +12,18 @@ export class AccessFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild('adminCheckBoxReference') adminCheckBox: jqxComboBoxComponent;
-  @ViewChild('assetsCheckBoxReference') assetsCheckBox: jqxComboBoxComponent;
-  @ViewChild('billsCheckBoxReference') billsCheckBox: jqxComboBoxComponent;
-  @ViewChild('bookingsCheckBoxReference') bookingsCheckBox: jqxComboBoxComponent;
-  @ViewChild('checkinCheckBoxReference') checkinCheckBox: jqxComboBoxComponent;
-  @ViewChild('guestsCheckBoxReference') guestsCheckBox: jqxComboBoxComponent;
-  @ViewChild('paymentsCheckBoxReference') paymentsCheckBox: jqxComboBoxComponent;
-  @ViewChild('portalCheckBoxReference') portalCheckBox: jqxComboBoxComponent;
-  @ViewChild('roomsCheckBoxReference') roomsCheckBox: jqxComboBoxComponent;
-  @ViewChild('servicesCheckBoxReference') servicesCheckBox: jqxComboBoxComponent;
-  @ViewChild('settingsCheckBoxReference') settingsCheckBox: jqxComboBoxComponent;
-  @ViewChild('staffCheckBoxReference') staffCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') assetsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') billsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') bookingsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') checkinCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') guestsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') housekeepingCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') paymentsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') portalCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') roomsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') servicesCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') settingsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') staffCheckBox: jqxComboBoxComponent;
 
   ngOnInit(): void {
   }
@@ -37,6 +38,7 @@ export class AccessFormComponent implements OnInit {
       this.bookingsCheckBox.val('true');
       this.checkinCheckBox.val('true');
       this.guestsCheckBox.val('true');
+      this.housekeepingCheckBox.val('true');
       this.paymentsCheckBox.val('true');
       this.portalCheckBox.val('true');
       this.roomsCheckBox.val('true');
@@ -51,12 +53,14 @@ export class AccessFormComponent implements OnInit {
       this.bookingsCheckBox.val('true');
       this.checkinCheckBox.val('true');
       this.guestsCheckBox.val('true');
+      this.housekeepingCheckBox.val('true');
       this.paymentsCheckBox.val('true');
-      this.portalCheckBox.val('true');
+      this.portalCheckBox.val('false');
       this.roomsCheckBox.val('true');
       this.servicesCheckBox.val('true');
       this.settingsCheckBox.val('false');
       this.staffCheckBox.val('true');
+
     }
     else if (level == 'Staff') {
       this.adminCheckBox.val('false');
@@ -65,6 +69,7 @@ export class AccessFormComponent implements OnInit {
       this.bookingsCheckBox.val('false');
       this.checkinCheckBox.val('false');
       this.guestsCheckBox.val('false');
+      this.housekeepingCheckBox.val('false');
       this.paymentsCheckBox.val('false');
       this.portalCheckBox.val('false');
       this.roomsCheckBox.val('false');

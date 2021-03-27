@@ -5,6 +5,7 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+
 @Component({
   selector: 'app-billings',
   templateUrl: './billings.component.html',
@@ -12,7 +13,7 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class BillingsComponent implements OnInit {
 
-  selectedPlan: string;
+  constructor() { }
 
   @ViewChild('smallTeamReference') smallTeamRadioButton: jqxRadioButtonComponent;
   @ViewChild('largeTeamReference') largeTeamRadioButton: jqxRadioButtonComponent;
@@ -29,7 +30,11 @@ export class BillingsComponent implements OnInit {
   @ViewChild('secretCodeReference') secretCodeInput: jqxInputComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
 
-  constructor() { }
+  navHeading: any[] = [
+    { text: "Billings", url: "/suite/settings/billings" },
+  ];
+
+  selectedPlan: string;
 
   ngOnInit(): void {
   }

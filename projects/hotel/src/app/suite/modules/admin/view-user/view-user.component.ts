@@ -26,6 +26,11 @@ export class ViewUserComponent implements OnInit {
   @ViewChild('deleteReference') deleteButton: jqxButtonComponent;
   @ViewChild('cancelReference') cancelButton: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "All Users", url: "/suite/admin/all-users" },
+    { text: "View User", url: "/suite/admin/view-user" },
+  ];
+
   ngOnInit(): void {
   }
 

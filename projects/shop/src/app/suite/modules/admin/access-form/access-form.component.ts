@@ -18,10 +18,10 @@ export class AccessFormComponent implements OnInit {
   @ViewChild('adminCheckBoxReference') invoiceCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') markettingCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') ordersCheckBox: jqxComboBoxComponent;
-  @ViewChild('adminCheckBoxReference') payablesCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') paymentsCheckBox: jqxComboBoxComponent;
-  @ViewChild('adminCheckBoxReference') productsCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') payablesCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') portalCheckBox: jqxComboBoxComponent;
+  @ViewChild('adminCheckBoxReference') productsCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') purchasingCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') receivablesCheckBox: jqxComboBoxComponent;
   @ViewChild('adminCheckBoxReference') salesCheckBox: jqxComboBoxComponent;
@@ -42,15 +42,14 @@ export class AccessFormComponent implements OnInit {
       this.invoiceCheckBox.val('true');
       this.markettingCheckBox.val('true');
       this.ordersCheckBox.val('true');
-      this.payablesCheckBox.val('true');
       this.paymentsCheckBox.val('true');
-      this.productsCheckBox.val('true');
+      this.payablesCheckBox.val('true');
       this.portalCheckBox.val('true');
+      this.productsCheckBox.val('true');
       this.purchasingCheckBox.val('true');
       this.receivablesCheckBox.val('true');
       this.salesCheckBox.val('true');
       this.settingsCheckBox.val('true');
-      this.staffCheckBox.val('true');
     }
     else if (level == 'Manager') {
       this.adminCheckBox.val('false');
@@ -60,15 +59,14 @@ export class AccessFormComponent implements OnInit {
       this.invoiceCheckBox.val('true');
       this.markettingCheckBox.val('true');
       this.ordersCheckBox.val('true');
-      this.payablesCheckBox.val('true');
       this.paymentsCheckBox.val('true');
+      this.payablesCheckBox.val('true');
+      this.portalCheckBox.val('false');
       this.productsCheckBox.val('true');
-      this.portalCheckBox.val('true');
       this.purchasingCheckBox.val('true');
       this.receivablesCheckBox.val('true');
       this.salesCheckBox.val('true');
       this.settingsCheckBox.val('false');
-      this.staffCheckBox.val('true');
     }
     else if (level == 'Staff') {
       this.adminCheckBox.val('false');
@@ -78,15 +76,14 @@ export class AccessFormComponent implements OnInit {
       this.invoiceCheckBox.val('false');
       this.markettingCheckBox.val('false');
       this.ordersCheckBox.val('false');
-      this.payablesCheckBox.val('false');
       this.paymentsCheckBox.val('false');
-      this.productsCheckBox.val('false');
+      this.payablesCheckBox.val('false');
       this.portalCheckBox.val('false');
+      this.productsCheckBox.val('false');
       this.purchasingCheckBox.val('false');
       this.receivablesCheckBox.val('false');
       this.salesCheckBox.val('false');
       this.settingsCheckBox.val('false');
-      this.staffCheckBox.val('false');
     }
   }
 

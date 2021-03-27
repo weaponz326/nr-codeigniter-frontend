@@ -1,66 +1,52 @@
-<div class="row">
-    <div class="offset-md-4 col-md-8">
-        <h4>Profile</h4>
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <jqxTabs class="profile-tabs" style="border: none;"
+                [width]="'100%'"
+            >
+
+                <ul>
+                    <li>Basic Profile</li>
+                    <li>Pictures</li>
+                    <li>Location Details</li>
+                    <li>Contact Details</li>
+                </ul>
+
+                <!-- profile tabs contents components -->
+
+                <div class="profile-content-div">
+                    <app-basic #basicComponentReference
+                ></app-basic>
+                </div>
+                <div class="profile-content-div">
+                    <app-logo
+                        #photoComponentReference
+                    ></app-logo>
+                </div>
+                <div class="profile-content-div">
+                    <app-location
+                        #locationComponentReference
+                    ></app-location>
+                </div>
+                <div class="profile-content-div">
+                    <app-contact
+                        #contactComponentReference
+                    ></app-contact>
+                </div>
+
+              </jqxTabs>
+
+        </div>
     </div>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4"><label>Shop Name :</label></div>
-    <div class="col-md-8">
-        <jqxInput #nameReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxInput>
-    </div>
-</div>
+<!-- http loader spinner and connection notification components -->
 
-<div class="row">
-    <div class="col-md-4"><label>Shop Type :</label></div>
-    <div class="col-md-8">
-        <jqxComboBox #typeReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxComboBox>
-    </div>
-</div>
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
 
-<div class="row">
-    <div class="col-md-4"><label>Logo :</label></div>
-    <div class="col-md-8">
-        <jqxPanel #logoPanelReference
-            [width]="220"
-            [height]="220"
-        >...</jqxPanel>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>Location :</label></div>
-    <div class="col-md-8">
-        <jqxInput #locationReference
-            [width]="'100%'"
-            [height]="28"
-        ></jqxInput>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4"><label>About :</label></div>
-    <div class="col-md-8">
-        <jqxTextArea #aboutReference
-            [width]="'100%'"
-            [height]="65"
-        ></jqxTextArea>
-    </div>
-</div>
-
-<br />
-
-<div class="row page-form-div">
-    <div class="col-md-12">
-        <jqxButton #saveButtonReference class="float-right"
-            [width]="100"
-            [height]="28"
-        >Save</jqxButton>
-    </div>
-</div>
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

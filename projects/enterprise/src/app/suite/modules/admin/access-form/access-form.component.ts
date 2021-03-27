@@ -15,6 +15,7 @@ export class AccessFormComponent implements OnInit {
   @ViewChild('adminCheckBoxReference') adminCheckBox: jqxComboBoxComponent;
   @ViewChild('appraisalCheckBoxReference') appraisalCheckBox: jqxComboBoxComponent;
   @ViewChild('assetsCheckBoxReference') assetsCheckBox: jqxComboBoxComponent;
+  @ViewChild('attendanceCheckBoxReference') attendanceCheckBox: jqxComboBoxComponent;
   @ViewChild('budgetCheckBoxReference') budgetCheckBox: jqxComboBoxComponent;
   @ViewChild('employeesCheckBoxReference') employeesCheckBox: jqxComboBoxComponent;
   @ViewChild('filesCheckBoxReference') filesCheckBox: jqxComboBoxComponent;
@@ -24,6 +25,7 @@ export class AccessFormComponent implements OnInit {
   @ViewChild('payrollCheckBoxReference') payrollCheckBox: jqxComboBoxComponent;
   @ViewChild('portalCheckBoxReference') portalCheckBox: jqxComboBoxComponent;
   @ViewChild('procurementCheckBoxReference') procurementCheckBox: jqxComboBoxComponent;
+  @ViewChild('receptionCheckBoxReference') receptionCheckBox: jqxComboBoxComponent;
   @ViewChild('settingsCheckBoxReference') settingsCheckBox: jqxComboBoxComponent;
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class AccessFormComponent implements OnInit {
       this.adminCheckBox.val('true');
       this.appraisalCheckBox.val('true');
       this.assetsCheckBox.val('true');
+      this.attendanceCheckBox.val('true');
       this.budgetCheckBox.val('true');
       this.employeesCheckBox.val('true');
       this.filesCheckBox.val('true');
@@ -46,6 +49,7 @@ export class AccessFormComponent implements OnInit {
       this.payrollCheckBox.val('true');
       this.portalCheckBox.val('true');
       this.procurementCheckBox.val('true');
+      this.receptionCheckBox.val('true');
       this.settingsCheckBox.val('true');
     }
     else if (level == 'Manager') {
@@ -53,6 +57,7 @@ export class AccessFormComponent implements OnInit {
       this.adminCheckBox.val('false');
       this.appraisalCheckBox.val('true');
       this.assetsCheckBox.val('true');
+      this.attendanceCheckBox.val('true');
       this.budgetCheckBox.val('true');
       this.employeesCheckBox.val('true');
       this.filesCheckBox.val('true');
@@ -60,8 +65,9 @@ export class AccessFormComponent implements OnInit {
       this.ledgerCheckBox.val('true');
       this.lettersCheckBox.val('true');
       this.payrollCheckBox.val('true');
-      this.portalCheckBox.val('true');
+      this.portalCheckBox.val('false');
       this.procurementCheckBox.val('true');
+      this.receptionCheckBox.val('true');
       this.settingsCheckBox.val('false');
     }
     else if (level == 'Staff') {
@@ -69,6 +75,7 @@ export class AccessFormComponent implements OnInit {
       this.adminCheckBox.val('false');
       this.appraisalCheckBox.val('false');
       this.assetsCheckBox.val('false');
+      this.attendanceCheckBox.val('false');
       this.budgetCheckBox.val('false');
       this.employeesCheckBox.val('false');
       this.filesCheckBox.val('false');
@@ -78,6 +85,7 @@ export class AccessFormComponent implements OnInit {
       this.payrollCheckBox.val('false');
       this.portalCheckBox.val('false');
       this.procurementCheckBox.val('false');
+      this.receptionCheckBox.val('false');
       this.settingsCheckBox.val('false');
     }
   }

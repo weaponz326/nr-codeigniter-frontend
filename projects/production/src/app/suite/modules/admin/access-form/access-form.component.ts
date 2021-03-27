@@ -19,8 +19,8 @@ export class AccessFormComponent implements OnInit {
   @ViewChild('portalCheckBoxReference') portalCheckBox: jqxComboBoxComponent;
   @ViewChild('productsCheckBoxReference') productsCheckBox: jqxComboBoxComponent;
   @ViewChild('projectsCheckBoxReference') projectsCheckBox: jqxComboBoxComponent;
-  @ViewChild('purchasingCheckBoxReference') purchasingCheckBox: jqxComboBoxComponent;
-  @ViewChild('schedulesCheckBoxReference') schedulesCheckBox: jqxComboBoxComponent;
+  @ViewChild('purcahsingCheckBoxReference') purchasingCheckBox: jqxComboBoxComponent;
+  @ViewChild('scheduleCheckBoxReference') scheduleCheckBox: jqxComboBoxComponent;
   @ViewChild('settingsCheckBoxReference') settingsCheckBox: jqxComboBoxComponent;
   @ViewChild('stockCheckBoxReference') stockCheckBox: jqxComboBoxComponent;
   @ViewChild('tasksCheckBoxReference') tasksCheckBox: jqxComboBoxComponent;
@@ -42,7 +42,7 @@ export class AccessFormComponent implements OnInit {
       this.productsCheckBox.val('true');
       this.projectsCheckBox.val('true');
       this.purchasingCheckBox.val('true');
-      this.schedulesCheckBox.val('true');
+      this.scheduleCheckBox.val('true');
       this.settingsCheckBox.val('true');
       this.stockCheckBox.val('true');
       this.tasksCheckBox.val('true');
@@ -54,11 +54,11 @@ export class AccessFormComponent implements OnInit {
       this.equipmentCheckBox.val('true');
       this.manufacturingCheckBox.val('true');
       this.ordersCheckBox.val('true');
-      this.portalCheckBox.val('true');
+      this.portalCheckBox.val('false');
       this.productsCheckBox.val('true');
       this.projectsCheckBox.val('true');
       this.purchasingCheckBox.val('true');
-      this.schedulesCheckBox.val('true');
+      this.scheduleCheckBox.val('true');
       this.settingsCheckBox.val('false');
       this.stockCheckBox.val('true');
       this.tasksCheckBox.val('true');
@@ -74,7 +74,7 @@ export class AccessFormComponent implements OnInit {
       this.productsCheckBox.val('false');
       this.projectsCheckBox.val('false');
       this.purchasingCheckBox.val('false');
-      this.schedulesCheckBox.val('false');
+      this.scheduleCheckBox.val('false');
       this.settingsCheckBox.val('false');
       this.stockCheckBox.val('false');
       this.tasksCheckBox.val('false');

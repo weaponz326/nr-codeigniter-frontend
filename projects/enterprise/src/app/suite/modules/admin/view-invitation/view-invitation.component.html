@@ -1,11 +1,12 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
 
     <div class="row">
         <div class="col-md-8">
 
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">Date</label></div>
-                <div class="col-md-5">Sun, 5th June, 2020. 10:00 AM</div>
+            <!-- <div class="row">
+                <div class="col-md-12">Date - {{invitation.invitation_date}}</div>
             </div>
 
             <br />
@@ -14,11 +15,11 @@
                 <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
                 <div class="col-md-5">
                     <label class="text-muted"><em><small>Name :</small></em></label><br />
-                    Mary Russel
+                    {{invitation.user.name}}
                 </div>
                 <div class="col-md-5">
                     <label class="text-muted"><em><small>Location :</small></em></label><br />
-                    Florida, Miami - USA
+                    {{invitation.user.location}}
                 </div>
             </div>
 
@@ -26,18 +27,8 @@
 
             <div class="row">
                 <div class="col-md-2 text-muted"><label class="float-right">Status</label></div>
-                <div class="col-md-5">Awaiting</div>
-            </div>
-
-            <br />
-
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">Code</label></div>
-                <div class="col-md-10">
-                    <b>254866</b>
-                    <p><small class="text-info">Give this secret code to the person being invited</small></p>
-                </div>
-            </div>
+                <div class="col-md-5">{{invitation.status}}</div>
+            </div> -->
 
         </div>
     </div>

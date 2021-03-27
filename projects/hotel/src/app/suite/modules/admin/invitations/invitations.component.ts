@@ -20,6 +20,10 @@ export class InvitationsComponent implements OnInit {
   @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild('gridReference') grid: jqxGridComponent;
 
+  navHeading: any[] = [
+    { text: "Invitations", url: "/suite/admin/invitations" },
+  ];
+
   ngOnInit(): void {
   }
 
@@ -27,10 +31,9 @@ export class InvitationsComponent implements OnInit {
   // --------------------------------------------------------------------------------------------
 
   columns: any[] = [
-    { text: "Date", datafield: "date", filtertype: "range", width: "20%" },
-    { text: "Name", datafield: "name", width: "40%" },
-    { text: "Verification Code", datafield: "code", width: "20%" },
-    { text: "Status", datafield: "status", width: "20%" },
+    { text: "Invitation Date", datafield: "date", filtertype: "range", width: "25%" },
+    { text: "User's Name", datafield: "name", width: "50%" },
+    { text: "Invitation Status", datafield: "status", width: "25%" },
   ];
 
 }

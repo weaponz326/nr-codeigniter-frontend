@@ -12,12 +12,12 @@ import { AdminApiService } from '../admin-api.service';
 })
 export class DashboardComponent implements OnInit {
 
+  @ViewChild('invitationsButtonReference') invitationsButton: jqxButtonComponent;
+  @ViewChild('allUsersButtonReference') allUsersButton: jqxButtonComponent;
+
   constructor(
     private adminApi: AdminApiService,
   ) { }
-
-  @ViewChild('invitationsButtonReference') invitationsButton: jqxButtonComponent;
-  @ViewChild('allUsersButtonReference') allUsersButton: jqxButtonComponent;
 
   ngOnInit(): void {
   }

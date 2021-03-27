@@ -10,6 +10,7 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { NewRinkComponent } from './new-rink/new-rink.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
         path: "search",
         component: SearchViewComponent,
         children: [
-          { path: "", component: SearchResultsComponent },
+          { path: "", component: RecentContactsComponent },
+          { path: "recent-contacts", component: RecentContactsComponent },
           { path: "search-results", component: SearchResultsComponent },
           { path: "search-detail", component: SearchDetailComponent },
         ]

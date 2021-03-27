@@ -6,6 +6,7 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { AdminApiService } from '../admin-api.service';
 
+
 @Component({
   selector: 'app-view-user',
   templateUrl: './view-user.component.html',
@@ -24,6 +25,11 @@ export class ViewUserComponent implements OnInit {
   @ViewChild('saveReference') saveButton: jqxButtonComponent;
   @ViewChild('deleteReference') deleteButton: jqxButtonComponent;
   @ViewChild('cancelReference') cancelButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "All Users", url: "/suite/admin/all-users" },
+    { text: "View User", url: "/suite/admin/view-user" },
+  ];
 
   ngOnInit(): void {
   }

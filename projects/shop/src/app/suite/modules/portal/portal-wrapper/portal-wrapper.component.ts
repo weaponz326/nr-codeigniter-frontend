@@ -9,6 +9,11 @@ export class PortalWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "Timeline", url: "/suite/portal/timeline", icon: "fa fa-fw fa-history" },
+    { text: "New Rink", url: "/suite/portal/search", icon: "fa fa-fw fa-plus" }
+  ]
+
   ngOnInit(): void {
   }
 

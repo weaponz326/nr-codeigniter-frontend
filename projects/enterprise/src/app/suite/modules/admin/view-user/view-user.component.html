@@ -1,3 +1,5 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
 
     <div class="row page-form-div">
@@ -29,16 +31,20 @@
         <div class="col-md-6">
             <small><b>Admin</b> - has access to all modules by default</small><br />
             <small><b>Manager</b> - has access to all but except Admin and Settings modules by default</small><br />
-            <small><b>Staff</b> - has no access all modules by default</small><br />
+            <small><b>Staff</b> - has no access to all modules by default</small><br />
         </div>
 
     </div>
 
+    <hr />
+
     <div class="row">
         <div class="col-md-6">
-            <hr />
             <app-access-form #accessFormComponentReference></app-access-form>
-            <hr />
+        </div>
+
+        <div class="offset-md-2 col-md-4">
+            <app-user-mini-activities></app-user-mini-activities>
         </div>
     </div>
 

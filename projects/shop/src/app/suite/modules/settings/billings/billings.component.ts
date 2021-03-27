@@ -5,6 +5,7 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+
 @Component({
   selector: 'app-billings',
   templateUrl: './billings.component.html',
@@ -28,6 +29,10 @@ export class BillingsComponent implements OnInit {
   @ViewChild('expiryReference') expiryInput: jqxInputComponent;
   @ViewChild('secretCodeReference') secretCodeInput: jqxInputComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "Billings", url: "/suite/settings/billings" },
+  ];
 
   selectedPlan: string;
 
