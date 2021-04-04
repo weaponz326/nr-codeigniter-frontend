@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+
+import { ReceivedFormComponent } from '../received-form/received-form.component'
+
 
 @Component({
   selector: 'app-add-received',
@@ -16,11 +19,31 @@ export class AddReceivedComponent implements OnInit {
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
+  @ViewChild("receivedFormComponentReference") receivedForm: ReceivedFormComponent;
+
+  // emit event to commit data into grid in parent component
+  @Output() addCommit = new EventEmitter<any>();
+
   ngOnInit(): void {
   }
 
   openWindow(){
     this.addReceived.open();
+  }
+
+  saveReceived(){
+    var receivedData = {
+      account: sessionStorage.getItem('enterprise_id'),
+      reference_number: this.receivedForm.referenceNumber,
+      sender: this.receivedForm.sender,
+      subject: this.receivedForm.subject,
+      date_received: this.receivedForm.dateReceived,
+      letter_date: this.receivedForm.letterDate,
+    }
+
+    console.log(receivedData);
+
+    this.addCommit.emit(receivedData);
   }
 
 }

@@ -1,8 +1,8 @@
-<jqxWindow #newFolderReference 
-    [width]="540" 
-    [height]="160" 
+<jqxWindow #newFolderReference
+    [width]="540"
+    [height]="160"
     [autoOpen]="false">
-    
+
     <div>Add New Folder</div>
 
     <div>
@@ -32,7 +32,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveFolder()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -40,3 +40,9 @@
     </div>
 
 </jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -1,0 +1,48 @@
+<div>
+    <div class="edit-dialog-label-alt">Transaction Date</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #transactionDateReference
+            [width]="'100%'"
+            [height]="25"
+            [showTimeButton]="true"
+            [formatString]="'yyyy-MM-dd hh:mm:ss'"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Description</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #descriptionReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+  </div>
+
+  <div>
+    <div class="edit-dialog-label-alt">Transaction Type</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #transactionTypeReference
+            [width]="'100%'"
+            [height]="25"
+            [source]="transactionTypeSource"
+            [selectedIndex]="0"
+            [autoDropDownHeight]="true"
+        ></jqxDropDownList>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Amount</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #amountReference
+            [width]="'100%'"
+            [height]="25"
+            [inputMode]="'simple'"
+            [decimalDigits]="2"
+            [textAlign]="'left'"
+            [symbol]="'$'"
+        ></jqxNumberInput>
+    </div>
+</div>

@@ -16,11 +16,14 @@ export class ViewLedgerComponent implements OnInit {
   @ViewChild("ledgerCodeReference") ledgerCode: jqxInputComponent;
   @ViewChild("ledgerNameReference") ledgerName: jqxInputComponent;
   @ViewChild("ledgerDateReference") ledgerDate: jqxDateTimeInputComponent;
-  @ViewChild("accountNameReference") accountName: jqxInputComponent;
-  @ViewChild("accountNumberReference") accountNumber: jqxInputComponent;
   @ViewChild("fromDateReference") fromDate: jqxDateTimeInputComponent;
   @ViewChild("toDateReference") toDate: jqxDateTimeInputComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "All Ledger", url: "/suite/ledger/all-ledger" },
+    { text: "View Ledger", url: "/suite/ledger/view-ledger" },
+  ];
 
   ngOnInit(): void {
   }

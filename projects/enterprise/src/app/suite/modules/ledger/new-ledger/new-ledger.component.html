@@ -1,9 +1,9 @@
-<jqxWindow #newLedgerReference 
-    [width]="540" 
-    [height]="320" 
+<jqxWindow #newLedgerReference
+    [width]="540"
+    [height]="220"
     [autoOpen]="false">
-    
-    <div>Add New Account</div>
+
+    <div>Add New Ledger</div>
 
     <div>
 
@@ -28,41 +28,12 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Ledger Date</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDateTimeInput #ledgerDateReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxDateTimeInput>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Account Name</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #accountNameReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxInput>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Account Number</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #accountNumberference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxInput>
-            </div>
-        </div>
-
-        <div>
             <div class="edit-dialog-label-alt">From Date</div>
             <div class="edit-dialog-field-alt">
                 <jqxDateTimeInput #fromDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -73,6 +44,7 @@
                 <jqxDateTimeInput #toDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -82,7 +54,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveLedger()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -90,3 +62,9 @@
     </div>
 
 </jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

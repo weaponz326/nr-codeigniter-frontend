@@ -9,6 +9,10 @@ export class PayrollWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Payroll", url: "/suite/payroll/all-payroll", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

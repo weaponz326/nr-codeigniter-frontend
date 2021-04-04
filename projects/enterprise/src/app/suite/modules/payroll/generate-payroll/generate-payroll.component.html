@@ -1,15 +1,15 @@
-<jqxWindow #generatePayrollReference 
-    [width]="540" 
-    [height]="190" 
+<jqxWindow #generatePayrollReference
+    [width]="540"
+    [height]="250"
     [autoOpen]="false">
-    
+
     <div>Generate New Payroll</div>
 
     <div>
 
         <div>
-            <div class="edit-dialog-label">Payroll Name</div>
-            <div class="edit-dialog-field">
+            <div class="edit-dialog-label-alt">Payroll Name</div>
+            <div class="edit-dialog-field-alt">
                 <jqxInput #payrollNameReference
                     [width]="'100%'"
                     [height]="25"
@@ -18,8 +18,20 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label">Month</div>
-            <div class="edit-dialog-field">
+            <div class="edit-dialog-label-alt">Date Generated</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #dateGeneratedReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [showTimeButton]="true"
+                    [formatString]="'yyyy-MM-dd hh:mm:ss'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Month</div>
+            <div class="edit-dialog-field-alt">
                 <jqxDropDownList #monthReference
                     [width]="'100%'"
                     [height]="25"
@@ -28,8 +40,8 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label">Year</div>
-            <div class="edit-dialog-field">
+            <div class="edit-dialog-label-alt">Year</div>
+            <div class="edit-dialog-field-alt">
                 <jqxDropDownList #yearReference
                     [width]="'100%'"
                     [height]="25"
@@ -38,11 +50,21 @@
         </div>
 
         <div>
-            <div class="edit-dialog-field edit-dialog-buttons">
+            <div class="edit-dialog-label-alt">Payroll Status</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDropDownList #statusReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="savePayroll()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -50,3 +72,9 @@
     </div>
 
 </jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

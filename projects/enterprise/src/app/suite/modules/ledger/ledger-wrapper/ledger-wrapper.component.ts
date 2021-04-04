@@ -9,6 +9,10 @@ export class LedgerWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Ledger", url: "/suite/ledger/all-ledger", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

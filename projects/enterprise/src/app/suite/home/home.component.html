@@ -1,17 +1,12 @@
-<div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <h3>Home</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
+<nav class="navbar navbar-expand navbar-light bg-white topbar homebar mb-4 static-top shadow">
+    <div class="module-heading text-center">
+        <a routerLink="./">
+            <h3><i class="fa fa-home sidebar-card-illustration mb-2"></i> Home</h3>
+        </a>
     </div>
+</nav>
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
+<div class="container">
 
     <div class="home-div">
 
@@ -63,14 +58,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #attendanceTooltipReference
+                <jqxTooltip #lettersTooltipReference
                     [position]="'mouse'"
-                    [content]="'Take attendance of employees'">
+                    [content]="'Organise all incoming and outgoing letters'">
 
-                    <a routerLink="/suite/attendance/dashboard">
+                    <a routerLink="/suite/letters/dashboard">
                         <figure>
-                            <img src="../../../assets/images/modules/attendance.png" class="home-icons" />
-                            <figcaption>Attendance</figcaption>
+                            <img src="../../../assets/images/modules/letters.png" class="home-icons" />
+                            <figcaption>Letters</figcaption>
                         </figure>
                     </a>
 
@@ -160,14 +155,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #lettersTooltipReference
+                <jqxTooltip #attendanceTooltipReference
                     [position]="'mouse'"
-                    [content]="'Organise all incoming and outgoing letters'">
+                    [content]="'Take attendance of employees'">
 
-                    <a routerLink="/suite/letters/dashboard">
+                    <a routerLink="/suite/attendance/dashboard">
                         <figure>
-                            <img src="../../../assets/images/modules/letters.png" class="home-icons" />
-                            <figcaption>Letters</figcaption>
+                            <img src="../../../assets/images/modules/attendance.png" class="home-icons" />
+                            <figcaption>Attendance</figcaption>
                         </figure>
                     </a>
 

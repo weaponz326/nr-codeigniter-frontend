@@ -1,16 +1,18 @@
-<jqxWindow #addAccountReference 
-    [width]="540" 
-    [height]="190" 
-    [autoOpen]="false">
-    
+<jqxWindow #addAccountReference (onOpen)="accountNameInput.focus()"
+    [width]="540"
+    [height]="190"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
     <div>Add New Account</div>
 
     <div>
 
         <div>
-            <div class="edit-dialog-label-alt">Account Number</div>
+            <div class="edit-dialog-label-alt">Account Name</div>
             <div class="edit-dialog-field-alt">
-                <jqxInput #accountNumberReference
+                <jqxInput #accountNameReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxInput>
@@ -18,9 +20,9 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Account Name</div>
+            <div class="edit-dialog-label-alt">Account Number</div>
             <div class="edit-dialog-field-alt">
-                <jqxInput #accountNameReference
+                <jqxInput #accountNumberReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxInput>
@@ -42,7 +44,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #okButtonReference (click)="saveAccount()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -50,3 +52,9 @@
     </div>
 
 </jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

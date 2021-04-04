@@ -29,6 +29,12 @@ export class EmployeePayrollComponent implements OnInit {
   @ViewChild("taxReference") tax: jqxNumberInputComponent;
   @ViewChild("salaryReference") salary: jqxNumberInputComponent;
 
+  navHeading: any[] = [
+    { text: "All Payroll", url: "/suite/payroll/all-payroll" },
+    { text: "View Payroll", url: "/suite/payroll/view-payroll" },
+    { text: "Employee Payroll", url: "/suite/payroll/employee-payroll" },
+  ];
+
   ngOnInit(): void {
   }
 

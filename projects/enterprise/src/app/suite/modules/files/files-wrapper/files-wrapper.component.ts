@@ -9,6 +9,10 @@ export class FilesWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Folders", url: "/suite/files/all-folders", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

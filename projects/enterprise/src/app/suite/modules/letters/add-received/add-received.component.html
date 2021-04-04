@@ -1,21 +1,21 @@
-<jqxWindow #addReceivedReference 
-    [width]="540" 
-    [height]="300" 
+<jqxWindow #addReceivedReference
+    [width]="540"
+    [height]="340"
     [autoOpen]="false">
-    
+
     <div>Add Received Letter</div>
 
     <div>
 
         <!-- receved letter form -->
-        <app-received-form></app-received-form>
-        
+        <app-received-form #receivedFormComponentReference></app-received-form>
+
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveReceived()"
                 >Save</jqxButton>
             </div>
         </div>

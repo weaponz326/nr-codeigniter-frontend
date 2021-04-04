@@ -1,8 +1,8 @@
-<jqxWindow #newAttendanceReference 
-    [width]="540" 
-    [height]="190" 
+<jqxWindow #newAttendanceReference
+    [width]="540"
+    [height]="190"
     [autoOpen]="false">
-    
+
     <div>Add New Attendance</div>
 
     <div>
@@ -26,7 +26,7 @@
                 ></jqxInput>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label-alt">Year</div>
             <div class="edit-dialog-field-alt">
@@ -42,7 +42,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveAttendance()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -50,4 +50,9 @@
     </div>
 
 </jqxWindow>
-  
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

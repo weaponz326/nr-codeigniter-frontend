@@ -1,21 +1,21 @@
-<jqxWindow #addSentReference 
-    [width]="540" 
-    [height]="300" 
+<jqxWindow #addSentReference
+    [width]="540"
+    [height]="340"
     [autoOpen]="false">
-    
+
     <div>Add Sent Letter</div>
 
     <div>
 
         <!-- sent letter form -->
-        <app-sent-form></app-sent-form>
-        
+        <app-sent-form #sentFormComponentReference></app-sent-form>
+
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveSent()"
                 >Save</jqxButton>
             </div>
         </div>

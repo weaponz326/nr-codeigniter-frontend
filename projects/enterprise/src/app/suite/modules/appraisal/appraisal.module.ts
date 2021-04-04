@@ -10,6 +10,8 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxFormModule } from 'jqwidgets-ng/jqxform';
 
 import { AppraisalRoutingModule } from './appraisal-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AppraisalWrapperComponent } from './appraisal-wrapper/appraisal-wrapper.component';
 import { AllAppraisalComponent } from './all-appraisal/all-appraisal.component';
@@ -25,11 +27,16 @@ import { SettingsComponent } from './settings/settings.component';
     AppraisalWrapperComponent,
     AllAppraisalComponent,
     NewAppraisalComponent,
-    ViewAppraisalComponent, AppraisalFormComponent, DashboardComponent, SettingsComponent
+    ViewAppraisalComponent,
+    AppraisalFormComponent,
+    DashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
     AppraisalRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

@@ -10,6 +10,8 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxFileUploadModule } from 'jqwidgets-ng/jqxfileupload';
 
 import { LettersRoutingModule } from './letters-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { LettersWrapperComponent } from './letters-wrapper/letters-wrapper.component';
 import { AllLettersComponent } from './all-letters/all-letters.component';
@@ -39,6 +41,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     LettersRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxTabsModule,
     jqxGridModule,
     jqxButtonModule,

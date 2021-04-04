@@ -1,0 +1,29 @@
+<jqxWindow #editItemReference (onOpen)="itemForm.itemDateInput.focus()"
+    [width]="540"
+    [height]="240"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Edit Item</div>
+
+    <div>
+
+        <app-item-form #itemFormComponentReference></app-item-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference
+                >Delete</jqxButton>
+
+                <jqxButton #okButtonReference
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

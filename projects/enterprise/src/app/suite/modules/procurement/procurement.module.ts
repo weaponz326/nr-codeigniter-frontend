@@ -10,31 +10,35 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { ProcurementRoutingModule } from './procurement-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { ProcurementWrapperComponent } from './procurement-wrapper/procurement-wrapper.component';
 import { AllProcurementComponent } from './all-procurement/all-procurement.component';
-import { NewOrderComponent } from './new-order/new-order.component';
-import { ViewOrderComponent } from './view-order/view-order.component';
-import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderReviewComponent } from './order-review/order-review.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { NewProcurementComponent } from './new-procurement/new-procurement.component';
+import { ViewProcurementComponent } from './view-procurement/view-procurement.component';
+import { ProcurementFormComponent } from './procurement-form/procurement-form.component';
 
 
 @NgModule({
   declarations: [
     ProcurementWrapperComponent,
     AllProcurementComponent,
-    NewOrderComponent,
-    ViewOrderComponent,
-    OrderFormComponent,
     OrderReviewComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    NewProcurementComponent,
+    ViewProcurementComponent,
+    ProcurementFormComponent
   ],
   imports: [
     CommonModule,
     ProcurementRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

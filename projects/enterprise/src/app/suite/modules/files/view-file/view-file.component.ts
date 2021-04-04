@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
+import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
-import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
+
 
 @Component({
   selector: 'app-view-file',
@@ -12,17 +11,17 @@ import { jqxFileUploadComponent } from 'jqwidgets-ng/jqxfileupload';
 })
 export class ViewFileComponent implements OnInit {
 
-    constructor() { }
+  constructor() { }
 
-  @ViewChild("folderNameReference") folderName: jqxInputComponent;
-  @ViewChild("folderNumberReference") folderNumber: jqxInputComponent;
-  @ViewChild("fileNameReference") fileName: jqxInputComponent;
-  @ViewChild("fileNumberReference") fileNumber: jqxInputComponent;
-  @ViewChild("dateAddedReference") dateAdded: jqxDateTimeInputComponent;
+  @ViewChild("viewFileReference") viewFile: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
-  @ViewChild("attachmentsReference") attachments: jqxFileUploadComponent;
+  @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
   ngOnInit(): void {
+  }
+
+  openWindow(){
+    this.viewFile.open();
   }
 
 }

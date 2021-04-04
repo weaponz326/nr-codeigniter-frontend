@@ -14,6 +14,12 @@ export class CheckAttendanceComponent implements OnInit {
   @ViewChild('attendanceCodeReference') attendanceCode: jqxInputComponent;
   @ViewChild('attendanceNameReference') attendanceName: jqxInputComponent;
 
+  navHeading: any[] = [
+    { text: "All Attendance", url: "/suite/attendance/all-attendance" },
+    { text: "View Attendance", url: "/suite/attendance/view-attendance" },
+    { text: "Check Attendance", url: "/suite/attendance/check-attendance" },
+  ];
+
   ngOnInit(): void {
   }
 

@@ -9,6 +9,10 @@ export class AttendanceWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Attendance", url: "/suite/attendance/all-attendance", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

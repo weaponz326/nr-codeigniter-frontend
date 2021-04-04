@@ -18,7 +18,7 @@ export class AssetFormComponent implements OnInit {
   @ViewChild('assetCodeReference') assetCode: jqxInputComponent;
   @ViewChild('assetNameReference') assetName: jqxInputComponent;
   @ViewChild('assetTypeReference') assetType: jqxInputComponent;
-  @ViewChild('categoryTypeReference') category: jqxInputComponent;
+  @ViewChild('categoryReference') category: jqxInputComponent;
   @ViewChild('datePurchasedReference') datePurchased: jqxDateTimeInputComponent;
   @ViewChild('purchasedValueReference') purchasedValue: jqxNumberInputComponent;
   @ViewChild('supplierReference') supplier: jqxDateTimeInputComponent;

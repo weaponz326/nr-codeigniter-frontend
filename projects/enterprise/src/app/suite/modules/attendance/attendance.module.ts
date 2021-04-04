@@ -9,6 +9,8 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 
 import { AttendanceRoutingModule } from './attendance-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AttendanceWrapperComponent } from './attendance-wrapper/attendance-wrapper.component';
 import { AllAttendanceComponent } from './all-attendance/all-attendance.component';
@@ -36,6 +38,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     AttendanceRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

@@ -10,6 +10,8 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { LeaveRoutingModule } from './leave-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { LeaveWrapperComponent } from './leave-wrapper/leave-wrapper.component';
 import { AllLeaveComponent } from './all-leave/all-leave.component';
@@ -33,6 +35,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     LeaveRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

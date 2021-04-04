@@ -9,6 +9,10 @@ export class AppraisalWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Appraisal", url: "/suite/appraisal/all-appraisal", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

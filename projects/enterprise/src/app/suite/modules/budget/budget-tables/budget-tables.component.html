@@ -4,40 +4,87 @@
         <hr />
 
         <div class="row">
-
             <div class="col-md-6">
-                <jqxGrid #incomeGridReference
+
+                <div class="row top-button-row">
+                    <div class="col-md-12">
+                        <jqxButton #addIncomeButtonReference (click)="addIncomeComponentReference.openWindow()"
+                            [width]="150"
+                            [height]="30"
+                        >Add Income</jqxButton>
+                    </div>
+                </div>
+
+                <jqxGrid #incomeGridReference (onRowdoubleclick)="editIncomeComponentReference.openWindow($event)"
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="incomeDataAdapter"
                     [rowsheight]="24"
                     [showemptyrow]="false"
                     [selectionmode]="'singlerow'"
-                    [showeverpresentrow]="true"
-                    [everpresentrowactions]="'add update delete reset'"
                     [showstatusbar]="true"
                     [showaggregates]="true"
                     [columns]="incomeColumns"
                     [columngroups]="incomeColumnGroups"
                 ></jqxGrid>
+
             </div>
 
             <div class="col-md-6">
+                <div class="row top-button-row">
+
+                    <div class="col-md-12">
+                        <jqxButton #addExpenditureButtonReference (click)="addExpenditureComponentReference.openWindow()"
+                            [width]="150"
+                            [height]="30"
+                        >Add Expenditure</jqxButton>
+                    </div>
+                </div>
+
                 <jqxGrid #expenditureGridReference
+                    (onBindingcomplete)="getIoe()"
+                    (onRowdoubleclick)="editExpenditureComponentReference.openWindow($event)"
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="expenditureDataAdapter"
                     [rowsheight]="24"
                     [showemptyrow]="false"
                     [selectionmode]="'singlerow'"
-                    [showeverpresentrow]="true"
-                    [everpresentrowactions]="'add update delete reset'"
                     [showstatusbar]="true"
                     [showaggregates]="true"
                     [columns]="expenditureColumns"
                     [columngroups]="expenditureColumnGroups"
                 ></jqxGrid>
+
             </div>
 
         </div>
 
     </div>
 </div>
+
+<!-- income and expenditure popup dialog windows -->
+
+<app-add-income #addIncomeComponentReference
+    (addCommit)="onIncomeAddCommit($event)"
+></app-add-income>
+
+<app-edit-income #editIncomeComponentReference
+    (editCommit)="onIncomeEditCommit($event)"
+    (deleteCommit)="onIncomeDeleteCommit($event)"
+></app-edit-income>
+
+<app-add-expenditure #addExpenditureComponentReference
+    (addCommit)="onExpenditureAddCommit($event)"
+></app-add-expenditure>
+
+<app-edit-expenditure #editExpenditureComponentReference
+    (editCommit)="onExpenditureEditCommit($event)"
+    (deleteCommit)="onExpenditureDeleteCommit($event)"
+></app-edit-expenditure>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

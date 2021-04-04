@@ -10,6 +10,8 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { AssetsRoutingModule } from './assets-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AssetsWrapperComponent } from './assets-wrapper/assets-wrapper.component';
 import { AllAssetsComponent } from './all-assets/all-assets.component';
@@ -33,6 +35,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     AssetsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

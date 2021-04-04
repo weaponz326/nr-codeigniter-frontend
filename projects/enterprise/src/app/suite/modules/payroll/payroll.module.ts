@@ -10,6 +10,8 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { PayrollRoutingModule } from './payroll-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { PayrollWrapperComponent } from './payroll-wrapper/payroll-wrapper.component';
 import { AllPayrollComponent } from './all-payroll/all-payroll.component';
@@ -35,6 +37,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     PayrollRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

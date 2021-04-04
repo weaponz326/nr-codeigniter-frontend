@@ -16,8 +16,8 @@ export class LeaveFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild('leaveCodeReference') leaveCode: jqxInputComponent;
-  @ViewChild('employeeNameReference') employeeName: jqxDropDownListComponent;
-  @ViewChild('employeeCodeReference') employeeCode: jqxDropDownListComponent;
+  @ViewChild('employeeNameReference') employeeName: jqxInputComponent;
+  @ViewChild('employeeCodeReference') employeeCode: jqxInputComponent;
   @ViewChild('dateRequestedReference') dateRequested: jqxDateTimeInputComponent;
   @ViewChild('leaveTypeReference') leaveType: jqxDropDownListComponent;
   @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;

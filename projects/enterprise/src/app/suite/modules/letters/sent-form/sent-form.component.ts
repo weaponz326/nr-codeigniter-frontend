@@ -14,7 +14,7 @@ export class SentFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild("dateSentReference") dateSent: jqxDateTimeInputComponent;
-  @ViewChild("recepientReference") recepient: jqxInputComponent;
+  @ViewChild("recipientReference") recipient: jqxInputComponent;
   @ViewChild("subjectReference") subject: jqxInputComponent;
   @ViewChild("referenceNumberReference") referenceNumber: jqxInputComponent;
   @ViewChild("letterDateReference") letterDate: jqxDateTimeInputComponent;

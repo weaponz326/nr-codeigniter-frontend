@@ -8,8 +8,12 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { EmployeesRoutingModule } from './employees-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { EmployeesWrapperComponent } from './employees-wrapper/employees-wrapper.component';
 import { AllEmployeesComponent } from './all-employees/all-employees.component';
@@ -33,13 +37,17 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     EmployeesRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxRadioButtonModule,
     jqxTextAreaModule,
-    jqxDropDownListModule
+    jqxDropDownListModule,
+    jqxComboBoxModule,
+    jqxPanelModule
   ]
 })
 export class EmployeesModule { }

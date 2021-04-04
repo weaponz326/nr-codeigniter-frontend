@@ -9,6 +9,10 @@ export class LettersWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Letters", url: "/suite/letters/all-letters", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

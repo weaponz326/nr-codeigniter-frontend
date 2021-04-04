@@ -60,6 +60,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/ledger/ledger.module").then(m => m.LedgerModule)
   },
   {
+    path: "reception",
+    loadChildren: () => import("./modules/reception/reception.module").then(m => m.ReceptionModule)
+  },
+  {
     path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },

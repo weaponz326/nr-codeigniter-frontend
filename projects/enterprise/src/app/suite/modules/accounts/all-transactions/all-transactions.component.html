@@ -1,24 +1,12 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-            
-    <div class="module-heading row">
-        <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#"><h3>Accounts</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>All Transactions</h3>
-            
-            <hr class="header-line" />
-            <hr class="header-line" />
-        
-        </div>
-    </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <jqxGrid #gridReference
                 [width]="'100%'"
+                [source]="dataAdapter"
                 [autoheight]="true"
                 [sortable]="true"
                 [filterable]="true"
@@ -32,3 +20,7 @@
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

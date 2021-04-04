@@ -1,0 +1,45 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row top-button-row">
+        <div class="col-md-12">
+            <jqxButton #addVisitorReference (click)="addVisitorWindowReference.openWindow()"
+                [width]="150"
+                [height]="30"
+            >Add Visitor</jqxButton>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <jqxGrid #gridReference (onRowdoubleclick)="editVisitorWindowReference.openWindow($event)"
+                [width]="'100%'"
+                [height]="450"
+                [source]="dataAdapter"
+                [sortable]="true"
+                [filterable]="true"
+                [showfilterrow]="true"
+                [columns]="columns"
+            ></jqxGrid>
+        </div>
+    </div>
+
+</div>
+
+<!-- add visitor dialog window -->
+<app-add-visitor #addVisitorWindowReference
+    (addCommit)="onAddCommit($event)"
+></app-add-visitor>
+
+<!-- edit visitor dialog window -->
+<app-edit-visitor #editVisitorWindowReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-visitor>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>
