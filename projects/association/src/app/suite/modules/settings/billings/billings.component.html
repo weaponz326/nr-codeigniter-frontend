@@ -1,0 +1,178 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Billing Plan</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <jqxRadioButton #smalTeamReference (onChange)="selectSmallTeam($event)" [height]="40" [groupName]="'plan'">
+                <span>Small Team Subscription</span><br />
+            </jqxRadioButton>
+            <span><small class="plan-details">10 Users, 20GB total storage</small></span>
+            <br />
+            <jqxRadioButton #smalTeamReference (onChange)="selectLargeTeam($event)" [height]="40" [groupName]="'plan'">
+                <span>Large Team Subscription</span><br />
+            </jqxRadioButton>
+            <span><small class="plan-details">50 Users, 250GB total storage</small></span>
+            <br />
+            <jqxRadioButton #smalTeamReference (onChange)="selectComprehensive($event)" [height]="40" [groupName]="'plan'">
+                <span>Comprehensive Subscription</span><br />
+            </jqxRadioButton>
+            <span><small class="plan-details">Unlimited Users, Unlimited storage, Customized functions</small></span>
+        </div>
+
+        <div class="col-md-6">
+            <div *ngIf="this.selectedPlan == 'smallTeam'">
+                <jqxRadioButton [height]="40"  [groupName]="'smallGroup'">
+                    <span>Monthly - <b>$9.99</b></span><br />
+                </jqxRadioButton>
+                <jqxRadioButton [height]="40"  [groupName]="'smallGroup'">
+                    <span>Yearly - <b>$99.99</b></span><br />
+                </jqxRadioButton>
+            </div>
+
+            <div *ngIf="this.selectedPlan == 'largeTeam'">
+                <jqxRadioButton [height]="40"  [groupName]="'largeGroup'">
+                    <span>Monthly - <b>$29.99</b></span><br />
+                </jqxRadioButton>
+                <jqxRadioButton [height]="40"  [groupName]="'largeGroup'">
+                    <span>Yearly - <b>$299.99</b></span><br />
+                </jqxRadioButton>
+            </div>
+
+            <div *ngIf="this.selectedPlan == 'comprehensive'">
+                Current quote - <b>$0.00</b><br />
+                <small class="text-info">Contact netRink slaes for your quote</small>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-7">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Billing Details</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Company Name :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #companyNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Country :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #countryReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Sate/Province :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #stateReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>City/Town :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #cityReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Zip Code :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #zipCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Address :</label></div>
+                <div class="col-md-8">
+                    <jqxTextArea #addressReference
+                        [width]="'100%'"
+                        [height]="65"
+                    ></jqxTextArea>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Payment Information</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Card Number :</label></div>
+                <div class="col-md-6">
+                    <jqxInput #cardNumberReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Expiry :</label></div>
+                <div class="col-md-4">
+                    <jqxInput #expiryReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Secret Code :</label></div>
+                <div class="col-md-4">
+                    <jqxInput #secretCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row page-form-div">
+                <div class="col-md-12">
+                    <jqxButton #saveButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

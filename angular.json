@@ -1126,6 +1126,131 @@
           }
         }
       }
-    }},
+    },
+    "association": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/association",
+      "sourceRoot": "projects/association/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/association",
+            "index": "projects/association/src/index.html",
+            "main": "projects/association/src/main.ts",
+            "polyfills": "projects/association/src/polyfills.ts",
+            "tsConfig": "projects/association/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/association/src/favicon.ico",
+              "projects/association/src/assets"
+            ],
+            "styles": [
+              "projects/association/src/styles.css",
+              "node_modules/jqwidgets-ng/jqwidgets/styles/jqx.base.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "projects/personal/src/assets/css/sb-admin-2.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/personal/src/assets/js/sb-admin-2.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/association/src/environments/environment.ts",
+                  "with": "projects/association/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "association:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "association:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "association:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/association/src/test.ts",
+            "polyfills": "projects/association/src/polyfills.ts",
+            "tsConfig": "projects/association/tsconfig.spec.json",
+            "karmaConfig": "projects/association/karma.conf.js",
+            "assets": [
+              "projects/association/src/favicon.ico",
+              "projects/association/src/assets"
+            ],
+            "styles": [
+              "projects/association/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/association/tsconfig.app.json",
+              "projects/association/tsconfig.spec.json",
+              "projects/association/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/association/e2e/protractor.conf.js",
+            "devServerTarget": "association:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "association:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "application"
 }

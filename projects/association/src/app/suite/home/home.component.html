@@ -1,0 +1,225 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar homebar mb-4 static-top shadow">
+  <div class="module-heading text-center">
+      <a routerLink="./">
+          <h3><i class="fa fa-home sidebar-card-illustration mb-2"></i> Home</h3>
+      </a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="home-div">
+
+      <div class="row">
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #portalTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Connect to other businesses throgh netRink portal'">
+
+                  <a routerLink="/suite/portal/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/portal.png" class="home-icons" />
+                          <figcaption>Portal</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #accountsTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage financial accounts and transactions'">
+
+                  <a routerLink="/suite/accounts/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/accounts.png" class="home-icons" />
+                          <figcaption>Accounts</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #membersTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage all members related operations'">
+
+                  <a routerLink="/suite/members/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/members.png" class="home-icons" />
+                          <figcaption>Members</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #committeesTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage the affairs of sub committees'">
+
+                  <a routerLink="/suite/committees/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/committees.png" class="home-icons" />
+                          <figcaption>Committees</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #assetsTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage and track assets'">
+
+                  <a routerLink="/suite/assets/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/assets.png" class="home-icons" />
+                          <figcaption>Assets</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #duesTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage dues and financial obligations of members'">
+
+                  <a routerLink="/suite/dues/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/dues.png" class="home-icons" />
+                          <figcaption>Dues</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+      </div>
+
+      <!-- ----------------------------------------------------------------------------------
+      row -->
+
+      <div class="row">
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #adminTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage users and access levels'">
+
+                  <a routerLink="/suite/admin/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/admin.png" class="home-icons" />
+                          <figcaption>Admin</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #executivesTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage directors and executives'">
+
+                  <a routerLink="/suite/executives/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/executives.png" class="home-icons" />
+                          <figcaption>Executives</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #activitiesTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Manage activities and schedules'">
+
+                  <a routerLink="/suite/activities/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/activities.png" class="home-icons" />
+                          <figcaption>Activities</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #budgetTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Plan and prepare association\'s budget'">
+
+                  <a routerLink="/suite/budget/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/budget.png" class="home-icons" />
+                          <figcaption>Budget</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #attendanceTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Take attendance to meetings and events'">
+
+                  <a routerLink="/suite/attendance/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/attendance.png" class="home-icons" />
+                          <figcaption>Attendance</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+      </div>
+
+      <!-- ------------------------------------------------------------------------
+      row -->
+
+      <div class="row">
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #settingsTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Set configuarations for your modules'">
+
+                  <a routerLink="/suite/settings/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/settings.png" class="home-icons" />
+                          <figcaption>Settings</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+      </div>
+
+  </div>
+
+  <!-- --------------------------------------------------------------------------------------------- -->
+
+  <div *ngIf="this.isActive == false; then createAccountBlock"></div>
+
+  <ng-template #createAccountBlock>
+      <div class="row text-center home-create-button-div">
+          <div class="col-md-12">
+              <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create Association account</button>
+          </div>
+      </div>
+  </ng-template>
+
+</div>

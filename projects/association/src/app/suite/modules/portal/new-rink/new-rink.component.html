@@ -1,0 +1,105 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+            <div class="row">
+                <div class="col-md-3"><label>Recipient Name :</label></div>
+                <div class="col-md-6">
+                    <jqxInput #nameInputReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3"><label>Recipient Location :</label></div>
+                <div class="col-md-6">
+                    <jqxInput #locationInputReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-3"><label>Rink Type :</label></div>
+                <div class="col-md-6">
+                    <jqxDropDownList #typeDropDownListReference (onSelect)="enableSourceButton()"
+                        [width]="'100%'"
+                        [height]="28"
+                        [source]="typeSource"
+                        [autoDropDownHeight]="true"
+                    ></jqxDropDownList>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-md-3 col-md-9">
+                    <jqxButton #sourceButtonReference (click)="openSourceWindow()"
+                        [width]="100"
+                        [height]="28"
+                        [disabled]="true"
+                    >Source</jqxButton>
+                    {{this.selectedSource}}
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-3"><label>Comment :</label></div>
+                <div class="col-md-6">
+                    <jqxTextArea #commentTextAreaReference
+                        [width]="'100%'"
+                        [height]="75"
+                    ></jqxTextArea>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row page-form-div">
+              <div class="col-md-9">
+                  <jqxButton #cancelButtonReference class="float-right"
+                      [width]="100"
+                      [height]="28"
+                  >Cancel</jqxButton>
+
+                  <jqxButton #sendButtonReference class="float-right" (click)="sendRink()"
+                      [width]="100"
+                      [height]="28"
+                  >Send</jqxButton>
+              </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <jqxButton #goToSearchButtonReference class="float-right" routerLink="/suite/portal/search"
+                [width]="120"
+                [height]="30"
+            >Search</jqxButton>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- rink type source window components -->
+
+
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

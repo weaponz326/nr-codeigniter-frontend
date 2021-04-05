@@ -1,0 +1,21 @@
+#searchDiv{
+  margin-bottom: 30px;
+}
+
+#searchInputDiv{
+  width: 60%;
+}
+
+#searchComboBoxDiv{
+  width: 25%;
+}
+
+#searchButtonDiv{
+  width: 15%;
+}
+
+#searchInputDiv,
+#searchComboBoxDiv,
+#searchButtonDiv{
+  float: left;
+}

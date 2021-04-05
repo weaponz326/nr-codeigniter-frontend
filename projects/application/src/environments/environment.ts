@@ -10,9 +10,10 @@ export const environment = {
   restaurantUrl: "http://localhost:8003/",          // url for restaurant backend
   schoolUrl: "http://localhost:8004/",              // url for school backend
   enterpriseUrl: "http://localhost:8005/",          // url for enterprise backend
-  hotelUrl: "http://localhost:8006/",               // url for hotel backend
-  shopUrl: "http://localhost:8007/",                // url for shop backend
-  productionUrl: "http://localhost:8008/"           // url for production backend
+  associationUrl: "http://localhost:8006/",         // url for association backend
+  hotelUrl: "http://localhost:8007/",               // url for hotel backend
+  shopUrl: "http://localhost:8008/",                // url for shop backend
+  productionUrl: "http://localhost:8009/"           // url for production backend
 };
 
 

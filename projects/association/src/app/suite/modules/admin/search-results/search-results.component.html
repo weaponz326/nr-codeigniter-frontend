@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12 text-center text-muted">
+    <small>showing results for <b>"{{this.searchInput}}"</b></small>
+  </div>
+</div>
+
+<div *ngFor="let result of searchResults" >
+
+    <hr />
+    <div class="row" (click)="goToDetail(result.id)">
+        <div class="col-md-6">
+            <label class="text-muted"><em><small>Name :</small></em></label><br />
+            {{result.user.first_name}} {{result.user.last_name}}
+        </div>
+        <div class="col-md-6">
+            <label class="text-muted"><em><small>Name :</small></em></label><br />
+            {{result.location}}
+        </div>
+    </div>
+
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

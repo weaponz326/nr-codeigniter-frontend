@@ -74,6 +74,20 @@
     </app-suite-left>
 
     <app-suite-right
+        [suiteImageSrc]="'../../../assets/images/suites/association.png'"
+        [suiteDivId]="'associationDiv'"
+        [suiteName]="'Association'"
+        [suiteDescription]="'For associations, motels, guest houses, inns, hostels, resorts, and many more'"
+        [suiteUses]="[
+            'Minimize the amount of time spent on administrative tasks',
+            'Increase guest satisfaction by improving operational efficiency',
+            'Integrate all functions of your facility in centralized environment',
+            'Connect with your guests through netRink portal'
+        ]"
+        [suiteButtonLink]="associationUrl">
+    </app-suite-right>
+
+    <app-suite-left
         [suiteImageSrc]="'../../../assets/images/suites/hotel.png'"
         [suiteDivId]="'hotelDiv'"
         [suiteName]="'Hotel'"
@@ -85,9 +99,9 @@
             'Connect with your guests through netRink portal'
         ]"
         [suiteButtonLink]="hotelUrl">
-    </app-suite-right>
+    </app-suite-left>
 
-    <app-suite-left
+    <app-suite-right
         [suiteImageSrc]="'../../../assets/images/suites/shop.png'"
         [suiteDivId]="'shopDiv'"
         [suiteName]="'Shop'"
@@ -99,9 +113,9 @@
             'Connect with your customers and the rest of tne world'
         ]"
         [suiteButtonLink]="shopUrl">
-    </app-suite-left>
+    </app-suite-right>
 
-    <app-suite-right
+    <app-suite-left
         [suiteImageSrc]="'../../../assets/images/suites/production.png'"
         [suiteDivId]="'productionDiv'"
         [suiteName]="'Production'"
@@ -113,6 +127,6 @@
             'Connect with your suppliers, distributers, and many more through netRink portal'
         ]"
         [suiteButtonLink]="productionUrl">
-    </app-suite-right>
+    </app-suite-left>
 
 </div>

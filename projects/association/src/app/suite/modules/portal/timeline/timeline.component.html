@@ -1,0 +1,96 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row top-button-row">
+        <div class="col-md-12">
+            <jqxButton #newButtonReference routerLink="/suite/portal/search"
+                [width]="150"
+                [height]="30"
+            >New Rink</jqxButton>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <div *ngFor="let rink of rinks">
+
+                <hr />
+
+                <div *ngIf="rink.sender.id==personalId; then senderBlock else recipientBlock"></div>
+
+                <ng-template #senderBlock>
+                    <div (click)="viewRink(rink.id)">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <i class="fa fa-arrow-alt-circle-up rinkout-icon"></i>
+                                <small>RinkOut - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</small>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Name :</small></em></label><br />
+                                {{rink.recipient.name}}
+                            </div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                                {{rink.recipient.location}}
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                            <div class="col-md-5">{{rink.rink_type}}</div>
+                        </div>
+                    </div>
+                </ng-template>
+
+                <ng-template #recipientBlock>
+                    <div (click)="viewRink(rink.id)">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <i class="fa fa-arrow-alt-circle-down rinkin-icon"></i>
+                                <small>RinkIn - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</small>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">From</label></div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Name :</small></em></label><br />
+                                {{rink.sender.name}}
+                            </div>
+                            <div class="col-md-5">
+                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                                {{rink.sender.location}}
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
+                            <div class="col-md-5">{{rink.rink_type}}</div>
+                        </div>
+                      </div>
+                </ng-template>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -1,0 +1,53 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row" id="searchDiv">
+        <div class="col-md-8">
+
+            <div class="row">
+                <div class="offset-md-2 col-md-8">
+                    <div id="searchComboBoxDiv">
+                        <jqxDropDownList #searchDropDownListReference
+                            [width]="'100%'"
+                            [height]="30"
+                            [source]="searchFilter"
+                            [selectedIndex]="0"
+                            [autoDropDownHeight]="true"
+                        ></jqxDropDownList>
+                    </div>
+                    <div id="searchInputDiv">
+                        <jqxInput #searchInputReference
+                            [width]="'100%'"
+                            [height]="30"
+                            [placeHolder]="'Search for users'"
+                        ></jqxInput>
+                    </div>
+                    <div id="searchButtonDiv">
+                        <jqxButton #searchButtonReference class="search-elements"
+                            (click)="doSearch(this.searchInput.val(), this.searchDropDownList.val())"
+                            [width]="'100%'"
+                            [height]="30"
+                        >Search</jqxButton>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- router for search results -->
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class="offset-md-1 col-md-3">
+            <jqxButton #recentConatactsButtonReference (click)="goRecentContacts()"
+                [width]="150"
+                [height]="34"
+            >Recent Contacts</jqxButton>
+        </div>
+    </div>
+
+</div>

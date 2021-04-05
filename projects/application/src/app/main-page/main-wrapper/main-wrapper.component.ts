@@ -22,6 +22,7 @@ export class MainWrapperComponent implements OnInit {
   restaurantUrl = environment.restaurantUrl;
   schoolUrl = environment.schoolUrl;
   enterpriseUrl = environment.enterpriseUrl;
+  associationUrl = environment.associationUrl;
   hotelUrl = environment.hotelUrl;
   shopUrl = environment.shopUrl;
   productionUrl = environment.productionUrl;

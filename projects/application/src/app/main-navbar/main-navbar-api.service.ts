@@ -17,6 +17,7 @@ export class MainNavbarApiService {
   restaurantUrl = environment.restaurantUrl;
   schoolUrl = environment.schoolUrl;
   enterpriseUrl = environment.enterpriseUrl;
+  associationUrl = environment.associationUrl;
   hotelUrl = environment.hotelUrl;
   shopUrl = environment.shopUrl;
   productionUrl = environment.productionUrl;
@@ -56,6 +57,10 @@ export class MainNavbarApiService {
 
   public checkActiveEnterprise(): Observable<any>{
     return this.http.get(this.enterpriseUrl + "accounts/active-account/", { withCredentials: true })
+  }
+
+  public checkActiveAssociation(): Observable<any>{
+    return this.http.get(this.associationUrl + "accounts/active-account/", { withCredentials: true })
   }
 
   public checkActiveHotel(): Observable<any>{

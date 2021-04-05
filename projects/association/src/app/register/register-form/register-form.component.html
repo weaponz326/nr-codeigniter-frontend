@@ -1,0 +1,43 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Association Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter the name of your association" required autofocus>
+            <div *ngFor="let nameErr of nameErrors">
+                <small class="text-danger">{{nameErr}}</small><br />
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Location</label>
+            <input type="text" class="form-control" formControlName="location" placeholder="Enter your city or town, state, and country" required>
+            <div *ngFor="let locErr of locErrors">
+                <small class="text-danger">{{locErr}}</small><br />
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>About</label>
+            <textarea class="form-control text-left" rows="3" formControlName="about" placeholder="Enter a brief description about your association" required></textarea>
+            <div *ngFor="let abtErr of abtErrors">
+                <small class="text-danger">{{abtErr}}</small><br />
+            </div>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-12">
+            <button type="submit" class="float-right btn btn-success mb-2">Submit</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+  <div class="col-md-12">
+      <small class="text-center text-muted">
+          <p><a href="#">Create an association group</a></p>
+      </small>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <jqxTabs class="profile-tabs" style="border: none;"
+                [width]="'100%'"
+            >
+
+                <ul>
+                    <li>Basic Profile</li>
+                    <li>Pictures</li>
+                    <li>Location Details</li>
+                    <li>Contact Details</li>
+                </ul>
+
+                <!-- profile tabs contents components -->
+
+                <div class="profile-content-div">
+                    <app-basic #basicComponentReference
+                ></app-basic>
+                </div>
+                <div class="profile-content-div">
+                    <app-logo
+                        #photoComponentReference
+                    ></app-logo>
+                </div>
+                <div class="profile-content-div">
+                    <app-location
+                        #locationComponentReference
+                    ></app-location>
+                </div>
+                <div class="profile-content-div">
+                    <app-contact
+                        #contactComponentReference
+                    ></app-contact>
+                </div>
+
+              </jqxTabs>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

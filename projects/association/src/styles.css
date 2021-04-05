@@ -1,0 +1,4 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../../application/src/assets/css/main.css";
+@import "../../application/src/assets/css/forms.css";
+@import "../../personal/src/assets/css/modules.css";
