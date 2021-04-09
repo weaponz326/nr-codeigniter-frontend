@@ -22,6 +22,11 @@ export class ViewBookingComponent implements OnInit {
   @ViewChild("statusReference") status: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "All Bookings", url: "/suite/bookings/all-bookings" },
+    { text: "View Booking", url: "/suite/bookings/view-booking" },
+  ];
+
   ngOnInit(): void {
   }
 

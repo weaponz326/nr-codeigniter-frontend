@@ -1,0 +1,78 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row page-form-div">
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Housekeeping ID :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #housekeepingCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Housekeeping Date :</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #housekeepingDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>roomNumber :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #roomNumberReference
+                        [width]="'88%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                    <jqxButton #selectRoomButton
+                        [width]="'10%'"
+                        [height]="25"
+                    >...</jqxButton>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <jqxButton #cancelButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+
+                    <jqxButton #deleteButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Delete</jqxButton>
+
+                    <jqxButton #saveButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <hr />
+        </div>
+    </div>
+
+    <!-- house keeping checklist -->
+
+    <app-checklist></app-checklist>
+
+</div>

@@ -7,8 +7,11 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxCheckBoxModule } from 'jqwidgets-ng/jqxcheckbox';
 
 import { CheckinRoutingModule } from './checkin-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { CheckinWrapperComponent } from './checkin-wrapper/checkin-wrapper.component';
 import { AllCheckinComponent } from './all-checkin/all-checkin.component';
@@ -32,12 +35,15 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     CheckinRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxNumberInputModule,
-    jqxDropDownListModule
+    jqxDropDownListModule,
+    jqxCheckBoxModule
   ]
 })
 export class CheckinModule { }

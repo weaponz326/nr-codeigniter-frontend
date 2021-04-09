@@ -7,6 +7,15 @@
             </div>
         </div>
 
+        <div class="row top-button-row">
+            <div class="col-md-10">
+                <jqxButton #addDetailReference
+                    [width]="150"
+                    [height]="30"
+                >Add Detail</jqxButton>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <jqxGrid #roomGridReference
@@ -14,11 +23,6 @@
                     [autoheight]="true"
                     [rowsheight]="24"
                     [showemptyrow]="false"
-                    [selectionmode]="'singlerow'"
-                    [showeverpresentrow]="true"
-                    [everpresentrowactions]="'add update delete reset'"
-                    [showstatusbar]="true"
-                    [showaggregates]="true"
                     [columns]="columns"
                 ></jqxGrid>
             </div>

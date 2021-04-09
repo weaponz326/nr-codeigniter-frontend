@@ -9,6 +9,8 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { BillsRoutingModule } from './bills-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { BillsWrapperComponent } from './bills-wrapper/bills-wrapper.component';
 import { AllBillsComponent } from './all-bills/all-bills.component';
@@ -32,6 +34,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     BillsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,

@@ -14,11 +14,16 @@ export class ViewServicesComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("servicesCodeReference") servicesCode: jqxInputComponent;
-  @ViewChild("servicesTypeReference") servicesType: jqxComboBoxComponent;
+  @ViewChild("serviceCodeReference") serviceCode: jqxInputComponent;
+  @ViewChild("serviceTypeReference") serviceType: jqxComboBoxComponent;
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "All Services", url: "/suite/services/all-services" },
+    { text: "View Service", url: "/suite/services/view-service" },
+  ];
 
   ngOnInit(): void {
   }

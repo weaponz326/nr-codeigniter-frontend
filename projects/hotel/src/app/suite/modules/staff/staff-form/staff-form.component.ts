@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxRadioButtonComponent } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
   selector: 'app-staff-form',
@@ -16,7 +16,7 @@ export class StaffFormComponent implements OnInit {
 
   @ViewChild('firstNameReference') firstName: jqxInputComponent;
   @ViewChild('lastNameReference') lastName: jqxInputComponent;
-  @ViewChild('sexReference') sex: jqxRadioButtonComponent;
+  @ViewChild('sexReference') sex: jqxDropDownListComponent;
   @ViewChild('dobReference') dob: jqxDateTimeInputComponent;
   @ViewChild('nationalityReference') nationality: jqxInputComponent;
   @ViewChild('religionReference') religion: jqxInputComponent;
@@ -27,7 +27,10 @@ export class StaffFormComponent implements OnInit {
   @ViewChild('cityReference') city: jqxInputComponent;
   @ViewChild('postCodeReference') postCode: jqxInputComponent;
   @ViewChild('staffCodeReference') staffCode: jqxInputComponent;
+  @ViewChild('departmentReference') department: jqxInputComponent;
   @ViewChild('jobReference') job: jqxInputComponent;
+
+  sexSource: any[] = ["Male", "Female"];
 
   ngOnInit(): void {
   }

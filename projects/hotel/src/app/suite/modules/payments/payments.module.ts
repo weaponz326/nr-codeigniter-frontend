@@ -9,6 +9,8 @@ import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { PaymentsRoutingModule } from './payments-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { PaymentsWrapperComponent } from './payments-wrapper/payments-wrapper.component';
 import { AllPaymentsComponent } from './all-payments/all-payments.component';
@@ -32,6 +34,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     PaymentsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

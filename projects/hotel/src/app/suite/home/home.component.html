@@ -1,17 +1,12 @@
-<div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <h3>Home</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
+<nav class="navbar navbar-expand navbar-light bg-white topbar homebar mb-4 static-top shadow">
+    <div class="module-heading text-center">
+        <a routerLink="./">
+            <h3><i class="fa fa-home sidebar-card-illustration mb-2"></i> Home</h3>
+        </a>
     </div>
+</nav>
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
+<div class="container">
 
     <div class="home-div">
 
@@ -63,14 +58,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #guestsTooltipReference
+                <jqxTooltip #roomsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Keep track of all your guests'">
+                    [content]="'Effectively manage rooms'">
 
-                    <a routerLink="/suite/guests/dashboard">
+                    <a routerLink="/suite/rooms/dashboard">
                         <figure>
-                            <img src="../../../assets/images/modules/guests.png" class="home-icons" />
-                            <figcaption>Guests</figcaption>
+                            <img src="../../../assets/images/modules/rooms.png" class="home-icons" />
+                            <figcaption>Rooms</figcaption>
                         </figure>
                     </a>
 
@@ -160,14 +155,14 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #roomsTooltipReference
+                <jqxTooltip #guestsTooltipReference
                     [position]="'mouse'"
-                    [content]="'Effectively manage rooms'">
+                    [content]="'Keep track of all your guests'">
 
-                    <a routerLink="/suite/rooms/dashboard">
+                    <a routerLink="/suite/guests/dashboard">
                         <figure>
-                            <img src="../../../assets/images/modules/rooms.png" class="home-icons" />
-                            <figcaption>Rooms</figcaption>
+                            <img src="../../../assets/images/modules/guests.png" class="home-icons" />
+                            <figcaption>Guests</figcaption>
                         </figure>
                     </a>
 
@@ -232,7 +227,7 @@
 
     <!-- --------------------------------------------------------------------------------------------- -->
 
-    <div *ngIf="this.isActive == false; then createAccountBlock"></div>
+    <!-- <div *ngIf="this.isActive == false; then createAccountBlock"></div>
 
     <ng-template #createAccountBlock>
         <div class="row text-center home-create-button-div">
@@ -240,6 +235,6 @@
                 <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create Hotel account</button>
             </div>
         </div>
-    </ng-template>
+    </ng-template> -->
 
 </div>

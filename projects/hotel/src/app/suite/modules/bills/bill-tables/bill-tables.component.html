@@ -7,6 +7,15 @@
             </div>
         </div>
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #buttonReference
+                    [width]="150"
+                    [height]="30"
+                >Add Room Charges</jqxButton>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <jqxGrid #roomGridReference
@@ -14,9 +23,6 @@
                     [autoheight]="true"
                     [rowsheight]="24"
                     [showemptyrow]="false"
-                    [selectionmode]="'singlerow'"
-                    [showeverpresentrow]="true"
-                    [everpresentrowactions]="'add update delete reset'"
                     [showstatusbar]="true"
                     [showaggregates]="true"
                     [columns]="roomColumns"
@@ -25,7 +31,16 @@
             </div>
         </div>
 
-        <br />
+        <hr />
+
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #buttonReference
+                    [width]="150"
+                    [height]="30"
+                >Add Service Charges</jqxButton>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -34,9 +49,6 @@
                     [autoheight]="true"
                     [rowsheight]="24"
                     [showemptyrow]="false"
-                    [selectionmode]="'singlerow'"
-                    [showeverpresentrow]="true"
-                    [everpresentrowactions]="'add update delete reset'"
                     [showstatusbar]="true"
                     [showaggregates]="true"
                     [columns]="servicesColumns"

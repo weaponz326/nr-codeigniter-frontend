@@ -7,15 +7,21 @@
             </div>
         </div>
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #buttonReference
+                    [width]="150"
+                    [height]="30"
+                >Add Item</jqxButton>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <jqxGrid #grid
                     [width]="'100%'"
                     [autoheight]="true"
                     [showemptyrow]="false"
-                    [selectionmode]="'singlerow'"
-                    [showeverpresentrow]="true"
-                    [everpresentrowactions]="'add update delete reset'"
                     [showstatusbar]="true"
                     [showaggregates]="true"
                     [columns]="columns"

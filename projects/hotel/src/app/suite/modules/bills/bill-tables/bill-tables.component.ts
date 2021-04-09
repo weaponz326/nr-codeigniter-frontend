@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+
 
 @Component({
   selector: 'app-bill-tables',
@@ -11,6 +13,7 @@ export class BillTablesComponent implements OnInit {
 
   constructor() { }
 
+  @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild("roomGridReference") roomGrid: jqxGridComponent;
   @ViewChild("servicesGridReference") servicesGrid: jqxGridComponent;
 
@@ -23,11 +26,11 @@ export class BillTablesComponent implements OnInit {
   // room columns
 
   roomColumns: any[] = [
-    { text: "Room Type", dataField: "room_type", columngroup: "roomGroup", width: "30%" },
-    { text: 'Rate', datafield: 'rate', columngroup: "roomGroup", width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
-    { text: 'No. of Persons', datafield: 'personsNumber', columngroup: "roomGroup", width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    { text: 'No. of Rooms', datafield: 'roomsNumber', columngroup: "roomGroup", width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    { text: "Total", dataField: "total", columngroup: "roomGroup", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
+    { text: "Room Number", dataField: "room_number", columngroup: "roomGroup", width: "15%" },
+    { text: "Room Type", dataField: "room_type", columngroup: "roomGroup", width: "35%" },
+    { text: 'Rate', datafield: 'rate', columngroup: "roomGroup", width: "15%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
+    { text: 'No. of Nights', datafield: 'nightsNumber', columngroup: "roomGroup", width: "15%", cellsalign: 'right', columntype: 'numberinput' },
+    { text: "Amount", dataField: "total", columngroup: "roomGroup", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
   ];
 
   roomColumnGroups: any[] = [

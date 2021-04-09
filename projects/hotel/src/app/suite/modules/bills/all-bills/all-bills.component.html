@@ -1,34 +1,22 @@
-<div class="container">
-            
-    <div class="module-heading row">
-        <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Bills</h3>
-            
-            <hr class="header-line" />
-            <hr class="header-line" />
-        
-        </div>
-    </div>
+<app-topnav [headings]="navHeading"></app-topnav>
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
+<div class="container">
 
     <div class="row top-button-row">
         <div class="col-md-12">
             <jqxButton #buttonReference (click)="newBillWindowReference.openWindow()"
-                [width]="120"
+                [width]="150"
                 [height]="30"
             >New Bill</jqxButton>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8">
-            <jqxGrid #gridReference
+        <div class="col-md-10">
+            <jqxGrid #gridReference (onRowdoubleclick)="viewBill($event)"
                 [width]="'100%'"
                 [height]="450"
+                [source]="dataAdapter"
                 [sortable]="true"
                 [filterable]="true"
                 [showfilterrow]="true"
@@ -42,3 +30,9 @@
 <!-- new bill popup dialog window -->
 
 <app-new-bill #newBillWindowReference></app-new-bill>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

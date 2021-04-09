@@ -16,7 +16,7 @@ export class RoomFormComponent implements OnInit {
 
   @ViewChild('roomNumberReference') roomNumber: jqxInputComponent;
   @ViewChild('roomTypeReference') roomType: jqxDropDownListComponent;
-  @ViewChild('locationReference') location: jqxInputComponent;
+  @ViewChild('locationReference') location: jqxTextAreaComponent;
   @ViewChild('rateReference') rate: jqxNumberInputComponent;
   @ViewChild('featuresReference') features: jqxTextAreaComponent;
   @ViewChild('statusReference') roomStatus: jqxDropDownListComponent;

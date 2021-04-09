@@ -1,32 +1,19 @@
-<div class="container">
-            
-    <div class="module-heading row">
-        <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Services</h3>
-            
-            <hr class="header-line" />
-            <hr class="header-line" />
-        
-        </div>
-    </div>
+<app-topnav [headings]="navHeading"></app-topnav>
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
+<div class="container">
 
     <div class="row top-button-row">
         <div class="col-md-12">
             <jqxButton #buttonReference (click)="addServicesWindowReference.openWindow()"
-                [width]="120"
+                [width]="150"
                 [height]="30"
             >Add Services</jqxButton>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8">
-            <jqxGrid #gridReference
+        <div class="col-md-9">
+            <jqxGrid #gridReference (onRowdoubleclick)="viewService($event)"
                 [width]="'100%'"
                 [height]="450"
                 [sortable]="true"
@@ -42,3 +29,9 @@
 <!-- add services popup dialog window -->
 
 <app-add-services #addServicesWindowReference></app-add-services>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

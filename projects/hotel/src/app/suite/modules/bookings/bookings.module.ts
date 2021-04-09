@@ -9,6 +9,8 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { BookingsRoutingModule } from './bookings-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { BookingsWrapperComponent } from './bookings-wrapper/bookings-wrapper.component';
 import { AllBookingsComponent } from './all-bookings/all-bookings.component';
@@ -32,6 +34,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     BookingsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxGridModule,
     jqxButtonModule,
     jqxWindowModule,

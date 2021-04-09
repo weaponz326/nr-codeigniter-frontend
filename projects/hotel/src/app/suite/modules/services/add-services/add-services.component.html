@@ -1,16 +1,16 @@
-<jqxWindow #addServicesReference 
-    [width]="540" 
-    [height]="220" 
+<jqxWindow #addServicesReference
+    [width]="540"
+    [height]="210"
     [autoOpen]="false">
-    
+
     <div>Add Services</div>
 
     <div>
 
         <div>
-            <div class="edit-dialog-label-alt">Services ID</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #servicesCodeReference
+            <div class="edit-dialog-label">Service ID</div>
+            <div class="edit-dialog-field">
+                <jqxInput #serviceCodeReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxInput>
@@ -18,9 +18,9 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Services Type</div>
-            <div class="edit-dialog-field-alt">
-                <jqxComboBox #servicesTypeReference
+            <div class="edit-dialog-label">Service Type</div>
+            <div class="edit-dialog-field">
+                <jqxComboBox #serviceTypeReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxComboBox>
@@ -28,27 +28,37 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Guest Name</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #guestNameReference
-                    [width]="'100%'"
+            <div class="edit-dialog-label">Guest Name</div>
+            <div class="edit-dialog-field">
+                <jqxInput #guestNameReference
+                    [width]="'90%'"
                     [height]="25"
-                ></jqxDropDownList>
-            </div>
-        </div>
-        
-        <div>
-            <div class="edit-dialog-label-alt">Guest ID</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDropDownList #guestCodeReference
-                    [width]="'100%'"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectGuestButton
+                    [width]="'10%'"
                     [height]="25"
-                ></jqxDropDownList>
+                >...</jqxButton>
             </div>
         </div>
 
         <div>
-            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+            <div class="edit-dialog-label">Guest ID</div>
+            <div class="edit-dialog-field">
+                <jqxInput #guestCodeReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectGuestButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
@@ -60,4 +70,4 @@
     </div>
 
 </jqxWindow>
-  
+

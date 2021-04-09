@@ -1,8 +1,8 @@
-<jqxWindow #addBookingReference 
-    [width]="540" 
-    [height]="290" 
+<jqxWindow #addBookingReference
+    [width]="540"
+    [height]="290"
     [autoOpen]="false">
-    
+
     <div>Add New Booking</div>
 
     <div>
@@ -16,13 +16,14 @@
                 ></jqxInput>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label-alt">Booking Date</div>
             <div class="edit-dialog-field-alt">
                 <jqxDateTimeInput #bookingDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -30,38 +31,47 @@
         <div>
             <div class="edit-dialog-label-alt">Guest Name</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #guestNameReference
-                    [width]="'100%'"
+                <jqxInput #guestNameReference
+                    [width]="'90%'"
                     [height]="25"
-                ></jqxDropDownList>
+                ></jqxInput>
+                <jqxButton #selectGuestButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label-alt">Guest ID</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #guestCodeReference
-                    [width]="'100%'"
+                <jqxInput #guestCodeReference
+                    [width]="'90%'"
                     [height]="25"
-                ></jqxDropDownList>
+                ></jqxInput>
+                <jqxButton #selectGuestButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
-                
+
         <div>
-            <div class="edit-dialog-label-alt">Arrival Date</div>
+            <div class="edit-dialog-label-alt">Expected Arrival</div>
             <div class="edit-dialog-field-alt">
-                <jqxDateTimeInput #arrivalDateReference
+                <jqxDateTimeInput #expectedArrivalReference
                     [width]="'100%'"
                     [height]="25"
                     [showTimeButton]="true"
+                    [formatString]="'yyyy-MM-dd hh:mm:ss'"
                 ></jqxDateTimeInput>
             </div>
         </div>
-                
+
         <div>
             <div class="edit-dialog-label-alt">Booking Status</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #statusReference
+                <jqxDropDownList #bookingStatusReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxDropDownList>
@@ -81,4 +91,4 @@
     </div>
 
 </jqxWindow>
-  
+

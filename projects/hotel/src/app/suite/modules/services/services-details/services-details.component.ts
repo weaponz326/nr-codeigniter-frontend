@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 @Component({
@@ -11,6 +12,7 @@ export class ServicesDetailsComponent implements OnInit {
 
   constructor() { }
 
+  @ViewChild('buttonReference') button: jqxButtonComponent;
   @ViewChild("gridReference") grid: jqxGridComponent;
 
   ngOnInit(): void {
@@ -22,8 +24,8 @@ export class ServicesDetailsComponent implements OnInit {
   // room columns
 
   columns: any[] = [
-    { text: "Services Date", dataField: "room_type", width: "25%" },
-    { text: "Services Description", dataField: "services_description", width: "55%" },
+    { text: "Item Date", dataField: "room_type", width: "25%" },
+    { text: "Item Description", dataField: "services_description", width: "55%" },
     { text: "Amount", dataField: "amount", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
   ];
 

@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
-import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { GuestsRoutingModule } from './guests-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { GuestsWrapperComponent } from './guests-wrapper/guests-wrapper.component';
 import { AllGuestsComponent } from './all-guests/all-guests.component';
@@ -31,10 +33,12 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     GuestsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
-    jqxRadioButtonModule,
+    jqxDropDownListModule,
     jqxTextAreaModule
   ]
 })

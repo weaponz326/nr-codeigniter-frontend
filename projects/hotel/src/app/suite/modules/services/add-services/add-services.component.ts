@@ -5,6 +5,7 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
+import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 
 @Component({
   selector: 'app-add-services',
@@ -18,8 +19,8 @@ export class AddServicesComponent implements OnInit {
   @ViewChild("addServicesReference") addServices: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
-  @ViewChild("servicesCodeReference") servicesCode: jqxInputComponent;
-  @ViewChild("servicesTypeReference") servicesType: jqxComboBoxComponent;
+  @ViewChild("serviceCodeReference") serviceCode: jqxInputComponent;
+  @ViewChild("serviceTypeReference") serviceType: jqxComboBoxComponent;
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
 

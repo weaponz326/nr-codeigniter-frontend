@@ -6,8 +6,11 @@ import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { ServicesRoutingModule } from './services-routing.module';
 import { ServicesWrapperComponent } from './services-wrapper/services-wrapper.component';
@@ -32,12 +35,15 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     ServicesRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,
     jqxInputModule,
     jqxDropDownListModule,
-    jqxComboBoxModule
+    jqxComboBoxModule,
+    jqxDateTimeInputModule
   ]
 })
 export class ServicesModule { }

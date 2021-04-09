@@ -9,6 +9,8 @@ import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { RoomsRoutingModule } from './rooms-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { RoomsWrapperComponent } from './rooms-wrapper/rooms-wrapper.component';
 import { AllRoomsComponent } from './all-rooms/all-rooms.component';
@@ -32,6 +34,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     RoomsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

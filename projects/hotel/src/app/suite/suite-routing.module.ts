@@ -48,6 +48,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/assets/assets.module").then(m => m.AssetsModule)
   },
   {
+    path: "housekeeping",
+    loadChildren: () => import("./modules/housekeeping/housekeeping.module").then(m => m.HousekeepingModule)
+  },
+  {
     path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },

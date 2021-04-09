@@ -1,9 +1,9 @@
-<jqxWindow #newBillReference 
-    [width]="540" 
-    [height]="220" 
+<jqxWindow #newBillReference
+    [width]="540"
+    [height]="220"
     [autoOpen]="false">
-    
-    <div>Add New Order</div>
+
+    <div>Add New Bill</div>
 
     <div>
 
@@ -23,6 +23,7 @@
                 <jqxDateTimeInput #billDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -30,20 +31,30 @@
         <div>
             <div class="edit-dialog-label">Guest Name</div>
             <div class="edit-dialog-field">
-                <jqxDropDownList #guestNameReference
-                    [width]="'100%'"
+                <jqxInput #guestNameReference
+                    [width]="'90%'"
                     [height]="25"
-                ></jqxDropDownList>
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectGuestButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label">Guest ID</div>
             <div class="edit-dialog-field">
-                <jqxDropDownList #guestCodeReference
-                    [width]="'100%'"
+                <jqxInput #guestCodeReference
+                    [width]="'90%'"
                     [height]="25"
-                ></jqxDropDownList>
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectGuestButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
             </div>
         </div>
 
@@ -60,4 +71,4 @@
     </div>
 
 </jqxWindow>
-  
+

@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxCheckBoxComponent } from 'jqwidgets-ng/jqxcheckbox';
 import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 @Component({
   selector: 'app-checkin-form',
@@ -15,12 +16,23 @@ export class CheckinFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild('checkinCodeReference') checkinCode: jqxInputComponent;
-  @ViewChild('guestNameReference') guestName: jqxDropDownListComponent;
-  @ViewChild('guestCodeReference') guestCode: jqxDropDownListComponent;
+  @ViewChild('reservationCodeReference') reservationCode: jqxInputComponent;
+  @ViewChild('reservationCheckBoceReference') reservationCheckBox: jqxCheckBoxComponent;
+  @ViewChild('guestNameReference') guestName: jqxInputComponent;
+  @ViewChild('guestCodeReference') guestCode: jqxInputComponent;
   @ViewChild('checkinDateReference') checkinDate: jqxDateTimeInputComponent;
   @ViewChild('checkoutDateReference') checkoutDate: jqxDateTimeInputComponent;
-  @ViewChild('nightsNumberReference') nightsNumber: jqxNumberInputComponent;
+  @ViewChild('numberNightsReference') numberNights: jqxNumberInputComponent;
   @ViewChild('roomNumberReference') roomNumber: jqxInputComponent;
+  @ViewChild('selectReservationButton') selectReservation: jqxInputComponent;
+
+  enableReservation(){
+    this.selectReservation.disabled(false);
+  }
+
+  disableReservation(){
+    this.selectReservation.disabled(true);
+  }
 
   ngOnInit(): void {
   }

@@ -9,6 +9,10 @@ export class BookingsWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Bookings", url: "/suite/bookings/all-bookings", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

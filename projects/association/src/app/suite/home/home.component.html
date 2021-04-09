@@ -73,21 +73,6 @@
           </div>
 
           <div class="col-md-2 col-sm-6 text-center">
-              <jqxTooltip #assetsTooltipReference
-                  [position]="'mouse'"
-                  [content]="'Manage and track assets'">
-
-                  <a routerLink="/suite/assets/dashboard">
-                      <figure>
-                          <img src="../../../assets/images/modules/assets.png" class="home-icons" />
-                          <figcaption>Assets</figcaption>
-                      </figure>
-                  </a>
-
-              </jqxTooltip>
-          </div>
-
-          <div class="col-md-2 col-sm-6 text-center">
               <jqxTooltip #duesTooltipReference
                   [position]="'mouse'"
                   [content]="'Manage dues and financial obligations of members'">
@@ -227,7 +212,7 @@
 
   <!-- --------------------------------------------------------------------------------------------- -->
 
-  <div *ngIf="this.isActive == false; then createAccountBlock"></div>
+  <!-- <div *ngIf="this.isActive == false; then createAccountBlock"></div>
 
   <ng-template #createAccountBlock>
       <div class="row text-center home-create-button-div">
@@ -235,6 +220,6 @@
               <button class="btn btn-lg btn-danger create-btn" (click)="createAccount()">create Association account</button>
           </div>
       </div>
-  </ng-template>
+  </ng-template> -->
 
 </div>

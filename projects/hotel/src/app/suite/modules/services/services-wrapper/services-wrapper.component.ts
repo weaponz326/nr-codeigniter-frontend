@@ -9,6 +9,10 @@ export class ServicesWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Services", url: "/suite/services/all-services", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

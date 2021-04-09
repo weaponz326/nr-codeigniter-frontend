@@ -38,22 +38,22 @@ export class HomeComponent implements OnInit {
   isActive: boolean = false;
 
   ngOnInit(): void {
-    this.navbarApi.checkActiveHospital()
-      .subscribe(
-        res => {
-          console.log(res);
+    // this.navbarApi.checkActiveHospital()
+    //   .subscribe(
+    //     res => {
+    //       console.log(res);
 
-          if (res.active == true){
-            this.isActive = true;
-          }
-        },
-        err => {
-          console.log(err);
-          console.log("the error comes from here");
-          // user is hasn't selected an account
-          this.isActive = false;
-        }
-      )
+    //       if (res.active == true){
+    //         this.isActive = true;
+    //       }
+    //     },
+    //     err => {
+    //       console.log(err);
+    //       console.log("the error comes from here");
+    //       // user is hasn't selected an account
+    //       this.isActive = false;
+    //     }
+    //   )
   }
 
   createAccount(){

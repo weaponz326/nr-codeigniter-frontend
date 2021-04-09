@@ -4,10 +4,13 @@ import { CommonModule } from '@angular/common';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
+import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { AssetsRoutingModule } from './assets-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AssetsWrapperComponent } from './assets-wrapper/assets-wrapper.component';
 import { AllAssetsComponent } from './all-assets/all-assets.component';
@@ -31,9 +34,12 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     AssetsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,
+    jqxDateTimeInputModule,
     jqxTextAreaModule,
     jqxDropDownListModule
   ]

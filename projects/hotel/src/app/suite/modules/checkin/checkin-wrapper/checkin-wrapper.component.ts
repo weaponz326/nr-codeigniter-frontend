@@ -9,6 +9,11 @@ export class CheckinWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Check-In", url: "/suite/checkin/all-checkin", icon: "fa fa-fw fa-list" },
+    { text: "New Check-In", url: "/suite/checkin/new-checkin", icon: "fa fa-fw fa-plus" },
+  ]
+
   ngOnInit(): void {
   }
 

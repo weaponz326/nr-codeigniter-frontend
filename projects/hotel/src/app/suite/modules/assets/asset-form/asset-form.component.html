@@ -81,6 +81,17 @@
         </div>
 
         <div class="row">
+            <div class="col-md-4"><label>Purhased Date :</label></div>
+            <div class="col-md-8">
+                <jqxDateTimeInput #purchasedDateReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-md-4"><label>Description :</label></div>
             <div class="col-md-8 textarea-div">
                 <jqxTextArea #descriptionReference
@@ -99,7 +110,7 @@
                 ></jqxDropDownList>
             </div>
         </div>
-        
+
     </div>
 
 </div>

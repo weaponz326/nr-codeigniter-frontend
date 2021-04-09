@@ -1,35 +1,20 @@
-<div class="container">
-            
-    <div class="module-heading row">
-        <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <a href="#"><h3>Assets</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Add Asset</h3>
-            
-            <hr class="header-line" />
-            <hr class="header-line" />
-        
-        </div>
-    </div>
+<app-topnav [headings]="navHeading"></app-topnav>
 
-    <!-- --------------------------------------------------------------------------------------------- -->
+<div class="container">
 
     <!-- asset page form -->
 
-    <app-asset-form></app-asset-form>
+    <app-asset-form #assetFormComponentReference></app-asset-form>
 
     <div class="row page-form-div">
         <div class="col-md-12">
 
-            <jqxButton #cancelButtonReference class="float-right"
+            <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/assets/all-assets"
                 [width]="100"
                 [height]="28"
-            >Cancel</jqxButton>                    
+            >Cancel</jqxButton>
 
-            <jqxButton #saveButtonReference class="float-right"
+            <jqxButton #saveButtonReference class="float-right" (click)="saveAsset()"
                 [width]="100"
                 [height]="28"
             >Save</jqxButton>
@@ -38,3 +23,9 @@
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

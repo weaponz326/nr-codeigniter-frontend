@@ -1,0 +1,59 @@
+<jqxWindow #newHousekeepingReference
+    [width]="540"
+    [height]="190"
+    [autoOpen]="false">
+
+    <div>Add New Housekeeping</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">House Keeping ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #housekeepingCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">House Keeping Date</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #housekeepingDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Room Number</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #roomNumberReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectRoomButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveHousekeeping()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
