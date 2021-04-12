@@ -1,8 +1,8 @@
-<jqxWindow #newInvoiceReference 
-    [width]="540" 
-    [height]="250" 
+<jqxWindow #newInvoiceReference
+    [width]="540"
+    [height]="250"
     [autoOpen]="false">
-    
+
     <div>Add New Invoice</div>
 
     <div>
@@ -23,6 +23,7 @@
                 <jqxDateTimeInput #invoiceDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -36,7 +37,7 @@
                 ></jqxComboBox>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label-alt">Customer Contact</div>
             <div class="edit-dialog-field-alt">
@@ -53,6 +54,7 @@
                 <jqxDateTimeInput #dueDateReference
                     [width]="'100%'"
                     [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>
@@ -62,7 +64,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveInvoice()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -70,4 +72,9 @@
     </div>
 
 </jqxWindow>
-  
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

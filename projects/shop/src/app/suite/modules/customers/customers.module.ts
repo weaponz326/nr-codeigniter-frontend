@@ -7,6 +7,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { CustomersRoutingModule } from './customers-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { CustomersWrapperComponent } from './customers-wrapper/customers-wrapper.component';
 import { AllCustomersComponent } from './all-customers/all-customers.component';
@@ -30,6 +32,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     CustomersRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,

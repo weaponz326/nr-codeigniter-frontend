@@ -1,0 +1,26 @@
+<jqxWindow #addInventoryReference
+    [width]="540"
+    [height]="280"
+    [autoOpen]="false">
+
+    <div>Add Inventory</div>
+
+    <div>
+
+        <!-- inventory window form -->
+        <app-inventory-form #inventoryFormComponentReference></app-inventory-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveInventory()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

@@ -8,6 +8,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { CashflowRoutingModule } from './cashflow-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { CashflowWrapperComponent } from './cashflow-wrapper/cashflow-wrapper.component';
 import { AllCashflowComponent } from './all-cashflow/all-cashflow.component';
@@ -35,6 +37,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     CashflowRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

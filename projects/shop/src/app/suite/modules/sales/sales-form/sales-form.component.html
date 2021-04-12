@@ -1,0 +1,86 @@
+<div>
+    <div class="edit-dialog-label-alt">Sales ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #salesCodeReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Date</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #salesDateReference
+            [width]="'100%'"
+            [height]="25"
+            [formatString]="'yyyy-MM-dd'"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Product Name</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #productNameReference
+            [width]="'90%'"
+            [height]="25"
+        ></jqxInput>
+        <jqxButton #productButtonReference
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Product ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #productCodeReference
+            [width]="'90%'"
+            [height]="25"
+        ></jqxInput>
+        <jqxButton #productButtonReference
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Unit Price</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #unitPriceReference
+            [width]="'100%'"
+            [height]="25"
+            [inputMode]="'simple'"
+            [symbol]="'$'"
+        ></jqxNumberInput>
+    </div>
+</div>
+
+<div>
+  <div class="edit-dialog-label-alt">Quantity</div>
+  <div class="edit-dialog-field-alt">
+      <jqxNumberInput #quantityReference
+          [width]="'100%'"
+          [height]="25"
+          [inputMode]="'simple'"
+          [decimalDigits]="0"
+          [spinButtons]="true"
+      ></jqxNumberInput>
+  </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Total Price</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #totalPriceReference
+            [width]="'100%'"
+            [height]="25"
+            [inputMode]="'simple'"
+            [symbol]="'$'"
+            [disabled]="true"
+        ></jqxNumberInput>
+    </div>
+</div>

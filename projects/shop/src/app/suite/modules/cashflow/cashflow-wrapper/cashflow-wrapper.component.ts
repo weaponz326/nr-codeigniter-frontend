@@ -9,6 +9,10 @@ export class CashflowWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Sheets", url: "/suite/cashflow/all-cashflow", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

@@ -1,17 +1,23 @@
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
 
         <hr />
 
+        <div class="row top-button-row">
+            <div class="col-md-10">
+                <jqxButton #buttonReference
+                    [width]="150"
+                    [height]="30"
+                >Add Item</jqxButton>
+            </div>
+        </div>
+
         <div>
-            <jqxGrid #editGridReference
+            <jqxGrid #gridReference
                 [width]="'100%'"
                 [autoheight]="true"
                 [rowsheight]="24"
                 [showemptyrow]="false"
-                [selectionmode]="'singlerow'"
-                [showeverpresentrow]="true"
-                [everpresentrowactions]="'add update delete reset'"
                 [showstatusbar]="true"
                 [showaggregates]="true"
                 [columns]="columns"

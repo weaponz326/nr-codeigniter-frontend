@@ -1,11 +1,21 @@
-<jqxWindow #newSheetReference 
-    [width]="540" 
-    [height]="150" 
+<jqxWindow #newSheetReference
+    [width]="540"
+    [height]="180"
     [autoOpen]="false">
-    
-    <div>Add New Invoice</div>
+
+    <div>Add New Cash Flow Sheet</div>
 
     <div>
+
+        <div>
+            <div class="edit-dialog-label">Sheet ID</div>
+            <div class="edit-dialog-field">
+                <jqxInput #sheetCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
 
         <div>
             <div class="edit-dialog-label">Sheet Name</div>
@@ -34,7 +44,7 @@
                 <jqxButton #cancelButtonReference
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveSheet()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -42,4 +52,9 @@
     </div>
 
 </jqxWindow>
-  
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -19,7 +19,15 @@ export class ViewInvoiceComponent implements OnInit {
   @ViewChild("customerNameReference") customerName: jqxComboBoxComponent;
   @ViewChild("customerContactReference") customerContact: jqxInputComponent;
   @ViewChild("dueDateReference") dueDate: jqxDateTimeInputComponent;
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
+  @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
+  @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "All Invoice", url: "/suite/invoice/all-invoice" },
+    { text: "View Invoice", url: "/suite/invoice/view-invoice" },
+  ];
 
   ngOnInit(): void {
   }

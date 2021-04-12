@@ -1,0 +1,26 @@
+<jqxWindow #addReceivableReference (onOpen)="receivableForm.receivableCode.focus()"
+    [width]="540"
+    [height]="310"
+    [autoOpen]="false">
+
+    <div>Add Receivable</div>
+
+    <div>
+
+        <!-- receivable window form -->
+        <app-receivable-form #receivableFormComponentReference></app-receivable-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveReceivable()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

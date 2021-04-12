@@ -1,0 +1,29 @@
+<jqxWindow #editSalesReference
+    [width]="540"
+    [height]="310"
+    [autoOpen]="false">
+
+    <div>Edit Sales</div>
+
+    <div>
+
+        <!-- sales window form -->
+        <app-sales-form #salesFormComponentReference></app-sales-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteSales()"
+                >Delete</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveSales()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

@@ -20,7 +20,15 @@ export class ViewOrderComponent implements OnInit {
   @ViewChild('customerNameReference') customerName: jqxComboBoxComponent;
   @ViewChild('orderTypeReference') orderType: jqxDropDownListComponent;
   @ViewChild('orderStatusReference') orderStatus: jqxDropDownListComponent;
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
+  @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
+  @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "All Orders", url: "/suite/orders/all-orders" },
+    { text: "View Order", url: "/suite/orders/view-order" },
+  ];
 
   ngOnInit(): void {
   }

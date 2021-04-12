@@ -9,6 +9,10 @@ export class PurchasingWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Purchasing", url: "/suite/purchasing/all-purchasing", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

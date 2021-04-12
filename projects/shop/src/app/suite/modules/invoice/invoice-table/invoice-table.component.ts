@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 @Component({
   selector: 'app-invoice-table',
@@ -11,7 +12,8 @@ export class InvoiceTableComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("editGridReference") editGrid: jqxGridComponent;
+  @ViewChild('buttonReference') button: jqxButtonComponent;
+  @ViewChild("gridReference") grid: jqxGridComponent;
 
   ngOnInit(): void {
   }

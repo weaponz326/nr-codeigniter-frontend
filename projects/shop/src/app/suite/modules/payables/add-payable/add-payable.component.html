@@ -1,0 +1,26 @@
+<jqxWindow #addPayableReference (onOpen)="payableForm.payableCode.focus()"
+    [width]="540"
+    [height]="310"
+    [autoOpen]="false">
+
+    <div>Add Payable</div>
+
+    <div>
+
+        <!-- payable window form -->
+        <app-payable-form #payableFormComponentReference></app-payable-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="savePayable()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

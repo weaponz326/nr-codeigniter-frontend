@@ -7,8 +7,11 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { MarkettingRoutingModule } from './marketting-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { MarkettingWrapperComponent } from './marketting-wrapper/marketting-wrapper.component';
 import { AllMarkettingComponent } from './all-marketting/all-marketting.component';
@@ -32,12 +35,15 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     MarkettingRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxDropDownListModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxComboBoxModule
   ]
 })
 export class MarkettingModule { }

@@ -9,6 +9,8 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { InvoiceRoutingModule } from './invoice-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { InvoiceWrapperComponent } from './invoice-wrapper/invoice-wrapper.component';
 import { AllInvoiceComponent } from './all-invoice/all-invoice.component';
@@ -32,6 +34,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     InvoiceRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

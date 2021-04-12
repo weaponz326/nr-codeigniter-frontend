@@ -1,0 +1,29 @@
+<jqxWindow #editReceivableReference
+    [width]="540"
+    [height]="310"
+    [autoOpen]="false">
+
+    <div>Edit Receivable</div>
+
+    <div>
+
+        <!-- receivable window form -->
+        <app-receivable-form #receivableFormComponentReference></app-receivable-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteReceivable()"
+                >Delete</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveReceivable()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

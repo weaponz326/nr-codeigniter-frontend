@@ -60,8 +60,16 @@ const routes: Routes = [
     loadChildren: () => import("./modules/staff/staff.module").then(m => m.StaffModule)
   },
   {
+    path: "suppliers",
+    loadChildren: () => import("./modules/suppliers/suppliers.module").then(m => m.SuppliersModule)
+  },
+  {
     path: "cashflow",
     loadChildren: () => import("./modules/cashflow/cashflow.module").then(m => m.CashflowModule)
+  },
+  {
+    path: "portal",
+    loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },
   {
     path: "settings",

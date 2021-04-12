@@ -1,34 +1,27 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-            
-    <div class="module-heading row">
+
+    <div class="row top-button-row">
         <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Receivables</h3>
-            
-            <hr class="header-line" />
-            <hr class="header-line" />
-        
+            <jqxButton #addReceivableReference (click)="addReceivableWindowReference.openWindow()"
+                [width]="150"
+                [height]="30"
+            >Add Receivable</jqxButton>
         </div>
     </div>
-
-    <!-- --------------------------------------------------------------------------------------------------- -->
-
 
     <div class="row">
         <div class="col-md-12">
 
-            <jqxGrid #gridReference
+            <jqxGrid #gridReference (onRowdoubleclick)="editReceivableWindowReference.openWindow($event)"
                 [width]="'100%'"
                 [autoheight]="true"
                 [rowsheight]="24"
+                [source]="dataAdapter"
                 [showemptyrow]="false"
                 [filterable]="true"
                 [showfilterrow]="true"
-                [selectionmode]="'singlerow'"
-                [showeverpresentrow]="true"
-                [everpresentrowactions]="'add update delete reset'"
                 [showstatusbar]="true"
                 [showaggregates]="true"
                 [columns]="columns"
@@ -38,3 +31,20 @@
     </div>
 
 </div>
+
+<!-- add receivable dialog window -->
+<app-add-receivable #addReceivableWindowReference
+    (addCommit)="onAddCommit($event)"
+></app-add-receivable>
+
+<!-- edit receivable dialog window -->
+<app-edit-receivable #editReceivableWindowReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-receivable>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

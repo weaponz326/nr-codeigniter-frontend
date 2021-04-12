@@ -9,6 +9,10 @@ export class PayablesWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Payables", url: "/suite/payables/all-payables", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

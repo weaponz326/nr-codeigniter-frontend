@@ -21,6 +21,11 @@ export class ViewPurchasingComponent implements OnInit {
   @ViewChild("supplierInvoiceReference") supplierInvoice: jqxInputComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
 
+  navHeading: any[] = [
+    { text: "All Purchasing", url: "/suite/purchasing/all-purchasing" },
+    { text: "View Purchasing", url: "/suite/purchasing/view-purchasing" },
+  ];
+
   ngOnInit(): void {
   }
 

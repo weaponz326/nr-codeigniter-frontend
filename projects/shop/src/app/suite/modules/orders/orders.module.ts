@@ -10,6 +10,8 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { OrdersRoutingModule } from './orders-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { OrdersWrapperComponent } from './orders-wrapper/orders-wrapper.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
@@ -33,6 +35,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     OrdersRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

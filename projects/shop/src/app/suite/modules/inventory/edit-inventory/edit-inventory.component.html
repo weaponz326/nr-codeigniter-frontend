@@ -1,0 +1,29 @@
+<jqxWindow #editInventoryReference
+    [width]="540"
+    [height]="280"
+    [autoOpen]="false">
+
+    <div>Edit Inventory</div>
+
+    <div>
+
+        <!-- inventory window form -->
+        <app-inventory-form #inventoryFormComponentReference></app-inventory-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteInventory()"
+                >Delete</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveInventory()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

@@ -9,6 +9,10 @@ export class InvoiceWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Invoice", url: "/suite/invoice/all-invoice", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

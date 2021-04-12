@@ -3,14 +3,26 @@
 
         <hr />
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <small class="text-info">Click cell to edit field values inline</small>
+            </div>
+        </div>
+
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton
+                    [width]="150"
+                    [height]="30"
+                >Add Inflow</jqxButton>
+            </div>
+        </div>
+
         <jqxGrid #inflowGridReference
             [width]="'100%'"
             [autoheight]="true"
             [rowsheight]="24"
             [showemptyrow]="false"
-            [selectionmode]="'singlerow'"
-            [showeverpresentrow]="true"
-            [everpresentrowactions]="'add update delete reset'"
             [showstatusbar]="true"
             [showaggregates]="true"
             [columns]="inflowColumns"
@@ -18,14 +30,20 @@
 
         <br />
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton
+                    [width]="150"
+                    [height]="30"
+                >Add Outflow</jqxButton>
+            </div>
+        </div>
+
         <jqxGrid #outflowGridReference
             [width]="'100%'"
             [autoheight]="true"
             [rowsheight]="24"
             [showemptyrow]="false"
-            [selectionmode]="'singlerow'"
-            [showeverpresentrow]="true"
-            [everpresentrowactions]="'add update delete reset'"
             [showstatusbar]="true"
             [showaggregates]="true"
             [columns]="outflowColumns"
@@ -38,9 +56,6 @@
             [autoheight]="true"
             [rowsheight]="24"
             [showemptyrow]="false"
-            [selectionmode]="'singlerow'"
-            [showeverpresentrow]="true"
-            [everpresentrowactions]="'add update delete reset'"
             [showstatusbar]="true"
             [showaggregates]="true"
             [columns]="netflowColumns"

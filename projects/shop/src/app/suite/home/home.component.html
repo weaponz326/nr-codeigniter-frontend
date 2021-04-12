@@ -1,17 +1,12 @@
-<div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <h3>Home</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
+<nav class="navbar navbar-expand navbar-light bg-white topbar homebar mb-4 static-top shadow">
+    <div class="module-heading text-center">
+        <a routerLink="./">
+            <h3><i class="fa fa-home sidebar-card-illustration mb-2"></i> Home</h3>
+        </a>
     </div>
+</nav>
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
+<div class="container">
 
     <div class="home-div">
 
@@ -130,21 +125,6 @@
             </div>
 
             <div class="col-md-2 col-sm-6 text-center">
-                <jqxTooltip #salesTooltipReference
-                    [position]="'mouse'"
-                    [content]="'Manage all sales operations'">
-
-                    <a routerLink="/suite/sales/dashboard">
-                        <figure>
-                            <img src="../../../assets/images/modules/sales.png" class="home-icons" />
-                            <figcaption>Sales</figcaption>
-                        </figure>
-                    </a>
-
-                </jqxTooltip>
-            </div>
-
-            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #customersTooltipReference
                     [position]="'mouse'"
                     [content]="'Keep track of customers'">
@@ -153,6 +133,21 @@
                         <figure>
                             <img src="../../../assets/images/modules/customers.png" class="home-icons" />
                             <figcaption>Customers</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #salesTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Manage all sales operations'">
+
+                    <a routerLink="/suite/sales/dashboard">
+                        <figure>
+                            <img src="../../../assets/images/modules/sales.png" class="home-icons" />
+                            <figcaption>Sales</figcaption>
                         </figure>
                     </a>
 
@@ -211,7 +206,7 @@
 
         <div class="row">
 
-			      <div class="col-md-2 col-sm-6 text-center">
+            <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #settingsTooltipReference
                     [position]="'mouse'"
                     [content]="'Set configuarations for your modules'">
@@ -220,6 +215,21 @@
                         <figure>
                             <img src="../../../assets/images/modules/settings.png" class="home-icons" />
                             <figcaption>Settings</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+			      <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #suppliersTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Manage products suppliers'">
+
+                    <a routerLink="/suite/suppliers/dashboard">
+                        <figure>
+                            <img src="../../../assets/images/modules/suppliers.png" class="home-icons" />
+                            <figcaption>Suppliers</figcaption>
                         </figure>
                     </a>
 

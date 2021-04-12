@@ -9,6 +9,10 @@ export class InventoryWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Inventory", url: "/suite/inventory/all-inventory", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 

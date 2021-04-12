@@ -9,6 +9,10 @@ export class ReceivablesWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Receivables", url: "/suite/receivables/all-receivables", icon: "fa fa-fw fa-list" },
+  ]
+
   ngOnInit(): void {
   }
 
