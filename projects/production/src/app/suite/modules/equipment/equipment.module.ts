@@ -8,6 +8,8 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { EquipmentRoutingModule } from './equipment-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { EquipmentWrapperComponent } from './equipment-wrapper/equipment-wrapper.component';
 import { AllEquipmentComponent } from './all-equipment/all-equipment.component';
@@ -31,6 +33,10 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     EquipmentRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

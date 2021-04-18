@@ -5,6 +5,7 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 
+
 @Component({
   selector: 'app-view-purchasing',
   templateUrl: './view-purchasing.component.html',
@@ -20,6 +21,11 @@ export class ViewPurchasingComponent implements OnInit {
   @ViewChild("supplierContactReference") supplierContact: jqxInputComponent;
   @ViewChild("supplierInvoiceReference") supplierInvoice: jqxInputComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
+
+  navHeading: any[] = [
+    { text: "All Purchasing", url: "/suite/purchasing/all-purchasing" },
+    { text: "View Purchasing", url: "/suite/purchasing/view-purchasing" },
+  ];
 
   ngOnInit(): void {
   }

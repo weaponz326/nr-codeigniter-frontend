@@ -9,6 +9,11 @@ export class WorkersWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Workers", url: "/suite/workers/all-workers", icon: "fa fa-fw fa-list" },
+    { text: "New Worker", url: "/suite/workers/new-worker", icon: "fa fa-fw fa-plus" },
+  ]
+
   ngOnInit(): void {
   }
 

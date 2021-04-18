@@ -1,0 +1,81 @@
+<div>
+    <div class="edit-dialog-label-alt">Order ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #orderCodeReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Order Date</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDateTimeInput #orderDateReference
+            [width]="'100%'"
+            [height]="25"
+            [formatString]="'yyyy-MM-dd'"
+        ></jqxDateTimeInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Product Name</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #productNameReference
+            [width]="'90%'"
+            [height]="25"
+        ></jqxInput>
+        <jqxButton #productButtonReference
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Product ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #productCodeReference
+            [width]="'90%'"
+            [height]="25"
+        ></jqxInput>
+        <jqxButton #productButtonReference
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Customer Name</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #unitPriceReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Quantity</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #quantityReference
+            [width]="'100%'"
+            [height]="25"
+            [inputMode]="'simple'"
+            [decimalDigits]="0"
+            [spinButtons]="true"
+        ></jqxNumberInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Order Status</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #orderStatusReference
+            [width]="'100%'"
+            [height]="25"
+        ></jqxDropDownList>
+    </div>
+</div>

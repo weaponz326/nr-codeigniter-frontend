@@ -1,0 +1,70 @@
+<jqxWindow #newScheduleReference
+    [width]="540"
+    [height]="220"
+    [autoOpen]="false">
+
+    <div>Add New Schedule</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Schedule Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #scheduleNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Schedule ID</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #scheduleCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">From</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #fromDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">To</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDateTimeInput #fromDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveSchedule()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

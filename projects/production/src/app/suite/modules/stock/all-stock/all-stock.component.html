@@ -1,34 +1,27 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
 <div class="container">
-            
-    <div class="module-heading row">
+
+    <div class="row top-button-row">
         <div class="col-md-12">
-                
-            <a href="#"><h3>Home</h3></a>
-            <span class="fa fa-angle-double-right"></span>
-            <h3>Stock</h3>
-            
-            <hr class="header-line" />
-            <hr class="header-line" />
-        
+            <jqxButton #addStockReference (click)="addStockWindowReference.openWindow()"
+                [width]="150"
+                [height]="30"
+            >Add Stock</jqxButton>
         </div>
     </div>
-
-    <!-- --------------------------------------------------------------------------------------------------- -->
-
 
     <div class="row">
         <div class="col-md-10">
 
-            <jqxGrid #gridReference
+            <jqxGrid #gridReference (onRowdoubleclick)="editStockWindowReference.openWindow($event)"
                 [width]="'100%'"
-                [height]="500"
+                [height]="450"
+                [source]="dataAdapter"
                 [rowsheight]="24"
                 [showemptyrow]="false"
                 [filterable]="true"
                 [showfilterrow]="true"
-                [selectionmode]="'singlerow'"
-                [showeverpresentrow]="true"
-                [everpresentrowactions]="'add update delete reset'"
                 [columns]="columns"
             ></jqxGrid>
 
@@ -36,3 +29,20 @@
     </div>
 
 </div>
+
+<!-- add stock dialog window -->
+<app-add-stock #addStockWindowReference
+    (addCommit)="onAddCommit($event)"
+></app-add-stock>
+
+<!-- edit stock dialog window -->
+<app-edit-stock #editStockWindowReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-stock>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

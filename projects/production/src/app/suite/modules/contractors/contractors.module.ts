@@ -7,8 +7,11 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { ContractorsRoutingModule } from './contractors-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { ContractorsWrapperComponent } from './contractors-wrapper/contractors-wrapper.component';
 import { AllContractorsComponent } from './all-contractors/all-contractors.component';
@@ -32,12 +35,15 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     ContractorsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxComboBoxModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxDropDownListModule
   ]
 })
 export class ContractorsModule { }

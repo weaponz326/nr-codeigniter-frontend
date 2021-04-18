@@ -86,6 +86,7 @@ export class MainNavbarComponent implements OnInit {
           localStorage.removeItem("restaurant_id");
           localStorage.removeItem("school_id");
           localStorage.removeItem("enterprise_id");
+          localStorage.removeItem("association_id");
           localStorage.removeItem("hotel_id");
           localStorage.removeItem("shop_id");
           localStorage.removeItem("production_id");

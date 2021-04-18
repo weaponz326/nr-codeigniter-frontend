@@ -8,6 +8,8 @@ import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 
 import { ProductsRoutingModule } from './products-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { ProductsWrapperComponent } from './products-wrapper/products-wrapper.component';
 import { AllProductsComponent } from './all-products/all-products.component';
@@ -31,6 +33,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     ProductsRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

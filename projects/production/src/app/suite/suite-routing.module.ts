@@ -52,6 +52,14 @@ const routes: Routes = [
     loadChildren: () => import("./modules/manufacturing/manufacturing.module").then(m => m.ManufacturingModule)
   },
   {
+    path: "schedules",
+    loadChildren: () => import("./modules/schedules/schedules.module").then(m => m.SchedulesModule)
+  },
+  {
+    path: "materials",
+    loadChildren: () => import("./modules/materials/materials.module").then(m => m.MaterialsModule)
+  },
+  {
     path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },

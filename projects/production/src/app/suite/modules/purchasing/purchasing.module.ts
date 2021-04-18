@@ -9,6 +9,8 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { PurchasingRoutingModule } from './purchasing-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { PurchasingWrapperComponent } from './purchasing-wrapper/purchasing-wrapper.component';
 import { AllPurchasingComponent } from './all-purchasing/all-purchasing.component';
@@ -32,6 +34,8 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     PurchasingRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxButtonModule,
     jqxGridModule,
     jqxWindowModule,

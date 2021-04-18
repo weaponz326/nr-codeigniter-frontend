@@ -1,0 +1,130 @@
+<div class="row page-form-div">
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Material ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #materialcodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Material Name :</label></div>
+            <div class="col-md-8">
+                <jqxInput #materialNameReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Category :</label></div>
+            <div class="col-md-8">
+                <jqxComboBox #categoryReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxComboBox>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Description :</label></div>
+            <div class="col-md-8 textarea-div">
+                <jqxTextArea #descriptionReference
+                    [width]="'100%'"
+                    [height]="45"
+                ></jqxTextArea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Manufacturing ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #manufacturingCodeReference
+                    [width]="'88%'"
+                    [height]="28"
+                ></jqxInput>
+                <jqxButton #manufacturingButtonReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Supplier ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #supplierCodeReference
+                    [width]="'88%'"
+                    [height]="28"
+                ></jqxInput>
+                <jqxButton #supplierButtonReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Supplier Name :</label></div>
+            <div class="col-md-8">
+                <jqxInput #supplierNameReference
+                    [width]="'88%'"
+                    [height]="28"
+                ></jqxInput>
+                <jqxButton #supplierButtonReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Unit Price :</label></div>
+            <div class="col-md-8">
+                <jqxNumberInput #unitPriceReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [inputMode]="'simple'"
+                    [symbol]="'$'"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Quantity :</label></div>
+            <div class="col-md-8">
+                <jqxNumberInput #quantityReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [inputMode]="'simple'"
+                    [decimalDigits]="0"
+                    [spinButtons]="true"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Total Price :</label></div>
+            <div class="col-md-8">
+                <jqxNumberInput #totalPriceReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [inputMode]="'simple'"
+                    [symbol]="'$'"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+    </div>
+
+</div>

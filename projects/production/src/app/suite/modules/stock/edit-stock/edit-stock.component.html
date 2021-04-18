@@ -1,0 +1,29 @@
+<jqxWindow #editStockReference
+    [width]="540"
+    [height]="250"
+    [autoOpen]="false">
+
+    <div>Edit Stock</div>
+
+    <div>
+
+        <!-- stock window form -->
+        <app-stock-form #stockFormComponentReference></app-stock-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteStock()"
+                >Delete</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveStock()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

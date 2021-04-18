@@ -1,0 +1,26 @@
+<jqxWindow #newOrderReference (onOpen)="orderForm.orderCode.focus()"
+    [width]="540"
+    [height]="310"
+    [autoOpen]="false">
+
+    <div>Add New Order</div>
+
+    <div>
+
+        <!-- order window form -->
+        <app-order-form #orderFormComponentReference></app-order-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveOrder()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

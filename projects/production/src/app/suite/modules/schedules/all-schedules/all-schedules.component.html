@@ -1,0 +1,38 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row top-button-row">
+        <div class="col-md-12">
+            <jqxButton #buttonReference (click)="newScheduleWindowReference.openWindow()"
+                [width]="150"
+                [height]="30"
+            >New Schedule</jqxButton>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <jqxGrid #gridReference (onRowdoubleclick)="viewSchedule($event)"
+                [width]="'100%'"
+                [height]="450"
+                [source]="dataAdapter"
+                [sortable]="true"
+                [filterable]="true"
+                [showfilterrow]="true"
+                [columns]="columns"
+            ></jqxGrid>
+        </div>
+    </div>
+
+</div>
+
+<!-- new schedule dialog window -->
+
+<app-new-schedule #newScheduleWindowReference></app-new-schedule>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -4,6 +4,7 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
   selector: 'app-contractor-form',
@@ -14,7 +15,7 @@ export class ContractorFormComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('companyNameReference') companyName: jqxInputComponent;
+  @ViewChild('contractorNameReference') contractorName: jqxInputComponent;
   @ViewChild('categoryReference') category: jqxComboBoxComponent;
   @ViewChild('phoneReference') phone: jqxInputComponent;
   @ViewChild('emailReference') email: jqxInputComponent;
@@ -30,6 +31,7 @@ export class ContractorFormComponent implements OnInit {
   @ViewChild('workDescriptionReference') workDescription: jqxTextAreaComponent;
   @ViewChild('workStartDateReference') workStartDate: jqxDateTimeInputComponent;
   @ViewChild('workEndDateReference') workEndDate: jqxDateTimeInputComponent;
+  @ViewChild('contractStatusReference') contractStatus: jqxDropDownListComponent;
 
   ngOnInit(): void {
   }

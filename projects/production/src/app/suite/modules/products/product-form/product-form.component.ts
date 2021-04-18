@@ -16,7 +16,7 @@ export class ProductFormComponent implements OnInit {
   @ViewChild("productCodeReference") productCode: jqxInputComponent;
   @ViewChild("productNameReference") productName: jqxInputComponent;
   @ViewChild("productTypeReference") productType: jqxComboBoxComponent;
-  @ViewChild("versionReference") Version: jqxInputComponent;
+  @ViewChild("versionReference") version: jqxInputComponent;
   @ViewChild("modelNumberReference") modelNumber: jqxInputComponent;
   @ViewChild("DescriptionReference") description: jqxTextAreaComponent;
 

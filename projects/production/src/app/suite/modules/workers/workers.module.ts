@@ -4,11 +4,14 @@ import { CommonModule } from '@angular/common';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
-import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { WorkersRoutingModule } from './workers-routing.module';
+import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
+import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
 
 import { AllWorkersComponent } from './all-workers/all-workers.component';
 import { WorkersWrapperComponent } from './workers-wrapper/workers-wrapper.component';
@@ -32,12 +35,15 @@ import { SettingsComponent } from './settings/settings.component';
   imports: [
     CommonModule,
     WorkersRoutingModule,
+    UtilitiesModule,
+    DashboardModule,
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,
-    jqxRadioButtonModule,
+    jqxDropDownListModule,
     jqxDateTimeInputModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxPanelModule
   ]
 })
 export class WorkersModule { }

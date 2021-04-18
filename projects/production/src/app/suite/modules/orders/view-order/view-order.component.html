@@ -1,0 +1,29 @@
+<jqxWindow #viewOrderReference
+    [width]="540"
+    [height]="310"
+    [autoOpen]="false">
+
+    <div>View Order</div>
+
+    <div>
+
+        <!-- order window form -->
+        <app-order-form #orderFormComponentReference></app-order-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteOrder()"
+                >Delete</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveOrder()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

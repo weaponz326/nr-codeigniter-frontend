@@ -1,17 +1,12 @@
-<div class="container">
-
-    <div class="module-heading row">
-        <div class="col-md-12">
-
-            <h3>Home</h3>
-
-            <hr class="header-line" />
-            <hr class="header-line" />
-
-        </div>
+<nav class="navbar navbar-expand navbar-light bg-white topbar homebar mb-4 static-top shadow">
+    <div class="module-heading text-center">
+        <a routerLink="./">
+            <h3><i class="fa fa-home sidebar-card-illustration mb-2"></i> Home</h3>
+        </a>
     </div>
+</nav>
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
+<div class="container">
 
     <div class="home-div">
 
@@ -241,7 +236,22 @@
                 </jqxTooltip>
             </div>
 
-		    </div>
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #materialsTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Manage bill of materials for production'">
+
+                    <a routerLink="/suite/materials/dashboard">
+                        <figure>
+                            <img src="../../../assets/images/modules/materials.png" class="home-icons" />
+                            <figcaption>Materials</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+		</div>
 
     </div>
 

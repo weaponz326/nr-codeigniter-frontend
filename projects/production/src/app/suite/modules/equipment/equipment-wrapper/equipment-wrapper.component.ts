@@ -9,6 +9,11 @@ export class EquipmentWrapperComponent implements OnInit {
 
   constructor() { }
 
+  navLinks: any[] = [
+    { text: "All Equipment", url: "/suite/equipment/all-equipment", icon: "fa fa-fw fa-list" },
+    { text: "New Equipment", url: "/suite/equipment/add-equipment", icon: "fa fa-fw fa-plus" },
+  ]
+
   ngOnInit(): void {
   }
 

@@ -1,0 +1,80 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row page-form-div">
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Schedule Name :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #scheduleNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Schedule ID :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #scheduleCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>From :</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #fromDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>From :</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #fromDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+            
+            <hr />
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <jqxButton #saveButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+
+                    <jqxButton #deleteButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Delete</jqxButton>
+
+                    <jqxButton #cancelButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- schedule details table -->
+
+    <app-schedule-details></app-schedule-details>
+
+</div>
