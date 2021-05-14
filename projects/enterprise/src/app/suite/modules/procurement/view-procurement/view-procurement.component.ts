@@ -70,7 +70,7 @@ export class ViewProcurementComponent implements OnInit, AfterViewInit {
     console.log("u are updating a procurement");
 
     var procurementData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       order_code: this.procurementForm.orderCode.val(),
       order_type: this.procurementForm.orderType.val(),
       order_date: this.procurementForm.orderDate.val(),

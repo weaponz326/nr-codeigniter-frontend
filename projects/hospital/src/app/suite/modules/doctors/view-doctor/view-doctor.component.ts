@@ -45,11 +45,18 @@ export class ViewDoctorComponent implements OnInit, AfterViewInit {
     this.doctorsApi.getSingleDoctor()
       .subscribe(
         res => {
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.doctorForm.dobYear.val(dobArray[0]);
+            this.doctorForm.dobMonth.val(dobArray[1]);
+            this.doctorForm.dobDay.val(dobArray[2]);
+          }
+
           console.log(res);
           this.doctorForm.firstNameInput.val(res.first_name);
           this.doctorForm.lastNameInput.val(res.last_name);
           this.doctorForm.sexDropDownList.val(res.sex);
-          this.doctorForm.dobInput.val(res.date_of_birth);
+          this.doctorForm.photo.nativeElement.value = res.photo;
           this.doctorForm.nationalityInput.val(res.nationality);
           this.doctorForm.religionInput.val(res.religion);
           this.doctorForm.phoneInput.val(res.phone);
@@ -61,9 +68,6 @@ export class ViewDoctorComponent implements OnInit, AfterViewInit {
           this.doctorForm.doctorCodeInput.val(res.doctor_code);
           this.doctorForm.departmentInput.val(res.department);
           this.doctorForm.specialityInput.val(res.speciality);
-          this.doctorForm.workStatusDropDownList.val(res.work_status);
-          this.doctorForm.startedWorkDateInput.val(res.started_work);
-          this.doctorForm.endedWorkDateInput.val(res.ended_work);
         },
         err => {
           console.log(err);
@@ -76,12 +80,17 @@ export class ViewDoctorComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a doctor");
 
+    let dob = '';
+    if (this.doctorForm.dobYear.val() == '' || this.doctorForm.dobMonth.val() == '' || this.doctorForm.dobDay.val() == '') dob = null;
+    else dob = this.doctorForm.dobYear.val() + '-' + this.doctorForm.dobMonth.val() + '-' + this.doctorForm.dobDay.val();
+
     var doctorData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       first_name: this.doctorForm.firstNameInput.val(),
       last_name: this.doctorForm.lastNameInput.val(),
       sex: this.doctorForm.sexDropDownList.val(),
-      date_of_birth: this.doctorForm.dobInput.val(),
+      date_of_birth: dob,
+      photo: this.doctorForm.image,
       nationality: this.doctorForm.nationalityInput.val(),
       religion: this.doctorForm.religionInput.val(),
       phone: this.doctorForm.phoneInput.val(),
@@ -93,9 +102,6 @@ export class ViewDoctorComponent implements OnInit, AfterViewInit {
       doctor_code: this.doctorForm.doctorCodeInput.val(),
       department: this.doctorForm.departmentInput.val(),
       speciality: this.doctorForm.specialityInput.val(),
-      work_status: this.doctorForm.workStatusDropDownList.val(),
-      started_work: this.doctorForm.startedWorkDateInput.val(),
-      ended_work: this.doctorForm.endedWorkDateInput.val(),
     }
 
     this.doctorsApi.putDoctor(doctorData)

@@ -66,7 +66,7 @@ export class ViewAdmissionComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
 
     var admissionData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       admission_code: this.admissionForm.admissionCode.val(),
       admission_date: this.admissionForm.admissionDate.val(),
       discharge_date: this.admissionForm.dischargeDate.val(),

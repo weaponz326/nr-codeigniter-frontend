@@ -3,7 +3,7 @@ personal details -->
 
 <div class="row page-form-div">
 
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>Personal Details</h4>
     </div>
 
@@ -56,19 +56,20 @@ photo -->
 
 <div class="row page-form-div">
 
-  <div class="col-md-6">
-      <div class="row">
+    <div class="col-md-6">
+        <div class="row">
 
-          <div class="col-md-4"><label>Photo :</label></div>
-          <div class="col-md-8">
-              <jqxPanel #photoReference
-                  [width]="160"
-                  [height]="160"
-              ></jqxPanel>
-          </div>
+            <div class="col-md-4"><label>Photo :</label></div>
+            <div class="col-md-8">
+                <input #imageUpload type="file" requiredFileType="image" class="image-upload" (change)="onImageSelected($event) "/>
+                <jqxPanel #photoReference (click)="imageUpload.click()"
+                    [width]="160"
+                    [height]="160"
+                ><img [src]="imgSrc" class="panel-image" /></jqxPanel>
+            </div>
 
-      </div>
-  </div>
+        </div>
+    </div>
 
 </div>
 
@@ -79,7 +80,7 @@ contact details -->
 
 <div class="row page-form-div">
 
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>Contact Details</h4>
     </div>
 
@@ -160,7 +161,7 @@ clinic details -->
 
 <div class="row page-form-div">
 
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>Restaurant Details</h4>
     </div>
 
@@ -192,15 +193,13 @@ clinic details -->
 
         <div class="row">
             <div class="col-md-4"><label>Allergies :</label></div>
-            <div class="col-md-8">
+            <div class="col-md-8 textarea-div">
                 <jqxTextArea #allergiesReference
                     [width]="'100%'"
                     [height]="50"
                 ></jqxTextArea>
             </div>
         </div>
-
-        <br />
 
         <div class="row">
             <div class="col-md-4"><label>Preferences :</label></div>

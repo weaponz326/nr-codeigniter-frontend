@@ -31,6 +31,10 @@ export class AddVisitorComponent implements OnInit {
     this.addVisitor.open();
   }
 
+  closeWindow(){
+    this.addVisitor.close();
+  }
+
   saveVisitor(){
     var visitorData = {
       enterprise_id: sessionStorage.getItem('enterprise_id'),
@@ -45,8 +49,8 @@ export class AddVisitorComponent implements OnInit {
     }
 
     console.log(visitorData);
-
     this.addCommit.emit(visitorData);
+    this.closeWindow();
   }
 
 }

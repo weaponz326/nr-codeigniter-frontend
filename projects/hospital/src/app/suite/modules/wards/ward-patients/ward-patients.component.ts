@@ -55,7 +55,7 @@ export class WardPatientsComponent implements OnInit, AfterViewInit {
     dataFields: [
       { name: 'id', type: 'string' },
       { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
-      { name: 'clinical_id', map: 'patient>clinical_number', type: 'string' },
+      { name: 'clinical_number', map: 'patient>clinical_number', type: 'string' },
       { name: 'bed_number', type: 'string' },
       { name: 'status', type: 'string' },
       { name: 'date_admitted', type: 'string' },
@@ -103,7 +103,7 @@ export class WardPatientsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -118,7 +118,7 @@ export class WardPatientsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let patientData =  {
-      hospital: sessionStorage.getItem('hospital_id'),
+      ward: sessionStorage.getItem('ward_id'),
       patient: newdata.patient_id,
       consultant: newdata.doctor_id,
       patient_code: newdata.patient_code,
@@ -137,7 +137,7 @@ export class WardPatientsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -157,7 +157,7 @@ export class WardPatientsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true);
         },
         err => {
           console.log(err);

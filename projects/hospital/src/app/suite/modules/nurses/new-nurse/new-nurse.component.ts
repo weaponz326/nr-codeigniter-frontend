@@ -40,12 +40,17 @@ export class NewNurseComponent implements OnInit {
     console.log('u are saving a new nurse');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.nurseForm.dobYear.val() == '' || this.nurseForm.dobMonth.val() == '' || this.nurseForm.dobDay.val() == '') dob = null;
+    else dob = this.nurseForm.dobYear.val() + '-' + this.nurseForm.dobMonth.val() + '-' + this.nurseForm.dobDay.val();
+
     var nurseData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       first_name: this.nurseForm.firstNameInput.val(),
       last_name: this.nurseForm.lastNameInput.val(),
       sex: this.nurseForm.sexDropDownList.val(),
-      date_of_birth: this.nurseForm.dobInput.val(),
+      date_of_birth: dob,
+      photo: this.nurseForm.image,
       nationality: this.nurseForm.nationalityInput.val(),
       religion: this.nurseForm.religionInput.val(),
       phone: this.nurseForm.phoneInput.val(),
@@ -56,9 +61,6 @@ export class NewNurseComponent implements OnInit {
       post_code: this.nurseForm.postCodeInput.val(),
       nurse_code: this.nurseForm.nurseCodeInput.val(),
       department: this.nurseForm.departmentInput.val(),
-      work_status: this.nurseForm.workStatusDropDownList.val(),
-      started_work: this.nurseForm.startedWorkDateInput.val(),
-      ended_work: this.nurseForm.endedWorkDateInput.val(),
     }
 
     console.log(nurseData);
@@ -69,8 +71,8 @@ export class NewNurseComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('nurse_id', res.nurse_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('nurse_id', res.data.id);
             this.router.navigateByUrl('/suite/nurses/view-nurse');
           }
         },

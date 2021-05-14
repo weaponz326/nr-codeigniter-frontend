@@ -44,6 +44,10 @@ export class ViewSittingComponent implements OnInit {
     this.sittingForm.numberGuests.val(event.args.row.bounddata.number_guests);
   }
 
+  closeWindow(){
+    this.viewSitting.close();
+  }
+
   saveSitting(){
     var sittingData = {
       id: this.sittingId,
@@ -57,12 +61,14 @@ export class ViewSittingComponent implements OnInit {
     }
 
     console.log(sittingData);
-
     this.editCommit.emit(sittingData);
+
+    this.closeWindow();
   }
 
   deleteSitting(){
     this.deleteCommit.emit(this.sittingId);
+    this.closeWindow();
   }
 
 }

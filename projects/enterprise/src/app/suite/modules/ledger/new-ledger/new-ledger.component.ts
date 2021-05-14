@@ -42,11 +42,15 @@ export class NewLedgerComponent implements OnInit {
     this.newLedger.open();
   }
 
+  closeWindow(){
+    this.newLedger.close();
+  }
+
   saveLedger(){
     this.loadingSpinner.httpLoader.open();
 
     let ledgerData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       ledger_name: this.ledgerName.val(),
       ledger_code: this.ledgerCode.val(),
       from_date: this.fromDate.val(),
@@ -59,8 +63,9 @@ export class NewLedgerComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('ledger_id', res.ledger_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('ledger_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/ledger/view-ledger');
           }
         },

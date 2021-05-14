@@ -35,16 +35,21 @@ export class AddItemComponent implements OnInit {
     this.addItemWindow.open();
   }
 
+  closeWindow(){
+    this.addItemWindow.close();
+  }
+
   saveItem(){
     let itemData = {
       order: sessionStorage.getItem('order_id'),
-      menu_item_id: this.itemForm.menuItemId,
+      menu_item_id: this.itemForm.menuItemIdStore,
       quantity: this.itemForm.quantity.val(),
     }
 
     console.log(itemData);
-
     this.addCommit.emit(itemData);
+
+    this.closeWindow();
   }
 
 }

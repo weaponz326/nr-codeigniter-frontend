@@ -1,54 +1,31 @@
-<jqxWindow #createFeesReference
-    [width]="540"
-    [height]="200"
-    [autoOpen]="false">
+<app-topnav [headings]="navHeading"></app-topnav>
 
-    <div>Create New Fees</div>
+<div class="container">
 
-    <div>
+    <!-- new page form -->
 
-        <div>
-            <div class="edit-dialog-label-alt">Fees ID</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #feesCodeReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxInput>
-            </div>
+    <app-fees-form #feesFormComponentReference></app-fees-form>
+
+    <div class="row page-form-div">
+        <div class="col-md-12">
+
+            <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/fees/all-fees"
+                [width]="100"
+                [height]="28"
+            >Cancel</jqxButton>
+
+            <jqxButton #saveButtonReference class="float-right" (click)="this.saveFees()"
+                [width]="100"
+                [height]="28"
+            >Save</jqxButton>
+
         </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Fees Description</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #feesDescriptionReference
-                    [width]="'100%'"
-                    [height]="25"
-                ></jqxInput>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Fees Date</div>
-            <div class="edit-dialog-field-alt">
-                <jqxDateTimeInput #feesDateReference
-                    [width]="'100%'"
-                    [height]="25"
-                    [formatString]="'yyyy-MM-dd'"
-                ></jqxDateTimeInput>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
-                >Cancel</jqxButton>
-
-                <jqxButton #saveButtonReference
-                >Save</jqxButton>
-            </div>
-        </div>
-
     </div>
 
-</jqxWindow>
+</div>
 
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

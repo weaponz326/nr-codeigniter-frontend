@@ -17,7 +17,7 @@ export class OrdersApiService {
   // create and get all order belonging to user
 
   public getOrders(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-orders/order-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-orders/order?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postOrder(order): Observable<any>{
@@ -45,7 +45,7 @@ export class OrdersApiService {
   // create and get all order items belonging to order
 
   public getItems(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-orders/order-item-list?user=" + sessionStorage.getItem('order_id'));
+    return this.http.get(this.restaurantUrl + "module-orders/order-item?order=" + sessionStorage.getItem('order_id'));
   }
 
   public postItem(item): Observable<any>{
@@ -71,7 +71,7 @@ export class OrdersApiService {
   // get menu items for item dropdownlist
 
   public getMenuItems(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-orders/menu-item-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-menu/menu-item?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
 }

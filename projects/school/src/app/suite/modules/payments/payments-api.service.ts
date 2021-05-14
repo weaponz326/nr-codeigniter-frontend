@@ -14,10 +14,10 @@ export class PaymentsApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all payments belonging to user
+  // create and get all payments belonging to account
 
   public getPayments(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-payments/payment-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-payments/payment?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postPayment(payment): Observable<any>{
@@ -41,11 +41,11 @@ export class PaymentsApiService {
   // get students for selection window
 
   public getStudents(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-payments/student-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-payments/student?account=" + sessionStorage.getItem('school_id'));
   }
 
   public getBills(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-payments/bill-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-payments/bill?account=" + sessionStorage.getItem('school_id'));
   }
 
 }

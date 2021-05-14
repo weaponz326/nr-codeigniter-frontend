@@ -30,9 +30,11 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
   @ViewChild('patientCodeReference') patientCode: jqxInputComponent;
   @ViewChild('admissionCodeReference') admissionCode: jqxInputComponent;
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
-  @ViewChild('totalAmountReference') totalAmount: jqxNumberInputComponent;
+  @ViewChild('billAmountReference') billAmount: jqxNumberInputComponent;
+  @ViewChild('amountDueReference') amountDue: jqxNumberInputComponent;
   @ViewChild('amountPaidReference') amountPaid: jqxNumberInputComponent;
   @ViewChild('balanceReference') balance: jqxNumberInputComponent;
+  @ViewChild('paymentReference') payment: jqxNumberInputComponent;
 
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
   @ViewChild('deleteButtonReference') deleteButton: jqxButtonComponent;
@@ -57,13 +59,13 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.paymentCode.val(res.payment_code);
           this.paymentDate.val(res.payment_date);
-          this.patientName.val(res.patient.patient_name);
-          this.patientCode.val(res.patient.patient_code);
-          this.admissionCode.val(res.admission.admission_code);
+          this.patientName.val(res.bill.patient.patient_name);
+          this.patientCode.val(res.bill.patient.patient_code);
+          // this.admissionCode.val(res.admission.admission_code);
           this.billCode.val(res.bill.bill_code);
-          this.totalAmount.val(res.bill.total_amount);
-          this.amountPaid.val(res.amount_paid);
-          this.balance.val(res.balance);
+          this.billAmount.val(res.bill.total_amount);
+          this.amountDue.val(res.amount_due);
+          this.amountPaid.val(res.amount_paid.payment__sum);
         },
         err => {
           console.log(err);
@@ -76,7 +78,7 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
 
   savePayment(){
     let paymentData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       payment_code: this.paymentCode.val(),
       payment_date: this.paymentDate.val(),
       amount_paid: this.amountPaid.val(),

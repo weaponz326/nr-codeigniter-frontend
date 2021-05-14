@@ -46,9 +46,13 @@ export class EditReservationComponent implements OnInit {
     this.reservationForm.reservationStatus.val(event.args.row.bounddata.reservation_status);
   }
 
+  closeWindow(){
+    this.editReservation.close();
+  }
+
   saveReservation(){
     var reservationData = {
-      restaurant: sessionStorage.getItem('restaurnat_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       resrevation_code: this.reservationForm.reservationCode.val(),
       reservation_date: this.reservationForm.reservationDate.val(),
       customer_name: this.reservationForm.customerName.val(),
@@ -59,12 +63,14 @@ export class EditReservationComponent implements OnInit {
     }
 
     console.log(reservationData);
-
     this.editCommit.emit(reservationData);
+
+    this.closeWindow();
   }
 
   deleteReservation(){
     this.deleteCommit.emit(this.reservationId);
+    this.closeWindow();
   }
 
 }

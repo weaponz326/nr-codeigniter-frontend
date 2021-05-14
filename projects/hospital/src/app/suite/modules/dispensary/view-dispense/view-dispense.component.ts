@@ -11,6 +11,7 @@ import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
 
+import { DispenseDetailsComponent } from '../dispense-details/dispense-details.component'
 import { SelectPrescriptionComponent } from '../select-prescription/select-prescription.component'
 
 
@@ -37,6 +38,7 @@ export class ViewDispenseComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
+  @ViewChild("dispenseDetailsComponentReference") dispenseDetails: DispenseDetailsComponent;
   @ViewChild("selectPrescriptionComponentReference") selectPrescription: SelectPrescriptionComponent;
 
   navHeading: any[] = [
@@ -65,10 +67,12 @@ export class ViewDispenseComponent implements OnInit, AfterViewInit {
           this.dispenseDate.val(res.dispense_date);
           this.prescriptionCode.val(res.prescription.prescription_code);
           this.prescriptionDate.val(res.prescription.prescription_date);
-          this.prescriptionIdStore = res.prescription.patient.id;
+          this.prescriptionIdStore = res.prescription.id;
           this.patientName.val(res.prescription.patient.patient_name);
           this.patientCode.val(res.prescription.patient.clinical_id);
           this.doctorName.val(res.prescription.doctor.doctor_name);
+
+          this.dispenseDetails.getPrescriptionData(res.prescription.id)
         },
         err => {
           console.log(err);
@@ -83,9 +87,9 @@ export class ViewDispenseComponent implements OnInit, AfterViewInit {
     this.prescriptionIdStore = prescription.id;
     this.prescriptionCode.val(prescription.prescription_code);
     this.prescriptionDate.val(prescription.prescription_date);
-    this.patientName.val(prescription.patient.patient_name);
-    this.patientCode.val(prescription.patient.clinical_id);
-    this.doctorName.val(prescription.doctor.doctor_name);
+    this.patientName.val(prescription.patient_name);
+    this.patientCode.val(prescription.clinical_number);
+    this.doctorName.val(prescription.doctor_name);
   }
 
   // widgets
@@ -93,10 +97,10 @@ export class ViewDispenseComponent implements OnInit, AfterViewInit {
 
   saveDispense(){
     let dispenseData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       prescription_code: this.prescriptionCode.val(),
       prescription_date: this.prescriptionDate.val(),
-      prescription_id: this.prescriptionIdStore,
+      prescription: this.prescriptionIdStore,
     }
 
     this.dispensaryApi.putDispensary(dispenseData)

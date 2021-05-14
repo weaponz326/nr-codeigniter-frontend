@@ -36,12 +36,35 @@
                 </div>
             </div>
 
+            <hr />
+
             <div class="row">
                 <div class="col-md-12">
-                    <jqxButton #saveAttendanceReference class="float-right"
+
+                    <jqxButton #printReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/attendance/all-attendance"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+
+                    <jqxButton #deleteButtonReference class="float-right" (click)="deleteAttendance()"
+                        [width]="100"
+                        [height]="28"
+                    >Delete</jqxButton>
+
+                    <jqxButton #saveButtonReference class="float-right" (click)="saveAttendance()"
                         [width]="100"
                         [height]="28"
                     >Save</jqxButton>
+
+                    <!-- delete confirmation window sub component -->
+
+                    <app-delete-confirm #deleteConfirmComponentReference (confirmEvent)="deleteConfirmationSelected($event)"></app-delete-confirm>
+
                 </div>
             </div>
 
@@ -51,7 +74,8 @@
 
     <div class="row">
         <div class="col-md-12">
-            <hr />
+            <hr class="top-divider" />
+            <hr class="bottom-divider" />
         </div>
     </div>
 

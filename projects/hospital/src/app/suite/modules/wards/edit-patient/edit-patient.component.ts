@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
@@ -10,7 +10,7 @@ import { PatientFormComponent } from '../patient-form/patient-form.component'
   templateUrl: './edit-patient.component.html',
   styleUrls: ['./edit-patient.component.css']
 })
-export class EditPatientComponent implements OnInit, AfterViewInit {
+export class EditPatientComponent implements OnInit {
 
   constructor() { }
 
@@ -30,9 +30,6 @@ export class EditPatientComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-  }
-
   openWindow(event: any){
     this.editPatient.open();
 
@@ -40,15 +37,21 @@ export class EditPatientComponent implements OnInit, AfterViewInit {
     this.wardPatientId = event.args.row.bounddata.id;
 
     this.patientForm.patientIdStore = event.args.row.bounddata.patient_id;
+    this.patientForm.patientName.val(event.args.row.bounddata.patient_name);
+    this.patientForm.patientCode.val(event.args.row.bounddata.clinical_number);
     this.patientForm.bedNumber.val(event.args.row.bounddata.bed_number);
     this.patientForm.dateAdmitted.val(event.args.row.bounddata.date_admitted);
     this.patientForm.dateDischarged.val(event.args.row.bounddata.date_discharged);
     this.patientForm.status.val(event.args.row.bounddata.status);
   }
 
+  closeWindow(){
+    this.editPatient.close();
+  }
+
   savePatient(){
     var patientData = {
-      account: sessionStorage.getItem('hospital_id'),
+      ward: sessionStorage.getItem('ward_id'),
       patient_id: this.patientForm.patientIdStore,
       patient_name: this.patientForm.patientName.val(),
       clinical_id: this.patientForm.patientCode.val(),
@@ -59,12 +62,14 @@ export class EditPatientComponent implements OnInit, AfterViewInit {
     }
 
     console.log(patientData);
-
     this.addCommit.emit(patientData);
+
+    this.closeWindow();
   }
 
   deletePatient(){
     this.deleteCommit.emit(this.wardPatientId);
+    this.closeWindow();
   }
 
 }

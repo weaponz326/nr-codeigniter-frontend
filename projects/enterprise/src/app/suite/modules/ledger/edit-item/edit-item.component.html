@@ -13,13 +13,13 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
-                <jqxButton #deleteButtonReference
+                <jqxButton #deleteButtonReference (click)="deleteItem()"
                 >Delete</jqxButton>
 
-                <jqxButton #okButtonReference
+                <jqxButton #okButtonReference (click)="saveItem()"
                 >Save</jqxButton>
             </div>
         </div>

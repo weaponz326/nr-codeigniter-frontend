@@ -14,10 +14,10 @@ export class AttendanceApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all attendance belonging to user
+  // create and get all attendance belonging to account
 
   public getAttendance(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-attendance/attendance-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-attendance/attendance?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postAttendance(attendance): Observable<any>{
@@ -41,11 +41,11 @@ export class AttendanceApiService {
   // get terms and classes for select windows
 
   public getTerms(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-attendance/term-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-terms/term?account=" + sessionStorage.getItem('school_id'));
   }
 
   public getClasses(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-attendance/class-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-classes/class?account=" + sessionStorage.getItem('school_id'));
   }
 
 }

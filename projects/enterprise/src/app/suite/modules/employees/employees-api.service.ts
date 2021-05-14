@@ -14,10 +14,10 @@ export class EmployeesApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all employees belonging to user
+  // create and get all employees belonging to account
 
   public getEmployees(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-employees/employee-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-employees/employee?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postEmployee(employee): Observable<any>{

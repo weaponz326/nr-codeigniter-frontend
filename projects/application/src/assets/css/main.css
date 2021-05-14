@@ -8,10 +8,15 @@
     background-color: #78797a !important;
 }
 
+.bg-white {
+  background-color: white !important;
+}
+
 .primary-caption {
-    font-size: 62px;
+    font-size: 62px !important;
     color: #fffd;
     padding-top: 60px;
+    padding-bottom: 10px;
 }
 
 .secondary-caption {

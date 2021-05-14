@@ -58,9 +58,9 @@ export class ViewAppraisalComponent implements OnInit, AfterViewInit {
           this.appraisalCode.val(res.appraisal_code);
           this.employeeCode.val(res.employee.employee_code);
           this.employeeName.val(res.employee.employee_name);
-          this.startDate.val(res.employee.start_date);
-          this.endDate.val(res.employee.end_date);
-          this.supervisor.val(res.employee.supervisor);
+          this.startDate.val(res.start_date);
+          this.endDate.val(res.end_date);
+          this.supervisor.val(res.supervisor);
         },
         err => {
           console.log(err);
@@ -98,7 +98,7 @@ export class ViewAppraisalComponent implements OnInit, AfterViewInit {
     console.log("u are updating the appraisal");
 
     let appraisalData = {
-      user: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       appraisal_code: this.appraisalCode.val(),
       employee_id: this.employeeIdStore,
       start_date: this.startDate.val(),

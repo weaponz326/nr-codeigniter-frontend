@@ -30,12 +30,16 @@ export class AddPatientComponent implements OnInit {
     this.addPatient.open();
   }
 
+  closeWindow(){
+    this.addPatient.close();
+  }
+
   savePatient(){
     var patientData = {
-      account: sessionStorage.getItem('hospital_id'),
+      ward: sessionStorage.getItem('ward_id'),
       patient_id: this.patientForm.patientIdStore,
       patient_name: this.patientForm.patientName.val(),
-      clinical_id: this.patientForm.patientCode.val(),
+      clinical_number: this.patientForm.patientCode.val(),
       bed_number: this.patientForm.bedNumber.val(),
       date_admitted: this.patientForm.dateAdmitted.val(),
       date_discharged: this.patientForm.dateDischarged.val(),
@@ -43,8 +47,9 @@ export class AddPatientComponent implements OnInit {
     }
 
     console.log(patientData);
-
     this.addCommit.emit(patientData);
+
+    this.closeWindow();
   }
 
 }

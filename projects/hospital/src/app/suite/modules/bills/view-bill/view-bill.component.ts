@@ -53,7 +53,7 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
           this.billDate.val(res.bill_date);
           this.totalAmount.val(res.total_amount);
           this.patientName.val(res.patient.patient_name);
-          this.patientCode.val(res.patient.patient_code);
+          this.patientCode.val(res.patient.clinical_number);
           this.admissionCode.val(res.admission.admission_code);
         },
         err => {
@@ -67,7 +67,7 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
 
   saveBill(){
     let billData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       bill_code: this.billCode.val(),
       bill_date: this.billDate.val(),
     }
@@ -113,6 +113,32 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
           }
         )
     }
+  }
+
+  updateAmount(event: any){
+    console.log(event);
+
+    let amount = {
+      account: sessionStorage.getItem('hospital_id'),
+      total_amount: event
+    }
+
+    this.billsApi.putBill(amount)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+
+          // set total input field if successful
+          this.totalAmount.val(event);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+
   }
 
 }

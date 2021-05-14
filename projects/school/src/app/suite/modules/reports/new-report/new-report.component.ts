@@ -52,6 +52,10 @@ export class NewReportComponent implements OnInit {
     this.newReport.open();
   }
 
+  closeWindow(){
+    this.newReport.close();
+  }
+
   termSelected(term: any){
     console.log(term);
     this.term.val(term.term_name);
@@ -68,9 +72,10 @@ export class NewReportComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let ReportData = {
-      hospital: localStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('school_id'),
       report_code: this.reportCode.val(),
       report_name: this.reportName.val(),
+      report_date: this.reportDate.val(),
       term: this.termIdStore,
       source: this.classIdStore,
     }
@@ -81,9 +86,10 @@ export class NewReportComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
-            this.router.navigateByUrl('/suite/Report/view-Report');
+          if (res.message == "OK"){
+            sessionStorage.setItem('report_id', res.data.id);
+            this.closeWindow();
+            this.router.navigateByUrl('/suite/reports/view-report');
           }
         },
         err => {

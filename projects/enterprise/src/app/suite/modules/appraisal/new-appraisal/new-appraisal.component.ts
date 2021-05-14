@@ -47,12 +47,16 @@ export class NewAppraisalComponent implements OnInit {
     this.newAppraisal.open();
   }
 
+  closeWindow(){
+    this.newAppraisal.close();
+  }
+
   saveAppraisal(){
     this.loadingSpinner.httpLoader.open();
 
     let appraisalData = {
-      user: sessionStorage.getItem('enterprise_id'),
-      appraisal_name: this.appraisalCode.val(),
+      account: sessionStorage.getItem('enterprise_id'),
+      appraisal_code: this.appraisalCode.val(),
       employee_id: this.employeeIdStore,
       start_date: this.startDate.val(),
       end_date: this.endDate.val(),
@@ -65,8 +69,9 @@ export class NewAppraisalComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('appraisal_id', res.appraisal_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('appraisal_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/appraisal/view-appraisal');
           }
         },

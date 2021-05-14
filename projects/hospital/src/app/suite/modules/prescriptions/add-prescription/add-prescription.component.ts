@@ -48,11 +48,15 @@ export class AddPrescriptionComponent implements OnInit {
     this.addPrescription.open();
   }
 
+  closeWindow(){
+    this.addPrescription.close();
+  }
+
   patientSelected(patient: any){
     console.log(patient);
 
     this.patientName.val(patient.patient_name);
-    this.patientCode.val(patient.clinical_id);
+    this.patientCode.val(patient.clinical_number);
     this.patientIdStore = patient.id;
   }
 
@@ -60,7 +64,7 @@ export class AddPrescriptionComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let prescriptionData = {
-      hospital_id: localStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       prescription_code: this.prescriptionCode.val(),
       prescription_date: this.prescriptionDate.val(),
       patient: this.patientIdStore
@@ -72,8 +76,9 @@ export class AddPrescriptionComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('lab_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/prescriptions/view-prescription');
           }
         },

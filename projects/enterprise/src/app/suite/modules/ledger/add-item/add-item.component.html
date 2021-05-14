@@ -13,10 +13,10 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
-                <jqxButton #okButtonReference
+                <jqxButton #okButtonReference (click)="saveItem()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -24,3 +24,9 @@
     </div>
 
 </jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

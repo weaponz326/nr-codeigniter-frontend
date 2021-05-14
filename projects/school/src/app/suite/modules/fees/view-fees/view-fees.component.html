@@ -2,77 +2,38 @@
 
 <div class="container">
 
+    <!-- new page form -->
+
+    <app-fees-form #feesFormComponentReference></app-fees-form>
+
     <div class="row page-form-div">
+        <div class="col-md-12">
 
-        <div class="col-md-6">
+            <jqxButton #printReference
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
 
-            <div class="row">
-                <div class="col-md-4"><label>Fees ID :</label></div>
-                <div class="col-md-8">
-                    <jqxInput #orderCodeReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxInput>
-                </div>
-            </div>
+            <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/fees/all-fees"
+                [width]="100"
+                [height]="28"
+            >Cancel</jqxButton>
 
-            <div class="row">
-                <div class="col-md-4"><label>Fees Description :</label></div>
-                <div class="col-md-8">
-                    <jqxInput #fessDescriptionReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxInput>
-                </div>
-            </div>
+            <jqxButton #deleteButtonReference class="float-right" (click)="this.deleteFees()"
+                [width]="100"
+                [height]="28"
+            >Delete</jqxButton>
 
-            <div class="row">
-                <div class="col-md-4"><label>Fees Date :</label></div>
-                <div class="col-md-8">
-                    <jqxDateTimeInput #orderDateReference
-                        [width]="'100%'"
-                        [height]="28"
-                        [formatString]="'yyyy-MM-dd'"
-                    ></jqxDateTimeInput>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4"><label>Target :</label></div>
-                <div class="col-md-4">
-                    <jqxButton #targetClassReference
-                        [width]="'100%'"
-                        [height]="28"
-                    >Select Class(es)</jqxButton>
-                </div>
-                <div class="col-md-4">
-                    <jqxButton #targetClassReference
-                        [width]="'100%'"
-                        [height]="28"
-                    >Select student(s)</jqxButton>
-                </div>
-            </div>
-
-            <hr />
-
-            <div class="row">
-                <div class="col-md-12">
-                    <jqxButton #saveButtonReference class="float-right"
-                        [width]="100"
-                        [height]="28"
-                    >Save</jqxButton>
-                </div>
-            </div>
+            <jqxButton #saveButtonReference class="float-right" (click)="this.saveFees()"
+                [width]="100"
+                [height]="28"
+            >Save</jqxButton>
 
         </div>
-
     </div>
 
-    <div class="row">
-        <div class="col-md-7">
-            <hr />
-        </div>
-    </div>
+    <hr class="top-divider" />
+    <hr class="bottom-divider" />
 
     <!-- fees details table -->
 

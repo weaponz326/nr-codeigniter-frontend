@@ -33,6 +33,7 @@
                     <jqxDropDownList #monthReference
                         [width]="'100%'"
                         [height]="28"
+                        [source]="monthsSource"
                     ></jqxDropDownList>
                 </div>
             </div>
@@ -43,6 +44,7 @@
                     <jqxDropDownList #yearReference
                         [width]="'100%'"
                         [height]="28"
+                        [source]="yearsSource"
                     ></jqxDropDownList>
                 </div>
             </div>
@@ -53,6 +55,7 @@
                     <jqxDropDownList #statusReference
                         [width]="'100%'"
                         [height]="28"
+                        [source]="statusSource"
                     ></jqxDropDownList>
                 </div>
             </div>
@@ -61,6 +64,11 @@
 
             <div class="row">
                 <div class="col-md-12">
+                    <jqxButton #saveBudgetReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
                     <jqxButton #cancelButton class="float-right"
                         [width]="100"
                         [height]="28"
@@ -78,13 +86,6 @@
                 </div>
             </div>
 
-        </div>
-
-        <div class="col-md-6 mt-5 text-center">
-            <jqxButton #saveButton
-                [width]="150"
-                [height]="36"
-            >Generate Payroll</jqxButton>
         </div>
     </div>
 

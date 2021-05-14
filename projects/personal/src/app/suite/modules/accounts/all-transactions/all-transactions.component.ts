@@ -55,6 +55,8 @@ export class AllTransactionsComponent implements OnInit, AfterViewInit {
     dataFields: [
       { name: 'id', type: 'string' },
       { name: 'transaction_date', type: 'string', format: 'yyyy-MM-dd HH:mm' },
+      { name: 'account_name', map: 'account>account_name', type: 'string' },
+      { name: 'bank_name', map: 'account>bank_name', type: 'string' },
       { name: 'description', type: 'string' },
       { name: 'transaction_type', type: 'string' },
       { name: 'amount', type: 'string' },
@@ -65,10 +67,12 @@ export class AllTransactionsComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Transaction Date", dataField: "transaction_date", filtertype: "range", width: "20%" },
-    { text: "Description", dataField: "description", width: "45%" },
-    { text: "Transaction Type", dataField: "transaction_type", filtertype: "checkedlist", width: "20%" },
-    { text: "Amount", dataField: "amount", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
+    { text: "Transaction Date", dataField: "transaction_date", filtertype: "range", width: "15%" },
+    { text: "Account Name", dataField: "account_name", width: "18%" },
+    { text: "Bank", dataField: "bank_name", width: "18%" },
+    { text: "Description", dataField: "description", width: "25%" },
+    { text: "Transaction Type", dataField: "transaction_type", filtertype: "checkedlist", width: "12%" },
+    { text: "Amount", dataField: "amount", width: "12%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
   ];
 
 }

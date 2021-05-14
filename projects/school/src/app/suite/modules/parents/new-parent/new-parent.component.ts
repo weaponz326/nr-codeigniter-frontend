@@ -42,11 +42,12 @@ export class NewParentComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var parentData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       parent_code: this.parentForm.parentCode.val(),
       first_name: this.parentForm.firstName.val(),
       last_name: this.parentForm.lastName.val(),
       sex: this.parentForm.sex.val(),
+      photo: this.parentForm.image,
       nationality: this.parentForm.nationality.val(),
       religion: this.parentForm.religion.val(),
       occupation: this.parentForm.occupation.val(),
@@ -66,8 +67,8 @@ export class NewParentComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('parent_id', res.parent_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('parent_id', res.data.id);
             this.router.navigateByUrl('/suite/parents/view-parent');
           }
         },

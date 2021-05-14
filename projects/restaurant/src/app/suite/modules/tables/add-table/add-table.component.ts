@@ -42,7 +42,7 @@ export class AddTableComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var tableData = {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       table_number: this.tableForm.tableNumber.val(),
       table_type: this.tableForm.tableType.val(),
       capacity: this.tableForm.capacity.val(),
@@ -58,8 +58,8 @@ export class AddTableComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('table_id', res.table_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('table_id', res.data.id);
             this.router.navigateByUrl('/suite/tables/view-table');
           }
         },

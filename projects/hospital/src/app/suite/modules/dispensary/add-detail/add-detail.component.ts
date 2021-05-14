@@ -35,17 +35,23 @@ export class AddDetailComponent implements OnInit {
     this.addDetailWindow.open();
   }
 
+  closeWindow(){
+    this.addDetailWindow.close();
+  }
+
   saveDetail(){
     let detailData = {
       dispensary: sessionStorage.getItem('dispensary_id'),
-      drug_name: this.detailForm.drugInput.val(),
+      drug_id: this.detailForm.drugIdStore,
+      drug_name: this.detailForm.drugNameInput.val(),
       ndc_number: this.detailForm.ndcNumberInput.val(),
       remarks: this.detailForm.remarksTextArea.val(),
     }
 
     console.log(detailData);
-
     this.addCommit.emit(detailData);
+
+    this.closeWindow();
   }
 
 }

@@ -14,10 +14,10 @@ export class NursesApiService {
 
   hospitalUrl = environment.hospitalUrl;
 
-  // create and get all nurses belonging to user
+  // create and get all nurses belonging to account
 
   public getNurses(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-nurses/nurse-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-nurses/nurse?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postNurse(nurse): Observable<any>{

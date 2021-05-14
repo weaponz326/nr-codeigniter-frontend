@@ -42,7 +42,7 @@ export class NewAssessmentComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var assessmentData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       assessment_code: this.assessmentForm.assessmentCode.val(),
       assessment_name: this.assessmentForm.assessmentName.val(),
       assessment_date: this.assessmentForm.assessmentDate.val(),
@@ -58,8 +58,8 @@ export class NewAssessmentComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if(res.status == true){
-            sessionStorage.setItem('assessment_id', res.assessment_id);
+          if(res.message == "OK"){
+            sessionStorage.setItem('assessment_id', res.data.id);
             this.router.navigateByUrl('/suite/assessment/view-assessment');
           }
         },

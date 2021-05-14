@@ -64,7 +64,7 @@ export class ViewPrescriptionComponent implements OnInit, AfterViewInit {
           this.prescriptionDate.val(res.prescription_date);
           this.patientIdStore = res.patient.id;
           this.patientName.val(res.patient.patient_name);
-          this.patientCode.val(res.patient.clinical_id);
+          this.patientCode.val(res.patient.clinical_number);
           this.doctorIdStore = res.doctor.id;
           this.doctorName.val(res.doctor.doctor_name);
         },
@@ -95,11 +95,11 @@ export class ViewPrescriptionComponent implements OnInit, AfterViewInit {
 
   savePrescription(){
     let prescriptionData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       prescription_code: this.prescriptionCode.val(),
       prescription_date: this.prescriptionDate.val(),
-      patient_id: this.patientIdStore,
-      doctor_id: this.doctorIdStore
+      patient: this.patientIdStore,
+      doctor: this.doctorIdStore
     }
 
     this.prescriptionsApi.putPrescription(prescriptionData)

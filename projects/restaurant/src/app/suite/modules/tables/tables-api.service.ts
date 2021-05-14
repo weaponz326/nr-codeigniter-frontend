@@ -13,10 +13,10 @@ export class TablesApiService {
 
   restaurantUrl = environment.restaurantUrl;
 
-  // create and get all tables belonging to user
+  // create and get all tables belonging to account
 
   public getTables(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-tables/table-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-tables/table?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postTable(menu): Observable<any>{

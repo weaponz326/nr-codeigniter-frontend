@@ -16,7 +16,7 @@ export class ParentsApiService {
   // create and get all parents belonging to user
 
   public getParents(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-parents/parent-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-parents/parent?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postParent(parent): Observable<any>{
@@ -39,23 +39,24 @@ export class ParentsApiService {
 
   // gets all students in a school for selection
   public getAllStudents(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-parents/student-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-students/student?account=" + sessionStorage.getItem('school_id'));
   }
+
+  // --------------------------------------------------------------------------------------------------------------------------------------
 
   // create and get wards belonging to a parent
 
   public getWards(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-parents/ward-list?parent=" + sessionStorage.getItem('parent_id'));
+    return this.http.get(this.schoolUrl + "module-parents/parent-ward?parent=" + sessionStorage.getItem('parent_id'));
   }
 
   public postWard(ward): Observable<any>{
-    return this.http.post(this.schoolUrl + "module-parents/ward/", ward);
+    return this.http.post(this.schoolUrl + "module-parents/parent-ward/", ward);
   }
 
   // delete ward
-
   public deleteWard(wardId): Observable<any>{
-    return this.http.delete(this.schoolUrl + "module-parents/parent/" + wardId);
+    return this.http.delete(this.schoolUrl + "module-parents/parent-ward/" + wardId);
   }
 
 }

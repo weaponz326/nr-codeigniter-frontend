@@ -14,10 +14,10 @@ export class AssessmentApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all assessment belonging to user
+  // create and get all assessment belonging to account
 
   public getAssessment(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-assessment/assessment-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-assessment/assessment?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postAssessment(assessment): Observable<any>{
@@ -41,11 +41,11 @@ export class AssessmentApiService {
   // gets all term, subjects and classes in a school for selection
 
   public getTerms(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-assessment/term-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-assessment/term?account=" + sessionStorage.getItem('school_id'));
   }
 
   public getSubjects(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-assessment/subject-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-assessment/subject?account=" + sessionStorage.getItem('school_id'));
   }
 
 }

@@ -45,10 +45,18 @@ export class ViewPatientComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.patientForm.dobYear.val(dobArray[0]);
+            this.patientForm.dobMonth.val(dobArray[1]);
+            this.patientForm.dobDay.val(dobArray[2]);
+          }
+
           this.patientForm.firstNameInput.val(res.first_name);
           this.patientForm.lastNameInput.val(res.last_name);
           this.patientForm.sexDropDownList.val(res.sex);
-          this.patientForm.dobInput.val(res.date_of_birth);
+          this.patientForm.photo.nativeElement.value = res.photo;
           this.patientForm.nationalityInput.val(res.nationality);
           this.patientForm.religionInput.val(res.religion);
           this.patientForm.occupationInput.val(res.occupation);
@@ -73,12 +81,17 @@ export class ViewPatientComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a patient");
 
+    let dob = '';
+    if (this.patientForm.dobYear.val() == '' || this.patientForm.dobMonth.val() == '' || this.patientForm.dobDay.val() == '') dob = null;
+    else dob = this.patientForm.dobYear.val() + '-' + this.patientForm.dobMonth.val() + '-' + this.patientForm.dobDay.val();
+
     var patientData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       first_name: this.patientForm.firstNameInput.val(),
       last_name: this.patientForm.lastNameInput.val(),
       sex: this.patientForm.sexDropDownList.val(),
-      date_of_birth: this.patientForm.dobInput.val(),
+      date_of_birth: dob,
+      photo: this.patientForm.image,
       nationality: this.patientForm.nationalityInput.val(),
       religion: this.patientForm.religionInput.val(),
       occupation: this.patientForm.occupationInput.val(),

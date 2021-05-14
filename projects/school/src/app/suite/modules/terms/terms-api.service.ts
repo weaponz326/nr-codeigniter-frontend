@@ -14,10 +14,10 @@ export class TermsApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all terms belonging to user
+  // create and get all terms belonging to account
 
   public getTerms(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-terms/term-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-terms/term?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postTerm(term): Observable<any>{

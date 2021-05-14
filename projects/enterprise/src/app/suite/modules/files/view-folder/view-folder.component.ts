@@ -95,7 +95,7 @@ export class ViewFolderComponent implements OnInit, AfterViewInit {
       file_number: this.folderNumber.val(),
     }
 
-    this.filesApi.putFile(folderData)
+    this.filesApi.putFolder(folderData)
       .subscribe(
         res => {
           console.log(res);

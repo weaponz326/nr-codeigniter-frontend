@@ -14,10 +14,10 @@ export class WardsApiService {
 
   hospitalUrl = environment.hospitalUrl;
 
-  // create and get all wards belonging to user
+  // create and get all wards belonging to account
 
   public getWards(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-wards/ward-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-wards/ward?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postWard(ward): Observable<any>{
@@ -42,11 +42,11 @@ export class WardsApiService {
   // ward's patients
 
   public getWardPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-wards/ward-patient-list?ward=" + sessionStorage.getItem('ward_id'));
+    return this.http.get(this.hospitalUrl + "module-wards/ward-patient?ward=" + sessionStorage.getItem('ward_id'));
   }
 
   public postWardPatient(wardData): Observable<any>{
-    return this.http.post(this.hospitalUrl + "module-wards/new-ward-patient/", wardData);
+    return this.http.post(this.hospitalUrl + "module-wards/ward-patient/", wardData);
   }
 
   // retreive, update and delete ward's patient
@@ -68,7 +68,7 @@ export class WardsApiService {
   // get patients for selection window
 
   public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-wards/patient-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-patients/patient?account=" + sessionStorage.getItem('hospital_id'));
   }
 
 }

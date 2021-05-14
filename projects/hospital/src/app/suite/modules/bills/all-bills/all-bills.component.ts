@@ -72,8 +72,8 @@ export class AllBillsComponent implements OnInit, AfterViewInit {
       { name: 'bill_code', type: 'string' },
       { name: 'bill_date', type: 'string' },
       { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
+      { name: 'patient_code', map: 'patient>clinical_number', type: 'string' },
       { name: 'admission_code', map: 'admission>admission_code', type: 'string' },
-      { name: 'total_amount', map: 'total_amount', type: 'string' },
     ],
     id: 'id',
   }
@@ -83,9 +83,9 @@ export class AllBillsComponent implements OnInit, AfterViewInit {
   columns: any[] = [
     { text: "Bill ID", dataField: "bill_code", width: "15%" },
     { text: "Bill Date", dataField: "bill_date", filtertype: "range", width: "20%" },
-    { text: "Patient Name", dataField: "patient_name", width: "30%" },
+    { text: "Patient ID", dataField: "patient_code", width: "15%" },
+    { text: "Patient Name", dataField: "patient_name", width: "35%" },
     { text: "Admission ID", dataField: "admission_code", width: "15%" },
-    { text: "Total Amount", dataField: "total_amount", cellsalign: 'right', cellsformat: 'c2', width: "20%" }
   ];
 
 }

@@ -14,10 +14,10 @@ export class LeaveApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all leave belonging to user
+  // create and get all leave belonging to account
 
   public getLeave(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-leave/leave-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-leave/leave?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postLeave(leave): Observable<any>{

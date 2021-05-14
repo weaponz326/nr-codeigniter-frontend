@@ -9,6 +9,7 @@ import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { StudentsRoutingModule } from './students-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -45,7 +46,8 @@ import { SettingsComponent } from './settings/settings.component';
     jqxRadioButtonModule,
     jqxDropDownListModule,
     jqxComboBoxModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxPanelModule
   ]
 })
 export class StudentsModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
@@ -17,6 +17,7 @@ export class CustomerFormComponent implements OnInit {
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
   @ViewChild('sexReference') sexDropDownList: jqxDropDownListComponent;
+  @ViewChild('imageUpload') photo: ElementRef;
   @ViewChild('phoneReference') phoneInput: jqxInputComponent;
   @ViewChild('emailReference') emailInput: jqxInputComponent;
   @ViewChild('addressReference') addressInput: jqxTextAreaComponent;
@@ -28,9 +29,24 @@ export class CustomerFormComponent implements OnInit {
   @ViewChild('allergiesReference') allergiesInput: jqxTextAreaComponent;
   @ViewChild('preferencesReference') preferencesInput: jqxTextAreaComponent;
 
+  image: any;
+  imgSrc = '/projects/personal/src/assets/images/utilities/photo-avatar.jpg';
+
   sexSource: any[] = ["Male", "Female"];
 
   ngOnInit(): void {
+  }
+
+  onImageSelected(e: any){
+    const file: File = e.target.files[0];
+
+    if (file) {
+      var reader = new FileReader();
+      this.image = reader.readAsDataURL(file);
+      reader.onload = (e: any) => {
+        this.imgSrc = e.target.result;
+      }
+    }
   }
 
 }

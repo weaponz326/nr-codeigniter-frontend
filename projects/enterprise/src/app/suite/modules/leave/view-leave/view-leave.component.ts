@@ -71,7 +71,7 @@ export class ViewLeaveComponent implements OnInit, AfterViewInit {
     console.log("u are updating a leave");
 
     var leaveData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       leave_code: this.leaveForm.leaveCode.val(),
       employee_id: this.employeeIdStore,
       date_requested: this.leaveForm.dateRequested.val(),

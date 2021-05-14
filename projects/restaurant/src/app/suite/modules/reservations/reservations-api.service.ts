@@ -14,10 +14,10 @@ export class ReservationsApiService {
 
   restaurantUrl = environment.restaurantUrl;
 
-  // create and get all reservations belonging to user
+  // create and get all reservations belonging to account
 
   public getReservations(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-reservations/reservation-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-reservations/reservation?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postReservation(reservation): Observable<any>{

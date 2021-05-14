@@ -64,7 +64,7 @@ export class ViewWardComponent implements OnInit, AfterViewInit {
     console.log("u are updating a staff");
 
     var wardData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       ward_number: this.wardForm.wardNumber.val(),
       ward_name: this.wardForm.wardName.val(),
       ward_type: this.wardForm.wardType.val(),

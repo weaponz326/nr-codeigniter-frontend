@@ -35,7 +35,7 @@ export class AdmissionFormComponent implements OnInit {
     console.log(patient);
 
     this.patientName.val(patient.patient_name);
-    this.patientCode.val(patient.clinical_id);
+    this.patientCode.val(patient.clinical_number);
     this.patientIdStore = patient.id;
   }
 

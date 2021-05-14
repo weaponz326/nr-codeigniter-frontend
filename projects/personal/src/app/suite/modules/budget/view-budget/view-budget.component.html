@@ -39,8 +39,20 @@
                 </div>
             </div>
 
+            <hr />
+
             <div class="row">
                 <div class="col-md-12">
+                    <jqxButton #saveBudgetReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelBudgetReference class="float-right" routerLink="/suite/budget/all-budgets"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+
                     <jqxButton #saveBudgetReference class="float-right" (click)="deleteBudget()"
                         [width]="100"
                         [height]="28"

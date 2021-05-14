@@ -98,7 +98,7 @@ export class AllVisitorsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let visitorData =  {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       visit_code: rowdata.visit_code,
       visit_date: rowdata.visit_date,
       visitor_name: rowdata.visitor_name,
@@ -118,7 +118,7 @@ export class AllVisitorsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -153,7 +153,7 @@ export class AllVisitorsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -173,7 +173,7 @@ export class AllVisitorsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true);
         },
         err => {
           console.log(err);

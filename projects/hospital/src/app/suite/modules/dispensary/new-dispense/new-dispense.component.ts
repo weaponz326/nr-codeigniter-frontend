@@ -40,11 +40,15 @@ export class NewDispenseComponent implements OnInit {
     this.newDispense.open();
   }
 
+  closeWindow(){
+    this.newDispense.close();
+  }
+
   saveDispense(){
     this.loadingSpinner.httpLoader.open();
 
     let dispenseData = {
-      hospital: localStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       dispense_code: this.dispenseCode.val(),
       dispense_date: this.dispenseDate.val(),
     }
@@ -55,8 +59,9 @@ export class NewDispenseComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('lab_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/dispensary/view-dispense');
           }
         },

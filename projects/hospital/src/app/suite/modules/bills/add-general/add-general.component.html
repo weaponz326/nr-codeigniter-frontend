@@ -12,7 +12,7 @@
         <div>
             <div class="edit-dialog-label">Item</div>
             <div class="edit-dialog-field">
-                <jqxInput #descriptionReference
+                <jqxInput #itemReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxInput>
@@ -35,7 +35,7 @@
 
         <div>
             <div class="edit-dialog-field edit-dialog-buttons">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #okButtonReference (click)="saveGeneralBill()"

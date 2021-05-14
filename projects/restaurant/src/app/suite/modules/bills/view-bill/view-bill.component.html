@@ -27,6 +27,40 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-4"><label>Customer Name :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #customerNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-4"><label>Order ID :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #orderCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Order Type :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #orderTypeReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
             <br />
 
             <div class="row">
@@ -43,118 +77,17 @@
 
         </div>
 
-        <div class="col-md-6">
-
-            <div class="row">
-                <div class="col-md-4"><label>Bill Type :</label></div>
-                <div class="col-md-8">
-                    <jqxDropDownList #billTypeReference
-                        [width]="'100%'"
-                        [height]="28"
-                        [source]="billTypeSource"
-                        [autoDropDownHeight]="true"
-                        [disabled]="true"
-                    ></jqxDropDownList>
-                </div>
-            </div>
-
-            <!-- when bill type == order -->
-
-            <!-- <div *ngIf="billType.val() == 'Order'">
-                <div class="row">
-                    <div class="col-md-4"><label>Order ID :</label></div>
-                    <div class="col-md-8">
-                        <jqxInput #orderCodeReference
-                            [width]="'100%'"
-                            [height]="28"
-                            [disabled]="true"
-                        ></jqxInput>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4"><label>Bill Date :</label></div>
-                    <div class="col-md-8">
-                        <jqxDateTimeInput #billDateReference
-                            [width]="'100%'"
-                            [height]="28"
-                            [formatString]="'yyyy-MM-dd'"
-                        ></jqxDateTimeInput>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- when bill type == sitting -->
-
-            <!-- <div *ngIf="billType.val() == 'Sitting'">
-                <div class="row">
-                    <div class="col-md-4"><label>Sitting ID :</label></div>
-                    <div class="col-md-8">
-                        <jqxInput #sittingCodeReference
-                            [width]="'100%'"
-                            [height]="28"
-                            [disabled]="true"
-                        ></jqxInput>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4"><label>Sitting Date :</label></div>
-                    <div class="col-md-8">
-                        <jqxDateTimeInput #sittingDateReference
-                            [width]="'100%'"
-                            [height]="28"
-                            [formatString]="'yyyy-MM-dd'"
-                        ></jqxDateTimeInput>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- when bill type == delivery -->
-
-            <!-- <div *ngIf="billType.val() == 'Delivery'">
-                <div class="row">
-                    <div class="col-md-4"><label>Delivery ID :</label></div>
-                    <div class="col-md-8">
-                        <jqxInput #deliveryCodeReference
-                            [width]="'100%'"
-                            [height]="28"
-                            [disabled]="true"
-                        ></jqxInput>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4"><label>Delivery Date :</label></div>
-                    <div class="col-md-8">
-                        <jqxDateTimeInput #deliveryDateReference
-                            [width]="'100%'"
-                            [height]="28"
-                            [formatString]="'yyyy-MM-dd'"
-                        ></jqxDateTimeInput>
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="row">
-                <div class="col-md-4"><label>Customer Name :</label></div>
-                <div class="col-md-8">
-                    <jqxInput #customerNameReference
-                        [width]="'100%'"
-                        [height]="28"
-                        [disabled]="true"
-                    ></jqxInput>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
-    <hr />
-
     <div class="row page-form-div">
-        <div class="col-md-12">
+        <div class="col-md-6">
+
+            <hr />
+
+            <jqxButton #printReference
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
 
             <jqxButton #cancelBillReference class="float-right" routerLink="/suite/bills/all-bills"
                 [width]="100"
@@ -177,17 +110,6 @@
 
         </div>
     </div>
-
-    <hr />
-
-    <!-- bill details -->
-
-    <!-- <app-bill-details #billDetailsComponentReference
-        [billType]="billType.val()"
-    ></app-bill-details> -->
-
-    <app-bill-details #billDetailsComponentReference
-    ></app-bill-details>
 
 </div>
 

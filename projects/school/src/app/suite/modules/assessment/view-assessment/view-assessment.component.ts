@@ -64,7 +64,7 @@ export class ViewAssessmentComponent implements OnInit, AfterViewInit {
     console.log("u are updating a assessment");
 
     var assessmentData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       assessment_code: this.assessmentForm.assessmentCode.val(),
       assessment_name: this.assessmentForm.assessmentName.val(),
       assessment_date: this.assessmentForm.assessmentDate.val(),

@@ -17,7 +17,7 @@ export class PaymentsApiService {
   // create and get all payments belonging to user
 
   public getPayments(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-payments/payment-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-payments/payment?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postPayment(payment): Observable<any>{
@@ -41,7 +41,7 @@ export class PaymentsApiService {
   // get bills for selection window
 
   public getBills(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-payments/bill-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-bills/bill?accounts=" + sessionStorage.getItem('restaurant_id'));
   }
 
 }

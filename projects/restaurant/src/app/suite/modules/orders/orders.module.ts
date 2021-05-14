@@ -24,6 +24,7 @@ import { EditItemComponent } from './edit-item/edit-item.component';
 import { ItemFormComponent } from './item-form/item-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SelectMenuItemComponent } from './select-menu-item/select-menu-item.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SettingsComponent } from './settings/settings.component';
     ItemFormComponent,
     DashboardComponent,
     SettingsComponent,
+    SelectMenuItemComponent,
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { BudgetApiService } from '../budget-api.service';
+import { BudgetCalcService } from '../budget-calc.service';
 import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
@@ -15,7 +16,7 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
-  constructor(private budgetApi: BudgetApiService) { }
+  constructor(private budgetApi: BudgetApiService, private budgetCalc: BudgetCalcService) { }
 
   @ViewChild("incomeGridReference") incomeGrid: jqxGridComponent;
   @ViewChild("expenditureGridReference") expenditureGrid: jqxGridComponent;
@@ -49,6 +50,8 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.incomeSource.localdata = res;
           this.incomeGrid.updatebounddata();
+
+          this.getIoe();
         },
         err => {
           console.log(err);
@@ -64,6 +67,8 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.expenditureSource.localdata = res;
           this.expenditureGrid.updatebounddata();
+
+          this.getIoe();
         },
         err => {
           console.log(err);
@@ -76,10 +81,11 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
   getIoe() {
     this.totalIncome = this.incomeGrid.getcolumnaggregateddata('amount', ['sum']);
     this.totalExpenditure = this.expenditureGrid.getcolumnaggregateddata('amount', ['sum']);
-    console.log(this.totalIncome);
-    console.log(this.totalExpenditure);
+    console.log(this.totalIncome.sum);
+    console.log(this.totalExpenditure.sum);
 
-    let ioe = this.totalIncome.sum - this.totalExpenditure.sum;
+    let ioe = this.budgetCalc.calculateIoe(this.totalIncome.sum, this.totalExpenditure.sum);
+
     console.log(ioe)
 
     this.calculateIoe.emit(ioe);
@@ -197,7 +203,7 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          commit(true, res.id);
+          commit(true, res.data.id);
           this.loadingSpinner.httpLoader.close();
 
           // recalculate ioe on table change
@@ -224,7 +230,7 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          commit(true, res.id);
+          commit(true, res.data.id);
           this.loadingSpinner.httpLoader.close();
 
           // recalculate ioe on table change
@@ -274,7 +280,7 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          commit(true, res.id);
+          commit(true, res.data.id);
           this.loadingSpinner.httpLoader.close();
 
           // recalculate ioe on table change
@@ -301,7 +307,7 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          commit(true, res.id);
+          commit(true, res.data.id);
           this.loadingSpinner.httpLoader.close();
 
           // recalculate ioe on table change

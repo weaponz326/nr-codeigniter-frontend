@@ -46,12 +46,17 @@ export class ViewEmployeeComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.employeeForm.dobYear.val(dobArray[0]);
+            this.employeeForm.dobMonth.val(dobArray[1]);
+            this.employeeForm.dobDay.val(dobArray[2]);
+          }
+
           this.employeeForm.firstName.val(res.first_name);
           this.employeeForm.lastName.val(res.last_name);
           this.employeeForm.sex.val(res.sex);
-          this.employeeForm.dobYear = res.date_of_birth.split('-')[0];
-          this.employeeForm.dobMonth = res.date_of_birth.split('-')[1];
-          this.employeeForm.dobDay = res.date_of_birth.split('-')[2];
           this.employeeForm.photo.nativeElement.value = res.photo;
           this.employeeForm.nationality.val(res.nationality);
           this.employeeForm.religion.val(res.religion);
@@ -80,13 +85,17 @@ export class ViewEmployeeComponent implements OnInit, AfterViewInit {
     console.log('u are saving a new employee');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.employeeForm.dobYear.val() == '' || this.employeeForm.dobMonth.val() == '' || this.employeeForm.dobDay.val() == '') dob = null;
+    else dob = this.employeeForm.dobYear.val() + '-' + this.employeeForm.dobMonth.val() + '-' + this.employeeForm.dobDay.val();
+
     var employeeData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       first_name: this.employeeForm.firstName.val(),
       last_name: this.employeeForm.lastName.val(),
       sex: this.employeeForm.sex.val(),
-      date_of_birth: this.employeeForm.dobYear + '-' + this.employeeForm.dobMonth + '-' + this.employeeForm.dobDay,
-      nationality: this.employeeForm.photo.nativeElement.value,
+      date_of_birth: dob,
+      nationality: this.employeeForm.image,
       photo: this.employeeForm.nationality.val(),
       religion: this.employeeForm.religion.val(),
       phone: this.employeeForm.phone.val(),

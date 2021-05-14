@@ -4,7 +4,7 @@
 
     <div class="row top-button-row">
         <div class="col-md-12">
-            <jqxButton #buttonReference (click)="createFeesWindowReference.openWindow()"
+            <jqxButton #buttonReference routerLink="/suite/fees/create-fees"
                 [width]="150"
                 [height]="30"
             >Create Fees</jqxButton>
@@ -32,20 +32,7 @@
         </div>
     </div>
 
-    <div class="row mt-2">
-        <div class="col-md-4">
-            <jqxButton #generateButtonReference
-                [width]="150"
-                [height]="30"
-            >Generate</jqxButton>
-        </div>
-    </div>
-
 </div>
-
-<!-- create fees popup dialog window -->
-
-<app-create-fees #createFeesWindowReference></app-create-fees>
 
 <!-- http loader spinner and connection notification components -->
 

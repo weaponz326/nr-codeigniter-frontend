@@ -3,7 +3,7 @@ personal details -->
 
 <div class="row page-form-div">
 
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>Personal Details</h4>
     </div>
 
@@ -44,11 +44,17 @@ personal details -->
         <div class="row">
             <div class="col-md-4"><label>Date of Birth :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #dobReference
-                    [width]="'100%'"
-                    [height]="28"
-                    [formatString]="'yyyy-MM-dd'"
-                ></jqxDateTimeInput>
+                <div class="row">
+                    <div class="col-md-4">
+                        <jqxComboBox #dobDayReference [width]="'100%'" [height]="28" [source]="dobDaySource"></jqxComboBox>
+                    </div>
+                    <div class="col-md-4">
+                        <jqxComboBox #dobMonthReference [width]="'100%'" [height]="28" [source]="dobMonthSource"></jqxComboBox>
+                    </div>
+                    <div class="col-md-4">
+                        <jqxComboBox #dobYearReference [width]="'100%'" [height]="28" [source]="dobYearSource"></jqxComboBox>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -82,17 +88,39 @@ personal details -->
 
 <hr />
 
+<!-- --------------------------------------------------------------------------------------------
+photo -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-6">
+        <div class="row">
+
+            <div class="col-md-4"><label>Photo :</label></div>
+            <div class="col-md-8">
+                <input #imageUpload type="file" requiredFileType="image" class="image-upload" (change)="onImageSelected($event) "/>
+                <jqxPanel #photoReference (click)="imageUpload.click()"
+                    [width]="160"
+                    [height]="160"
+                ><img [src]="imgSrc" class="panel-image" /></jqxPanel>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 <!-- --------------------------------------------------------------------------------------------------
 contact details -->
 
 <div class="row page-form-div">
 
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>Contact Details</h4>
     </div>
 
     <div class="col-md-6">
-    
+
         <div class="row">
             <div class="col-md-4"><label>Phone No. :</label></div>
             <div class="col-md-8">
@@ -124,7 +152,7 @@ contact details -->
         </div>
 
     </div>
-    
+
     <div class="col-md-6">
 
         <div class="row">
@@ -158,17 +186,17 @@ contact details -->
         </div>
 
     </div>
-    
+
 </div>
 
-<hr /> 
+<hr />
 
 <!-- -------------------------------------------------------------------------------------------------
 clinic details -->
 
 <div class="row page-form-div">
 
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>Student Details</h4>
     </div>
 
@@ -206,28 +234,36 @@ clinic details -->
         </div>
 
     </div>
-    
+
     <div class="col-md-6">
 
         <div class="row">
             <div class="col-md-4"><label>Class :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #classReference
-                    [width]="'100%'"
+                <jqxInput #classReference
+                    [width]="'88%'"
                     [height]="28"
-                ></jqxDropDownList>
+                ></jqxInput>
+                <jqxButton #selectClassReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
             </div>
-        </div>        
+        </div>
 
         <div class="row">
             <div class="col-md-4"><label>Term :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #termReference
-                    [width]="'100%'"
+                <jqxInput #termReference
+                    [width]="'88%'"
                     [height]="28"
-                ></jqxDropDownList>
+                ></jqxInput>
+                <jqxButton #selectTermReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
             </div>
-        </div>  
+        </div>
 
     </div>
 

@@ -46,9 +46,18 @@ export class ViewTeacherComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.teacherForm.dobYear.val(dobArray[0]);
+            this.teacherForm.dobMonth.val(dobArray[1]);
+            this.teacherForm.dobDay.val(dobArray[2]);
+          }
+
           this.teacherForm.firstName.val(res.first_name);
           this.teacherForm.lastName.val(res.last_name);
           this.teacherForm.sex.val(res.sex);
+          this.teacherForm.photo.nativeElement.value = res.photo;
           this.teacherForm.nationality.val(res.nationality);
           this.teacherForm.religion.val(res.religion);
           this.teacherForm.phone.val(res.phone);
@@ -74,11 +83,16 @@ export class ViewTeacherComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a teacher");
 
+    let dob = '';
+    if (this.teacherForm.dobYear.val() == '' || this.teacherForm.dobMonth.val() == '' || this.teacherForm.dobDay.val() == '') dob = null;
+    else dob = this.teacherForm.dobYear.val() + '-' + this.teacherForm.dobMonth.val() + '-' + this.teacherForm.dobDay.val();
+
     var teacherData = {
       school_id: sessionStorage.getItem('school_id'),
       first_name: this.teacherForm.firstName.val(),
       last_name: this.teacherForm.lastName.val(),
       sex: this.teacherForm.sex.val(),
+      date_of_birth: dob,
       nationality: this.teacherForm.nationality.val(),
       religion: this.teacherForm.religion.val(),
       phone: this.teacherForm.phone.val(),

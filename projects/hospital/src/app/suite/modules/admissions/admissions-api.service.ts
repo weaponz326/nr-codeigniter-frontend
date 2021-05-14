@@ -17,7 +17,7 @@ export class AdmissionsApiService {
   // create and get all admissions belonging to user
 
   public getAdmissions(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-admissions/admission-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-admissions/admission?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postAdmission(admission): Observable<any>{
@@ -41,7 +41,7 @@ export class AdmissionsApiService {
   // get patients for selection window
 
   public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-admissions/patient-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-patients/patient?account=" + sessionStorage.getItem('hospital_id'));
   }
 
 }

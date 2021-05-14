@@ -31,6 +31,10 @@ export class AddAppointmentComponent implements OnInit {
     this.addAppointment.open();
   }
 
+  closeWindow(){
+    this.addAppointment.close();
+  }
+
   saveAppointment(){
     var appointmentData = {
       account: sessionStorage.getItem('hospital_id'),
@@ -47,8 +51,9 @@ export class AddAppointmentComponent implements OnInit {
     }
 
     console.log(appointmentData);
-
     this.addCommit.emit(appointmentData);
+
+    this.closeWindow();
   }
 
 }

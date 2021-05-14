@@ -45,11 +45,18 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
     this.nursesApi.getSingleNurse()
       .subscribe(
         res => {
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.nurseForm.dobYear.val(dobArray[0]);
+            this.nurseForm.dobMonth.val(dobArray[1]);
+            this.nurseForm.dobDay.val(dobArray[2]);
+          }
+
           console.log(res);
           this.nurseForm.firstNameInput.val(res.first_name);
           this.nurseForm.lastNameInput.val(res.last_name);
           this.nurseForm.sexDropDownList.val(res.sex);
-          this.nurseForm.dobInput.val(res.date_of_birth);
+          this.nurseForm.photo.nativeElement.value = res.photo;
           this.nurseForm.nationalityInput.val(res.nationality);
           this.nurseForm.religionInput.val(res.religion);
           this.nurseForm.phoneInput.val(res.phone);
@@ -60,9 +67,6 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
           this.nurseForm.postCodeInput.val(res.post_code);
           this.nurseForm.nurseCodeInput.val(res.nurse_code);
           this.nurseForm.departmentInput.val(res.department);
-          this.nurseForm.workStatusDropDownList.val(res.work_status);
-          this.nurseForm.startedWorkDateInput.val(res.started_work);
-          this.nurseForm.endedWorkDateInput.val(res.ended_work);
         },
         err => {
           console.log(err);
@@ -75,12 +79,17 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
     console.log('u are saving a new nurse');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.nurseForm.dobYear.val() == '' || this.nurseForm.dobMonth.val() == '' || this.nurseForm.dobDay.val() == '') dob = null;
+    else dob = this.nurseForm.dobYear.val() + '-' + this.nurseForm.dobMonth.val() + '-' + this.nurseForm.dobDay.val();
+
     var nurseData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       first_name: this.nurseForm.firstNameInput.val(),
       last_name: this.nurseForm.lastNameInput.val(),
       sex: this.nurseForm.sexDropDownList.val(),
-      date_of_birth: this.nurseForm.dobInput.val(),
+      date_of_birth: dob,
+      photo: this.nurseForm.image,
       nationality: this.nurseForm.nationalityInput.val(),
       religion: this.nurseForm.religionInput.val(),
       phone: this.nurseForm.phoneInput.val(),
@@ -91,9 +100,6 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
       post_code: this.nurseForm.postCodeInput.val(),
       nurse_code: this.nurseForm.nurseCodeInput.val(),
       department: this.nurseForm.departmentInput.val(),
-      work_status: this.nurseForm.workStatusDropDownList.val(),
-      started_work: this.nurseForm.startedWorkDateInput.val(),
-      ended_work: this.nurseForm.endedWorkDateInput.val(),
     }
 
     console.log(nurseData);

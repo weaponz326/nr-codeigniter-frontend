@@ -16,8 +16,8 @@ export class ItemFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild("itemDateReference") itemDateInput: jqxDateTimeInputComponent;
-  @ViewChild("referenceNumberReference") descriptionInput: jqxInputComponent;
-  @ViewChild("descriptionReference") referenceNumberInput: jqxInputComponent;
+  @ViewChild("referenceNumberReference") referenceNumberInput: jqxInputComponent;
+  @ViewChild("descriptionReference") descriptionInput: jqxInputComponent;
   @ViewChild("itemTypeReference") itemTypeDropDownList: jqxDropDownListComponent;
   @ViewChild("amountReference") amountInput: jqxNumberInputComponent;
 

@@ -44,6 +44,10 @@ export class EditSentComponent implements OnInit {
     this.sentForm.letterDate.val(event.args.row.bounddata.letter_date);
   }
 
+  closeWindow(){
+    this.editSent.close();
+  }
+
   saveSent(){
     var sentData = {
       id: this.sentId,
@@ -56,12 +60,13 @@ export class EditSentComponent implements OnInit {
     }
 
     console.log(sentData);
-
     this.editCommit.emit(sentData);
+    this.closeWindow();
   }
 
   deleteSent(){
     this.deleteCommit.emit(this.sentId);
+    this.closeWindow();
   }
 
 }

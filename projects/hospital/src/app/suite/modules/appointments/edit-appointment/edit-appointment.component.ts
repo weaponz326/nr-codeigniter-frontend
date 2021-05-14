@@ -49,6 +49,10 @@ export class EditAppointmentComponent implements OnInit {
     this.appointmentForm.appointmentStatus.val(event.args.row.bounddata.appointment_status);
   }
 
+  closeWindow(){
+    this.editAppointment.close();
+  }
+
   saveAppointment(){
     var appointmentData = {
       id: this.appointmentId,
@@ -66,12 +70,14 @@ export class EditAppointmentComponent implements OnInit {
     }
 
     console.log(appointmentData);
-
     this.editCommit.emit(appointmentData);
+
+    this.closeWindow();
   }
 
   deleteAppointment(){
     this.deleteCommit.emit(this.appointmentId);
+    this.closeWindow();
   }
 
 }

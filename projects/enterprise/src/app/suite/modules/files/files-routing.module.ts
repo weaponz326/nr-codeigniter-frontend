@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { FilesWrapperComponent } from './files-wrapper/files-wrapper.component';
 import { AllFoldersComponent } from './all-folders/all-folders.component';
 import { ViewFolderComponent } from './view-folder/view-folder.component';
+import { AddFileComponent } from './add-file/add-file.component';
+import { ViewFileComponent } from './view-file/view-file.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 
@@ -18,6 +20,8 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: "all-folders", component: AllFoldersComponent },
       { path: "view-folder", component: ViewFolderComponent },
+      { path: "add-file", component: AddFileComponent },
+      { path: "view-file", component: ViewFileComponent },
     ]
   }
 ];

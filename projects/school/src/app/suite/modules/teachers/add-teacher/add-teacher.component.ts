@@ -41,11 +41,16 @@ export class AddTeacherComponent implements OnInit {
     console.log('u are saving a new teacher');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.teacherForm.dobYear.val() == '' || this.teacherForm.dobMonth.val() == '' || this.teacherForm.dobDay.val() == '') dob = null;
+    else dob = this.teacherForm.dobYear.val() + '-' + this.teacherForm.dobMonth.val() + '-' + this.teacherForm.dobDay.val();
+
     var teacherData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       first_name: this.teacherForm.firstName.val(),
       last_name: this.teacherForm.lastName.val(),
       sex: this.teacherForm.sex.val(),
+      date_of_birth: dob,
       nationality: this.teacherForm.nationality.val(),
       religion: this.teacherForm.religion.val(),
       phone: this.teacherForm.phone.val(),
@@ -69,8 +74,8 @@ export class AddTeacherComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('teacher_id', res.teacher_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('teacher_id', res.data.id);
             this.router.navigateByUrl('/suite/teachers/view-teacher');
           }
         },

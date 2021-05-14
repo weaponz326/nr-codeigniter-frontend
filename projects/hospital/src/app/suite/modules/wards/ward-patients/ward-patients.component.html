@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col-md-12">
-        <hr />
+        <hr class="top-divider" />
+        <hr class="bottom-divider" />
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>Ward's Patients</h4>
     </div>
 </div>
@@ -43,3 +44,9 @@
     (editCommit)="onEditCommit($event)"
     (deleteCommit)="onDeleteCommit($event)"
 ></app-edit-patient>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

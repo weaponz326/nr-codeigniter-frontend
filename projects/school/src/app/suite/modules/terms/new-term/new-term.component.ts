@@ -42,7 +42,7 @@ export class NewTermComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var termData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       term_name: this.termForm.termName.val(),
       term_begins: this.termForm.termBegins.val(),
       term_ends: this.termForm.termEnds.val(),
@@ -58,8 +58,8 @@ export class NewTermComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('term_id', res.term_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('term_id', res.data.id);
             this.router.navigateByUrl('/suite/terms/view-term');
           }
         },

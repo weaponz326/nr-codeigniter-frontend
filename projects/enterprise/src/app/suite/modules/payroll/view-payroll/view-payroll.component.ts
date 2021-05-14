@@ -45,6 +45,10 @@ export class ViewPayrollComponent implements OnInit, AfterViewInit {
     { text: "View Payroll", url: "/suite/payroll/view-payroll" },
   ];
 
+  monthsSource = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  yearsSource = this.getYears();
+  statusSource = ['Processing', 'Deployed'];
+
   ngAfterViewInit(): void {
     this.payrollApi.getSinglePayroll()
       .subscribe(
@@ -82,6 +86,12 @@ export class ViewPayrollComponent implements OnInit, AfterViewInit {
           }
         )
     }
+  }
+
+  getYears(): any[] {
+    var i, n=[];
+    for (i=1900; i<=2021; i++) n.push(i);
+    return n;
   }
 
   // -----------------------------------------------------------------------------------------------------

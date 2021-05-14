@@ -7,6 +7,7 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxListBoxModule } from 'jqwidgets-ng/jqxlistbox';
+import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { ClassesRoutingModule } from './classes-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -20,6 +21,7 @@ import { ClassFormComponent } from './class-form/class-form.component';
 import { SubjectsTableComponent } from './subjects-table/subjects-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SelectSubjectComponent } from './select-subject/select-subject.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { SettingsComponent } from './settings/settings.component';
     ClassFormComponent,
     SubjectsTableComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    SelectSubjectComponent
   ],
   imports: [
     CommonModule,
@@ -44,6 +47,7 @@ import { SettingsComponent } from './settings/settings.component';
     jqxComboBoxModule,
     jqxDropDownListModule,
     jqxListBoxModule,
+    jqxWindowModule,
   ]
 })
 export class ClassesModule { }

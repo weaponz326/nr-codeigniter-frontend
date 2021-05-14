@@ -8,11 +8,16 @@
                 [width]="150"
                 [height]="30"
             >Add Appointment</jqxButton>
+
+            <jqxButton #printReference class="float-right"
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <jqxGrid #gridReference (onRowdoubleclick)="editAppointmentWindowReference.openWindow($event)"
                 [width]="'100%'"
                 [height]="450"

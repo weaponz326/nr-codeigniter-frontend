@@ -12,7 +12,10 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #printReference class="float-left ml-4"
+                ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #deleteButtonReference (click)="deleteAppointment()"

@@ -38,11 +38,15 @@ export class NewFolderComponent implements OnInit {
     this.newFolder.open();
   }
 
+  closeWindow(){
+    this.newFolder.close();
+  }
+
   saveFolder(){
     this.loadingSpinner.httpLoader.open();
 
     let folderData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       folder_number: this.folderNumber.val(),
       folder_name: this.folderName.val(),
     }
@@ -53,8 +57,9 @@ export class NewFolderComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
+          if (res.message == "OK"){
             sessionStorage.setItem('folder_id', res.folder_id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/files/view-folder');
           }
         },

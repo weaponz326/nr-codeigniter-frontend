@@ -94,7 +94,7 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let sittingData =  {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       sitting_code: rowdata.sitting_code,
       sitting_date: rowdata.sitting_date,
       arrival_time: rowdata.arrival_time,
@@ -112,7 +112,7 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -127,7 +127,7 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let sittingData =  {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       sitting_code: newdata.sitting_code,
       sitting_date: newdata.sitting_date,
       arrival_time: newdata.arrival_time,
@@ -145,7 +145,7 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -165,7 +165,7 @@ export class AllSittingsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

@@ -31,6 +31,10 @@ export class NewDeliveryComponent implements OnInit {
     this.newDelivery.open();
   }
 
+  closeWindow(){
+    this.newDelivery.close();
+  }
+
   saveDelivery(){
     var deliveryData = {
       restaurant_id: sessionStorage.getItem('restaurant_id'),
@@ -41,8 +45,9 @@ export class NewDeliveryComponent implements OnInit {
     }
 
     console.log(deliveryData);
-
     this.addCommit.emit(deliveryData);
+
+    this.closeWindow();
   }
 
 }

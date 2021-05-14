@@ -56,7 +56,6 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
           this.billCode.val(res.bill.bill_code);
           this.totalAmount.val(res.bill.total_amount);
           this.amountPaid.val(res.amount_paid);
-          this.balance.val(res.balance);
         },
         err => {
           console.log(err);
@@ -69,11 +68,10 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
 
     savePayment(){
     let paymentData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       payment_code: this.paymentCode.val(),
       payment_date: this.paymentDate.val(),
       amount_paid: this.amountPaid.val(),
-      balance: this.balance.val(),
     }
 
     this.paymentsApi.putPayment(paymentData)

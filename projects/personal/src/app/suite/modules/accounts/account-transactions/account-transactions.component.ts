@@ -4,6 +4,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AccountsApiService } from '../accounts-api.service';
+import { AccountsCalcService } from '../accounts-calc.service';
 import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
@@ -15,7 +16,7 @@ import { ConnectionNotificationComponent } from '../../../utilities/connection-n
 })
 export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
-  constructor(private accountsApi: AccountsApiService) { }
+  constructor(private accountsApi: AccountsApiService, private accountsCalc: AccountsCalcService) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("addbuttonReference") addButton: jqxButtonComponent;
@@ -111,26 +112,16 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
     console.log("u are about adding a new row...");
     console.log(rowdata);
 
-    // add account id and negate amount if trnsaction type is Debit
-    let transactionData = {};
+    // negate amount if trnsaction type is Debit
+    let formattedData = this.accountsCalc.reformatData(rowdata);
 
-    if (rowdata.transaction_type == "Credit"){
-      transactionData = {
-        account: sessionStorage.getItem('account_id'),
-        transaction_date: rowdata.transaction_date,
-        transaction_type: rowdata.transaction_type,
-        description: rowdata.description,
-        amount: Math.abs(rowdata.amount),
-      }
-    }else if (rowdata.transaction_type == "Debit"){
-      transactionData = {
-        account: sessionStorage.getItem('account_id'),
-        transaction_date: rowdata.transaction_date,
-        transaction_type: rowdata.transaction_type,
-        description: rowdata.description,
-        amount: ~(Math.abs(rowdata.amount)),
-      }
-    }
+    let transactionData = {
+      account: sessionStorage.getItem('account_id'),
+      transaction_date: formattedData.transaction_date,
+      transaction_type: formattedData.transaction_type,
+      description: formattedData.description,
+      amount: formattedData.amount,
+    };
 
     console.log(transactionData);
 
@@ -141,7 +132,7 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
 
           // reclaculate balance after change in table
           this.getTotalBalance();
@@ -159,26 +150,15 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     // negate amount if trnsaction type is Debit
-    let transactionData = {};
+    let formattedData = this.accountsCalc.reformatData(newdata);
 
-    if (newdata.transaction_type == "Credit"){
-      transactionData = {
-        account: sessionStorage.getItem('account_id'),
-        transaction_date: newdata.transaction_date,
-        transaction_type: newdata.transaction_type,
-        description: newdata.description,
-        amount: Math.abs(newdata.amount),
-      }
-    }else if (newdata.transaction_type == "Debit"){
-      transactionData = {
-        account: sessionStorage.getItem('account_id'),
-        transaction_date: newdata.transaction_date,
-        transaction_type: newdata.transaction_type,
-        description: newdata.description,
-        amount: ~(Math.abs(newdata.amount)),
-      }
-    }
-
+    let transactionData = {
+      account: sessionStorage.getItem('account_id'),
+      transaction_date: formattedData.transaction_date,
+      transaction_type: formattedData.transaction_type,
+      description: formattedData.description,
+      amount: formattedData.amount,
+    };
     this.loadingSpinner.httpLoader.open();
 
     this.accountsApi.putTransaction(rowid, transactionData)
@@ -186,7 +166,7 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
 
           // reclaculate balance after change in table
           this.getTotalBalance();

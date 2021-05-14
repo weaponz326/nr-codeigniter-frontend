@@ -42,7 +42,7 @@ export class NewProcurementComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var procurementData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       order_code: this.procurementForm.orderCode.val(),
       order_type: this.procurementForm.orderType.val(),
       order_date: this.procurementForm.orderDate.val(),
@@ -64,8 +64,8 @@ export class NewProcurementComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('procurement_id', res.procurement_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('procurement_id', res.data.id);
             this.router.navigateByUrl('/suite/procurement/view-procurement');
           }
         },

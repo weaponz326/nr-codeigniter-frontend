@@ -17,7 +17,7 @@ export class StockApiService {
   // create and get all items belonging to user
 
   public getItems(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-stock/stock-item-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-stock/stock-item?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postItem(item): Observable<any>{
@@ -26,16 +26,16 @@ export class StockApiService {
 
   // retreive, update and delete item
 
-  public getSingleItem(itemId): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-stock/stock-item/" + itemId);
+  public getSingleItem(): Observable<any>{
+    return this.http.get(this.restaurantUrl + "module-stock/stock-item/" + sessionStorage.getItem('stock_item_id'));
   }
 
-  public putItem(itemId, itemData): Observable<any>{
-    return this.http.put(this.restaurantUrl + "module-stock/stock-item/" + itemId, itemData);
+  public putItem(itemData): Observable<any>{
+    return this.http.put(this.restaurantUrl + "module-stock/stock-item/" + sessionStorage.getItem('stock_item_id'), itemData);
   }
 
-  public deleteItem(itemId): Observable<any>{
-    return this.http.delete(this.restaurantUrl + "module-stock/stock-item/" + itemId);
+  public deleteItem(): Observable<any>{
+    return this.http.delete(this.restaurantUrl + "module-stock/stock-item/" + sessionStorage.getItem('stock_item_id'));
   }
 
 }

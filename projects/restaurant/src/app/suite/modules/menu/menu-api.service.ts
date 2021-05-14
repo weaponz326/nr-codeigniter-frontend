@@ -16,7 +16,7 @@ export class MenuApiService {
   // create and get all menu items belonging to user
 
   public getMenuItems(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-menu/menu-item-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-menu/menu-item?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postMenuItem(item): Observable<any>{

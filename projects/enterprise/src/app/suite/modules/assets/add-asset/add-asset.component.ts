@@ -42,7 +42,7 @@ export class AddAssetComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var assetData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       asset_code: this.assetForm.assetCode.val(),
       asset_name: this.assetForm.assetName.val(),
       asset_type: this.assetForm.assetType.val(),
@@ -66,8 +66,8 @@ export class AddAssetComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('asset_id', res.asset_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('asset_id', res.data.id);
             this.router.navigateByUrl('/suite/assets/view-asset');
           }
         },

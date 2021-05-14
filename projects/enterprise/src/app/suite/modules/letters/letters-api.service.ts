@@ -14,10 +14,10 @@ export class LettersApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all received belonging to user
+  // create and get all received belonging to account
 
   public getAllReceived(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-letters/received-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-letters/received?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postReceived(received): Observable<any>{
@@ -40,10 +40,10 @@ export class LettersApiService {
 
   // -----------------------------------------------------------------------------------------------------------
 
-  // create and get all received belonging to user
+  // create and get all received belonging to account
 
   public getAllSent(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-letters/sent-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-letters/sent?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postSent(sent): Observable<any>{

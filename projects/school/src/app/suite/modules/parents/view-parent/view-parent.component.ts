@@ -50,6 +50,7 @@ export class ViewParentComponent implements OnInit, AfterViewInit {
           this.parentForm.firstName.val(res.first_name);
           this.parentForm.lastName.val(res.last_name);
           this.parentForm.sex.val(res.sex);
+          this.parentForm.photo.nativeElement.value = res.photo;
           this.parentForm.nationality.val(res.nationality);
           this.parentForm.religion.val(res.religion);
           this.parentForm.occupation.val(res.occupation);
@@ -72,11 +73,12 @@ export class ViewParentComponent implements OnInit, AfterViewInit {
     console.log("u are updating a parent");
 
     var parentData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       parent_code: this.parentForm.parentCode.val(),
       first_name: this.parentForm.firstName.val(),
       last_name: this.parentForm.lastName.val(),
       sex: this.parentForm.sex.val(),
+      photo: this.parentForm.image,
       nationality: this.parentForm.nationality.val(),
       religion: this.parentForm.religion.val(),
       occupation: this.parentForm.occupation.val(),

@@ -44,6 +44,10 @@ export class NewBudgetComponent implements OnInit {
     this.newBudgetWindow.open();
   }
 
+  closeWindow(){
+    this.newBudgetWindow.close();
+  }
+
   saveBudget(){
     this.budgetData = {
       user: localStorage.getItem('personal_id'),
@@ -57,9 +61,10 @@ export class NewBudgetComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          if (res.status == true){
+          if (res.message == "OK"){
             this.loadingSpinner.httpLoader.close();
-            sessionStorage.setItem('budget_id', res.budget_id);
+            sessionStorage.setItem('budget_id', res.data.id);
+            this.closeWindow();
 
             this.router.navigateByUrl('/suite/budget/view-budget');
           }

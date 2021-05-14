@@ -14,10 +14,10 @@ export class FilesApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all folders belonging to user
+  // create and get all folders belonging to account
 
   public getFolders(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-files/folder-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-files/folder?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postFolder(folder): Observable<any>{
@@ -43,7 +43,7 @@ export class FilesApiService {
   // create and get all files in a folder
 
   public getFiles(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-files/folder-list?user=" + sessionStorage.getItem('folder_id'));
+    return this.http.get(this.enterpriseUrl + "module-files/file?folder=" + sessionStorage.getItem('folder_id'));
   }
 
   public postFile(file): Observable<any>{
@@ -53,15 +53,15 @@ export class FilesApiService {
   // retreive, update and delete file
 
   public getSingleFile(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-files/file/" + sessionStorage.getItem('folder_id'));
+    return this.http.get(this.enterpriseUrl + "module-files/file/" + sessionStorage.getItem('file_id'));
   }
 
   public putFile(file): Observable<any>{
-    return this.http.put(this.enterpriseUrl + "module-files/file/" + sessionStorage.getItem('folder_id'), file);
+    return this.http.put(this.enterpriseUrl + "module-files/file/" + sessionStorage.getItem('file_id'), file);
   }
 
   public deleteFile(): Observable<any>{
-    return this.http.delete(this.enterpriseUrl + "module-files/file/" + sessionStorage.getItem('folder_id'));
+    return this.http.delete(this.enterpriseUrl + "module-files/file/" + sessionStorage.getItem('file_id'));
   }
 
 }

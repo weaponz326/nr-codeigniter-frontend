@@ -21,7 +21,7 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
 
   constructor(private dispensaryApi: DispensaryApiService) { }
 
-  @ViewChild("dispsenseGridReference") dispsenseGrid: jqxGridComponent;
+  @ViewChild("dispenseGridReference") dispsenseGrid: jqxGridComponent;
   @ViewChild("prescriptionsGridReference") prescriptionsGrid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
 
@@ -31,21 +31,40 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
+  prescriptionId;
+
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
     this.dispsenseGrid.showloadelement();
-    this.getData();
+    this.getDispenseData();
   }
 
-  getData(){
+  getDispenseData(){
     this.dispensaryApi.getDetails()
       .subscribe(
         res => {
           console.log(res);
-          this.source.localdata = res;
+          this.dispenseSource.localdata = res;
           this.dispsenseGrid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  // called from parent view dispense after prescription info has loaded
+  getPrescriptionData(prescriptionId){
+    console.log(prescriptionId);
+    this.dispensaryApi.getPrescriptionDrugs(prescriptionId)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.prescriptionsSource.localdata = res;
+          this.prescriptionsGrid.updatebounddata();
         },
         err => {
           console.log(err);
@@ -71,21 +90,36 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
 
   // prescriptions grid
 
-  prescriptionsColumns: any[] = [
-    { text: 'Drug Name', dataField: 'drug_name', width: "70%" },
-    { text: 'NDC No.', dataField: 'ndc_number', width: "30%" },
-  ];
-
-
-  // dispense grid
-
-  source: any = {
+  prescriptionsSource: any = {
     localdata: null,
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'drug_name', type: 'string' },
-      { name: 'ndc_number', type: 'string' },
+      { name: 'medicine', type: 'string' },
+      { name: 'dosage', type: 'string' },
+    ],
+    id: 'id',
+  }
+
+  prescriptionsDataAdapter: any = new jqx.dataAdapter(this.prescriptionsSource);
+
+  prescriptionsColumns: any[] = [
+    { text: 'Medicine', dataField: 'medicine', width: "60%" },
+    { text: 'Dosage.', dataField: 'dosage', width: "40%" },
+  ];
+
+  // ------------------------------------------------------------------------------------------------
+
+  // dispense grid
+
+  dispenseSource: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'id', type: 'string' },
+      { name: 'drug_id', map: 'drug>id', type: 'string' },
+      { name: 'drug_name', map: 'drug>drug_name', type: 'string' },
+      { name: 'ndc_number', map: 'drug>ndc_number', type: 'string' },
       { name: 'remarks', type: 'string' },
     ],
     id: 'id',
@@ -100,12 +134,12 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  dataAdapter: any = new jqx.dataAdapter(this.source);
+  dispenseDataAdapter: any = new jqx.dataAdapter(this.dispenseSource);
 
   dispenseColumns: any[] = [
-    { text: 'Drug Name', dataField: 'drug_name', width: "35%" },
+    { text: 'Drug Name', dataField: 'drug_name', width: "40%" },
     { text: 'NDC No.', dataField: 'ndc_number', width: "20%" },
-    { text: 'Remarks', dataField: 'remarks', width: "45%" },
+    { text: 'Remarks', dataField: 'remarks', width: "40%" },
   ];
 
   addRow(rowid, rowdata, position, commit) {
@@ -113,7 +147,8 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let detailData = {
-      dispensary_id: sessionStorage.getItem('dispensary_id'),
+      dispensary: sessionStorage.getItem('dispensary_id'),
+      drug: rowdata.drug_id,
       drug_name: rowdata.drug_name,
       ndc_number: rowdata.ndc_number,
       remarks: rowdata.remarks
@@ -128,7 +163,7 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -143,7 +178,8 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let detailData = {
-      dispensary_id: sessionStorage.getItem('dispensary_id'),
+      dispensary: sessionStorage.getItem('dispensary_id'),
+      drug: newdata.drug_id,
       drug_name: newdata.drug_name,
       ndc_number: newdata.ndc_number,
       remarks: newdata.remarks
@@ -156,7 +192,7 @@ export class DispenseDetailsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

@@ -48,6 +48,10 @@ export class EditTransactionComponent implements OnInit {
     this.transactionForm.amountInput.val(event.args.row.bounddata.amount);
   }
 
+  closeWindow(){
+    this.editTransactionWindow.close();
+  }
+
   saveTransaction(){
     this.transactionData = {
       id: this.transactionId,
@@ -59,12 +63,13 @@ export class EditTransactionComponent implements OnInit {
     }
 
     console.log(this.transactionData);
-
     this.editCommit.emit(this.transactionData);
+    this.closeWindow();
   }
 
   deleteTransaction(){
     this.deleteCommit.emit(this.transactionId);
+    this.closeWindow();
   }
 
 }

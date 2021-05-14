@@ -90,7 +90,7 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
     console.log(patient);
 
     this.patientName.val(patient.patient_name);
-    this.patientCode.val(patient.clinical_id);
+    this.patientCode.val(patient.clinical_number);
     this.patientIdStore = patient.id;
   }
 
@@ -106,7 +106,7 @@ export class ViewDiagnosisComponent implements OnInit, AfterViewInit {
 
   saveDiagnosis(){
     let diagnosisData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       diagnosis_code: this.diagnosisCode.val(),
       diagnosis_date: this.diagnosisDate.val(),
       patient: this.patientIdStore,

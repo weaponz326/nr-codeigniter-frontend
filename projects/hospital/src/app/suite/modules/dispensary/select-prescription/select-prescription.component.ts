@@ -62,6 +62,7 @@ export class SelectPrescriptionComponent implements OnInit, AfterViewInit {
       { name: 'prescription_code', type: 'string' },
       { name: 'prescription_date', type: 'string' },
       { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
+      { name: 'clinical_number', map: 'patient>clinical_number', type: 'string' },
       { name: 'doctor_name', map: 'doctor>doctor_name', type: 'string' },
     ],
     id: 'id',

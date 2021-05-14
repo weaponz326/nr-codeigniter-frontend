@@ -44,6 +44,10 @@ export class EditReceivedComponent implements OnInit {
     this.receivedForm.letterDate.val(event.args.row.bounddata.letter_date);
   }
 
+  closeWindow(){
+    this.editReceived.close();
+  }
+
   saveReceived(){
     var receivedData = {
       id: this.receivedId,
@@ -56,12 +60,13 @@ export class EditReceivedComponent implements OnInit {
     }
 
     console.log(receivedData);
-
     this.editCommit.emit(receivedData);
+    this.closeWindow();
   }
 
   deleteReceived(){
     this.deleteCommit.emit(this.receivedId);
+    this.closeWindow();
   }
 
 }

@@ -26,11 +26,46 @@ export class EditItemComponent implements OnInit {
   @Output() editCommit = new EventEmitter<object>();
   @Output() deleteCommit = new EventEmitter<object>();
 
+  itemId: any;
+
   ngOnInit(): void {
   }
 
-  openWindow(){
+  openWindow(event: any){
     this.editItemWindow.open();
+
+    console.log(event.args.row.bounddata);
+    this.itemId = event.args.row.bounddata.id;
+
+    this.itemForm.itemDateInput.val(event.args.row.bounddata.item_date);
+    this.itemForm.referenceNumberInput.val(event.args.row.bounddata.reference);
+    this.itemForm.descriptionInput.val(event.args.row.bounddata.description);
+    this.itemForm.itemTypeDropDownList.val(event.args.row.bounddata.item_type);
+    this.itemForm.amountInput.val(event.args.row.bounddata.amount);
+  }
+
+  closeWindow(){
+    this.editItemWindow.close();
+  }
+
+  saveItem(){
+    let itemData = {
+      id: this.itemId,
+      ledger: sessionStorage.getItem('ledger_id'),
+      item_date: this.itemForm.itemDateInput.val(),
+      item_type: this.itemForm.itemTypeDropDownList.val(),
+      description: this.itemForm.descriptionInput.val(),
+      amount: this.itemForm.amountInput.val(),
+    }
+
+    console.log(itemData);
+    this.editCommit.emit(itemData);
+    this.closeWindow();
+  }
+
+  deleteItem(){
+    this.deleteCommit.emit(this.itemId);
+    this.closeWindow();
   }
 
 }

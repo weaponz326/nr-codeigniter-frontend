@@ -41,7 +41,7 @@ export class NewClassComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var classData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       class_name: this.classForm.className.val(),
       department: this.classForm.department.val(),
       location: this.classForm.location.val(),
@@ -57,8 +57,8 @@ export class NewClassComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('class_id', res.class_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('class_id', res.data.id);
             this.router.navigateByUrl('/suite/classes/view-class');
           }
         },

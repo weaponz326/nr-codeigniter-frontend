@@ -1,9 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
+
+import { PaymentsApiService } from '../payments-api.service';
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
 import { SelectStudentComponent } from '../select-student/select-student.component'
 import { SelectBillComponent } from '../select-bill/select-bill.component'
@@ -16,7 +21,10 @@ import { SelectBillComponent } from '../select-bill/select-bill.component'
 })
 export class NewPaymentComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private paymentsApi: PaymentsApiService,
+  ) { }
 
   @ViewChild("addPaymentReference") addPayment: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -30,6 +38,9 @@ export class NewPaymentComponent implements OnInit {
   @ViewChild("selectStudentComponentReference") selectStudent: SelectStudentComponent;
   @ViewChild("selectBillComponentReference") selectBill: SelectBillComponent;
 
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
   // stores db table ids of selected student and admission
   // to be retreived for sending to backend
   studentIdStore: any;
@@ -41,6 +52,10 @@ export class NewPaymentComponent implements OnInit {
 
   openWindow(){
     this.addPayment.open();
+  }
+
+  closeWindow(){
+    this.addPayment.close();
   }
 
   studentSelected(student: any){
@@ -59,7 +74,34 @@ export class NewPaymentComponent implements OnInit {
   }
 
   savePayment(){
-  }
+    this.loadingSpinner.httpLoader.open();
 
+    let PaymentData = {
+      account: sessionStorage.getItem('school_id'),
+      payment_code: this.paymentCode.val(),
+      payment_date: this.paymentDate.val(),
+    }
+
+    this.paymentsApi.postPayment(PaymentData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+
+          if (res.message == "OK"){
+            sessionStorage.setItem('payment_id', res.data.id);
+            this.closeWindow();
+            this.router.navigateByUrl('/suite/payments/view-payment');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+
+    console.log(PaymentData);
+  }
 
 }

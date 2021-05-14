@@ -45,6 +45,10 @@ export class EditIncomeComponent implements OnInit {
     this.amountInput.val(event.args.row.bounddata.amount);
   }
 
+  closeWindow(){
+    this.editIncomeWindow.close();
+  }
+
   saveIncome(){
     this.incomeData = {
       id: this.incomeId,
@@ -54,12 +58,14 @@ export class EditIncomeComponent implements OnInit {
     }
 
     console.log(this.incomeData);
-
     this.editCommit.emit(this.incomeData);
+
+    this.closeWindow();
   }
 
   deleteIncome(){
     this.deleteCommit.emit(this.incomeId);
+    this.closeWindow();
   }
 
 }

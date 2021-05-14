@@ -31,16 +31,19 @@ export class AddItemComponent implements OnInit {
     this.addItemWindow.open();
   }
 
+  closeWindow(){
+    this.addItemWindow.close();
+  }
+
   saveItem(){
     this.itemData = {
-      budget: sessionStorage.getItem('budget_id'),
       item: this.descriptionInput.val(),
       amount: this.amountInput.val(),
     }
 
     console.log(this.itemData);
-
     this.addCommit.emit(this.itemData);
+    this.closeWindow()
   }
 
 

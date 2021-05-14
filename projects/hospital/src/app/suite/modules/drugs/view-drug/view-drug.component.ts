@@ -77,7 +77,7 @@ export class ViewDrugComponent implements OnInit, AfterViewInit {
     console.log("u are updating a drug");
 
     var drugData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       ndc_number: this.drugForm.ndcNumber.val(),
       drug_name: this.drugForm.drugName.val(),
       generic_name: this.drugForm.genericName.val(),

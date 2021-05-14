@@ -14,10 +14,10 @@ export class AssetsApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all assets belonging to user
+  // create and get all assets belonging to account
 
   public getAssets(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-assets/asset-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-assets/asset?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postAsset(asset): Observable<any>{

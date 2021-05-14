@@ -61,8 +61,8 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
       { name: 'reservation_code', type: 'string' },
       { name: 'reservation_date', type: 'string' },
       { name: 'customer_name', type: 'string' },
-      { name: 'guests_number', type: 'string' },
-      { name: 'tables_number', type: 'string' },
+      { name: 'number_guests', type: 'string' },
+      { name: 'number_tables', type: 'string' },
       { name: 'arrival_date', type: 'string' },
       { name: 'reservation_status', type: 'string' },
     ],
@@ -93,7 +93,7 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let rservationData =  {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       reservation_code: rowdata.reservation_code,
       reservation_date: rowdata.reservation_date,
       customer_name: rowdata.customer_name,
@@ -112,7 +112,7 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -127,7 +127,7 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let rservationData =  {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       reservation_code: newdata.reservation_code,
       reservation_date: newdata.reservation_date,
       customer_name: newdata.customer_name,
@@ -146,7 +146,7 @@ export class AllReservationsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

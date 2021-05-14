@@ -46,17 +46,20 @@ export class EditItemComponent implements OnInit {
     this.amountInput.val(event.args.row.bounddata.amount);
   }
 
+  closeWindow(){
+    this.editItemWindow.close();
+  }
+
   saveItem(){
     this.itemData = {
       id: this.itemId,
-      budget: sessionStorage.getItem('budget_id'),
       item: this.descriptionInput.val(),
       amount: this.amountInput.val(),
     }
 
     console.log(this.itemData);
-
     this.editCommit.emit(this.itemData);
+    this.closeWindow();
   }
 
   deleteItem(){

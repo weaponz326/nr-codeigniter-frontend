@@ -14,10 +14,10 @@ export class SittingsApiService {
 
   restaurantUrl = environment.restaurantUrl;
 
-  // create and get all sittings belonging to user
+  // create and get all sittings belonging to account
 
   public getSittings(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-sittings/sitting-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-sittings/sitting?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postSitting(sitting): Observable<any>{

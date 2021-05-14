@@ -44,7 +44,7 @@ export class AddLeaveComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var leaveData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       leave_code: this.leaveForm.leaveCode.val(),
       employee_id: this.employeeIdStore,
       date_requested: this.leaveForm.dateRequested.val(),
@@ -64,8 +64,8 @@ export class AddLeaveComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('leave_id', res.leave_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('leave_id', res.data.id);
             this.router.navigateByUrl('/suite/leave/view-leave');
           }
         },

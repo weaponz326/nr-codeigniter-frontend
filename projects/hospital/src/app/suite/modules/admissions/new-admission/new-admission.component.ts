@@ -41,11 +41,11 @@ export class NewAdmissionComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var admissionData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       admission_code: this.admissionForm.admissionCode.val(),
       admission_date: this.admissionForm.admissionDate.val(),
       discharge_date: this.admissionForm.dischargeDate.val(),
-      patient_id: this.admissionForm.patientIdStore,
+      patient: this.admissionForm.patientIdStore,
       admission_status: this.admissionForm.admissionStatus.val(),
     }
 
@@ -57,8 +57,8 @@ export class NewAdmissionComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('admission_id', res.admission_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('admission_id', res.data.id);
             this.router.navigateByUrl('/suite/admissions/view-admission');
           }
         },

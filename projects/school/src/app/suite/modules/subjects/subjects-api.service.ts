@@ -14,10 +14,10 @@ export class SubjectsApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all subjects belonging to user
+  // create and get all subjects belonging to account
 
   public getSubjects(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-subjects/subject-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-subjects/subject?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postSubject(subject): Observable<any>{
@@ -39,7 +39,8 @@ export class SubjectsApiService {
   }
 
   // retreive subject teachers
-  public getTeachers(subject): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-subjects/teacher-list?subject=" + subject);
+  public getTeachers(subjectId): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-teachers/teacher-subject?subject=" + subjectId);
   }
+
 }

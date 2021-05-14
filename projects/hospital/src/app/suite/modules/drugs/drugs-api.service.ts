@@ -14,10 +14,10 @@ export class DrugsApiService {
 
   hospitalUrl = environment.hospitalUrl;
 
-  // create and get all drugs belonging to user
+  // create and get all drugs belonging to account
 
   public getDrugs(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-drugs/drug-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-drugs/drug?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postDrug(drug): Observable<any>{

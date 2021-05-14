@@ -14,10 +14,10 @@ export class LedgerApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all ledger belonging to user
+  // create and get all ledger belonging to account
 
   public getAllLedger(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-ledger/ledger-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-ledger/ledger?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postLedger(ledger): Observable<any>{
@@ -38,22 +38,22 @@ export class LedgerApiService {
     return this.http.delete(this.enterpriseUrl + "module-ledger/ledger/" + sessionStorage.getItem('ledger_id'));
   }
 
-  // transactions
+  // items
 
-  public getTransactions(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-ledger/transaction-list?ledger=" + sessionStorage.getItem('ledger_id'));
+  public getItems(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-ledger/ledger-item?ledger=" + sessionStorage.getItem('ledger_id'));
   }
 
-  public postTransaction(transactionData): Observable<any>{
-    return this.http.post(this.enterpriseUrl + "module-ledger/transaction/", transactionData);
+  public postItem(itemData): Observable<any>{
+    return this.http.post(this.enterpriseUrl + "module-ledger/ledger-item/", itemData);
   }
 
-  public putTransaction(transactionId, transactionData): Observable<any>{
-    return this.http.put(this.enterpriseUrl + "module-ledger/transaction/" + transactionId, transactionData);
+  public putItem(itemId, itemData): Observable<any>{
+    return this.http.put(this.enterpriseUrl + "module-ledger/ledger-item/" + itemId, itemData);
   }
 
-  public deleteTransaction(transactionId): Observable<any>{
-    return this.http.delete(this.enterpriseUrl + "module-ledger/transaction/" + transactionId);
+  public deleteItem(itemId): Observable<any>{
+    return this.http.delete(this.enterpriseUrl + "module-ledger/ledger-item/" + itemId);
   }
 
 }

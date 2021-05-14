@@ -17,11 +17,11 @@ export class PrescriptionsApiService {
   // create and get all prescription belonging to user
 
   public getPrescriptions(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-prescriptions/prescription-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-prescriptions/prescription?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postPrescription(prescription): Observable<any>{
-    return this.http.post(this.hospitalUrl + "module-prescriptions/new-prescription/", prescription);
+    return this.http.post(this.hospitalUrl + "module-prescriptions/prescription/", prescription);
   }
 
   // retreive, update and delete prescription
@@ -45,7 +45,7 @@ export class PrescriptionsApiService {
   // create and get all medicine details belonging to prescription
 
   public getDetails(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-prescriptions/detail-list?user=" + sessionStorage.getItem('prescription_id'));
+    return this.http.get(this.hospitalUrl + "module-prescriptions/detail?prescription=" + sessionStorage.getItem('prescription_id'));
   }
 
   public postDetail(detail): Observable<any>{
@@ -71,11 +71,11 @@ export class PrescriptionsApiService {
   // get patients and doctors for selection window
 
   public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-prescriptions/patient-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-patients/patient?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public getDoctors(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-prescriptions/doctor-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-doctors/doctor?account=" + sessionStorage.getItem('hospital_id'));
   }
 
 }

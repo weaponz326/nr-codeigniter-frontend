@@ -3,7 +3,7 @@
     [height]="250"
     [autoOpen]="false">
 
-    <div>Generate New Payroll</div>
+    <div>Add New Payroll</div>
 
     <div>
 
@@ -35,6 +35,7 @@
                 <jqxDropDownList #monthReference
                     [width]="'100%'"
                     [height]="25"
+                    [source]="monthsSource"
                 ></jqxDropDownList>
             </div>
         </div>
@@ -45,6 +46,7 @@
                 <jqxDropDownList #yearReference
                     [width]="'100%'"
                     [height]="25"
+                    [source]="yearsSource"
                 ></jqxDropDownList>
             </div>
         </div>
@@ -55,13 +57,15 @@
                 <jqxDropDownList #statusReference
                     [width]="'100%'"
                     [height]="25"
+                    [source]="statusSource"
+                    [autoDropDownHeight]="true"
                 ></jqxDropDownList>
             </div>
         </div>
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #saveButtonReference (click)="savePayroll()"

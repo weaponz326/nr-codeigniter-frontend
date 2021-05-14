@@ -14,10 +14,10 @@ export class TimetablesApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all timetables belonging to user
+  // create and get all timetables belonging to account
 
   public getTimetables(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-timetables/timetable-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-timetables/timetable?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postTimetable(timetable): Observable<any>{

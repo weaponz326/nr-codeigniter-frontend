@@ -1,4 +1,4 @@
-<jqxWindow #editDetailReference (onOpen)="detailForm.drugInput.focus()"
+<jqxWindow #editDetailReference (onOpen)="detailForm.drugNameInput.focus()"
     [width]="540"
     [height]="210"
     [autoOpen]="false"
@@ -13,7 +13,7 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #deleteButtonReference (click)="deleteDetail()"

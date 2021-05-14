@@ -50,6 +50,10 @@ export class NewAttendanceComponent implements OnInit {
     this.newAttendance.open();
   }
 
+  closeWindow(){
+    this.newAttendance.close();
+  }
+
   termSelected(term: any){
     console.log(term);
     this.term.val(term.term_name);
@@ -66,7 +70,7 @@ export class NewAttendanceComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let AttendanceData = {
-      school: localStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       attendance_code: this.attendanceCode.val(),
       attendance_name: this.attendanceName.val(),
       term: this.termIdStore,
@@ -79,9 +83,10 @@ export class NewAttendanceComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
-            this.router.navigateByUrl('/suite/Attendance/view-Attendance');
+          if (res.message == "OK"){
+            sessionStorage.setItem('attendance_id', res.data.id);
+            this.closeWindow();
+            this.router.navigateByUrl('/suite/attendance/view-attendance');
           }
         },
         err => {

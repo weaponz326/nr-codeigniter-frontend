@@ -17,7 +17,7 @@ export class AccountsApiService {
   // create and get all accounts belonging to user
 
   public getAccounts(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-accounts/account-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-accounts/account?user=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postAccount(account): Observable<any>{
@@ -38,10 +38,11 @@ export class AccountsApiService {
     return this.http.delete(this.enterpriseUrl + "module-accounts/account/" + sessionStorage.getItem('account_id'));
   }
 
+  // -----------------------------------------------------------------------------------------------------------------------------------------
   // transactions
 
   public getTransactions(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-accounts/transaction-list?account=" + sessionStorage.getItem('account_id'));
+    return this.http.get(this.enterpriseUrl + "module-accounts/transaction?account=" + sessionStorage.getItem('account_id'));
   }
 
   public postTransaction(transactionData): Observable<any>{
@@ -58,7 +59,7 @@ export class AccountsApiService {
 
   // all transactions belonging to a user
   public getAllTransactions(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-accounts/all-transaction?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-accounts/all-transactions?user=" + sessionStorage.getItem('enterprise_id'));
   }
 
 }

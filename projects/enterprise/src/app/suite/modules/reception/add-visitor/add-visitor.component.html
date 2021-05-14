@@ -1,6 +1,6 @@
 <jqxWindow #addVisitorReference (onOpen)="visitorForm.visitCode.focus()"
     [width]="540"
-    [height]="340"
+    [height]="360"
     [autoOpen]="false">
 
     <div>Add Visitor</div>
@@ -12,7 +12,7 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #saveButtonReference (click)="saveVisitor()"

@@ -46,17 +46,22 @@ export class EditItemComponent implements OnInit {
     this.itemForm.quantity.val(event.args.row.bounddata.quantity);
   }
 
+  closeWindow(){
+    this.editItemWindow.close();
+  }
+
   saveItem(){
     let detailData = {
       id: this.itemId,
       order: sessionStorage.getItem('order_id'),
-      menu_item_id: this.itemForm.menuItemId,
+      menu_item_id: this.itemForm.menuItemIdStore,
       quantity: this.itemForm.quantity.val(),
     }
 
     console.log(detailData);
-
     this.editCommit.emit(detailData);
+
+    this.closeWindow();
   }
 
   deleteItem(){

@@ -40,12 +40,17 @@ export class NewPatientComponent implements OnInit {
     console.log('u are saving a new patient');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.patientForm.dobYear.val() == '' || this.patientForm.dobMonth.val() == '' || this.patientForm.dobDay.val() == '') dob = null;
+    else dob = this.patientForm.dobYear.val() + '-' + this.patientForm.dobMonth.val() + '-' + this.patientForm.dobDay.val();
+
     var patientData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       first_name: this.patientForm.firstNameInput.val(),
       last_name: this.patientForm.lastNameInput.val(),
       sex: this.patientForm.sexDropDownList.val(),
-      date_of_birth: this.patientForm.dobInput.val(),
+      date_of_birth: dob,
+      photo: this.patientForm.image,
       nationality: this.patientForm.nationalityInput.val(),
       religion: this.patientForm.religionInput.val(),
       occupation: this.patientForm.occupationInput.val(),
@@ -67,9 +72,9 @@ export class NewPatientComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-
-          if (res.status == true){
-            sessionStorage.setItem('patient_id', res.patient_id);
+          console.log(res.data);
+          if (res.message == "OK"){
+            sessionStorage.setItem('patient_id', res.data.id);
             this.router.navigateByUrl('/suite/patients/view-patient');
           }
         },

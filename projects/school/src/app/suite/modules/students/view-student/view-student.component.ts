@@ -46,10 +46,18 @@ export class ViewStudentComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.studentForm.dobYear.val(dobArray[0]);
+            this.studentForm.dobMonth.val(dobArray[1]);
+            this.studentForm.dobDay.val(dobArray[2]);
+          }
+
           this.studentForm.firstName.val(res.first_name);
           this.studentForm.lastName.val(res.last_name);
           this.studentForm.sex.val(res.sex);
-          this.studentForm.dob.val(res.date_of_birth);
+          this.studentForm.photo.nativeElement.value = res.photo;
           this.studentForm.nationality.val(res.nationality);
           this.studentForm.religion.val(res.religion);
           this.studentForm.email.val(res.email);
@@ -74,12 +82,16 @@ export class ViewStudentComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a student");
 
+    let dob = '';
+    if (this.studentForm.dobYear.val() == '' || this.studentForm.dobMonth.val() == '' || this.studentForm.dobDay.val() == '') dob = null;
+    else dob = this.studentForm.dobYear.val() + '-' + this.studentForm.dobMonth.val() + '-' + this.studentForm.dobDay.val();
+
     var studentData = {
       school_id: sessionStorage.getItem('hospital_id'),
       first_name: this.studentForm.firstName.val(),
       last_name: this.studentForm.lastName.val(),
       sex: this.studentForm.sex.val(),
-      date_of_birth: this.studentForm.dob.val(),
+      date_of_birth: dob,
       nationality: this.studentForm.nationality.val(),
       religion: this.studentForm.religion.val(),
       email: this.studentForm.email.val(),

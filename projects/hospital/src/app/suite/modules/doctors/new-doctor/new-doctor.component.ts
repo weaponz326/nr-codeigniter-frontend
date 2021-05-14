@@ -41,12 +41,17 @@ export class NewDoctorComponent implements OnInit {
     console.log('u are saving a new doctor');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.doctorForm.dobYear.val() == '' || this.doctorForm.dobMonth.val() == '' || this.doctorForm.dobDay.val() == '') dob = null;
+    else dob = this.doctorForm.dobYear.val() + '-' + this.doctorForm.dobMonth.val() + '-' + this.doctorForm.dobDay.val();
+
     var doctorData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       first_name: this.doctorForm.firstNameInput.val(),
       last_name: this.doctorForm.lastNameInput.val(),
       sex: this.doctorForm.sexDropDownList.val(),
-      date_of_birth: this.doctorForm.dobInput.val(),
+      date_of_birth: dob,
+      photo: this.doctorForm.image,
       nationality: this.doctorForm.nationalityInput.val(),
       religion: this.doctorForm.religionInput.val(),
       phone: this.doctorForm.phoneInput.val(),
@@ -58,9 +63,6 @@ export class NewDoctorComponent implements OnInit {
       doctor_code: this.doctorForm.doctorCodeInput.val(),
       department: this.doctorForm.departmentInput.val(),
       speciality: this.doctorForm.specialityInput.val(),
-      work_status: this.doctorForm.workStatusDropDownList.val(),
-      started_work: this.doctorForm.startedWorkDateInput.val(),
-      ended_work: this.doctorForm.endedWorkDateInput.val(),
     }
 
     console.log(doctorData);
@@ -71,8 +73,8 @@ export class NewDoctorComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('doctor_id', res.doctor_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('doctor_id', res.data.id);
             this.router.navigateByUrl('/suite/doctors/view-doctor');
           }
         },

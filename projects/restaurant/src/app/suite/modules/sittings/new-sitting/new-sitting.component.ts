@@ -31,6 +31,10 @@ export class NewSittingComponent implements OnInit {
     this.newSitting.open();
   }
 
+  closeWindow(){
+    this.newSitting.close();
+  }
+
   saveSitting(){
     var sittingData = {
       restaurant_id: sessionStorage.getItem('restaurant_id'),
@@ -43,8 +47,9 @@ export class NewSittingComponent implements OnInit {
     }
 
     console.log(sittingData);
-
     this.addCommit.emit(sittingData);
+
+    this.closeWindow();
   }
 
 }

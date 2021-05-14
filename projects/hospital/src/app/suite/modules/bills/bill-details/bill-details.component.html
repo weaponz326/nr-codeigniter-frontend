@@ -2,7 +2,7 @@
 
     <div class="col-md-6">
 
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-md-12">
                 <h4>Admission Charges</h4>
             </div>
@@ -13,6 +13,7 @@
                 <jqxGrid #appointmentsGridReference
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="appointmentsDataAdapter"
                     [rowsheight]="24"
                     [showstatusbar]="true"
                     [showaggregates]="true"
@@ -29,6 +30,7 @@
                 <jqxGrid #laboratoryGridReference
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="laboratoryDataAdapter"
                     [rowsheight]="24"
                     [showstatusbar]="true"
                     [showaggregates]="true"
@@ -45,6 +47,7 @@
                 <jqxGrid #dispensaryGridReference
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="dispensaryDataAdapter"
                     [rowsheight]="24"
                     [showstatusbar]="true"
                     [showaggregates]="true"
@@ -58,14 +61,15 @@
 
         <div class="row">
             <div class="col-md-12">
-                <jqxGrid #wardGridReference
+                <jqxGrid #wardsGridReference
                     [width]="'100%'"
                     [autoheight]="true"
+                    [source]="wardsDataAdapter"
                     [rowsheight]="24"
                     [showstatusbar]="true"
                     [showaggregates]="true"
-                    [columns]="wardColumns"
-                    [columngroups]="wardColumnGroups"
+                    [columns]="wardsColumns"
+                    [columngroups]="wardsColumnGroups"
                 ></jqxGrid>
             </div>
         </div>
@@ -76,8 +80,12 @@
 
     <div class="col-md-6">
 
-        <app-general-details></app-general-details>
+        <app-general-details (changeEvent)="calculateTotal($event)"></app-general-details>
 
     </div>
 
 </div>
+
+<!-- error notification window -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

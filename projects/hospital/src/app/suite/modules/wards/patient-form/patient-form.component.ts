@@ -19,7 +19,7 @@ export class PatientFormComponent implements OnInit {
   @ViewChild("patientNameReference") patientName: jqxInputComponent;
   @ViewChild("patientCodeReference") patientCode: jqxInputComponent;
   @ViewChild("bedNumberReference") bedNumber: jqxInputComponent;
-  @ViewChild("dateAdmitedReference") dateAdmitted: jqxDateTimeInputComponent;
+  @ViewChild("dateAdmittedReference") dateAdmitted: jqxDateTimeInputComponent;
   @ViewChild("dateDischargedReference") dateDischarged: jqxDateTimeInputComponent;
   @ViewChild("statusReference") status: jqxDropDownListComponent;
 

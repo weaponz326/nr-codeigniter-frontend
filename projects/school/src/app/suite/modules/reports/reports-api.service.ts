@@ -14,10 +14,10 @@ export class ReportsApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all reports belonging to user
+  // create and get all reports belonging to account
 
   public getReports(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-reports/report-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-reports/report?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postReport(report): Observable<any>{
@@ -41,11 +41,11 @@ export class ReportsApiService {
   // get terms and classes for select windows
 
   public getTerms(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-reports/term-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-reports/term?account=" + sessionStorage.getItem('school_id'));
   }
 
   public getClasses(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-reports/class-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-reports/class?account=" + sessionStorage.getItem('school_id'));
   }
 
 }

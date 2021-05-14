@@ -64,6 +64,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/teachers/teachers.module").then(m => m.TeachersModule)
   },
   {
+    path: "sections",
+    loadChildren: () => import("./modules/sections/sections.module").then(m => m.SectionsModule)
+  },
+  {
     path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },

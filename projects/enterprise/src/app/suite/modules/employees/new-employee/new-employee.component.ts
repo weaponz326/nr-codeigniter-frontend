@@ -41,13 +41,17 @@ export class NewEmployeeComponent implements OnInit {
     console.log('u are saving a new employee');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.employeeForm.dobYear.val() == '' || this.employeeForm.dobMonth.val() == '' || this.employeeForm.dobDay.val() == '') dob = null;
+    else dob = this.employeeForm.dobYear.val() + '-' + this.employeeForm.dobMonth.val() + '-' + this.employeeForm.dobDay.val()
+
     var employeeData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       first_name: this.employeeForm.firstName.val(),
       last_name: this.employeeForm.lastName.val(),
       sex: this.employeeForm.sex.val(),
-      date_of_birth: this.employeeForm.dobYear.val() + '-' + this.employeeForm.dobMonth.val() + '-' + this.employeeForm.dobDay.val(),
-      photo: this.employeeForm.photo.nativeElement.value,
+      date_of_birth: dob,
+      photo: this.employeeForm.image,
       nationality: this.employeeForm.nationality.val(),
       religion: this.employeeForm.religion.val(),
       phone: this.employeeForm.phone.val(),
@@ -73,8 +77,8 @@ export class NewEmployeeComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('employee_id', res.employee_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('employee_id', res.data.id);
             this.router.navigateByUrl('/suite/employees/view-employee');
           }
         },

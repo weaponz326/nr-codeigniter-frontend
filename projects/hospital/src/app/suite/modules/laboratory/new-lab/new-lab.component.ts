@@ -41,11 +41,15 @@ export class NewLabComponent implements OnInit {
     this.newLab.open();
   }
 
+  closeWindow(){
+    this.newLab.close();
+  }
+
   saveLab(){
     this.loadingSpinner.httpLoader.open();
 
     let labData = {
-      hospital: localStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       lab_code: this.labCode.val(),
       lab_date: this.labDate.val(),
       lab_type: this.labType.val(),
@@ -57,9 +61,10 @@ export class NewLabComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('lab_id', res.data.id);
             this.router.navigateByUrl('/suite/laboratory/view-lab');
+            this.closeWindow();
           }
         },
         err => {

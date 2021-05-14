@@ -31,6 +31,10 @@ export class AddGeneralComponent implements OnInit {
     this.addGeneralBillWindow.open();
   }
 
+  closeWindow(){
+    this.addGeneralBillWindow.close();
+  }
+
   saveGeneralBill(){
     let billData = {
       budget: sessionStorage.getItem('bill_id'),
@@ -39,8 +43,9 @@ export class AddGeneralComponent implements OnInit {
     }
 
     console.log(billData);
-
     this.addCommit.emit(billData);
+
+    this.closeWindow()
   }
 
 }

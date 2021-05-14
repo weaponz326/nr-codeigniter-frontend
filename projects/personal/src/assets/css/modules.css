@@ -81,6 +81,14 @@
 	margin-left: 4px;
 }
 
+.top-divider{
+  margin-bottom: 4px;
+}
+
+.bottom-divider{
+  margin-top: 4px;
+}
+
 /* standard popup dialog boxes */
 
 .edit-dialog-label{

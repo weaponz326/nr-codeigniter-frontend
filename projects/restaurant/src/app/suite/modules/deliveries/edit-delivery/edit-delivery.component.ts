@@ -46,6 +46,10 @@ export class EditDeliveryComponent implements OnInit {
     this.deliveryForm.deliveryStatus.val(event.args.row.bounddata.delivery_status);
   }
 
+  closeWindow(){
+    this.editDelivery.close();
+  }
+
   saveDelivery(){
     var deliveryData = {
       account: sessionStorage.getItem('hospital_id'),
@@ -56,8 +60,9 @@ export class EditDeliveryComponent implements OnInit {
     }
 
     console.log(deliveryData);
-
     this.editCommit.emit(deliveryData);
+
+    this.closeWindow();
   }
 
   deleteDelivery(){

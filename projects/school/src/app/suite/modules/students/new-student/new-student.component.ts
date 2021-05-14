@@ -40,12 +40,16 @@ export class NewStudentComponent implements OnInit {
     console.log('u are saving a new student');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.studentForm.dobYear.val() == '' || this.studentForm.dobMonth.val() == '' || this.studentForm.dobDay.val() == '') dob = null;
+    else dob = this.studentForm.dobYear.val() + '-' + this.studentForm.dobMonth.val() + '-' + this.studentForm.dobDay.val();
+
     var studentData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       first_name: this.studentForm.firstName.val(),
       last_name: this.studentForm.lastName.val(),
       sex: this.studentForm.sex.val(),
-      date_of_birth: this.studentForm.dob.val(),
+      date_of_birth: dob,
       nationality: this.studentForm.nationality.val(),
       religion: this.studentForm.religion.val(),
       email: this.studentForm.email.val(),
@@ -68,8 +72,8 @@ export class NewStudentComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('student_id', res.student_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('student_id', res.data.id);
             this.router.navigateByUrl('/suite/students/view-student');
           }
         },

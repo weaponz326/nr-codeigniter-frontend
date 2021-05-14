@@ -24,6 +24,7 @@ import { EditDetailComponent } from './edit-detail/edit-detail.component';
 import { DetailFormComponent } from './detail-form/detail-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SelectDrugComponent } from './select-drug/select-drug.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { SettingsComponent } from './settings/settings.component';
     DetailFormComponent,
     DashboardComponent,
     SettingsComponent,
+    SelectDrugComponent,
   ],
   imports: [
     CommonModule,

@@ -18,7 +18,7 @@ export class SelectOrderComponent implements OnInit, AfterViewInit {
   @ViewChild("selectOrderWindowReference") selectOrderWindow: jqxWindowComponent;
   @ViewChild("selectOrderGridReference") selectOrderGrid: jqxGridComponent;
 
-  @Output() doctorEvent = new EventEmitter<any>();
+  @Output() orderEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
@@ -34,7 +34,7 @@ export class SelectOrderComponent implements OnInit, AfterViewInit {
 
   selectOrder(event: any){
     console.log("u have double clicked a doctor");
-    this.doctorEvent.emit(event.args.row.bounddata);
+    this.orderEvent.emit(event.args.row.bounddata);
     this.selectOrderWindow.close();
   }
 
@@ -70,9 +70,9 @@ export class SelectOrderComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Order ID", dataField: "doctor_code", width: "30%" },
-    { text: "Order Date", dataField: "order_date", width: "40%" },
-    { text: "Cutomer Name", dataField: "customer_name", width: "30%" },
+    { text: "Order ID", dataField: "order_code", width: "25%" },
+    { text: "Order Date", dataField: "order_date", width: "25%" },
+    { text: "Cutomer Name", dataField: "customer_name", width: "50%" },
   ];
 
 }

@@ -31,19 +31,23 @@ export class AddReceivedComponent implements OnInit {
     this.addReceived.open();
   }
 
+  closeWindow(){
+    this.addReceived.close();
+  }
+
   saveReceived(){
     var receivedData = {
       account: sessionStorage.getItem('enterprise_id'),
-      reference_number: this.receivedForm.referenceNumber,
-      sender: this.receivedForm.sender,
-      subject: this.receivedForm.subject,
-      date_received: this.receivedForm.dateReceived,
-      letter_date: this.receivedForm.letterDate,
+      reference_number: this.receivedForm.referenceNumber.val(),
+      sender: this.receivedForm.sender.val(),
+      subject: this.receivedForm.subject.val(),
+      date_received: this.receivedForm.dateReceived.val(),
+      letter_date: this.receivedForm.letterDate.val(),
     }
 
     console.log(receivedData);
-
     this.addCommit.emit(receivedData);
+    this.closeWindow();
   }
 
 }

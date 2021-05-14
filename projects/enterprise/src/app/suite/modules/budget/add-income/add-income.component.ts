@@ -34,6 +34,10 @@ export class AddIncomeComponent implements OnInit {
     this.addIncomeWindow.open();
   }
 
+  closeWindow(){
+    this.addIncomeWindow.close();
+  }
+
   saveIncome(){
     this.incomeData = {
       budget: sessionStorage.getItem('budget_id'),
@@ -42,8 +46,8 @@ export class AddIncomeComponent implements OnInit {
     }
 
     console.log(this.incomeData);
-
     this.addCommit.emit(this.incomeData);
+    this.closeWindow();
   }
 
 }

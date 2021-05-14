@@ -42,10 +42,11 @@ export class NewCustomerComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var customerData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       first_name: this.customerForm.firstNameInput.val(),
       last_name: this.customerForm.lastNameInput.val(),
       sex: this.customerForm.sexDropDownList.val(),
+      photo: this.customerForm.image,
       phone: this.customerForm.phoneInput.val(),
       email: this.customerForm.emailInput.val(),
       address: this.customerForm.addressInput.val(),
@@ -66,8 +67,8 @@ export class NewCustomerComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('customer_id', res.customer_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('customer_id', res.data.id);
             this.router.navigateByUrl('/suite/customers/view-customer');
           }
         },

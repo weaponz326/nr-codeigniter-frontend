@@ -45,6 +45,10 @@ export class EditDetailComponent implements OnInit {
     this.detailForm.remarksTextArea.val(event.args.row.bounddata.remarks);
   }
 
+  closeWindow(){
+    this.editDetailWindow.close();
+  }
+
   saveDetail(){
     let detailData = {
       id: this.detailId,
@@ -55,8 +59,9 @@ export class EditDetailComponent implements OnInit {
     }
 
     console.log(detailData);
-
     this.editCommit.emit(detailData);
+
+    this.closeWindow();
   }
 
   deleteDetail(){

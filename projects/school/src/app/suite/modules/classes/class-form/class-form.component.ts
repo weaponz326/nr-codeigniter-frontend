@@ -14,10 +14,10 @@ export class ClassFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild('classNameReference') className: jqxInputComponent;
-  @ViewChild('termReference') term: jqxDropDownListComponent;
+  @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('departmentReference') department: jqxComboBoxComponent;
   @ViewChild('locationReference') location: jqxInputComponent;
-  @ViewChild('classTeacherReference') classTeacher: jqxDropDownListComponent;
+  @ViewChild('classTeacherReference') classTeacher: jqxInputComponent;
 
   ngOnInit(): void {
   }

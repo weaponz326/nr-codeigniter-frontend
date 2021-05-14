@@ -14,14 +14,14 @@ export class DispensaryApiService {
 
   hospitalUrl = environment.hospitalUrl;
 
-  // create and get all dispensary belonging to user
+  // create and get all dispensary belonging to account
 
   public getDispensary(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-dispensary/dispensary-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-dispensary/dispensary?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postDispensary(dispensary): Observable<any>{
-    return this.http.post(this.hospitalUrl + "module-dispensary/new-dispensary/", dispensary);
+    return this.http.post(this.hospitalUrl + "module-dispensary/dispensary/", dispensary);
   }
 
   // retreive, update and delete dispensary
@@ -44,25 +44,25 @@ export class DispensaryApiService {
   // create and get all drug details belonging to dispense
 
   public getDetails(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-dispensary/detail-list?user=" + sessionStorage.getItem('dispensary_id'));
+    return this.http.get(this.hospitalUrl + "module-dispensary/dispensary-drug?dispensary=" + sessionStorage.getItem('dispensary_id'));
   }
 
   public postDetail(detail): Observable<any>{
-    return this.http.post(this.hospitalUrl + "module-dispensary/detail/", detail);
+    return this.http.post(this.hospitalUrl + "module-dispensary/dispensary-drug/", detail);
   }
 
   // retreive, update and delete dispensary
 
   public getSingleDetail(detailId): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-dispensary/detail/" + detailId);
+    return this.http.get(this.hospitalUrl + "module-dispensary/dispensary-drug/" + detailId);
   }
 
   public putDetail(detailId, detailData): Observable<any>{
-    return this.http.put(this.hospitalUrl + "module-dispensary/detail/" + detailId, detailData);
+    return this.http.put(this.hospitalUrl + "module-dispensary/dispensary-drug/" + detailId, detailData);
   }
 
   public deleteDetail(detailId): Observable<any>{
-    return this.http.delete(this.hospitalUrl + "module-dispensary/detail/" + detailId);
+    return this.http.delete(this.hospitalUrl + "module-dispensary/dispensary-drug/" + detailId);
   }
 
 // --------------------------------------------------------------------------------------------------------------------------
@@ -70,7 +70,15 @@ export class DispensaryApiService {
   // get prescriptions for selection window
 
   public getPrescriptions(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-dispensary/prescription-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-prescriptions/prescription?account=" + sessionStorage.getItem('hospital_id'));
+  }
+
+  public getPrescriptionDrugs(prescriptionId): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-prescriptions/detail?prescription=" + prescriptionId);
+  }
+
+  public getDrugs(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-drugs/drug?account=" + sessionStorage.getItem('hospital_id'));
   }
 
 }

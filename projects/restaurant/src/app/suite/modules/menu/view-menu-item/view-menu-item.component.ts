@@ -64,7 +64,7 @@ export class ViewMenuItemComponent implements OnInit, AfterViewInit {
     console.log("u are updating a menu item");
 
     var itemData = {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       item_code: this.menuItemForm.itemCode.val(),
       item_name: this.menuItemForm.itemName.val(),
       category: this.menuItemForm.category.val(),

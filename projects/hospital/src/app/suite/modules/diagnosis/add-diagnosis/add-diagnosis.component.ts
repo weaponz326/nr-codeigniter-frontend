@@ -48,11 +48,15 @@ export class AddDiagnosisComponent implements OnInit {
     this.addDiagnosis.open();
   }
 
+  closeWindow(){
+    this.addDiagnosis.close();
+  }
+
   patientSelected(patient: any){
     console.log(patient);
 
     this.patientName.val(patient.patient_name);
-    this.patientCode.val(patient.clinical_id);
+    this.patientCode.val(patient.clinical_number);
     this.patientIdStore = patient.id;
   }
 
@@ -60,7 +64,7 @@ export class AddDiagnosisComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let diagnosisData = {
-      hospital_id: localStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       diagnosis_code: this.diagnosisCode.val(),
       diagnosis_date: this.diagnosisDate.val(),
       patient: this.patientIdStore
@@ -72,8 +76,9 @@ export class AddDiagnosisComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('diagnosis_id', res.diagnosis_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('diagnosis_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/diagnosis/view-diagnosis');
           }
         },

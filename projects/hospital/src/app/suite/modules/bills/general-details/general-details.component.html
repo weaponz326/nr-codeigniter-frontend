@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-3">
         <h4>General Charges</h4>
     </div>
 </div>
@@ -13,9 +13,10 @@
     </div>
 </div>
 
-<jqxGrid #gridReference (click)="addGeneralBillComponentReference.openWindow()"
+<jqxGrid #gridReference (onRowdoubleclick)="editGeneralBillComponentReference.openWindow($event)"
     [width]="'100%'"
     [autoheight]="true"
+    [source]="dataAdapter"
     [rowsheight]="24"
     [showstatusbar]="true"
     [showaggregates]="true"
@@ -24,19 +25,17 @@
 
 <!-- add and edit general bill dialogue windows -->
 
-<!-- <app-add-general #addGeneralBillComponentReference
-    (addCommit)="onGeneralBillAddCommit($event)"
-></app-add-general>
-
-<app-edit-general #editGeneralBillComponentReference
-    (editCommit)="onGeneralBillEditCommit($event)"
-    (deleteCommit)="onGeneralBillDeleteCommit($event)"
-></app-edit-general> -->
-
 <app-add-general #addGeneralBillComponentReference
-
+    (addCommit)="onAddCommit($event)"
 ></app-add-general>
 
 <app-edit-general #editGeneralBillComponentReference
-
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
 ></app-edit-general>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

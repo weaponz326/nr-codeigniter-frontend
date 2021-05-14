@@ -12,11 +12,11 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference (click)="deletePatient()"
-                >Save</jqxButton>
+                <jqxButton #deleteButtonReference (click)="deletePatient()"
+                >Delete</jqxButton>
 
                 <jqxButton #saveButtonReference (click)="savePatient()"
                 >Save</jqxButton>

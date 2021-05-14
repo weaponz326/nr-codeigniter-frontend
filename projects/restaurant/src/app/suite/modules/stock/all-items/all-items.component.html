@@ -4,16 +4,21 @@
 
     <div class="row top-button-row">
         <div class="col-md-12">
-            <jqxButton #addItemReference (click)="addItemWindowReference.openWindow()"
+            <jqxButton #addItemReference routerLink="/suite/stock/add-stock"
                 [width]="150"
                 [height]="30"
             >Add Item</jqxButton>
+
+            <jqxButton #printReference class="float-right"
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-7">
-            <jqxGrid #gridReference (onRowdoubleclick)="editItemWindowReference.openWindow($event)"
+            <jqxGrid #gridReference (onRowdoubleclick)="viewStock($event)"
                 [width]="'100%'"
                 [height]="450"
                 [source]="dataAdapter"
@@ -26,17 +31,6 @@
     </div>
 
 </div>
-
-<!-- add delivery dialog window -->
-<app-add-item #addItemWindowReference
-    (addCommit)="onAddCommit($event)"
-></app-add-item>
-
-<!-- edit delivery dialog window -->
-<app-edit-item #editItemWindowReference
-    (editCommit)="onEditCommit($event)"
-    (deleteCommit)="onDeleteCommit($event)"
-></app-edit-item>
 
 <!-- http loader spinner and connection notification components -->
 

@@ -1,6 +1,6 @@
 <jqxWindow #editVisitorReference
     [width]="540"
-    [height]="375"
+    [height]="360"
     [autoOpen]="false">
 
     <div>Edit Visitor</div>
@@ -12,7 +12,7 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #deleteButtonReference (click)="deleteVisitor()"

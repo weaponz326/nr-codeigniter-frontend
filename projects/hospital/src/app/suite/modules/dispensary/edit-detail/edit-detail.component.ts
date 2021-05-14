@@ -41,27 +41,35 @@ export class EditDetailComponent implements OnInit {
     console.log(event.args.row.bounddata);
     this.detailId = event.args.row.bounddata.id;
 
-    this.detailForm.drugInput.val(event.args.row.bounddata.drug);
+    this.detailForm.drugIdStore = event.args.row.bounddata.drug_id;
+    this.detailForm.drugNameInput.val(event.args.row.bounddata.drug_name);
     this.detailForm.ndcNumberInput.val(event.args.row.bounddata.ndc_number);
     this.detailForm.remarksTextArea.val(event.args.row.bounddata.remarks);
+  }
+
+  closeWindow(){
+    this.editDetailWindow.close();
   }
 
   saveDetail(){
     let detailData = {
       id: this.detailId,
       dispensary: sessionStorage.getItem('dispensary_id'),
-      drug: this.detailForm.drugInput.val(),
+      drug_id: this.detailForm.drugIdStore,
+      drug_name: this.detailForm.drugNameInput.val(),
       ndc_number: this.detailForm.ndcNumberInput.val(),
       remarks: this.detailForm.remarksTextArea.val(),
     }
 
     console.log(detailData);
-
     this.editCommit.emit(detailData);
+
+    this.closeWindow();
   }
 
   deleteDetail(){
     this.deleteCommit.emit(this.detailId);
+    this.closeWindow();
   }
 
 }

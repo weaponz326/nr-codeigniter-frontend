@@ -14,10 +14,10 @@ export class AppraisalApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all appraisal belonging to user
+  // create and get all appraisal belonging to account
 
   public getAllAppraisal(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-appraisal/appraisal-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-appraisal/appraisal?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postAppraisal(appraisal): Observable<any>{
@@ -41,7 +41,7 @@ export class AppraisalApiService {
   // employees
 
   public getEmployees(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-appraisal/employee-list?user=" + sessionStorage.getItem('appraisal_id'));
+    return this.http.get(this.enterpriseUrl + "module-employees/employee?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
 }

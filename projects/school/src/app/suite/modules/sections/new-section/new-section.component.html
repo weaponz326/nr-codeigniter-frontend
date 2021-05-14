@@ -1,0 +1,53 @@
+<jqxWindow #newSectionReference
+    [width]="540"
+    [height]="160"
+    [autoOpen]="false">
+
+    <div>Add New Section</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Section Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #sectionNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Term</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #teacherReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectTeacherButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveSection()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

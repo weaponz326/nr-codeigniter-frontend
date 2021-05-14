@@ -14,10 +14,10 @@ export class PayrollApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all payroll belonging to user
+  // create and get all payroll belonging to account
 
   public getPayroll(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-payroll/payroll-list?account=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-payroll/payroll?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postPayroll(payroll): Observable<any>{

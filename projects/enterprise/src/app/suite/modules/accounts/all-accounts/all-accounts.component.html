@@ -8,6 +8,11 @@
                 [width]="150"
                 [height]="30"
             >New Account</jqxButton>
+
+            <jqxButton #printReference class="float-right"
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
         </div>
     </div>
 
@@ -22,13 +27,6 @@
                 [showfilterrow]="true"
                 [columns]="columns"
             ></jqxGrid>
-        </div>
-
-        <div class="col-md-3">
-            <jqxButton #transactionsButtonReference routerLink="/suite/accounts/all-transactions"
-                [width]="150"
-                [height]="32"
-            >All Transactions</jqxButton>
         </div>
     </div>
 

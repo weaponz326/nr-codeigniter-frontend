@@ -37,6 +37,10 @@ export class GeneratePayrollComponent implements OnInit {
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  monthsSource = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  yearsSource = this.getYears();
+  statusSource = ['Processing', 'Deployed'];
+
   ngOnInit(): void {
   }
 
@@ -45,6 +49,10 @@ export class GeneratePayrollComponent implements OnInit {
   // open add payroll popup dialog window
   openWindow(){
     this.generatePayroll.open();
+  }
+
+  closeWindow(){
+    this.generatePayroll.close();
   }
 
   savePayroll(){
@@ -65,8 +73,9 @@ export class GeneratePayrollComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('payroll_id', res.payroll_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('payroll_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/payroll/view-payroll');
           }
         },
@@ -80,5 +89,10 @@ export class GeneratePayrollComponent implements OnInit {
     console.log(payrollData);
   }
 
+  getYears(): any[] {
+    var i, n=[];
+    for (i=1900; i<=2021; i++) n.push(i);
+    return n;
+  }
 
 }

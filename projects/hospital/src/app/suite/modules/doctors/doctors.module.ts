@@ -8,6 +8,7 @@ import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { DoctorsRoutingModule } from './doctors-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -43,7 +44,8 @@ import { SettingsComponent } from './settings/settings.component';
     jqxDropDownListModule,
     jqxDateTimeInputModule,
     jqxTextAreaModule,
-    jqxPanelModule
+    jqxPanelModule,
+    jqxComboBoxModule
   ]
 })
 export class DoctorsModule { }

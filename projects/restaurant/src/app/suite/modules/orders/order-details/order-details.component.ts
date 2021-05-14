@@ -96,7 +96,15 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
     { text: "Menu Item", dataField: "menu_item", width: "45%" },
     { text: 'Price', datafield: 'price', width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
     { text: 'Quantity', datafield: 'quantity', width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    { text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
+    { 
+      text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
+      cellsrenderer: function (index, datafield, value, defaultvalue, column, rowdata) {
+        console.log(rowdata.price);
+        console.log(rowdata.qunatity);
+        var total = parseFloat(rowdata.price) * parseFloat(rowdata.quantity);
+        return "<div style='margin: 4px; float: right;'>" + total + "</div>";
+      }
+    }
   ];
 
   addRow(rowid, rowdata, position, commit) {
@@ -105,8 +113,8 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
 
     let itemData = {
       order: sessionStorage.getItem('order_id'),
-      menu_item_id: rowdata.menu_item_id,
-      quantity: rowdata.dosage,
+      menu_item: rowdata.menu_item_id,
+      quantity: rowdata.quantity,
     }
 
     console.log(itemData);
@@ -118,7 +126,7 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -134,8 +142,8 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
 
     let itemData = {
       order: sessionStorage.getItem('order_id'),
-      menu_item_id: newdata.menu_item_id,
-      quantity: newdata.dosage,
+      menu_item: newdata.menu_item_id,
+      quantity: newdata.quantity,
     }
 
     this.loadingSpinner.httpLoader.open();
@@ -145,7 +153,7 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

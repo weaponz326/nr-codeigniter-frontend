@@ -14,10 +14,10 @@ export class ClassesApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all classes belonging to user
+  // create and get all classes belonging to account
 
   public getClasses(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-classes/class-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-classes/class?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postClass(clas): Observable<any>{
@@ -38,14 +38,32 @@ export class ClassesApiService {
     return this.http.delete(this.schoolUrl + "module-classes/class/" + sessionStorage.getItem('class_id'));
   }
 
-  // class' subjects
+  // class's subjects
+  // ---------------------------------------------------------------------------------------------------------------
 
-  public getAllSubjects(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-classes/all-subject-list/" + sessionStorage.getItem('school_id'));
+  public getAllClassSubjects(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-classes/class-subject?clas=" + sessionStorage.getItem('class_id'));
   }
 
-  public getClassSubjects(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-classes/class-subject-list/" + sessionStorage.getItem('class_id'));
+  public postClassSubject(subject): Observable<any>{
+    return this.http.post(this.schoolUrl + "module-classes/class-subject/", subject);
+  }
+
+  public getSingleClassSubject(subjectId): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-classes/class-subject/" + subjectId);
+  }
+
+  public putClassSubject(subjectId, subject): Observable<any>{
+    return this.http.put(this.schoolUrl + "module-classes/class-subject/" + subjectId, subject);
+  }
+
+  public deleteClassSubject(subjectId): Observable<any>{
+    return this.http.delete(this.schoolUrl + "module-classes/class-subject/" + subjectId);
+  }
+
+  // get subjects for selection window
+  public getAllSubjects(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-subjects/subject/" + sessionStorage.getItem('school_id'));
   }
 
 }

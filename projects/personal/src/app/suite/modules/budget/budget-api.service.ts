@@ -16,7 +16,7 @@ export class BudgetApiService {
 
   // get all budgets belonging to a user
   public getBudgets(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-budget/budget-list?user=" + localStorage.getItem('personal_id'));
+    return this.http.get(this.personalUrl + "module-budget/budget?user=" + localStorage.getItem('personal_id'));
   }
 
   // create new budget
@@ -41,7 +41,7 @@ export class BudgetApiService {
   // get budget's income, add, update and delete income
 
   public getIncome(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-budget/income-list?budget=" + sessionStorage.getItem('budget_id'));
+    return this.http.get(this.personalUrl + "module-budget/income?budget=" + sessionStorage.getItem('budget_id'));
   }
 
   public postIncome(incomeData): Observable<any>{
@@ -59,7 +59,7 @@ export class BudgetApiService {
   // get budget's expenditure, add, update and delete expenditure
 
   public getExpenditure(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-budget/expenditure-list?budget=" + sessionStorage.getItem('budget_id'));
+    return this.http.get(this.personalUrl + "module-budget/expenditure?budget=" + sessionStorage.getItem('budget_id'));
   }
 
   public postExpenditure(expenditureData): Observable<any>{

@@ -25,7 +25,6 @@ export class AddOrderComponent implements OnInit {
     private ordersApi: OrdersApiService,
   ) { }
 
-
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
@@ -48,11 +47,15 @@ export class AddOrderComponent implements OnInit {
     this.addOrder.open();
   }
 
+  closeWindow(){
+    this.addOrder.close();
+  }
+
   saveOrder(){
     this.loadingSpinner.httpLoader.open();
 
     let orderData = {
-      restaurant_id: localStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       order_code: this.orderCode.val(),
       order_date: this.orderDate.val(),
       order_type: this.orderType.val(),
@@ -66,8 +69,9 @@ export class AddOrderComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('order_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/orders/view-order');
           }
         },

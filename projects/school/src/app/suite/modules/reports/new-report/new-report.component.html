@@ -70,10 +70,10 @@
 
         <div>
             <div class="edit-dialog-field edit-dialog-buttons">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveReport()"
                 >Save</jqxButton>
             </div>
         </div>

@@ -1,9 +1,15 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
-import { ItemFormComponent } from '../item-form/item-form.component'
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
+import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
+
+import { StockApiService } from '../stock-api.service';
+import { ItemFormComponent } from '../item-form/item-form.component';
 
 
 @Component({
@@ -13,7 +19,10 @@ import { ItemFormComponent } from '../item-form/item-form.component'
 })
 export class EditItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private stockApi: StockApiService
+  ) { }
 
   @ViewChild("editItemReference") editItem: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -22,32 +31,37 @@ export class EditItemComponent implements OnInit {
 
   @ViewChild("itemFormComponentReference") itemForm: ItemFormComponent;
 
-  // emit event to commit data into grid in parent component
-  @Output() editCommit = new EventEmitter<any>();
-  @Output() deleteCommit = new EventEmitter<any>();
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+  @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
+
+  navHeading: any[] = [
+    { text: "All Items", url: "/suite/stock/all-items" },
+    { text: "View Item", url: "/suite/stock/view-item" },
+  ];
 
   ngOnInit(): void {
   }
 
-  itemId: any;
+  ngAfterViewInit(): void {
+    this.stockApi.getSingleItem()
+      .subscribe(
+        res => {
+          console.log(res);
 
-  openWindow(event: any){
-    this.editItem.open();
-
-    console.log(event.args.row.bounddata);
-    this.itemId = event.args.row.bounddata.id;
-
-    this.itemForm.itemCode.val(event.args.row.bounddata.item_code);
-    this.itemForm.itemName.val(event.args.row.bounddata.item_name);
-    this.itemForm.category.val(event.args.row.bounddata.category);
-    this.itemForm.itemType.val(event.args.row.bounddata.item_type);
-    this.itemForm.quantity.val(event.args.row.bounddata.quantity);
-    this.itemForm.refillOrdered.val(event.args.row.bounddata.refill_ordered);
+          this.itemForm.itemCode.val(res.item_code);
+          this.itemForm.itemName.val(res.item_name);
+          this.itemForm.category.val(res.category);
+          this.itemForm.itemType.val(res.item_type);
+          this.itemForm.quantity.val(res.quantity);
+          this.itemForm.refillOrdered.val(res.refill_ordered);
+        }
+      )
   }
 
   saveItem(){
     var itemData = {
-      restaurant_id: sessionStorage.getItem('restaurnat_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       item_code: this.itemForm.itemCode.val(),
       item_name: this.itemForm.itemName.val(),
       category: this.itemForm.category.val(),
@@ -56,13 +70,47 @@ export class EditItemComponent implements OnInit {
       refill_ordered: this.itemForm.refillOrdered.val(),
     }
 
-    console.log(itemData);
+    this.stockApi.putItem(itemData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
-    this.editCommit.emit(itemData);
+    console.log(itemData);
   }
 
-  deleteItem(){
-    this.deleteCommit.emit(this.itemId);
+  deleteStock(){
+    console.log("dude... u are gonna delete the stock?");
+
+    this.deleteConfirmComponent.openWindow();
+  }
+
+  deleteConfirmationSelected(value: string){
+    if (value == 'yes'){
+      this.loadingSpinner.httpLoader.open();
+
+      this.stockApi.deleteItem()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
+
+            this.router.navigateByUrl('/suite/stock/all-stock');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
+    }
   }
 
 }

@@ -69,7 +69,7 @@ export class AllAssetsComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'asset_code', type: 'string' },
       { name: 'asset_name', type: 'string' },
-      { name: 'type', type: 'string' },
+      { name: 'asset_type', type: 'string' },
       { name: 'location', type: 'string' },
       { name: 'condition', type: 'string' },
     ],
@@ -81,7 +81,7 @@ export class AllAssetsComponent implements OnInit, AfterViewInit {
   columns: any[] = [
     { text: "Asset ID", dataField: "asset_code", width: "15%" },
     { text: "Asset Name", dataField: "asset_name", width: "30%" },
-    { text: "Type", dataField: "type", width: "20%" },
+    { text: "Type", dataField: "asset_type", width: "20%" },
     { text: "Location", dataField: "location", width: "20%" },
     { text: "Condition", dataField: "condition", width: "15%" },
   ];

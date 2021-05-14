@@ -1,9 +1,14 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
-import { ItemFormComponent } from '../item-form/item-form.component'
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
+
+import { StockApiService } from '../stock-api.service';
+import { ItemFormComponent } from '../item-form/item-form.component';
 
 @Component({
   selector: 'app-add-item',
@@ -12,7 +17,10 @@ import { ItemFormComponent } from '../item-form/item-form.component'
 })
 export class AddItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private stockApi: StockApiService
+  ) { }
 
   @ViewChild("addItemReference") addItem: jqxWindowComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
@@ -20,8 +28,12 @@ export class AddItemComponent implements OnInit {
 
   @ViewChild("itemFormComponentReference") itemForm: ItemFormComponent;
 
-  // emit event to commit data into grid in parent component
-  @Output() addCommit = new EventEmitter<any>();
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
+  navHeading: any[] = [
+    { text: "Add Item", url: "/suite/stock/add-item" },
+  ];
 
   ngOnInit(): void {
   }
@@ -32,7 +44,7 @@ export class AddItemComponent implements OnInit {
 
   saveItem(){
     var itemData = {
-      restaurant: sessionStorage.getItem('restaurnat_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       item_code: this.itemForm.itemCode.val(),
       item_name: this.itemForm.itemName.val(),
       category: this.itemForm.category.val(),
@@ -43,7 +55,23 @@ export class AddItemComponent implements OnInit {
 
     console.log(itemData);
 
-    this.addCommit.emit(itemData);
+    this.stockApi.postItem(itemData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+
+          if (res.message == "OK"){
+            sessionStorage.setItem('stock_item_id', res.data.id);
+            this.router.navigateByUrl('/suite/stock/view-item');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

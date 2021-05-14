@@ -91,7 +91,7 @@ export class AllDeliveriesComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let deliveryData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       order: rowdata.order_id,
       delivery_code: rowdata.delivery_code,
       delivery_date: rowdata.delivery_date,
@@ -109,7 +109,7 @@ export class AllDeliveriesComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -124,7 +124,7 @@ export class AllDeliveriesComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let deliveryData =  {
-      restaurant: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       order: newdata.order_id,
       delivery_code: newdata.delivery_code,
       delivery_date: newdata.delivery_date,
@@ -142,7 +142,7 @@ export class AllDeliveriesComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

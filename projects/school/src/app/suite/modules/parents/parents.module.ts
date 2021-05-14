@@ -6,6 +6,7 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { ParentsRoutingModule } from './parents-routing.module';
@@ -29,9 +30,9 @@ import { SelectWardComponent } from './select-ward/select-ward.component';
     AllParentsComponent,
     NewParentComponent,
     ViewParentComponent,
-    ParentFormComponent, 
-    ParentWardsComponent, 
-    DashboardComponent, 
+    ParentFormComponent,
+    ParentWardsComponent,
+    DashboardComponent,
     SettingsComponent, SelectWardComponent,
   ],
   imports: [
@@ -44,6 +45,7 @@ import { SelectWardComponent } from './select-ward/select-ward.component';
     jqxInputModule,
     jqxDropDownListModule,
     jqxTextAreaModule,
+    jqxPanelModule,
     jqxWindowModule,
   ]
 })

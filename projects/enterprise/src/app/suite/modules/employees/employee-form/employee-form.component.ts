@@ -39,14 +39,15 @@ export class EmployeeFormComponent implements OnInit {
   @ViewChild('startedWorkDateReference') startedWork: jqxDateTimeInputComponent;
   @ViewChild('endedWorkDateReference') endedWork: jqxDateTimeInputComponent;
 
-  imgSrc = '/projects/personal/src/assets/images/utilities/photo-avatar.jpg';
+  image: any;
 
+  imgSrc = '/projects/personal/src/assets/images/utilities/photo-avatar.jpg';
   sexSource: any[] = ["Male", "Female"];
   workStatusSource: any[] = ["Active", "Transfered", "Retired"];
 
 
   dobDaySource: any[] = this.getDays();
-  dobMonthSource: any[] = ['Jan', 'Feb', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  dobMonthSource: any[] = this.getMonths();
   dobYearSource: any[] = this.getYears();
 
   ngOnInit(): void {
@@ -57,6 +58,7 @@ export class EmployeeFormComponent implements OnInit {
 
     if (file) {
       var reader = new FileReader();
+      this.image = reader.readAsDataURL(file);
       reader.readAsDataURL(file);
         reader.onload = (e: any) => {
           this.imgSrc = e.target.result;
@@ -65,8 +67,22 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   getDays(): any[] {
-    var i, n=[];
-    for (i=1; i<=31; i++) n.push(i);
+    var doubleDigit, n=[];
+    for (let i=1; i<=31; i++) {
+      doubleDigit = (i >= 10) ? i : "0" + i.toString();
+      n.push(doubleDigit);
+    }
+
+    return n;
+  }
+
+  getMonths(): any[] {
+    var doubleDigit, n=[];
+    for (let i=1; i<=12; i++) {
+      doubleDigit = (i >= 10) ? i : "0" + i.toString();
+      n.push(doubleDigit);
+    }
+
     return n;
   }
 

@@ -37,6 +37,10 @@ export class AddTransactionComponent implements OnInit {
     this.addTransactionWindow.open();
   }
 
+  closeWindow(){
+    this.addTransactionWindow.close();
+  }
+
   saveTransaction(){
     this.transactionData = {
       account: sessionStorage.getItem('account_id'),
@@ -47,8 +51,8 @@ export class AddTransactionComponent implements OnInit {
     }
 
     console.log(this.transactionData);
-
     this.addCommit.emit(this.transactionData);
+    this.closeWindow();
   }
 
 }

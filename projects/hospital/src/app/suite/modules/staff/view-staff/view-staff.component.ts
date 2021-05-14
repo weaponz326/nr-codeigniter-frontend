@@ -44,11 +44,18 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
     this.staffApi.getSingleStaff()
       .subscribe(
         res => {
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.staffForm.dobYear.val(dobArray[0]);
+            this.staffForm.dobMonth.val(dobArray[1]);
+            this.staffForm.dobDay.val(dobArray[2]);
+          }
+
           console.log(res);
           this.staffForm.firstNameInput.val(res.first_name);
           this.staffForm.lastNameInput.val(res.last_name);
           this.staffForm.sexDropDownList.val(res.sex);
-          this.staffForm.dobInput.val(res.date_of_birth);
+          this.staffForm.photo.nativeElement.value = res.photo;
           this.staffForm.nationalityInput.val(res.nationality);
           this.staffForm.religionInput.val(res.religion);
           this.staffForm.phoneInput.val(res.phone);
@@ -60,9 +67,6 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
           this.staffForm.staffCodeInput.val(res.staff_code);
           this.staffForm.departmentInput.val(res.department);
           this.staffForm.jobInput.val(res.job);
-          this.staffForm.workStatusDropDownList.val(res.work_status);
-          this.staffForm.startedWorkDateInput.val(res.started_work);
-          this.staffForm.endedWorkDateInput.val(res.ended_work);
         },
         err => {
           console.log(err);
@@ -75,12 +79,17 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a staff");
 
+    let dob = '';
+    if (this.staffForm.dobYear.val() == '' || this.staffForm.dobMonth.val() == '' || this.staffForm.dobDay.val() == '') dob = null;
+    else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();
+
     var staffData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       first_name: this.staffForm.firstNameInput.val(),
       last_name: this.staffForm.lastNameInput.val(),
       sex: this.staffForm.sexDropDownList.val(),
-      date_of_birth: this.staffForm.dobInput.val(),
+      date_of_birth: dob,
+      photo: this.staffForm.image,
       nationality: this.staffForm.nationalityInput.val(),
       religion: this.staffForm.religionInput.val(),
       phone: this.staffForm.phoneInput.val(),
@@ -92,9 +101,6 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
       staff_code: this.staffForm.staffCodeInput.val(),
       department: this.staffForm.departmentInput.val(),
       job: this.staffForm.jobInput.val(),
-      work_status: this.staffForm.workStatusDropDownList.val(),
-      started_work: this.staffForm.startedWorkDateInput.val(),
-      ended_work: this.staffForm.endedWorkDateInput.val(),
     }
 
     this.staffApi.putStaff(staffData)

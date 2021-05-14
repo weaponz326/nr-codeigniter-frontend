@@ -96,7 +96,7 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
     console.log("u are updating the account");
 
     this.accountData = {
-      user: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       account_name: this.accountNameInput.val(),
       account_number: this.accountNumberInput.val(),
       bank_name: this.bankNameInput.val()

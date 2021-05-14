@@ -1,9 +1,20 @@
 <div id="scrollBody" data-offset="50" data-spy="scroll" data-target="#scrollNavbar">
 
-    <app-main-scrollnav></app-main-scrollnav>
+    <app-main-scrollnav
+        (personalEvent)="gotoPersonal()"
+        (hospitalEvent)="gotoHospital()"
+        (restaurantEvent)="gotoRestaurant()"
+        (schoolEvent)="gotoSchool()"
+        (enterpriseEvent)="gotoEnterprise()"
+        (associationEvent)="gotoAssociation()"
+        (hotelEvent)="gotoHotel()"
+        (shopEvent)="gotoShop()"
+        (productionEvent)="gotoProduction()"
+    ></app-main-scrollnav>
+
     <app-main-top></app-main-top>
 
-    <app-suite-left
+    <app-suite-left id="personalComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/personal.png'"
         [suiteDivId]="'personalDiv'"
         [suiteName]="'Personal'"
@@ -17,7 +28,7 @@
         [suiteButtonLink]="personalUrl">
     </app-suite-left>
 
-    <app-suite-right
+    <app-suite-right id="hospitalComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/hospital.png'"
         [suiteDivId]="'hospitalDiv'"
         [suiteName]="'Hospital'"
@@ -31,7 +42,7 @@
         [suiteButtonLink]="hospitalUrl">
     </app-suite-right>
 
-    <app-suite-left
+    <app-suite-left id="restaurantComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/restaurant.png'"
         [suiteDivId]="'restaurantDiv'"
         [suiteName]="'Restaurant'"
@@ -45,7 +56,7 @@
         [suiteButtonLink]="restaurantUrl">
     </app-suite-left>
 
-    <app-suite-right
+    <app-suite-right id="schoolComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/school.png'"
         [suiteDivId]="'schoolDiv'"
         [suiteName]="'School'"
@@ -59,7 +70,7 @@
         [suiteButtonLink]="schoolUrl">
     </app-suite-right>
 
-    <app-suite-left
+    <app-suite-left id="enterpriseComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/enterprise.png'"
         [suiteDivId]="'enterpriseDiv'"
         [suiteName]="'Enterprise'"
@@ -73,7 +84,7 @@
         [suiteButtonLink]="enterpriseUrl">
     </app-suite-left>
 
-    <app-suite-right
+    <app-suite-right id="associationComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/association.png'"
         [suiteDivId]="'associationDiv'"
         [suiteName]="'Association'"
@@ -87,7 +98,7 @@
         [suiteButtonLink]="associationUrl">
     </app-suite-right>
 
-    <app-suite-left
+    <app-suite-left id="hotelComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/hotel.png'"
         [suiteDivId]="'hotelDiv'"
         [suiteName]="'Hotel'"
@@ -101,7 +112,7 @@
         [suiteButtonLink]="hotelUrl">
     </app-suite-left>
 
-    <app-suite-right
+    <app-suite-right id="shopComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/shop.png'"
         [suiteDivId]="'shopDiv'"
         [suiteName]="'Shop'"
@@ -115,7 +126,7 @@
         [suiteButtonLink]="shopUrl">
     </app-suite-right>
 
-    <app-suite-left
+    <app-suite-left id="productionComponentReference"
         [suiteImageSrc]="'../../../assets/images/suites/production.png'"
         [suiteDivId]="'productionDiv'"
         [suiteName]="'Production'"

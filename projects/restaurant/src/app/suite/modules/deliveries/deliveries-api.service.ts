@@ -17,7 +17,7 @@ export class DeliveriesApiService {
   // create and get all delveiries belonging to user
 
   public getDeliveries(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-deliveries/delivery-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-deliveries/delivery?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postDelivery(item): Observable<any>{
@@ -41,7 +41,7 @@ export class DeliveriesApiService {
   // get orders for select list
 
   public getOrders(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-deliveries/order-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-orders/order?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
 }

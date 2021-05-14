@@ -25,13 +25,8 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
 
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
   @ViewChild('billDateReference') billDate: jqxDateTimeInputComponent;
-  @ViewChild('billTypeReference') billType: jqxDropDownListComponent;
   @ViewChild('orderCodeReference') orderCode: jqxInputComponent;
-  @ViewChild('orderDateReference') orderDate: jqxInputComponent;
-  @ViewChild('sittingCodeReference') sittingCode: jqxInputComponent;
-  @ViewChild('sittingDateReference') sittingDate: jqxInputComponent;
-  @ViewChild('deliveryCodeReference') deliveryCode: jqxInputComponent;
-  @ViewChild('deliveryDateReference') deliveryDate: jqxInputComponent;
+  @ViewChild('orderTypeReference') orderType: jqxInputComponent;
   @ViewChild('customerNameReference') customerName: jqxInputComponent;
   @ViewChild('totalAmountReference') totalAmount: jqxInputComponent;
   @ViewChild('saveBillReference') saveButton: jqxButtonComponent;
@@ -58,15 +53,10 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.billCode.val(res.bill_code);
           this.billDate.val(res.bill_date);
-          this.totalAmount.val(res.total_amount);
-          this.billType.val(res.bill_type);
           this.orderCode.val(res.order.order_code);
-          this.orderDate.val(res.order.order_date);
-          this.sittingCode.val(res.sitting.sitting_code);
-          this.sittingDate.val(res.sitting.sitting_date);
-          this.deliveryCode.val(res.delivery.delivery_code);
-          this.deliveryDate.val(res.delivery.delivery_date);
+          this.orderType.val(res.order.order_type);
           this.customerName.val(res.customer_name);
+          this.totalAmount.val(res.total_amount);
         },
         err => {
           console.log(err);
@@ -79,9 +69,10 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
 
   saveBill(){
     let billData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       bill_code: this.billCode.val(),
       bill_date: this.billDate.val(),
+      customer_name: this.customerName.val(),
     }
 
     this.billsApi.putBill(billData)

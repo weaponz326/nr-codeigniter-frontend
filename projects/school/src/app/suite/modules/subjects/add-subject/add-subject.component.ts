@@ -42,11 +42,10 @@ export class AddSubjectComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var subjectData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       subject_code: this.subjectForm.subjectCode.val(),
       subject_name: this.subjectForm.subjectName.val(),
       department: this.subjectForm.department.val(),
-      term: this.subjectForm.term.val(),
       description: this.subjectForm.description.val(),
     }
 
@@ -58,8 +57,8 @@ export class AddSubjectComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('subject_id', res.subject_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('subject_id', res.data.id);
             this.router.navigateByUrl('/suite/subjects/view-subject');
           }
         },

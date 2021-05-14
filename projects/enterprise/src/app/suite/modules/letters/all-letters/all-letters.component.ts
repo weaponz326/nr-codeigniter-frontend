@@ -113,7 +113,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let letterData =  {
-      enterprise: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       reference_number: rowdata.reference_number,
       subject: rowdata.subject,
       sender: rowdata.sender,
@@ -130,7 +130,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -145,7 +145,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let letterData =  {
-      enterprise: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       reference_number: newdata.reference_number,
       subject: newdata.subject,
       sender: newdata.sender,
@@ -162,7 +162,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -182,7 +182,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true);
         },
         err => {
           console.log(err);
@@ -246,7 +246,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let letterData =  {
-      enterprise: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       reference_number: rowdata.reference_number,
       subject: rowdata.subject,
       recipient: rowdata.recipient,
@@ -263,7 +263,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -278,7 +278,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let letterData =  {
-      enterprise: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       reference_number: newdata.reference_number,
       subject: newdata.subject,
       recipient: newdata.recipient,
@@ -315,7 +315,7 @@ export class AllLettersComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true);
         },
         err => {
           console.log(err);

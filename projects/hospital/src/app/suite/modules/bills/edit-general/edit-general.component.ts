@@ -45,6 +45,10 @@ export class EditGeneralComponent implements OnInit {
     this.amountInput.val(event.args.row.bounddata.amount);
   }
 
+  closeWindow(){
+    this.editGeneralBillWindow.close();
+  }
+
   saveGeneralBill(){
     let billData = {
       id: this.generalItemId,
@@ -54,12 +58,14 @@ export class EditGeneralComponent implements OnInit {
     }
 
     console.log(billData);
-
     this.editCommit.emit(billData);
+
+    this.closeWindow();
   }
 
   deleteGeneralBill(){
     this.deleteCommit.emit(this.generalItemId);
+    this.closeWindow();
   }
 
 }

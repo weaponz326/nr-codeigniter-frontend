@@ -13,10 +13,10 @@ export class PatientsApiService {
 
   hospitalUrl = environment.hospitalUrl;
 
-  // create and get all patients belonging to user
+  // create and get all patients belonging to account
 
   public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-patients/patient-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-patients/patient?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postPatient(patient): Observable<any>{

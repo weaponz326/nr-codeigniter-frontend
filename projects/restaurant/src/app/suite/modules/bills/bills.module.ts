@@ -20,6 +20,7 @@ import { ViewBillComponent } from './view-bill/view-bill.component';
 import { BillDetailsComponent } from './bill-details/bill-details.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SelectOrderComponent } from './select-order/select-order.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BillDetailsComponent,
     SettingsComponent,
     DashboardComponent,
+    SelectOrderComponent,
   ],
   imports: [
     CommonModule,

@@ -14,10 +14,10 @@ export class TeachersApiService {
 
   schoolUrl = environment.schoolUrl;
 
-  // create and get all teachers belonging to user
+  // create and get all teachers belonging to account
 
   public getTeachers(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-teachers/teacher-list?user=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-teachers/teacher?account=" + sessionStorage.getItem('school_id'));
   }
 
   public postTeacher(teacher): Observable<any>{

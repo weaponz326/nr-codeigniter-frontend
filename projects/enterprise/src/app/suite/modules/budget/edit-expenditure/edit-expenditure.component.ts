@@ -46,6 +46,10 @@ export class EditExpenditureComponent implements OnInit {
     this.amountInput.val(event.args.row.bounddata.amount);
   }
 
+  closeWindow(){
+    this.editExpenditureWindow.close();
+  }
+
   saveExpenditure(){
     this.expenditureData = {
       id: this.expenditureId,
@@ -55,12 +59,13 @@ export class EditExpenditureComponent implements OnInit {
     }
 
     console.log(this.expenditureData);
-
     this.editCommit.emit(this.expenditureData);
+    this.closeWindow();
   }
 
   deleteExpenditure(){
     this.deleteCommit.emit(this.expenditureId);
+    this.closeWindow();
   }
 
 }

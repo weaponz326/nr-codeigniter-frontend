@@ -17,7 +17,7 @@ export class PaymentsApiService {
   // create and get all payments belonging to user
 
   public getPayments(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-payments/payment-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-payments/payment?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postPayment(payment): Observable<any>{
@@ -38,18 +38,16 @@ export class PaymentsApiService {
     return this.http.delete(this.hospitalUrl + "module-payments/payment/" + sessionStorage.getItem('payment_id'));
   }
 
+  // --------------------------------------------------------------------------------------------------------------------------------
+
   // get patients and doctors for selection window
 
-  public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-payments/patient-list?user=" + sessionStorage.getItem('hospital_id'));
-  }
-
   public getAdmissions(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-payments/admission-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-admissions/admission?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public getBills(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-payments/bill-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-bills/bill?account=" + sessionStorage.getItem('hospital_id'));
   }
 
 }

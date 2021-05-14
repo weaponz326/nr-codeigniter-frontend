@@ -64,7 +64,7 @@ export class ViewTermComponent implements OnInit, AfterViewInit {
     console.log("u are updating a term");
 
     var termData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       term_name: this.termForm.termName.val(),
       term_begins: this.termForm.termBegins.val(),
       term_ends: this.termForm.termEnds.val(),

@@ -64,7 +64,7 @@ export class ViewClassComponent implements OnInit, AfterViewInit {
     console.log("u are updating a class");
 
     var classData = {
-      school_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       class_name: this.classForm.className.val(),
       department: this.classForm.department.val(),
       location: this.classForm.location.val(),

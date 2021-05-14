@@ -1,8 +1,13 @@
-<hr />
+<div class="row">
+    <div class="col-md-8">
+        <hr class="top-divider" />
+        <hr class="bottom-divider" />
+    </div>
+</div>
 
 <div class="row top-button-row">
     <div class="col-md-12">
-        <jqxButton #addButtonReference (click)="addFileWindowReference.openWindow()"
+        <jqxButton #addButtonReference routerLink="/suite/files/add-file"
             [width]="150"
             [height]="30"
         >Add File</jqxButton>
@@ -11,9 +16,10 @@
 
 <div class="row">
     <div class="col-md-8">
-        <jqxGrid #gridReference (onRowdoubleclick)="viewFileWindowReference.openWindow()"
+        <jqxGrid #gridReference (onRowdoubleclick)="viewFile($event)"
             [width]="'100%'"
             [height]="350"
+            [source]="dataAdapter"
             [sortable]="true"
             [filterable]="true"
             [showfilterrow]="true"
@@ -22,9 +28,3 @@
     </div>
 
 </div>
-
-<!-- add and view file popup dialog windows -->
-
-<app-add-file #addFileWindowReference></app-add-file>
-
-<app-view-file #viewFileWindowReference></app-view-file>

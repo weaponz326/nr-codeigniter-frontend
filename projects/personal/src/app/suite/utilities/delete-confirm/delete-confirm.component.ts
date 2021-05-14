@@ -18,13 +18,14 @@ export class DeleteConfirmComponent implements OnInit {
   @ViewChild('confirmWindowReference') confirmWindow: jqxWindowComponent;
   @ViewChild("yesButtonReference") yesButton: jqxButtonComponent;
   @ViewChild("noButtonReference") noButton: jqxButtonComponent;
-  
+
   ngOnInit(): void {
   }
 
   selectConfirmation(value: string) {
     this.confirmEvent.emit(value);
     console.log("u have selected " + value);
+    this.closeWindow();
   }
 
   // ------------------------------------------------------------------------------------------------
@@ -32,6 +33,10 @@ export class DeleteConfirmComponent implements OnInit {
   // open delete confirmation window
   openWindow(){
     this.confirmWindow.open();
+  }
+
+  closeWindow(){
+    this.confirmWindow.close();
   }
 
 }

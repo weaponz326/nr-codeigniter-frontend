@@ -42,7 +42,7 @@ export class AddMenuItemComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var itemData = {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       item_code: this.menuItemForm.itemCode.val(),
       item_name: this.menuItemForm.itemName.val(),
       category: this.menuItemForm.category.val(),
@@ -58,8 +58,8 @@ export class AddMenuItemComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('menu_item_id', res.menu_item_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('menu_item_id', res.data.id);
             this.router.navigateByUrl('/suite/menu/view-item');
           }
         },

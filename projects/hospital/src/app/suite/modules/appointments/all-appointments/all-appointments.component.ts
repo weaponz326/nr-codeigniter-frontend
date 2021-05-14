@@ -73,7 +73,6 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
       { name: 'patient_id', map: 'patient>id', type: 'string' },
       { name: 'patient_code', map: 'patient>clinical_number', type: 'string' },
       { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
-      { name: 'patient_code', map: 'patient>clinical_number', type: 'string' },
       { name: 'doctor_id', map: 'consultant>id', type: 'string' },
       { name: 'doctor_name', map: 'consultant>doctor_name', type: 'string' },
       { name: 'appointment_date', type: 'string' },
@@ -97,8 +96,9 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
 
   columns: any[] = [
     { text: "Appointment ID", dataField: "appointment_code", width: "10%" },
-    { text: "Patient Name", dataField: "patient_name", width: "30%" },
-    { text: "Consultant Name", dataField: "doctor_name", width: "30%" },
+    { text: "Patient Name", dataField: "patient_name", width: "25%" },
+    { text: "Patient ID", dataField: "patient_code", width: "10%" },
+    { text: "Consultant Name", dataField: "doctor_name", width: "25%" },
     { text: "Appointment Date", dataField: "appointment_date", filtertype: "range", width: "15%" },
     { text: "Appointment Status", dataField: "appointment_status", width: "15%" },
   ];
@@ -108,7 +108,7 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let appointmentData =  {
-      hospital: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       patient: rowdata.patient_id,
       consultant: rowdata.doctor_id,
       appointment_code: rowdata.appointment_code,
@@ -127,7 +127,7 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -142,7 +142,7 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let appointmentData =  {
-      hospital: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       patient: newdata.patient_id,
       consultant: newdata.doctor_id,
       appointment_code: newdata.appointment_code,
@@ -161,7 +161,7 @@ export class AllAppointmentsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

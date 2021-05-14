@@ -33,6 +33,8 @@ export class NewAttendanceComponent implements OnInit {
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
+  yearSource = this.getYears();
+
   ngOnInit(): void {
   }
 
@@ -40,11 +42,15 @@ export class NewAttendanceComponent implements OnInit {
     this.newAttendance.open();
   }
 
+  closeWindow(){
+    this.newAttendance.close();
+  }
+
   saveAttendance(){
     this.loadingSpinner.httpLoader.open();
 
     let AttendanceData = {
-      enterprise_id: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       attendance_code: this.attendanceCode.val(),
       attendance_name: this.attendanceName.val(),
       year: this.year.val(),
@@ -56,9 +62,10 @@ export class NewAttendanceComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('attendance_id', res.attendance_id);
-            this.router.navigateByUrl('/suite/Attendance/view-Attendance');
+          if (res.message == "OK"){
+            sessionStorage.setItem('attendance_id', res.data.id);
+            this.closeWindow();
+            this.router.navigateByUrl('/suite/attendance/view-attendance');
           }
         },
         err => {
@@ -69,6 +76,12 @@ export class NewAttendanceComponent implements OnInit {
       )
 
     console.log(AttendanceData);
+  }
+
+  getYears(): any[] {
+    var i, n=[];
+    for (i=1900; i<=2021; i++) n.push(i);
+    return n;
   }
 
 }

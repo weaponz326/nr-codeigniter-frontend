@@ -5,9 +5,10 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
-import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { TeachersRoutingModule } from './teachers-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -41,9 +42,10 @@ import { SettingsComponent } from './settings/settings.component';
     jqxGridModule,
     jqxInputModule,
     jqxDateTimeInputModule,
-    jqxRadioButtonModule,
+    jqxComboBoxModule,
     jqxTextAreaModule,
-    jqxDropDownListModule
+    jqxDropDownListModule,
+    jqxPanelModule
   ]
 })
 export class TeachersModule { }

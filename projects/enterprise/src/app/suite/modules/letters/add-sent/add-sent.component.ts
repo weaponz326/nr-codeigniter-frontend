@@ -31,19 +31,23 @@ export class AddSentComponent implements OnInit {
     this.addSent.open();
   }
 
+  closeWindow(){
+    this.addSent.close();
+  }
+
   saveSent(){
     var sentData = {
       account: sessionStorage.getItem('enterprise_id'),
-      reference_number: this.sentForm.referenceNumber,
-      recipient: this.sentForm.recipient,
-      subject: this.sentForm.subject,
-      date_sent: this.sentForm.dateSent,
-      letter_date: this.sentForm.letterDate,
+      reference_number: this.sentForm.referenceNumber.val(),
+      recipient: this.sentForm.recipient.val(),
+      subject: this.sentForm.subject.val(),
+      date_sent: this.sentForm.dateSent.val(),
+      letter_date: this.sentForm.letterDate.val(),
     }
 
     console.log(sentData);
-
     this.addCommit.emit(sentData);
+    this.closeWindow();
   }
 
 }

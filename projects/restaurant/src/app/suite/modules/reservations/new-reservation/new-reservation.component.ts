@@ -30,9 +30,13 @@ export class NewReservationComponent implements OnInit {
     this.newReservation.open();
   }
 
+  closeWindow(){
+    this.newReservation.close();
+  }
+
   saveReservation(){
     var reservationData = {
-      restaurant: sessionStorage.getItem('restaurnat_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       resrevation_code: this.reservationForm.reservationCode.val(),
       reservation_date: this.reservationForm.reservationDate.val(),
       customer_name: this.reservationForm.customerName.val(),
@@ -43,8 +47,9 @@ export class NewReservationComponent implements OnInit {
     }
 
     console.log(reservationData);
-
     this.addCommit.emit(reservationData);
+
+    this.closeWindow();
   }
 
 }

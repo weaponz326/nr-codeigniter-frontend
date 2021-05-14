@@ -16,7 +16,7 @@ export class AppointmentsApiService {
   // create and get all appointments belonging to user
 
   public getAppointments(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-appointments/appointment-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-appointments/appointment?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postAppointment(appointment): Observable<any>{
@@ -38,13 +38,14 @@ export class AppointmentsApiService {
   }
 
   // get patients and doctors for selection window
+  // TODO: change url and get param after doing doctors module
 
   public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-appointments/patient-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-patients/patient?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public getDoctors(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-appointments/doctor-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-doctors/doctor?account=" + sessionStorage.getItem('hospital_id'));
   }
 
 }

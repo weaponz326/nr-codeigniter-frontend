@@ -45,6 +45,10 @@ export class AddAccountComponent implements OnInit {
     this.addAccountWindow.open();
   }
 
+  closeWindow(){
+    this.addAccountWindow.close();
+  }
+
   saveAccount(){
     this.loadingSpinner.httpLoader.open();
 
@@ -61,8 +65,9 @@ export class AddAccountComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('account_id', res.account_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('account_id', res.data.id);
+            this.closeWindow()
             this.router.navigateByUrl('/suite/accounts/view-account');
           }
         },

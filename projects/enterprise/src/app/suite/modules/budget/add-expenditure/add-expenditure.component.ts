@@ -34,6 +34,10 @@ export class AddExpenditureComponent implements OnInit {
     this.addExpenditureWindow.open();
   }
 
+  closeWindow(){
+    this.addExpenditureWindow.close();
+  }
+
   saveExpenditure(){
     this.expenditureData = {
       budget: sessionStorage.getItem('budget_id'),
@@ -42,8 +46,8 @@ export class AddExpenditureComponent implements OnInit {
     }
 
     console.log(this.expenditureData);
-
     this.addCommit.emit(this.expenditureData);
+    this.closeWindow();
   }
 
 }

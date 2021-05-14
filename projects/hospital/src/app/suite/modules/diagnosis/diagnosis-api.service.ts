@@ -14,20 +14,20 @@ export class DiagnosisApiService {
 
   hospitalUrl = environment.hospitalUrl;
 
-  // create and get all diagnosis belonging to user
+  // create and get all diagnosis belonging to account
 
   public getAllDiagnosis(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-diagnosis/diagnosis-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-diagnosis/diagnosis?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public postDiagnosis(diagnosis): Observable<any>{
-    return this.http.post(this.hospitalUrl + "module-diagnosis/new-diagnosis/", diagnosis);
+    return this.http.post(this.hospitalUrl + "module-diagnosis/diagnosis/", diagnosis);
   }
 
   // retreive, update and delete diagnosis
 
   public getSingleDiagnosis(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-diagnosis/diagnosis-detail/" + sessionStorage.getItem('diagnosis_id'));
+    return this.http.get(this.hospitalUrl + "module-diagnosis/diagnosis/" + sessionStorage.getItem('diagnosis_id'));
   }
 
   public putDiagnosis(diagnosis): Observable<any>{
@@ -41,11 +41,11 @@ export class DiagnosisApiService {
   // get patients and doctors for selection window
 
   public getPatients(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-diagnosis/patient-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-patients/patient?account=" + sessionStorage.getItem('hospital_id'));
   }
 
   public getDoctors(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-diagnosis/doctor-list?user=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-doctors/doctor?account=" + sessionStorage.getItem('hospital_id'));
   }
 
 }

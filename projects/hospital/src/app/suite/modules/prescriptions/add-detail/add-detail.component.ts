@@ -35,6 +35,10 @@ export class AddDetailComponent implements OnInit {
     this.addDetailWindow.open();
   }
 
+  closeWindow(){
+    this.addDetailWindow.close();
+  }
+
   saveDetail(){
     let detailData = {
       prescription: sessionStorage.getItem('prescription_id'),
@@ -44,8 +48,9 @@ export class AddDetailComponent implements OnInit {
     }
 
     console.log(detailData);
-
     this.addCommit.emit(detailData);
+
+    this.closeWindow();
   }
 
 }

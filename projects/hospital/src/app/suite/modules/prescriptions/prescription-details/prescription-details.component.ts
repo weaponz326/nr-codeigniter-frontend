@@ -91,9 +91,9 @@ export class PrescriptionDetailsComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: 'Medicine Name', dataField: 'medicine', width: "34%" },
-    { text: 'Dosage', dataField: 'dosage', width: "33%" },
-    { text: 'Remarks', dataField: 'remarks', width: "33%" },
+    { text: 'Medicine Name', dataField: 'medicine', width: "34%", autoRowHeight: true },
+    { text: 'Dosage', dataField: 'dosage', width: "33%", autoRowHeight: true },
+    { text: 'Remarks', dataField: 'remarks', width: "33%", autoRowHeight: true },
   ];
 
   addRow(rowid, rowdata, position, commit) {
@@ -116,7 +116,7 @@ export class PrescriptionDetailsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -144,7 +144,7 @@ export class PrescriptionDetailsComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

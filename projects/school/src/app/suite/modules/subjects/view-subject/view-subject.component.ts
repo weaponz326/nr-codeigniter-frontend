@@ -49,7 +49,6 @@ export class ViewSubjectComponent implements OnInit, AfterViewInit {
           this.subjectForm.subjectCode.val(res.subject_code);
           this.subjectForm.subjectName.val(res.subject_name);
           this.subjectForm.department.val(res.department);
-          this.subjectForm.term.val(res.term);
           this.subjectForm.description.val(res.description);
         },
         err => {
@@ -68,7 +67,6 @@ export class ViewSubjectComponent implements OnInit, AfterViewInit {
       subject_code: this.subjectForm.subjectCode.val(),
       subject_name: this.subjectForm.subjectName.val(),
       department: this.subjectForm.department.val(),
-      term: this.subjectForm.term.val(),
       description: this.subjectForm.description.val(),
     }
 

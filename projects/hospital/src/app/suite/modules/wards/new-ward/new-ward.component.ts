@@ -39,7 +39,7 @@ export class NewWardComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var wardData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       ward_number: this.wardForm.wardNumber.val(),
       ward_name: this.wardForm.wardName.val(),
       ward_type: this.wardForm.wardType.val(),
@@ -55,8 +55,8 @@ export class NewWardComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('ward_id', res.ward_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('ward_id', res.data.id);
             this.router.navigateByUrl('/suite/wards/view-ward');
           }
         },

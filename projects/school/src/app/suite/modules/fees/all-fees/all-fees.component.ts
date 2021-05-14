@@ -26,7 +26,7 @@ export class AllFeesComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   navHeading: any[] = [
-    { text: "Generate Fees", url: "/suite/fees/all-fees" },
+    { text: "All Fees", url: "/suite/fees/all-fees" },
   ];
 
   ngOnInit(): void {
@@ -38,25 +38,25 @@ export class AllFeesComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.feesApi.getFees()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.feesApi.getAllFees()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   viewFee(event: any){
     console.log(event.args.row.bounddata);
-    sessionStorage.setItem('fee_id', event.args.row.bounddata.id);
+    sessionStorage.setItem('fees_id', event.args.row.bounddata.id);
 
-    this.router.navigateByUrl('/suite/fees/view-fee');
+    this.router.navigateByUrl('/suite/fees/view-fees');
   }
 
   // widgets
@@ -67,8 +67,8 @@ export class AllFeesComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'fee_code', type: 'string' },
-      { name: 'fee_description', type: 'string' },
+      { name: 'fees_code', type: 'string' },
+      { name: 'fees_description', type: 'string' },
       { name: 'fees_date', type: 'string' },
     ],
     id: 'id',

@@ -6,6 +6,7 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
@@ -42,6 +43,7 @@ import { SettingsComponent } from './settings/settings.component';
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxDropDownListModule,
+    jqxComboBoxModule,
     jqxTextAreaModule,
     jqxPanelModule
   ]

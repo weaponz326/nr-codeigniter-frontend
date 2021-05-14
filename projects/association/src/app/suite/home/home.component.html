@@ -15,7 +15,7 @@
           <div class="col-md-2 col-sm-6 text-center">
               <jqxTooltip #portalTooltipReference
                   [position]="'mouse'"
-                  [content]="'Connect to other businesses throgh netRink portal'">
+                  [content]="'Connect to other associations throgh netRink portal'">
 
                   <a routerLink="/suite/portal/dashboard">
                       <figure>
@@ -81,6 +81,21 @@
                       <figure>
                           <img src="../../../assets/images/modules/dues.png" class="home-icons" />
                           <figcaption>Dues</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #meetingsTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Plan and organize meetings'">
+
+                  <a routerLink="/suite/meetings/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/meetings.png" class="home-icons" />
+                          <figcaption>Meetings</figcaption>
                       </figure>
                   </a>
 
@@ -170,14 +185,14 @@
           </div>
 
           <div class="col-md-2 col-sm-6 text-center">
-              <jqxTooltip #sectionsTooltipReference
+              <jqxTooltip #groupsTooltipReference
                   [position]="'mouse'"
                   [content]="'Manage sub divisions within the association'">
 
-                  <a routerLink="/suite/sections/dashboard">
+                  <a routerLink="/suite/groups/dashboard">
                       <figure>
-                          <img src="../../../assets/images/modules/sections.png" class="home-icons" />
-                          <figcaption>Sections</figcaption>
+                          <img src="../../../assets/images/modules/groups.png" class="home-icons" />
+                          <figcaption>Groups</figcaption>
                       </figure>
                   </a>
 

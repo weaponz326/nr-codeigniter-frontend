@@ -49,6 +49,7 @@ export class ViewCustomerComponent implements OnInit, AfterViewInit {
           this.customerForm.firstNameInput.val(res.first_name);
           this.customerForm.lastNameInput.val(res.last_name);
           this.customerForm.sexDropDownList.val(res.sex);
+          this.customerForm.photo.nativeElement.value = res.photo;
           this.customerForm.phoneInput.val(res.phone);
           this.customerForm.emailInput.val(res.email);
           this.customerForm.addressInput.val(res.address);
@@ -72,10 +73,11 @@ export class ViewCustomerComponent implements OnInit, AfterViewInit {
     console.log("u are updating a customer");
 
     var customerData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       first_name: this.customerForm.firstNameInput.val(),
       last_name: this.customerForm.lastNameInput.val(),
       sex: this.customerForm.sexDropDownList.val(),
+      photo: this.customerForm.image,
       phone: this.customerForm.phoneInput.val(),
       email: this.customerForm.emailInput.val(),
       address: this.customerForm.addressInput.val(),

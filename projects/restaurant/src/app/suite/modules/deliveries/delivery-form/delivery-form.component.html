@@ -58,4 +58,6 @@
 
 <!-- selecct order grid window -->
 
-<app-select-order #selectOrderComponentReference></app-select-order>
+<app-select-order #selectOrderComponentReference
+    (orderEvent)="orderSelected($event)"
+></app-select-order>

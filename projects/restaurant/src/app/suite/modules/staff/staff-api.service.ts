@@ -17,7 +17,7 @@ export class StaffApiService {
   // create and get all staffs belonging to user
 
   public getStaff(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-staff/staff-list?user=" + sessionStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-staff/staff?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
   public postStaff(staff): Observable<any>{

@@ -2,7 +2,11 @@
 
     <div class="col-md-6">
 
-        <h4>Class Details</h4>
+        <div class="row page-form-div">
+            <div class="col mb-3">
+                <h4>Class Details</h4>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-4"><label>Class Name :</label></div>
@@ -27,10 +31,15 @@
         <div class="row">
             <div class="col-md-4"><label>Term :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #termReference
-                    [width]="'100%'"
+                <jqxInput #termReference
+                    [width]="'88%'"
                     [height]="28"
-                ></jqxDropDownList>
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectTermButtomrReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
             </div>
         </div>
 
@@ -47,10 +56,15 @@
         <div class="row">
             <div class="col-md-4"><label>Class Teacher :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #classTeacherReference
-                    [width]="'100%'"
+                <jqxInput #classTeacherReference
+                    [width]="'88%'"
                     [height]="28"
-                ></jqxDropDownList>
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectTeacherButtomrReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
             </div>
         </div>
 

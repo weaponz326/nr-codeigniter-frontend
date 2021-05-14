@@ -48,7 +48,7 @@ export class NewTimetableComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let timetableData = {
-      school: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       timetable_code: this.timetableCode.val(),
       timetable_name: this.timetableName.val(),
       timetable_date: this.timetableDate.val(),
@@ -61,9 +61,9 @@ export class NewTimetableComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('timetable_id', res.timetable_id);
-            this.router.navigateByUrl('/suite/timetable/view-timetable');
+          if (res.message == "OK"){
+            sessionStorage.setItem('timetable_id', res.data.id);
+            this.router.navigateByUrl('/suite/timetables/view-timetable');
           }
         },
         err => {

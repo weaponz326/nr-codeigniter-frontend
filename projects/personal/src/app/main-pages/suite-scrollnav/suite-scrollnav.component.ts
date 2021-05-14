@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-suite-scrollnav',
@@ -9,7 +9,26 @@ export class SuiteScrollnavComponent implements OnInit {
 
   constructor() { }
 
+  @Output() aboutEvent = new EventEmitter();
+  @Output() pricingEvent = new EventEmitter();
+  @Output() contactEvent = new EventEmitter();
+
   ngOnInit(): void {
+  }
+
+  onAboutClicked(e) {
+    e.preventDefault();
+    this.aboutEvent.emit();
+  }
+
+  onPricingClicked(e) {
+    e.preventDefault();
+    this.pricingEvent.emit();
+  }
+
+  onContactClicked(e) {
+    e.preventDefault();
+    this.contactEvent.emit();
   }
 
 }

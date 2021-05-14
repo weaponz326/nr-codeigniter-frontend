@@ -1,33 +1,42 @@
 <div>
     <div class="edit-dialog-label-alt">Menu Item ID</div>
     <div class="edit-dialog-field-alt">
-        <jqxDropDownList #menuItemCodeReference
-            [width]="'100%'"
+        <jqxInput #menuItemCodeReference
+            [width]="'90%'"
             [height]="28"
-            [source]="menuItemsSource"
-        ></jqxDropDownList>
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selectMenuItemButton (click)="selectMenuItem.openWindow()"
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
     </div>
 </div>
 
 <div>
     <div class="edit-dialog-label-alt">Menu Item Name</div>
     <div class="edit-dialog-field-alt">
-        <jqxDropDownList #menuItemNameReference
-            [width]="'100%'"
+        <jqxInput #menuItemNameReference
+            [width]="'90%'"
             [height]="28"
-            [source]="menuItemsSource"
-        ></jqxDropDownList>
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selectMenuItemButton (click)="selectMenuItem.openWindow()"
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
     </div>
 </div>
 
 <div>
-    <div class="edit-dialog-label-alt">Unit Price</div>
+    <div class="edit-dialog-label-alt">Price</div>
     <div class="edit-dialog-field-alt">
-        <jqxNumberInput #unitPriceReference
+        <jqxNumberInput #priceReference
             [width]="'100%'"
             [height]="28"
             [inputMode]="'simple'"
             [symbol]="'$'"
+            [disabled]="true"
         ></jqxNumberInput>
     </div>
 </div>
@@ -45,14 +54,6 @@
     </div>
 </div>
 
-<div>
-    <div class="edit-dialog-label-alt">Price</div>
-    <div class="edit-dialog-field-alt">
-        <jqxNumberInput #priceReference
-            [width]="'100%'"
-            [height]="28"
-            [inputMode]="'simple'"
-            [symbol]="'$'"
-        ></jqxNumberInput>
-    </div>
-</div>
+<app-select-menu-item #selectMenuItemComponentReference
+    (menuItemEvent)="menuItemSelected($event)"
+></app-select-menu-item>

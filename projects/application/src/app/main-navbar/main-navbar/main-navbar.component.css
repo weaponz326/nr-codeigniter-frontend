@@ -19,7 +19,10 @@
   padding-right: 6px;
 }
 
-.btn-outline-light:hover{
+.btn-outline-light:hover,
+.btn-outline-light:visited,
+.btn-outline-light:focus,
+.btn-outline-light:active{
 	color: #f8f9fc;
 	background-color: transparent;
 }

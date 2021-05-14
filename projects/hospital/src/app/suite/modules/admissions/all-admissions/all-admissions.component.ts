@@ -70,6 +70,7 @@ export class AllAdmissionsComponent implements OnInit, AfterViewInit {
       { name: 'admission_code', type: 'string' },
       { name: 'admission_date', type: 'string' },
       { name: 'patient_name', map: 'patient>patient_name', type: 'string' },
+      { name: 'patient_code', map: 'patient>clinical_number', type: 'string' },
     ],
     id: 'id',
   }
@@ -77,9 +78,10 @@ export class AllAdmissionsComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Admission ID", dataField: "admission_code", width: "25%" },
-    { text: "Patient Name", dataField: "patient_name", width: "50%" },
-    { text: "Admission Date", dataField: "admission_date", filtertype: "range", width: "25%" },
+    { text: "Admission ID", dataField: "admission_code", width: "20%" },
+    { text: "Patient Name", dataField: "patient_name", width: "40%" },
+    { text: "Patient ID", dataField: "patient_code", width: "20%" },
+    { text: "Admission Date", dataField: "admission_date", filtertype: "range", width: "20%" },
   ];
 
 }

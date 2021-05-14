@@ -17,7 +17,6 @@ export class SubjectFormComponent implements OnInit {
   @ViewChild('subjectCodeReference') subjectCode: jqxInputComponent;
   @ViewChild('subjectNameReference') subjectName: jqxInputComponent;
   @ViewChild('departmentReference') department: jqxComboBoxComponent;
-  @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('descriptionReference') description: jqxTextAreaComponent;
 
   ngOnInit(): void {

@@ -14,10 +14,10 @@ export class ProcurementApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all procurement belonging to user
+  // create and get all procurement belonging to account
 
   public getProcurement(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-procurement/procurement-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-procurement/procurement?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postProcurement(procurement): Observable<any>{

@@ -5,7 +5,7 @@
             [width]="'90%'"
             [height]="25"
         ></jqxInput>
-        <jqxButton
+        <jqxButton (click)="selectDrug.openWindow()"
             [width]="'10%'"
             [height]="25"
         >...</jqxButton>
@@ -19,7 +19,7 @@
             [width]="'90%'"
             [height]="25"
         ></jqxInput>
-        <jqxButton
+        <jqxButton (click)="selectDrug.openWindow()"
             [width]="'10%'"
             [height]="25"
         >...</jqxButton>
@@ -35,3 +35,7 @@
         ></jqxTextArea>
     </div>
 </div>
+
+<app-select-drug #selectDrugComponentReference
+    (drugEvent)="drugSelected($event)"
+></app-select-drug>

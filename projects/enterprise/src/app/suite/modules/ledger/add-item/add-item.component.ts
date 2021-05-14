@@ -31,4 +31,24 @@ export class AddItemComponent implements OnInit {
     this.addItemWindow.open();
   }
 
+  closeWindow(){
+    this.addItemWindow.close();
+  }
+
+  saveItem(){
+    let itemData = {
+      ledger: sessionStorage.getItem('ledger_id'),
+      item_date: this.itemForm.itemDateInput.val(),
+      reference_number: this.itemForm.referenceNumberInput.val(),
+      item_type: this.itemForm.itemTypeDropDownList.val(),
+      description: this.itemForm.descriptionInput.val(),
+      amount: this.itemForm.amountInput.val(),
+    }
+
+    console.log(itemData);
+    this.addCommit.emit(itemData);
+    this.closeWindow();
+  }
+
+
 }

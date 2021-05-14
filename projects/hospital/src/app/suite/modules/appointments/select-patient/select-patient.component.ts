@@ -60,7 +60,7 @@ export class SelectPatientComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'clinical_id', type: 'string' },
+      { name: 'clinical_number', type: 'string' },
       { name: 'patient_name', type: 'string' },
     ],
     id: 'id',
@@ -69,7 +69,7 @@ export class SelectPatientComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Patient ID", dataField: "clinical_id", width: "30%" },
+    { text: "Patient ID", dataField: "clinical_number", width: "30%" },
     { text: "Patient Name", dataField: "patient_name", width: "70%" },
   ];
 

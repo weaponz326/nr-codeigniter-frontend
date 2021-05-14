@@ -1,6 +1,6 @@
 <jqxWindow #addBillReference
     [width]="540"
-    [height]="250"
+    [height]="220"
     [autoOpen]="false">
 
     <div>Add New Bill</div>
@@ -29,26 +29,14 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Bill Type</div>
+            <div class="edit-dialog-label-alt">Order</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #billTypeReference (onSelect)="this.billSource.disabled(false)"
-                    [width]="'100%'"
-                    [height]="25"
-                    [source]="billTypeSource"
-                    [autoDropDownHeight]="true"
-                ></jqxDropDownList>
-            </div>
-        </div>
-
-        <div>
-            <div class="edit-dialog-label-alt">Bill Source</div>
-            <div class="edit-dialog-field-alt">
-                <jqxInput #billSourceReference
+                <jqxInput #orderCodeReference
                     [width]="'90%'"
                     [height]="25"
                     [disabled]="true"
                 ></jqxInput>
-                <jqxButton #selectSourceButton
+                <jqxButton #selectOrderButton (click)="selectOrderComponentReference.openWindow()"
                     [width]="'10%'"
                     [height]="25"
                 >...</jqxButton>
@@ -78,3 +66,15 @@
     </div>
 
 </jqxWindow>
+
+<!-- select order and admission components -->
+
+<app-select-order #selectOrderComponentReference
+    (orderEvent)="orderSelected($event)"
+></app-select-order>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

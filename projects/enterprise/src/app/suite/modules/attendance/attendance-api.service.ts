@@ -14,10 +14,10 @@ export class AttendanceApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // create and get all attendance belonging to user
+  // create and get all attendance belonging to account
 
   public getAttendance(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-attendance/attendance-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-attendance/attendance?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   public postAttendance(attendance): Observable<any>{

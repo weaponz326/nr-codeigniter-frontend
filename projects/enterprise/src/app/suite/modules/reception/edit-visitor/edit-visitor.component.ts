@@ -47,6 +47,10 @@ export class EditVisitorComponent implements OnInit {
     this.visitorForm.tagNumber.val(event.args.row.bounddata.tag_number);
   }
 
+  closeWindow(){
+    this.editVisitor.close();
+  }
+
   saveVisitor(){
     var visitorData = {
       id: this.visitorId,
@@ -62,12 +66,13 @@ export class EditVisitorComponent implements OnInit {
     }
 
     console.log(visitorData);
-
     this.editCommit.emit(visitorData);
+    this.closeWindow();
   }
 
   deleteVisitor(){
     this.deleteCommit.emit(this.visitorId);
+    this.closeWindow();
   }
 
 }

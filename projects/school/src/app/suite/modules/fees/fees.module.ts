@@ -8,6 +8,7 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
+import { jqxListBoxModule } from 'jqwidgets-ng/jqxlistbox';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { FeesRoutingModule } from './fees-routing.module';
@@ -28,6 +29,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { SelectClassComponent } from './select-class/select-class.component';
 import { SelectStudentComponent } from './select-student/select-student.component';
+import { FeesFormComponent } from './fees-form/fees-form.component';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { SelectStudentComponent } from './select-student/select-student.componen
     EditItemComponent,
     SelectClassComponent,
     SelectStudentComponent,
+    FeesFormComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +62,7 @@ import { SelectStudentComponent } from './select-student/select-student.componen
     jqxDropDownListModule,
     jqxNumberInputModule,
     jqxComboBoxModule,
+    jqxListBoxModule,
     jqxWindowModule
   ]
 })

@@ -14,9 +14,9 @@ export class BudgetApiService {
 
   enterpriseUrl = environment.enterpriseUrl;
 
-  // get all budgets belonging to a user
+  // get all budgets belonging to a account
   public getBudgets(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-budget/budget-list?user=" + sessionStorage.getItem('enterprise_id'));
+    return this.http.get(this.enterpriseUrl + "module-budget/budget?account=" + sessionStorage.getItem('enterprise_id'));
   }
 
   // create new budget
@@ -41,7 +41,7 @@ export class BudgetApiService {
   // get budget's income, add, update and delete income
 
   public getIncome(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-budget/income-list?budget=" + sessionStorage.getItem('budget_id'));
+    return this.http.get(this.enterpriseUrl + "module-budget/income?budget=" + sessionStorage.getItem('budget_id'));
   }
 
   public postIncome(incomeData): Observable<any>{
@@ -59,7 +59,7 @@ export class BudgetApiService {
   // get budget's expenditure, add, update and delete expenditure
 
   public getExpenditure(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-budget/expenditure-list?budget=" + sessionStorage.getItem('budget_id'));
+    return this.http.get(this.enterpriseUrl + "module-budget/expenditure?budget=" + sessionStorage.getItem('budget_id'));
   }
 
   public postExpenditure(expenditureData): Observable<any>{

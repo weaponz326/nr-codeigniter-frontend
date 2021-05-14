@@ -45,11 +45,18 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
     this.staffApi.getSingleStaff()
       .subscribe(
         res => {
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.staffForm.dobYear.val(dobArray[0]);
+            this.staffForm.dobMonth.val(dobArray[1]);
+            this.staffForm.dobDay.val(dobArray[2]);
+          }
+
           console.log(res);
           this.staffForm.firstNameInput.val(res.first_name);
           this.staffForm.lastNameInput.val(res.last_name);
-          this.staffForm.sexDropDownList.val(res.sex);
-          this.staffForm.dobInput.val(res.date_of_birth);
+          this.staffForm.sex.val(res.sex);
+          this.staffForm.photo.nativeElement.value = res.photo;
           this.staffForm.nationalityInput.val(res.nationality);
           this.staffForm.religionInput.val(res.religion);
           this.staffForm.phoneInput.val(res.phone);
@@ -73,12 +80,16 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a staff");
 
+    let dob = '';
+    if (this.staffForm.dobYear.val() == '' || this.staffForm.dobMonth.val() == '' || this.staffForm.dobDay.val() == '') dob = null;
+    else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();
+
     var staffData = {
-      hospital_id: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('school_id'),
       first_name: this.staffForm.firstNameInput.val(),
       last_name: this.staffForm.lastNameInput.val(),
-      sex: this.staffForm.sexDropDownList.val(),
-      date_of_birth: this.staffForm.dobInput.val(),
+      sex: this.staffForm.sex.val(),
+      date_of_birth: dob,
       nationality: this.staffForm.nationalityInput.val(),
       religion: this.staffForm.religionInput.val(),
       phone: this.staffForm.phoneInput.val(),

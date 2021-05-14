@@ -42,7 +42,7 @@ export class NewDrugComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var drugData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       ndc_number: this.drugForm.ndcNumber.val(),
       drug_name: this.drugForm.drugName.val(),
       generic_name: this.drugForm.genericName.val(),
@@ -71,8 +71,8 @@ export class NewDrugComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('drug_id', res.drug_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('drug_id', res.data.id);
             this.router.navigateByUrl('/suite/drugs/view-drug');
           }
         },

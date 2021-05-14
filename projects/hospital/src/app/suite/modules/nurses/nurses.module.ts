@@ -6,6 +6,7 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
@@ -42,6 +43,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxDropDownListModule,
+    jqxComboBoxModule,
     jqxTextAreaModule,
     jqxPanelModule,
   ]

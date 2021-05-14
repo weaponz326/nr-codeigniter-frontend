@@ -7,6 +7,7 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 
 import { StaffRoutingModule } from './staff-routing.module';
@@ -43,6 +44,7 @@ import { SettingsComponent } from './settings/settings.component';
     jqxDateTimeInputModule,
     jqxDropDownListModule,
     jqxTextAreaModule,
+    jqxComboBoxModule,
     jqxPanelModule,
   ]
 })
