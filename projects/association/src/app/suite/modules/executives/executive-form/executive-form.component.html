@@ -1,0 +1,48 @@
+<div class="row page-form-div">
+
+    <div class="col-md-12 mb-3">
+        <h4>Executive Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Executive Name :</label></div>
+            <div class="col-md-8">
+                <jqxInput #executiveNameReference
+                    [width]="'88%'"
+                    [height]="28"
+                ></jqxInput>
+                <jqxButton #selectExecutiveButtonReference
+                    [width]="'10%'"
+                    [height]="28"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Position :</label></div>
+            <div class="col-md-8">
+                <jqxInput #positionReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Date Inducted :</label></div>
+            <div class="col-md-8">
+                <jqxDateTimeInput #dateInductedReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <hr />
+
+    </div>
+
+</div>

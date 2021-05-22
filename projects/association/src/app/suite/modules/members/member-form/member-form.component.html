@@ -1,0 +1,251 @@
+<!-- ---------------------------------------------------------------------------------------------
+personal details -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-12 mb-3">
+        <h4>Personal Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>First Name :</label></div>
+            <div class="col-md-8">
+                <jqxInput #firstNameReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Last Name :</label></div>
+            <div class="col-md-8">
+                <jqxInput #lastNameReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Sex :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #sexReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [source]="sexSource"
+                    [autoDropDownHeight]="true">
+                </jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Nationality :</label></div>
+            <div class="col-md-8">
+                <jqxInput #nationalityReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Religion :</label></div>
+            <div class="col-md-8">
+                <jqxInput #religionReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Occupation :</label></div>
+            <div class="col-md-8">
+                <jqxInput #occupationReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+
+<!-- --------------------------------------------------------------------------------------------
+photo -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-6">
+        <div class="row">
+
+            <div class="col-md-4"><label>Photo :</label></div>
+            <div class="col-md-8">
+                <input #imageUpload type="file" requiredFileType="image" class="image-upload" (change)="onImageSelected($event) "/>
+                <jqxPanel #photoReference (click)="imageUpload.click()"
+                    [width]="160"
+                    [height]="160"
+                ><img [src]="imgSrc" class="panel-image" /></jqxPanel>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<!-- --------------------------------------------------------------------------------------------------
+contact details -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-12 mb-3">
+        <h4>Contact Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Phone No. :</label></div>
+            <div class="col-md-8">
+                <jqxInput #phoneReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Email :</label></div>
+            <div class="col-md-8">
+                <jqxInput #emailReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Address :</label></div>
+            <div class="col-md-8">
+                <jqxTextArea #addressReference
+                    [width]="'100%'"
+                    [height]="50"
+                ></jqxTextArea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Country :</label></div>
+            <div class="col-md-8">
+                <jqxInput #countryReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>State/Region :</label></div>
+            <div class="col-md-8">
+                <jqxInput #stateReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>City/Town :</label></div>
+            <div class="col-md-8">
+                <jqxInput #cityReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Post Code :</label></div>
+            <div class="col-md-8">
+                <jqxInput #postCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+
+<!-- ---------------------------------------------------------------------------------------------------------------
+membership details -->
+
+<div class="row page-form-div">
+
+    <div class="col-md-12 mb-3">
+        <h4>Membership Details</h4>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Member ID :</label></div>
+            <div class="col-md-8">
+                <jqxInput #memberCodeReference
+                    [width]="'100%'"
+                    [height]="28"
+                ></jqxInput>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-4"><label>Date Joined :</label></div>
+            <div class="col-md-8">
+                <jqxDateTimeInput #dateJoinedReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"><label>Membership Status :</label></div>
+            <div class="col-md-8">
+                <jqxDropDownList #membershipStatusReference
+                    [width]="'100%'"
+                    [height]="28"
+                    [source]="membershipStatusSource"
+                    [autoDropDownHeight]="true">
+                </jqxDropDownList>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<hr />

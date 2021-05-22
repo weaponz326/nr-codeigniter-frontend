@@ -1,0 +1,29 @@
+<jqxWindow #editTransactionReference
+    [width]="540"
+    [height]="220"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Edit Transaction</div>
+
+    <div>
+
+        <app-transaction-form #transactionFormComponentReference></app-transaction-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteTransaction()"
+                >Delete</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveTransaction()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

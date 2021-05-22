@@ -1,0 +1,88 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row page-form-div">
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Account Name:</label></div>
+                <div class="col-md-8">
+                    <jqxInput #accountNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Account Number:</label></div>
+                <div class="col-md-8">
+                    <jqxInput #accountNumberReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Bank Name:</label></div>
+                <div class="col-md-8">
+                    <jqxInput #bankNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <jqxButton #saveBudgetReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelButton class="float-right" routerLink="/suite/accounts/all-accounts"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+
+                    <jqxButton #deleteButton class="float-right" (click)="deleteAccount()"
+                        [width]="100"
+                        [height]="28"
+                    >Delete</jqxButton>
+
+                    <jqxButton #saveButton class="float-right" (click)="saveAccount()"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+                </div>
+            </div>
+
+            <!-- delete confirmation window sub component -->
+
+            <app-delete-confirm #deleteConfirmComponentReference (confirmEvent)="deleteConfirmationSelected($event)"></app-delete-confirm>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <h4>Total Balance :</h4>
+            <h1 class="text-huge">$ {{totalBalance}}</h1>
+        </div>
+    </div>
+
+    <!-- account transactions sub component -->
+
+    <app-account-transactions #accountTransactionsComponentReference
+        (calculateBalance)="onBalanceCalculated($event)"
+    ></app-account-transactions>
+
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

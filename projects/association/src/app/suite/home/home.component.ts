@@ -24,11 +24,12 @@ export class HomeComponent implements OnInit {
   @ViewChild("#committeesTooltipReference") committeesTooltip: jqxTooltipComponent;
   @ViewChild("#duesTooltipReference") duesTooltip: jqxTooltipComponent;
   @ViewChild("#executivesTooltipReference") executivesTooltip: jqxTooltipComponent;
-  @ViewChild("#activitiesTooltipReference") activitiesTooltip: jqxTooltipComponent;
+  @ViewChild("#actionPlanTooltipReference") actionPlanTooltip: jqxTooltipComponent;
   @ViewChild("#budgetTooltipReference") budgetTooltip: jqxTooltipComponent;
   @ViewChild("#attendanceTooltipReference") attendanceTooltip: jqxTooltipComponent;
   @ViewChild("#meetingsTooltipReference") meetingsTooltip: jqxTooltipComponent;
-  @ViewChild("#groupssTooltipReference") groupsTooltip: jqxTooltipComponent;
+  @ViewChild("#groupsTooltipReference") groupsTooltip: jqxTooltipComponent;
+  @ViewChild("#yearTooltipReference") yearTooltip: jqxTooltipComponent;
   @ViewChild("#portaTooltipReference") portalTooltip: jqxTooltipComponent;
   @ViewChild("#settingsTooltipReference") settingsTooltip: jqxTooltipComponent;
 

@@ -140,14 +140,14 @@
           </div>
 
           <div class="col-md-2 col-sm-6 text-center">
-              <jqxTooltip #activitiesTooltipReference
+              <jqxTooltip #actionPlanTooltipReference
                   [position]="'mouse'"
-                  [content]="'Manage activities and schedules'">
+                  [content]="'Plan and manage activities, goals and objectives'">
 
-                  <a routerLink="/suite/activities/dashboard">
+                  <a routerLink="/suite/action-plan/dashboard">
                       <figure>
-                          <img src="../../../assets/images/modules/activities.png" class="home-icons" />
-                          <figcaption>Activities</figcaption>
+                          <img src="../../../assets/images/modules/action-plan.png" class="home-icons" />
+                          <figcaption>Action Plan</figcaption>
                       </figure>
                   </a>
 
@@ -215,6 +215,21 @@
                       <figure>
                           <img src="../../../assets/images/modules/settings.png" class="home-icons" />
                           <figcaption>Settings</figcaption>
+                      </figure>
+                  </a>
+
+              </jqxTooltip>
+          </div>
+
+          <div class="col-md-2 col-sm-6 text-center">
+              <jqxTooltip #yearTooltipReference
+                  [position]="'mouse'"
+                  [content]="'Plan and manage years, terms or tenures'">
+
+                  <a routerLink="/suite/year/dashboard">
+                      <figure>
+                          <img src="../../../assets/images/modules/year.png" class="home-icons" />
+                          <figcaption>Year</figcaption>
                       </figure>
                   </a>
 

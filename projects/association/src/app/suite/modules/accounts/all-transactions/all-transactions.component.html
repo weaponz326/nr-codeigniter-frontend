@@ -1,0 +1,32 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h4>Transactions </h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <jqxGrid #gridReference
+                [width]="'100%'"
+                [source]="dataAdapter"
+                [autoheight]="true"
+                [sortable]="true"
+                [filterable]="true"
+                [showfilterrow]="true"
+                [selectionmode]="'singlerow'"
+                [showstatusbar]="true"
+                [showaggregates]="true"
+                [columns]="columns"
+            ></jqxGrid>
+        </div>
+    </div>
+
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -1,0 +1,91 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row page-form-div">
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Budget Name :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #budgetNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Budget Type :</label></div>
+                <div class="col-md-8">
+                    <jqxDropDownList #budgetTypeReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [source]="budgetTypeSource"
+                    ></jqxDropDownList>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Date Created :</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #createdDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [showTimeButton]="true"
+                        [disabled]="true"
+                        [formatString]="'yyyy-MM-dd HH:mm:ss'"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <jqxButton #saveBudgetReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelBudgetReference class="float-right" routerLink="/suite/budget/all-budgets"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+
+                    <jqxButton #saveBudgetReference class="float-right" (click)="deleteBudget()"
+                        [width]="100"
+                        [height]="28"
+                    >Delete</jqxButton>
+
+                    <jqxButton #saveBudgetReference class="float-right" (click)="saveBudget()"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+                </div>
+            </div>
+
+            <!-- delete confirmation window sub component -->
+
+            <app-delete-confirm #deleteConfirmComponentReference (confirmEvent)="deleteConfirmationSelected($event)"></app-delete-confirm>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <h4>Income over Expenditure :</h4>
+            <h1 class="text-huge">$ {{ioe}}</h1>
+        </div>
+    </div>
+
+    <!-- budget tables sub component
+    contains income, expenditure and income over expenditure grids -->
+
+    <app-budget-tables (calculateIoe)="onIoeCalculated($event)"></app-budget-tables>
+
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

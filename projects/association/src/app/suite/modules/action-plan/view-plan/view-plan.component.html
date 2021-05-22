@@ -1,0 +1,109 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row page-form-div">
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Plan Name:</label></div>
+                <div class="col-md-8">
+                    <jqxInput #planNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Start Date:</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #startDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>End Date:</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #endDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Facilitator:</label></div>
+                <div class="col-md-8">
+                    <jqxInput #facilitatorReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="row">
+                <div class="col-md-4"><label>Goals:</label></div>
+                <div class="col-md-8">
+                    <jqxTextArea #goalsReference
+                        [width]="'100%'"
+                        [height]="105"
+                    ></jqxTextArea>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr />
+
+    <div class="row page-form-div">
+        <div class="col-md-12">
+            <jqxButton #saveBudgetReference
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+            <jqxButton #cancelButton class="float-right" routerLink="/suite/plans/all-plans"
+                [width]="100"
+                [height]="28"
+            >Cancel</jqxButton>
+
+            <jqxButton #deleteButton class="float-right" (click)="deletePlan()"
+                [width]="100"
+                [height]="28"
+            >Delete</jqxButton>
+
+            <jqxButton #saveButton class="float-right" (click)="savePlan()"
+                [width]="100"
+                [height]="28"
+            >Save</jqxButton>
+        </div>
+    </div>
+
+    <!-- delete confirmation window sub component -->
+
+    <app-delete-confirm #deleteConfirmComponentReference (confirmEvent)="deleteConfirmationSelected($event)"></app-delete-confirm>
+
+    <!-- action plan steps component -->
+
+    <app-plan-steps></app-plan-steps>
+
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

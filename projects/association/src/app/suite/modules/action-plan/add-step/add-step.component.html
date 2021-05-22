@@ -1,0 +1,34 @@
+<jqxWindow #addStepReference
+    [width]="540"
+    [height]="150"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Add New Step</div>
+
+    <div>
+
+      <div>
+          <div class="edit-dialog-label">Step</div>
+          <div class="edit-dialog-field">
+              <jqxTextArea #stepTextAreaReference
+                  [width]="'100%'"
+                  [height]="55"
+              ></jqxTextArea>
+          </div>
+      </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveStep()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
