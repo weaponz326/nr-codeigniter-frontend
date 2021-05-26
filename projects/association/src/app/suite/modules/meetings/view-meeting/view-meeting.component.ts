@@ -42,20 +42,21 @@ export class ViewMeetingComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    // this.meetingsApi.getSingleMeeting()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.meetingForm.meetingDate.val(res.meetingDate);
-    //       this.meetingForm.meetingTime.val(res.meetingTime);
-    //       this.meetingForm.location.val(res.location);
-    //       this.meetingForm.activities.val(res.activities);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.meetingsApi.getSingleMeeting()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.meetingForm.mainActivity.val(res.main_activity);
+          this.meetingForm.meetingDate.val(res.meeting_date);
+          this.meetingForm.meetingTime.val(res.meeting_time);
+          this.meetingForm.location.val(res.location);
+          this.meetingForm.otherActivities.val(res.other_activities);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveMeeting(){
@@ -64,24 +65,25 @@ export class ViewMeetingComponent implements OnInit {
 
     var meetingData = {
       account: sessionStorage.getItem('association_id'),
-      meetingDate: this.meetingForm.meetingDate.val(),
-      meetingTime: this.meetingForm.meetingTime.val(),
+      main_activity: this.meetingForm.mainActivity.val(),
+      meeting_date: this.meetingForm.meetingDate.val(),
+      meeting_time: this.meetingForm.meetingTime.val(),
       location: this.meetingForm.location.val(),
-      activities: this.meetingForm.activities.val(),
+      other_activities: this.meetingForm.otherActivities.val(),
     }
 
-    // this.meetingsApi.putMeeting(meetingData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.meetingsApi.putMeeting(meetingData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(meetingData);
   }
@@ -96,20 +98,20 @@ export class ViewMeetingComponent implements OnInit {
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.meetingsApi.deleteMeeting()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.meetingsApi.deleteMeeting()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/meetings/all-meetings');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/meetings/all-meetings');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 

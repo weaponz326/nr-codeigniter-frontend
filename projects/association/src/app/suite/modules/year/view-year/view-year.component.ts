@@ -42,20 +42,20 @@ export class ViewYearComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.yearApi.getSingleYear()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.yearForm.year.val(res.year);
-    //       this.yearForm.yearBegins.val(res.year_begins);
-    //       this.yearForm.yearEnds.val(res.year_ends);
-    //       this.yearForm.yearStatus.val(res.year_status);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.yearApi.getSingleYear()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.yearForm.year.val(res.year);
+          this.yearForm.yearBegins.val(res.year_begins);
+          this.yearForm.yearEnds.val(res.year_ends);
+          this.yearForm.yearStatus.val(res.year_status);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveYear(){
@@ -63,25 +63,25 @@ export class ViewYearComponent implements OnInit, AfterViewInit {
     console.log("u are updating a year");
 
     var yearData = {
-      account: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('association_id'),
       year: this.yearForm.year.val(),
       year_begins: this.yearForm.yearBegins.val(),
       year_ends: this.yearForm.yearEnds.val(),
       year_status: this.yearForm.yearStatus.val(),
     }
 
-    // this.yearApi.putYear(yearData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.yearApi.putYear(yearData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(yearData);
   }
@@ -96,20 +96,20 @@ export class ViewYearComponent implements OnInit, AfterViewInit {
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.yearApi.deleteYear()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.yearApi.deleteYear()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/year/all-year');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/year/all-year');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 

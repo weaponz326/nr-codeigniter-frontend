@@ -38,18 +38,18 @@ export class AllExecutivesComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.executivesApi.getExecutives()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.executivesApi.getExecutives()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   viewExecutive(event: any){
@@ -67,7 +67,7 @@ export class AllExecutivesComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'executive_name', type: 'string' },
+      { name: 'executive_name', map: 'member.member_name', type: 'string' },
       { name: 'position', type: 'string' },
     ],
     id: 'id',

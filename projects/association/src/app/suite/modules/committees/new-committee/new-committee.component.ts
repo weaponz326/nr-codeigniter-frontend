@@ -52,23 +52,23 @@ export class NewCommitteeComponent implements OnInit {
 
     console.log(committeeData);
 
-    // this.committeesApi.postCommittee(committeeData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.committeesApi.postCommittee(committeeData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('committee_id', res.data.id);
-    //         this.router.navigateByUrl('/suite/committees/view-committee');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('committee_id', res.data.id);
+            this.router.navigateByUrl('/suite/committees/view-committee');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 

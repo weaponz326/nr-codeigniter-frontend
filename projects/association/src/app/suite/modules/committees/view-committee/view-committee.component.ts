@@ -42,21 +42,21 @@ export class ViewCommitteeComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    // this.committeesApi.getSingleCommittee()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.committeeForm.committeeName.val(res.committee_name);
-    //       this.committeeForm.dateFormed.val(res.date_formed);
-    //       this.committeeForm.description.val(res.description);
-    //       this.committeeForm.committeeStatus.val(res.committee_status);
-    //       this.committeeForm.functions.val(res.functions);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.committeesApi.getSingleCommittee()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.committeeForm.committeeName.val(res.committee_name);
+          this.committeeForm.dateFormed.val(res.date_formed);
+          this.committeeForm.description.val(res.description);
+          this.committeeForm.committeeStatus.val(res.committee_status);
+          this.committeeForm.functions.val(res.functions);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveCommittee(){
@@ -72,18 +72,18 @@ export class ViewCommitteeComponent implements OnInit {
       functions: this.committeeForm.functions.val(),
     }
 
-    // this.committeesApi.putCommittee(committeeData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.committeesApi.putCommittee(committeeData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(committeeData);
   }
@@ -98,20 +98,20 @@ export class ViewCommitteeComponent implements OnInit {
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.committeesApi.deleteCommittee()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.committeesApi.deleteCommittee()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/committees/all-committees');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/committees/all-committees');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 

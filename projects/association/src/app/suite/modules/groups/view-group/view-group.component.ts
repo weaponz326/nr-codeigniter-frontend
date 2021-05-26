@@ -42,18 +42,18 @@ export class ViewGroupComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    // this.groupsApi.getSingleGroup()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.groupForm.groupName.val(res.group_name);
-    //       this.groupForm.description.val(res.description);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.groupsApi.getSingleGroup()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.groupForm.groupName.val(res.group_name);
+          this.groupForm.description.val(res.description);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveGroup(){
@@ -66,18 +66,18 @@ export class ViewGroupComponent implements OnInit {
       description: this.groupForm.description.val(),
     }
 
-    // this.groupsApi.putGroup(groupData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.groupsApi.putGroup(groupData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(groupData);
   }
@@ -92,20 +92,20 @@ export class ViewGroupComponent implements OnInit {
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.groupsApi.deleteGroup()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.groupsApi.deleteGroup()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/groups/all-groups');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/groups/all-groups');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 

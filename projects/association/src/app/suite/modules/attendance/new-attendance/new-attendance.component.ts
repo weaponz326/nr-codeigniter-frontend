@@ -50,30 +50,30 @@ export class NewAttendanceComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let AttendanceData = {
-      account: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('association_id'),
       attendance_code: this.attendanceCode.val(),
       attendance_name: this.attendanceName.val(),
       year: this.year.val(),
     }
 
-    // this.attendanceApi.postAttendance(AttendanceData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.attendanceApi.postAttendance(AttendanceData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('attendance_id', res.data.id);
-    //         this.closeWindow();
-    //         this.router.navigateByUrl('/suite/attendance/view-attendance');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('attendance_id', res.data.id);
+            this.closeWindow();
+            this.router.navigateByUrl('/suite/attendance/view-attendance');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(AttendanceData);
   }

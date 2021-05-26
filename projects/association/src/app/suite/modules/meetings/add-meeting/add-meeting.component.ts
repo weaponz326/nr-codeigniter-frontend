@@ -43,31 +43,32 @@ export class AddMeetingComponent implements OnInit {
 
     var meetingData = {
       account: sessionStorage.getItem('association_id'),
-      meetingDate: this.meetingForm.meetingDate.val(),
-      meetingTime: this.meetingForm.meetingTime.val(),
+      main_activity: this.meetingForm.mainActivity.val(),
+      meeting_date: this.meetingForm.meetingDate.val(),
+      meeting_time: this.meetingForm.meetingTime.val(),
       location: this.meetingForm.location.val(),
-      activities: this.meetingForm.activities.val(),
+      other_activites: this.meetingForm.otherActivities.val(),
     }
 
     console.log(meetingData);
 
-    // this.meetingsApi.postMeeting(meetingData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.meetingsApi.postMeeting(meetingData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('meeting_id', res.data.id);
-    //         this.router.navigateByUrl('/suite/meetings/view-meeting');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('meeting_id', res.data.id);
+            this.router.navigateByUrl('/suite/meetings/view-meeting');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

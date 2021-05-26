@@ -32,18 +32,18 @@ export class AllTransactionsComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.accountsApi.getAllTransactions()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.accountsApi.getAllTransactions()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   // widgets

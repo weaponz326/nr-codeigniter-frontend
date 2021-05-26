@@ -38,18 +38,18 @@ export class AllGroupsComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.groupsApi.getGroups()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.groupsApi.getGroups()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   viewGroup(event: any){

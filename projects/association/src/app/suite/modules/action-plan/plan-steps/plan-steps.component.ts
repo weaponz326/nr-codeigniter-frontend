@@ -34,18 +34,18 @@ export class PlanStepsComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.plansApi.getSteps()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.plansApi.getSteps()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   onAddCommit(stepData: any) {
@@ -92,58 +92,52 @@ export class PlanStepsComponent implements OnInit, AfterViewInit {
     console.log("u are about adding a new row...");
     console.log(rowdata);
 
-    // negate amount if trnsaction type is Debit
-    // let formattedData = this.plansCalc.reformatData(rowdata);
-
-    // let stepData = {
-    //   plan: sessionStorage.getItem('plan_id'),
-    //   step: formattedData.step,
-    // };
+    let stepData = {
+      plan: sessionStorage.getItem('plan_id'),
+      step: rowdata.step,
+    };
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.plansApi.postStep(stepData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //       commit(true, res.id);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.plansApi.postStep(stepData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.id);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   updateRow(rowid, newdata, commit) {
     console.log("u are about updating a row...");
     console.log(newdata);
 
-    // negate amount if trnsaction type is Debit
-    // let formattedData = this.plansCalc.reformatData(newdata);
-
-    // let stepData = {
-    //   plan: sessionStorage.getItem('plan_id'),
-    //   step: formattedData.step,
-    // };
+    let stepData = {
+      plan: sessionStorage.getItem('plan_id'),
+      step: newdata.step,
+    };
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.plansApi.putStep(rowid, stepData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //       commit(true, res.data.id);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.plansApi.putStep(rowid, stepData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.data.id);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   deleteRow(rowid, commit) {
@@ -151,19 +145,19 @@ export class PlanStepsComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.plansApi.deleteStep(rowid)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //       commit(true);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.plansApi.deleteStep(rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

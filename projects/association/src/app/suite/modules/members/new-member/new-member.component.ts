@@ -63,23 +63,23 @@ export class NewMemberComponent implements OnInit {
 
     console.log(memberData);
 
-    // this.membersApi.postMember(memberData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.membersApi.postMember(memberData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('member_id', res.data.id);
-    //         this.router.navigateByUrl('/suite/members/view-member');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('member_id', res.data.id);
+            this.router.navigateByUrl('/suite/members/view-member');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

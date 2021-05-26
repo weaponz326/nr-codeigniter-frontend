@@ -49,23 +49,23 @@ export class AddGroupComponent implements OnInit {
 
     console.log(groupData);
 
-    // this.groupsApi.postGroup(groupData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.groupsApi.postGroup(groupData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('group_id', res.data.id);
-    //         this.router.navigateByUrl('/suite/groups/view-group');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('group_id', res.data.id);
+            this.router.navigateByUrl('/suite/groups/view-group');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

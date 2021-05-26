@@ -44,19 +44,19 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.budgetApi.getSingleBudget()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.budgetNameInput.val(res.budget_name);
-    //       this.budgetTypeDropDownList.val(res.budget_type);
-    //       this.createdDate.val(new Date(res.created_at));
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.budgetApi.getSingleBudget()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.budgetNameInput.val(res.budget_name);
+          this.budgetTypeDropDownList.val(res.budget_type);
+          this.createdDate.val(new Date(res.created_at));
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   deleteConfirmationSelected(value: string){
@@ -65,20 +65,20 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
 
       this.loadingSpinner.httpLoader.open();
 
-      // this.budgetApi.deleteBudget()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.budgetApi.deleteBudget()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/budget/all-budget');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/budget/all-budget');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
     else if (value == 'no'){
       console.log("good u changed ur mind");
@@ -109,25 +109,24 @@ export class ViewBudgetComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.putBudget(this.budgetData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.budgetApi.putBudget(this.budgetData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(this.budgetData);
   }
 
   deleteBudget(){
     console.log("dude... u are gonna delete the account");
-
     this.deleteConfirmComponent.openWindow();
   }
 

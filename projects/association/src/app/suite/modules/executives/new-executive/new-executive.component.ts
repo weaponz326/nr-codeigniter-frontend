@@ -34,6 +34,8 @@ export class NewExecutiveComponent implements OnInit {
     { text: "New Executive", url: "/suite/executives/new-executive" },
   ];
 
+  memberId;
+
   ngOnInit(): void {
   }
 
@@ -43,30 +45,30 @@ export class NewExecutiveComponent implements OnInit {
 
     var executiveData = {
       account: sessionStorage.getItem('association_id'),
-      executive_name: this.executiveForm.executiveName.val(),
+      member: this.memberId,
       position: this.executiveForm.position.val(),
       date_inducted: this.executiveForm.dateInducted.val(),
     }
 
     console.log(executiveData);
 
-    // this.executivesApi.postExecutive(executiveData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.executivesApi.postExecutive(executiveData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('executive_id', res.data.id);
-    //         this.router.navigateByUrl('/suite/executives/view-executive');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('executive_id', res.data.id);
+            this.router.navigateByUrl('/suite/executives/view-executive');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

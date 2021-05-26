@@ -53,30 +53,30 @@ export class AddAccountComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     this.accountData = {
-      user: sessionStorage.getItem('enterprise_id'),
+      user: sessionStorage.getItem('association_id'),
       account_name: this.accountNameInput.val(),
       account_number: this.accountNumberInput.val(),
       bank_name: this.bankNameInput.val()
     }
 
-    // this.accountsApi.postAccount(this.accountData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.accountsApi.postAccount(this.accountData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('account_id', res.data.id);
-    //         this.closeWindow()
-    //         this.router.navigateByUrl('/suite/accounts/view-account');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('account_id', res.data.id);
+            this.closeWindow()
+            this.router.navigateByUrl('/suite/accounts/view-account');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(this.accountData);
   }

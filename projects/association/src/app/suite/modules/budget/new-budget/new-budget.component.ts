@@ -51,31 +51,31 @@ export class NewBudgetComponent implements OnInit {
 
   saveBudget(){
     this.budgetData = {
-      account: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('association_id'),
       budget_name: this.budgetNameInput.val(),
       budget_type: this.budgetTypeDropDownList.val()
     }
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.postBudget(this.budgetData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       if (res.message == "OK"){
-    //         this.loadingSpinner.httpLoader.close();
-    //         sessionStorage.setItem('budget_id', res.data.id);
+    this.budgetApi.postBudget(this.budgetData)
+      .subscribe(
+        res => {
+          console.log(res);
+          if (res.message == "OK"){
+            this.loadingSpinner.httpLoader.close();
+            sessionStorage.setItem('budget_id', res.data.id);
 
-    //         this.closeWindow();
-    //         this.router.navigateByUrl('/suite/budget/view-budget');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+            this.closeWindow();
+            this.router.navigateByUrl('/suite/budget/view-budget');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(this.budgetData);
   }

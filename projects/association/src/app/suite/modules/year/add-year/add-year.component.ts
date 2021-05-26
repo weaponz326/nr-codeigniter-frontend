@@ -42,7 +42,7 @@ export class AddYearComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var yearData = {
-      account: sessionStorage.getItem('school_id'),
+      account: sessionStorage.getItem('association_id'),
       year: this.yearForm.year.val(),
       year_begins: this.yearForm.yearBegins.val(),
       year_ends: this.yearForm.yearEnds.val(),
@@ -51,23 +51,23 @@ export class AddYearComponent implements OnInit {
 
     console.log(yearData);
 
-    // this.yearApi.postYear(yearData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.yearApi.postYear(yearData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('year_id', res.data.id);
-    //         this.router.navigateByUrl('/suite/year/view-year');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('year_id', res.data.id);
+            this.router.navigateByUrl('/suite/year/view-year');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

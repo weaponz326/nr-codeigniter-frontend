@@ -38,18 +38,18 @@ export class AllCommitteesComponent implements OnInit {
   }
 
   getData(){
-    // this.committeesApi.getCommittees()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.committeesApi.getCommittees()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   viewCommittee(event: any){

@@ -39,25 +39,25 @@ export class AllPlansComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.plansApi.getPlans()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.plansApi.getPlans()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   viewPlan(event: any){
     console.log(event.args.row.bounddata);
     sessionStorage.setItem('plan_id', event.args.row.bounddata.id);
 
-    this.router.navigateByUrl('/suite/plans/view-plan')
+    this.router.navigateByUrl('/suite/action-plan/view-plan')
   }
 
   // widgets

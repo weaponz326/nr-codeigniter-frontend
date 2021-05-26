@@ -45,39 +45,39 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.accountsApi.getSingleAccount()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.accountNameInput.val(res.account_name);
-    //       this.accountNumberInput.val(res.account_number);
-    //       this.bankNameInput.val(res.bank_name);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.accountsApi.getSingleAccount()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.accountNameInput.val(res.account_name);
+          this.accountNumberInput.val(res.account_number);
+          this.bankNameInput.val(res.bank_name);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   deleteConfirmationSelected(value: string){
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.accountsApi.deleteAccount()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.accountsApi.deleteAccount()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/accounts/all-accounts');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/accounts/all-accounts');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 
@@ -102,18 +102,18 @@ export class ViewAccountComponent implements OnInit, AfterViewInit {
       bank_name: this.bankNameInput.val()
     }
 
-    // this.accountsApi.putAccount(this.accountData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.accountsApi.putAccount(this.accountData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(this.accountData);
   }

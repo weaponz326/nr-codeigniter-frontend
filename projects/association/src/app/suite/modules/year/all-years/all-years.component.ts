@@ -38,18 +38,18 @@ export class AllYearsComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.yearApi.getYear()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.yearApi.getAllYears()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   viewYear(event: any){
@@ -67,7 +67,7 @@ export class AllYearsComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'year_name', type: 'string' },
+      { name: 'year', type: 'string' },
       { name: 'year_status', type: 'string' },
     ],
     id: 'id',
@@ -76,7 +76,7 @@ export class AllYearsComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Year Name", dataField: "year_name", width: "70%" },
+    { text: "Year", dataField: "year", width: "70%" },
     { text: "Year Status", dataField: "year_status", width: "30%" },
   ];
 

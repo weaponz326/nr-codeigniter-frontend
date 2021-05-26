@@ -38,23 +38,26 @@ export class ViewExecutiveComponent implements OnInit, AfterViewInit {
     { text: "View Executive", url: "/suite/executives/view-executive" },
   ];
 
+  memberId;
+
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    // this.executivesApi.getSingleExecutive()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.executiveForm.executiveName.val(res.executive_name);
-    //       this.executiveForm.position.val(res.position);
-    //       this.executiveForm.dateInducted.val(res.date_inducted);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.executivesApi.getSingleExecutive()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.memberId = res.member.id
+          this.executiveForm.executiveName.val(res.member.member_name);
+          this.executiveForm.position.val(res.position);
+          this.executiveForm.dateInducted.val(res.date_inducted);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveExecutive(){
@@ -63,23 +66,23 @@ export class ViewExecutiveComponent implements OnInit, AfterViewInit {
 
     var executiveData = {
       account: sessionStorage.getItem('association_id'),
-      executive_name: this.executiveForm.executiveName.val(),
+      member: this.memberId,
       position: this.executiveForm.position.val(),
       date_inducted: this.executiveForm.dateInducted.val(),
     }
 
-    // this.executivesApi.putExecutive(executiveData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.executivesApi.putExecutive(executiveData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(executiveData);
   }
@@ -94,20 +97,20 @@ export class ViewExecutiveComponent implements OnInit, AfterViewInit {
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.executivesApi.deleteExecutive()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.executivesApi.deleteExecutive()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/executives/all-executives');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/executives/all-executives');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 

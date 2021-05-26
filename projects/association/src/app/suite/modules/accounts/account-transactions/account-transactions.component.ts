@@ -4,7 +4,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AccountsApiService } from '../accounts-api.service';
-// import { AccountsCalcService } from '../accounts-calc.service';
+import { AccountsCalcService } from '../accounts-calc.service';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
@@ -18,7 +18,7 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private accountsApi: AccountsApiService,
-    // private accountsCalc: AccountsCalcService
+    private accountsCalc: AccountsCalcService
   ) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
@@ -39,18 +39,18 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.accountsApi.getTransactions()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.accountsApi.getTransactions()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   // emits aggregated sum back to parent after being called
@@ -116,34 +116,34 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     // negate amount if trnsaction type is Debit
-    // let formattedData = this.accountsCalc.reformatData(rowdata);
+    let formattedData = this.accountsCalc.reformatData(rowdata);
 
-    // let transactionData = {
-    //   account: sessionStorage.getItem('account_id'),
-    //   transaction_date: formattedData.transaction_date,
-    //   transaction_type: formattedData.transaction_type,
-    //   description: formattedData.description,
-    //   amount: formattedData.amount,
-    // };
+    let transactionData = {
+      account: sessionStorage.getItem('account_id'),
+      transaction_date: formattedData.transaction_date,
+      transaction_type: formattedData.transaction_type,
+      description: formattedData.description,
+      amount: formattedData.amount,
+    };
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.accountsApi.postTransaction(transactionData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //       commit(true, res.id);
+    this.accountsApi.postTransaction(transactionData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.id);
 
-    //       // reclaculate balance after change in table
-    //       this.getTotalBalance();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // reclaculate balance after change in table
+          this.getTotalBalance();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   updateRow(rowid, newdata, commit) {
@@ -151,34 +151,34 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     // negate amount if trnsaction type is Debit
-    // let formattedData = this.accountsCalc.reformatData(newdata);
+    let formattedData = this.accountsCalc.reformatData(newdata);
 
-    // let transactionData = {
-    //   account: sessionStorage.getItem('account_id'),
-    //   transaction_date: formattedData.transaction_date,
-    //   transaction_type: formattedData.transaction_type,
-    //   description: formattedData.description,
-    //   amount: formattedData.amount,
-    // };
+    let transactionData = {
+      account: sessionStorage.getItem('account_id'),
+      transaction_date: formattedData.transaction_date,
+      transaction_type: formattedData.transaction_type,
+      description: formattedData.description,
+      amount: formattedData.amount,
+    };
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.accountsApi.putTransaction(rowid, transactionData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //       commit(true, res.data.id);
+    this.accountsApi.putTransaction(rowid, transactionData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.data.id);
 
-    //       // reclaculate balance after change in table
-    //       this.getTotalBalance();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // reclaculate balance after change in table
+          this.getTotalBalance();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   deleteRow(rowid, commit) {
@@ -186,22 +186,22 @@ export class AccountTransactionsComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.accountsApi.deleteTransaction(rowid)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //       commit(true);
+    this.accountsApi.deleteTransaction(rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true);
 
-    //       // reclaculate balance after change in table
-    //       this.getTotalBalance();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // reclaculate balance after change in table
+          this.getTotalBalance();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

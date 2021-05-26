@@ -57,7 +57,7 @@ export class AddPlanComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     this.planData = {
-      user: sessionStorage.getItem('association'),
+      account: sessionStorage.getItem('association_id'),
       plan_name: this.planNameInput.val(),
       start_date: this.startDateInput.val(),
       end_date: this.endDateInput.val(),
@@ -65,24 +65,24 @@ export class AddPlanComponent implements OnInit {
       goals: this.goalsTextArea.val()
     }
 
-    // this.plansApi.postPlan(this.planData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
+    this.plansApi.postPlan(this.planData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
 
-    //       if (res.message == "OK"){
-    //         sessionStorage.setItem('plan_id', res.data.id);
-    //         this.closeWindow()
-    //         this.router.navigateByUrl('/suite/plans/view-plan');
-    //       }
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          if (res.message == "OK"){
+            sessionStorage.setItem('plan_id', res.data.id);
+            this.closeWindow()
+            this.router.navigateByUrl('/suite/action-plan/view-plan');
+          }
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(this.planData);
   }

@@ -38,18 +38,18 @@ export class AllMembersComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    // this.membersApi.getMembers()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.source.localdata = res;
-    //       this.grid.updatebounddata();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.membersApi.getMembers()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   viewMember(event: any){
@@ -69,7 +69,7 @@ export class AllMembersComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'member_code', type: 'string' },
       { name: 'member_name', type: 'string' },
-      { name: 'phone.', type: 'string' },
+      { name: 'phone', type: 'string' },
     ],
     id: 'id',
   }

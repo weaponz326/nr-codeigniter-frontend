@@ -14,10 +14,11 @@ export class MeetingFormComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('mettingDateReference') meetingDate: jqxDateTimeInputComponent;
-  @ViewChild('mettingTimeReference') meetingTime: jqxDateTimeInputComponent;
+  @ViewChild('mainActivityReference') mainActivity: jqxInputComponent;
+  @ViewChild('meetingDateReference') meetingDate: jqxDateTimeInputComponent;
+  @ViewChild('meetingTimeReference') meetingTime: jqxDateTimeInputComponent;
   @ViewChild('locationReference') location: jqxInputComponent;
-  @ViewChild('activitiesReference') activities: jqxTextAreaComponent;
+  @ViewChild('otherActivitiesReference') otherActivities: jqxTextAreaComponent;
 
   ngOnInit(): void {
   }

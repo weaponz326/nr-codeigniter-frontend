@@ -42,32 +42,32 @@ export class ViewMemberComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.membersApi.getSingleMember()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.memberForm.firstName.val(res.first_name);
-    //       this.memberForm.lastName.val(res.last_name);
-    //       this.memberForm.sex.val(res.sex);
-    //       this.memberForm.photo.nativeElement.value = res.photo;
-    //       this.memberForm.nationality.val(res.nationality);
-    //       this.memberForm.religion.val(res.religion);
-    //       this.memberForm.occupation.val(res.occupation);
-    //       this.memberForm.phone.val(res.phone);
-    //       this.memberForm.email.val(res.email);
-    //       this.memberForm.address.val(res.address);
-    //       this.memberForm.state.val(res.state);
-    //       this.memberForm.city.val(res.city);
-    //       this.memberForm.postCode.val(res.post_code);
-    //       this.memberForm.memberCode.val(res.member_code);
-    //       this.memberForm.dateJoined.val(res.date_joined);
-    //       this.memberForm.membershipStatus.val(res.membeship_status);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.membersApi.getSingleMember()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.memberForm.firstName.val(res.first_name);
+          this.memberForm.lastName.val(res.last_name);
+          this.memberForm.sex.val(res.sex);
+          this.memberForm.photo.nativeElement.value = res.photo;
+          this.memberForm.nationality.val(res.nationality);
+          this.memberForm.religion.val(res.religion);
+          this.memberForm.occupation.val(res.occupation);
+          this.memberForm.phone.val(res.phone);
+          this.memberForm.email.val(res.email);
+          this.memberForm.address.val(res.address);
+          this.memberForm.state.val(res.state);
+          this.memberForm.city.val(res.city);
+          this.memberForm.postCode.val(res.post_code);
+          this.memberForm.memberCode.val(res.member_code);
+          this.memberForm.dateJoined.val(res.date_joined);
+          this.memberForm.membershipStatus.val(res.membeship_status);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveMember(){
@@ -94,18 +94,18 @@ export class ViewMemberComponent implements OnInit, AfterViewInit {
       membership_status: this.memberForm.membershipStatus.val(),
     }
 
-    // this.membersApi.putMember(memberData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.membersApi.putMember(memberData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(memberData);
   }
@@ -120,20 +120,20 @@ export class ViewMemberComponent implements OnInit, AfterViewInit {
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.membersApi.deleteMember()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.membersApi.deleteMember()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/members/all-members');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/members/all-members');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 

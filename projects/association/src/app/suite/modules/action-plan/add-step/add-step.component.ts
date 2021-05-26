@@ -42,7 +42,7 @@ export class AddStepComponent implements OnInit {
   saveStep(){
     this.stepData = {
       plan: sessionStorage.getItem('plan_id'),
-      step_date: this.stepTextArea.val(),
+      step: this.stepTextArea.val(),
     }
 
     console.log(this.stepData);

@@ -43,19 +43,19 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.attendanceApi.getSingleAttendance()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.attendanceCode.val(res.attendance_code);
-    //       this.attendanceName.val(res.year);
-    //       this.year.val(res.attendance_type);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.attendanceApi.getSingleAttendance()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.attendanceCode.val(res.attendance_code);
+          this.attendanceName.val(res.year);
+          this.year.val(res.attendance_type);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveAttendance(){
@@ -63,24 +63,24 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
     console.log("u are updating a attendance");
 
     var attendanceData = {
-      account: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('association_id'),
       attendance_code: this.attendanceCode.val(),
       attendance_name: this.attendanceName.val(),
       year: this.year.val(),
     }
 
-    // this.attendanceApi.putAttendance(attendanceData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.attendanceApi.putAttendance(attendanceData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(attendanceData);
   }

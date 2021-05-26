@@ -47,41 +47,41 @@ export class ViewPlanComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.plansApi.getSinglePlan()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.planNameInput.val(res.plan_name);
-    //       this.startDateInput.val(res.start_date);
-    //       this.endDateInput.val(res.end_date);
-    //       this.facilitatorInput.val(res.facilitator);
-    //       this.goalsTextArea.val(res.goals);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.plansApi.getSinglePlan()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.planNameInput.val(res.plan_name);
+          this.startDateInput.val(res.start_date);
+          this.endDateInput.val(res.end_date);
+          this.facilitatorInput.val(res.facilitator);
+          this.goalsTextArea.val(res.goals);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   deleteConfirmationSelected(value: string){
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.plansApi.deletePlan()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.plansApi.deletePlan()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/plans/all-plans');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/plans/all-plans');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 
@@ -108,18 +108,18 @@ export class ViewPlanComponent implements OnInit, AfterViewInit {
       goals: this.goalsTextArea.val()
     }
 
-    // this.plansApi.putPlan(this.planData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.loadingSpinner.httpLoader.close();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+    this.plansApi.putPlan(this.planData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
 
     console.log(this.planData);
   }

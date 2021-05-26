@@ -4,7 +4,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { BudgetApiService } from '../budget-api.service';
-// import { BudgetCalcService } from '../budget-calc.service';
+import { BudgetCalcService } from '../budget-calc.service';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
@@ -18,7 +18,7 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
   constructor(
     private budgetApi: BudgetApiService,
-    // private budgetCalc: BudgetCalcService
+    private budgetCalc: BudgetCalcService
   ) { }
 
   @ViewChild("incomeGridReference") incomeGrid: jqxGridComponent;
@@ -47,37 +47,37 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
   }
 
   getIncomeData(){
-    // this.budgetApi.getIncome()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.incomeSource.localdata = res;
-    //       this.incomeGrid.updatebounddata();
+    this.budgetApi.getIncome()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.incomeSource.localdata = res;
+          this.incomeGrid.updatebounddata();
 
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   getExpenditureData(){
-    // this.budgetApi.getExpenditure()
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.expenditureSource.localdata = res;
-    //       this.expenditureGrid.updatebounddata();
+    this.budgetApi.getExpenditure()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.expenditureSource.localdata = res;
+          this.expenditureGrid.updatebounddata();
 
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   // emits aggregated sum back to parent after being called
@@ -87,10 +87,10 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
     console.log(this.totalIncome.sum);
     console.log(this.totalExpenditure.sum);
 
-    // let ioe = this.budgetCalc.calculateIoe(this.totalIncome.sum, this.totalExpenditure.sum);
-    // this.calculateIoe.emit(ioe);
+    let ioe = this.budgetCalc.calculateIoe(this.totalIncome.sum, this.totalExpenditure.sum);
+    this.calculateIoe.emit(ioe);
 
-    // console.log(ioe)
+    console.log(ioe)
   }
 
   onIncomeAddCommit(incomeData: any) {
@@ -201,22 +201,22 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.postIncome(incomeData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       commit(true, res.data.id);
-    //       this.loadingSpinner.httpLoader.close();
+    this.budgetApi.postIncome(incomeData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.data.id);
+          this.loadingSpinner.httpLoader.close();
 
-    //       // recalculate ioe on table change
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   updateIncomeRow(rowid, newdata, commit) {
@@ -228,43 +228,43 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.putIncome(rowid, incomeData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       commit(true, res.data.id);
-    //       this.loadingSpinner.httpLoader.close();
+    this.budgetApi.putIncome(rowid, incomeData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.data.id);
+          this.loadingSpinner.httpLoader.close();
 
-    //       // recalculate ioe on table change
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   deleteIncomeRow(rowid, commit) {
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.deleteIncome(rowid)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       commit(true);
-    //       this.loadingSpinner.httpLoader.close();
+    this.budgetApi.deleteIncome(rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true);
+          this.loadingSpinner.httpLoader.close();
 
-    //       // recalculate ioe on table change
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   // expenditure CRUD
@@ -278,22 +278,22 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.postExpenditure(expenditureData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       commit(true, res.data.id);
-    //       this.loadingSpinner.httpLoader.close();
+    this.budgetApi.postExpenditure(expenditureData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.data.id);
+          this.loadingSpinner.httpLoader.close();
 
-    //       // recalculate ioe on table change
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   updateExpenditureRow(rowid, newdata, commit) {
@@ -305,43 +305,43 @@ export class BudgetTablesComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.putExpenditure(rowid, expenditureData)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       commit(true, res.data.id);
-    //       this.loadingSpinner.httpLoader.close();
+    this.budgetApi.putExpenditure(rowid, expenditureData)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true, res.data.id);
+          this.loadingSpinner.httpLoader.close();
 
-    //       // recalculate ioe on table change
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   deleteExpenditureRow(rowid, commit) {
     this.loadingSpinner.httpLoader.open();
 
-    // this.budgetApi.deleteExpenditure(rowid)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       commit(true);
-    //       this.loadingSpinner.httpLoader.close();
+    this.budgetApi.deleteExpenditure(rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          commit(true);
+          this.loadingSpinner.httpLoader.close();
 
-    //       // recalculate ioe on table change
-    //       this.getIoe();
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.loadingSpinner.httpLoader.close();
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
+          // recalculate ioe on table change
+          this.getIoe();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }
