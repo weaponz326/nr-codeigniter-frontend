@@ -65,7 +65,7 @@ export class ViewProductComponent implements OnInit {
     console.log("u are updating a product");
 
     var productData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       product_code: this.productForm.productCode.val(),
       product_name: this.productForm.productName.val(),
       product_type: this.productForm.productType.val(),

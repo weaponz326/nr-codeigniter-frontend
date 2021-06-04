@@ -56,7 +56,7 @@ export class AllCashflowComponent implements OnInit, AfterViewInit {
 
   viewSheet(event: any){
     console.log(event.args.row.bounddata);
-    sessionStorage.setItem('cashflow_id', event.args.row.bounddata.id);
+    sessionStorage.setItem('sheet_id', event.args.row.bounddata.id);
 
     this.router.navigateByUrl('/suite/cashflow/view-sheet');
   }
@@ -82,7 +82,7 @@ export class AllCashflowComponent implements OnInit, AfterViewInit {
   columns: any[] = [
     { text: "Sheet ID", dataField: "sheet_code", width: "25%" },
     { text: "Sheet Name", dataField: "sheet_name", width: "50%" },
-    { text: "Sheet Type", dataField: "Sheet_type", width: "25%" },
+    { text: "Sheet Type", dataField: "sheet_type", width: "25%" },
   ];
 
 }

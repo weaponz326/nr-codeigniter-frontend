@@ -14,10 +14,10 @@ export class PayablesApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all payables belonging to user
+  // create and get all payables belonging to account
 
   public getPayables(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-payables/payable-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-payables/payable?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postPayable(payable): Observable<any>{

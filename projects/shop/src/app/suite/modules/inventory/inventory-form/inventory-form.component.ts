@@ -19,9 +19,9 @@ export class InventoryFormComponent implements OnInit {
   @ViewChild("locationReference") location: jqxComboBoxComponent;
   @ViewChild("containerReference") container: jqxComboBoxComponent;
   @ViewChild("binNumberReference") binNumber: jqxComboBoxComponent;
-  @ViewChild("quantityCodeReference") quantity: jqxNumberInputComponent;
+  @ViewChild("quantityReference") quantity: jqxNumberInputComponent;
 
-  productId;
+  productIdStore;
 
   ngOnInit(): void {
   }

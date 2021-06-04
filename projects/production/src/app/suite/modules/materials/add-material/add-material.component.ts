@@ -42,13 +42,11 @@ export class AddMaterialComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var materialData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       material_code: this.materialForm.materialCode.val(),
       material_name: this.materialForm.materialName.val(),
       category: this.materialForm.category.val(),
       description: this.materialForm.description.val(),
-      unit_price: this.materialForm.unitPrice.val(),
-      quantity: this.materialForm.materialName.val(),
     }
 
     console.log(materialData);
@@ -59,8 +57,8 @@ export class AddMaterialComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('material_id', res.material_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('material_id', res.data.id);
             this.router.navigateByUrl('/suite/materials/view-material');
           }
         },

@@ -42,13 +42,17 @@ export class ViewOrderComponent implements OnInit {
     this.orderForm.orderStatus.val(event.args.row.bounddata.order_status);
   }
 
+  closeWindow(){
+    this.viewOrder.close();
+  }
+
   saveOrder(){
     var orderData = {
       id: this.orderId,
       account: sessionStorage.getItem('shop_id'),
       order_code: this.orderForm.orderCode.val(),
       order_date: this.orderForm.orderDate.val(),
-      unit_price: this.orderForm.customerName.val(),
+      customer_name: this.orderForm.customerName.val(),
       order_status: this.orderForm.orderStatus.val(),
       quantity: this.orderForm.quantity.val(),
     }
@@ -56,10 +60,12 @@ export class ViewOrderComponent implements OnInit {
     console.log(orderData);
 
     this.editCommit.emit(orderData);
+    this.closeWindow();
   }
 
   deleteOrder(){
     this.deleteCommit.emit(this.orderId);
+    this.closeWindow();
   }
 
 }

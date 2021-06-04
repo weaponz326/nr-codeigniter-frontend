@@ -19,7 +19,6 @@ export class SupplierFormComponent implements OnInit {
   @ViewChild("phoneReference") phone: jqxInputComponent;
   @ViewChild("emailReference") email: jqxInputComponent;
   @ViewChild("addressReference") address: jqxTextAreaComponent;
-  @ViewChild("productReference") product: jqxListBoxComponent;
 
   ngOnInit(): void {
   }

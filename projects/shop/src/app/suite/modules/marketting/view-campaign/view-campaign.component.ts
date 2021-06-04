@@ -68,7 +68,7 @@ export class ViewCampaignComponent implements OnInit, AfterViewInit {
     console.log("u are updating a campaign");
 
     var campaignData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       campaign_code: this.campaignForm.campaignCode.val(),
       campaign_name: this.campaignForm.campaignName.val(),
       campaign_type: this.campaignForm.campaignType.val(),
@@ -122,6 +122,5 @@ export class ViewCampaignComponent implements OnInit, AfterViewInit {
         )
     }
   }
-
 
 }

@@ -42,12 +42,11 @@ export class NewCheckinComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var checkinData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       checkin_code: this.checkinForm.checkinCode.val(),
-      reservation_code: this.checkinForm.checkinCode.val(),
-      checkin_date: this.checkinForm.checkinCode.val(),
-      checkout_date: this.checkinForm.checkinCode.val(),
-      number_nights: this.checkinForm.checkinCode.val(),
+      checkin_date: this.checkinForm.checkinDate.val(),
+      checkout_date: this.checkinForm.checkoutDate.val(),
+      number_nights: this.checkinForm.numberNights.val(),
     }
 
     console.log(checkinData);
@@ -58,8 +57,8 @@ export class NewCheckinComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('checkin_id', res.checkin_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('checkin_id', res.data.id);
             this.router.navigateByUrl('/suite/checkin/view-checkin');
           }
         },

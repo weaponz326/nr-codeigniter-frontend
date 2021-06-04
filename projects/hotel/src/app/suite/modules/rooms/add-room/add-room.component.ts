@@ -42,7 +42,7 @@ export class AddRoomComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var roomData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       room_number: this.roomForm.roomNumber.val(),
       room_type: this.roomForm.roomType.val(),
       location: this.roomForm.location.val(),
@@ -59,8 +59,8 @@ export class AddRoomComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('room_id', res.room_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('room_id', res.data.id);
             this.router.navigateByUrl('/suite/rooms/view-room');
           }
         },

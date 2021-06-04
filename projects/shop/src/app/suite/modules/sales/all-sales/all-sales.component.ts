@@ -67,7 +67,7 @@ export class AllSalesComponent implements OnInit, AfterViewInit {
       { name: 'product_code', type: 'string' },
       { name: 'product_name', type: 'string' },
       { name: 'unit_price', type: 'string' },
-      { name: 'quntity', type: 'string' },
+      { name: 'quantity', type: 'string' },
       { name: 'total_price', type: 'string' },
     ],
     id: 'id',
@@ -99,7 +99,7 @@ export class AllSalesComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let salesData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       sales_code: rowdata.sales_code,
       sales_date: rowdata.sales_date,
       product_code: rowdata.product_code,
@@ -117,7 +117,7 @@ export class AllSalesComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -132,7 +132,7 @@ export class AllSalesComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let salesData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       sales_code: newdata.sales_code,
       sales_date: newdata.sales_date,
       product_code: newdata.product_code,
@@ -150,7 +150,7 @@ export class AllSalesComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

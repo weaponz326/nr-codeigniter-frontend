@@ -35,7 +35,7 @@
                     [height]="25"
                     [disabled]="true"
                 ></jqxInput>
-                <jqxButton #selectGuestButton
+                <jqxButton #selectGuestButton (click)="selectGuest.openWindow()"
                     [width]="'10%'"
                     [height]="25"
                 >...</jqxButton>
@@ -50,7 +50,7 @@
                     [height]="25"
                     [disabled]="true"
                 ></jqxInput>
-                <jqxButton #selectGuestButton
+                <jqxButton #selectGuestButton (click)="selectGuest.openWindow()"
                     [width]="'10%'"
                     [height]="25"
                 >...</jqxButton>
@@ -59,10 +59,10 @@
 
         <div>
             <div class="edit-dialog-field edit-dialog-buttons">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="saveService()"
                 >Save</jqxButton>
             </div>
         </div>
@@ -70,4 +70,16 @@
     </div>
 
 </jqxWindow>
+
+<!-- select term and class components -->
+
+<app-select-guest #selectGuestComponentReference
+    (guestEvent)="guestSelected($event)"
+></app-select-guest>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>
 

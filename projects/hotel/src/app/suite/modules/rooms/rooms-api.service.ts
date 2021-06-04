@@ -14,10 +14,10 @@ export class RoomsApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all rooms belonging to user
+  // create and get all rooms belonging to account
 
   public getAllRooms(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-rooms/room-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-rooms/room?account=" + sessionStorage.getItem('hotel_id'));
   }
 
   public postRoom(room): Observable<any>{

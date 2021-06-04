@@ -3,28 +3,26 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h4>House Keeping Checklists</h4>
+                <h4>House Keeping Checklist</h4>
             </div>
         </div>
 
         <div class="row top-button-row">
           <div class="col-md-12">
-              <jqxButton #buttonReference
+              <jqxButton #buttonReference (click)="addChecklistComponentReference.openWindow()"
                   [width]="150"
                   [height]="30"
-              >New Checklist</jqxButton>
+              >Add Checklist</jqxButton>
           </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
-                <jqxGrid #gridReference
+                <jqxGrid #gridReference (onRowdoubleclick)="editChecklistComponentReference.openWindow($event)"
                     [width]="'100%'"
                     [autoheight]="true"
                     [rowsheight]="24"
                     [sortable]="true"
-                    [filterable]="true"
-                    [showfilterrow]="true"
                     [columns]="columns"
                 ></jqxGrid>
             </div>
@@ -32,3 +30,22 @@
 
     </div>
 </div>
+
+<!-- add transanction popup window component -->
+
+<app-add-checklist
+    #addChecklistComponentReference (addCommit)="onAddCommit($event)"
+></app-add-checklist>
+
+<!-- edit transanction popup window component -->
+
+<app-edit-checklist #editChecklistComponentReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-checklist>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

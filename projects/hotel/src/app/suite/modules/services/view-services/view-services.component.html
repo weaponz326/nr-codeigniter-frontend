@@ -34,7 +34,7 @@
                         [height]="25"
                         [disabled]="true"
                     ></jqxInput>
-                    <jqxButton #selectGuestButton
+                    <jqxButton #selectGuestButton (click)="selectGuest.openWindow()"
                         [width]="'10%'"
                         [height]="25"
                     >...</jqxButton>
@@ -49,16 +49,33 @@
                         [height]="25"
                         [disabled]="true"
                     ></jqxInput>
-                    <jqxButton #selectGuestButton
+                    <jqxButton #selectGuestButton (click)="selectGuest.openWindow()"
                         [width]="'10%'"
                         [height]="25"
                     >...</jqxButton>
                 </div>
             </div>
 
+            <hr />
+
             <div class="row">
                 <div class="col-md-12">
-                    <jqxButton #saveButtonReference class="float-right"
+                    <jqxButton #printReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/services/all-services"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+
+                    <jqxButton #saveButtonReference class="float-right" (click)="deleteService()"
+                        [width]="100"
+                        [height]="28"
+                    >Delete</jqxButton>
+
+                    <jqxButton #saveButtonReference class="float-right" (click)="saveService()"
                         [width]="100"
                         [height]="28"
                     >Save</jqxButton>
@@ -71,7 +88,8 @@
 
     <div class="row">
         <div class="col-md-8">
-            <hr />
+            <hr class="top-divider" />
+            <hr class="bottom-divider" />
         </div>
     </div>
 
@@ -80,3 +98,13 @@
     <app-services-details></app-services-details>
 
 </div>
+
+<app-select-guest #selectGuestComponentReference
+    (guestEvent)="guestSelected($event)"
+></app-select-guest>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

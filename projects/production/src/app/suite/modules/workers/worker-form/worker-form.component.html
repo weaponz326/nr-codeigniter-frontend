@@ -44,11 +44,17 @@ personal details -->
         <div class="row">
             <div class="col-md-4"><label>Date of Birth :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #dobReference
-                    [width]="'100%'"
-                    [height]="28"
-                    [formatString]="'yyyy-MM-dd'"
-                ></jqxDateTimeInput>
+                <div class="row">
+                    <div class="col-md-4">
+                        <jqxComboBox #dobDayReference [width]="'100%'" [height]="28" [source]="dobDaySource"></jqxComboBox>
+                    </div>
+                    <div class="col-md-4">
+                        <jqxComboBox #dobMonthReference [width]="'100%'" [height]="28" [source]="dobMonthSource"></jqxComboBox>
+                    </div>
+                    <div class="col-md-4">
+                        <jqxComboBox #dobYearReference [width]="'100%'" [height]="28" [source]="dobYearSource"></jqxComboBox>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -92,18 +98,20 @@ photo -->
 
             <div class="col-md-4"><label>Photo :</label></div>
             <div class="col-md-8">
-                <jqxPanel #photoReference
+                <input #imageUpload type="file" requiredFileType="image" class="image-upload" (change)="onImageSelected($event) "/>
+                <jqxPanel #photoReference (click)="imageUpload.click()"
                     [width]="160"
                     [height]="160"
-                ></jqxPanel>
+                ><img [src]="imgSrc" class="panel-image" /></jqxPanel>
             </div>
 
         </div>
     </div>
 
-  </div>
+</div>
 
-  <hr />
+<hr />
+
 
   <!-- --------------------------------------------------------------------------------------------------
   contact details -->

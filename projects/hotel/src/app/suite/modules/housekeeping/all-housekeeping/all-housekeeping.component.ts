@@ -40,7 +40,7 @@ export class AllHousekeepingComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    this.housekeepingApi.getAllHousekeeping()
+    this.housekeepingApi.getAllHouseKeeping()
       .subscribe(
         res => {
           console.log(res);

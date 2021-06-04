@@ -44,11 +44,15 @@ export class NewSheetComponent implements OnInit {
     this.newSheet.open();
   }
 
+  closeWindow(){
+    this.newSheet.close();
+  }
+
   saveSheet(){
     this.loadingSpinner.httpLoader.open();
 
     let sheetData = {
-      shop_id: localStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       sheet_code: this.sheetCode.val(),
       sheet_name: this.sheetName.val(),
       sheet_type: this.sheetType.val(),
@@ -60,8 +64,9 @@ export class NewSheetComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('sheet_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/cashflow/view-sheet');
           }
         },

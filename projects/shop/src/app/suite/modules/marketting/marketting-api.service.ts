@@ -14,10 +14,10 @@ export class MarkettingApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all campaigns belonging to user
+  // create and get all campaigns belonging to account
 
   public getCampaigns(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-marketting/campaign-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-marketting/campaign?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postCampaign(campaign): Observable<any>{

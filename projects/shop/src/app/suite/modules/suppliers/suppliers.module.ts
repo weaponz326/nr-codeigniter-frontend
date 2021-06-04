@@ -6,6 +6,7 @@ import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxListBoxModule } from 'jqwidgets-ng/jqxlistbox';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { SuppliersRoutingModule } from './suppliers-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -18,6 +19,8 @@ import { SupplierFormComponent } from './supplier-form/supplier-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ViewSupplierComponent } from './view-supplier/view-supplier.component';
+import { SupplierProductsComponent } from './supplier-products/supplier-products.component';
+import { SelectProductComponent } from './select-product/select-product.component';
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import { ViewSupplierComponent } from './view-supplier/view-supplier.component';
     SupplierFormComponent,
     DashboardComponent,
     SettingsComponent,
-    ViewSupplierComponent
+    ViewSupplierComponent,
+    SupplierProductsComponent,
+    SelectProductComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +44,8 @@ import { ViewSupplierComponent } from './view-supplier/view-supplier.component';
     jqxButtonModule,
     jqxInputModule,
     jqxListBoxModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxWindowModule
   ]
 })
 export class SuppliersModule { }

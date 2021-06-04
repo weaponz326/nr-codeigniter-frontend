@@ -67,7 +67,7 @@ export class AllInventoryComponent implements OnInit, AfterViewInit {
       { name: 'location', type: 'string' },
       { name: 'container', type: 'string' },
       { name: 'bin_number', type: 'string' },
-      { name: 'quntity', type: 'string' },
+      { name: 'quantity', type: 'string' },
     ],
     id: 'id',
     addrow: (rowid, rowdata, position, commit) => {
@@ -97,7 +97,7 @@ export class AllInventoryComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let inventoryData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       product_code: rowdata.product_code,
       product_name: rowdata.product_name,
       location: rowdata.location,
@@ -115,7 +115,7 @@ export class AllInventoryComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -130,7 +130,7 @@ export class AllInventoryComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let inventoryData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       product_code: newdata.product_code,
       product_name: newdata.product_name,
       location: newdata.location,
@@ -148,7 +148,7 @@ export class AllInventoryComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

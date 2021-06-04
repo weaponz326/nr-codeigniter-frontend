@@ -46,10 +46,18 @@ export class ViewStaffComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.staffForm.dobYear.val(dobArray[0]);
+            this.staffForm.dobMonth.val(dobArray[1]);
+            this.staffForm.dobDay.val(dobArray[2]);
+          }
+
           this.staffForm.firstName.val(res.first_name);
           this.staffForm.lastName.val(res.last_name);
           this.staffForm.sex.val(res.sex);
-          this.staffForm.dob.val(res.date_of_birth);
+          this.staffForm.photo.nativeElement.value = res.photo;
           this.staffForm.nationality.val(res.nationality);
           this.staffForm.religion.val(res.religion);
           this.staffForm.phone.val(res.phone);
@@ -72,12 +80,16 @@ export class ViewStaffComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a staff");
 
+    let dob = '';
+    if (this.staffForm.dobYear.val() == '' || this.staffForm.dobMonth.val() == '' || this.staffForm.dobDay.val() == '') dob = null;
+    else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();
+
     var staffData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       first_name: this.staffForm.firstName.val(),
       last_name: this.staffForm.lastName.val(),
       sex: this.staffForm.sex.val(),
-      date_of_birth: this.staffForm.dob.val(),
+      date_of_birth: dob,
       nationality: this.staffForm.nationality.val(),
       religion: this.staffForm.religion.val(),
       phone: this.staffForm.phone.val(),

@@ -26,7 +26,7 @@ export class ContractorFormComponent implements OnInit {
   @ViewChild('postCodeReference') postCode: jqxInputComponent;
   @ViewChild('websiteReference') website: jqxInputComponent;
   @ViewChild('primaryContractReference') primaryContract: jqxInputComponent;
-  @ViewChild('projectNameContractReference') projectName: jqxInputComponent;
+  @ViewChild('projectNameReference') projectName: jqxInputComponent;
   @ViewChild('contractTypeReference') contractType: jqxComboBoxComponent;
   @ViewChild('workDescriptionReference') workDescription: jqxTextAreaComponent;
   @ViewChild('workStartDateReference') workStartDate: jqxDateTimeInputComponent;

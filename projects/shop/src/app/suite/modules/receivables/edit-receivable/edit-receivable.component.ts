@@ -46,6 +46,10 @@ export class EditReceivableComponent implements OnInit {
     this.receivableForm.dateReceived.val(event.args.row.bounddata.date_received);
   }
 
+  closeWindow(){
+    this.editReceivable.close();
+  }
+
   saveReceivable(){
     var receivableData = {
       id: this.receivableId,
@@ -62,10 +66,12 @@ export class EditReceivableComponent implements OnInit {
     console.log(receivableData);
 
     this.editCommit.emit(receivableData);
+    this.closeWindow();
   }
 
   deleteReceivable(){
     this.deleteCommit.emit(this.receivableId);
+    this.closeWindow();
   }
 
 }

@@ -14,10 +14,10 @@ export class AssetsApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all assets belonging to user
+  // create and get all assets belonging to account
 
   public getAllAssets(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-assets/asset-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-assets/asset?account=" + sessionStorage.getItem('hotel_id'));
   }
 
   public postAsset(asset): Observable<any>{

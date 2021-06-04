@@ -17,7 +17,7 @@ export class CashflowApiService {
   // create and get all sheets belonging to user
 
   public getAllSheets(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-cashflow/sheet-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-cashflow/sheet?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postSheet(sheet): Observable<any>{

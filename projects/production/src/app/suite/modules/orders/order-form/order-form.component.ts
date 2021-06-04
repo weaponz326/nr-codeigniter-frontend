@@ -20,7 +20,7 @@ export class OrderFormComponent implements OnInit {
   @ViewChild("productCodeReference") productCode: jqxInputComponent;
   @ViewChild("orderDateReference") orderDate: jqxDateTimeInputComponent;
   @ViewChild("customerNameReference") customerName: jqxInputComponent;
-  @ViewChild("quantityCodeReference") quantity: jqxNumberInputComponent;
+  @ViewChild("quantityReference") quantity: jqxNumberInputComponent;
   @ViewChild("orderStatusReference") orderStatus: jqxDropDownListComponent;
 
   ngOnInit(): void {

@@ -70,7 +70,7 @@ export class ViewEquipmentComponent implements OnInit {
     console.log("u are updating a equipment");
 
     var equipmentData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       equipment_code: this.equipmentForm.equipmentCode.val(),
       equipment_name: this.equipmentForm.equipmentName.val(),
       equipment_type: this.equipmentForm.equipmentType.val(),

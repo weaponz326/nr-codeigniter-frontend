@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 @Component({
   selector: 'app-customer-form',
@@ -14,9 +15,12 @@ export class CustomerFormComponent implements OnInit {
 
   @ViewChild('customerCodeReference') customerCode: jqxInputComponent;
   @ViewChild('customerNameReference') customerName: jqxInputComponent;
+  @ViewChild('customerTypeReference') customerType: jqxDropDownListComponent;
   @ViewChild('phoneReference') phone: jqxInputComponent;
   @ViewChild('emailReference') email: jqxInputComponent;
   @ViewChild('addressReference') address: jqxTextAreaComponent;
+
+  customerTypeSource = ['Individual', 'Organization'];
 
   ngOnInit(): void {
   }

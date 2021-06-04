@@ -69,7 +69,7 @@ export class ViewAssetComponent implements OnInit, AfterViewInit {
     console.log("u are updating a asset");
 
     var assetData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       asset_code: this.assetForm.assetCode.val(),
       asset_name: this.assetForm.assetName.val(),
       asset_type: this.assetForm.assetType.val(),

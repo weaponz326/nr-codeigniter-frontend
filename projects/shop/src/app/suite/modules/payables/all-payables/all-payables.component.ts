@@ -87,7 +87,7 @@ export class AllPayablesComponent implements OnInit {
 
   columns: any[] = [
     { text: "Payable ID", dataField: "payable_code", width: "8%" },
-    { text: "Date", dataField: "date", filtertype: "range", width: "10%" },
+    { text: "Date", dataField: "payable_date", filtertype: "range", width: "10%" },
     { text: "Due Date", dataField: "due_date", filtertype: "range", width: "10%" },
     { text: "Invoice No.", dataField: "invoice_number", width: "8%" },
     { text: "Customer Name", dataField: "customer_name", width: "24%" },
@@ -101,13 +101,13 @@ export class AllPayablesComponent implements OnInit {
     console.log(rowdata);
 
     let payableData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       payable_code: rowdata.payable_code,
       payable_date: rowdata.payable_date,
       due_date: rowdata.due_date,
       invoice_number: rowdata.invoice_number,
       customer_name: rowdata.customer_name,
-      amount: rowdata.rowdata,
+      amount: rowdata.amount,
       date_paid: rowdata.date_paid,
       outstanding: rowdata.outstanding,
     }
@@ -121,7 +121,7 @@ export class AllPayablesComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -136,7 +136,7 @@ export class AllPayablesComponent implements OnInit {
     console.log(newdata);
 
     let payableData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       payable_code: newdata.payable_code,
       payable_date: newdata.payable_date,
       due_date: newdata.due_date,
@@ -156,7 +156,7 @@ export class AllPayablesComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

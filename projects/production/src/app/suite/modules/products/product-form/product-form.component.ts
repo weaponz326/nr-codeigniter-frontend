@@ -18,7 +18,7 @@ export class ProductFormComponent implements OnInit {
   @ViewChild("productTypeReference") productType: jqxComboBoxComponent;
   @ViewChild("versionReference") version: jqxInputComponent;
   @ViewChild("modelNumberReference") modelNumber: jqxInputComponent;
-  @ViewChild("DescriptionReference") description: jqxTextAreaComponent;
+  @ViewChild("descriptionReference") description: jqxTextAreaComponent;
 
   ngOnInit(): void {
   }

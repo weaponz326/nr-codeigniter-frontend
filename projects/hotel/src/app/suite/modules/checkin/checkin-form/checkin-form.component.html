@@ -20,23 +20,23 @@ personal details -->
         </div>
 
         <div class="row">
-            <div class="offset-md-4 col-md-8">
+            <div class="offset-md-4 col-md-8 checkbox-div">
                 <jqxCheckBox #reservationCheckBoxReference
-                    (onChecked)="enableReservation()"
-                    (onUnchecked)="disableReservation()"
-                >From Reservation</jqxCheckBox>
+                    (onChecked)="enableBooking()"
+                    (onUnchecked)="disableBooking()"
+                >From Booking</jqxCheckBox>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Reservation ID :</label></div>
+            <div class="col-md-4"><label>Booking ID :</label></div>
             <div class="col-md-8">
-                <jqxInput #reservationCodeReference
+                <jqxInput #bookingCodeReference
                     [width]="'88%'"
                     [height]="28"
                     [disabled]="true"
                 ></jqxInput>
-                <jqxButton #selectReservationButton
+                <jqxButton #selectBookingButton
                     [width]="'10%'"
                     [height]="25"
                     [disabled]="true"
@@ -79,10 +79,16 @@ personal details -->
         <div class="row">
             <div class="col-md-4"><label>Room No. :</label></div>
             <div class="col-md-8">
-                <jqxDropDownList #roomNumberReference
-                    [width]="'100%'"
+                <jqxInput #roomNumberReference
+                    [width]="'88%'"
                     [height]="28"
-                ></jqxDropDownList>
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #roomNumberButton
+                    [width]="'10%'"
+                    [height]="25"
+                    [disabled]="true"
+                >...</jqxButton>
             </div>
         </div>
 

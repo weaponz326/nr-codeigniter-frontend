@@ -14,10 +14,10 @@ export class InventoryApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all inventory belonging to user
+  // create and get all inventory belonging to account
 
   public getAllInventory(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-inventory/inventory-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-inventory/inventory?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postInventory(inventory): Observable<any>{

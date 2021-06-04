@@ -14,27 +14,27 @@ export class HousekeepingApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all housekeeping belonging to user
+  // create and get all housekeeping belonging to account
 
-  public getAllHousekeeping(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-housekeeping/housekeeping-list?user=" + sessionStorage.getItem('hotel_id'));
+  public getAllHouseKeeping(): Observable<any>{
+    return this.http.get(this.hotelUrl + "module-housekeeping/housekeeping?account=" + sessionStorage.getItem('hotel_id'));
   }
 
-  public postHousekeeping(housekeeping): Observable<any>{
+  public postHouseKeeping(housekeeping): Observable<any>{
     return this.http.post(this.hotelUrl + "module-housekeeping/housekeeping/", housekeeping);
   }
 
   // retreive, update and delete housekeeping
 
-  public getSingleHousekeeping(): Observable<any>{
+  public getSingleHouseKeeping(): Observable<any>{
     return this.http.get(this.hotelUrl + "module-housekeeping/housekeeping/" + sessionStorage.getItem('housekeeping_id'));
   }
 
-  public putHousekeeping(housekeeping): Observable<any>{
+  public putHouseKeeping(housekeeping): Observable<any>{
     return this.http.put(this.hotelUrl + "module-housekeeping/housekeeping/" + sessionStorage.getItem('housekeeping_id'), housekeeping);
   }
 
-  public deleteHousekeeping(): Observable<any>{
+  public deleteHouseKeeping(): Observable<any>{
     return this.http.delete(this.hotelUrl + "module-housekeeping/housekeeping/" + sessionStorage.getItem('housekeeping_id'));
   }
 
@@ -43,7 +43,7 @@ export class HousekeepingApiService {
   // create and get all housekeeping belonging to user
 
   public getAllChecklist(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-housekeeping/checklist-list?user=" + sessionStorage.getItem('housekeeping_id'));
+    return this.http.get(this.hotelUrl + "module-housekeeping/checklist?housekeeping=" + sessionStorage.getItem('housekeeping_id'));
   }
 
   public postChecklist(checklist): Observable<any>{

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-7">
+
+        <hr class="top-divider" />
+        <hr class="bottom-divider" />
+
+        <h4>Supplier Products</h4>
+
+        <div class="row top-button-row">
+            <div class="col-md-10">
+                <jqxButton #buttonReference (click)="selectProductComponentReference.openWindow()"
+                    [width]="150"
+                    [height]="30"
+                >Add Product</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <jqxGrid #gridReference
+                [width]="'100%'"
+                [autoheight]="true"
+                [rowsheight]="24"
+                [showemptyrow]="false"
+                [showstatusbar]="true"
+                [showaggregates]="true"
+                [columns]="columns"
+            ></jqxGrid>
+        </div>
+
+    </div>
+</div>
+
+<app-select-product #selectProductComponentReference
+    (addCommit)="onAddCommit($event)"
+></app-select-product>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>
+

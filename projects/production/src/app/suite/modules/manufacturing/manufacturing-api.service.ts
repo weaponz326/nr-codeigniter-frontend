@@ -14,10 +14,10 @@ export class ManufacturingApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all manufacturing belonging to user
+  // create and get all manufacturing belonging to account
 
   public getAllManufacturing(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-manufacturing/manufacturing-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-manufacturing/manufacturing?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postManufacturing(manufacturing): Observable<any>{

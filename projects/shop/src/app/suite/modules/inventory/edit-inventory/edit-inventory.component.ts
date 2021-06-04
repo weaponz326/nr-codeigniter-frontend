@@ -43,11 +43,15 @@ export class EditInventoryComponent implements OnInit {
     this.inventoryForm.quantity.val(event.args.row.bounddata.quantity);
   }
 
+  closeWindow(){
+    this.editInventory.close();
+  }
+
   saveInventory(){
     var inventoryData = {
       id: this.inventoryId,
       account: sessionStorage.getItem('shop_id'),
-      product_id: this.inventoryForm.productId,
+      product: this.inventoryForm.productIdStore,
       location: this.inventoryForm.location.val(),
       container: this.inventoryForm.container.val(),
       bin_number: this.inventoryForm.binNumber.val(),
@@ -57,10 +61,12 @@ export class EditInventoryComponent implements OnInit {
     console.log(inventoryData);
 
     this.editCommit.emit(inventoryData);
+    this.closeWindow();
   }
 
   deleteInventory(){
     this.deleteCommit.emit(this.inventoryId);
+    this.closeWindow();
   }
 
 }

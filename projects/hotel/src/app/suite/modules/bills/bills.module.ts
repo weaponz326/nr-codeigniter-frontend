@@ -19,6 +19,7 @@ import { ViewBillComponent } from './view-bill/view-bill.component';
 import { BillTablesComponent } from './bill-tables/bill-tables.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SelectGuestComponent } from './select-guest/select-guest.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SettingsComponent } from './settings/settings.component';
     ViewBillComponent,
     BillTablesComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    SelectGuestComponent
   ],
   imports: [
     CommonModule,

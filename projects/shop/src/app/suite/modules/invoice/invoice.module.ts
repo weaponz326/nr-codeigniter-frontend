@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
+import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -19,6 +20,10 @@ import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
 import { InvoiceTableComponent } from './invoice-table/invoice-table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddItemComponent } from './add-item/add-item.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
+import { ItemFormComponent } from './item-form/item-form.component';
+import { SelectProductComponent } from './select-product/select-product.component';
 
 
 @NgModule({
@@ -29,7 +34,11 @@ import { SettingsComponent } from './settings/settings.component';
     ViewInvoiceComponent,
     InvoiceTableComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddItemComponent,
+    EditItemComponent,
+    ItemFormComponent,
+    SelectProductComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +48,7 @@ import { SettingsComponent } from './settings/settings.component';
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
+    jqxNumberInputModule,
     jqxComboBoxModule,
     jqxDateTimeInputModule,
     jqxWindowModule

@@ -17,21 +17,21 @@ export class CheckinFormComponent implements OnInit {
 
   @ViewChild('checkinCodeReference') checkinCode: jqxInputComponent;
   @ViewChild('reservationCodeReference') reservationCode: jqxInputComponent;
-  @ViewChild('reservationCheckBoceReference') reservationCheckBox: jqxCheckBoxComponent;
+  @ViewChild('bookingCheckBoceReference') reservationCheckBox: jqxCheckBoxComponent;
   @ViewChild('guestNameReference') guestName: jqxInputComponent;
   @ViewChild('guestCodeReference') guestCode: jqxInputComponent;
   @ViewChild('checkinDateReference') checkinDate: jqxDateTimeInputComponent;
   @ViewChild('checkoutDateReference') checkoutDate: jqxDateTimeInputComponent;
   @ViewChild('numberNightsReference') numberNights: jqxNumberInputComponent;
   @ViewChild('roomNumberReference') roomNumber: jqxInputComponent;
-  @ViewChild('selectReservationButton') selectReservation: jqxInputComponent;
+  @ViewChild('selectBookingButton') selectBooking: jqxInputComponent;
 
-  enableReservation(){
-    this.selectReservation.disabled(false);
+  enableBooking(){
+    this.selectBooking.disabled(false);
   }
 
-  disableReservation(){
-    this.selectReservation.disabled(true);
+  disableBooking(){
+    this.selectBooking.disabled(true);
   }
 
   ngOnInit(): void {

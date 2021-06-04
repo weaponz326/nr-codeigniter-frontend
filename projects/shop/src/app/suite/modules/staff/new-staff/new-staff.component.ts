@@ -41,12 +41,16 @@ export class NewStaffComponent implements OnInit {
     console.log('u are saving a new staff');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.staffForm.dobYear.val() == '' || this.staffForm.dobMonth.val() == '' || this.staffForm.dobDay.val() == '') dob = null;
+    else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();
+
     var staffData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       first_name: this.staffForm.firstName.val(),
       last_name: this.staffForm.lastName.val(),
       sex: this.staffForm.sex.val(),
-      date_of_birth: this.staffForm.dob.val(),
+      date_of_birth: dob,
       nationality: this.staffForm.nationality.val(),
       religion: this.staffForm.religion.val(),
       phone: this.staffForm.phone.val(),
@@ -67,8 +71,8 @@ export class NewStaffComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('staff_id', res.staff_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('staff_id', res.data.id);
             this.router.navigateByUrl('/suite/staff/view-staff');
           }
         },

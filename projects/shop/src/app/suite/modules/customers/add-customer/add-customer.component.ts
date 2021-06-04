@@ -42,9 +42,10 @@ export class AddCustomerComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var customerData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       customer_code: this.customerForm.customerCode.val(),
       customer_name: this.customerForm.customerName.val(),
+      customer_type: this.customerForm.customerType.val(),
       phone: this.customerForm.phone.val(),
       email: this.customerForm.email.val(),
       address: this.customerForm.address.val(),
@@ -58,8 +59,8 @@ export class AddCustomerComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('customer_id', res.customer_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('customer_id', res.data.id);
             this.router.navigateByUrl('/suite/customers/view-customer');
           }
         },

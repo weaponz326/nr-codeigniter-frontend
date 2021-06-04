@@ -14,10 +14,10 @@ export class OrdersApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all order belonging to user
+  // create and get all order belonging to account
 
   public getAllOrders(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-orders/order-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-orders/order?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postOrder(order): Observable<any>{

@@ -14,10 +14,10 @@ export class PaymentsApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all payments belonging to user
+  // create and get all payments belonging to account
 
   public getPayments(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-payments/payment-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-payments/payment?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postPayment(payment): Observable<any>{

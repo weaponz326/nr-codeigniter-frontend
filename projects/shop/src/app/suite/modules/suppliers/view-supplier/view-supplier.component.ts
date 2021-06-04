@@ -51,7 +51,6 @@ export class ViewSupplierComponent implements OnInit {
           this.supplierForm.phone.val(res.phone);
           this.supplierForm.email.val(res.email);
           this.supplierForm.address.val(res.address);
-          this.supplierForm.product.val(res.product);
         },
         err => {
           console.log(err);
@@ -65,13 +64,12 @@ export class ViewSupplierComponent implements OnInit {
     console.log("u are updating a supplier");
 
     var supplierData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       supplier_code: this.supplierForm.supplierCode.val(),
       supplier_name: this.supplierForm.supplierName.val(),
       phone: this.supplierForm.phone.val(),
       email: this.supplierForm.email.val(),
       address: this.supplierForm.address.val(),
-      product: this.supplierForm.product.val(),
     }
 
     this.suppliersApi.putSupplier(supplierData)

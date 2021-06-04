@@ -45,7 +45,7 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #saveButtonReference (click)="saveHousekeeping()"
@@ -57,3 +57,8 @@
 
 </jqxWindow>
 
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

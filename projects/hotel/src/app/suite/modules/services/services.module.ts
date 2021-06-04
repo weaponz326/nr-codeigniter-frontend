@@ -20,6 +20,7 @@ import { ViewServicesComponent } from './view-services/view-services.component';
 import { AddServicesComponent } from './add-services/add-services.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SelectGuestComponent } from './select-guest/select-guest.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SettingsComponent } from './settings/settings.component';
     ViewServicesComponent,
     AddServicesComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    SelectGuestComponent
   ],
   imports: [
     CommonModule,

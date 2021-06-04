@@ -13,16 +13,11 @@
                 [width]="100"
                 [height]="28"
             ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
-
-            <jqxButton #exportButtonReference class="float-right ml-1"
-                [width]="100"
-                [height]="28"
-            ><i class="fa fa-fw fa-upload"></i> Export</jqxButton>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <jqxGrid #gridReference (onRowdoubleclick)="viewWorker($event)"
                 [width]="'100%'"
                 [height]="450"

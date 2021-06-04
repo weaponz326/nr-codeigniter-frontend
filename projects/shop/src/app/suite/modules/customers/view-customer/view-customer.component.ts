@@ -48,6 +48,7 @@ export class ViewCustomerComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.customerForm.customerCode.val(res.customer_code);
           this.customerForm.customerName.val(res.customer_name);
+          this.customerForm.customerType.val(res.customer_type);
           this.customerForm.phone.val(res.phone);
           this.customerForm.email.val(res.email);
           this.customerForm.address.val(res.address);
@@ -64,9 +65,10 @@ export class ViewCustomerComponent implements OnInit, AfterViewInit {
     console.log("u are updating a customer");
 
     var customerData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       customer_code: this.customerForm.customerCode.val(),
       customer_name: this.customerForm.customerName.val(),
+      customer_type: this.customerForm.customerType.val(),
       phone: this.customerForm.phone.val(),
       email: this.customerForm.email.val(),
       address: this.customerForm.address.val(),

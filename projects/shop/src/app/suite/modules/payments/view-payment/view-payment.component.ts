@@ -63,7 +63,7 @@ export class ViewPaymentComponent implements OnInit {
     console.log("u are updating a payment");
 
     var paymentData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       payment_code: this.paymentForm.paymentCode.val(),
       payment_date: this.paymentForm.paymentDate.val(),
       customer_name: this.paymentForm.customerName.val(),

@@ -14,10 +14,10 @@ export class PurchasingApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all purchasing belonging to user
+  // create and get all purchasing belonging to account
 
   public getPurchasing(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-purchasing/purchasing-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-purchasing/purchasing?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postPurchasing(purchasing): Observable<any>{
@@ -36,6 +36,31 @@ export class PurchasingApiService {
 
   public deletePurchasing(): Observable<any>{
     return this.http.delete(this.productionUrl + "module-purchasing/purchasing/" + sessionStorage.getItem('purchasing_id'));
+  }
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------
+  // purchasing item
+
+  public getPurchasingItem(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-purchasing/purchasing-item?purchasing=" + sessionStorage.getItem('purchasing_id'));
+  }
+
+  public postPurchasingItem(item): Observable<any>{
+    return this.http.post(this.productionUrl + "module-purchasing/purchasing-item/", item);
+  }
+
+  // retreive, update and delete purchasing
+
+  public getSinglePurchasingItem(itemId): Observable<any>{
+    return this.http.get(this.productionUrl + "module-purchasing/purchasing-item/" + itemId);
+  }
+
+  public putPurchasingItem(itemId, item): Observable<any>{
+    return this.http.put(this.productionUrl + "module-purchasing/purchasing-item/" + itemId, item);
+  }
+
+  public deletePurchasingItem(itemId): Observable<any>{
+    return this.http.delete(this.productionUrl + "module-purchasing/purchasing-item/" + itemId);
   }
 
 }

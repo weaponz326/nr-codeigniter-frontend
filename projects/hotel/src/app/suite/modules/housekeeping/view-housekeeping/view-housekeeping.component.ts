@@ -44,11 +44,73 @@ export class ViewHousekeepingComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.housekeepingApi.getSingleHouseKeeping()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.housekeepingCode.val(res.housekeeping_code);
+          this.housekeepingDate.val(res.housekeeping_date);
+          this.roomNumber.val(res.room_number);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
-  saveBill(){
+  saveHouseKeeping(){
+    this.loadingSpinner.httpLoader.open();
+    console.log("u are updating a housekeeping");
 
+    var housekeepingData = {
+      account: sessionStorage.getItem('hotel_id'),
+      housekeeping_code: this.housekeepingCode.val(),
+      housekeeping_date: this.housekeepingDate.val(),
+      room_number: this.roomNumber.val(),
+    }
+
+    this.housekeepingApi.putHouseKeeping(housekeepingData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+
+    console.log(housekeepingData);
   }
 
+  deleteHouseKeeping(){
+    console.log("dude... u are gonna delete the housekeeping?");
+
+    // this.deleteConfirmComponent.openWindow();
+  }
+
+  deleteConfirmationSelected(value: string){
+    if (value == 'yes'){
+      this.loadingSpinner.httpLoader.open();
+
+      this.housekeepingApi.deleteHouseKeeping()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
+
+            this.router.navigateByUrl('/suite/housekeeping/all-housekeeping');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
+    }
+  }
 
 }

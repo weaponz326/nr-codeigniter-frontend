@@ -14,10 +14,10 @@ export class SalesApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all sales belonging to user
+  // create and get all sales belonging to account
 
   public getAllSales(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-sales/sales-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-sales/sales?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postSales(sales): Observable<any>{

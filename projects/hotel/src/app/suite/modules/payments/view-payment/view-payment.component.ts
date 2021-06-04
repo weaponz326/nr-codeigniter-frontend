@@ -69,7 +69,7 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
     console.log("u are updating a payment");
 
     var paymentData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       payment_code: this.paymentForm.paymentCode.val(),
       payment_date: this.paymentForm.paymentCode.val(),
       guest_id: this.guestId,

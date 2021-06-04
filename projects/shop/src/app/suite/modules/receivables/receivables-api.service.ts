@@ -14,10 +14,10 @@ export class ReceivablesApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all receivables belonging to user
+  // create and get all receivables belonging to account
 
   public getReceivables(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-receivables/receivable-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-receivables/receivable?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postReceivable(receivable): Observable<any>{

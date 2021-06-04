@@ -1,1 +1,31 @@
-<p>edit-checklist works!</p>
+<jqxWindow #editChecklistReference
+    [width]="540"
+    [height]="230"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Edit Checklist</div>
+
+    <div>
+
+        <!-- checklist component -->
+
+        <app-checklist-form #checklistFormComponentReference></app-checklist-form>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteChecklist()"
+                >Delete</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveChecklist()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

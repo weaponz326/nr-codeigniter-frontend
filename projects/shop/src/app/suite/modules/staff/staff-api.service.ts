@@ -14,10 +14,10 @@ export class StaffApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all staff belonging to user
+  // create and get all staff belonging to account
 
   public getStaff(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-staff/staff-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-staff/staff?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postStaff(staff): Observable<any>{

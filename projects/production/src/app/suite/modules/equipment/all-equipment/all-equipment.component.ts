@@ -69,7 +69,7 @@ export class AllEquipmentComponent implements OnInit, AfterViewInit {
       { name: 'id', type: 'string' },
       { name: 'equipment_code', type: 'string' },
       { name: 'equipment_name', type: 'string' },
-      { name: 'type', type: 'string' },
+      { name: 'equipment_type', type: 'string' },
       { name: 'condition', type: 'string' },
     ],
     id: 'id',
@@ -78,9 +78,9 @@ export class AllEquipmentComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Equipment ID", dataField: "equipment_id", width: "20%" },
+    { text: "Equipment ID", dataField: "equipment_code", width: "20%" },
     { text: "Equipment Name", dataField: "equipment_name", width: "35%" },
-    { text: "Type", dataField: "type", width: "25%" },
+    { text: "Equipment Type", dataField: "equipment_type", width: "25%" },
     { text: "Condition", dataField: "condition", width: "20%" },
   ];
 

@@ -31,6 +31,10 @@ export class AddPayableComponent implements OnInit {
     this.addPayable.open();
   }
 
+  closeWindow(){
+    this.addPayable.close();
+  }
+
   savePayable(){
     var payableData = {
       account: sessionStorage.getItem('shop_id'),
@@ -46,6 +50,7 @@ export class AddPayableComponent implements OnInit {
     console.log(payableData);
 
     this.addCommit.emit(payableData);
+    this.closeWindow();
   }
 
 

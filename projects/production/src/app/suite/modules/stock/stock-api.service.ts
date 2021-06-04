@@ -14,10 +14,10 @@ export class StockApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all stock belonging to user
+  // create and get all stock belonging to account
 
   public getAllStock(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-stock/stock-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-stock/stock?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postStock(stock): Observable<any>{

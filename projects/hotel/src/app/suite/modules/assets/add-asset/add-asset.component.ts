@@ -42,7 +42,7 @@ export class AddAssetComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var assetData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       asset_code: this.assetForm.assetCode.val(),
       asset_name: this.assetForm.assetName.val(),
       asset_type: this.assetForm.assetType.val(),
@@ -53,7 +53,6 @@ export class AddAssetComponent implements OnInit {
       location: this.assetForm.location.val(),
       description: this.assetForm.description.val(),
       condition: this.assetForm.condition.val(),
-
     }
 
     console.log(assetData);
@@ -64,8 +63,8 @@ export class AddAssetComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('asset_id', res.asset_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('asset_id', res.data.id);
             this.router.navigateByUrl('/suite/assets/view-asset');
           }
         },

@@ -81,7 +81,7 @@ export class AllManufacturingComponent implements OnInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Manufacturing ID", dataField: "manufacturing_id", width: "10%" },
+    { text: "Manufacturing ID", dataField: "manufacturing_code", width: "10%" },
     { text: "Start Date", dataField: "start_date", filtertype: "range", width: "15%" },
     { text: "End Date", dataField: "end_date", filtertype: "range", width: "15%" },
     { text: "Product ID", dataField: "product_code", width: "10%" },

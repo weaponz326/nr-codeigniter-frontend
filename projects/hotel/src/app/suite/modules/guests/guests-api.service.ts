@@ -14,10 +14,10 @@ export class GuestsApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all guests belonging to user
+  // create and get all guests belonging to account
 
   public getAllGuests(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-guests/guest-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-guests/guest?account=" + sessionStorage.getItem('hotel_id'));
   }
 
   public postGuest(guest): Observable<any>{

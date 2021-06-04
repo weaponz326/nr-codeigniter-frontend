@@ -1,0 +1,26 @@
+<jqxWindow #addItemReference (onOpen)="itemForm.productCode.focus()"
+    [width]="540"
+    [height]="240"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Add New Product</div>
+
+    <div>
+
+        <app-item-form #itemFormComponentReference></app-item-form>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveItem()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

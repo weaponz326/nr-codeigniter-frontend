@@ -31,9 +31,13 @@ export class NewOrderComponent implements OnInit {
     this.newOrder.open();
   }
 
+  closeWindow(){
+    this.newOrder.close();
+  }
+
   saveOrder(){
     var orderData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       order_code: this.orderForm.orderCode.val(),
       order_date: this.orderForm.orderDate.val(),
       customer_name: this.orderForm.customerName.val(),
@@ -44,6 +48,7 @@ export class NewOrderComponent implements OnInit {
     console.log(orderData);
 
     this.addCommit.emit(orderData);
+    this.closeWindow();
   }
 
 }

@@ -76,7 +76,7 @@ export class ViewContractorComponent implements OnInit {
     console.log("u are updating a contractor");
 
     var contractorData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       contractor_name: this.contractorForm.contractorName.val(),
       category: this.contractorForm.category.val(),
       phone: this.contractorForm.phone.val(),

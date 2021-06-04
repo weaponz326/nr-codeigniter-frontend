@@ -14,10 +14,10 @@ export class MaterialsApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all materials belonging to user
+  // create and get all materials belonging to account
 
   public getMaterials(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-materials/material-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-materials/material?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postMaterial(material): Observable<any>{

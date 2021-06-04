@@ -14,10 +14,10 @@ export class PurchasingApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all purchasing belonging to user
+  // create and get all purchasing belonging to account
 
   public getPurchasing(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-purchasing/purchasing-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-purchasing/purchasing?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postPurchasing(purchasing): Observable<any>{

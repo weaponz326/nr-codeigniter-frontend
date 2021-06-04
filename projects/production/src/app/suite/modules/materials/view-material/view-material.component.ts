@@ -50,9 +50,6 @@ export class ViewMaterialComponent implements OnInit {
           this.materialForm.materialName.val(res.material_name);
           this.materialForm.category.val(res.category);
           this.materialForm.description.val(res.description);
-          this.materialForm.unitPrice.val(res.unit_price);
-          this.materialForm.quantity.val(res.quantity);
-          this.materialForm.totalPrice.val(res.total_price);
         },
         err => {
           console.log(err);
@@ -66,13 +63,11 @@ export class ViewMaterialComponent implements OnInit {
     console.log("u are updating a material");
 
     var materialData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       material_code: this.materialForm.materialCode.val(),
       material_name: this.materialForm.materialName.val(),
       category: this.materialForm.category.val(),
       description: this.materialForm.description.val(),
-      unit_price: this.materialForm.unitPrice.val(),
-      quantity: this.materialForm.materialName.val(),
     }
 
     this.materialsApi.putMaterial(materialData)

@@ -42,13 +42,12 @@ export class NewSupplierComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var supplierData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       supplier_code: this.supplierForm.supplierCode.val(),
       supplier_name: this.supplierForm.supplierName.val(),
       phone: this.supplierForm.phone.val(),
       email: this.supplierForm.email.val(),
       address: this.supplierForm.address.val(),
-      product: this.supplierForm.product.val(),
     }
 
     console.log(supplierData);
@@ -59,8 +58,8 @@ export class NewSupplierComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('supplier_id', res.supplier_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('supplier_id', res.data.id);
             this.router.navigateByUrl('/suite/suppliers/view-supplier');
           }
         },

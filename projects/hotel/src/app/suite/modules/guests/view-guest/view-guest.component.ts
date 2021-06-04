@@ -49,6 +49,7 @@ export class ViewGuestComponent implements OnInit, AfterViewInit {
           this.guestForm.guestCode.val(res.guest_code);
           this.guestForm.firstName.val(res.first_name);
           this.guestForm.lastName.val(res.last_name);
+          this.guestForm.sex.val(res.sex);
           this.guestForm.phone.val(res.phone);
           this.guestForm.email.val(res.email);
           this.guestForm.address.val(res.address);
@@ -65,10 +66,11 @@ export class ViewGuestComponent implements OnInit, AfterViewInit {
     console.log("u are updating a guest");
 
     var guestData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       guest_code: this.guestForm.guestCode.val(),
       first_name: this.guestForm.firstName.val(),
       last_name: this.guestForm.lastName.val(),
+      sex: this.guestForm.sex.val(),
       phone: this.guestForm.phone.val(),
       email: this.guestForm.email.val(),
       address: this.guestForm.address.val(),

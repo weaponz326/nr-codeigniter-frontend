@@ -42,7 +42,7 @@ export class NewCampaignComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var campaignData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       campaign_code: this.campaignForm.campaignCode.val(),
       campaign_name: this.campaignForm.campaignName.val(),
       campaign_type: this.campaignForm.campaignType.val(),
@@ -62,8 +62,8 @@ export class NewCampaignComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('campaign_id', res.campaign_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('campaign_id', res.data.id);
             this.router.navigateByUrl('/suite/marketting/view-campaign');
           }
         },

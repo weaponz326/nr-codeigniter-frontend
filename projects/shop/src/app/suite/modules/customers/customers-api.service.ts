@@ -14,10 +14,10 @@ export class CustomersApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all customers belonging to user
+  // create and get all customers belonging to account
 
   public getCustomers(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-customers/customer-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-customers/customer?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postCustomer(customer): Observable<any>{

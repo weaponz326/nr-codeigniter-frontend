@@ -44,11 +44,15 @@ export class AddBookingComponent implements OnInit {
     this.addBooking.open();
   }
 
+  closeWindow(){
+    this.addBooking.close();
+  }
+
   saveBooking(){
     this.loadingSpinner.httpLoader.open();
 
     let bookingData = {
-      school: localStorage.getItem('school_id'),
+      account: sessionStorage.getItem('hotel_id'),
       booking_code: this.bookingCode.val(),
       booking_date: this.bookingDate.val(),
       expected_arrival: this.expectedArrival.val(),
@@ -61,9 +65,10 @@ export class AddBookingComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
-            this.router.navigateByUrl('/suite/booking/view-booking');
+          if (res.message == "OK"){
+            sessionStorage.setItem('booking_id', res.data.id);
+            this.closeWindow();
+            this.router.navigateByUrl('/suite/bookings/view-booking');
           }
         },
         err => {

@@ -14,10 +14,10 @@ export class PaymentsApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all payments belonging to user
+  // create and get all payments belonging to account
 
   public getPayments(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-payments/payment-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-payments/payment?account=" + sessionStorage.getItem('hotel_id'));
   }
 
   public postPayment(payment): Observable<any>{
@@ -41,7 +41,7 @@ export class PaymentsApiService {
   // get bills for selection window
 
   public getBills(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-payments/bill-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-payments/bill?account=" + sessionStorage.getItem('hotel_id'));
   }
 
 }

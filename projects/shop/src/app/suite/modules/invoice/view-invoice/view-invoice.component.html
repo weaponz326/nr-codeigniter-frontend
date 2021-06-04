@@ -58,9 +58,16 @@
                 </div>
             </div>
 
+            <hr />
+
             <div class="row">
                 <div class="col-md-12">
-                    <jqxButton #cancelButtonReference class="float-right"
+                    <jqxButton #printReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/invoice/all-invoice"
                         [width]="100"
                         [height]="28"
                     >Cancel</jqxButton>

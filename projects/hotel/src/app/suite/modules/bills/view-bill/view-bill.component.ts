@@ -42,14 +42,81 @@ export class ViewBillComponent implements OnInit, AfterViewInit {
     { text: "View Bill", url: "/suite/bills/view-bill" },
   ];
 
+  guestIdStore;
+
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
+    this.billsApi.getSingleBill()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.billCode.val(res.bill_code);
+          this.billDate.val(res.bill_name);
+          this.guestName.val(res.guest.guest_name);
+          this.guestCode.val(res.guest.guest_code);
+          this.guestIdStore = res.guest.id;
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   saveBill(){
+    this.loadingSpinner.httpLoader.open();
+    console.log("u are updating a bill");
 
+    var billData = {
+      account: sessionStorage.getItem('school_id'),
+      bill_code: this.billCode.val(),
+      bill_date: this.billDate.val(),
+      guest: this.guestIdStore,
+    }
+
+    this.billsApi.putBill(billData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+
+    console.log(billData);
+  }
+
+  deleteBill(){
+    console.log("dude... u are gonna delete the bill?");
+
+    this.deleteConfirmComponent.openWindow();
+  }
+
+  deleteConfirmationSelected(value: string){
+    if (value == 'yes'){
+      this.loadingSpinner.httpLoader.open();
+
+      this.billsApi.deleteBill()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
+
+            this.router.navigateByUrl('/suite/bills/all-bills');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
+    }
   }
 
 }

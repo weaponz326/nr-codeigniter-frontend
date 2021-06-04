@@ -14,10 +14,10 @@ export class WorkersApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all workers belonging to user
+  // create and get all workers belonging to account
 
   public getWorkers(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-workers/worker-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-workers/worker?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postWorker(worker): Observable<any>{

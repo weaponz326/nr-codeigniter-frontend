@@ -31,12 +31,9 @@ export class NewPurchasingComponent implements OnInit {
   @ViewChild("purchasingDateReference") purchasingDate: jqxDateTimeInputComponent;
   @ViewChild("supplierNameReference") supplierName: jqxComboBoxComponent;
   @ViewChild("supplierContactReference") supplierContact: jqxInputComponent;
-  @ViewChild("supplierInvoiceReference") supplierInvoice: jqxInputComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  supplierId;
 
   ngOnInit(): void {
   }
@@ -45,16 +42,19 @@ export class NewPurchasingComponent implements OnInit {
     this.newPurchasing.open();
   }
 
+  closeWindow(){
+    this.newPurchasing.close();
+  }
+
   savePurchasing(){
     this.loadingSpinner.httpLoader.open();
 
     let purchasingData = {
-      production_id: localStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       supplier_name: this.supplierName.val(),
       supplier_contact: this.supplierContact.val(),
       purchasing_code: this.purchasingCode.val(),
       purchasing_date: this.purchasingDate.val(),
-      supplier_invoice: this.supplierInvoice.val(),
     }
 
     this.purchasingApi.postPurchasing(purchasingData)
@@ -63,8 +63,9 @@ export class NewPurchasingComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('purchasing_id', res.purchasing_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('purchasing_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/purchasing/view-purchasing');
           }
         },

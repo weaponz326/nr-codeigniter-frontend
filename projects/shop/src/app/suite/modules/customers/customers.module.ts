@@ -5,6 +5,7 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
+import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { CustomersRoutingModule } from './customers-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -37,7 +38,8 @@ import { SettingsComponent } from './settings/settings.component';
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,
-    jqxTextAreaModule
+    jqxTextAreaModule,
+    jqxDropDownListModule,
   ]
 })
 export class CustomersModule { }

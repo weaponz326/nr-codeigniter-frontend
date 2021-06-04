@@ -1,6 +1,6 @@
 <jqxWindow #addStockReference
     [width]="540"
-    [height]="250"
+    [height]="280"
     [autoOpen]="false">
 
     <div>Add Stock</div>
@@ -12,7 +12,7 @@
 
         <div>
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
                 <jqxButton #saveButtonReference (click)="saveStock()"

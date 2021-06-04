@@ -65,7 +65,7 @@ export class ViewRoomComponent implements OnInit {
     console.log("u are updating a room");
 
     var roomData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       room_number: this.roomForm.roomNumber.val(),
       room_type: this.roomForm.roomType.val(),
       location: this.roomForm.location.val(),

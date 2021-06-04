@@ -46,6 +46,10 @@ export class EditPayableComponent implements OnInit {
     this.payableForm.datePaid.val(event.args.row.bounddata.date_paid);
   }
 
+  closeWindow(){
+    this.editPayable.close();
+  }
+
   savePayable(){
     var payableData = {
       id: this.payableId,
@@ -62,10 +66,12 @@ export class EditPayableComponent implements OnInit {
     console.log(payableData);
 
     this.editCommit.emit(payableData);
+    this.closeWindow();
   }
 
   deletePayable(){
     this.deleteCommit.emit(this.payableId);
+    this.closeWindow();
   }
 
 }

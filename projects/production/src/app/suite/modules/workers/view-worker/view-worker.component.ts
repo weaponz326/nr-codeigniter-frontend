@@ -46,10 +46,18 @@ export class ViewWorkerComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.date_of_birth != null){
+            let dobArray = res.date_of_birth.split('-');
+            this.workerForm.dobYear.val(dobArray[0]);
+            this.workerForm.dobMonth.val(dobArray[1]);
+            this.workerForm.dobDay.val(dobArray[2]);
+          }
+
           this.workerForm.firstNameInput.val(res.first_name);
           this.workerForm.lastNameInput.val(res.last_name);
           this.workerForm.sexDropDownList.val(res.sex);
-          this.workerForm.dobInput.val(res.date_of_birth);
+          this.workerForm.photo.nativeElement.value = res.photo;
           this.workerForm.nationalityInput.val(res.nationality);
           this.workerForm.religionInput.val(res.religion);
           this.workerForm.phoneInput.val(res.phone);
@@ -74,12 +82,16 @@ export class ViewWorkerComponent implements OnInit, AfterViewInit {
     this.loadingSpinner.httpLoader.open();
     console.log("u are updating a worker");
 
+    let dob = '';
+    if (this.workerForm.dobYear.val() == '' || this.workerForm.dobMonth.val() == '' || this.workerForm.dobDay.val() == '') dob = null;
+    else dob = this.workerForm.dobYear.val() + '-' + this.workerForm.dobMonth.val() + '-' + this.workerForm.dobDay.val();
+
     var workerData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('worker_id'),
       first_name: this.workerForm.firstNameInput.val(),
       last_name: this.workerForm.lastNameInput.val(),
       sex: this.workerForm.sexDropDownList.val(),
-      date_of_birth: this.workerForm.dobInput.val(),
+      date_of_birth: dob,
       nationality: this.workerForm.nationalityInput.val(),
       religion: this.workerForm.religionInput.val(),
       phone: this.workerForm.phoneInput.val(),

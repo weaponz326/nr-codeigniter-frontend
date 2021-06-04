@@ -14,10 +14,10 @@ export class ProductsApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all products belonging to user
+  // create and get all products belonging to account
 
   public getProducts(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-products/product-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-products/product?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postProduct(product): Observable<any>{

@@ -42,7 +42,7 @@ export class AddEquipmentComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var equipmentData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       equipment_code: this.equipmentForm.equipmentCode.val(),
       equipment_name: this.equipmentForm.equipmentName.val(),
       equipment_type: this.equipmentForm.equipmentType.val(),
@@ -64,8 +64,8 @@ export class AddEquipmentComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('equipment_id', res.equipment_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('equipment_id', res.data.id);
             this.router.navigateByUrl('/suite/equipment/view-equipment');
           }
         },

@@ -14,10 +14,10 @@ export class BillsApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all bills belonging to user
+  // create and get all bills belonging to account
 
   public getBills(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-bills/bill-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-bills/bill?account=" + sessionStorage.getItem('hotel_id'));
   }
 
   public postBill(bill): Observable<any>{
@@ -38,4 +38,8 @@ export class BillsApiService {
     return this.http.delete(this.hotelUrl + "module-bills/bill/" + sessionStorage.getItem('bill_id'));
   }
 
+  // get guests for selection window
+  public getGuests(): Observable<any>{
+    return this.http.get(this.hotelUrl + "module-guests/guest?account=" + sessionStorage.getItem('hotel_id'));
+  }
 }

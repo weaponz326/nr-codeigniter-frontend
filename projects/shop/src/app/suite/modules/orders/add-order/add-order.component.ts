@@ -32,7 +32,6 @@ export class AddOrderComponent implements OnInit {
   @ViewChild("orderCodeReference") orderCode: jqxInputComponent;
   @ViewChild("orderDateReference") orderDate: jqxDateTimeInputComponent;
   @ViewChild("customerNameReference") customerName: jqxComboBoxComponent;
-  @ViewChild("orderTypeReference") orderType: jqxDropDownListComponent;
   @ViewChild("orderStatusReference") orderStatus: jqxDropDownListComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
@@ -45,15 +44,18 @@ export class AddOrderComponent implements OnInit {
     this.addOrder.open();
   }
 
+  closeWindow(){
+    this.addOrder.close();
+  }
+
   saveOrder(){
     this.loadingSpinner.httpLoader.open();
 
     let orderData = {
-      school: localStorage.getItem('school_id'),
+      account: sessionStorage.getItem('shop_id'),
       order_code: this.orderCode.val(),
       order_date: this.orderDate.val(),
       customer_name: this.customerName.val(),
-      order_tpye: this.orderType.val(),
       order_status: this.orderStatus.val(),
     }
 
@@ -63,8 +65,9 @@ export class AddOrderComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('lab_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/orders/view-order');
           }
         },

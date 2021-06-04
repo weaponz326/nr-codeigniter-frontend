@@ -45,7 +45,7 @@ export class NewPaymentComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var paymentData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       payment_code: this.paymentForm.paymentCode.val(),
       payment_date: this.paymentForm.paymentCode.val(),
       guest_id: this.guestId,
@@ -61,8 +61,8 @@ export class NewPaymentComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('payment_id', res.payment_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('payment_id', res.data.id);
             this.router.navigateByUrl('/suite/payments/view-payment');
           }
         },

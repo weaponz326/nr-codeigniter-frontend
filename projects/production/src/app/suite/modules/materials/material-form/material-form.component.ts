@@ -21,11 +21,6 @@ export class MaterialFormComponent implements OnInit {
   @ViewChild('categoryReference') category: jqxComboBoxComponent;
   @ViewChild('manufacuringCodeReference') manufacturingCode: jqxInputComponent;
   @ViewChild('descriptionReference') description: jqxTextAreaComponent;
-  @ViewChild('supplierCodeReference') supplierCode: jqxInputComponent;
-  @ViewChild('supplierNameReference') supplierName: jqxInputComponent;
-  @ViewChild('unitPriceReference') unitPrice: jqxNumberInputComponent;
-  @ViewChild('quantityReference') quantity: jqxNumberInputComponent;
-  @ViewChild('totalPriceReference') totalPrice: jqxNumberInputComponent;
 
   ngOnInit(): void {
   }

@@ -43,11 +43,15 @@ export class NewInvoiceComponent implements OnInit {
     this.newInvoice.open();
   }
 
+  closeWindow(){
+    this.newInvoice.close();
+  }
+
   saveInvoice(){
     this.loadingSpinner.httpLoader.open();
 
     let invoiceData = {
-      shop: localStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       invoice_number: this.invoiceNumber.val(),
       invoice_date: this.invoiceDate.val(),
       customer_name: this.customerName.val(),
@@ -61,8 +65,9 @@ export class NewInvoiceComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('lab_id', res.lab_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('invoice_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/invoice/view-invoice');
           }
         },

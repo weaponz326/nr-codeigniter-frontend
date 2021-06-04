@@ -30,10 +30,14 @@ export class AddInventoryComponent implements OnInit {
     this.addInventory.open();
   }
 
+  closeWindow(){
+    this.addInventory.close();
+  }
+
   saveInventory(){
     var inventoryData = {
       account: sessionStorage.getItem('shop_id'),
-      product_id: this.inventoryForm.productId,
+      product: this.inventoryForm.productIdStore,
       location: this.inventoryForm.location.val(),
       container: this.inventoryForm.container.val(),
       bin_number: this.inventoryForm.binNumber.val(),
@@ -43,7 +47,7 @@ export class AddInventoryComponent implements OnInit {
     console.log(inventoryData);
 
     this.addCommit.emit(inventoryData);
+    this.closeWindow();
   }
-
 
 }

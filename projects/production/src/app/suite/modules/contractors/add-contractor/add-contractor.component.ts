@@ -42,7 +42,7 @@ export class AddContractorComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var contractorData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       contractor_name: this.contractorForm.contractorName.val(),
       category: this.contractorForm.category.val(),
       phone: this.contractorForm.phone.val(),
@@ -70,8 +70,8 @@ export class AddContractorComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('contractor_id', res.contractor_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('contractor_id', res.data.id);
             this.router.navigateByUrl('/suite/contractors/view-contractor');
           }
         },

@@ -65,7 +65,7 @@ export class ViewCheckinComponent implements OnInit, AfterViewInit {
     console.log("u are updating a checkin");
 
     var checkinData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       checkin_code: this.checkinForm.checkinCode.val(),
       reservation_code: this.checkinForm.checkinCode.val(),
       checkin_date: this.checkinForm.checkinCode.val(),

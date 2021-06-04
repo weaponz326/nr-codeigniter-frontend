@@ -41,12 +41,16 @@ export class NewWorkerComponent implements OnInit {
     console.log('u are saving a new worker');
     this.loadingSpinner.httpLoader.open();
 
+    let dob = '';
+    if (this.workerForm.dobYear.val() == '' || this.workerForm.dobMonth.val() == '' || this.workerForm.dobDay.val() == '') dob = null;
+    else dob = this.workerForm.dobYear.val() + '-' + this.workerForm.dobMonth.val() + '-' + this.workerForm.dobDay.val();
+
     var workerData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('production_id'),
       first_name: this.workerForm.firstNameInput.val(),
       last_name: this.workerForm.lastNameInput.val(),
       sex: this.workerForm.sexDropDownList.val(),
-      date_of_birth: this.workerForm.dobInput.val(),
+      date_of_birth: dob,
       nationality: this.workerForm.nationalityInput.val(),
       religion: this.workerForm.religionInput.val(),
       phone: this.workerForm.phoneInput.val(),
@@ -69,8 +73,8 @@ export class NewWorkerComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('worker_id', res.worker_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('worker_id', res.data.id);
             this.router.navigateByUrl('/suite/workers/view-worker');
           }
         },

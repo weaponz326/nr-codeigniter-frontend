@@ -65,7 +65,7 @@ export class ViewProductComponent implements OnInit, AfterViewInit {
     console.log("u are updating a product");
 
     var productData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       product_code: this.productForm.productCode.val(),
       product_name: this.productForm.productName.val(),
       description: this.productForm.description.val(),
@@ -106,7 +106,7 @@ export class ViewProductComponent implements OnInit, AfterViewInit {
             console.log(res);
             this.loadingSpinner.httpLoader.close();
 
-            this.router.navigateByUrl('/suite/product/all-product');
+            this.router.navigateByUrl('/suite/product/all-products');
           },
           err => {
             console.log(err);

@@ -1,0 +1,55 @@
+<div>
+    <div class="edit-dialog-label-alt">Product ID</div>
+    <div class="edit-dialog-field-alt">
+        <jqxInput #productCodeReference
+            [width]="'90%'"
+            [height]="28"
+            [disabled]="true"
+        ></jqxInput>
+        <jqxButton #selectMenuItemButton 
+            [width]="'10%'"
+            [height]="25"
+        >...</jqxButton>
+    </div>
+</div>
+
+<div>
+  <div class="edit-dialog-label-alt">Product Name</div>
+  <div class="edit-dialog-field-alt">
+      <jqxInput #productNameReference
+          [width]="'90%'"
+          [height]="28"
+          [disabled]="true"
+      ></jqxInput>
+      <jqxButton #selectMenuItemButton 
+          [width]="'10%'"
+          [height]="25"
+      >...</jqxButton>
+  </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Price</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #priceReference
+            [width]="'100%'"
+            [height]="28"
+            [inputMode]="'simple'"
+            [symbol]="'$'"
+            [disabled]="true"
+        ></jqxNumberInput>
+    </div>
+</div>
+
+<div>
+    <div class="edit-dialog-label-alt">Quantity</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #quantityReference
+            [width]="'100%'"
+            [height]="28"
+            [inputMode]="'simple'"
+            [spinButtons]="true"
+            [decimalDigits]="0"
+        ></jqxNumberInput>
+    </div>
+</div>

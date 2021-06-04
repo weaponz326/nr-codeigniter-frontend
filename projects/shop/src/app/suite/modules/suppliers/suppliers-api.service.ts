@@ -14,10 +14,10 @@ export class SuppliersApiService {
 
   shopUrl = environment.shopUrl;
 
-  // create and get all suppliers belonging to user
+  // create and get all suppliers belonging to account
 
   public getSuppliers(): Observable<any>{
-    return this.http.get(this.shopUrl + "module-suppliers/supplier-list?user=" + sessionStorage.getItem('shop_id'));
+    return this.http.get(this.shopUrl + "module-suppliers/supplier?account=" + sessionStorage.getItem('shop_id'));
   }
 
   public postSupplier(supplier): Observable<any>{
@@ -36,6 +36,26 @@ export class SuppliersApiService {
 
   public deleteSupplier(): Observable<any>{
     return this.http.delete(this.shopUrl + "module-suppliers/supplier/" + sessionStorage.getItem('supplier_id'));
+  }
+
+  // get product for slelction window
+  public getProducts(): Observable<any>{
+    return this.http.get(this.shopUrl + "module-products/product?account=" + sessionStorage.getItem('shop_id'));
+  }
+
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // supplier products
+
+  public getSupplierProducts(): Observable<any>{
+    return this.http.get(this.shopUrl + "module-suppliers/supplier-product?supplier=" + sessionStorage.getItem('supplier_id'));
+  }
+
+  public postSupplierProduct(product): Observable<any>{
+    return this.http.post(this.shopUrl + "module-suppliers/supplier-product/", product);
+  }
+
+  public deleteSupplierProduct(product): Observable<any>{
+    return this.http.delete(this.shopUrl + "module-suppliers/supplier-product/" + product);
   }
 
 }

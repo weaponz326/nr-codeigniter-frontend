@@ -42,7 +42,7 @@ export class AddProductComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var productData = {
-      shop_id: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       product_code: this.productForm.productCode.val(),
       product_name: this.productForm.productName.val(),
       description: this.productForm.description.val(),
@@ -59,8 +59,8 @@ export class AddProductComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('product_id', res.product_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('product_id', res.data.id);
             this.router.navigateByUrl('/suite/products/view-product');
           }
         },

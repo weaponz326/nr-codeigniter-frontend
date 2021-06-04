@@ -87,7 +87,7 @@ export class AllReceivablesComponent implements OnInit {
 
   columns: any[] = [
     { text: "Receivable ID", dataField: "receivable_code", width: "8%" },
-    { text: "Date", dataField: "date", filtertype: "range", width: "10%" },
+    { text: "Date", dataField: "receivable_date", filtertype: "range", width: "10%" },
     { text: "Due Date", dataField: "due_date", filtertype: "range", width: "10%" },
     { text: "Invoice No.", dataField: "invoice_number", width: "8%" },
     { text: "Customer Name", dataField: "customer_name", width: "24%" },
@@ -101,13 +101,13 @@ export class AllReceivablesComponent implements OnInit {
     console.log(rowdata);
 
     let receivableData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       receivable_code: rowdata.receivable_code,
       receivable_date: rowdata.receivable_date,
       due_date: rowdata.due_date,
       invoice_number: rowdata.invoice_number,
       customer_name: rowdata.customer_name,
-      amount: rowdata.rowdata,
+      amount: rowdata.amount,
       date_received: rowdata.date_received,
       outstanding: rowdata.outstanding,
     }
@@ -121,7 +121,7 @@ export class AllReceivablesComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);
@@ -136,7 +136,7 @@ export class AllReceivablesComponent implements OnInit {
     console.log(newdata);
 
     let receivableData =  {
-      shop: sessionStorage.getItem('shop_id'),
+      account: sessionStorage.getItem('shop_id'),
       receivable_code: newdata.receivable_code,
       receivable_date: newdata.receivable_date,
       due_date: newdata.due_date,
@@ -156,7 +156,7 @@ export class AllReceivablesComponent implements OnInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          commit(true, res.id);
+          commit(true, res.data.id);
         },
         err => {
           console.log(err);

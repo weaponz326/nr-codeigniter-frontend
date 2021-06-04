@@ -32,23 +32,32 @@
                     <jqxDropDownList #sheetTypeReference
                         [width]="'100%'"
                         [height]="28"
+                        [source]="typeSource"
+                        [autoDropDownHeight]="true"
                     ></jqxDropDownList>
                 </div>
             </div>
 
+            <hr />
+
             <div class="row">
                 <div class="col-md-12">
-                    <jqxButton #cancelButtonReference class="float-right"
+                    <jqxButton #printReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+                    
+                    <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/cashflow/all-sheets"
                         [width]="100"
                         [height]="28"
                     >Cancel</jqxButton>
 
-                    <jqxButton #deleteButtonReference class="float-right"
+                    <jqxButton #deleteButtonReference class="float-right" (click)="deleteSheet()"
                         [width]="100"
                         [height]="28"
                     >Delete</jqxButton>
 
-                    <jqxButton #saveButtonReference class="float-right"
+                    <jqxButton #saveButtonReference class="float-right" (click)="saveSheet()"
                         [width]="100"
                         [height]="28"
                     >Save</jqxButton>

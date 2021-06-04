@@ -14,10 +14,10 @@ export class ContractorsApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all contractors belonging to user
+  // create and get all contractors belonging to account
 
   public getContractors(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-contractors/contractor-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-contractors/contractor?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postContractor(contractor): Observable<any>{

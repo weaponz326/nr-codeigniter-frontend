@@ -42,10 +42,11 @@ export class NewGuestComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     var guestData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       guest_code: this.guestForm.guestCode.val(),
       first_name: this.guestForm.firstName.val(),
       last_name: this.guestForm.lastName.val(),
+      sex: this.guestForm.sex.val(),
       phone: this.guestForm.phone.val(),
       email: this.guestForm.email.val(),
       address: this.guestForm.address.val(),
@@ -59,8 +60,8 @@ export class NewGuestComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('guest_id', res.guest_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('guest_id', res.data.id);
             this.router.navigateByUrl('/suite/guests/view-guest');
           }
         },

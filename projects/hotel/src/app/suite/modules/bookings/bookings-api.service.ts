@@ -14,10 +14,10 @@ export class BookingsApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all bookings belonging to user
+  // create and get all bookings belonging to account
 
   public getBookings(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-bookings/booking-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-bookings/booking?account=" + sessionStorage.getItem('hotel_id'));
   }
 
   public postBooking(booking): Observable<any>{

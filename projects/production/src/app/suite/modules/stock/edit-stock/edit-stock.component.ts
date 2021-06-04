@@ -35,6 +35,7 @@ export class EditStockComponent implements OnInit {
     console.log(event.args.row.bounddata);
     this.stockId = event.args.row.bounddata.id;
 
+    this.stockForm.materialCode.val(event.args.row.bounddata.material_code);
     this.stockForm.materialName.val(event.args.row.bounddata.material_name);
     this.stockForm.location.val(event.args.row.bounddata.location);
     this.stockForm.container.val(event.args.row.bounddata.container);
@@ -42,10 +43,13 @@ export class EditStockComponent implements OnInit {
     this.stockForm.quantity.val(event.args.row.bounddata.quantity);
   }
 
+  closeWindow(){
+    this.editStock.close();
+  }
+
   saveStock(){
     var stockData = {
-      production_id: sessionStorage.getItem('production_id'),
-      material_name: this.stockForm.materialName,
+      account: sessionStorage.getItem('production_id'),
       location: this.stockForm.location.val(),
       container: this.stockForm.container.val(),
       bin_number: this.stockForm.binNumber.val(),
@@ -55,10 +59,12 @@ export class EditStockComponent implements OnInit {
     console.log(stockData);
 
     this.editCommit.emit(stockData);
+    this.closeWindow();
   }
 
   deleteStock(){
     this.deleteCommit.emit(this.stockId);
+    this.closeWindow()
   }
 
 }

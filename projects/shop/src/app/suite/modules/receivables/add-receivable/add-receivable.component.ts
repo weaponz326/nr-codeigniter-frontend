@@ -31,6 +31,10 @@ export class AddReceivableComponent implements OnInit {
     this.addReceivable.open();
   }
 
+  closeWindow(){
+    this.addReceivable.close();
+  }
+
   saveReceivable(){
     var receivableData = {
       account: sessionStorage.getItem('shop_id'),
@@ -46,6 +50,7 @@ export class AddReceivableComponent implements OnInit {
     console.log(receivableData);
 
     this.addCommit.emit(receivableData);
+    this.closeWindow();
   }
 
 }

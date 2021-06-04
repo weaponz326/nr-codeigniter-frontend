@@ -16,7 +16,7 @@ export class EquipmentFormComponent implements OnInit {
   @ViewChild('equipmentCodeReference') equipmentCode: jqxInputComponent;
   @ViewChild('equipmentNameReference') equipmentName: jqxInputComponent;
   @ViewChild('equipmentTypeReference') equipmentType: jqxInputComponent;
-  @ViewChild('categoryTypeReference') category: jqxInputComponent;
+  @ViewChild('categoryReference') category: jqxInputComponent;
   @ViewChild('brandReference') brand: jqxInputComponent;
   @ViewChild('modelReference') model: jqxInputComponent;
   @ViewChild('serialNumberReference') serialNumber: jqxInputComponent;

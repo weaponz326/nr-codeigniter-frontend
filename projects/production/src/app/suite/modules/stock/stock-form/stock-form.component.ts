@@ -15,10 +15,11 @@ export class StockFormComponent implements OnInit {
   constructor() { }
 
   @ViewChild("materialNameReference") materialName: jqxInputComponent;
+  @ViewChild("materialCodeReference") materialCode: jqxInputComponent;
   @ViewChild("locationReference") location: jqxComboBoxComponent;
   @ViewChild("containerReference") container: jqxComboBoxComponent;
   @ViewChild("binNumberReference") binNumber: jqxComboBoxComponent;
-  @ViewChild("quantityCodeReference") quantity: jqxNumberInputComponent;
+  @ViewChild("quantityReference") quantity: jqxNumberInputComponent;
 
   ngOnInit(): void {
   }

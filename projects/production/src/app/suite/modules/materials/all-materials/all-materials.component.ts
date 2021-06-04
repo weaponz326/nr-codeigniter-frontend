@@ -78,10 +78,9 @@ export class AllMaterialsComponent implements OnInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Material ID", dataField: "material_code", width: "20%" },
-    { text: "Material Name", dataField: "material_name", width: "40%" },
-    { text: "Category", dataField: "category", width: "25%" },
-    { text: "quantity", dataField: "quantity", width: "15%" },
+    { text: "Material ID", dataField: "material_code", width: "25%" },
+    { text: "Material Name", dataField: "material_name", width: "45%" },
+    { text: "Category", dataField: "category", width: "30%" },
   ];
 
 }

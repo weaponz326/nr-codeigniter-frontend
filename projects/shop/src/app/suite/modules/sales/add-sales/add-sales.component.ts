@@ -31,6 +31,10 @@ export class AddSalesComponent implements OnInit {
     this.addSales.open();
   }
 
+  closeWindow(){
+    this.addSales.close();
+  }
+
   saveSales(){
     var salesData = {
       account: sessionStorage.getItem('shop_id'),
@@ -44,6 +48,7 @@ export class AddSalesComponent implements OnInit {
     console.log(salesData);
 
     this.addCommit.emit(salesData);
+    this.closeWindow();
   }
 
 }

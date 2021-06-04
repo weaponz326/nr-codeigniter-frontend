@@ -19,7 +19,7 @@ export class SalesFormComponent implements OnInit {
   @ViewChild("productCodeReference") productCode: jqxInputComponent;
   @ViewChild("salesDateReference") salesDate: jqxDateTimeInputComponent;
   @ViewChild("unitPriceReference") unitPrice: jqxNumberInputComponent;
-  @ViewChild("quantityCodeReference") quantity: jqxNumberInputComponent;
+  @ViewChild("quantityReference") quantity: jqxNumberInputComponent;
   @ViewChild("totalPriceReference") totalPrice: jqxNumberInputComponent;
 
   productId;

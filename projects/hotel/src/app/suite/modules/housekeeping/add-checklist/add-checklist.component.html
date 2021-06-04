@@ -1,1 +1,28 @@
-<p>add-checklist works!</p>
+<jqxWindow #addChecklistReference
+    [width]="540"
+    [height]="230"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Add New Checklist</div>
+
+    <div>
+
+        <!-- checklist component -->
+
+        <app-checklist-form #checklistFormComponentReference></app-checklist-form>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveChecklist()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

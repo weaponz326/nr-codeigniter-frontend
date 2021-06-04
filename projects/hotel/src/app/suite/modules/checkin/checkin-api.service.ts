@@ -14,10 +14,10 @@ export class CheckinApiService {
 
   hotelUrl = environment.hotelUrl;
 
-  // create and get all checkins belonging to user
+  // create and get all checkins belonging to account
 
   public getAllCheckin(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-checkin/checkin-list?user=" + sessionStorage.getItem('hotel_id'));
+    return this.http.get(this.hotelUrl + "module-checkin/checkin?account=" + sessionStorage.getItem('hotel_id'));
   }
 
   public postCheckin(checkin): Observable<any>{

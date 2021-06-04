@@ -68,11 +68,12 @@ export class ViewManufacturingComponent implements OnInit, AfterViewInit {
     console.log("u are updating a manufacturing");
 
     var manufacturingData = {
-      production_id: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('production_id'),
       manufacturing_code: this.manufacturingForm.manufacturingCode.val(),
       description: this.manufacturingForm.description.val(),
       start_date: this.manufacturingForm.startDate.val(),
       end_date: this.manufacturingForm.endDate.val(),
+      quantity: this.manufacturingForm.quantity.val(),
       manufacturing_status: this.manufacturingForm.manufacturingStatus.val(),
       remarks: this.manufacturingForm.remarks.val(),
     }

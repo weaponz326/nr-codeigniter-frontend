@@ -70,26 +70,33 @@
             <div class="row">
                 <div class="col-md-4"><label>Booking Status :</label></div>
                 <div class="col-md-8">
-                    <jqxDropDownList #statusReference
+                    <jqxDropDownList #bookingStatusReference
                         [width]="'100%'"
                         [height]="28"
                     ></jqxDropDownList>
                 </div>
             </div>
 
+            <hr />
+
             <div class="row">
                 <div class="col-md-12">
-                    <jqxButton #cancelButtonReference class="float-right"
+                    <jqxButton #printReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/bookings/all-bookings"
                         [width]="100"
                         [height]="28"
                     >Cancel</jqxButton>
 
-                    <jqxButton #deleteButtonReference class="float-right"
+                    <jqxButton #deleteButtonReference class="float-right" (click)="deleteBooking()"
                         [width]="100"
                         [height]="28"
                     >Delete</jqxButton>
 
-                    <jqxButton #saveButtonReference class="float-right"
+                    <jqxButton #saveButtonReference class="float-right" (click)="saveBooking()"
                         [width]="100"
                         [height]="28"
                     >Save</jqxButton>
@@ -102,7 +109,8 @@
 
     <div class="row">
         <div class="col-md-7">
-            <hr />
+            <hr class="top-divider" />
+            <hr class="bottom-divider" />
         </div>
     </div>
 
@@ -111,3 +119,9 @@
     <app-booking-details></app-booking-details>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

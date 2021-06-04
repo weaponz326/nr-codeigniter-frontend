@@ -4,10 +4,15 @@
 
     <div class="row top-button-row">
         <div class="col-md-12">
-            <jqxButton #buttonReference routerLink="/suite/payments/add-payment"
+            <jqxButton #buttonReference routerLink="/suite/payments/new-payment"
                 [width]="150"
                 [height]="30"
             >New Payment</jqxButton>
+
+            <jqxButton #printReference class="float-right"
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
         </div>
     </div>
 

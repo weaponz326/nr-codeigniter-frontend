@@ -22,6 +22,7 @@ import { ViewHousekeepingComponent } from './view-housekeeping/view-housekeeping
 import { ChecklistComponent } from './checklist/checklist.component';
 import { AddChecklistComponent } from './add-checklist/add-checklist.component';
 import { EditChecklistComponent } from './edit-checklist/edit-checklist.component';
+import { ChecklistFormComponent } from './checklist-form/checklist-form.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { EditChecklistComponent } from './edit-checklist/edit-checklist.componen
     ViewHousekeepingComponent,
     ChecklistComponent,
     AddChecklistComponent,
-    EditChecklistComponent],
+    EditChecklistComponent,
+    ChecklistFormComponent],
   imports: [
     CommonModule,
     HousekeepingRoutingModule,

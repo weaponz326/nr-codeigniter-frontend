@@ -14,10 +14,10 @@ export class EquipmentApiService {
 
   productionUrl = environment.productionUrl;
 
-  // create and get all equipment belonging to user
+  // create and get all equipment belonging to account
 
   public getAllEquipment(): Observable<any>{
-    return this.http.get(this.productionUrl + "module-equipment/equipment-list?user=" + sessionStorage.getItem('production_id'));
+    return this.http.get(this.productionUrl + "module-equipment/equipment?account=" + sessionStorage.getItem('production_id'));
   }
 
   public postEquipment(equipment): Observable<any>{

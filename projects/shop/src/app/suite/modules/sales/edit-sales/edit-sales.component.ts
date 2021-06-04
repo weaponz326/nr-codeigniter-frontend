@@ -43,6 +43,10 @@ export class EditSalesComponent implements OnInit {
     this.salesForm.quantity.val(event.args.row.bounddata.quantity);
   }
 
+  closeWindow(){
+    this.editSales.close();
+  }
+
   saveSales(){
     var salesData = {
       id: this.salesId,
@@ -57,10 +61,12 @@ export class EditSalesComponent implements OnInit {
     console.log(salesData);
 
     this.editCommit.emit(salesData);
+    this.closeWindow();
   }
 
   deleteSales(){
     this.deleteCommit.emit(this.salesId);
+    this.closeWindow();
   }
 
 }

@@ -41,12 +41,16 @@ export class NewHousekeepingComponent implements OnInit {
     this.newHousekeeping.open();
   }
 
+  closeWindow(){
+    this.newHousekeeping.close();
+  }
+
   saveHousekeeping(){
     console.log('u are saving a new room');
     this.loadingSpinner.httpLoader.open();
 
     var housekeepingData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       housekeeping_code: this.housekeepingCode.val(),
       housekeeping_date: this.housekeepingDate.val(),
       room_number: this.roomNumber.val(),
@@ -54,14 +58,15 @@ export class NewHousekeepingComponent implements OnInit {
 
     console.log(housekeepingData);
 
-    this.housekeepingApi.postHousekeeping(housekeepingData)
+    this.housekeepingApi.postHouseKeeping(housekeepingData)
       .subscribe(
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('housekeeping_id', res.housekeeping_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('housekeeping_id', res.data.id);
+            this.closeWindow();
             this.router.navigateByUrl('/suite/housekeeping/view-housekeeping');
           }
         },
