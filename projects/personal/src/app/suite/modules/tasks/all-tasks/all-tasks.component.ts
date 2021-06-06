@@ -1,9 +1,13 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
-import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { TasksApiService } from '../tasks-api.service';
+import { AddTaskComponent } from '../add-task/add-task.component';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
+
+import { LoadingSpinnerComponent } from '../../../utilities/loading-spinner/loading-spinner.component';
+import { ConnectionNotificationComponent } from '../../../utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -15,60 +19,112 @@ export class AllTasksComponent implements OnInit, AfterViewInit {
 
   constructor(private tasksApi: TasksApiService) { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
+
+  @ViewChild("addTaskComponentReference") addTask: AddTaskComponent;;
+  @ViewChild("editTaskComponentReference") editTask: EditTaskComponent;;
+
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   navHeading: any[] = [
     { text: "All Tasks", url: "/suite/tasks/all-tasks" },
   ];
 
+  taskList: any[] = [];
+
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    this.grid.showloadelement();
     this.getData();
   }
 
   getData(){
+    this.loadingSpinner.httpLoader.open();
+
     this.tasksApi.getTasks()
       .subscribe(
         res => {
           console.log(res);
-          this.source.localdata = res;
-          this.grid.updatebounddata();
+          this.taskList = res;
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);
+          this.connectionNotification.errorNotification.open();
+          this.loadingSpinner.httpLoader.close();
         }
       )
   }
 
-  // widgets
-  // ---------------------------------------------------------------------------------
+  onTaskAdded(e: any) {
+    this.loadingSpinner.httpLoader.open();
 
-  source: any = {
-    localdata: null,
-    dataType: 'json',
-    dataFields: [
-      { name: 'id', type: 'string' },
-      { name: 'date_added', type: 'string' },
-      { name: 'task_name', type: 'string' },
-      { name: 'priority', type: 'string' },
-      { name: 'progress', type: 'string' },
-      { name: 'visibility', type: 'string' },
-    ],
-    id: 'id',
- };
+    let taskData = {
+      user: localStorage.getItem('personal_id'),
+      task_name: e.task_name,
+      description: e.description,
+      task_date: e.task_date,
+      task_time: e.task_time,
+      task_status: e.task_status,
+    }
 
-  dataAdapter: any = new jqx.dataAdapter(this.source);
+    this.tasksApi.postTask(taskData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.taskList.unshift(e);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+          this.loadingSpinner.httpLoader.close();
+        }
+      )
+  }
 
-  columns: any[] = [
-    { text: "Date Added", dataField: "date_added", filterType: "range", width: "18%" },
-    { text: "Task Name", dataField: "task_name", width: "37%" },
-    { text: "Priority", dataField: "priority", width: "15%" },
-    { text: "Progress", dataField: "progress", width: "15%" },
-    { text: "Visibility", dataField: "visibility", width: "15%" },
-  ];
+  onTaskEdited(e: any) {
+    this.loadingSpinner.httpLoader.open();
+
+    this.tasksApi.putTask(e.id, e.data)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.taskList[e.index] = e.data;
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+          this.loadingSpinner.httpLoader.close();
+        }
+      )
+  }
+
+  onTaskDeleted(e: any) {
+    this.loadingSpinner.httpLoader.open();
+
+    this.tasksApi.deleteTask(e.id)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.taskList.splice(e.index, 1);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+          this.loadingSpinner.httpLoader.close();
+        }
+      )
+  }
+
+  openEditTask(index) {
+    console.log(index);
+
+    this.editTask.openWindow(this.taskList[index], index);
+  }
 
 }

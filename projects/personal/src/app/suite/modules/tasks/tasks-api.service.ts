@@ -15,11 +15,25 @@ export class TasksApiService {
   personalUrl = environment.personalUrl;
 
   public getTasks(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-tasks/task-list?user=" + localStorage.getItem('personal_id'));
+    return this.http.get(this.personalUrl + "module-tasks/task?user=" + localStorage.getItem('personal_id'));
   }
 
   public postTask(task): Observable<any>{
-    return this.http.post(this.personalUrl + "module-tasks/task", task);
+    return this.http.post(this.personalUrl + "module-tasks/task/", task);
+  }
+
+  // retreive, update and delete task
+
+  public getSingleTask(taskId): Observable<any>{
+    return this.http.get(this.personalUrl + "module-task/task/" + taskId);
+  }
+
+  public putTask(taskId, task): Observable<any>{
+    return this.http.put(this.personalUrl + "module-task/task/" + taskId, task);
+  }
+
+  public deleteTask(taskId): Observable<any>{
+    return this.http.delete(this.personalUrl + "module-task/task/" + taskId);
   }
 
 }

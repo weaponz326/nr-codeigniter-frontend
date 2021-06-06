@@ -2,25 +2,52 @@
 
 <div class="container">
 
-    <div class="row">
-        <div class="col-md-10">
-            <jqxGrid #gridReference
-                [width]="'100%'"
-                [height]="400"
-                [source]="dataAdapter"
-                [sortable]="true"
-                [filterable]="true"
-                [showfilterrow]="true"
-                [columns]="columns"
-            ></jqxGrid>
-        </div>
-
-        <div class="col-md-2">
-            <jqxButton #buttonReference routerLink="/suite/tasks/kanban"
+    <div class="row top-button-row">
+        <div class="col-md-12">
+            <jqxButton #newButtonReference (click)="addTaskComponentReference.openWindow()"
                 [width]="150"
-                [height]="35"
-            >View Kanban</jqxButton>
+                [height]="30"
+            >Add Task</jqxButton>
+
+            <jqxButton #printReference class="float-right"
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-7">
+            <div *ngFor="let task of taskList; index as i" class="task-item">
+                <div class="mr-2 my-auto">
+                    <jqxCheckBox #taskStatusReference></jqxCheckBox>
+                </div>
+                <div (dblclick)="openEditTask(i)">
+                    <span>{{task.task_name}}</span><br />
+                    <small class="mr-2">{{task.task_date}}</small>
+                    <small>{{task.task_time}}</small>
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
+
+<!-- add task popup dialog window -->
+
+<app-add-task #addTaskComponentReference
+    (taskAdded)="onTaskAdded($event)"
+></app-add-task>
+
+<!-- edit task popup dialog window -->
+
+<app-edit-task #editTaskComponentReference
+    (taskEdited)="onTaskEdited($event)"
+    (taskDeleted)="onTaskDeleted($event)"
+></app-edit-task>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

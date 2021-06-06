@@ -2,8 +2,8 @@ import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/cor
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxCheckBoxComponent } from 'jqwidgets-ng/jqxcheckbox';
+import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 
 @Component({
   selector: 'app-task-form',
@@ -16,9 +16,9 @@ export class TaskFormComponent implements OnInit {
 
   @ViewChild("taskNameReference") taskName: jqxInputComponent;
   @ViewChild("descriptionReference") description: jqxTextAreaComponent;
-  @ViewChild("priorityReference") priority: jqxDropDownListComponent;
-  @ViewChild("progressReference") progress: jqxDropDownListComponent;
-  @ViewChild("visibilityReference") visibility: jqxCheckBoxComponent;
+  @ViewChild("taskDateReference") taskDate: jqxDateTimeInputComponent;
+  @ViewChild("taskTimeReference") taskTime: jqxDateTimeInputComponent;
+  @ViewChild("taskStatusReference") taskStatus: jqxCheckBoxComponent;
 
   ngOnInit(): void {
   }

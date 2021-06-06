@@ -17,11 +17,4 @@ export class MainTopComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signup(e){
-    e.stopPropagation();
-    this.router.navigateByUrl("/signup");
-
-    console.log("u wanna sign up ...that's cool");
-  }
-
 }

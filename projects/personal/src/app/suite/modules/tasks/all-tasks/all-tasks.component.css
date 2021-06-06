@@ -1,0 +1,17 @@
+.task-item {
+  border-radius: 4px;
+  margin-bottom: 6px;
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  position: relative;
+  box-shadow: #ddd 2px 2px 3px;
+  cursor: pointer;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+.task-item div {
+  display: inline-block;
+}

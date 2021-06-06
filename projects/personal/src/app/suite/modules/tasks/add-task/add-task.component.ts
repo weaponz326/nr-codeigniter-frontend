@@ -29,16 +29,22 @@ export class AddTaskComponent implements OnInit {
     this.addTaskWindow.open();
   }
 
+  closeWindow(){
+    this.addTaskWindow.close();
+  }
+
   addTask(){
     let taskData = {
       task_name: this.taskForm.taskName.val(),
       description: this.taskForm.description.val(),
-      priority: this.taskForm.priority.val(),
-      progress: this.taskForm.progress.val(),
-      visibility: this.taskForm.visibility.val()
+      task_date: this.taskForm.taskDate.val(),
+      task_time: this.taskForm.taskTime.val(),
+      task_status: this.taskForm.taskStatus.val()
     }
 
     this.taskAdded.emit(taskData);
+    this.closeWindow();
+
     console.log(taskData);
   }
 

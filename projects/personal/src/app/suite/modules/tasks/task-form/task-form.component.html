@@ -19,36 +19,34 @@
 </div>
 
 <div>
-    <div class="edit-dialog-label">Priority</div>
+    <div class="edit-dialog-label">Date</div>
     <div class="edit-dialog-field">
-        <jqxDropDownList #priorityReference
+        <jqxDateTimeInput #taskDateReference
             [width]="'100%'"
             [height]="25"
-            [autoDropDownHeight]="true"
-            [source]="prioritySource"
-            [selectedIndex]="2"
-        ></jqxDropDownList>
+            [formatString]="'yyyy-MM-dd'"
+        ></jqxDateTimeInput>
     </div>
 </div>
 
 <div>
-    <div class="edit-dialog-label">Progress</div>
+    <div class="edit-dialog-label">Time</div>
     <div class="edit-dialog-field">
-        <jqxDropDownList #progressReference
+        <jqxDateTimeInput #taskTimeReference
             [width]="'100%'"
             [height]="25"
-            [autoDropDownHeight]="true"
-            [source]="progressSource"
-            [selectedIndex]="0"
-        ></jqxDropDownList>
+            [showCalendarButton]="false"
+            [showTimeButton]="true"
+            [formatString]="'hh:mm'"
+        ></jqxDateTimeInput>
     </div>
 </div>
 
 <div>
-    <div class="edit-dialog-label">Visibilty</div>
+    <div class="edit-dialog-label">Task Status</div>
     <div class="edit-dialog-field">
-        <jqxCheckBox #visibilityReference
-            [checked]="true"
+        <jqxCheckBox #taskStatusReference
+            [checked]="false"
         ></jqxCheckBox>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <jqxWindow #editTaskReference
     [width]="540"
-    [height]="260"
+    [height]="270"
     [autoOpen]="false">
 
     <div>Edit Task</div>
@@ -9,17 +9,17 @@
 
         <!-- task form elements -->
 
-        <app-task-form></app-task-form>
+        <app-task-form #taskFormComponentReference></app-task-form>
 
         <div>
             <div class="edit-dialog-field edit-dialog-buttons">
-                <jqxButton #cancelButtonReference
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
 
-                <jqxButton #deleteButtonReference
+                <jqxButton #deleteButtonReference (click)="deleteTask()"
                 >Delete</jqxButton>
 
-                <jqxButton #saveButtonReference
+                <jqxButton #saveButtonReference (click)="editTask()"
                 >Save</jqxButton>
             </div>
         </div>
