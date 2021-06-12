@@ -32,33 +32,26 @@ export class UserTopComponent implements OnInit {
 
   ngOnInit(): void {
     // set redirection message according to user source
-    this.navbarApi.getSource()
-      .subscribe(
-        res => {
-          if (res.user_source == "hospital"){
-            this.noAccountMsg = "you don't have any Hospital accounts";
-          }else if (res.user_source == "restaurant"){
-            this.noAccountMsg = "you don't have any Restaurant accounts";
-          }else if (res.user_source == "school"){
-            this.noAccountMsg = "you don't have any School accounts";
-          }else if (res.user_source == "enterprise"){
-            this.noAccountMsg = "you don't have any Enterprise accounts";
-          }else if (res.user_source == "hotel"){
-            this.noAccountMsg = "you don't have any Hotel accounts";
-          }else if (res.user_source == "shop"){
-            this.noAccountMsg = "you don't have any Shop accounts";
-          }else if (res.user_source == "production"){
-            this.noAccountMsg = "you don't have any Production accounts";
-          }else{
-            this.noAccountMsg = "you don't have any accounts";
-          }
 
-          console.log(res.user_source);
-        },
-        err => {
-          console.log(err);
-        }
-      )
+    if (this.source == "hospital"){
+      this.noAccountMsg = "you don't have any Hospital accounts";
+    }else if (this.source == "restaurant"){
+      this.noAccountMsg = "you don't have any Restaurant accounts";
+    }else if (this.source == "school"){
+      this.noAccountMsg = "you don't have any School accounts";
+    }else if (this.source == "enterprise"){
+      this.noAccountMsg = "you don't have any Enterprise accounts";
+    }else if (this.source == "hotel"){
+      this.noAccountMsg = "you don't have any Hotel accounts";
+    }else if (this.source == "shop"){
+      this.noAccountMsg = "you don't have any Shop accounts";
+    }else if (this.source == "production"){
+      this.noAccountMsg = "you don't have any Production accounts";
+    }else{
+      this.noAccountMsg = "you don't have any accounts";
+    }
+
+    console.log(this.source);
   }
 
 }

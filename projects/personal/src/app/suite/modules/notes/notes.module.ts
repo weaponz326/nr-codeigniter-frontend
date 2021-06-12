@@ -5,6 +5,7 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxEditorModule } from 'jqwidgets-ng/jqxeditor';
 import { jqxFileUploadModule } from 'jqwidgets-ng/jqxfileupload';
 import { jqxListBoxModule } from 'jqwidgets-ng/jqxlistbox';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
@@ -37,6 +38,7 @@ import { SettingsComponent } from './settings/settings.component';
     jqxEditorModule,
     jqxFileUploadModule,
     jqxListBoxModule,
+    jqxPanelModule,
     jqxButtonModule,
     jqxDateTimeInputModule,
     jqxGridModule

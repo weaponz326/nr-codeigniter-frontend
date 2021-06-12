@@ -1,8 +1,8 @@
-#aboutDiv .card-footer{
+#aboutDiv .card-body{
   padding: 25px;
 }
 
-#aboutDiv .card-footer h5{
+#aboutDiv .card-body h5{
   display: inline-block;
 	padding-left: 20px;
 }

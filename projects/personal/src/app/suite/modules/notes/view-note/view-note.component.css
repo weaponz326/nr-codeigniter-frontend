@@ -1,3 +1,11 @@
 #editorSpace .row{
     margin-bottom: 10px;
 }
+
+.browse-button {
+    margin: 3px;
+}
+
+.file-upload{
+  display: none;
+}

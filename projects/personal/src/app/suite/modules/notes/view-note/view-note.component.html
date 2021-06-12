@@ -9,7 +9,7 @@
                 <div class="col-md-3">
                     <label class="float-right">Subject :</label>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-7">
                     <jqxInput #inputReference
                         (onChange)="sendSubject($event)"
                         [width]="'100%'"
@@ -29,18 +29,27 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <label>Attachments :</label>
-                    <jqxFileUpload #fileUploadReference
-                        [width]="'100%'"
-                        [height]="50"
-                        [uploadUrl]=""
-                    ></jqxFileUpload>
+                <div class="col-md-3">
+                    <label class="float-right">Attachments :</label>
                 </div>
-                <div class="col-md-6">
-                    <jqxListBox #listBoxReference
+                <div class="col-md-7">
+                    <input #fileUpload id="uploadInput" type="file" class="file-upload" multiple (change)="onFileSelected($event) "/>
+                    <jqxButton *ngIf="!isFileSelected" #fileSelectButtonReference class="m-1" (click)="fileUpload.click()"
+                    >Browse</jqxButton>
+
+                    <jqxButton *ngIf="isFileSelected" #fileUploadButtonReference class="m-1"
+                    >Upload</jqxButton>
+                    <jqxButton *ngIf="isFileSelected" #fileCancelButtonReference class="m-1 mr-2"
+                    >Cancel</jqxButton>
+
+                    <span class="text-info">{{selectMsg}}</span>
+                </div>
+
+                <div class="offset-md-3 col-md-7">
+                    <jqxListBox #fileListBoxReference
                         [width]="'100%'"
-                        [height]="85"
+                        [height]="110"
+                        [source]="filesSource"
                     ></jqxListBox>
                 </div>
             </div>

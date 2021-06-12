@@ -9,4 +9,9 @@
 
 #pricingDiv .card{
 	height: 100%;
+  box-shadow: 0px 2px 5px 0px;
+}
+
+#pricingDiv .card:hover{
+  box-shadow: 0px 2px 8px 0px;
 }

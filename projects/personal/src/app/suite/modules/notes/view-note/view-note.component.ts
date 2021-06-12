@@ -29,8 +29,7 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild("inputReference") input: jqxInputComponent;
   @ViewChild("editorReference") editor: jqxEditorComponent;
-  @ViewChild("fileUploadReference") fileUpload: jqxFileUploadComponent;
-  @ViewChild("lsitBoxReference") listBox: jqxListBoxComponent;
+  @ViewChild("fileListBoxReference") fileListBox: jqxListBoxComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
   @ViewChild("allNotesButtonReference") allNotesButton: jqxButtonComponent;
@@ -44,7 +43,29 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
     { text: "View Note", url: "/suite/notes/view-note" },
   ];
 
+  isFileSelected = false;
+  selectMsg = '';
+  filesSource: any[] = [];
+
   ngOnInit(): void {
+  }
+
+  onFileSelected(e: any){
+    this.isFileSelected = true;
+    this.selectMsg = e.target.files.length + ' files selected';
+    for (let i = 0; i < e.target.files.length; i++) {
+      let file: File = e.target.files[i];
+
+      // this.fileListBox.addItem(file.name);
+
+      if (file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (e: any) => {
+          // this.filesSource = e.target.result;
+        }
+      }
+    }
   }
 
   ngAfterViewInit(): void {
