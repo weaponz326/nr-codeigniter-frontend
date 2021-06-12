@@ -21,10 +21,20 @@ export class FormContainerComponent implements OnInit {
     var route = this.router.url;
     console.log(route);
 
-    if (route.includes("/signup")){
+    if (route.includes("/user-auth/signup")){
       this.formHeading = "sign up with netRink";
-    }else if(route.includes("/login")){
+    }
+    else if(route.includes("/user-auth/register")){
+      this.formHeading = "complete your registration";
+    }
+    else if(route.includes("/user-auth/login")){
       this.formHeading = "log in to netRink";
+    }
+    else if(route.includes("/user-auth/recovery")){
+      this.formHeading = "Recover your account";
+    }
+    else if(route.includes("/user-auth/reset")){
+      this.formHeading = "Reset your password";
     }
   }
 

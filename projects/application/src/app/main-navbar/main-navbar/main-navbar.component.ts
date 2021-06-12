@@ -18,7 +18,7 @@ export class MainNavbarComponent implements OnInit {
   @Input() source: "string"
   @Input() navBrand: "string"
 
-  logged_in: any;
+  isLogin: any;
   name: any;
 
   ngOnInit(): void {
@@ -39,13 +39,15 @@ export class MainNavbarComponent implements OnInit {
         res => {
           console.log(res);
 
-          this.logged_in = res.logged_in;
-          this.name = res.name;
-          localStorage.setItem('personal_id', res.id);
+          if(res.pk) {
+            this.isLogin = true;
+            this.name = res.first_name;
+            localStorage.setItem('personal_id', res.pk);
+          }
         },
         err => {
           console.log(err);
-          this.logged_in = false;
+          this.isLogin = false;
         }
       )
   }
@@ -60,14 +62,14 @@ export class MainNavbarComponent implements OnInit {
 
   login(e){
     e.stopPropagation();
-    this.router.navigateByUrl("/login");
+    this.router.navigateByUrl("/user-auth/login");
 
     console.log("u wanna log in ...");
   }
 
   signup(e){
     e.stopPropagation();
-    this.router.navigateByUrl("/signup");
+    this.router.navigateByUrl("user-auth/signup");
 
     console.log("u wanna sign up ...that's cool");
   }

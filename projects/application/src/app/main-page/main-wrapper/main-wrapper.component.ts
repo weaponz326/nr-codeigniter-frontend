@@ -16,16 +16,26 @@ export class MainWrapperComponent implements OnInit {
 
   constructor() { }
 
-  baseUrl = environment.baseUrl;
-  personalUrl = environment.personalUrl;
-  hospitalUrl = environment.hospitalUrl;
-  restaurantUrl = environment.restaurantUrl;
-  schoolUrl = environment.schoolUrl;
-  enterpriseUrl = environment.enterpriseUrl;
-  associationUrl = environment.associationUrl;
-  hotelUrl = environment.hotelUrl;
-  shopUrl = environment.shopUrl;
-  productionUrl = environment.productionUrl;
+  // baseUrl = environment.baseUrl;
+  // personalUrl = environment.personalUrl;
+  // hospitalUrl = environment.hospitalUrl;
+  // restaurantUrl = environment.restaurantUrl;
+  // schoolUrl = environment.schoolUrl;
+  // enterpriseUrl = environment.enterpriseUrl;
+  // associationUrl = environment.associationUrl;
+  // hotelUrl = environment.hotelUrl;
+  // shopUrl = environment.shopUrl;
+  // productionUrl = environment.productionUrl;
+
+  personalUrl = 'https://personal.netrink.com';
+  hospitalUrl = 'https://hospital.netrink.com';
+  restaurantUrl = 'https://restaurant.netrink.com';
+  schoolUrl = 'https://school.netrink.com';
+  enterpriseUrl = 'https://enterprise.netrink.com';
+  associationUrl = 'https://association.netrink.com';
+  hotelUrl = 'https://hotel.netrink.com';
+  shopUrl = 'https://shop.netrink.com';
+  productionUrl = 'https://production.netrink.com';
 
   ngOnInit(): void {
   }

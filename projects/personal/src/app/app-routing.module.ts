@@ -8,16 +8,12 @@ const routes: Routes = [
     loadChildren: () => import("./guest-page/guest-page.module").then(m => m.GuestPageModule)
   },
   {
+    path: "user-auth",
+    loadChildren: () => import("./user-auth/user-auth.module").then(m => m.UserAuthModule)
+  },
+  {
     path: "guest",
     loadChildren: () => import("./guest-page/guest-page.module").then(m => m.GuestPageModule)
-  },
-  {
-    path: "signup",
-    loadChildren: () => import("./signup/signup.module").then(m => m.SignupModule)
-  },
-  {
-    path: "login",
-    loadChildren: () => import("./login/login.module").then(m => m.LoginModule)
   },
   {
     path: "suite",

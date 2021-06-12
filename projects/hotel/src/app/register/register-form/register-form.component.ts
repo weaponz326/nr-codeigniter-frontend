@@ -18,8 +18,6 @@ export class RegisterFormComponent implements OnInit {
     private registerApi: RegisterApiService
   ) { }
 
-  mergedObject: any;       // for storing merged user id and register form profiles
-
   personalId: any = {
     personal_id: localStorage.getItem('personal_id')
   }
@@ -34,21 +32,19 @@ export class RegisterFormComponent implements OnInit {
   locErrors: any[] = [];
   abtErrors: any[] = [];
 
+  showPrompt = false;
+
   ngOnInit(): void {
   }
 
   registerSubmit(){
-    // merge personal id and profile form jsons
-    this.mergedObject = Object.assign(this.registerForm.value, this.personalId);
-    console.log(this.mergedObject);
-
-    this.registerApi.postProfile(this.mergedObject)
+    this.registerApi.postProfile(this.registerForm)
       .subscribe(
         res => {
           console.log(res);
 
           if(res.status == true){
-            this.router.navigateByUrl("/register/success");
+            this.showPrompt = true;
           }else if(res.status == false){
             this.nameErrors = res.errors.name;
             this.locErrors = res.errors.location;

@@ -1,0 +1,46 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Email</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter your user email" required autofocus>
+            <div *ngFor="let emailError of emailErrors">
+                <small class="text-danger">{{emailError}}</small><br />
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-12">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Enter your login password" required>
+            <div *ngFor="let passErr of passErrors">
+                <small class="text-danger">{{passErr}}</small><br />
+            </div>
+            <div *ngFor="let nfErr of nfErrors">
+                <small class="text-danger">{{nfErr}}</small><br />
+            </div>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-12">
+            <button type="submit" class="float-right btn btn-success mb-2">Login</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md 12">
+        <small class="text-center">
+            <a href="#" routerLink="/user-auth/recovery">
+                <p>forgot your password?</p>
+            </a>
+        </small>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <small class="text-center text-muted">
+            <p>Don't have an account? <a href="#" routerLnk="/user-auth/signup">sign up</a></p>
+        </small>
+    </div>
+</div>

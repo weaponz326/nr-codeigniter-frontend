@@ -5,7 +5,7 @@
            <a href="#" (click)="goHome($event)" class="navbar-brand">{{navBrand}}</a>
         </div>
 
-        <div *ngIf="this.logged_in == true; then loggedinBlock else notLoggedinBlock"></div>
+        <div *ngIf="this.isLogin; then loggedinBlock else notLoggedinBlock"></div>
 
         <ng-template #notLoggedinBlock>
             <form class="form-inline nav-form">

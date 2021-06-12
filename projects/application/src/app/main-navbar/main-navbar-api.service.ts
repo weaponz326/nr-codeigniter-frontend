@@ -25,20 +25,20 @@ export class MainNavbarApiService {
   headers = new HttpHeaders()
     .set('Authorization', "Token " + localStorage.getItem('token'));
 
+  public getUser(): Observable<any>{
+    return this.http.get(this.personalUrl + "users/rest-auth/user/", { 'headers': this.headers });
+  }
+
+  public postLogout(): Observable<any>{
+    return this.http.post(this.personalUrl + "users/rest-auth/logout/", {});
+  }
+
   public postSource(source): Observable<any>{
     return this.http.post(this.baseUrl + "main/user-source/", { "user_source": source }, { withCredentials: true });
   }
 
   public getSource(): Observable<any>{
     return this.http.get(this.baseUrl + "main/user-source/", { withCredentials: true });
-  }
-
-  public getUser(): Observable<any>{
-    return this.http.get(this.personalUrl + "users/login-status/", { 'headers': this.headers });
-  }
-
-  public postLogout(): Observable<any>{
-    return this.http.post(this.personalUrl + "users/rest-auth/logout/", {});
   }
 
   // check if user has any active suite session

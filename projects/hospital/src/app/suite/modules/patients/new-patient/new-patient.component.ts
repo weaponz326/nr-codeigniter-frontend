@@ -50,7 +50,7 @@ export class NewPatientComponent implements OnInit {
       last_name: this.patientForm.lastNameInput.val(),
       sex: this.patientForm.sexDropDownList.val(),
       date_of_birth: dob,
-      photo: this.patientForm.image,
+      photo: this.patientForm.photo.nativeElement.value,
       nationality: this.patientForm.nationalityInput.val(),
       religion: this.patientForm.religionInput.val(),
       occupation: this.patientForm.occupationInput.val(),
