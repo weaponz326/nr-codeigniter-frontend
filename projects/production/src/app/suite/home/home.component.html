@@ -142,7 +142,7 @@
             <div class="col-md-2 col-sm-6 text-center">
                 <jqxTooltip #workersTooltipReference
                     [position]="'mouse'"
-                    [content]="'Manage all workers'">
+                    [content]="'Manage all technical workers'">
 
                     <a routerLink="/suite/workers/dashboard">
                         <figure>
@@ -245,6 +245,21 @@
                         <figure>
                             <img src="../../../assets/images/modules/materials.png" class="home-icons" />
                             <figcaption>Materials</figcaption>
+                        </figure>
+                    </a>
+
+                </jqxTooltip>
+            </div>
+
+            <div class="col-md-2 col-sm-6 text-center">
+                <jqxTooltip #staffTooltipReference
+                    [position]="'mouse'"
+                    [content]="'Manage non technical staff'">
+
+                    <a routerLink="/suite/staff/dashboard">
+                        <figure>
+                            <img src="../../../assets/images/modules/staff.png" class="home-icons" />
+                            <figcaption>Staff</figcaption>
                         </figure>
                     </a>
 

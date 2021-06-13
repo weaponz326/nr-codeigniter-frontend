@@ -60,6 +60,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/materials/materials.module").then(m => m.MaterialsModule)
   },
   {
+    path: "staff",
+    loadChildren: () => import("./modules/staff/staff.module").then(m => m.StaffModule)
+  },
+  {
     path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },
