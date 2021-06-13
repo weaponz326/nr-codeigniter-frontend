@@ -51,6 +51,7 @@ export class NewWorkerComponent implements OnInit {
       last_name: this.workerForm.lastNameInput.val(),
       sex: this.workerForm.sexDropDownList.val(),
       date_of_birth: dob,
+      photo: this.workerForm.image,
       nationality: this.workerForm.nationalityInput.val(),
       religion: this.workerForm.religionInput.val(),
       phone: this.workerForm.phoneInput.val(),

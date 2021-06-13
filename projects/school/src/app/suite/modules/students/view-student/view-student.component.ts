@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/school/src/environments/environment';
+
 import { StudentsApiService } from '../students-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -54,6 +56,10 @@ export class ViewStudentComponent implements OnInit, AfterViewInit {
             this.studentForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.studentForm.imgSrc = environment.schoolUrl + res.photo;
+          }
+
           this.studentForm.firstName.val(res.first_name);
           this.studentForm.lastName.val(res.last_name);
           this.studentForm.sex.val(res.sex);
@@ -87,11 +93,12 @@ export class ViewStudentComponent implements OnInit, AfterViewInit {
     else dob = this.studentForm.dobYear.val() + '-' + this.studentForm.dobMonth.val() + '-' + this.studentForm.dobDay.val();
 
     var studentData = {
-      school_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('school_id'),
       first_name: this.studentForm.firstName.val(),
       last_name: this.studentForm.lastName.val(),
       sex: this.studentForm.sex.val(),
       date_of_birth: dob,
+      photo: this.studentForm.image,
       nationality: this.studentForm.nationality.val(),
       religion: this.studentForm.religion.val(),
       email: this.studentForm.email.val(),

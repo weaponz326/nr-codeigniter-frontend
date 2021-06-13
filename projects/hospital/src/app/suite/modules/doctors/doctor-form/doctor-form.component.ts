@@ -49,9 +49,10 @@ export class DoctorFormComponent implements OnInit {
 
     if (file) {
       var reader = new FileReader();
-      this.image = reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
       reader.onload = (e: any) => {
         this.imgSrc = e.target.result;
+        this.image = reader.result;
       }
     }
   }

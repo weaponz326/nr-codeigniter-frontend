@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/association/src/environments/environment';
+
 import { MembersApiService } from '../members-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -46,6 +48,11 @@ export class ViewMemberComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.photo != null){
+            this.memberForm.imgSrc = environment.associationUrl + res.photo;
+          }
+
           this.memberForm.firstName.val(res.first_name);
           this.memberForm.lastName.val(res.last_name);
           this.memberForm.sex.val(res.sex);

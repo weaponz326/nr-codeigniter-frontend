@@ -46,7 +46,7 @@ export class NewCustomerComponent implements OnInit {
       first_name: this.customerForm.firstNameInput.val(),
       last_name: this.customerForm.lastNameInput.val(),
       sex: this.customerForm.sexDropDownList.val(),
-      photo: this.customerForm.image,
+      // photo: this.customerForm.image,
       phone: this.customerForm.phoneInput.val(),
       email: this.customerForm.emailInput.val(),
       address: this.customerForm.addressInput.val(),

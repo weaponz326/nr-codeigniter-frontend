@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/restaurant/src/environments/environment';
+
 import { StaffApiService } from '../staff-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -54,10 +56,13 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
             this.staffForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.staffForm.imgSrc = environment.restaurantUrl + res.photo;
+          }
+
           this.staffForm.firstNameInput.val(res.first_name);
           this.staffForm.lastNameInput.val(res.last_name);
           this.staffForm.sexDropDownList.val(res.sex);
-          this.staffForm.photo.nativeElement.value = res.photo;
           this.staffForm.nationalityInput.val(res.nationality);
           this.staffForm.religionInput.val(res.religion);
           this.staffForm.phoneInput.val(res.phone);
@@ -86,7 +91,7 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
     else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();
 
     var staffData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       first_name: this.staffForm.firstNameInput.val(),
       last_name: this.staffForm.lastNameInput.val(),
       sex: this.staffForm.sexDropDownList.val(),

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/shop/src/environments/environment';
+
 import { StaffApiService } from '../staff-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -54,6 +56,10 @@ export class ViewStaffComponent implements OnInit {
             this.staffForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.staffForm.imgSrc = environment.shopUrl + res.photo;
+          }
+
           this.staffForm.firstName.val(res.first_name);
           this.staffForm.lastName.val(res.last_name);
           this.staffForm.sex.val(res.sex);
@@ -90,6 +96,7 @@ export class ViewStaffComponent implements OnInit {
       last_name: this.staffForm.lastName.val(),
       sex: this.staffForm.sex.val(),
       date_of_birth: dob,
+      photo: this.staffForm.image,
       nationality: this.staffForm.nationality.val(),
       religion: this.staffForm.religion.val(),
       phone: this.staffForm.phone.val(),

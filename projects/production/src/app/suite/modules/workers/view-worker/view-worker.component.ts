@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/production/src/environments/environment';
+
 import { WorkersApiService } from '../workers-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -54,6 +56,10 @@ export class ViewWorkerComponent implements OnInit, AfterViewInit {
             this.workerForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.workerForm.imgSrc = environment.productionUrl + res.photo;
+          }
+
           this.workerForm.firstNameInput.val(res.first_name);
           this.workerForm.lastNameInput.val(res.last_name);
           this.workerForm.sexDropDownList.val(res.sex);
@@ -92,6 +98,7 @@ export class ViewWorkerComponent implements OnInit, AfterViewInit {
       last_name: this.workerForm.lastNameInput.val(),
       sex: this.workerForm.sexDropDownList.val(),
       date_of_birth: dob,
+      photo: this.workerForm.image,
       nationality: this.workerForm.nationalityInput.val(),
       religion: this.workerForm.religionInput.val(),
       phone: this.workerForm.phoneInput.val(),

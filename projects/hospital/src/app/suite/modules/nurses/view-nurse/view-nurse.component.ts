@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/hospital/src/environments/environment';
+
 import { NursesApiService } from '../nurses-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -52,6 +54,10 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
             this.nurseForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.nurseForm.imgSrc = environment.hospitalUrl + res.photo;
+          }
+
           console.log(res);
           this.nurseForm.firstNameInput.val(res.first_name);
           this.nurseForm.lastNameInput.val(res.last_name);
@@ -81,7 +87,7 @@ export class ViewNurseComponent implements OnInit, AfterViewInit {
 
     let dob = '';
     if (this.nurseForm.dobYear.val() == '' || this.nurseForm.dobMonth.val() == '' || this.nurseForm.dobDay.val() == '') dob = null;
-    else dob = this.nurseForm.dobYear.val() + '-' + this.nurseForm.dobMonth.val() + '-' + this.nurseForm.dobDay.val();
+    else dob = this.nurseForm.dobYear.val() + '-' + this.nurseForm.dobMonth.val() + '-' + this.nurseForm.dobDay.val();    
 
     var nurseData = {
       account: sessionStorage.getItem('hospital_id'),

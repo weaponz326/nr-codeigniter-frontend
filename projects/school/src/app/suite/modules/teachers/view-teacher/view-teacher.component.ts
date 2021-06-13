@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/school/src/environments/environment';
+
 import { TeachersApiService } from '../teachers-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -54,6 +56,10 @@ export class ViewTeacherComponent implements OnInit, AfterViewInit {
             this.teacherForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.teacherForm.imgSrc = environment.schoolUrl + res.photo;
+          }
+
           this.teacherForm.firstName.val(res.first_name);
           this.teacherForm.lastName.val(res.last_name);
           this.teacherForm.sex.val(res.sex);
@@ -93,6 +99,7 @@ export class ViewTeacherComponent implements OnInit, AfterViewInit {
       last_name: this.teacherForm.lastName.val(),
       sex: this.teacherForm.sex.val(),
       date_of_birth: dob,
+      photo: this.teacherForm.image,
       nationality: this.teacherForm.nationality.val(),
       religion: this.teacherForm.religion.val(),
       phone: this.teacherForm.phone.val(),

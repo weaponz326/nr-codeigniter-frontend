@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/enterprise/src/environments/environment';
+
 import { EmployeesApiService } from '../employees-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -54,6 +56,10 @@ export class ViewEmployeeComponent implements OnInit, AfterViewInit {
             this.employeeForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.employeeForm.imgSrc = environment.enterpriseUrl + res.photo;
+          }
+          
           this.employeeForm.firstName.val(res.first_name);
           this.employeeForm.lastName.val(res.last_name);
           this.employeeForm.sex.val(res.sex);
@@ -87,16 +93,16 @@ export class ViewEmployeeComponent implements OnInit, AfterViewInit {
 
     let dob = '';
     if (this.employeeForm.dobYear.val() == '' || this.employeeForm.dobMonth.val() == '' || this.employeeForm.dobDay.val() == '') dob = null;
-    else dob = this.employeeForm.dobYear.val() + '-' + this.employeeForm.dobMonth.val() + '-' + this.employeeForm.dobDay.val();
-
+    else dob = this.employeeForm.dobYear.val() + '-' + this.employeeForm.dobMonth.val() + '-' + this.employeeForm.dobDay.val();    
+    
     var employeeData = {
       account: sessionStorage.getItem('enterprise_id'),
       first_name: this.employeeForm.firstName.val(),
       last_name: this.employeeForm.lastName.val(),
       sex: this.employeeForm.sex.val(),
       date_of_birth: dob,
-      nationality: this.employeeForm.image,
-      photo: this.employeeForm.nationality.val(),
+      photo: this.employeeForm.image,
+      nationality: this.employeeForm.nationality.val(),
       religion: this.employeeForm.religion.val(),
       phone: this.employeeForm.phone.val(),
       email: this.employeeForm.email.val(),

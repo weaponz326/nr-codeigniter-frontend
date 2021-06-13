@@ -17,7 +17,7 @@ export class CustomerFormComponent implements OnInit {
   @ViewChild('firstNameReference') firstNameInput: jqxInputComponent;
   @ViewChild('lastNameReference') lastNameInput: jqxInputComponent;
   @ViewChild('sexReference') sexDropDownList: jqxDropDownListComponent;
-  @ViewChild('imageUpload') photo: ElementRef;
+  // @ViewChild('imageUpload') photo: ElementRef;
   @ViewChild('phoneReference') phoneInput: jqxInputComponent;
   @ViewChild('emailReference') emailInput: jqxInputComponent;
   @ViewChild('addressReference') addressInput: jqxTextAreaComponent;

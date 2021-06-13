@@ -51,6 +51,7 @@ export class NewStaffComponent implements OnInit {
       last_name: this.staffForm.lastName.val(),
       sex: this.staffForm.sex.val(),
       date_of_birth: dob,
+      photo: this.staffForm.image,
       nationality: this.staffForm.nationality.val(),
       religion: this.staffForm.religion.val(),
       phone: this.staffForm.phone.val(),

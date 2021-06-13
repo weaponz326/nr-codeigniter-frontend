@@ -51,6 +51,7 @@ export class AddTeacherComponent implements OnInit {
       last_name: this.teacherForm.lastName.val(),
       sex: this.teacherForm.sex.val(),
       date_of_birth: dob,
+      photo: this.teacherForm.image,
       nationality: this.teacherForm.nationality.val(),
       religion: this.teacherForm.religion.val(),
       phone: this.teacherForm.phone.val(),

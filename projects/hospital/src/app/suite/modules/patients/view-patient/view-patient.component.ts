@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/hospital/src/environments/environment';
+
 import { PatientsApiService } from '../patients-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -53,10 +55,13 @@ export class ViewPatientComponent implements OnInit, AfterViewInit {
             this.patientForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.patientForm.imgSrc = environment.hospitalUrl + res.photo;
+          }
+
           this.patientForm.firstNameInput.val(res.first_name);
           this.patientForm.lastNameInput.val(res.last_name);
-          this.patientForm.sexDropDownList.val(res.sex);
-          this.patientForm.photo.nativeElement.value = res.photo;
+          this.patientForm.sexDropDownList.val(res.sex);          
           this.patientForm.nationalityInput.val(res.nationality);
           this.patientForm.religionInput.val(res.religion);
           this.patientForm.occupationInput.val(res.occupation);
@@ -91,7 +96,7 @@ export class ViewPatientComponent implements OnInit, AfterViewInit {
       last_name: this.patientForm.lastNameInput.val(),
       sex: this.patientForm.sexDropDownList.val(),
       date_of_birth: dob,
-      photo: this.patientForm.photo.nativeElement.value,
+      photo: this.patientForm.image,
       nationality: this.patientForm.nationalityInput.val(),
       religion: this.patientForm.religionInput.val(),
       occupation: this.patientForm.occupationInput.val(),

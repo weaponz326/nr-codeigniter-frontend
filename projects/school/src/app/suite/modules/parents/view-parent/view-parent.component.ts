@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/school/src/environments/environment';
+
 import { ParentsApiService } from '../parents-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -46,6 +48,11 @@ export class ViewParentComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+
+          if (res.photo != null){
+            this.parentForm.imgSrc = environment.schoolUrl + res.photo;
+          }
+
           this.parentForm.parentCode.val(res.parent_code);
           this.parentForm.firstName.val(res.first_name);
           this.parentForm.lastName.val(res.last_name);

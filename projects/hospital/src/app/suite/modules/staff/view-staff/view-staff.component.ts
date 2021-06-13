@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { environment } from 'projects/hospital/src/environments/environment';
+
 import { StaffApiService } from '../staff-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -51,6 +53,10 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
             this.staffForm.dobDay.val(dobArray[2]);
           }
 
+          if (res.photo != null){
+            this.staffForm.imgSrc = environment.hospitalUrl + res.photo;
+          }
+
           console.log(res);
           this.staffForm.firstNameInput.val(res.first_name);
           this.staffForm.lastNameInput.val(res.last_name);
@@ -81,7 +87,7 @@ export class ViewStaffComponent implements OnInit, AfterViewInit {
 
     let dob = '';
     if (this.staffForm.dobYear.val() == '' || this.staffForm.dobMonth.val() == '' || this.staffForm.dobDay.val() == '') dob = null;
-    else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();
+    else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();    
 
     var staffData = {
       account: sessionStorage.getItem('hospital_id'),

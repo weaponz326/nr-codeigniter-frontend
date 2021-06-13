@@ -5,3 +5,7 @@
 #usersTable{
   padding: 90px 0 30px;
 }
+
+#usersTable tbody tr{
+  cursor: pointer;
+}

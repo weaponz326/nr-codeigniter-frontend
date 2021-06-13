@@ -50,6 +50,7 @@ export class NewStudentComponent implements OnInit {
       last_name: this.studentForm.lastName.val(),
       sex: this.studentForm.sex.val(),
       date_of_birth: dob,
+      photo: this.studentForm.image,
       nationality: this.studentForm.nationality.val(),
       religion: this.studentForm.religion.val(),
       email: this.studentForm.email.val(),

@@ -35,6 +35,7 @@ export class PatientFormComponent implements OnInit {
   @ViewChild('insuranceTypeReference') insuranceTypeInput: jqxInputComponent;
   @ViewChild('insuranceNumberReference') insuranceNumberInput: jqxComboBoxComponent;
 
+  image: any;
   imgSrc = '/projects/personal/src/assets/images/utilities/photo-avatar.jpg';
 
   sexSource: any[] = ["Male", "Female"];
@@ -50,9 +51,10 @@ export class PatientFormComponent implements OnInit {
 
     if (file) {
       var reader = new FileReader();
-      this.photo.nativeElement.value = reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
       reader.onload = (e: any) => {
         this.imgSrc = e.target.result;
+        this.image = reader.result;
       }
     }
   }
