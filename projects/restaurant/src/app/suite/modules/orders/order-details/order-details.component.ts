@@ -64,6 +64,10 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
     this.grid.deleterow(detailId);
   }
 
+  setTotalCell(index, value) {
+    this.grid.setcellvalue(index, 'total_price', value);
+  }
+
   // widgets
   // -------------------------------------------------------------------------------------------------
 
@@ -96,12 +100,13 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
     { text: "Menu Item", dataField: "menu_item", width: "45%" },
     { text: 'Price', datafield: 'price', width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
     { text: 'Quantity', datafield: 'quantity', width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    { 
+    {
       text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
       cellsrenderer: function (index, datafield, value, defaultvalue, column, rowdata) {
         console.log(rowdata.price);
-        console.log(rowdata.qunatity);
+        console.log(rowdata.quantity);
         var total = parseFloat(rowdata.price) * parseFloat(rowdata.quantity);
+        this.setTotalCell(index, total);
         return "<div style='margin: 4px; float: right;'>" + total + "</div>";
       }
     }

@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
+import { AttendanceApiService } from '../attendance-api.service';
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
 
 @Component({
@@ -12,12 +14,28 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class ViewSheetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private attendanceApi: AttendanceApiService) { }
 
   @ViewChild('sheetButtonReference') button: jqxButtonComponent;
   @ViewChild('sheetGridReference') grid: jqxGridComponent;
 
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+
   ngOnInit(): void {
+  }
+
+  refreshSheet(){
+    this.attendanceApi.refreshSheet()
+      .subscribe(
+        res => {
+          console.log(res);
+          // this.getData();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   columns: any[] = [

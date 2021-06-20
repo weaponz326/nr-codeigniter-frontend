@@ -39,6 +39,8 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
     { text: "View Attendance", url: "/suite/attendance/view-attendance" },
   ];
 
+  yearSource = this.getYears();
+
   ngOnInit(): void {
   }
 
@@ -48,8 +50,8 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.attendanceCode.val(res.attendance_code);
-          this.attendanceName.val(res.year);
-          this.year.val(res.attendance_type);
+          this.attendanceName.val(res.attendance_name);
+          this.year.val(res.year);
         },
         err => {
           console.log(err);
@@ -95,21 +97,27 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
     if (value == 'yes'){
       this.loadingSpinner.httpLoader.open();
 
-      // this.attendanceApi.deleteAttendance()
-      //   .subscribe(
-      //     res => {
-      //       console.log(res);
-      //       this.loadingSpinner.httpLoader.close();
+      this.attendanceApi.deleteAttendance()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
 
-      //       this.router.navigateByUrl('/suite/attendance/all-attendance');
-      //     },
-      //     err => {
-      //       console.log(err);
-      //       this.loadingSpinner.httpLoader.close();
-      //       this.connectionNotification.errorNotification.open();
-      //     }
-      //   )
+            this.router.navigateByUrl('/suite/attendance/all-attendance');
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 
+  getYears(): any[] {
+    var i, n=[];
+    for (i=1900; i<=2021; i++) n.push(i);
+    return n;
+  }
+  
 }

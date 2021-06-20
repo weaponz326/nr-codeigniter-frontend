@@ -1,0 +1,70 @@
+<jqxWindow #newRosterReference
+    [width]="540"
+    [height]="220"
+    [autoOpen]="false">
+
+    <div>Add New Roster</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Roster ID</div>
+            <div class="edit-dialog-field">
+                <jqxInput #rosterCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Roster Name</div>
+            <div class="edit-dialog-field">
+                <jqxInput #rosterNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">From Date</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #fromDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">To Date</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #toDateReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveRoster()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

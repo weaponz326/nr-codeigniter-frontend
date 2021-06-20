@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
+import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 
 import { AttendanceApiService } from '../attendance-api.service';
@@ -29,6 +30,8 @@ export class NewAttendanceComponent implements OnInit {
   @ViewChild('attendanceCodeReference') attendanceCode: jqxInputComponent;
   @ViewChild('attendanceNameReference') attendanceName: jqxInputComponent;
   @ViewChild('yearReference') year: jqxDropDownListComponent;
+  @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
+  @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
@@ -54,6 +57,8 @@ export class NewAttendanceComponent implements OnInit {
       attendance_code: this.attendanceCode.val(),
       attendance_name: this.attendanceName.val(),
       year: this.year.val(),
+      from_date: this.fromDate.val(),
+      to_date: this.toDate.val(),
     }
 
     this.attendanceApi.postAttendance(AttendanceData)

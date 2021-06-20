@@ -9,6 +9,7 @@ import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utiliti
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
 
 import { AssessmentFormComponent } from '../assessment-form/assessment-form.component'
+import { AssessmentTableComponent } from '../assessment-table/assessment-table.component'
 
 
 @Component({
@@ -32,6 +33,7 @@ export class ViewAssessmentComponent implements OnInit, AfterViewInit {
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
 
   @ViewChild('assessmentFormComponentReference') assessmentForm: AssessmentFormComponent;
+  @ViewChild('assessmentTableComponentReference') assessmentTable: AssessmentTableComponent;
 
   navHeading: any[] = [
     { text: "All Assessment", url: "/suite/assessment/all-assessment" },
@@ -50,7 +52,11 @@ export class ViewAssessmentComponent implements OnInit, AfterViewInit {
           this.assessmentForm.assessmentName.val(res.assessment_name);
           this.assessmentForm.assessmentDate.val(res.assessment_date);
           this.assessmentForm.term.val(res.term);
-          this.assessmentForm.subject.val(res.subject);
+          this.assessmentForm.subject.val(res.subject.subject_name);
+          this.assessmentForm.clas.val(res.clas.class_name);
+          // this.assessmentForm.termIdStore = res.term.id;
+          this.assessmentForm.classIdStore = res.clas.id;
+          this.assessmentForm.subjectIdStore = res.subject.id;
         },
         err => {
           console.log(err);
@@ -68,14 +74,15 @@ export class ViewAssessmentComponent implements OnInit, AfterViewInit {
       assessment_code: this.assessmentForm.assessmentCode.val(),
       assessment_name: this.assessmentForm.assessmentName.val(),
       assessment_date: this.assessmentForm.assessmentDate.val(),
-      term: this.assessmentForm.termIdStore.val(),
-      subject: this.assessmentForm.subjectIdStore.val(),
+      // term: this.assessmentForm.termIdStore,
+      subject: this.assessmentForm.subjectIdStore,
     }
 
     this.assessmentApi.putAssessment(assessmentData)
       .subscribe(
         res => {
           console.log(res);
+          this.assessmentTable.saveSheet();
           this.loadingSpinner.httpLoader.close();
         },
         err => {

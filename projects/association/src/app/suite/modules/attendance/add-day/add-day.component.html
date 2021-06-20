@@ -1,0 +1,40 @@
+<jqxWindow #addDayReference
+    [width]="540"
+    [height]="130"
+    [autoOpen]="false">
+
+    <div>Add New Day</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Day</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #dayReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'yyyy-MM-dd'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveDay()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

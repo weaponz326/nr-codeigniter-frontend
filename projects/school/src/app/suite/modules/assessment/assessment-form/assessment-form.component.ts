@@ -22,7 +22,7 @@ export class AssessmentFormComponent implements OnInit {
   @ViewChild('assessmentDateReference') assessmentDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('subjectReference') subject: jqxInputComponent;
-  @ViewChild('classReference') class: jqxInputComponent;
+  @ViewChild('classReference') clas: jqxInputComponent;
 
   @ViewChild("selectTermComponentReference") selectTerm: SelectTermComponent;
   @ViewChild("selectSubjectComponentReference") selectSubject: SelectSubjectComponent;
@@ -30,6 +30,7 @@ export class AssessmentFormComponent implements OnInit {
 
   termIdStore: any;
   subjectIdStore: any;
+  classIdStore: any;
 
   ngOnInit(): void {
   }
@@ -50,6 +51,9 @@ export class AssessmentFormComponent implements OnInit {
 
   classSelected(clas: any){
     console.log(clas);
+
+    this.clas.val(clas.class_name);
+    this.classIdStore = clas.id;
   }
 
 }

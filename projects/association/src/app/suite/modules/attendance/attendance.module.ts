@@ -21,6 +21,7 @@ import { CheckAttendanceComponent } from './check-attendance/check-attendance.co
 import { CheckSheetComponent } from './check-sheet/check-sheet.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddDayComponent } from './add-day/add-day.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SettingsComponent } from './settings/settings.component';
     CheckAttendanceComponent,
     CheckSheetComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddDayComponent
   ],
   imports: [
     CommonModule,

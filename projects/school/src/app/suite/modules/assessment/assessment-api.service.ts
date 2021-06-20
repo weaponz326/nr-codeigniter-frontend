@@ -41,11 +41,30 @@ export class AssessmentApiService {
   // gets all term, subjects and classes in a school for selection
 
   public getTerms(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-assessment/term?account=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-terms/term?account=" + sessionStorage.getItem('school_id'));
   }
 
   public getSubjects(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-assessment/subject?account=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-subjects/subject?account=" + sessionStorage.getItem('school_id'));
+  }
+
+  public getClasses(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-classes/class?account=" + sessionStorage.getItem('school_id'));
+  }
+
+  // sheet
+  // -----------------------------------------------------------------------------------------------------------------------------------
+
+  public refreshSheet(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-assessment/refresh-sheet?assessment=" + sessionStorage.getItem('assessment_id'));
+  }
+
+  public getClassSheet(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-assessment/class-sheet?assessment=" + sessionStorage.getItem('assessment_id'));
+  }
+
+  public postClassSheet(sheet): Observable<any>{
+    return this.http.post(this.schoolUrl + "module-assessment/class-sheet/", sheet);
   }
 
 }

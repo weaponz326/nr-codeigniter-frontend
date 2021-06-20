@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
+import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
+import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AttendanceApiService } from '../attendance-api.service';
@@ -28,7 +30,9 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
 
   @ViewChild('attendanceCodeReference') attendanceCode: jqxInputComponent;
   @ViewChild('attendanceNameReference') attendanceName: jqxInputComponent;
-  @ViewChild('yearReference') year: jqxInputComponent;
+  @ViewChild('yearReference') year: jqxDropDownListComponent;
+  @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
+  @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
@@ -39,6 +43,8 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
     { text: "View Attendance", url: "/suite/attendance/view-attendance" },
   ];
 
+  yearSource = this.getYears();
+
   ngOnInit(): void {
   }
 
@@ -48,8 +54,10 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.attendanceCode.val(res.attendance_code);
-          this.attendanceName.val(res.year);
-          this.year.val(res.attendance_type);
+          this.attendanceName.val(res.attendance_name);
+          this.year.val(res.year);
+          this.fromDate.val(res.from_date);
+          this.toDate.val(res.to_date);
         },
         err => {
           console.log(err);
@@ -67,6 +75,8 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
       attendance_code: this.attendanceCode.val(),
       attendance_name: this.attendanceName.val(),
       year: this.year.val(),
+      from_date: this.fromDate.val(),
+      to_date: this.toDate.val(),
     }
 
     this.attendanceApi.putAttendance(attendanceData)
@@ -110,6 +120,12 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
           }
         )
     }
+  }
+
+  getYears(): any[] {
+    var i, n=[];
+    for (i=1900; i<=2021; i++) n.push(i);
+    return n;
   }
 
 }

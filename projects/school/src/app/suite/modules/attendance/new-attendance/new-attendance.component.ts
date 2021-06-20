@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 
 import { AttendanceApiService } from '../attendance-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
@@ -31,8 +31,10 @@ export class NewAttendanceComponent implements OnInit {
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild('attendanceCodeReference') attendanceCode: jqxInputComponent;
   @ViewChild('attendanceNameReference') attendanceName: jqxInputComponent;
-  @ViewChild('termReference') term: jqxDropDownListComponent;
+  @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('sourceReference') source: jqxInputComponent;
+  @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
+  @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
@@ -73,6 +75,8 @@ export class NewAttendanceComponent implements OnInit {
       account: sessionStorage.getItem('school_id'),
       attendance_code: this.attendanceCode.val(),
       attendance_name: this.attendanceName.val(),
+      from_date: this.fromDate.val(),
+      to_date: this.toDate.val(),
       term: this.termIdStore,
       source: this.classIdStore,
     }

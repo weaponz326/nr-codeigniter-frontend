@@ -77,7 +77,7 @@ export class AddPrescriptionComponent implements OnInit {
           this.loadingSpinner.httpLoader.close();
 
           if (res.message == "OK"){
-            sessionStorage.setItem('lab_id', res.data.id);
+            sessionStorage.setItem('prescription_id', res.data.id);
             this.closeWindow();
             this.router.navigateByUrl('/suite/prescriptions/view-prescription');
           }

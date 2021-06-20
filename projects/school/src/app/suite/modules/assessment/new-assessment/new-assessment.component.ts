@@ -48,6 +48,7 @@ export class NewAssessmentComponent implements OnInit {
       assessment_date: this.assessmentForm.assessmentDate.val(),
       term: this.assessmentForm.termIdStore,
       subject: this.assessmentForm.subjectIdStore,
+      clas: this.assessmentForm.classIdStore,
     }
 
     console.log(assessmentData);

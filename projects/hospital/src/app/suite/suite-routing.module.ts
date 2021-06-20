@@ -72,6 +72,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/admissions/admissions.module").then(m => m.AdmissionsModule)
   },
   {
+    path: "roster",
+    loadChildren: () => import("./modules/roster/roster.module").then(m => m.RosterModule)
+  },
+  {
     path: "dispensary",
     loadChildren: () => import("./modules/dispensary/dispensary.module").then(m => m.DispensaryModule)
   },

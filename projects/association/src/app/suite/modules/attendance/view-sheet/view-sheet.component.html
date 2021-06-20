@@ -1,11 +1,16 @@
 <div class="row top-button-row">
     <div class="col-md-12">
-        <jqxButton #sheetButtonReference class="float-right ml-1"
+        <jqxButton #sheetButtonReference class="float-left" (click)="addDayComponenentReference.openWindow()"
+            [width]="150"
+            [height]="30"
+        >Add Day</jqxButton>
+
+        <jqxButton #sheetButtonReference class="float-right ml-1" routerLink="/suite/attendance/check-attendance"
             [width]="150"
             [height]="30"
         >Check Attendance</jqxButton>
 
-        <jqxButton #refreshButtonReference class="float-right ml-1"
+        <jqxButton #refreshButtonReference class="float-right ml-1" (click)="refreshSheet()"
             [width]="150"
             [height]="30"
         >Refresh Sheet</jqxButton>
@@ -23,3 +28,13 @@
         ></jqxGrid>
     </div>
 </div>
+
+<!-- add new day popup window -->
+
+<app-add-day #addDayComponenentReference (addDayEvent)="refreshSheet()"></app-add-day>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

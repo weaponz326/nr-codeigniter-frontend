@@ -3,6 +3,8 @@ import { Component, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } fro
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
+import { AssessmentApiService } from '../assessment-api.service';
+
 
 @Component({
   selector: 'app-select-subject',
@@ -11,7 +13,7 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 })
 export class SelectSubjectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private assessmentApi: AssessmentApiService) { }
 
   @ViewChild("selectSubjectWindowReference") selectSubjectWindow: jqxWindowComponent;
   @ViewChild("selectSubjectGridReference") selectSubjectGrid: jqxGridComponent;
@@ -23,6 +25,7 @@ export class SelectSubjectComponent implements OnInit {
 
   openWindow(){
     this.selectSubjectWindow.open();
+    this.getData();
   }
 
   selectSubject(event: any){
@@ -31,6 +34,19 @@ export class SelectSubjectComponent implements OnInit {
     this.selectSubjectWindow.close();
   }
 
+  getData(){
+    this.assessmentApi.getSubjects()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.selectSubjectGrid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
   // ---------------------------------------------------------------------------
 
   source: any = {
@@ -38,8 +54,8 @@ export class SelectSubjectComponent implements OnInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'clinical_id', type: 'string' },
-      { name: 'patient_name', type: 'string' },
+      { name: 'subject_code', type: 'string' },
+      { name: 'subject_name', type: 'string' },
     ],
     id: 'id',
   }
@@ -47,8 +63,8 @@ export class SelectSubjectComponent implements OnInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Subject Name", dataField: "patient_name", width: "70%" },
-    { text: "Academic Year", dataField: "academic_year", width: "30%" },
+    { text: "Subject ID", dataField: "subject_code", width: "30%" },
+    { text: "Subject Name", dataField: "subject_name", width: "70%" },
   ];
 
 }

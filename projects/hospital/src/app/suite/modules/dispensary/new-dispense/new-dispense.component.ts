@@ -60,7 +60,7 @@ export class NewDispenseComponent implements OnInit {
           this.loadingSpinner.httpLoader.close();
 
           if (res.message == "OK"){
-            sessionStorage.setItem('lab_id', res.data.id);
+            sessionStorage.setItem('dispensary_id', res.data.id);
             this.closeWindow();
             this.router.navigateByUrl('/suite/dispensary/view-dispense');
           }

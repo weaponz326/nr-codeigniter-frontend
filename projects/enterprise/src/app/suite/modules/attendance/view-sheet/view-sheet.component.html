@@ -5,7 +5,7 @@
             [height]="30"
         >Check Attendance</jqxButton>
 
-        <jqxButton #refreshButtonReference class="float-right ml-1"
+        <jqxButton #refreshButtonReference class="float-right ml-1" (click)="refreshSheet()"
             [width]="150"
             [height]="30"
         >Refresh Sheet</jqxButton>
@@ -23,3 +23,9 @@
         ></jqxGrid>
     </div>
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

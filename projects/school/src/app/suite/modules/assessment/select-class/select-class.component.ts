@@ -1,7 +1,9 @@
 import { Component, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import { jqxWindowComponent } from 'jqwidgets-ng/jqxwindow';
-import { jqxListBoxComponent } from 'jqwidgets-ng/jqxlistbox';
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
+
+import { AssessmentApiService } from '../assessment-api.service';
 
 
 @Component({
@@ -11,11 +13,10 @@ import { jqxListBoxComponent } from 'jqwidgets-ng/jqxlistbox';
 })
 export class SelectClassComponent implements OnInit {
 
-  constructor() { }
+  constructor(private assessmentApi: AssessmentApiService) { }
 
   @ViewChild("selectClassWindowReference") selectClassWindow: jqxWindowComponent;
-  @ViewChild("allClassesListBoxReference") allClassesListBox: jqxListBoxComponent;
-  @ViewChild("assessmentClassesListBoxReference") assessmentClassesListBox: jqxListBoxComponent;
+  @ViewChild("selectClassGridReference") selectClassGrid: jqxGridComponent;
 
   @Output() classEvent = new EventEmitter<any>();
 
@@ -24,12 +25,48 @@ export class SelectClassComponent implements OnInit {
 
   openWindow(){
     this.selectClassWindow.open();
+    this.getData();
   }
 
-  selectClass(){
-    console.log("u have selected a class or classes, can't tell though");
-    this.classEvent.emit(this.assessmentClassesListBox.val());
+  selectClass(event: any){
+    console.log("u have double clicked a class");
+    this.classEvent.emit(event.args.row.bounddata);
     this.selectClassWindow.close();
   }
+
+  getData(){
+    this.assessmentApi.getClasses()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.selectClassGrid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+        }
+      )
+  }
+
+  // ---------------------------------------------------------------------------
+
+  source: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'id', type: 'string' },
+      { name: 'class_name', type: 'string' },
+      { name: 'department', type: 'string' },
+    ],
+    id: 'id',
+  }
+
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+
+  columns: any[] = [
+    { text: "Class Name", dataField: "class_name", width: "60%" },
+    { text: "Department", dataField: "department", width: "40%" },
+  ];
+
 
 }

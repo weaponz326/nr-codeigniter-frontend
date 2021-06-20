@@ -7,6 +7,7 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxDropDownList';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
+import { jqxListBoxModule } from 'jqwidgets-ng/jqxlistbox';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
 import { TimetablesRoutingModule } from './timetables-routing.module';
@@ -45,6 +46,7 @@ import { SettingsComponent } from './settings/settings.component';
     jqxComboBoxModule,
     jqxDropDownListModule,
     jqxDateTimeInputModule,
+    jqxListBoxModule,
     jqxWindowModule,
   ]
 })

@@ -72,7 +72,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4"><label>Class(es) :</label></div>
+            <div class="col-md-4"><label>Class :</label></div>
             <div class="col-md-8">
                 <jqxInput #classReference
                     [width]="'88%'"
@@ -103,5 +103,5 @@
 ></app-select-subject>
 
 <app-select-class #selectClassComponentReference
-    (patientEvent)="classSelected($event)"
+    (classEvent)="classSelected($event)"
 ></app-select-class>

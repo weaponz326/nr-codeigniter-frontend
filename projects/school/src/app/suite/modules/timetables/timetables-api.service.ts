@@ -38,4 +38,15 @@ export class TimetablesApiService {
     return this.http.delete(this.schoolUrl + "module-timetables/timetable/" + sessionStorage.getItem('timetable_id'));
   }
 
+  // -------------------------------------------------------------------------------------------------------------------------------------
+  // timetable sheet
+
+  public getTimetableClasses(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-timetables/timetable-classes?timetable=" + sessionStorage.getItem('timetable_id'));
+  }
+
+  public getTimetablePeriods(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-timetables/timetable-periods?timetable=" + sessionStorage.getItem('timetable_id'));
+  }
+
 }

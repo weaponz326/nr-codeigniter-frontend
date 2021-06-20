@@ -56,6 +56,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/bills/bills.module").then(m => m.BillsModule)
   },
   {
+    path: "roster",
+    loadChildren: () => import("./modules/roster/roster.module").then(m => m.RosterModule)
+  },
+  {
     path: "portal",
     loadChildren: () => import("./modules/portal/portal.module").then(m => m.PortalModule)
   },

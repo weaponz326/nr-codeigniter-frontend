@@ -29,6 +29,7 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild("inputReference") input: jqxInputComponent;
   @ViewChild("editorReference") editor: jqxEditorComponent;
+  @ViewChild("fileUploadReference") fileUpload: jqxFileUploadComponent;
   @ViewChild("fileListBoxReference") fileListBox: jqxListBoxComponent;
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;

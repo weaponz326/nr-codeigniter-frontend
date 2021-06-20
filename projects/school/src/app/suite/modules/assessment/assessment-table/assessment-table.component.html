@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-md-12">
-        <h4>Edit Assessment</h4>
+        <h4 class="form-heading">Edit Assessment</h4>
     </div>
 </div>
 
 <div class="row top-button-row">
     <div class="col-md-10">
-        <jqxButton #buttonReference class="float-right"
+        <jqxButton #buttonReference class="float-right" (click)="refereshSheet()"
             [width]="150"
             [height]="30"
         >Refresh Sheet</jqxButton>
@@ -19,10 +19,14 @@
             [width]="'100%'"
             [autoheight]="true"
             [rowsheight]="24"
+            [source]="dataAdapter"
             [sortable]="true"
-            [pageable]="true"
-            [pagermode]="'simple'"
+            [editable]="true"
             [columns]="columns"
         ></jqxGrid>
     </div>
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

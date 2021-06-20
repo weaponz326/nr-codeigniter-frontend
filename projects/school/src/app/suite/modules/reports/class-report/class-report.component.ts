@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
+import { jqxListBoxComponent } from 'jqwidgets-ng/jqxlistbox';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { ReportsApiService } from '../reports-api.service';
@@ -33,6 +34,7 @@ export class ClassReportComponent implements OnInit, AfterViewInit {
   @ViewChild('reportDateReference') reportDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('classReference') class: jqxDropDownListComponent;
+  @ViewChild('assessmentsReference') assessments: jqxListBoxComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
