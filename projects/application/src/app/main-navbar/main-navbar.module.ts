@@ -6,16 +6,18 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import { MainNavbarApiService } from './main-navbar-api.service';
+import { MainFooterComponent } from './main-footer/main-footer.component';
 
 
 @NgModule({
-  declarations: [MainNavbarComponent],
+  declarations: [MainNavbarComponent, MainFooterComponent],
   imports: [
     CommonModule,
     HttpClientModule
   ],
   exports: [
-      MainNavbarComponent
+      MainNavbarComponent,
+      MainFooterComponent
   ],
   providers: [
     MainNavbarApiService

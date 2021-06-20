@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 import { GuestPageRoutingModule } from './guest-page-routing.module';
 import { MainPagesModule } from '../main-pages/main-pages.module';
+import { MainNavbarModule } from 'projects/application/src/app/main-navbar/main-navbar.module';
 
 import { GuestWrapperComponent } from './guest-wrapper/guest-wrapper.component';
 
@@ -16,7 +17,8 @@ import { GuestWrapperComponent } from './guest-wrapper/guest-wrapper.component';
   imports: [
     CommonModule,
     GuestPageRoutingModule,
-    MainPagesModule
+    MainPagesModule,
+    MainNavbarModule
   ]
 })
 export class GuestPageModule { }

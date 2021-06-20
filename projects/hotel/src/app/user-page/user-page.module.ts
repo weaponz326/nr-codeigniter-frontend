@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UserPageRoutingModule } from './user-page-routing.module';
 import { MainPagesModule } from 'projects/personal/src/app/main-pages/main-pages.module';
+import { MainNavbarModule } from 'projects/application/src/app/main-navbar/main-navbar.module';
 
 import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
 
@@ -12,7 +13,8 @@ import { UserWrapperComponent } from './user-wrapper/user-wrapper.component';
   imports: [
     CommonModule,
     UserPageRoutingModule,
-    MainPagesModule
+    MainPagesModule,
+    MainNavbarModule
   ]
 })
 export class UserPageModule { }
