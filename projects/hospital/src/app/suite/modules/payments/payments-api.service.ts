@@ -38,6 +38,11 @@ export class PaymentsApiService {
     return this.http.delete(this.hospitalUrl + "module-payments/payment/" + sessionStorage.getItem('payment_id'));
   }
 
+  // payments history
+  public getPaymentsHistory(billId): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-payments/payments-history?bill=" + billId);
+  }
+
   // --------------------------------------------------------------------------------------------------------------------------------
 
   // get patients and doctors for selection window

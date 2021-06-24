@@ -20,6 +20,7 @@ import { ViewPaymentComponent } from './view-payment/view-payment.component';
 import { SelectBillComponent } from './select-bill/select-bill.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { PaymentsHistoryComponent } from './payments-history/payments-history.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SettingsComponent } from './settings/settings.component';
     ViewPaymentComponent,
     SelectBillComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    PaymentsHistoryComponent
   ],
   imports: [
     CommonModule,

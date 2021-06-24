@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditGeneralComponent } from './edit-general.component';
+import { ManageBatchesComponent } from './manage-batches.component';
 
-describe('EditGeneralComponent', () => {
-  let component: EditGeneralComponent;
-  let fixture: ComponentFixture<EditGeneralComponent>;
+describe('ManageBatchesComponent', () => {
+  let component: ManageBatchesComponent;
+  let fixture: ComponentFixture<ManageBatchesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditGeneralComponent ]
+      declarations: [ ManageBatchesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditGeneralComponent);
+    fixture = TestBed.createComponent(ManageBatchesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

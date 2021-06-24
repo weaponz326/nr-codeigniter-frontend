@@ -99,7 +99,7 @@ export class ViewLabComponent implements OnInit, AfterViewInit {
 
   saveLab(){
     let labData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('hospital_id'),
       lab_code: this.labCode.val(),
       lab_date: this.labDate.val(),
       lab_type: this.labType.val(),

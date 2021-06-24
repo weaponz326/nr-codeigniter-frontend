@@ -23,11 +23,10 @@ import { BillDetailsComponent } from './bill-details/bill-details.component';
 import { SelectPatientComponent } from './select-patient/select-patient.component';
 import { SelectAdmissionComponent } from './select-admission/select-admission.component';
 import { AddGeneralComponent } from './add-general/add-general.component';
-import { EditGeneralComponent } from './edit-general/edit-general.component';
-import { GeneralFormComponent } from './general-form/general-form.component';
 import { GeneralDetailsComponent } from './general-details/general-details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddExtraComponent } from './add-extra/add-extra.component';
 
 
 @NgModule({
@@ -40,11 +39,10 @@ import { SettingsComponent } from './settings/settings.component';
     SelectPatientComponent,
     SelectAdmissionComponent,
     AddGeneralComponent,
-    EditGeneralComponent,
-    GeneralFormComponent,
     GeneralDetailsComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddExtraComponent,
   ],
   imports: [
     CommonModule,

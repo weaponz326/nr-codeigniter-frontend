@@ -66,7 +66,7 @@ export class ViewRosterComponent implements OnInit, AfterViewInit {
       )
   }
 
-    // widgets
+  // widgets
   // ----------------------------------------------------------------------------------------
 
   saveRoster(){
@@ -120,6 +120,5 @@ export class ViewRosterComponent implements OnInit, AfterViewInit {
         )
     }
   }
-
 
 }

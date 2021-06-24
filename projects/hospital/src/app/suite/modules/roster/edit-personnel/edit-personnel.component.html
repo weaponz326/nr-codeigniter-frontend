@@ -1,0 +1,66 @@
+<jqxWindow #editPersonnelReference 
+    [width]="540"
+    [height]="180"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Edit Personnel</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Personnel Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #personnelNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+            </div>
+        </div>
+        
+        <div>
+            <div class="edit-dialog-label-alt">Personnel Code</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #personnelCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Shift Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDropDownList #shiftNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Shift Symbol</div>
+            <div class="edit-dialog-field-alt">
+                <jqxDropDownList #shiftSymbolReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxDropDownList>
+            </div>
+        </div>
+          
+        <div>
+            <div class="edit-dialog-field-alt-alt edit-dialog-buttons-alt">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #okButtonReference (click)="savePersonnel()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

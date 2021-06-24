@@ -37,7 +37,7 @@ export class AddGeneralComponent implements OnInit {
 
   saveGeneralBill(){
     let billData = {
-      budget: sessionStorage.getItem('bill_id'),
+      bill: sessionStorage.getItem('bill_id'),
       item: this.itemInput.val(),
       amount: this.amountInput.val(),
     }

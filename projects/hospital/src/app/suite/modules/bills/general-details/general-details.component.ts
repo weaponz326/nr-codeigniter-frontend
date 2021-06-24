@@ -25,6 +25,8 @@ export class GeneralDetailsComponent implements OnInit, AfterViewInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
+  generalSum;
+
   ngOnInit(): void {
   }
 
@@ -56,17 +58,9 @@ export class GeneralDetailsComponent implements OnInit, AfterViewInit {
     this.grid.addrow(null, generalData);
   }
 
-  onEditCommit(generalData: any) {
-    this.grid.updaterow(generalData.id, generalData);
-  }
-
-  onDeleteCommit(generalId: number) {
-    this.grid.deleterow(generalId);
-  }
-
   emitSum(){
-    let generalSum = this.grid.getcolumnaggregateddata('amount', ['sum']);
-    this.changeEvent.emit(generalSum);
+    this.generalSum = this.grid.getcolumnaggregateddata('amount', ['sum']);
+    this.changeEvent.emit(this.generalSum);
   }
 
   // -------------------------------------------------------------------------------------------------
@@ -83,12 +77,6 @@ export class GeneralDetailsComponent implements OnInit, AfterViewInit {
     addrow: (rowid, rowdata, position, commit) => {
       this.addRow(rowid, rowdata, position, commit);
     },
-    updaterow: (rowid, newdata, commit) => {
-      this.updateRow(rowid, newdata, commit);
-    },
-    deleterow: (rowid, commit) => {
-      this.deleteRow(rowid, commit);
-    }
   }
 
   dataAdapter: any = new jqx.dataAdapter(this.source);
@@ -118,54 +106,6 @@ export class GeneralDetailsComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
           commit(true, res.data.id);
-          this.emitSum();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
-  }
-
-  updateRow(rowid, newdata, commit) {
-    console.log("u are about updating a row...");
-    console.log(newdata);
-
-    let generalData = {
-      bill: sessionStorage.getItem('bill_id'),
-      item: newdata.item,
-      amount: newdata.amount,
-    };
-    this.loadingSpinner.httpLoader.open();
-
-    this.billsApi.putGeneralItem(rowid, generalData)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-          commit(true, res.data.id);
-          this.emitSum();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
-  }
-
-  deleteRow(rowid, commit) {
-    console.log("u are about deleting a row...");
-
-    this.loadingSpinner.httpLoader.open();
-
-    this.billsApi.deleteGeneralItem(rowid)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-          commit(true);
           this.emitSum();
         },
         err => {

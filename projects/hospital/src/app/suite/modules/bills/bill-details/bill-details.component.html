@@ -8,6 +8,15 @@
             </div>
         </div>
 
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #buttonReference (click)="addExtraBillComponentReference.openWindow()"
+                    [width]="170"
+                    [height]="30"
+                >Add Admission Charge</jqxButton>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <jqxGrid #appointmentsGridReference
@@ -80,12 +89,20 @@
 
     <div class="col-md-6">
 
-        <app-general-details (changeEvent)="calculateTotal($event)"></app-general-details>
+        <app-general-details #generalDetailsComponentReference (changeEvent)="calculateTotal($event)"></app-general-details>
 
     </div>
 
 </div>
 
-<!-- error notification window -->
+<!-- add and edit extra bill dialogue windows -->
+
+<app-add-extra #addExtraBillComponentReference
+    (addCommit)="onAddCommit($event)"
+></app-add-extra>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
 
 <app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

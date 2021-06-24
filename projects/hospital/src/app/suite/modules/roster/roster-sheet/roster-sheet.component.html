@@ -1,0 +1,31 @@
+<div class="row top-button-row">
+    <div class="col-md-12">
+        <jqxButton #buttonReference class="float-right ml-1"
+            [width]="150"
+            [height]="30"
+        >Refresh Roster</jqxButton>
+
+        <jqxButton #buttonReference class="float-right ml-1" routerLink="/suite/roster/manage-batches"
+            [width]="150"
+            [height]="30"
+        >Manage Batches</jqxButton>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <jqxGrid #gridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [source]="dataAdapter"
+            [sortable]="true"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -91,7 +91,7 @@
             <br />
 
             <div class="row">
-                <div class="col-md-4"><label>Amount Paid :</label></div>
+                <div class="col-md-4"><label>Total Amount Paid :</label></div>
                 <div class="col-md-5">
                     <jqxNumberInput #amountPaidReference
                         [width]="'100%'"
@@ -146,6 +146,13 @@
             <hr />
 
         </div>
+
+        <div class="col-md-6">
+            <jqxButton #paymentHistoryButtonReference routerLink="/suite/payments/payments-history"
+                [width]="150"
+                [height]="30"
+            >Payment History</jqxButton>
+        </div>
     </div>
 
 
@@ -182,3 +189,9 @@
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

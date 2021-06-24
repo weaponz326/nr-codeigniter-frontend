@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GeneralFormComponent } from './general-form.component';
+import { EditPersonnelComponent } from './edit-personnel.component';
 
-describe('GeneralFormComponent', () => {
-  let component: GeneralFormComponent;
-  let fixture: ComponentFixture<GeneralFormComponent>;
+describe('EditPersonnelComponent', () => {
+  let component: EditPersonnelComponent;
+  let fixture: ComponentFixture<EditPersonnelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GeneralFormComponent ]
+      declarations: [ EditPersonnelComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GeneralFormComponent);
+    fixture = TestBed.createComponent(EditPersonnelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

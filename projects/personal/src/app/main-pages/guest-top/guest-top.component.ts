@@ -32,10 +32,10 @@ export class GuestTopComponent implements OnInit {
           console.log(res);
 
           // move straight to suite registration if user is logged in
-          if (res.logged_in == true){
+          if (res.pk){
             this.router.navigateByUrl("/register");
           }else{
-            this.router.navigateByUrl("/signup");     // all suites have a signup route
+            this.router.navigateByUrl("user-auth/signup");     // all suites have a signup route
           }
         },
         err => {
@@ -46,7 +46,7 @@ export class GuestTopComponent implements OnInit {
 
     // for pesonal suite
     else{
-      this.router.navigateByUrl("/signup");
+      this.router.navigateByUrl("user-auth/signup");
     }
   }
 

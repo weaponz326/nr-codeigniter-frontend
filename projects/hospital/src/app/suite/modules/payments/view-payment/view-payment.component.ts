@@ -63,9 +63,14 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
           this.patientCode.val(res.bill.patient.patient_code);
           // this.admissionCode.val(res.admission.admission_code);
           this.billCode.val(res.bill.bill_code);
-          this.billAmount.val(res.bill.total_amount);
-          this.amountDue.val(res.amount_due);
+          this.billAmount.val(res.bill.total_amount);          
           this.amountPaid.val(res.amount_paid.payment__sum);
+          this.amountDue.val(this.billAmount.val() - this.amountPaid.val());
+          this.payment.val(res.payment);                    
+
+          if(this.amountPaid.val() > this.billAmount.val()) {
+            this.balance.val(this.amountPaid.val() - this.billAmount.val());                    
+          }
         },
         err => {
           console.log(err);
@@ -81,7 +86,7 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
       account: sessionStorage.getItem('hospital_id'),
       payment_code: this.paymentCode.val(),
       payment_date: this.paymentDate.val(),
-      amount_paid: this.amountPaid.val(),
+      payment: this.payment.val(),
       balance: this.balance.val(),
     }
 
@@ -90,6 +95,7 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
+          this.ngAfterViewInit();
         },
         err => {
           console.log(err);

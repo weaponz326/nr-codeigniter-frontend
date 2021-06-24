@@ -73,7 +73,7 @@ export class AllPaymentsComponent implements OnInit, AfterViewInit {
       { name: 'payment_date', type: 'string' },
       { name: 'bill_code', map: 'bill>bill_code', type: 'string' },
       { name: 'patient_name', map: 'bill>patient>patient_name', type: 'string' },
-      { name: 'amount_paid', map: 'amount_paid', type: 'string' },
+      { name: 'payment', type: 'string' },
     ],
     id: 'id',
   }
@@ -85,7 +85,7 @@ export class AllPaymentsComponent implements OnInit, AfterViewInit {
     { text: "Payment Date", dataField: "payment_date", filtertype: "range", width: "20%" },
     { text: "Bill ID", dataField: "bill_code", width: "15%" },
     { text: "Patient Name", dataField: "patient_name", width: "35%" },
-    { text: 'Amount Paid', dataField: 'amount_paid', width: "15%", cellsalign: 'right', cellsformat: 'c2' }
+    { text: 'Amount', dataField: 'payment', width: "15%", cellsalign: 'right', cellsformat: 'c2' }
   ];
 
 }

@@ -20,7 +20,7 @@ export class GuestWrapperComponent implements OnInit {
           console.log(res);
 
           // go to suite page if user is logged in
-          if (res.logged_in == true){
+          if (res.pk){
             this.router.navigateByUrl("/suite");
           }
         },

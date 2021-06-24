@@ -4,7 +4,10 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { BillsApiService } from '../bills-api.service';
 import { BillsCalcService } from '../bills-calc.service';
+import { GeneralDetailsComponent } from '../general-details/general-details.component';
+
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
 
 @Component({
@@ -23,7 +26,10 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
   @ViewChild("dispensaryGridReference") dispensaryGrid: jqxGridComponent;
   @ViewChild("wardsGridReference") wardsGrid: jqxGridComponent;
 
+  @ViewChild('generalDetailsComponentReference') generalDetails: GeneralDetailsComponent;
+
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
   ngOnInit(): void {
   }
@@ -33,6 +39,7 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
     this.laboratoryGrid.showloadelement();
     this.dispensaryGrid.showloadelement();
     this.wardsGrid.showloadelement();
+
     this.getAppointmentsData();
     this.getLaboratoryData();
     this.getDispensaryData();
@@ -113,6 +120,13 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
     console.log(totalBill);
   }
 
+  onAddCommit(data: any) {
+    if(data.itemType == "Appointment") this.appointmentsGrid.addrow(null, data);
+    else if(data.itemType == "Laboratory") this.laboratoryGrid.addrow(null, data);
+    else if(data.itemType == "Dispensary") this.dispensaryGrid.addrow(null, data);
+    else if(data.itemType == "Ward") this.wardsGrid.addrow(null, data);
+  }
+
   // widgets
   // ----------------------------------------------------------------------------------------------
 
@@ -123,11 +137,14 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'appointment_code', type: 'string' },
-      { name: 'appointment_date', type: 'string' },
+      { name: 'appointment_code', map: 'appointment>appointment_code', type: 'string' },
+      { name: 'appointment_date', map: 'appointment>appointment_date', type: 'string' },
       { name: 'amount', type: 'string' },
     ],
     id: 'id',
+    addrow: (rowid, rowdata, position, commit) => {
+      this.addRow(rowid, rowdata, position, commit);
+    },
   }
 
   appointmentsDataAdapter: any = new jqx.dataAdapter(this.appointmentsSource);
@@ -149,11 +166,14 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'dispense_code', type: 'string' },
-      { name: 'dispense_date', type: 'string' },
+      { name: 'dispense_code', map: 'dispensary>dispense_code', type: 'string' },
+      { name: 'dispense_date', map: 'dispensary>dispense_date', type: 'string' },
       { name: 'amount', type: 'string' },
     ],
     id: 'id',
+    addrow: (rowid, rowdata, position, commit) => {
+      this.addRow(rowid, rowdata, position, commit);
+    },
   }
 
   dispensaryDataAdapter: any = new jqx.dataAdapter(this.dispensarySource);
@@ -175,11 +195,14 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'lab_code', type: 'string' },
-      { name: 'lab_date', type: 'string' },
+      { name: 'lab_code', map: 'lab>lab_code', type: 'string' },
+      { name: 'lab_date', map: 'lab:lab_date', type: 'string' },
       { name: 'amount', type: 'string' },
     ],
     id: 'id',
+    addrow: (rowid, rowdata, position, commit) => {
+      this.addRow(rowid, rowdata, position, commit);
+    },
   }
 
   laboratoryDataAdapter: any = new jqx.dataAdapter(this.laboratorySource);
@@ -201,12 +224,15 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'ward_number', type: 'string' },
-      { name: 'days', type: 'string' },
-      { name: 'rate', type: 'string' },
+      { name: 'ward_number', map: 'ward>ward_number', type: 'string' },
+      { name: 'days', map: 'ward>days', type: 'string' },
+      { name: 'rate', map: 'ward>rate', type: 'string' },
       { name: 'amount', type: 'string' },
     ],
     id: 'id',
+    addrow: (rowid, rowdata, position, commit) => {
+      this.addRow(rowid, rowdata, position, commit);
+    },
   }
 
   wardsDataAdapter: any = new jqx.dataAdapter(this.wardsSource);
@@ -221,5 +247,35 @@ export class BillDetailsComponent implements OnInit, AfterViewInit {
   wardsColumnGroups: any[] = [
     { text: "Wards Charges", align: "center", name: "wardGroup" }
   ];
+
+  addRow(rowid, rowdata, position, commit) {
+    console.log("u are about adding a new row...");
+    console.log(rowdata);
+
+    let generalData = {
+      bill: sessionStorage.getItem('bill_id'),
+      item: rowdata.item,
+      amount: rowdata.amount,
+    };
+
+    console.log(generalData);
+
+    this.loadingSpinner.httpLoader.open();
+
+    this.billsApi.postGeneralItem(generalData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.data.id);
+          this.calculateTotal(this.generalDetails.generalSum);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
 
 }

@@ -49,16 +49,6 @@ export class BillsApiService {
     return this.http.post(this.hospitalUrl + "module-bills/general/", generalItem);
   }
 
-  // retreive, update and delete generalItem
-
-  public getSingleGeneralItem(generalItemId): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-bills/general/" + generalItemId);
-  }
-
-  public putGeneralItem(generalItemId, generalItem): Observable<any>{
-    return this.http.put(this.hospitalUrl + "module-bills/general/" + generalItemId, generalItem);
-  }
-
   public deleteGeneralItem(generalItemId): Observable<any>{
     return this.http.delete(this.hospitalUrl + "module-bills/general/" + generalItemId);
   }
@@ -79,19 +69,39 @@ export class BillsApiService {
   // TODO: look at this again when their respective modules are done
 
   public getAppointmentsItems(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-appoitnments/charges?account=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-bills/appointment?account=" + sessionStorage.getItem('apointment_id'));
   }
 
   public getLaboratoryItems(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-laboratory/charges?account=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-bills/lab?account=" + sessionStorage.getItem('apointment_id'));
   }
 
   public getDispensaryItems(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-dispensary/charges?account=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-bills/dispensary?account=" + sessionStorage.getItem('apointment_id'));
   }
 
   public getWardsItems(): Observable<any>{
-    return this.http.get(this.hospitalUrl + "module-wards/charges?account=" + sessionStorage.getItem('hospital_id'));
+    return this.http.get(this.hospitalUrl + "module-bills/ward?account=" + sessionStorage.getItem('apointment_id'));
+  }
+
+  public postExtraItem(extraItem): Observable<any>{
+    let url = '';
+    if(extraItem.appointment_id) url = "module-bills/appointment/"
+    if(extraItem.laboratory_id) url = "module-bills/lab/"
+    if(extraItem.dispensary_id) url = "module-bills/dispensary/"
+    if(extraItem.ward_id) url = "module-bills/ward/"
+
+    return this.http.post(this.hospitalUrl + url, extraItem);
+  }
+
+  public deleteExtraItem(extraItemId, extraItemType): Observable<any>{
+    let url = '';
+    if(extraItemType == "Appointment") url = "module-bills/appointment/"
+    if(extraItemType == "Laboratory") url = "module-bills/lab/"
+    if(extraItemType == "Dispensary") url = "module-bills/dispensary/"
+    if(extraItemType == "Ward") url = "module-bills/ward/"
+
+    return this.http.delete(this.hospitalUrl + url + extraItemId);
   }
 
 }

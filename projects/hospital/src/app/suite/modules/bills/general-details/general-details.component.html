@@ -7,13 +7,13 @@
 <div class="row top-button-row">
     <div class="col-md-12">
         <jqxButton #buttonReference (click)="addGeneralBillComponentReference.openWindow()"
-            [width]="150"
+            [width]="170"
             [height]="30"
-        >Add Item</jqxButton>
+        >Add General Charge</jqxButton>
     </div>
 </div>
 
-<jqxGrid #gridReference (onRowdoubleclick)="editGeneralBillComponentReference.openWindow($event)"
+<jqxGrid #gridReference
     [width]="'100%'"
     [autoheight]="true"
     [source]="dataAdapter"
@@ -28,11 +28,6 @@
 <app-add-general #addGeneralBillComponentReference
     (addCommit)="onAddCommit($event)"
 ></app-add-general>
-
-<app-edit-general #editGeneralBillComponentReference
-    (editCommit)="onEditCommit($event)"
-    (deleteCommit)="onDeleteCommit($event)"
-></app-edit-general>
 
 <!-- http loader spinner and connection notification components -->
 

@@ -38,4 +38,50 @@ export class RosterApiService {
     return this.http.delete(this.hospitalUrl + "module-roster/roster/" + sessionStorage.getItem('roster_id'));
   }
 
+  // ------------------------------------------------------------------------------------------------------------
+  // shifts
+
+  public getShifts(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-roster/shift?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public postShift(shift): Observable<any>{
+    return this.http.post(this.hospitalUrl + "module-roster/shift/", shift);
+  }
+
+  public putShift(shiftId, shift): Observable<any>{
+    return this.http.put(this.hospitalUrl + "module-roster/shift/" + shiftId, shift);
+  }
+
+  public deleteShift(shiftId): Observable<any>{
+    return this.http.delete(this.hospitalUrl + "module-roster/shift/" + shiftId);
+  }
+
+  // ------------------------------------------------------------------------------------------------------------
+  // batches
+
+  public getBatches(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-roster/batch?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public postBatch(batch): Observable<any>{
+    return this.http.post(this.hospitalUrl + "module-roster/batch/", batch);
+  }
+
+  public putBatch(batchId, batch): Observable<any>{
+    return this.http.put(this.hospitalUrl + "module-roster/batch/" + batchId, batch);
+  }
+
+  public deleteBatch(batchId): Observable<any>{
+    return this.http.delete(this.hospitalUrl + "module-roster/batch/" + batchId);
+  }
+
+  public getPersonnel(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-roster/personnel?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public putPersonnel(personnelId, personnel): Observable<any>{
+    return this.http.put(this.hospitalUrl + "module-roster/personnel/" + personnelId, personnel);
+  }
+
 }

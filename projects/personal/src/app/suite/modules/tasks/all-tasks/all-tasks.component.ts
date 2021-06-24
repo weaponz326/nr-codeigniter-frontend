@@ -122,7 +122,7 @@ export class AllTasksComponent implements OnInit, AfterViewInit {
   }
 
   openEditTask(index) {
-    console.log(index);
+    console.log('u trynna open task ' + index);
 
     this.editTask.openWindow(this.taskList[index], index);
   }
