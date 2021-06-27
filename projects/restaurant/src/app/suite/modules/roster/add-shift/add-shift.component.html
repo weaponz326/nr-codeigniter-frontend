@@ -1,0 +1,60 @@
+<jqxWindow #addShiftReference 
+    [width]="540"
+    [height]="180"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Add New Shift</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Shift Name</div>
+            <div class="edit-dialog-field">
+                <jqxInput #shiftNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Start Time</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #startTimeReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [showCalendarButton]="false"
+                    [showTimeButton]="true"
+                    [formatString]="'hh:mm:ss'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">End Time</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #endTimeReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [showCalendarButton]="false"
+                    [showTimeButton]="true"
+                    [formatString]="'hh:mm:ss'"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+        
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveShift()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

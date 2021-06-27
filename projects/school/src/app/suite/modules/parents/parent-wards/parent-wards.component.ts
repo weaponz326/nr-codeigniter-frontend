@@ -56,7 +56,7 @@ export class ParentWardsComponent implements OnInit, AfterViewInit {
       student_id: ward.id,
       student_code: ward.student_code,
       student_name: ward.student_name,
-      class: ward.class_name,
+      class_name: ward.class_name,
     }
 
     this.wardsGrid.addrow(null, wardData);
@@ -79,7 +79,6 @@ export class ParentWardsComponent implements OnInit, AfterViewInit {
     addrow: (rowid, rowdata, position, commit) => {
       this.addWardRow(rowid, rowdata, position, commit);
     },
-
     deleterow: (rowid, commit) => {
       this.deleteWardRow(rowid, commit);
     }
@@ -96,13 +95,13 @@ export class ParentWardsComponent implements OnInit, AfterViewInit {
   // crud
 
   addWardRow(rowid, rowdata, position, commit) {
+    console.log("adding new ward");
+
     let wardData = {
       parent: sessionStorage.getItem('parent_id'),
       ward: rowdata.student_id,
     }
 
-    console.log(wardData);
-    console.log(rowdata);
     this.loadingSpinner.httpLoader.open();
 
     this.parentsApi.postWard(wardData)

@@ -18,6 +18,15 @@ import { NewRosterComponent } from './new-roster/new-roster.component';
 import { ViewRosterComponent } from './view-roster/view-roster.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddShiftComponent } from './add-shift/add-shift.component';
+import { EditShiftComponent } from './edit-shift/edit-shift.component';
+import { RosterSheetComponent } from './roster-sheet/roster-sheet.component';
+import { ManageBatchesComponent } from './manage-batches/manage-batches.component';
+import { AddBatchComponent } from './add-batch/add-batch.component';
+import { EditBatchComponent } from './edit-batch/edit-batch.component';
+import { ManagePersonnelComponent } from './manage-personnel/manage-personnel.component';
+import { EditPersonnelComponent } from './edit-personnel/edit-personnel.component';
+import { ShiftsComponent } from './shifts/shifts.component';
 
 
 @NgModule({
@@ -27,7 +36,16 @@ import { SettingsComponent } from './settings/settings.component';
     NewRosterComponent,
     ViewRosterComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddShiftComponent,
+    EditShiftComponent,
+    RosterSheetComponent,
+    ManageBatchesComponent,
+    AddBatchComponent,
+    EditBatchComponent,
+    ManagePersonnelComponent,
+    EditPersonnelComponent,
+    ShiftsComponent
   ],
   imports: [
     CommonModule,

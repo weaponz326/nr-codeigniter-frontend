@@ -1,31 +1,26 @@
-<div class="row">
-    <div class="col-md-12">
-        <h4 class="form-heading">Edit Assessment</h4>
-    </div>
-</div>
-
 <div class="row top-button-row">
-    <div class="col-md-10">
-        <jqxButton #buttonReference (click)="refereshSheet()"
+    <div class="col-md-12">
+        <jqxButton #refreshButtonReference (click)="refreshPersonnel()"
             [width]="150"
             [height]="30"
-        >Refresh Sheet</jqxButton>
+        >Refresh Personnel</jqxButton>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-10">
-        <jqxGrid #gridReference
+    <div class="col-md-12">
+        <jqxGrid #gridReference (onRowdoubleclick)="editPersonnel.openWindow($event)"
             [width]="'100%'"
-            [autoheight]="true"
-            [rowsheight]="24"
+            [height]="350"
             [source]="dataAdapter"
-            [sortable]="true"
-            [editable]="true"
             [columns]="columns"
         ></jqxGrid>
     </div>
 </div>
+
+<!-- edit Personnel component -->
+
+<app-edit-personnel #editPersonnelComponentReference></app-edit-personnel>
 
 <!-- http loader spinner and connection notification components -->
 

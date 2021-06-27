@@ -4,6 +4,7 @@ import { AllRostersComponent } from './all-rosters/all-rosters.component';
 import { RosterWrapperComponent } from './roster-wrapper/roster-wrapper.component';
 import { NewRosterComponent } from './new-roster/new-roster.component';
 import { ViewRosterComponent } from './view-roster/view-roster.component';
+import { ManageBatchesComponent } from './manage-batches/manage-batches.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: "all-rosters", component: AllRostersComponent },
       { path: "new-roster", component: NewRosterComponent },
-      { path: "view-roster", component: ViewRosterComponent }
+      { path: "view-roster", component: ViewRosterComponent },
+      { path: "manage-batches", component: ManageBatchesComponent },
     ]
   }
 ];

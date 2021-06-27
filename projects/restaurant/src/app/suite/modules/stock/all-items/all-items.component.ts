@@ -56,7 +56,7 @@ export class AllItemsComponent implements OnInit, AfterViewInit {
 
   viewStock(event: any){
     console.log(event.args.row.bounddata);
-    sessionStorage.setItem('stock_id', event.args.row.bounddata.id);
+    sessionStorage.setItem('stock_item_id', event.args.row.bounddata.id);
 
     this.router.navigateByUrl('/suite/stock/view-item');
   }

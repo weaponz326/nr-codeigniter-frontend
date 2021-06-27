@@ -3,28 +3,29 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
-import { OrdersApiService } from '../orders-api.service';
-import { AddItemComponent } from '../add-item/add-item.component'
-import { EditItemComponent } from '../edit-item/edit-item.component'
+import { RosterApiService } from '../roster-api.service';
+import { AddShiftComponent } from '../add-shift/add-shift.component'
+import { EditShiftComponent } from '../edit-shift/edit-shift.component'
 
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
 
-@Component({
-  selector: 'app-order-details',
-  templateUrl: './order-details.component.html',
-  styleUrls: ['./order-details.component.css']
-})
-export class OrderDetailsComponent implements OnInit, AfterViewInit {
 
-  constructor(private ordersApi: OrdersApiService) { }
+@Component({
+  selector: 'app-shifts',
+  templateUrl: './shifts.component.html',
+  styleUrls: ['./shifts.component.css']
+})
+export class ShiftsComponent implements OnInit, AfterViewInit {
+
+  constructor(private rosterApi: RosterApiService) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
 
-  @ViewChild('addItemComponentReference') addItem: AddItemComponent;
-  @ViewChild('editItemComponentReference') editItem: EditItemComponent;
+  @ViewChild('addShiftComponentReference') addShift: AddShiftComponent;
+  @ViewChild('editShiftComponentReference') editShift: EditShiftComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
@@ -38,7 +39,7 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    this.ordersApi.getItems()
+    this.rosterApi.getShifts()
       .subscribe(
         res => {
           console.log(res);
@@ -52,34 +53,29 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
       )
   }
 
-  onAddCommit(detailData: any) {
-    this.grid.addrow(null, detailData);
+  onAddCommit(shiftData: any) {
+    this.grid.addrow(null, shiftData);
   }
 
-  onEditCommit(detailData: any) {
-    this.grid.updaterow(detailData.id, detailData);
+  onEditCommit(shiftData: any) {
+    this.grid.updaterow(shiftData.id, shiftData);
   }
 
-  onDeleteCommit(detailId: number) {
-    this.grid.deleterow(detailId);
-  }
-
-  setTotalCell(index, value) {
-    this.grid.setcellvalue(index, 'total_price', value);
+  onDeleteCommit(shiftId: number) {
+    this.grid.deleterow(shiftId);
   }
 
   // widgets
-  // -------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------
 
   source: any = {
     localdata: null,
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'menu_item_id', map: 'menu_item>id', type: 'string' },
-      { name: 'menu_item', map: 'menu_item>item_name', type: 'string' },
-      { name: 'price', map: 'menu_item>price', type: 'string' },
-      { name: 'quantity', type: 'string' },
+      { name: 'shift_name', type: 'string' },
+      { name: 'start_time', type: 'string' },
+      { name: 'end_time', type: 'string' },
     ],
     id: 'id',
     addrow: (rowid, rowdata, position, commit) => {
@@ -95,38 +91,28 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
 
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
-  // grid columns
   columns: any[] = [
-    { text: "Menu Item", dataField: "menu_item", width: "45%" },
-    { text: 'Price', datafield: 'price', width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
-    { text: 'Quantity', datafield: 'quantity', width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    {
-      text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
-      cellsrenderer: function (index, datafield, value, defaultvalue, column, rowdata) {
-        console.log(rowdata.price);
-        console.log(rowdata.quantity);
-        var total = parseFloat(rowdata.price) * parseFloat(rowdata.quantity);
-        // this.setTotalCell(index, total);
-        return "<div style='margin: 4px; float: right;'>" + total + "</div>";
-      }
-    }
+    { text: 'Shift Name', dataField: 'shift_name', width: "50%" },
+    { text: 'Start Time', dataField: 'start_time', width: "25%" },
+    { text: 'End Time', dataField: 'end_time', width: "25%" },
   ];
 
   addRow(rowid, rowdata, position, commit) {
     console.log("u are about adding a new row...");
     console.log(rowdata);
 
-    let itemData = {
-      order: sessionStorage.getItem('order_id'),
-      menu_item: rowdata.menu_item_id,
-      quantity: rowdata.quantity,
+    let shiftData = {
+      roster: sessionStorage.getItem('roster_id'),
+      shift_name: rowdata.shift_name,
+      start_time: rowdata.start_time,
+      end_time: rowdata.end_time,
     }
 
-    console.log(itemData);
+    console.log(shiftData);
 
     this.loadingSpinner.httpLoader.open();
 
-    this.ordersApi.postItem(itemData)
+    this.rosterApi.postShift(shiftData)
       .subscribe(
         res => {
           console.log(res);
@@ -145,15 +131,16 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
     console.log("u are about updating a row...");
     console.log(newdata);
 
-    let itemData = {
-      order: sessionStorage.getItem('order_id'),
-      menu_item: newdata.menu_item_id,
-      quantity: newdata.quantity,
+    let shiftData = {
+      roster: sessionStorage.getItem('roster_id'),
+      shift_name: newdata.shift_name,
+      start_time: newdata.start_time,
+      end_time: newdata.end_time,
     }
 
     this.loadingSpinner.httpLoader.open();
 
-    this.ordersApi.putItem(rowid, itemData)
+    this.rosterApi.putShift(rowid, shiftData)
       .subscribe(
         res => {
           console.log(res);
@@ -173,7 +160,7 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    this.ordersApi.deleteItem(rowid)
+    this.rosterApi.deleteShift(rowid)
       .subscribe(
         res => {
           console.log(res);

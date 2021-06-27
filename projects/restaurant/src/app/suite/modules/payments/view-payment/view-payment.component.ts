@@ -56,6 +56,10 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
           this.billCode.val(res.bill.bill_code);
           this.totalAmount.val(res.bill.total_amount);
           this.amountPaid.val(res.amount_paid);
+          
+          if (this.totalAmount.val() < this.amountPaid.val()) {
+            this.balance.val(this.totalAmount.val() - this.amountPaid.val());
+          }
         },
         err => {
           console.log(err);

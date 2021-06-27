@@ -1,0 +1,47 @@
+<jqxWindow #editBatchReference
+    [width]="540"
+    [height]="150"
+    [autoOpen]="false"
+    [okButton]="okButton"
+    [cancelButton]="cancelButton">
+
+    <div>Edit Batch</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Batch Name</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #batchNameReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Batch Symbol</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #batchSymbolReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteBatch()"
+                >Delete</jqxButton>
+
+                <jqxButton #okButtonReference (click)="saveBatch()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>

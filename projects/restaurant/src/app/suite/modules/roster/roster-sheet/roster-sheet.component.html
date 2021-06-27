@@ -1,28 +1,28 @@
-<div class="row">
-    <div class="col-md-12">
-        <h4 class="form-heading">Edit Assessment</h4>
-    </div>
-</div>
-
 <div class="row top-button-row">
-    <div class="col-md-10">
-        <jqxButton #buttonReference (click)="refereshSheet()"
+    <div class="col-md-12">
+        <jqxButton #buttonReference (click)="refreshSheet()"
             [width]="150"
             [height]="30"
-        >Refresh Sheet</jqxButton>
+        >Refresh Roster</jqxButton>
+
+        <jqxButton #buttonReference class="float-right" routerLink="/suite/roster/manage-batches"
+            [width]="150"
+            [height]="30"
+        >Manage Batches</jqxButton>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
         <jqxGrid #gridReference
             [width]="'100%'"
             [autoheight]="true"
-            [rowsheight]="24"
+            [rowsheight]="25"
             [source]="dataAdapter"
             [sortable]="true"
+            [columns]="sheetColumns"
             [editable]="true"
-            [columns]="columns"
+            [selectionmode]="'singlecell'"
         ></jqxGrid>
     </div>
 </div>

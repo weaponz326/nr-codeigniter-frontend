@@ -11,6 +11,7 @@ import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
 
+import { RosterSheetComponent } from '../roster-sheet/roster-sheet.component';
 
 @Component({
   selector: 'app-view-roster',
@@ -32,6 +33,8 @@ export class ViewRosterComponent implements OnInit, AfterViewInit {
   @ViewChild('rosterNameReference') rosterName: jqxInputComponent;
   @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
   @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
+
+  @ViewChild('rosterSheetComponentReference') rosterSheet: RosterSheetComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
@@ -76,20 +79,22 @@ export class ViewRosterComponent implements OnInit, AfterViewInit {
       to_date: this.toDate.val(),
     }
 
-    this.rosterApi.putRoster(rosterData)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+    // this.rosterApi.putRoster(rosterData)
+    //   .subscribe(
+    //     res => {
+    //       console.log(res);
+    //       this.loadingSpinner.httpLoader.close();
+    //     },
+    //     err => {
+    //       console.log(err);
+    //       this.loadingSpinner.httpLoader.close();
+    //       this.connectionNotification.errorNotification.open();
+    //     }
+    //   )
 
     console.log(rosterData);
+
+    this.rosterSheet.postSheetData();
   }
 
   deleteRoster(){
