@@ -24,6 +24,7 @@ export class ViewSectionComponent implements OnInit, AfterViewInit {
 
   @ViewChild('sectionNameReference') sectionName: jqxInputComponent;
   @ViewChild('teacherReference') teacher: jqxInputComponent;
+  @ViewChild('termReference') term: jqxInputComponent;
   @ViewChild('saveSectionReference') saveButton: jqxButtonComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
@@ -36,7 +37,7 @@ export class ViewSectionComponent implements OnInit, AfterViewInit {
   ];
 
   teacherIdStore;
-  sourceIdStore;
+  termIdStore;
 
   ngOnInit(): void {
   }
@@ -48,6 +49,9 @@ export class ViewSectionComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.sectionName.val(res.section_name);
           this.teacher.val(res.teacher.teacher_name);
+          this.term.val(res.term.term_name);
+          this.teacherIdStore = res.teacher.id;
+          this.termIdStore = res.term.id;
         },
         err => {
           console.log(err);

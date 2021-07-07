@@ -22,6 +22,9 @@ import { NewTimetableComponent } from './new-timetable/new-timetable.component';
 import { EditTimetableComponent } from './edit-timetable/edit-timetable.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SelectClassComponent } from './select-class/select-class.component';
+import { AddPeriodComponent } from './add-period/add-period.component';
+import { SelectSubjectComponent } from './select-subject/select-subject.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { SettingsComponent } from './settings/settings.component';
     EditTimetableComponent,
     DashboardComponent,
     SettingsComponent,
+    SelectClassComponent,
+    AddPeriodComponent,
+    SelectSubjectComponent,
   ],
   imports: [
     CommonModule,

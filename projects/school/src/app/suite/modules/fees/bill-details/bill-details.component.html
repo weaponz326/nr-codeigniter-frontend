@@ -1,22 +1,19 @@
 <div class="row">
     <div class="col-md-7">
 
-        <div class="row">
-            <div class="col-md-12">
-                <h4>Bill Details</h4>
-            </div>
-        </div>
+        <h4 class="form-heading">Bill Details</h4>
 
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <jqxGrid #editGridReference
+                    <jqxGrid #gridReference
                         [width]="'100%'"
                         [autoheight]="true"
                         [rowsheight]="24"
                         [showstatusbar]="true"
                         [showaggregates]="true"
                         [columns]="columns"
+                        [source]="dataAdapter"
                     ></jqxGrid>
                 </div>
             </div>
@@ -24,3 +21,7 @@
 
     </div>
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -34,6 +34,7 @@ export class NewPaymentComponent implements OnInit {
   @ViewChild('studentNameReference') studentName: jqxInputComponent;
   @ViewChild('studentCodeReference') studentCode: jqxInputComponent;
   @ViewChild('billCodeReference') billCode: jqxInputComponent;
+  @ViewChild('selectBillButtonReference') selectBillButton: jqxButtonComponent;
 
   @ViewChild("selectStudentComponentReference") selectStudent: SelectStudentComponent;
   @ViewChild("selectBillComponentReference") selectBill: SelectBillComponent;
@@ -44,7 +45,6 @@ export class NewPaymentComponent implements OnInit {
   // stores db table ids of selected student and admission
   // to be retreived for sending to backend
   studentIdStore: any;
-  admissionIdStore: any;
   billIdStore: any;
 
   ngOnInit(): void {
@@ -62,14 +62,17 @@ export class NewPaymentComponent implements OnInit {
     console.log(student);
 
     this.studentName.val(student.student_name);
-    this.studentCode.val(student.clinical_id);
+    this.studentCode.val(student.student_code);
     this.studentIdStore = student.id;
+
+    this.selectBill.getBillData(student.id);
+    this.selectBillButton.disabled(false);
   }
 
   billSelected(bill: any){
     console.log(bill);
 
-    this.billCode.val(bill.bill_code);
+    this.billCode.val(bill.fees_code);
     this.billIdStore = bill.id;
   }
 
@@ -80,6 +83,7 @@ export class NewPaymentComponent implements OnInit {
       account: sessionStorage.getItem('school_id'),
       payment_code: this.paymentCode.val(),
       payment_date: this.paymentDate.val(),
+      bill: this.billIdStore,
     }
 
     this.paymentsApi.postPayment(PaymentData)

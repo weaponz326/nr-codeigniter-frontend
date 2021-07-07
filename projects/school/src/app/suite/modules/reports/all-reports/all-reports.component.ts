@@ -70,8 +70,8 @@ export class AllReportsComponent implements OnInit, AfterViewInit {
       { name: 'report_code', type: 'string' },
       { name: 'report_name', type: 'string' },
       { name: 'report_date', type: 'string' },
-      { name: 'term', type: 'string' },
-      { name: 'clas', map: 'clas>class_name', type: 'string' },
+      { name: 'term_name', map: 'term>term_name', type: 'string' },
+      { name: 'class_name', map: 'clas>class_name', type: 'string' },
     ],
     id: 'id',
   }
@@ -82,8 +82,8 @@ export class AllReportsComponent implements OnInit, AfterViewInit {
     { text: "Report ID", dataField: "report_code", width: "10%" },
     { text: "Report Name", dataField: "report_name", width: "33%" },
     { text: "Report Date", dataField: "report_date", filtertype: "range", width: "12%" },
-    { text: "Term", dataField: "term", width: "20%" },
-    { text: "Class(es)", dataField: "clas", width: "25%" },
+    { text: "Term", dataField: "term_name", width: "20%" },
+    { text: "Class", dataField: "class_name", width: "25%" },
   ];
 
 }

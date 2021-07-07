@@ -2,24 +2,68 @@
 
 <div class="container">
 
+    <div class="row page-form-div">
+        <div class="col-md-6">
+
+            <h4 class="form-heading">Fees Details</h4>
+
+            <div class="row">
+                <div class="col-md-4"><label>Fees ID :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #feesCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Fees Description :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #feesDescriptionReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Fees Date :</label></div>
+                <div class="col-md-8">
+                    <jqxDateTimeInput #feesDateReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
+                        [disabled]="true"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <hr />
+
+        </div>
+    </div>
+
     <div class="row">
-        <div class="col-md-10">
-            <jqxGrid #gridReference
+        <div class="col-md-9">
+            <jqxGrid #gridReference (onRowdoubleclick)="viewBill($event)"
                 [width]="'100%'"
-                [height]="480"
+                [height]="400"
                 [sortable]="true"
                 [filterable]="true"
                 [showfilterrow]="true"
                 [columns]="columns"
+                [source]="dataAdapter"
             ></jqxGrid>
-        </div>
-
-        <div class="col-md-2">
-            <jqxButton #buttonReference class="float-right" routerLink="/suite/fees/all-fees"
-                [width]="150"
-                [height]="30"
-            >Generate Fees</jqxButton>
         </div>
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

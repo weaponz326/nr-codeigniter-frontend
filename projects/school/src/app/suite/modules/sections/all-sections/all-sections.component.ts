@@ -68,7 +68,7 @@ export class AllSectionsComponent implements OnInit, AfterViewInit {
     dataFields: [
       { name: 'id', type: 'string' },
       { name: 'section_name', type: 'string' },
-      { name: 'teacher', map: 'teacher>teacher_name', type: 'string' },
+      { name: 'teacher_name', map: 'teacher>teacher_name', type: 'string' },
       { name: 'teacher_id', map: 'teacher>id', type: 'string' },
     ],
     id: 'id',
@@ -78,7 +78,7 @@ export class AllSectionsComponent implements OnInit, AfterViewInit {
 
   columns: any[] = [
     { text: "Section Name", dataField: "section_name", width: "60%" },
-    { text: "Section Teacher", dataField: "section_teacher", width: "40%" },
+    { text: "Section Teacher", dataField: "teacher_name", width: "40%" },
   ];
 
 }

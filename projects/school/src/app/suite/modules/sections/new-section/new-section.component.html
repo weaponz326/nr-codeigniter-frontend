@@ -1,6 +1,6 @@
 <jqxWindow #newSectionReference
     [width]="540"
-    [height]="160"
+    [height]="190"
     [autoOpen]="false">
 
     <div>Add New Section</div>
@@ -18,7 +18,7 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Term</div>
+            <div class="edit-dialog-label-alt">Section Teacher</div>
             <div class="edit-dialog-field-alt">
                 <jqxInput #teacherReference
                     [width]="'90%'"
@@ -26,6 +26,21 @@
                     [disabled]="true"
                 ></jqxInput>
                 <jqxButton #selectTeacherButton
+                    [width]="'10%'"
+                    [height]="25"
+                >...</jqxButton>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Term</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #termReference
+                    [width]="'90%'"
+                    [height]="25"
+                    [disabled]="true"
+                ></jqxInput>
+                <jqxButton #selectTermButton
                     [width]="'10%'"
                     [height]="25"
                 >...</jqxButton>

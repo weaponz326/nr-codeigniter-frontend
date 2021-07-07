@@ -38,14 +38,51 @@ export class ReportsApiService {
     return this.http.delete(this.schoolUrl + "module-reports/report/" + sessionStorage.getItem('report_id'));
   }
 
+  public getReportAssessments(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-reports/report-assessment?report=" + sessionStorage.getItem('report_id'));
+  }
+
+  public postReportAssessment(assessment): Observable<any>{
+    return this.http.post(this.schoolUrl + "module-reports/report-assessment/", assessment);
+  }
+
+  // -----------------------------------------------------------------------------------------------------------
+
   // get terms and classes for select windows
 
+  public getAssessments(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-assessment/assessment?account=" + sessionStorage.getItem('school_id'));
+  }
+
   public getTerms(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-reports/term?account=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-terms/term?account=" + sessionStorage.getItem('school_id'));
   }
 
   public getClasses(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-reports/class?account=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-classes/class?account=" + sessionStorage.getItem('school_id'));
+  }
+
+  // ------------------------------------------------------------------------------------------------------------------
+  // sheet
+
+  public refreshSheet(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-reports/refresh-sheet?report=" + sessionStorage.getItem('report_id'));
+  }
+
+  public getReportStudents(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-reports/class-report-student?report=" + sessionStorage.getItem('report_id'));
+  }
+
+  public getClassAssessmentSheets(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-reports/class-sheet?report=" + sessionStorage.getItem('report_id'));
+  }
+
+  public getSingleReportStudent(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-reports/student-report?student=" + sessionStorage.getItem('report_student_id'));
+  }
+
+  public getStudentAssessmentSheet(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-reports/student-sheet?report=" + sessionStorage.getItem('report_id') + "&student=" + sessionStorage.getItem('report_student_id'));
   }
 
 }

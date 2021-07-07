@@ -20,7 +20,6 @@ import { ClassReportComponent } from './class-report/class-report.component';
 import { ClassSheetComponent } from './class-sheet/class-sheet.component';
 import { AddAssessmentComponent } from './add-assessment/add-assessment.component';
 import { StudentReportComponent } from './student-report/student-report.component';
-import { StudentSheetComponent } from './student-sheet/student-sheet.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SelectTermComponent } from './select-term/select-term.component';
@@ -36,7 +35,6 @@ import { SelectClassComponent } from './select-class/select-class.component';
     ClassSheetComponent,
     AddAssessmentComponent,
     StudentReportComponent,
-    StudentSheetComponent,
     DashboardComponent,
     SettingsComponent,
     SelectTermComponent,

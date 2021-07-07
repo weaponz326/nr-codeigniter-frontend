@@ -1,14 +1,20 @@
 <jqxWindow #addAssessmentReference
-    [width]="612"
-    [height]="450"
+    [width]="555"
+    [height]="600"
     [autoOpen]="false">
 
     <div>Add Assessment</div>
 
     <div>
-
-
-
+        <jqxGrid #assessmentGridReference (onRowdoubleclick)="selectAssessment($event)"
+            [width]="540"
+            [height]="555"
+            [source]="dataAdapter"
+            [sortable]="true"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [columns]="columns"
+        ></jqxGrid>
     </div>
 
 </jqxWindow>

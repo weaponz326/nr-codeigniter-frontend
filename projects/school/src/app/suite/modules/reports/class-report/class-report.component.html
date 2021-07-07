@@ -47,7 +47,7 @@
                         [height]="28"
                         [disabled]="true"
                     ></jqxInput>
-                    <jqxButton #selectTermReference
+                    <jqxButton #selectTermReference (click)="selectTerm.openWindow()"
                         [width]="'10%'"
                         [height]="28"
                     >...</jqxButton>
@@ -62,7 +62,7 @@
                         [height]="28"
                         [disabled]="true"
                     ></jqxInput>
-                    <jqxButton #selectClassReference
+                    <jqxButton #selectClassReference (click)="selectClass.openWindow()"
                         [width]="'10%'"
                         [height]="28"
                     >...</jqxButton>
@@ -72,20 +72,24 @@
         </div>
 
         <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-4"><label>Assessments :</label></div>
-                <div class="col-md-8">
-                    <jqxInput #assessmentsReference
-                        [width]="'88%'"
-                        [height]="110"
-                        [disabled]="true"
-                    ></jqxInput>
+            <div class="row top-button-row">
+                <div class="col-md-12">
                     <jqxButton #selectAssessentsReference (click)="addAssessmentWindowReference.openWindow()"
-                        [width]="'10%'"
+                        [width]="'120'"
                         [height]="28"
-                    >...</jqxButton>
+                    >Add Assessment</jqxButton>
                 </div>
             </div>
+
+            <jqxGrid #gridReference
+                [width]="'100%'"
+                [height]="110"
+                [source]="dataAdapter"
+                [columnsheight]="28"
+                [rowsheight]="25"
+                [sortable]="true"
+                [columns]="columns"
+            ></jqxGrid>
         </div>
 
     </div>
@@ -105,12 +109,12 @@
                 [height]="28"
             >Cancel</jqxButton>
 
-            <jqxButton #deleteButtonReference class="float-right"
+            <jqxButton #deleteButtonReference class="float-right" (click)="deleteReport()"
                 [width]="100"
                 [height]="28"
             >Delete</jqxButton>
 
-            <jqxButton #saveButtonReference class="float-right"
+            <jqxButton #saveButtonReference class="float-right" (click)="saveReport()"
                 [width]="100"
                 [height]="28"
             >Save</jqxButton>
@@ -133,7 +137,19 @@
 
 <!-- add assessment window -->
 
-<app-add-assessment #addAssessmentWindowReference></app-add-assessment>
+<app-add-assessment #addAssessmentWindowReference
+    (assessmentEvent)="assessmentAdded($event)"
+></app-add-assessment>
+
+<!-- slect term and class windows -->
+
+<app-select-term #selectTermComponentReference
+    (termEvent)="termSelected($event)"
+></app-select-term>
+
+<app-select-class #selectClassComponentReference
+    (classEvent)="classSelected($event)"
+></app-select-class>
 
 <!-- http loader spinner and connection notification components -->
 

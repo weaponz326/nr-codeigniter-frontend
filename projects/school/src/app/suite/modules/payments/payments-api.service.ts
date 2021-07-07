@@ -38,14 +38,14 @@ export class PaymentsApiService {
     return this.http.delete(this.schoolUrl + "module-payments/payment/" + sessionStorage.getItem('payment_id'));
   }
 
-  // get students for selection window
+  // get students and student bills for selection window
 
   public getStudents(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-payments/student?account=" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-students/student?account=" + sessionStorage.getItem('school_id'));
   }
 
-  public getBills(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-payments/bill?account=" + sessionStorage.getItem('school_id'));
+  public getBills(studentId): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-fees/student-bill?student=" + studentId);
   }
 
 }

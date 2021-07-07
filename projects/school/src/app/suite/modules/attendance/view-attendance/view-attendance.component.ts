@@ -54,9 +54,9 @@ export class ViewAttendanceComponent implements OnInit, AfterViewInit {
           this.attendanceCode.val(res.attendance_code);
           this.attendanceName.val(res.attendance_name);
           this.fromDate.val(res.from_date);
-          this.fromDate.val(res.to_date);
-          this.term.val(res.term);
-          this.source.val(res.source);
+          this.toDate.val(res.to_date);
+          this.term.val(res.term.term_name);
+          this.source.val(res.source.class_name);
         },
         err => {
           console.log(err);

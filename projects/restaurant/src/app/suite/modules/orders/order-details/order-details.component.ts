@@ -44,12 +44,23 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.source.localdata = res;
           this.grid.updatebounddata();
+          this.setTotalFields();
         },
         err => {
           console.log(err);
           this.connectionNotification.errorNotification.open();
         }
       )
+  }
+
+  setTotalFields(){
+    let gridRows = this.grid.getrows();
+
+    gridRows.forEach(row => {
+      var total = row.quantity * row.price;
+      this.grid.setcellvalue(row.boundindex, 'total_price', total);
+      console.log(total);
+    });
   }
 
   onAddCommit(detailData: any) {
@@ -100,16 +111,7 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
     { text: "Menu Item", dataField: "menu_item", width: "45%" },
     { text: 'Price', datafield: 'price', width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
     { text: 'Quantity', datafield: 'quantity', width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    {
-      text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
-      cellsrenderer: function (index, datafield, value, defaultvalue, column, rowdata) {
-        console.log(rowdata.price);
-        console.log(rowdata.quantity);
-        var total = parseFloat(rowdata.price) * parseFloat(rowdata.quantity);
-        // this.setTotalCell(index, total);
-        return "<div style='margin: 4px; float: right;'>" + total + "</div>";
-      }
-    }
+    { text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] }
   ];
 
   addRow(rowid, rowdata, position, commit) {
@@ -159,6 +161,8 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
           commit(true, res.data.id);
+
+          this.updateTotal(this.grid.getcolumnaggregateddata('total_price', ['sum'])['sum'])
         },
         err => {
           console.log(err);
@@ -179,6 +183,26 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
           commit(true);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  updateTotal(total) {
+    console.log(total);
+    this.loadingSpinner.httpLoader.open();
+
+    let totalData = { order_total: total }
+
+    this.ordersApi.patchTotal(totalData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
         },
         err => {
           console.log(err);

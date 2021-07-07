@@ -48,10 +48,10 @@ export class NewPaymentComponent implements OnInit {
     this.addPayment.close();
   }
 
-  billSelected(bill: any){
+  orderSelected(bill: any){
     console.log(bill);
 
-    this.billCode.val(bill.bill_code);
+    this.billCode.val(bill.order_code);
     this.billIdStore = bill.id;
   }
 
@@ -59,9 +59,10 @@ export class NewPaymentComponent implements OnInit {
     console.log('u are saving a new menu item');
     this.loadingSpinner.httpLoader.open();
 
+    // amount source changed from bill to order
     var paymentData = {
       account: sessionStorage.getItem('restaurant_id'),
-      bill: this.billIdStore,
+      order: this.billIdStore,
       payment_code: this.paymentCode.val(),
       payment_date: this.paymentDate.val(),
     }

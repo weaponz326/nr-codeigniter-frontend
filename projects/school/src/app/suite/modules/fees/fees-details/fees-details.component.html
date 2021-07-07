@@ -1,32 +1,62 @@
 <div class="row">
     <div class="col-md-7">
 
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <h4>Fees Items</h4>
-            </div>
-        </div>
+        <hr class="top-divider" />
+        <hr class="bottom-divider" />
+
+        <h4 class="form-heading">Fees Items</h4>
+
+        <!-- fees items -->
 
         <div class="row top-button-row">
             <div class="col-md-12">
-                <jqxButton #buttonReference (click)="addItemComponentReference.openWindow()"
+                <jqxButton #addItemButtonReference class="mr-1" (click)="addItemComponentReference.openWindow()"
                     [width]="150"
                     [height]="30"
-                >Add Item</jqxButton>
+                >Add New Item</jqxButton>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <jqxGrid #gridReference (onRowdoubleclick)="editItemComponentReference.openWindow($event)"
+                    <jqxGrid #itemsGridReference (onRowdoubleclick)="editItemComponentReference.openWindow($event)"
                         [width]="'100%'"
                         [autoheight]="true"
                         [rowsheight]="24"
                         [showemptyrow]="false"
                         [showstatusbar]="true"
                         [showaggregates]="true"
-                        [columns]="columns"
+                        [columns]="itemsColumns"
+                        [source]="itemsDataAdapter"
+                    ></jqxGrid>
+                </div>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <!-- fees arrears -->
+
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton #addArrearsButtonReference (click)="addArrearsComponentReference.openWindow()"
+                    [width]="150"
+                    [height]="30"
+                >Add Arrears</jqxButton>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <jqxGrid #arrearsGridReference
+                        [width]="'100%'"
+                        [autoheight]="true"
+                        [rowsheight]="24"
+                        [showemptyrow]="false"
+                        [columns]="arrearsColumns"
+                        [source]="arrearsDataAdapter"
                     ></jqxGrid>
                 </div>
             </div>
@@ -43,6 +73,10 @@
     (editCommit)="onItemEditCommit($event)"
     (deleteCommit)="onItemDeleteCommit($event)"
 ></app-edit-item>
+
+<app-add-arrears #addArrearsComponentReference
+    (addCommit)="onArrearsAddCommit($event)"
+></app-add-arrears>
 
 
 <!-- http loader spinner and connection notification components -->

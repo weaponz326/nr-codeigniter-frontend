@@ -81,12 +81,13 @@ export class AssessmentTableComponent implements OnInit, AfterViewInit {
     localdata: null,
     dataType: 'json',
     dataFields: [
+      { name: 'id', type: 'string' },
       { name: 'student_id', map: 'student>id', type: 'string' },
       { name: 'student_name', map: 'student>student_name', type: 'string' },
       { name: 'student_code', map: 'student>student_code', type: 'string' },
-      { name: 'Score', type: 'string' },
-      { name: 'Grade', type: 'string' },
-      { name: 'Remarks', type: 'string' },
+      { name: 'score', type: 'string' },
+      { name: 'grade', type: 'string' },
+      { name: 'remarks', type: 'string' },
     ],
     id: 'id',
   }

@@ -18,14 +18,12 @@ export class SelectBillComponent implements OnInit, AfterViewInit {
   @ViewChild("selectBillWindowReference") selectBillWindow: jqxWindowComponent;
   @ViewChild("selectBillGridReference") selectBillGrid: jqxGridComponent;
 
-  @Output() patientEvent = new EventEmitter<any>();
+  @Output() billEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    this.selectBillGrid.showloadelement();
-    this.getData();
+  ngAfterViewInit(): void {   
   }
 
   openWindow(){
@@ -34,15 +32,17 @@ export class SelectBillComponent implements OnInit, AfterViewInit {
 
   selectBill(event: any){
     console.log("u have double clicked a patient");
-    this.patientEvent.emit(event.args.row.bounddata);
+    this.billEvent.emit(event.args.row.bounddata);
     this.selectBillWindow.close();
   }
 
   // widgets
   // ----------------------------------------------------------------------------------------------
 
-  getData(){
-    this.paymentsApi.getBills()
+  getBillData(studentId){
+    this.selectBillGrid.showloadelement();
+
+    this.paymentsApi.getBills(studentId)
       .subscribe(
         res => {
           console.log(res);
@@ -60,9 +60,9 @@ export class SelectBillComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'bill_code', type: 'string' },
-      { name: 'bill_date', type: 'string' },
-      { name: 'total_amount', type: 'string' },
+      { name: 'fees_code', map: 'fee>fees_code', type: 'string' },
+      { name: 'fees_description', map: 'fee>fees_description', type: 'string' },
+      { name: 'amount', type: 'string' },
     ],
     id: 'id',
   }
@@ -70,9 +70,9 @@ export class SelectBillComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Bill ID", dataField: "bill_code", width: "30%" },
-    { text: "Bill Date", dataField: "bill_date", width: "40%" },
-    { text: "Amount Due", dataField: "total_amount", width: "30%" },
+    { text: "Fees ID", dataField: "fees_code", width: "25%" },
+    { text: "Fees Description", dataField: "fees_description", width: "50%" },
+    { text: "Amount", dataField: "amount", width: "25%" },
   ];
 
 }

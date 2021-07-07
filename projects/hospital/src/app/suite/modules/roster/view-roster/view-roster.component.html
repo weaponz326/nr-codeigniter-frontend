@@ -66,12 +66,12 @@
         <div class="col-md-6">
 
             <!-- shifts component -->
-            
+
             <app-shifts #appShiftsComponentReference></app-shifts>
-    
+
         </div>
 
-    </div>    
+    </div>
 
     <hr />
 
@@ -104,11 +104,17 @@
 
         </div>
     </div>
-    
+
     <hr class="top-divider" />
     <hr class="bottom-divider" />
 
-    <app-roster-sheet #rosterSheetComponentReference></app-roster-sheet>
+    <!-- roster sheet components depending on source -->
+
+    <app-doctors-sheet #doctorsSheetComponentReference *ngIf="sheetDisplay == 'Doctors'"></app-doctors-sheet>
+
+    <app-nurses-sheet #nursesSheetComponentReference *ngIf="sheetDisplay == 'Nurses'"></app-nurses-sheet>
+
+    <app-staff-sheet #staffSheetComponentReference *ngIf="sheetDisplay == 'Staff'"></app-staff-sheet>
 
 </div>
 

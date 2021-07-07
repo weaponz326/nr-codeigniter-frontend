@@ -69,7 +69,7 @@ export class AllAttendanceComponent implements OnInit {
       { name: 'id', type: 'string' },
       { name: 'attendance_code', type: 'string' },
       { name: 'attendance_name', type: 'string' },
-      { name: 'term', type: 'string' },
+      { name: 'term', map: 'term>term_name', type: 'string' },
       { name: 'source', map: 'source>class_name', type: 'string' },
     ],
     id: 'id',

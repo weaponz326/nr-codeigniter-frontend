@@ -37,10 +37,18 @@ export class CheckAttendanceComponent implements OnInit, AfterViewInit {
     { text: "Check Attendance", url: "/suite/attendance/check-attendance" },
   ];
 
+  sheetLocalData: any = [];
+  sheetDataFields: any = [];
+
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
+    this.getSingleAttendance();
+    this.getSheetData();
+  }
+
+  getSingleAttendance(){
     this.attendanceApi.getSingleAttendance()
       .subscribe(
         res => {
@@ -55,13 +63,71 @@ export class CheckAttendanceComponent implements OnInit, AfterViewInit {
       )
   }
 
+  getSheetData(){
+    this.attendanceApi.getClassSheet()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.populateSheetData(res);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
   // widgets
   // ------------------------------------------------------------------------------------------------
 
+  source: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'student_id', type: 'string' },
+      { name: 'student_name', type: 'string' },
+      { name: 'student_code', type: 'string' },
+      { name: 'check', type: 'string' },
+    ],
+    id: 'id',
+  }
+
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+
   columns: any[] = [
-    { text: "Student ID", dataField: "student_code", width: "25%" },
-    { text: "Student Name", dataField: "student_name", width: "60%" },
-    { text: "Attendance", dataField: "attendance", editable: "true", columntype: "checkbox", width: "15%" },
+    { text: "Student ID", dataField: "student_code", editable: false, width: "25%" },
+    { text: "Student Name", dataField: "student_name", editable: false, width: "55%" },
+    { text: "Check", dataField: "check", editable: true, columntype: "checkbox", width: "20%" },
   ];
+
+  populateSheetData(sheetData){
+    sheetData.forEach(sheet => {
+      let data = { student_id: sheet.student.id, student_name: sheet.student.student_name, student_code: sheet.student.student_code };
+
+      var sheetChecks = Object.entries(sheet.checks);
+      sheetChecks.forEach(check => {
+        data[check[0]] = check[1];
+      });
+
+      this.sheetLocalData.push(data);
+      console.log(data);
+    });
+
+    console.log(this.sheetLocalData);
+    this.source.localdata = this.sheetLocalData;
+    this.grid.updatebounddata();
+  }
+
+  // TODO: cannot day's attendance or checked attendance
+
+  // set the checks for the selected date
+  setSelectDay(date){
+    // check if day exists in checks object
+    if('date' in this.sheetLocalData.checks){
+      // if exists load checks for all students
+
+    }
+    // else set null for all students
+  }
 
 }

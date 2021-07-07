@@ -40,8 +40,8 @@ export class PaymentsApiService {
 
   // get bills for selection window
 
-  public getBills(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-bills/bill?accounts=" + sessionStorage.getItem('restaurant_id'));
+  public getOrders(): Observable<any>{
+    return this.http.get(this.restaurantUrl + "module-orders/order?account=" + sessionStorage.getItem('restaurant_id'));
   }
 
 }

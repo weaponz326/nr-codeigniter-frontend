@@ -35,16 +35,16 @@ export class RosterSheetComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.refreshSheet();    
+    this.refreshSheet();
+    this.getBatches();
   }
 
   refreshSheet(){
     this.rosterApi.refreshSheet()
       .subscribe(
         res => {
-          console.log(res);
-          this.getBatches();
-          this.getRosterDays();    
+          console.log(res);          
+          this.getRosterDays();
         },
         err => {
           console.log(err);
@@ -64,7 +64,7 @@ export class RosterSheetComponent implements OnInit, AfterViewInit {
           res.forEach(batch => {
             this.sheetEditDropDownSource.push(batch.batch_symbol);
           });
-          console.log(this.sheetEditDropDownSource);          
+          console.log(this.sheetEditDropDownSource);
         },
         err => {
           console.log(err);
@@ -103,7 +103,9 @@ export class RosterSheetComponent implements OnInit, AfterViewInit {
           this.connectionNotification.errorNotification.open();
         }
       )
-  }    
+  }
+
+  // ---------------------------------------------------------------------------------------------------------------------------
 
   setRosterColumns(shiftDays){
     // set datafields
@@ -115,12 +117,12 @@ export class RosterSheetComponent implements OnInit, AfterViewInit {
     this.sheetColumns = [];
     this.sheetColumns.push({ text: "Shift Name", dataField: "shift_name", pinned: "true", editable: "false", width: "18%", minwidth: 150 });
 
-    shiftDays.forEach(day => { 
+    shiftDays.forEach(day => {
       // datafields
       this.sheetDataFields.push({ name: day.id, type: 'string' });
 
       // columns
-      var dayColumn = { text: day.day, dataField: day.id, editable: "true", width: 100, 
+      var dayColumn = { text: day.day, dataField: day.id, editable: "true", width: 100,
         // columntype: 'dropdownlist',
         // createeditor: function (row, value, editor) {
         //   editor.jqxDropDownList({ source: this.sheetEditDropDownSource, width: 100 });
@@ -133,11 +135,11 @@ export class RosterSheetComponent implements OnInit, AfterViewInit {
   populateSheetData(sheetData){
     sheetData.forEach(sheet => {
       let data = { shift_id: sheet.shift.id, shift_name: sheet.shift.shift_name };
-      
+
       var sheetBatches = Object.entries(sheet.batches);
       sheetBatches.forEach(batch => {
         data[batch[0]] = batch[1];
-      }); 
+      });
 
       this.sheetLocalData.push(data);
     });
@@ -155,21 +157,21 @@ export class RosterSheetComponent implements OnInit, AfterViewInit {
   }
 
   dataAdapter: any = new jqx.dataAdapter(this.source);
-  
+
   postSheetData(){
     var data = [];
     var rows = this.grid.getrows();
 
-    rows.forEach(batch => { 
+    rows.forEach(batch => {
       var newBatch = {};
       newBatch["roster"] = sessionStorage.getItem("roster_id");
       newBatch["shift"] = batch.shift_id;
       newBatch["batches"] = {};
 
-      this.sheetColumns.forEach(column => { 
+      this.sheetColumns.forEach(column => {
         if(column.dataField in batch && column.dataField != "shift_id" && column.dataField != "shift_id"){
           var dayId = column.dataField;
-          newBatch["batches"][dayId] = batch[dayId];          
+          newBatch["batches"][dayId] = batch[dayId];
         }
       });
 

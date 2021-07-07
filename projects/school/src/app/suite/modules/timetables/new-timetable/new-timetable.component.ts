@@ -44,6 +44,10 @@ export class NewTimetableComponent implements OnInit {
     this.newTimetable.open();
   }
 
+  closeWindow(){
+    this.newTimetable.close();
+  }
+
   saveTimetable(){
     this.loadingSpinner.httpLoader.open();
 

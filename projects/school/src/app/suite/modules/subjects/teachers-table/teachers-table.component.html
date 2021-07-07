@@ -9,4 +9,11 @@
     [autoheight]="true"
     [rowsheight]="24"
     [columns]="columns"
+    [source]="dataAdapter"
 ></jqxGrid>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

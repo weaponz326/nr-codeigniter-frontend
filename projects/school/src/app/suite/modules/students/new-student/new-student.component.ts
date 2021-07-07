@@ -59,7 +59,7 @@ export class NewStudentComponent implements OnInit {
       city: this.studentForm.city.val(),
       post_code: this.studentForm.postCode.val(),
       student_code: this.studentForm.studentCode.val(),
-      class: this.studentForm.class.val(),
+      clas: this.studentForm.clas.val(),
       term: this.studentForm.term.val(),
       admission_date: this.studentForm.admissionDate.val(),
       previous_school: this.studentForm.previousSchool.val(),

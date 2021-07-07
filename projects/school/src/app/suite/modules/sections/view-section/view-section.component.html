@@ -33,6 +33,21 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-4"><label>Term :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #termReference
+                        [width]="'88%'"
+                        [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                    <jqxButton #selectTermReference
+                        [width]="'10%'"
+                        [height]="28"
+                    >...</jqxButton>
+                </div>
+            </div>
+
             <hr />
 
             <div class="row">
@@ -77,3 +92,9 @@
     <app-section-students></app-section-students>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

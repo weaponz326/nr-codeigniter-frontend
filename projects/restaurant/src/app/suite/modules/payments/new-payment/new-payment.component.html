@@ -29,13 +29,14 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Bill ID</div>
+            <div class="edit-dialog-label-alt">Order ID</div>
             <div class="edit-dialog-field-alt">
                 <jqxInput #billCodeReference
                     [width]="'90%'"
                     [height]="25"
                     [disabled]="true"
-                ></jqxInput>
+                ></jqxInput>       
+                <!-- amount source changed from bill to order -->
                 <jqxButton #selectBillButton (click)="selectBill.openWindow()"
                     [width]="'10%'"
                     [height]="25"
@@ -57,10 +58,11 @@
 
 </jqxWindow>
 
-<!-- select patient, admission, and bill components -->
+<!-- select order components -->
 
+<!-- component contents changed to from bill to order -->
 <app-select-bill #selectBillComponentReference
-    (billEvent)="billSelected($event)"
+    (orderEvent)="orderSelected($event)"
 ></app-select-bill>
 
 <!-- http loader spinner and connection notification components -->

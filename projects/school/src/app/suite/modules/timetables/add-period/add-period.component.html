@@ -1,0 +1,64 @@
+<jqxWindow #addPeriodReference
+    [width]="540"
+    [height]="190"
+    [autoOpen]="false">
+
+    <div>Add Timetable Period</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label">Period</div>
+            <div class="edit-dialog-field">
+                <jqxInput #periodReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Period Start</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #periodStartReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'hh:mm:ss'"
+                    [showCalendarButton]="false"
+                    [showTimeButton]="true"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label">Period End</div>
+            <div class="edit-dialog-field">
+                <jqxDateTimeInput #periodEndReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [formatString]="'hh:mm:ss'"
+                    [showCalendarButton]="false"
+                    [showTimeButton]="true"
+                ></jqxDateTimeInput>
+            </div>
+        </div>
+        
+        <div>
+            <div class="edit-dialog-field edit-dialog-buttons">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveTimetable()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

@@ -72,7 +72,7 @@ export class ViewStudentComponent implements OnInit, AfterViewInit {
           this.studentForm.city.val(res.city);
           this.studentForm.postCode.val(res.post_code);
           this.studentForm.studentCode.val(res.student_code);
-          this.studentForm.class.val(res.class);
+          this.studentForm.clas.val(res.clas);
           this.studentForm.term.val(res.term);
           this.studentForm.admissionDate.val(res.admission_date);
           this.studentForm.previousSchool.val(res.previous_school);
@@ -107,7 +107,7 @@ export class ViewStudentComponent implements OnInit, AfterViewInit {
       city: this.studentForm.city.val(),
       post_code: this.studentForm.postCode.val(),
       student_code: this.studentForm.studentCode.val(),
-      class: this.studentForm.class.val(),
+      clas: this.studentForm.clas.val(),
       term: this.studentForm.term.val(),
       admission_date: this.studentForm.admissionDate.val(),
       previous_school: this.studentForm.previousSchool.val(),

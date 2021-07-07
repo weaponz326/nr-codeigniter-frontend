@@ -32,6 +32,7 @@ export class NewSectionComponent implements OnInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   teacherIdStore: any;
+  termIdStore: any;
 
   ngOnInit(): void {
   }
@@ -47,6 +48,7 @@ export class NewSectionComponent implements OnInit {
       account: sessionStorage.getItem('school_id'),
       section_name: this.sectionName.val(),
       teacher: this.teacherIdStore,
+      term: this.termIdStore,
     }
 
     this.sectionsApi.postSection(sectionData)

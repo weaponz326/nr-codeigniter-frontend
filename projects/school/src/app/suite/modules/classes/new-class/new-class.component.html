@@ -1,13 +1,15 @@
 <app-topnav [headings]="navHeading"></app-topnav>
 
-<div class="container">
-
-    <!-- new page form -->
-
-    <app-class-form #classFormComponentReference></app-class-form>
+<div class="container">    
 
     <div class="row page-form-div">
         <div class="col-md-6">
+
+            <!-- new page form -->
+
+            <app-class-form #classFormComponentReference></app-class-form>
+
+            <hr />
 
             <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/classes/all-classes"
                 [width]="100"

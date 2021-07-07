@@ -28,8 +28,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { AddItemComponent } from './add-item/add-item.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { SelectClassComponent } from './select-class/select-class.component';
-import { SelectStudentComponent } from './select-student/select-student.component';
-import { FeesFormComponent } from './fees-form/fees-form.component';
+import { AddArrearsComponent } from './add-arrears/add-arrears.component';
+import { SelectFeesComponent } from './select-fees/select-fees.component';
 
 
 @NgModule({
@@ -47,8 +47,8 @@ import { FeesFormComponent } from './fees-form/fees-form.component';
     AddItemComponent,
     EditItemComponent,
     SelectClassComponent,
-    SelectStudentComponent,
-    FeesFormComponent,
+    AddArrearsComponent,
+    SelectFeesComponent,
   ],
   imports: [
     CommonModule,

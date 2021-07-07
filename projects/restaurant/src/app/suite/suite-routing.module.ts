@@ -50,11 +50,7 @@ const routes: Routes = [
   {
     path: "stock",
     loadChildren: () => import("./modules/stock/stock.module").then(m => m.StockModule)
-  },
-  {
-    path: "bills",
-    loadChildren: () => import("./modules/bills/bills.module").then(m => m.BillsModule)
-  },
+  },  
   {
     path: "roster",
     loadChildren: () => import("./modules/roster/roster.module").then(m => m.RosterModule)

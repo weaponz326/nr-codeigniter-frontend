@@ -12,6 +12,7 @@ import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
 
+import { OrderDetailsComponent } from '../order-details/order-details.component';
 
 @Component({
   selector: 'app-view-order',
@@ -37,6 +38,8 @@ export class ViewOrderComponent implements OnInit, AfterViewInit {
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
+  
+  @ViewChild('orderDetailsComponentReference') orderDetails: OrderDetailsComponent;
 
   navHeading: any[] = [
     { text: "All Orders", url: "/suite/orders/all-orders" },
@@ -71,12 +74,13 @@ export class ViewOrderComponent implements OnInit, AfterViewInit {
 
   saveOrder(){
     let orderData = {
-      restaurant_id: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       order_code: this.orderCode.val(),
       order_date: this.orderDate.val(),
       customer_name: this.customerName.val(),
       order_type: this.orderType.val(),
       order_status: this.orderStatus.val(),
+      order_total: this.orderDetails.grid.getcolumnaggregateddata('total_price', ['sum'])['sum'],
     }
 
     this.ordersApi.putOrder(orderData)

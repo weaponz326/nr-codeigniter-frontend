@@ -6,11 +6,15 @@ import { jqxDateTimeInputComponent } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxListBoxComponent } from 'jqwidgets-ng/jqxlistbox';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { ReportsApiService } from '../reports-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
+
+import { SelectTermComponent } from '../select-term/select-term.component'
+import { SelectClassComponent } from '../select-class/select-class.component'
 
 
 @Component({
@@ -33,8 +37,12 @@ export class ClassReportComponent implements OnInit, AfterViewInit {
   @ViewChild('reportNameReference') reportName: jqxInputComponent;
   @ViewChild('reportDateReference') reportDate: jqxDateTimeInputComponent;
   @ViewChild('termReference') term: jqxInputComponent;
-  @ViewChild('classReference') class: jqxDropDownListComponent;
+  @ViewChild('classReference') clas: jqxInputComponent;
   @ViewChild('assessmentsReference') assessments: jqxListBoxComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
+
+  @ViewChild("selectTermComponentReference") selectTerm: SelectTermComponent;
+  @ViewChild("selectClassComponentReference") selectClass: SelectClassComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
@@ -44,6 +52,9 @@ export class ClassReportComponent implements OnInit, AfterViewInit {
     { text: "All Reports", url: "/suite/reports/all-reports" },
     { text: "Class Report", url: "/suite/reports/class-report" },
   ];
+
+  termIdStore: any;
+  classIdStore: any;
 
   ngOnInit(): void {
   }
@@ -56,13 +67,18 @@ export class ClassReportComponent implements OnInit, AfterViewInit {
           this.reportCode.val(res.report_code);
           this.reportName.val(res.report_name);
           this.reportDate.val(res.report_date);
-          this.term.val(res.term);
+          // this.term.val(res.term.term_name);
+          this.clas.val(res.clas.class_name);
+          // this.termIdStore = res.term.id;
+          this.classIdStore = res.clas.id;
         },
         err => {
           console.log(err);
           this.connectionNotification.errorNotification.open();
         }
       )
+
+    this.getAssessmentData();
   }
 
   saveReport(){
@@ -74,6 +90,8 @@ export class ClassReportComponent implements OnInit, AfterViewInit {
       report_code: this.reportCode.val(),
       report_name: this.reportName.val(),
       report_date: this.reportDate.val(),
+      term: this.termIdStore,
+      clas: this.classIdStore,
     }
 
     this.reportsApi.putReport(reportData)
@@ -117,6 +135,91 @@ export class ClassReportComponent implements OnInit, AfterViewInit {
           }
         )
     }
+  }
+
+  termSelected(term: any){
+    console.log(term);
+
+    this.term.val(term.term_name);
+    this.termIdStore = term.id;
+  }
+
+  classSelected(clas: any){
+    console.log(clas);
+
+    this.clas.val(clas.class_name);
+    this.classIdStore = clas.id;
+  }
+
+  // --------------------------------------------------------------------------------------------------------------
+  // assessments
+
+  assessmentAdded(assessmentData){
+    this.grid.addrow(null, assessmentData);
+  }
+
+  getAssessmentData(){
+    this.reportsApi.getReportAssessments()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.source.localdata = res;
+          this.grid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  source: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'id', type: 'string' },
+      { name: 'assessment_code', map: 'assessment>assessment_code', type: 'string' },
+      { name: 'assessment_name', map: 'assessment>assessment_name', type: 'string' },
+    ],
+    id: 'id',
+    addrow: (rowid, rowdata, position, commit) => {
+      this.addRow(rowid, rowdata, position, commit);
+    },
+  }
+
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+
+  columns: any[] = [
+    { text: "Assessment ID", dataField: "assessment_code", width: "30%" },
+    { text: "Assessment Name", dataField: "assessment_name", width: "70%" },
+  ];
+
+  addRow(rowid, rowdata, position, commit){
+    console.log("u are about adding a new row...");
+    console.log(rowdata);
+
+    let assessmentData =  {
+      report: sessionStorage.getItem('report_id'),
+      assessment: rowdata.id,
+    }
+
+    console.log(assessmentData);
+
+    this.loadingSpinner.httpLoader.open();
+
+    this.reportsApi.postReportAssessment(assessmentData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.data.id);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

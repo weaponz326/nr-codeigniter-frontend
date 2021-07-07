@@ -38,4 +38,20 @@ export class SectionsApiService {
     return this.http.delete(this.schoolUrl + "module-sections/section/" + sessionStorage.getItem('section_id'));
   }
 
+  // ------------------------------------------------------------------------------------------------------------------------
+  // section students
+
+
+  public getSectionStudents(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-sections/section-student?section=" + sessionStorage.getItem('section_id'));
+  }
+
+  public postSectionStudent(student): Observable<any>{
+    return this.http.post(this.schoolUrl + "module-sections/section-student/", student);
+  }
+
+  public deleteSectionStudent(sectionStudentId): Observable<any>{
+    return this.http.delete(this.schoolUrl + "module-sections/section-student/" + sectionStudentId);
+  }
+
 }

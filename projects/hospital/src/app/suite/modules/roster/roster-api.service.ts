@@ -84,4 +84,27 @@ export class RosterApiService {
     return this.http.put(this.hospitalUrl + "module-roster/personnel/" + personnelId, personnel);
   }
 
+  public refreshPersonnel(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-roster/refresh-personnel?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  // ---------------------------------------------------------------------------------------------------------------------
+  // sheet
+
+  public refreshSheet(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-roster/refresh-sheet?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public getRosterDays(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-roster/roster-day?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public getRosterSheet(): Observable<any>{
+    return this.http.get(this.hospitalUrl + "module-roster/roster-sheet?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public postRosterSheet(sheet): Observable<any>{
+    return this.http.post(this.hospitalUrl + "module-roster/roster-sheet/", sheet);
+  }
+
 }

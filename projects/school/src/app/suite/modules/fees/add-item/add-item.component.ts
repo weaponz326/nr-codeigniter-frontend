@@ -12,6 +12,8 @@ import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 })
 export class AddItemComponent implements OnInit {
 
+  constructor() { }
+
   @ViewChild("addItemReference") addItemWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -45,6 +47,5 @@ export class AddItemComponent implements OnInit {
     this.addCommit.emit(this.itemData);
     this.closeWindow()
   }
-
 
 }

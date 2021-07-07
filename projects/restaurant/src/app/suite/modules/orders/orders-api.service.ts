@@ -66,6 +66,10 @@ export class OrdersApiService {
     return this.http.delete(this.restaurantUrl + "module-orders/order-item/" + itemId);
   }
 
+  public patchTotal(totalData): Observable<any>{
+    return this.http.patch(this.restaurantUrl + "module-orders/order-total/" + sessionStorage.getItem('order_id'), totalData);
+  }
+
   // --------------------------------------------------------------------------------------------------------------------------
 
   // get menu items for item dropdownlist

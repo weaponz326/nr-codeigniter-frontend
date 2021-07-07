@@ -63,7 +63,35 @@ export class ClassesApiService {
 
   // get subjects for selection window
   public getAllSubjects(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-subjects/subject/" + sessionStorage.getItem('school_id'));
+    return this.http.get(this.schoolUrl + "module-subjects/subject?account" + sessionStorage.getItem('school_id'));
+  }
+
+  // class's students
+  // ---------------------------------------------------------------------------------------------------------------
+
+  public getAllClassStudents(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-classes/class-student?clas=" + sessionStorage.getItem('class_id'));
+  }
+
+  public postClassStudent(student): Observable<any>{
+    return this.http.post(this.schoolUrl + "module-classes/class-student/", student);
+  }
+
+  public getSingleClassStudent(studentId): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-classes/class-student/" + studentId);
+  }
+
+  public putClassStudent(studentId, student): Observable<any>{
+    return this.http.put(this.schoolUrl + "module-classes/class-student/" + studentId, student);
+  }
+
+  public deleteClassStudent(studentId): Observable<any>{
+    return this.http.delete(this.schoolUrl + "module-classes/class-student/" + studentId);
+  }
+
+  // get subjects for selection window
+  public getAllStudents(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-students/student?account=" + sessionStorage.getItem('school_id'));
   }
 
 }

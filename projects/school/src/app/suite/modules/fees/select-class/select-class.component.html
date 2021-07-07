@@ -1,1 +1,20 @@
-<p>select-class works!</p>
+<jqxWindow #selectClassWindowReference
+    [width]="555"
+    [height]="600"
+    [autoOpen]="false">
+
+    <div>Select Target Class</div>
+
+    <div>
+        <jqxGrid #selectClassGridReference (onRowdoubleclick)="selectClass($event)"
+            [width]="540"
+            [height]="555"
+            [source]="dataAdapter"
+            [sortable]="true"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [columns]="columns"
+        ></jqxGrid>
+    </div>
+
+</jqxWindow>

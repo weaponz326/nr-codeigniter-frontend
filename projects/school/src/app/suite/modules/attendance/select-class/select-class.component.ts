@@ -18,7 +18,7 @@ export class SelectClassComponent implements OnInit, AfterViewInit {
   @ViewChild("selectClassWindowReference") selectClassWindow: jqxWindowComponent;
   @ViewChild("selectClassGridReference") selectClassGrid: jqxGridComponent;
 
-  @Output() doctorEvent = new EventEmitter<any>();
+  @Output() classEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
@@ -34,7 +34,7 @@ export class SelectClassComponent implements OnInit, AfterViewInit {
 
   selectClass(event: any){
     console.log("u have double clicked a class");
-    this.doctorEvent.emit(event.args.row.bounddata);
+    this.classEvent.emit(event.args.row.bounddata);
     this.selectClassWindow.close();
   }
 
@@ -69,7 +69,7 @@ export class SelectClassComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Class Name", dataField: "term_name", width: "60%" },
+    { text: "Class Name", dataField: "class_name", width: "60%" },
     { text: "Department", dataField: "department", width: "40%" },
   ];
 

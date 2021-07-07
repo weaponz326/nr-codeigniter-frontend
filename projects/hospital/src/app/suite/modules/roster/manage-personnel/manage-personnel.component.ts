@@ -27,16 +27,29 @@ export class ManagePersonnelComponent implements OnInit, AfterViewInit {
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
+  
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
+  ngAfterViewInit(): void {    
+    this.refreshPersonnel();
   }
 
-  getData(){
+  refreshPersonnel(){
+    this.rosterApi.refreshPersonnel()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.getPersonnelData();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  getPersonnelData(){
     this.rosterApi.getPersonnel()
       .subscribe(
         res => {
@@ -55,16 +68,17 @@ export class ManagePersonnelComponent implements OnInit, AfterViewInit {
     this.grid.updaterow(personnelData.id, personnelData);
   }
 
-// personnel widgets
+  // personnel widgets
   // --------------------------------------------------------------------------------------------
-
+  
   source: any = {
     localdata: null,
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'personnel_code', type: 'string' },
-      { name: 'personnel_name', type: 'string' },
+      { name: 'staff_id', map: 'staff>id', type: 'string' },
+      { name: 'staff_code', map: 'staff>staff_code', type: 'string' },
+      { name: 'staff_name', map: 'staff>staff_name', type: 'string' },
       { name: 'batch_name', type: 'string' },
       { name: 'batch_symbol', type: 'string' },
     ],
@@ -77,8 +91,8 @@ export class ManagePersonnelComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: 'Personnel ID', dataField: 'personnel_code', width: "30%" },
-    { text: 'Personnel Name', dataField: 'personnel_name', width: "50%" },
+    { text: 'Staff ID', dataField: 'staff_code', width: "30%" },
+    { text: 'Staff Name', dataField: 'staff_name', width: "50%" },
     { text: 'Batch', dataField: 'batch_symbol', width: "20%" },
   ];
 
@@ -88,8 +102,8 @@ export class ManagePersonnelComponent implements OnInit, AfterViewInit {
 
     let personnelData = {
       roster: sessionStorage.getItem('roster_id'),
-      personnel_name: newdata.personnel_name,
-      personnel_symbol: newdata.personnel_symbol,
+      staff_id: newdata.staff_id,
+      batch_symbol: newdata.batch_symbol,
     }
 
     this.loadingSpinner.httpLoader.open();

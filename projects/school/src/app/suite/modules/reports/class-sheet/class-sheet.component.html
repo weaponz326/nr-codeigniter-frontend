@@ -1,6 +1,6 @@
 <div class="row top-button-row">
     <div class="col-md-12">
-        <jqxButton #refereshSheetReference class="float-right"
+        <jqxButton #refereshSheetReference (click)="refreshSheet()"
             [width]="150"
             [height]="30"
         >Referesh Sheet</jqxButton>
@@ -9,13 +9,20 @@
 
 <div class="row">
     <div class="col-md-12">
-        <jqxGrid #classGridReference
+        <jqxGrid #classGridReference (onRowdoubleclick)="viewStudentReport($event)"
             [width]="'100%'"
             [autoheight]="true"
+            [source]="dataAdapter"
             [rowsheight]="24"
             [sortable]="true"
-            [columns]="columns"
+            [columns]="sheetColumns"
+            [columngroups]="assessmentColumnGroups"
         ></jqxGrid>
     </div>
 </div>
 
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

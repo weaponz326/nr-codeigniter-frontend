@@ -31,7 +31,7 @@ export class StudentFormComponent implements OnInit {
   @ViewChild('cityReference') city: jqxInputComponent;
   @ViewChild('postCodeReference') postCode: jqxInputComponent;
   @ViewChild('studentCodeReference') studentCode: jqxInputComponent;
-  @ViewChild('classReference') class: jqxDropDownListComponent;
+  @ViewChild('classReference') clas: jqxDropDownListComponent;
   @ViewChild('termReference') term: jqxDropDownListComponent;
   @ViewChild('admissionDateReference') admissionDate: jqxDateTimeInputComponent;
   @ViewChild('previousSchoolReference') previousSchool: jqxInputComponent;

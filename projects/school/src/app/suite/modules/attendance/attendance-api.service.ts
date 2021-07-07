@@ -55,8 +55,12 @@ export class AttendanceApiService {
     return this.http.get(this.schoolUrl + "module-attendance/refresh-sheet?attendance=" + sessionStorage.getItem('attendance_id'));
   }
 
+  public getAttendanceDays(): Observable<any>{
+    return this.http.get(this.schoolUrl + "module-attendance/attendance-day?attendance=" + sessionStorage.getItem('attendance_id'));
+  }
+
   public getClassSheet(): Observable<any>{
-    return this.http.get(this.schoolUrl + "module-attendance/class-sheet?attendance=" + sessionStorage.getItem('attendance_id'));
+    return this.http.get(this.schoolUrl + "module-attendance/attendance-sheet?attendance=" + sessionStorage.getItem('attendance_id'));
   }
 
   public postClassSheet(sheet): Observable<any>{

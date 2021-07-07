@@ -22,6 +22,8 @@ import { SubjectsTableComponent } from './subjects-table/subjects-table.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SelectSubjectComponent } from './select-subject/select-subject.component';
+import { ClassStudentsComponent } from './class-students/class-students.component';
+import { SelectStudentComponent } from './select-student/select-student.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { SelectSubjectComponent } from './select-subject/select-subject.componen
     SubjectsTableComponent,
     DashboardComponent,
     SettingsComponent,
-    SelectSubjectComponent
+    SelectSubjectComponent,
+    ClassStudentsComponent,
+    SelectStudentComponent
   ],
   imports: [
     CommonModule,

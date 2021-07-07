@@ -18,8 +18,8 @@ export class FeesDetailsComponent implements OnInit {
 
   constructor(private feesApi: FeesApiService) { }
 
-  @ViewChild("gridReference") grid: jqxGridComponent;
-  @ViewChild("buttonReference") button: jqxButtonComponent;
+  @ViewChild("itemsGridReference") itemsGrid: jqxGridComponent;
+  @ViewChild("arrearsGridReference") arrearsGrid: jqxGridComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
@@ -28,17 +28,18 @@ export class FeesDetailsComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getData();
+    this.itemsGrid.showloadelement();
+    this.getItemsData();
+    this.getArrearsData();
   }
 
-  getData(){
+  getItemsData(){
     this.feesApi.getAllFeesItems()
       .subscribe(
         res => {
           console.log(res);
-          this.source.localdata = res;
-          this.grid.updatebounddata();
+          this.itemsSource.localdata = res;
+          this.itemsGrid.updatebounddata();
         },
         err => {
           console.log(err);
@@ -47,10 +48,25 @@ export class FeesDetailsComponent implements OnInit {
       )
   }
 
-  // widgets
-  // --------------------------------------------------------------------------------------
+  getArrearsData(){
+    this.feesApi.getAllArrears()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.arrearsSource.localdata = res;
+          this.arrearsGrid.updatebounddata();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
 
-  source: any = {
+  // --------------------------------------------------------------------------------------
+  // items
+
+  itemsSource: any = {
     localdata: null,
     dataType: 'json',
     dataFields: [
@@ -60,29 +76,29 @@ export class FeesDetailsComponent implements OnInit {
     ],
     id: 'id',
     addrow: (rowid, rowdata, position, commit) => {
-      this.addRow(rowid, rowdata, position, commit);
+      this.addItemRow(rowid, rowdata, position, commit);
     },
     updaterow: (rowid, newdata, commit) => {
-      this.updateRow(rowid, newdata, commit);
+      this.updateItemRow(rowid, newdata, commit);
     },
     deleterow: (rowid, commit) => {
-      this.deleteRow(rowid, commit);
+      this.deleteItemRow(rowid, commit);
     }
   }
 
-  dataAdapter: any = new jqx.dataAdapter(this.source);
+  itemsDataAdapter: any = new jqx.dataAdapter(this.itemsSource);
 
-  columns: any[] = [
+  itemsColumns: any[] = [
     { text: "Item Description", dataField: "item", width: "70%" },
     { text: "Amount", dataField: "amount", width: "30%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
   ];
 
-  addRow(rowid, rowdata, position, commit){
+  addItemRow(rowid, rowdata, position, commit){
     console.log("u are about adding a new row...");
     console.log(rowdata);
 
     let itemData =  {
-      fees: sessionStorage.getItem('fees_id'),
+      fee: sessionStorage.getItem('fees_id'),
       item: rowdata.item,
       amount: rowdata.amount,
     }
@@ -106,7 +122,7 @@ export class FeesDetailsComponent implements OnInit {
       )
   }
 
-  updateRow(rowid, newdata, commit){
+  updateItemRow(rowid, newdata, commit){
     console.log("u are about updating a new row...");
     console.log(newdata);
 
@@ -135,7 +151,7 @@ export class FeesDetailsComponent implements OnInit {
       )
   }
 
-  deleteRow(rowid, commit){
+  deleteItemRow(rowid, commit){
     console.log("u are about deleting a new row...");
 
     this.loadingSpinner.httpLoader.open();
@@ -156,15 +172,136 @@ export class FeesDetailsComponent implements OnInit {
   }
 
   onItemAddCommit(feeData: any) {
-    this.grid.addrow(null, feeData);
+    this.itemsGrid.addrow(null, feeData);
   }
 
   onItemEditCommit(feeData: any) {
-    this.grid.updaterow(feeData.id, feeData);
+    this.itemsGrid.updaterow(feeData.id, feeData);
   }
 
   onItemDeleteCommit(feeId: number) {
-    this.grid.deleterow(feeId);
+    this.itemsGrid.deleterow(feeId);
+  }
+
+  // ----------------------------------------------------------------------------------------------------------------------
+  // items
+
+  arrearsSource: any = {
+    localdata: null,
+    dataType: 'json',
+    dataFields: [
+      { name: 'id', type: 'string' },
+      { name: 'item', type: 'string' },
+      { name: 'source', map: 'fee>fees_description', type: 'string' },
+      { name: 'source_id', map: 'fee>id', type: 'string' },
+    ],
+    id: 'id',
+    addrow: (rowid, rowdata, position, commit) => {
+      this.addArrearsRow(rowid, rowdata, position, commit);
+    },
+    updaterow: (rowid, newdata, commit) => {
+      this.updateArrearsRow(rowid, newdata, commit);
+    },
+    deleterow: (rowid, commit) => {
+      this.deleteArrearsRow(rowid, commit);
+    }
+  }
+
+  arrearsDataAdapter: any = new jqx.dataAdapter(this.arrearsSource);
+
+  arrearsColumns: any[] = [
+    { text: "Arrears Description", dataField: "item", width: "60%" },
+    { text: "Arrears Source", dataField: "source", width: "40%" },
+  ];
+
+  addArrearsRow(rowid, rowdata, position, commit){
+    console.log("u are about adding a new row...");
+    console.log(rowdata);
+
+    let arrearsData =  {
+      fee: sessionStorage.getItem('fees_id'),
+      item: rowdata.item,
+      source: rowdata.source_id,
+    }
+
+    console.log(arrearsData);
+
+    this.loadingSpinner.httpLoader.open();
+
+    this.feesApi.postFeesItem(arrearsData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.data.id);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  updateArrearsRow(rowid, newdata, commit){
+    console.log("u are about updating a new row...");
+    console.log(newdata);
+
+    let arrearsData =  {
+      fee: sessionStorage.getItem('fees_id'),
+      item: newdata.item,
+      source: newdata.source_id,
+    }
+
+    console.log(arrearsData);
+
+    this.loadingSpinner.httpLoader.open();
+
+    this.feesApi.putFeesItem(arrearsData, rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.data.id);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  deleteArrearsRow(rowid, commit){
+    console.log("u are about deleting a new row...");
+
+    this.loadingSpinner.httpLoader.open();
+
+    this.feesApi.deleteFeesItem(rowid)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+          commit(true, res.id);
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  onArrearsAddCommit(feeData: any) {
+    this.itemsGrid.addrow(null, feeData);
+  }
+
+  onArrearsEditCommit(feeData: any) {
+    this.itemsGrid.updaterow(feeData.id, feeData);
+  }
+
+  onArrearsDeleteCommit(feeId: number) {
+    this.itemsGrid.deleterow(feeId);
   }
 
 }

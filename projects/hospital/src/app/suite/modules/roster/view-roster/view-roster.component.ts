@@ -44,6 +44,7 @@ export class ViewRosterComponent implements OnInit, AfterViewInit {
   ];
 
   sourceSource = ['Nurses', 'Doctors', 'Staff'];
+  sheetDisplay;
 
   ngOnInit(): void {
   }
@@ -58,6 +59,8 @@ export class ViewRosterComponent implements OnInit, AfterViewInit {
           this.fromDate.val(res.from_date);
           this.toDate.val(res.to_date);
           this.source.val(res.source);
+
+          this.sheetDisplay = res.source;
         },
         err => {
           console.log(err);

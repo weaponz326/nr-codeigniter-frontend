@@ -1,6 +1,6 @@
 <jqxWindow #addPaymentReference
     [width]="530"
-    [height]="285"
+    [height]="260"
     [autoOpen]="false">
 
     <div>Add New Payment</div>
@@ -59,16 +59,17 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Bill ID</div>
+            <div class="edit-dialog-label-alt">Bill Fees ID</div>
             <div class="edit-dialog-field-alt">
                 <jqxInput #billCodeReference
                     [width]="'90%'"
                     [height]="25"
                     [disabled]="true"
                 ></jqxInput>
-                <jqxButton #selectBillButton (click)="selectBill.openWindow()"
+                <jqxButton #selectBillButtonReference (click)="selectBill.openWindow()"
                     [width]="'10%'"
                     [height]="25"
+                    [disabled]="true"
                 >...</jqxButton>
             </div>
         </div>
@@ -96,3 +97,9 @@
 <app-select-bill #selectBillComponentReference
     (billEvent)="billSelected($event)"
 ></app-select-bill>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

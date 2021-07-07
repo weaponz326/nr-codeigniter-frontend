@@ -93,6 +93,8 @@ export class ViewAssessmentComponent implements OnInit, AfterViewInit {
       )
 
     console.log(assessmentData);
+
+    this.assessmentTable.saveSheet();
   }
 
   deleteAssessment(){

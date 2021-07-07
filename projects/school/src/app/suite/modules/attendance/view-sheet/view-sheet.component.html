@@ -1,14 +1,14 @@
 <div class="row top-button-row">
     <div class="col-md-12">
-        <jqxButton #sheetButtonReference class="float-left" routerLink="/suite/attendance/check-attendance"
-            [width]="150"
-            [height]="30"
-        >Check Attendance</jqxButton>
-
-        <jqxButton #refereshButtonReference class="float-right" (click)="refreshSheet()"
+        <jqxButton #refereshButtonReference (click)="refreshSheet()"
             [width]="150"
             [height]="30"
         >Refresh Sheet</jqxButton>
+
+        <jqxButton #sheetButtonReference class="float-right" routerLink="/suite/attendance/check-attendance"
+            [width]="150"
+            [height]="30"
+        >Check Attendance</jqxButton>
     </div>
 </div>
 
@@ -17,9 +17,14 @@
         <jqxGrid #sheetGridReference
             [width]="'100%'"
             [autoheight]="true"
-            [rowsheight]="24"
+            [rowsheight]="25"
+            [source]="dataAdapter"
+            [columns]="sheetColumns"
             [sortable]="true"
-            [columns]="columns"
         ></jqxGrid>
     </div>
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

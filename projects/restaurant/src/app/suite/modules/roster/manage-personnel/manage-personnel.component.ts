@@ -31,9 +31,22 @@ export class ManagePersonnelComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    this.grid.showloadelement();
-    this.getPersonnelData();
+  ngAfterViewInit(): void {    
+    this.refreshPersonnel();
+  }
+
+  refreshPersonnel(){
+    this.rosterApi.refreshPersonnel()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.getPersonnelData();
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
   getPersonnelData(){
@@ -50,26 +63,12 @@ export class ManagePersonnelComponent implements OnInit, AfterViewInit {
         }
       )
   }
-
-  refreshPersonnel(){
-    this.rosterApi.refreshPersonnel()
-      .subscribe(
-        res => {
-          console.log(res);
-          this.ngAfterViewInit();
-        },
-        err => {
-          console.log(err);
-          this.connectionNotification.errorNotification.open();
-        }
-      )
-  }
-
+  
   onEditCommit(personnelData: any) {
     this.grid.updaterow(personnelData.id, personnelData);
   }
 
-// personnel widgets
+  // personnel widgets
   // --------------------------------------------------------------------------------------------
 
   source: any = {

@@ -28,9 +28,10 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
   @ViewChild('paymentDateReference') paymentDate: jqxDateTimeInputComponent;
   @ViewChild('studentNameReference') studentName: jqxInputComponent;
   @ViewChild('studentCodeReference') studentCode: jqxInputComponent;
-  @ViewChild('billCodeReference') billCode: jqxInputComponent;
-  @ViewChild('totalAmountReference') totalAmount: jqxNumberInputComponent;
-  @ViewChild('amountPaidReference') amountPaid: jqxNumberInputComponent;
+  @ViewChild('billAmountReference') billAmount: jqxInputComponent;
+  @ViewChild('amountPaidReference') amountPaid: jqxInputComponent;
+  @ViewChild('amountDueReference') amountDue: jqxNumberInputComponent;
+  @ViewChild('paymentReference') payment: jqxNumberInputComponent;
   @ViewChild('balanceReference') balance: jqxNumberInputComponent;
 
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
@@ -56,12 +57,22 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.paymentCode.val(res.payment_code);
           this.paymentDate.val(res.payment_date);
-          this.studentName.val(res.student.student_name);
-          this.studentCode.val(res.student.student_code);
-          this.billCode.val(res.bill.bill_code);
-          this.totalAmount.val(res.bill.total_amount);
-          this.amountPaid.val(res.amount_paid);
-          this.balance.val(res.balance);
+          this.studentName.val(res.bill.student.student_name);
+          this.studentCode.val(res.bill.student.student_code);
+          this.billAmount.val(res.bill.amount);
+          this.amountPaid.val(res.amount_paid.payment__sum);          
+          this.payment.val(res.payment);
+
+          if(this.payment.val() == 0){
+            this.amountDue.val(res.bill.amount);
+          }
+          else{
+            this.amountDue.val(res.amount_due);
+          }
+
+          if(this.amountPaid.val() > this.billAmount.val()) {
+            this.balance.val(this.amountPaid.val() - this.billAmount.val());                    
+          }
         },
         err => {
           console.log(err);
@@ -73,18 +84,24 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
   // -------------------------------------------------------------------------------------------------
 
   savePayment(){
+    var amountDueValue = 0;
+    if(this.amountDue.val() > this.payment.val()){
+      amountDueValue = this.amountDue.val() - this.payment.val();
+    }
+
     let paymentData = {
-      hospital_id: sessionStorage.getItem('hospital_id'),
+      account: sessionStorage.getItem('school_id'),
       payment_code: this.paymentCode.val(),
       payment_date: this.paymentDate.val(),
-      amount_paid: this.amountPaid.val(),
-      balance: this.balance.val(),
+      payment: this.payment.val(),
+      amount_due: amountDueValue,
     }
 
     this.paymentsApi.putPayment(paymentData)
       .subscribe(
         res => {
           console.log(res);
+          this.ngAfterViewInit();
           this.loadingSpinner.httpLoader.close();
         },
         err => {

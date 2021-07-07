@@ -6,6 +6,8 @@ import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
 import { TimetablesApiService } from '../timetables-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
+import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
 
 
 @Component({
@@ -20,30 +22,27 @@ export class EditTimetableComponent implements OnInit, AfterViewInit {
     private timetablesApi: TimetablesApiService,
   ) { }
 
-  @ViewChild('addClassReference') addClassutton: jqxButtonComponent;
-  @ViewChild('classesReference') classesGrid: jqxGridComponent;
-  @ViewChild('addPeriodReference') addPeriodutton: jqxButtonComponent;
-  @ViewChild('periodsReference') periodsGrid: jqxGridComponent;
+  @ViewChild('gridReference') grid: jqxGridComponent;
 
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
+  @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
+
+  sheetLocalData: any = [];
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    this.classesGrid.showloadelement();
-    this.getClassesData();
-    this.periodsGrid.showloadelement();
-    this.getPeriodsData();
+    this.refreshSheet();
   }
 
-  getClassesData(){
-    this.timetablesApi.getTimetableClasses()
+  refreshSheet(){
+    this.timetablesApi.refreshSheet()
       .subscribe(
         res => {
           console.log(res);
-          this.classesSource.localdata = res;
-          this.classesGrid.updatebounddata();
+          this.getData();
         },
         err => {
           console.log(err);
@@ -52,13 +51,12 @@ export class EditTimetableComponent implements OnInit, AfterViewInit {
       )
   }
 
-  getPeriodsData(){
-    this.timetablesApi.getTimetablePeriods()
+  getData(){
+    this.timetablesApi.getFullSheet()
       .subscribe(
         res => {
           console.log(res);
-          this.periodsSource.localdata = res;
-          this.periodsGrid.updatebounddata();
+          this.populateSheet(res);
         },
         err => {
           console.log(err);
@@ -67,59 +65,53 @@ export class EditTimetableComponent implements OnInit, AfterViewInit {
       )
   }
 
-  // widgets
-  // --------------------------------------------------------------------------------------
+  populateSheet(sheetData){
+    sheetData.forEach(sheet => {
+      // timetable class id is not id of class but id of the timetable class instance
+      let data = { id: sheet.id, timetable_class_id:sheet.timetable_class.id,  class_name: sheet.timetable_class.clas.class_name, period: sheet.timetable_period.period };
+      this.sheetLocalData.push(data);
 
-  // classes grid
-
-  classesSource: any = {
-    localdata: null,
-    dataType: 'json',
-    dataFields: [
-      { name: 'id', type: 'string' },
-      { name: 'class_name', type: 'string' },
-      { name: 'department', type: 'string' },
-    ],
-    id: 'id',
+      console.log(this.sheetLocalData);
+      this.source.localdata = this.sheetLocalData;
+      this.grid.updatebounddata();
+    });
   }
 
-  classesDataAdapter: any = new jqx.dataAdapter(this.classesSource);
-
-  classesColumns: any[] = [
-    { text: "Class Name", dataField: "class_name", width: "30%" },
-    { text: "Department", dataField: "department", width: "70%" },
-  ];
-
-  // periods grid
-
-  periodsSource: any = {
-    localdata: null,
-    dataType: 'json',
-    dataFields: [
-      { name: 'id', type: 'string' },
-      { name: 'period', type: 'string' },
-      { name: 'period_from', type: 'string' },
-      { name: 'period_to', type: 'string' },
-    ],
-    id: 'id',
+  editSheet(e: any){
+    console.log(e);
+    if(e.type == "cellclick"){
+      if(!(e.args.dataField != "class_name" || e.args.dataField != "period")){
+        // TODO: edit cell with subject
+        // open select subject window and filter subjects by class
+        
+        var column = e.args.datafield;
+        var row = e.args.row.bounddata.id;
+      }
+    }
   }
 
-  periodsDataAdapter: any = new jqx.dataAdapter(this.periodsSource);
+  gotoClassTimetable(e: any){
+    console.log(e);
+    if(e.type == "celldoubleclick"){
+      console.log("u double click");
+      if(e.args.datafield == "class_name"){
+        console.log("u double click on class");
+        sessionStorage.setItem('timetable_class_id', e.args.row.bounddata.timetable_class_id)
+        this.router.navigateByUrl("/suite/timetables/class-timetable")
+      }
+    }
+  }
 
-  periodsColumns: any[] = [
-    { text: "Period", dataField: "period", width: "50%" },
-    { text: "Period From", dataField: "period_from", width: "25%" },
-    { text: "Period To", dataField: "period_to", width: "25%" },
-  ];
-
+  // ----------------------------------------------------------------------------------------------------------
   // main timetable grid
 
-  timetableSource: any = {
+  source: any = {
     localdata: null,
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'clas', type: 'string' },
+      { name: 'timetable_class_id', type: 'string' },
+      { name: 'class_name', type: 'string' },
       { name: 'period', type: 'string' },
       { name: 'monday', type: 'string' },
       { name: 'tuesday', type: 'string' },
@@ -130,11 +122,11 @@ export class EditTimetableComponent implements OnInit, AfterViewInit {
     id: 'id',
   }
 
-  timetableDataAdapter: any = new jqx.dataAdapter(this.timetableSource);
+  timetableDataAdapter: any = new jqx.dataAdapter(this.source);
 
   timetableColumns: any[] = [
-    { text: "Class", columngroup: 'classGroup', dataField: "clas", align: "center", width: "15%" },
-    { text: "Period", columngroup: 'classGroup', dataField: "period", align: "center", width: "10%" },
+    { text: "Class", columngroup: 'classGroup', dataField: "class_name", editable: false, align: "center", width: "15%" },
+    { text: "Period", columngroup: 'classGroup', dataField: "period", editable: false, align: "center", width: "10%" },
     { text: "Monday", dataField: "monday", align: "center", width: "15%" },
     { text: "Tuesday", dataField: "tuesday", align: "center", width: "15%" },
     { text: "Wednesday", dataField: "wednesday", align: "center", width: "15%" },

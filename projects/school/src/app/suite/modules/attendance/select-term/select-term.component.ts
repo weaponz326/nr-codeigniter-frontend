@@ -18,7 +18,7 @@ export class SelectTermComponent implements OnInit, AfterViewInit {
   @ViewChild("selectTermWindowReference") selectTermWindow: jqxWindowComponent;
   @ViewChild("selectTermGridReference") selectTermGrid: jqxGridComponent;
 
-  @Output() doctorEvent = new EventEmitter<any>();
+  @Output() termEvent = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
@@ -34,7 +34,7 @@ export class SelectTermComponent implements OnInit, AfterViewInit {
 
   selectTerm(event: any){
     console.log("u have double clicked a term");
-    this.doctorEvent.emit(event.args.row.bounddata);
+    this.termEvent.emit(event.args.row.bounddata);
     this.selectTermWindow.close();
   }
 

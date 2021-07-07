@@ -25,7 +25,7 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
 
   @ViewChild('paymentCodeReference') paymentCode: jqxInputComponent;
   @ViewChild('paymentDateReference') paymentDate: jqxDateTimeInputComponent;
-  @ViewChild('billCodeReference') billCode: jqxInputComponent;
+  @ViewChild('orderCodeReference') orderCode: jqxInputComponent;
   @ViewChild('totalAmountReference') totalAmount: jqxNumberInputComponent;
   @ViewChild('amountPaidReference') amountPaid: jqxNumberInputComponent;
   @ViewChild('balanceReference') balance: jqxNumberInputComponent;
@@ -53,8 +53,8 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.paymentCode.val(res.payment_code);
           this.paymentDate.val(res.payment_date);
-          this.billCode.val(res.bill.bill_code);
-          this.totalAmount.val(res.bill.total_amount);
+          this.orderCode.val(res.order.order_code);
+          this.totalAmount.val(res.order.order_total);
           this.amountPaid.val(res.amount_paid);
           
           if (this.totalAmount.val() < this.amountPaid.val()) {
