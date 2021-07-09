@@ -11,13 +11,21 @@ export class AppraisalFormComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('formReference') button: jqxFormComponent;
+  @ViewChild('appraisaFormReference') appraisalForm: jqxFormComponent;
 
   ngOnInit(): void {
   }
 
+  saveForm(){
+    let formValues = this.appraisalForm.val();
+    console.log(formValues);
+  }
+
   // widgets
   // ---------------------------------------------------------
+
+  // jqx form not working
+  // TODO: change to radio components
 
   template: any[] = [
 		{ type: 'label', label: 'Job knowledge' },

@@ -8,6 +8,8 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxFormModule } from 'jqwidgets-ng/jqxform';
+import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
+import { jqxRadioButtonModule } from 'jqwidgets-ng/jqxradiobutton';
 
 import { AppraisalRoutingModule } from './appraisal-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -20,6 +22,7 @@ import { ViewAppraisalComponent } from './view-appraisal/view-appraisal.componen
 import { AppraisalFormComponent } from './appraisal-form/appraisal-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AppraisalEmployeesComponent } from './appraisal-employees/appraisal-employees.component';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { SettingsComponent } from './settings/settings.component';
     ViewAppraisalComponent,
     AppraisalFormComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    AppraisalEmployeesComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +47,9 @@ import { SettingsComponent } from './settings/settings.component';
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxDropDownListModule,
-    jqxFormModule
+    jqxFormModule,
+    jqxPanelModule,
+    jqxRadioButtonModule,
   ]
 })
 export class AppraisalModule { }

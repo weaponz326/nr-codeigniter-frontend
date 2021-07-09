@@ -25,6 +25,7 @@ export class ViewAppraisalComponent implements OnInit, AfterViewInit {
   ) { }
 
   @ViewChild("appraisalCodeReference") appraisalCode: jqxInputComponent;
+  @ViewChild("appraisalNameReference") appraisalName: jqxInputComponent;
   @ViewChild("employeeNameReference") employeeName: jqxDropDownListComponent;
   @ViewChild("employeeCodeReference") employeeCode: jqxDropDownListComponent;
   @ViewChild("startDateReference") startDate: jqxDateTimeInputComponent;
@@ -37,27 +38,30 @@ export class ViewAppraisalComponent implements OnInit, AfterViewInit {
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('deleteConfirmComponentReference') deleteConfirmComponent: DeleteConfirmComponent;
-  @ViewChild('appraisalFormComponentReference') appraisalTransactionsComponent: AppraisalFormComponent;
+
+  @ViewChild('appraisalFormComponentReference') appraisalFormComponent: AppraisalFormComponent;
 
   navHeading: any[] = [
     { text: "All Appraisal", url: "/suite/appraisal/all-appraisal" },
+    { text: "Appraisal Employees", url: "/suite/appraisal/appraisal-employees" },
     { text: "View Appraisal", url: "/suite/appraisal/view-appraisal" },
   ];
-
-  employeeIdStore: any;
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
+    this.getAppraisal();
+    this.getEmployee();
+  }
+
+  getAppraisal(){
     this.appraisalApi.getSingleAppraisal()
       .subscribe(
         res => {
           console.log(res);
-          this.employeeIdStore = res.employee.id;
           this.appraisalCode.val(res.appraisal_code);
-          this.employeeCode.val(res.employee.employee_code);
-          this.employeeName.val(res.employee.employee_name);
+          this.appraisalName.val(res.appraisal_name);
           this.startDate.val(res.start_date);
           this.endDate.val(res.end_date);
           this.supervisor.val(res.supervisor);
@@ -69,63 +73,19 @@ export class ViewAppraisalComponent implements OnInit, AfterViewInit {
       )
   }
 
-  deleteConfirmationSelected(value: string){
-    if (value == 'yes'){
-      this.loadingSpinner.httpLoader.open();
-
-      this.appraisalApi.deleteAppraisal()
-        .subscribe(
-          res => {
-            console.log(res);
-            this.loadingSpinner.httpLoader.close();
-
-            this.router.navigateByUrl('/suite/appraisal/all-appraisal');
-          },
-          err => {
-            console.log(err);
-            this.loadingSpinner.httpLoader.close();
-            this.connectionNotification.errorNotification.open();
-          }
-        )
-    }
-  }
-
-  // widgets
-  // ---------------------------------------------------------------------------------------
-
-  saveAppraisal(){
-    this.loadingSpinner.httpLoader.open();
-    console.log("u are updating the appraisal");
-
-    let appraisalData = {
-      account: sessionStorage.getItem('enterprise_id'),
-      appraisal_code: this.appraisalCode.val(),
-      employee_id: this.employeeIdStore,
-      start_date: this.startDate.val(),
-      end_date: this.endDate.val(),
-      supervisor: this.supervisor.val(),
-    }
-
-    this.appraisalApi.putAppraisal(appraisalData)
+  getEmployee(){
+    this.appraisalApi.getSingleAppraisalForm()
       .subscribe(
         res => {
           console.log(res);
-          this.loadingSpinner.httpLoader.close();
+          this.employeeCode.val(res.employee.employee_code);
+          this.employeeName.val(res.employee.employee_name);
         },
         err => {
           console.log(err);
-          this.loadingSpinner.httpLoader.close();
           this.connectionNotification.errorNotification.open();
         }
       )
-
-    console.log(appraisalData);
-  }
-
-  deleteAppraisal(){
-    console.log("dude... u are gonna delete the appraisal");
-
-    this.deleteConfirmComponent.openWindow();
   }
 
 }

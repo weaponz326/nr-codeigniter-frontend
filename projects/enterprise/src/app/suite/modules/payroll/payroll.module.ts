@@ -8,6 +8,7 @@ import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
+import { jqxComboBoxModule } from 'jqwidgets-ng/jqxcombobox';
 
 import { PayrollRoutingModule } from './payroll-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -45,7 +46,8 @@ import { SettingsComponent } from './settings/settings.component';
     jqxInputModule,
     jqxDropDownListModule,
     jqxDateTimeInputModule,
-    jqxNumberInputModule
+    jqxNumberInputModule,
+    jqxComboBoxModule,
   ]
 })
 export class PayrollModule { }

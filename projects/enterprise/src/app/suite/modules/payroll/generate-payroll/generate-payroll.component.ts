@@ -29,6 +29,7 @@ export class GeneratePayrollComponent implements OnInit {
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
   @ViewChild("payrollNameReference") payrollNameInput: jqxInputComponent;
+  @ViewChild("payrollCodeReference") payrollCodeInput: jqxInputComponent;
   @ViewChild("dateGeneratedReference") dateGenerated: jqxDateTimeInputComponent;
   @ViewChild("monthReference") month: jqxDropDownListComponent;
   @ViewChild("yearReference") year: jqxDropDownListComponent;

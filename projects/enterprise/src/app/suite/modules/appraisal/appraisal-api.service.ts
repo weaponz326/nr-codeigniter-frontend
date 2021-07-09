@@ -38,10 +38,33 @@ export class AppraisalApiService {
     return this.http.delete(this.enterpriseUrl + "module-appraisal/appraisal/" + sessionStorage.getItem('appraisal_id'));
   }
 
-  // employees
+  public refreshAppraisal(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-appraisal/refresh-appraisal?appraisal=" + sessionStorage.getItem('appraisal_id'));
+  }
 
-  public getEmployees(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-employees/employee?account=" + sessionStorage.getItem('enterprise_id'));
+  // ---------------------------------------------------------------------------------------------------------------------------
+  // apprasial form
+
+  public getAllAppraisalForm(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-appraisal/appraisal-form?appraisal=" + sessionStorage.getItem('appraisal_id'));
+  }
+
+  public postAppraisalForm(form): Observable<any>{
+    return this.http.post(this.enterpriseUrl + "module-appraisal/appraisal-form/", form);
+  }
+
+  // retreive, update and delete appraisal
+
+  public getSingleAppraisalForm(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-appraisal/appraisal-form/" + sessionStorage.getItem('appraisal_form_id'));
+  }
+
+  public putAppraisalForm(form): Observable<any>{
+    return this.http.put(this.enterpriseUrl + "module-appraisal/appraisal-form/" + sessionStorage.getItem('appraisal_form_id'), form);
+  }
+
+  public deleteAppraisalForm(): Observable<any>{
+    return this.http.delete(this.enterpriseUrl + "module-appraisal/appraisal-form/" + sessionStorage.getItem('appraisal_form_id'));
   }
 
 }

@@ -54,23 +54,27 @@ export class LedgerTableComponent implements OnInit, AfterViewInit {
   }
 
   onAddCommit(itemData: any) {
+    console.log('are u working?');
+
     let gridData = this.grid.getrows();
     console.log(gridData);
     let formattedData = this.ledgerCalc.reformatData(itemData, gridData);
     this.grid.addrow(null, formattedData);
   }
 
-  onEditCommit(itemData: any) {
-    let gridData = this.grid.getrows();
-    console.log(gridData);
-    let formattedData = this.ledgerCalc.reformatData(itemData, gridData);
-    this.grid.updaterow(itemData.id, itemData);
-  }
+  // delete and edit are disabled for finance tables
 
-  onDeleteCommit(itemId: number) {
-    // TODO: calculate balance alone
-    this.grid.deleterow(itemId);
-  }
+  // onEditCommit(itemData: any) {
+  //   let gridData = this.grid.getrows();
+  //   console.log(gridData);
+  //   let formattedData = this.ledgerCalc.reformatData(itemData, gridData);
+  //   this.grid.updaterow(itemData.id, itemData);
+  // }
+
+  // onDeleteCommit(itemId: number) {
+  //   // TODO: calculate balance alone
+  //   this.grid.deleterow(itemId);
+  // }
 
   // widgets
   // --------------------------------------------------------------------------------------------------------
@@ -105,8 +109,8 @@ export class LedgerTableComponent implements OnInit, AfterViewInit {
     { text: "Date", dataField: "item_date", columntype: "datetimeinput", width: "15%" },
     { text: "Description", dataField: "description", width: "30%" },
     { text: "Reference No.", dataField: "reference_number", width: "10%" },
-    { text: "Debit", dataField: "debit", width: "15%", cellsalign: 'right', cellsformat: 'c2' },
-    { text: "Credit", dataField: "credit", width: "15%", cellsalign: 'right', cellsformat: 'c2' },
+    { text: "Debit", dataField: "debit", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
+    { text: "Credit", dataField: "credit", width: "15%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] },
     { text: "Balance", dataField: "balance", width: "15%", cellsalign: 'right', cellsformat: 'c2' },
   ];
 
@@ -115,9 +119,9 @@ export class LedgerTableComponent implements OnInit, AfterViewInit {
     console.log(rowdata);
 
     let itemData = {
-      account: sessionStorage.getItem('account_id'),
+      ledger: sessionStorage.getItem('ledger_id'),
       item_date: rowdata.item_date,
-      item_type: rowdata.reference_number,
+      reference_number: rowdata.reference_number,
       description: rowdata.description,
       debit: rowdata.debit,
       credit: rowdata.credit,
@@ -146,9 +150,9 @@ export class LedgerTableComponent implements OnInit, AfterViewInit {
     console.log(newdata);
 
     let itemData = {
-      account: sessionStorage.getItem('account_id'),
+      ledger: sessionStorage.getItem('ledger_id'),
       item_date: newdata.item_date,
-      item_type: newdata.reference_number,
+      reference_number: newdata.reference_number,
       description: newdata.description,
       debit: newdata.debit,
       credit: newdata.credit,

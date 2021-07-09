@@ -35,11 +35,13 @@ export class LedgerCalcService {
   }
 
   getBalance(grid) {
-    if (grid.legnth == 0) {
+    if(!grid.length){
       return 0
     }
-
-    return 0;
+    else{
+      let lastItem = grid.length - 1;
+      return grid[lastItem].balance;
+    }
   }
 
 }

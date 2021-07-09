@@ -26,6 +26,7 @@ export class ViewPayrollComponent implements OnInit, AfterViewInit {
 
 
   @ViewChild("payrollNameReference") payrollName: jqxInputComponent;
+  @ViewChild("payrollCodeReference") payrollCode: jqxInputComponent;
   @ViewChild("dateGeneratedReference") dateGenerated: jqxDateTimeInputComponent;
   @ViewChild("monthReference") month: jqxDropDownListComponent;
   @ViewChild("yearReference") year: jqxDropDownListComponent;
@@ -54,6 +55,7 @@ export class ViewPayrollComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
+          this.payrollCode.val(res.payroll_code);
           this.payrollName.val(res.payroll_name);
           this.payrollStatus.val(res.payroll_status);
           this.dateGenerated.val(res.date_generated);
@@ -101,8 +103,9 @@ export class ViewPayrollComponent implements OnInit, AfterViewInit {
     console.log("u are updating the payroll");
 
     let payrollData = {
-      user: sessionStorage.getItem('enterprise_id'),
+      account: sessionStorage.getItem('enterprise_id'),
       payroll_name: this.payrollName.val(),
+      payroll_code: this.payrollCode.val(),
       payroll_status: this.payrollStatus.val(),
       date_generated: this.dateGenerated.val(),
       month: this.month.val(),

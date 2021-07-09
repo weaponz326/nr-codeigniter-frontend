@@ -45,16 +45,20 @@ export class AttendanceApiService {
     return this.http.get(this.enterpriseUrl + "module-attendance/refresh-sheet?attendance=" + sessionStorage.getItem('attendance_id'));
   }
 
-  public getConfig(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-attendance/attendance-config?attendance=" + sessionStorage.getItem('attendance_id'));
+  public getAttendanceDays(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-attendance/attendance-day?attendance=" + sessionStorage.getItem('attendance_id'));
   }
 
-  public getSheet(): Observable<any>{
-    return this.http.get(this.enterpriseUrl + "module-attendance/attendance-sheet?attendance=" + sessionStorage.getItem('attendance_id'));
+  public getAttendanceEmployees(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-attendance/attendance-employee?attendance=" + sessionStorage.getItem('attendance_id'));
   }
 
-  public postSheet(sheet): Observable<any>{
-    return this.http.post(this.enterpriseUrl + "module-attendance/attendance-sheet/", sheet);
+  public getAttendanceChecks(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-attendance/attendance-check?attendance=" + sessionStorage.getItem('attendance_id'));
+  }
+
+  public putAttendanceCheck(check, checkId): Observable<any>{
+    return this.http.post(this.enterpriseUrl + "module-attendance/attendance-check/" + checkId, check);
   }
 
 }

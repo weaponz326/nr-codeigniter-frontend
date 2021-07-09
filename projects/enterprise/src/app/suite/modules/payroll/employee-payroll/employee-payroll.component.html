@@ -1,5 +1,4 @@
 <app-topnav [headings]="navHeading"></app-topnav>
-<app-topnav [headings]="navHeading"></app-topnav>
 
 <div class="container">
 
@@ -7,21 +6,23 @@
         <div class="col-md-6">
 
             <div class="row">
-                <div class="col-md-4"><label>Payroll ID :</label></div>
-                <div class="col-md-8">
-                    <jqxInput #payrollCodeReference
-                        [width]="'100%'"
-                        [height]="28"
-                    ></jqxInput>
-                </div>
-            </div>
-
-            <div class="row">
                 <div class="col-md-4"><label>Payroll Name :</label></div>
                 <div class="col-md-8">
                     <jqxInput #payrollNameReference
                         [width]="'100%'"
                         [height]="28"
+                        [disabled]="true"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Payroll ID :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #payrollCodeReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [disabled]="true"
                     ></jqxInput>
                 </div>
             </div>
@@ -32,6 +33,8 @@
                     <jqxDateTimeInput #payrollDateReference
                         [width]="'100%'"
                         [height]="28"
+                        [formatString]="'yyyy-MM-dd'"
+                        [disabled]="true"
                     ></jqxDateTimeInput>
                 </div>
             </div>
@@ -44,6 +47,7 @@
                     <jqxInput #employeeCodeReference
                         [width]="'100%'"
                         [height]="28"
+                        [disabled]="true"
                     ></jqxInput>
                 </div>
             </div>
@@ -54,6 +58,7 @@
                     <jqxInput #employeeNameReference
                         [width]="'100%'"
                         [height]="28"
+                        [disabled]="true"
                     ></jqxInput>
                 </div>
             </div>
@@ -61,10 +66,10 @@
             <div class="row">
                 <div class="col-md-4"><label>Pay Grade :</label></div>
                 <div class="col-md-8">
-                    <jqxDropDownList #payGradeReference
+                    <jqxComboBox #payGradeReference
                         [width]="'100%'"
                         [height]="28"
-                    ></jqxDropDownList>
+                    ></jqxComboBox>
                 </div>
             </div>
 
@@ -76,6 +81,7 @@
                     <jqxDropDownList #monthReference
                         [width]="'100%'"
                         [height]="28"
+                        [source]="monthsSource"
                     ></jqxDropDownList>
                 </div>
             </div>
@@ -86,6 +92,7 @@
                     <jqxDropDownList #yearReference
                         [width]="'100%'"
                         [height]="28"
+                        [source]="yearsSource"
                     ></jqxDropDownList>
                 </div>
             </div>
@@ -162,8 +169,35 @@
                 </div>
             </div>
 
+            <hr />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <jqxButton #saveBudgetReference
+                        [width]="100"
+                        [height]="28"
+                    ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+                    <jqxButton #cancelButton class="float-right" routerLink="/suite/payroll/view-payroll"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
+
+                    <jqxButton #saveButton class="float-right" (click)="saveSheet()"
+                        [width]="100"
+                        [height]="28"
+                    >Save</jqxButton>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

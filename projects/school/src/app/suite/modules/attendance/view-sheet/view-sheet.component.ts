@@ -56,7 +56,7 @@ export class ViewSheetComponent implements OnInit, AfterViewInit {
           this.setAttendanceColumns(res);
 
           this.grid.showloadelement();
-          this.getSheetData();
+          this.getStudentsData();
         },
         err => {
           console.log(err);
@@ -65,12 +65,26 @@ export class ViewSheetComponent implements OnInit, AfterViewInit {
       )
   }
 
-  getSheetData(){
-    this.attendanceApi.getClassSheet()
+  getStudentsData(){
+    this.attendanceApi.getAttendanceStudents()
       .subscribe(
         res => {
           console.log(res);
-          this.populateSheetData(res);
+          this.setStudentData(res);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  getChecksData(){
+    this.attendanceApi.getAttendanceChecks()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.setChecksData(res);
         },
         err => {
           console.log(err);
@@ -93,7 +107,7 @@ export class ViewSheetComponent implements OnInit, AfterViewInit {
   setAttendanceColumns(attendanceDays){
     // set datafields
     this.sheetDataFields = [];
-    this.sheetDataFields.push({ name: 'student_id', map: 'student>id', type: 'string' });
+    this.sheetDataFields.push({ name: 'id', type: 'string' });
     this.sheetDataFields.push({ name: 'student_name', map: 'student>student_name', type: 'string' });
     this.sheetDataFields.push({ name: 'student_code', map: 'student>student_code', type: 'string' });
 
@@ -117,17 +131,29 @@ export class ViewSheetComponent implements OnInit, AfterViewInit {
     });
   }
 
-  populateSheetData(sheetData){
+  setStudentData(sheetData){
+    this.sheetLocalData = [];
+
     sheetData.forEach(sheet => {
-      let data = { student_id: sheet.student.id, student_name: sheet.student.student_name, student_code: sheet.student.student_code };
-
-      var sheetChecks = Object.entries(sheet.checks);
-      sheetChecks.forEach(check => {
-        data[check[0]] = check[1];
-      });
-
+      let data = { id: sheet.id, student_name: sheet.student.student_name, student_code: sheet.student.student_code };
       this.sheetLocalData.push(data);
       console.log(data);
+    });
+
+    console.log(this.sheetLocalData);
+    this.source.localdata = this.sheetLocalData;
+    this.grid.updatebounddata();
+
+    this.getChecksData();
+  }
+
+  setChecksData(checksData){
+    this.sheetLocalData.forEach((sheet, i) => {
+      checksData.forEach(check => {
+        if (sheet.id == check.attendance_student){
+          this.sheetLocalData[i] = Object.assign(this.sheetLocalData[i], {check: check.check});
+        }
+      });
     });
 
     console.log(this.sheetLocalData);

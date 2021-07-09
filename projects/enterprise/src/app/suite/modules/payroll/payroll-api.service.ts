@@ -38,4 +38,24 @@ export class PayrollApiService {
     return this.http.delete(this.enterpriseUrl + "module-payroll/payroll/" + sessionStorage.getItem('payroll_id'));
   }
 
+  // --------------------------------------------------------------------------------------------------------------------------------------
+  // sheet
+
+  public refreshSheet(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-payroll/refresh-sheet?payroll=" + sessionStorage.getItem('payroll_id'));
+  }
+
+  public getPayrollSheet(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-payroll/payroll-sheet?payroll=" + sessionStorage.getItem('payroll_id'));
+  }
+
+  public getEmployeeSheet(): Observable<any>{
+    return this.http.get(this.enterpriseUrl + "module-payroll/payroll-sheet/" + sessionStorage.getItem('payroll_sheet_id'));
+  }
+
+  public putEmployeeSheet(sheet): Observable<any>{
+    return this.http.put(this.enterpriseUrl + "module-payroll/payroll-sheet/" + sessionStorage.getItem('payroll_sheet_id'), sheet);
+  }
+
+
 }

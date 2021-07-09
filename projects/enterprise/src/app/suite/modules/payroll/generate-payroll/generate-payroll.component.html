@@ -1,6 +1,6 @@
 <jqxWindow #generatePayrollReference
     [width]="540"
-    [height]="250"
+    [height]="280"
     [autoOpen]="false">
 
     <div>Add New Payroll</div>
@@ -18,13 +18,22 @@
         </div>
 
         <div>
+            <div class="edit-dialog-label-alt">Payroll Code</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #payrollCodeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
             <div class="edit-dialog-label-alt">Date Generated</div>
             <div class="edit-dialog-field-alt">
                 <jqxDateTimeInput #dateGeneratedReference
                     [width]="'100%'"
                     [height]="25"
-                    [showTimeButton]="true"
-                    [formatString]="'yyyy-MM-dd hh:mm:ss'"
+                    [formatString]="'yyyy-MM-dd'"
                 ></jqxDateTimeInput>
             </div>
         </div>

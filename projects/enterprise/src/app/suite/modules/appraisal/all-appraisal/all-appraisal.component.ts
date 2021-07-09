@@ -56,7 +56,7 @@ export class AllAppraisalComponent implements OnInit, AfterViewInit {
     console.log(event.args.row.bounddata);
     sessionStorage.setItem('appraisal_id', event.args.row.bounddata.id);
 
-    this.router.navigateByUrl('/suite/appraisal/view-appraisal')
+    this.router.navigateByUrl('/suite/appraisal/appraisal-employees')
   }
 
   // widgets
@@ -68,8 +68,7 @@ export class AllAppraisalComponent implements OnInit, AfterViewInit {
     dataFields: [
       { name: 'id', type: 'string' },
       { name: 'appraisal_code', type: 'string' },
-      { name: 'employee_name', map: 'employee>employee_name', type: 'string' },
-      { name: 'employee_code', map: 'employee>employee_code', type: 'string' },
+      { name: 'appraisal_name', type: 'string' },
       { name: 'start_date', type: 'string' },
       { name: 'end_date', type: 'string' },
       { name: 'supervisor', type: 'string' },
@@ -80,9 +79,8 @@ export class AllAppraisalComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Appraisal ID", dataField: "appraisal_code", width: "10%" },
-    { text: "Employee Name", dataField: "employee_name", width: "25%" },
-    { text: "Employee ID", dataField: "employee_code", width: "10%" },
+    { text: "Appraisal ID", dataField: "appraisal_code", width: "15%" },
+    { text: "Appraisal Name", dataField: "appraisal_name", width: "30%" },
     { text: "Start Date", dataField: "start_date", filtertype: "range", width: "15%" },
     { text: "End Date", dataField: "end_date", filtertype: "range", width: "15%" },
     { text: "Supervisor", dataField: "supervisor", width: "25%" },

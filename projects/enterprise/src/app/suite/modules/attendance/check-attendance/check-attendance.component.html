@@ -2,10 +2,7 @@
 
 <div class="container">
 
-    <!-- --------------------------------------------------------------------------------------------------- -->
-
     <div class="row page-form-div">
-
         <div class="col-md-6">
 
             <div class="row">
@@ -14,6 +11,7 @@
                     <jqxInput #attendanceCodeReference
                         [width]="'100%'"
                         [height]="28"
+                        [disabled]="true"
                     ></jqxInput>
                 </div>
             </div>
@@ -24,22 +22,79 @@
                     <jqxInput #attendanceNameReference
                         [width]="'100%'"
                         [height]="28"
+                        [disabled]="true"
                     ></jqxInput>
                 </div>
             </div>
 
         </div>
-
     </div>
 
     <div class="row">
-        <div class="col-md-6">
-            <hr />
+        <div class="col-md-8">
+
+            <hr class="top-divider" />
+            <hr class="bottom-divider" />
+
+            <!-- check attendance sheet table -->
+
+            <div class="row top-button-row">
+                <div class="offset-md-3 col-md-6">
+                    <jqxDateTimeInput #dateReference (onChange)="gotoNewDay($event)"
+                        [width]="'100%'"
+                        [height]="32"
+                        [formatString]="'yyyy-MM-dd'"
+                    ></jqxDateTimeInput>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <jqxGrid #gridReference
+                        [width]="'100%'"
+                        [height]="400"
+                        [rowsheight]="24"
+                        [sortable]="true"
+                        [filterable]="true"
+                        [showfilterrow]="true"
+                        [editable]="true"
+                        [selectionmode]="'singlecell'"
+                        [columns]="columns"
+                        [source]="dataAdapter"
+                    ></jqxGrid>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- check attendance sheet table -->
+    <div class="row page-form-div">
+        <div class="col-md-8">
 
-    <app-check-sheet></app-check-sheet>
+            <hr />
+
+            <jqxButton #printReference
+                [width]="100"
+                [height]="28"
+            ><i class="fa fa-fw fa-print"></i> Print</jqxButton>
+
+            <jqxButton #cancelButtonReference class="float-right" routerLink="/suite/attendance/view-attendance"
+                [width]="100"
+                [height]="28"
+            >Cancel</jqxButton>
+
+            <jqxButton #saveButtonReference class="float-right" (click)="saveCheck(today.val())"
+                [width]="100"
+                [height]="28"
+            >Save</jqxButton>
+
+        </div>
+    </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

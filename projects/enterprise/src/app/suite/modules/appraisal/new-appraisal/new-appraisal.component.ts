@@ -29,6 +29,7 @@ export class NewAppraisalComponent implements OnInit {
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
   @ViewChild("appraisalCodeReference") appraisalCode: jqxInputComponent;
+  @ViewChild("appraisalNameReference") appraisalName: jqxInputComponent;
   @ViewChild("employeeNameReference") employeeName: jqxInputComponent;
   @ViewChild("employeeCodeReference") employeeCode: jqxInputComponent;
   @ViewChild("startDateReference") startDate: jqxDateTimeInputComponent;
@@ -37,8 +38,6 @@ export class NewAppraisalComponent implements OnInit {
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  employeeIdStore: any;
 
   ngOnInit(): void {
   }
@@ -57,7 +56,7 @@ export class NewAppraisalComponent implements OnInit {
     let appraisalData = {
       account: sessionStorage.getItem('enterprise_id'),
       appraisal_code: this.appraisalCode.val(),
-      employee_id: this.employeeIdStore,
+      appraisal_name: this.appraisalName.val(),
       start_date: this.startDate.val(),
       end_date: this.endDate.val(),
       supervisor: this.supervisor.val(),

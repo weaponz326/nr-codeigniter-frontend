@@ -21,6 +21,7 @@
             [showstatusbar]="true"
             [showaggregates]="true"
             [columns]="columns"
+            [source]="dataAdapter"
         ></jqxGrid>
 
     </div>
@@ -34,10 +35,10 @@
 
 <!-- edit item popup window component -->
 
-<app-edit-item #editItemComponentReference
+<!-- <app-edit-item #editItemComponentReference
     (editCommit)="onEditCommit($event)"
     (deleteCommit)="onDeleteCommit($event)"
-></app-edit-item>
+></app-edit-item> -->
 
 <!-- http loader spinner and connection notification components -->
 
