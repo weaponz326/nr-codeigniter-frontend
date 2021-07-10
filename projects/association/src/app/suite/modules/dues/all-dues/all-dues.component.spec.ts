@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CheckSheetComponent } from './check-sheet.component';
+import { AllDuesComponent } from './all-dues.component';
 
-describe('CheckSheetComponent', () => {
-  let component: CheckSheetComponent;
-  let fixture: ComponentFixture<CheckSheetComponent>;
+describe('AllDuesComponent', () => {
+  let component: AllDuesComponent;
+  let fixture: ComponentFixture<AllDuesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CheckSheetComponent ]
+      declarations: [ AllDuesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CheckSheetComponent);
+    fixture = TestBed.createComponent(AllDuesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

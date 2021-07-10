@@ -1,19 +1,14 @@
 <div class="row top-button-row">
     <div class="col-md-12">
-        <jqxButton #sheetButtonReference class="float-left" (click)="addDayComponenentReference.openWindow()"
-            [width]="150"
-            [height]="30"
-        >Add Day</jqxButton>
-
-        <jqxButton #sheetButtonReference class="float-right ml-1" routerLink="/suite/attendance/check-attendance"
-            [width]="150"
-            [height]="30"
-        >Check Attendance</jqxButton>
-
-        <jqxButton #refreshButtonReference class="float-right ml-1" (click)="refreshSheet()"
+        <jqxButton #refereshButtonReference (click)="refreshSheet()"
             [width]="150"
             [height]="30"
         >Refresh Sheet</jqxButton>
+
+        <jqxButton #sheetButtonReference class="float-right" routerLink="/suite/attendance/check-attendance"
+            [width]="150"
+            [height]="30"
+        >Check Attendance</jqxButton>
     </div>
 </div>
 
@@ -21,17 +16,16 @@
     <div class="col-md-12">
         <jqxGrid #sheetGridReference
             [width]="'100%'"
-            [autoheight]="true"
-            [rowsheight]="24"
+            [height]="400"
+            [rowsheight]="25"
+            [filterable]="true"
+            [showfilterrow]="true"
+            [source]="dataAdapter"
+            [columns]="sheetColumns"
             [sortable]="true"
-            [columns]="columns"
         ></jqxGrid>
     </div>
 </div>
-
-<!-- add new day popup window -->
-
-<app-add-day #addDayComponenentReference (addDayEvent)="refreshSheet()"></app-add-day>
 
 <!-- http loader spinner and connection notification components -->
 

@@ -145,7 +145,7 @@ export class CheckAttendanceComponent implements OnInit, AfterViewInit {
     {
       text: "Time In", dataField: "time_in", editable: "true", width: "20%", columntype: "datetimeinput",
       createeditor: function (row, value, editor) {
-        editor.jqxDateTimeInput({ width: 100, formatString: "'hh:mm:ss'", showTimeButton: true, showCalendarButton: false });
+        editor.jqxDateTimeInput({ width: '20%', formatString: "'hh:mm:ss'", showTimeButton: true, showCalendarButton: false });
       }
     },
   ];
@@ -195,10 +195,12 @@ export class CheckAttendanceComponent implements OnInit, AfterViewInit {
 
   gotoNewDay(event){
     console.log(event);
+    let oldValue = event.args.oldValue.getFullYear() + '-' + ('0'+(event.args.oldValue.getMonth()+1)).slice(-2) + ' ' + ('0'+(event.args.oldValue.getDate())).slice(-2);
+    let newValue = event.args.newValue.getFullYear() + '-' + ('0'+(event.args.newValue.getMonth()+1)).slice(-2) + ' ' + ('0'+(event.args.newValue.getDate())).slice(-2);
 
-    // this.setCurrentChecks(event.args.oldValue);
-    // this.setCurrentChecks(event.args.newValue);
-    // this.saveCheck(event.args.oldValue);
+    this.setCurrentChecks(oldValue);
+    this.setCurrentChecks(newValue);
+    this.saveCheck(oldValue);
   }
 
 }

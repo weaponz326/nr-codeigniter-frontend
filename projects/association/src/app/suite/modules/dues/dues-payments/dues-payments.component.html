@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-8">
+
+      <hr class="top-divider" />
+      <hr class="bottom-divider" />
+
+      <h4 class="form-heading">Dues Payments</h4>
+
+      <div class="row top-button-row">
+          <div class="col-md-12">
+              <jqxButton #addButtonReference (click)="addPaymentComponentReference.openWindow()"
+                  [width]="150"
+                  [height]="30"
+              >Add Payment</jqxButton>
+          </div>
+      </div>
+
+      <jqxGrid #gridReference
+          [width]="'100%'"
+          [autoheight]="true"
+          [source]="dataAdapter"
+          [rowsheight]="24"
+          [sortable]="true"
+          [filterable]="true"
+          [showfilterrow]="true"
+          [showemptyrow]="false"
+          [selectionmode]="'singlerow'"
+          [columns]="columns"
+      ></jqxGrid>
+
+  </div>
+</div>
+
+<!-- add transanction popup window component -->
+
+<app-add-payment #addPaymentComponentReference (addCommit)="onAddCommit($event)"></app-add-payment>
+
+<!-- edit transanction popup window component -->
+
+<!-- <app-edit-payment #editPaymentComponentReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-payment> -->
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

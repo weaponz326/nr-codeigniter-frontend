@@ -18,7 +18,6 @@ import { NewAttendanceComponent } from './new-attendance/new-attendance.componen
 import { ViewAttendanceComponent } from './view-attendance/view-attendance.component';
 import { ViewSheetComponent } from './view-sheet/view-sheet.component';
 import { CheckAttendanceComponent } from './check-attendance/check-attendance.component';
-import { CheckSheetComponent } from './check-sheet/check-sheet.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddDayComponent } from './add-day/add-day.component';
@@ -32,7 +31,6 @@ import { AddDayComponent } from './add-day/add-day.component';
     ViewAttendanceComponent,
     ViewSheetComponent,
     CheckAttendanceComponent,
-    CheckSheetComponent,
     DashboardComponent,
     SettingsComponent,
     AddDayComponent

@@ -10,6 +10,8 @@ export class DuesWrapperComponent implements OnInit {
   constructor() { }
 
   navLinks: any[] = [
+    { text: "All Dues", url: "/suite/dues/all-dues", icon: "fa fa-fw fa-list" },
+    { text: "Create Dues", url: "/suite/dues/create-dues", icon: "fa fa-fw fa-plus" },
   ];
 
   ngOnInit(): void {

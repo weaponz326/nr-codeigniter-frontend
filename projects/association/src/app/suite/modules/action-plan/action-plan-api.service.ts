@@ -42,7 +42,7 @@ export class ActionPlanApiService {
   // steps
 
   public getSteps(): Observable<any>{
-    return this.http.get(this.associationUrl + "module-action-plan/plan-step?account=" + sessionStorage.getItem('account_id'));
+    return this.http.get(this.associationUrl + "module-action-plan/plan-step?plan=" + sessionStorage.getItem('plan_id'));
   }
 
   public postStep(stepData): Observable<any>{

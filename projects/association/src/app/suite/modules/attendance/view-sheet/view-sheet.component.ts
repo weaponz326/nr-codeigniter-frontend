@@ -22,9 +22,9 @@ export class ViewSheetComponent implements OnInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
-  sourceLocalData: any[] = [];
-  sourceDatafields: any[] = [];
-  columns: any[] = [
+  sheetLocalData: any[] = [];
+  sheetDataFields: any[] = [];
+  sheetColumns: any[] = [
     { text: "Member ID", dataField: "member_code", pinned: "true", width: "8%", minwidth: "80" },
     { text: "Member Name", dataField: "member_name", pinned: "true", width: "22%", minwidth: "150" },
   ];
@@ -39,7 +39,7 @@ export class ViewSheetComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          this.getDays();
+          this.getAttendanceDays();
         },
         err => {
           console.log(err);
@@ -49,15 +49,15 @@ export class ViewSheetComponent implements OnInit {
       )
   }
 
-  getDays(){
-    this.attendanceApi.getDays()
+  getAttendanceDays(){
+    this.attendanceApi.getAttendanceDays()
       .subscribe(
         res => {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
-          this.setColumns(res.data);
-          this.setSource(res.data);
-          // this.getSheet();
+          this.setAttendanceColumns(res.data);
+
+          this.getMembersData();
         },
         err => {
           console.log(err);
@@ -67,13 +67,26 @@ export class ViewSheetComponent implements OnInit {
       )
   }
 
-  getSheet(){
-    this.attendanceApi.getAttendanceSheet()
+  getMembersData(){
+    this.attendanceApi.getAttendanceMembers()
       .subscribe(
         res => {
           console.log(res);
-          this.sourceLocalData = res;
-          // this.grid.updatebounddata();
+          this.setMemberData(res);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  getChecksData(){
+    this.attendanceApi.getAttendanceChecks()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.setChecksData(res);
         },
         err => {
           console.log(err);
@@ -88,31 +101,56 @@ export class ViewSheetComponent implements OnInit {
   source: any = {
     localdata: null,
     dataType: 'json',
-    dataFields: this.sourceDatafields,
+    dataFields: this.sheetDataFields,
     id: 'id',
   }
 
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
-  setColumns(days) {
-    days.forEach((day) => {
-      this.columns.push({ text: day.day, dataField: day.id.toString(), columntype: 'checkbox', width: "50" });
+  setAttendanceColumns(attendanceDays) {
+    attendanceDays.forEach(day => {
+      // datafields
+      this.sheetDataFields.push({ name: day.id, type: 'string' });
+
+      // columns
+      var dayColumn = { text: day.day, dataField: day.id, editable: "true", width: 100, align: 'center',
+        columntype: 'checkbox',
+        createeditor: function (row, value, editor) {
+          editor.jqxCheckBox({ });
+        }
+      };
+      this.sheetColumns.push(dayColumn);
     });
-    console.log(this.columns);
   }
 
-  setSource(days) {
-    this.sourceDatafields = [
-      { name: 'id', type: 'string' },
-      { name: 'member_id', map: 'member>id', type: 'string' },
-      { name: 'member_code', map: 'member>member_code', type: 'string' },
-      { name: 'member_name', map: 'member>member_name', type: 'string' },
-    ];
+  setMemberData(sheetData){
+    this.sheetLocalData = [];
 
-    days.forEach((day) => {
-      this.sourceDatafields.push({ name: day.id.toString(), type: 'bool' });
+    sheetData.forEach(sheet => {
+      let data = { id: sheet.id, member_name: sheet.member.member_name, member_code: sheet.member.member_code };
+      this.sheetLocalData.push(data);
+      console.log(data);
     });
-    console.log(this.sourceDatafields);
+
+    console.log(this.sheetLocalData);
+    this.source.localdata = this.sheetLocalData;
+    this.grid.updatebounddata();
+
+    this.getChecksData();
+  }
+
+  setChecksData(checksData){
+    this.sheetLocalData.forEach((sheet, i) => {
+      checksData.forEach(check => {
+        if (sheet.id == check.attendance_member){
+          this.sheetLocalData[i] = Object.assign(this.sheetLocalData[i], {check: check.check});
+        }
+      });
+    });
+
+    console.log(this.sheetLocalData);
+    this.source.localdata = this.sheetLocalData;
+    this.grid.updatebounddata();
   }
 
 }

@@ -49,16 +49,20 @@ export class AttendanceApiService {
     return this.http.post(this.associationUrl + "module-attendance/attendance-day/", day);
   }
 
-  public getDays(): Observable<any>{
+  public getAttendanceDays(): Observable<any>{
     return this.http.get(this.associationUrl + "module-attendance/attendance-day?attendance=" + sessionStorage.getItem('attendance_id'));
   }
 
-  public getAttendanceSheet(): Observable<any>{
-    return this.http.get(this.associationUrl + "module-attendance/attendance-sheet?attendance=" + sessionStorage.getItem('attendance_id'));
+  public getAttendanceMembers(): Observable<any>{
+    return this.http.get(this.associationUrl + "module-attendance/attendance-member?attendance=" + sessionStorage.getItem('attendance_id'));
   }
 
-  public postDaySheet(sheet): Observable<any>{
-    return this.http.post(this.associationUrl + "module-attendance/attendance-sheet/", sheet);
+  public getAttendanceChecks(): Observable<any>{
+    return this.http.get(this.associationUrl + "module-attendance/attendance-check?attendance=" + sessionStorage.getItem('attendance_id'));
+  }
+
+  public putAttendanceCheck(check, checkId): Observable<any>{
+    return this.http.post(this.associationUrl + "module-attendance/attendance-check/" + checkId, check);
   }
 
 }
