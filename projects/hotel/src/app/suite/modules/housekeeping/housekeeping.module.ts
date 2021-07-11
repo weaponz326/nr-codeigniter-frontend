@@ -8,6 +8,7 @@ import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
+import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 
 import { HousekeepingRoutingModule } from './housekeeping-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
@@ -45,6 +46,7 @@ import { ChecklistFormComponent } from './checklist-form/checklist-form.componen
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,
+    jqxNumberInputModule,
     jqxDateTimeInputModule,
     jqxDropDownListModule,
     jqxTextAreaModule,

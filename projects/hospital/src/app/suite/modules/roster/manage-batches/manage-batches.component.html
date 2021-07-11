@@ -94,11 +94,17 @@
         </div>
 
         <div class="col-md-6">
+
             <h4 class="form-heading">Roster Personnel</h4>
 
-            <!-- manage personnel component -->
+            <!-- manage personnel components -->
 
-            <app-manage-personnel></app-manage-personnel>
+            <app-manage-doctors *ngIf="personnelDisplay == 'Doctors'"></app-manage-doctors>
+
+            <app-manage-nurses *ngIf="personnelDisplay == 'Nurses'"></app-manage-nurses>
+
+            <app-manage-staff *ngIf="personnelDisplay == 'Staff'"></app-manage-staff>
+
         </div>
 
     </div>

@@ -73,7 +73,7 @@ export class AllPaymentsComponent implements OnInit {
       { name: 'payment_date', type: 'string' },
       { name: 'guest_name', map: 'guest>guest_name', type: 'string' },
       { name: 'guest_code', map: 'guest>guest_code', type: 'string' },
-      { name: 'amount_paid', type: 'string' },
+      { name: 'payment', type: 'string' },
     ],
     id: 'id',
   }
@@ -85,7 +85,7 @@ export class AllPaymentsComponent implements OnInit {
     { text: "Payment Date", dataField: "payment_date", filtertype: "range", width: "18%" },
     { text: "Guest Name", dataField: "guest_name", width: "40%" },
     { text: "Guest ID", dataField: "guest_code", width: "12%" },
-    { text: 'Amount Paid', dataField: 'amount_paid', width: "18%", cellsalign: 'right', cellsformat: 'c2' }
+    { text: 'Payment', dataField: 'payment', width: "18%", cellsalign: 'right', cellsformat: 'c2' }
   ];
 
 }

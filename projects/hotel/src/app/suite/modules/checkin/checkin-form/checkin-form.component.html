@@ -76,28 +76,26 @@ personal details -->
             </div>
         </div>
 
+        <br />
+
         <div class="row">
             <div class="col-md-4"><label>Room No. :</label></div>
             <div class="col-md-8">
                 <jqxInput #roomNumberReference
                     [width]="'88%'"
                     [height]="28"
-                    [disabled]="true"
                 ></jqxInput>
                 <jqxButton #roomNumberButton
                     [width]="'10%'"
-                    [height]="25"
-                    [disabled]="true"
+                    [height]="28"
                 >...</jqxButton>
             </div>
         </div>
 
-        <br />
-
         <div class="row">
             <div class="col-md-4"><label>Check-In Date :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #checkinDateReference
+                <jqxDateTimeInput #checkinDateReference (onChange)="checkinChange($event)"
                     [width]="'100%'"
                     [height]="28"
                     [showTimeButton]="true"
@@ -109,7 +107,7 @@ personal details -->
         <div class="row">
             <div class="col-md-4"><label>Check-Out Date :</label></div>
             <div class="col-md-8">
-                <jqxDateTimeInput #checkoutDateReference
+                <jqxDateTimeInput #checkoutDateReference (onChange)="checkoutChange($event)"
                     [width]="'100%'"
                     [height]="28"
                     [showTimeButton]="true"
@@ -131,9 +129,8 @@ personal details -->
             </div>
         </div>
 
+        <hr />
+
     </div>
 
 </div>
-
-<hr />
-

@@ -51,11 +51,15 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.paymentForm.paymentCode.val(res.payment_code);
           this.paymentForm.paymentDate.val(res.payment_date);
-          this.paymentForm.guestName.val(res.guest.guest_name);
-          this.paymentForm.guestCode.val(res.guest.guest_code);
+          this.paymentForm.guestName.val(res.bill.guest.guest_name);
+          this.paymentForm.guestCode.val(res.bill.guest.guest_code);
           this.paymentForm.billCode.val(res.bill.bill_code);
-          this.paymentForm.amountPaid.val(res.amount_paid);
-          this.paymentForm.balance.val(res.balance);
+          this.paymentForm.billAmount.val(res.bill.amount);
+          this.paymentForm.payment.val(res.payment);
+
+          if(this.paymentForm.payment.val() > this.paymentForm.billAmount.val()) {
+            this.paymentForm.balance.val(this.paymentForm.payment.val() - this.paymentForm.billAmount.val());
+          }
         },
         err => {
           console.log(err);
@@ -71,10 +75,10 @@ export class ViewPaymentComponent implements OnInit, AfterViewInit {
     var paymentData = {
       account: sessionStorage.getItem('hotel_id'),
       payment_code: this.paymentForm.paymentCode.val(),
-      payment_date: this.paymentForm.paymentCode.val(),
+      payment_date: this.paymentForm.paymentDate.val(),
       guest_id: this.guestId,
       bill_id: this.billId,
-      amount_paid: this.paymentForm.amountPaid.val(),
+      payment: this.paymentForm.payment.val(),
     }
 
     this.paymentsApi.putPayment(paymentData)

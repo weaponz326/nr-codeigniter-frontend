@@ -1,7 +1,21 @@
 <div>
-    <div class="edit-dialog-label">Description</div>
-    <div class="edit-dialog-field">
-        <jqxTextArea #descriptionReference
+    <div class="edit-dialog-label-alt">Item No.</div>
+    <div class="edit-dialog-field-alt">
+        <jqxNumberInput #itemNumberReference
+            [width]="'100%'"
+            [height]="25"
+            [inputMode]="'simple'"
+            [decimalDigits]="0"
+            [spinButtons]="true"
+        ></jqxNumberInput>
+    </div>
+</div>
+
+
+<div>
+    <div class="edit-dialog-label-alt">Item Description</div>
+    <div class="edit-dialog-field-alt">
+        <jqxTextArea #itemDescriptionReference
             [width]="'100%'"
             [height]="45"
         ></jqxTextArea>
@@ -9,9 +23,9 @@
 </div>
 
 <div>
-    <div class="edit-dialog-label">Status</div>
-    <div class="edit-dialog-field">
-        <jqxDropDownList #descriptionReference
+    <div class="edit-dialog-label-alt">Status</div>
+    <div class="edit-dialog-field-alt">
+        <jqxDropDownList #statusReference
             [width]="'100%'"
             [height]="25"
         ></jqxDropDownList>
@@ -19,8 +33,8 @@
 </div>
 
 <div>
-    <div class="edit-dialog-label">Remarks</div>
-    <div class="edit-dialog-field">
+    <div class="edit-dialog-label-alt">Remarks</div>
+    <div class="edit-dialog-field-alt">
         <jqxTextArea #remarksReference
             [width]="'100%'"
             [height]="45"

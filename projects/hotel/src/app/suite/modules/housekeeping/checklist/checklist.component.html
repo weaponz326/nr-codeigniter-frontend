@@ -21,9 +21,10 @@
                 <jqxGrid #gridReference (onRowdoubleclick)="editChecklistComponentReference.openWindow($event)"
                     [width]="'100%'"
                     [autoheight]="true"
-                    [rowsheight]="24"
+                    [rowsheight]="35"
                     [sortable]="true"
                     [columns]="columns"
+                    [source]="dataAdapter"
                 ></jqxGrid>
             </div>
         </div>

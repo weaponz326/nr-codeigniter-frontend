@@ -14,7 +14,7 @@ export class BillTablesComponent implements OnInit {
   constructor() { }
 
   @ViewChild('buttonReference') button: jqxButtonComponent;
-  @ViewChild("roomGridReference") roomGrid: jqxGridComponent;
+  @ViewChild("checkinGridReference") checkinGrid: jqxGridComponent;
   @ViewChild("servicesGridReference") servicesGrid: jqxGridComponent;
 
   ngOnInit(): void {
@@ -23,18 +23,18 @@ export class BillTablesComponent implements OnInit {
   // widgets
   // -------------------------------------------------------------------------------------------------------
 
-  // room columns
+  // checkin columns
 
-  roomColumns: any[] = [
-    { text: "Room Number", dataField: "room_number", columngroup: "roomGroup", width: "15%" },
-    { text: "Room Type", dataField: "room_type", columngroup: "roomGroup", width: "35%" },
-    { text: 'Rate', datafield: 'rate', columngroup: "roomGroup", width: "15%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
-    { text: 'No. of Nights', datafield: 'nightsNumber', columngroup: "roomGroup", width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    { text: "Amount", dataField: "total", columngroup: "roomGroup", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
+  checkinColumns: any[] = [
+    { text: "Checkin ID", dataField: "checkin_code", columngroup: "checkinGroup", width: "20%" },
+    { text: "Room Number", dataField: "room_number", columngroup: "checkinGroup", width: "25%" },
+    { text: 'Rate', datafield: 'rate', columngroup: "checkinGroup", width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
+    { text: 'No. of Nights', datafield: 'nightsNumber', columngroup: "checkinGroup", width: "15%", cellsalign: 'right', columntype: 'numberinput' },
+    { text: "Amount", dataField: "total", columngroup: "checkinGroup", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
   ];
 
-  roomColumnGroups: any[] = [
-    { text: "Room Charges", align: "center", name: "roomGroup" }
+  checkinColumnGroups: any[] = [
+    { text: "Checkin Charges", align: "center", name: "checkinGroup" }
   ];
 
   // services charges

@@ -38,8 +38,9 @@ export class AddChecklistComponent implements OnInit {
 
   saveChecklist(){
     let checklistData = {
-      plan: sessionStorage.getItem('housekeeping_id'),
-      description: this.checklistForm.description.val(),
+      housekeeping: sessionStorage.getItem('housekeeping_id'),
+      item_number: this.checklistForm.itemNumber.val(),
+      item_description: this.checklistForm.itemDescription.val(),
       status: this.checklistForm.status.val(),
       remarks: this.checklistForm.remarks.val(),
     }

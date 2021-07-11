@@ -52,6 +52,7 @@ export class ManageBatchesComponent implements OnInit, AfterViewInit {
   ];
 
   sourceSource = ['Nurses', 'Doctors', 'Staff'];
+  personnelDisplay;
 
   ngOnInit(): void {
   }
@@ -64,6 +65,8 @@ export class ManageBatchesComponent implements OnInit, AfterViewInit {
           this.rosterCode.val(res.roster_code);
           this.rosterName.val(res.roster_name);
           this.rosterSource.val(res.source);
+
+          this.personnelDisplay = res.source;
         },
         err => {
           console.log(err);

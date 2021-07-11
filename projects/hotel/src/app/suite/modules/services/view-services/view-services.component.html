@@ -19,6 +19,16 @@
             </div>
 
             <div class="row">
+                <div class="col-md-4"><label>Service Name :</label></div>
+                <div class="col-md-8">
+                    <jqxInput #serviceNameReference
+                        [width]="'100%'"
+                        [height]="28"
+                    ></jqxInput>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-4"><label>Service Type :</label></div>
                 <div class="col-md-8">
                     <jqxDropDownList #serviceTypeReference
@@ -33,7 +43,7 @@
                 <div class="col-md-8">
                     <jqxInput #guestNameReference
                         [width]="'88%'"
-                        [height]="25"
+                        [height]="28"
                         [disabled]="true"
                     ></jqxInput>
                     <jqxButton #selectGuestButton (click)="selectGuest.openWindow()"
@@ -48,13 +58,26 @@
                     <div class="col-md-8">
                         <jqxInput #guestCodeReference
                         [width]="'88%'"
-                        [height]="25"
+                        [height]="28"
                         [disabled]="true"
                     ></jqxInput>
                     <jqxButton #selectGuestButton (click)="selectGuest.openWindow()"
                         [width]="'10%'"
-                        [height]="25"
+                        [height]="28"
                     >...</jqxButton>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4"><label>Total Amount :</label></div>
+                <div class="col-md-8">
+                    <jqxNumberInput #totalAmountReference
+                        [width]="'100%'"
+                        [height]="28"
+                        [inputMode]="'simple'"
+                        [symbol]="'$'"
+                        [disabled]="true"
+                    ></jqxNumberInput>
                 </div>
             </div>
 
@@ -97,7 +120,7 @@
 
     <!-- services details tables -->
 
-    <app-services-details></app-services-details>
+    <app-services-details (totalCommit)="setTotal($event)"></app-services-details>
 
 </div>
 

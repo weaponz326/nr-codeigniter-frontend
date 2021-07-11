@@ -1,4 +1,4 @@
-<jqxWindow #editPersonnelReference 
+<jqxWindow #editPersonnelReference
     [width]="540"
     [height]="180"
     [autoOpen]="false"
@@ -19,7 +19,7 @@
                 ></jqxInput>
             </div>
         </div>
-        
+
         <div>
             <div class="edit-dialog-label-alt">Personnel Code</div>
             <div class="edit-dialog-field-alt">
@@ -32,9 +32,9 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Shift Name</div>
+            <div class="edit-dialog-label-alt">Batch Name</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #shiftNameReference
+                <jqxDropDownList #batchNameReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxDropDownList>
@@ -42,15 +42,15 @@
         </div>
 
         <div>
-            <div class="edit-dialog-label-alt">Shift Symbol</div>
+            <div class="edit-dialog-label-alt">Batch Symbol</div>
             <div class="edit-dialog-field-alt">
-                <jqxDropDownList #shiftSymbolReference
+                <jqxDropDownList #batchSymbolReference
                     [width]="'100%'"
                     [height]="25"
                 ></jqxDropDownList>
             </div>
         </div>
-          
+
         <div>
             <div class="edit-dialog-field-alt-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference (click)="closeWindow()"

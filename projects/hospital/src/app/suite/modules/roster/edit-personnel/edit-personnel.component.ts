@@ -18,8 +18,8 @@ export class EditPersonnelComponent implements OnInit {
   @ViewChild("editPersonnelReference") editPersonnelWindow: jqxWindowComponent;
   @ViewChild("personnelCodeReference") personnelCodeInput: jqxInputComponent;
   @ViewChild("personnelNameReference") personnelNameInput: jqxInputComponent;
-  @ViewChild("shiftNameReference") shiftNameInput: jqxDropDownListComponent;
-  @ViewChild("shiftSymbolReference") shiftSymbolInput: jqxDropDownListComponent;
+  @ViewChild("batchNameReference") batchNameInput: jqxDropDownListComponent;
+  @ViewChild("batchSymbolReference") batchSymbolInput: jqxDropDownListComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("deleteButtonReference") deleteButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
@@ -44,8 +44,8 @@ export class EditPersonnelComponent implements OnInit {
 
     this.personnelNameInput.val(event.args.row.bounddata.personnel_name);
     this.personnelCodeInput.val(event.args.row.bounddata.personnel_code);
-    this.shiftNameInput.val(event.args.row.bounddata.shift_name);
-    this.shiftSymbolInput.val(event.args.row.bounddata.shift_symbol);
+    this.batchNameInput.val(event.args.row.bounddata.batch_name);
+    this.batchSymbolInput.val(event.args.row.bounddata.batch_symbol);
   }
 
   closeWindow(){
@@ -58,8 +58,8 @@ export class EditPersonnelComponent implements OnInit {
       roster: sessionStorage.getItem('roster_id'),
       personnel_name: this.personnelNameInput.val(),
       personnel_code: this.personnelCodeInput.val(),
-      shift_name: this.shiftNameInput.val(),
-      shift_symbol: this.shiftSymbolInput.val(),
+      batch_name: this.batchNameInput.val(),
+      batch_symbol: this.batchSymbolInput.val(),
     }
 
     console.log(personnelData);

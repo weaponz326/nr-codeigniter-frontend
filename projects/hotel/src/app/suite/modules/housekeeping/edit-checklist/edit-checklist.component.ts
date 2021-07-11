@@ -50,7 +50,8 @@ export class EditChecklistComponent implements OnInit {
   saveChecklist(){
     let checklistData = {
       id: this.checklistId,
-      description: this.checklistForm.description.val(),
+      item_number: this.checklistForm.itemNumber.val(),
+      item_description: this.checklistForm.itemDescription.val(),
       status: this.checklistForm.status.val(),
       remarks: this.checklistForm.remarks.val(),
     }

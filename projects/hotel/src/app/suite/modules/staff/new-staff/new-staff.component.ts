@@ -46,7 +46,7 @@ export class NewStaffComponent implements OnInit {
     else dob = this.staffForm.dobYear.val() + '-' + this.staffForm.dobMonth.val() + '-' + this.staffForm.dobDay.val();
 
     var staffData = {
-      hotel_id: sessionStorage.getItem('hotel_id'),
+      account: sessionStorage.getItem('hotel_id'),
       first_name: this.staffForm.firstName.val(),
       last_name: this.staffForm.lastName.val(),
       sex: this.staffForm.sex.val(),

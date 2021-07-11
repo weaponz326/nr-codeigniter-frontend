@@ -5,6 +5,7 @@ import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
+import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
 
@@ -19,6 +20,8 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddBookedRoomComponent } from './add-booked-room/add-booked-room.component';
+import { EditBookedRoomComponent } from './edit-booked-room/edit-booked-room.component';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { SettingsComponent } from './settings/settings.component';
     ViewBookingComponent,
     BookingDetailsComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddBookedRoomComponent,
+    EditBookedRoomComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +45,7 @@ import { SettingsComponent } from './settings/settings.component';
     jqxButtonModule,
     jqxWindowModule,
     jqxInputModule,
+    jqxNumberInputModule,
     jqxDateTimeInputModule,
     jqxDropDownListModule
   ]

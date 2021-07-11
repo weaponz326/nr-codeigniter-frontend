@@ -47,10 +47,9 @@ export class NewPaymentComponent implements OnInit {
     var paymentData = {
       account: sessionStorage.getItem('hotel_id'),
       payment_code: this.paymentForm.paymentCode.val(),
-      payment_date: this.paymentForm.paymentCode.val(),
-      guest_id: this.guestId,
+      payment_date: this.paymentForm.paymentDate.val(),
       bill_id: this.billId,
-      amount_paid: this.paymentForm.amountPaid.val(),
+      payment: this.paymentForm.payment.val(),
     }
 
     console.log(paymentData);

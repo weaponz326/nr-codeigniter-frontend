@@ -87,7 +87,7 @@ export class ChecklistComponent implements OnInit, AfterViewInit {
 
   columns: any[] = [
     { text: "No.", dataField: "item_number", width: "10%" },
-    { text: "Description", dataField: "item_description", width: "35%" },
+    { text: "Item Description", dataField: "item_description", width: "35%" },
     { text: "Status", dataField: "status", columntype: "checkbox", width: "15%" },
     { text: "Remarks", dataField: "remarks", width: "40%" },
   ];
@@ -98,7 +98,7 @@ export class ChecklistComponent implements OnInit, AfterViewInit {
 
     let checklistData = {
       housekeeping: sessionStorage.getItem('housekeeping_id'),
-      description: rowdata.description,
+      item_description: rowdata.item_description,
       status: rowdata.status,
       remarks: rowdata.remarks,
     };
@@ -126,7 +126,7 @@ export class ChecklistComponent implements OnInit, AfterViewInit {
 
     let checklistData = {
       housekeeping: sessionStorage.getItem('housekeeping_id'),
-      description: newdata.description,
+      item_description: newdata.item_description,
       status: newdata.status,
       remarks: newdata.remarks,
     };

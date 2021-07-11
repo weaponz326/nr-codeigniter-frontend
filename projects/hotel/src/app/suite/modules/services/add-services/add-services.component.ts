@@ -30,6 +30,7 @@ export class AddServicesComponent implements OnInit {
   @ViewChild("saveButtonReference") saveButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
   @ViewChild("serviceCodeReference") serviceCode: jqxInputComponent;
+  @ViewChild("serviceNameReference") serviceName: jqxInputComponent;
   @ViewChild("serviceTypeReference") serviceType: jqxComboBoxComponent;
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
@@ -65,6 +66,7 @@ export class AddServicesComponent implements OnInit {
     let serviceData = {
       account: sessionStorage.getItem('hotel_id'),
       service_code: this.serviceCode.val(),
+      service_name: this.serviceName.val(),
       service_type: this.serviceType.val(),
       guest: this.guestIdStore,
     }
@@ -90,6 +92,5 @@ export class AddServicesComponent implements OnInit {
 
     console.log(serviceData);
   }
-
 
 }

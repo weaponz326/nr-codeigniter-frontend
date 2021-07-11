@@ -1,0 +1,46 @@
+<jqxWindow #editBookingReference
+    [width]="540"
+    [height]="160"
+    [autoOpen]="false">
+
+    <div>Edit Booking Item</div>
+
+    <div>
+
+        <div>
+            <div class="edit-dialog-label-alt">Room Type</div>
+            <div class="edit-dialog-field-alt">
+                <jqxInput #roomTypeReference
+                    [width]="'100%'"
+                    [height]="25"
+                ></jqxInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-label-alt">No. of Persons</div>
+            <div class="edit-dialog-field-alt">
+                <jqxNumberInput #personsNumberReference
+                    [width]="'100%'"
+                    [height]="25"
+                    [inputMode]="'simple'"
+                    [spinButtons]="true"
+                    [decimalDigits]="0"
+                ></jqxNumberInput>
+            </div>
+        </div>
+
+        <div>
+            <div class="edit-dialog-field-alt edit-dialog-buttons">
+                <jqxButton #cancelButtonReference (click)="closeWindow()"
+                >Cancel</jqxButton>
+
+                <jqxButton #saveButtonReference (click)="saveBooking()"
+                >Save</jqxButton>
+            </div>
+        </div>
+
+    </div>
+
+</jqxWindow>
+

@@ -1,5 +1,10 @@
 <div class="row top-button-row">
     <div class="col-md-12">
+        <jqxButton #addDayButtonReference (click)="addDayComponentReference.openWindow()" class="mr-2"
+            [width]="150"
+            [height]="30"
+        >Add New Day</jqxButton>
+
         <jqxButton #refereshButtonReference (click)="refreshSheet()"
             [width]="150"
             [height]="30"
@@ -26,6 +31,10 @@
         ></jqxGrid>
     </div>
 </div>
+
+<!-- add day component -->
+
+<app-add-day #addDayComponentReference (addDayEvent)="addNewDay($event)"></app-add-day>
 
 <!-- http loader spinner and connection notification components -->
 

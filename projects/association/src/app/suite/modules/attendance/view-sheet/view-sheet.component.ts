@@ -23,7 +23,12 @@ export class ViewSheetComponent implements OnInit {
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
 
   sheetLocalData: any[] = [];
-  sheetDataFields: any[] = [];
+
+  sheetDataFields: any[] = [
+    { name: 'member_code', type: 'string' },
+    { name: 'member_name', type: 'string' },
+  ];
+
   sheetColumns: any[] = [
     { text: "Member ID", dataField: "member_code", pinned: "true", width: "8%", minwidth: "80" },
     { text: "Member Name", dataField: "member_name", pinned: "true", width: "22%", minwidth: "150" },
@@ -87,6 +92,20 @@ export class ViewSheetComponent implements OnInit {
         res => {
           console.log(res);
           this.setChecksData(res);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  addNewDay(dayData){
+    this.attendanceApi.postDay(dayData)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.refreshSheet();
         },
         err => {
           console.log(err);

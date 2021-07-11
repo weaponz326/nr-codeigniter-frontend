@@ -38,4 +38,29 @@ export class BookingsApiService {
     return this.http.delete(this.hotelUrl + "module-bookings/booking/" + sessionStorage.getItem('booking_id'));
   }
 
+  // -----------------------------------------------------------------------------------------------------------------------
+  // booked rooms
+
+  public getBookedRooms(): Observable<any>{
+    return this.http.get(this.hotelUrl + "module-bookings/booked-room?booking=" + sessionStorage.getItem('booking_id'));
+  }
+
+  public postBookedRoom(service): Observable<any>{
+    return this.http.post(this.hotelUrl + "module-bookings/booked-room/", service);
+  }
+
+  // retreive, update and delete service
+
+  public getSingleBookedRoom(itemId): Observable<any>{
+    return this.http.get(this.hotelUrl + "module-bookings/booked-room/" + itemId);
+  }
+
+  public putBookedRoom(itemId, item): Observable<any>{
+    return this.http.put(this.hotelUrl + "module-bookings/booked-room/" + itemId, item);
+  }
+
+  public deleteBookedRoom(itemId): Observable<any>{
+    return this.http.delete(this.hotelUrl + "module-bookings/booked-room/" + itemId);
+  }
+
 }

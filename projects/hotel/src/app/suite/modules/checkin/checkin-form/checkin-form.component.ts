@@ -37,4 +37,18 @@ export class CheckinFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  checkinChange(event){
+    console.log(event);
+    let dateDiff = Math.floor((Date.parse(this.checkoutDate.val()) - Date.parse(event.args.newDate)) / 86400000);
+    this.numberNights.val(dateDiff);
+    console.log(dateDiff);
+  }
+
+  checkoutChange(event){
+    console.log(event);
+    let dateDiff = Math.floor(Date.parse(event.args.newDate) - (Date.parse(this.checkinDate.val())) / 86400000);
+    this.numberNights.val(dateDiff);
+    console.log(dateDiff);
+  }
+
 }

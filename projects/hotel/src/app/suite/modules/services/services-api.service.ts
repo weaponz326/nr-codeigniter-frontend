@@ -38,6 +38,10 @@ export class ServicesApiService {
     return this.http.delete(this.hotelUrl + "module-services/service/" + sessionStorage.getItem('service_id'));
   }
 
+  public patchTotal(totalData): Observable<any>{
+    return this.http.patch(this.hotelUrl + "module-services/total-amount/" + sessionStorage.getItem('service_id'), totalData);
+  }
+
   // guests for selection window
   public getGuests(): Observable<any>{
     return this.http.get(this.hotelUrl + "module-guests/guest?account=" + sessionStorage.getItem('hotel_id'));
@@ -47,7 +51,7 @@ export class ServicesApiService {
   // service items
 
   public getServiceItems(): Observable<any>{
-    return this.http.get(this.hotelUrl + "module-services/service-item?account=" + sessionStorage.getItem('service_id'));
+    return this.http.get(this.hotelUrl + "module-services/service-item?service=" + sessionStorage.getItem('service_id'));
   }
 
   public postServiceItem(service): Observable<any>{

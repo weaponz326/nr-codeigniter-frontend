@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
+import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
 import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxComboBoxComponent } from 'jqwidgets-ng/jqxcombobox';
 
@@ -27,9 +28,12 @@ export class ViewServicesComponent implements OnInit, AfterViewInit {
   ) { }
 
   @ViewChild("serviceCodeReference") serviceCode: jqxInputComponent;
+  @ViewChild("serviceNameReference") serviceName: jqxInputComponent;
   @ViewChild("serviceTypeReference") serviceType: jqxComboBoxComponent;
   @ViewChild("guestNameReference") guestName: jqxDropDownListComponent;
   @ViewChild("guestCodeReference") guestCode: jqxDropDownListComponent;
+  @ViewChild("totalAmountReference") totalAmount: jqxInputComponent;
+
   @ViewChild('saveButtonReference') saveButton: jqxButtonComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
@@ -53,10 +57,12 @@ export class ViewServicesComponent implements OnInit, AfterViewInit {
       .subscribe(
         res => {
           console.log(res);
-          this.serviceCode.val(res.service_type);
+          this.serviceCode.val(res.service_code);
+          this.serviceName.val(res.service_name);
           this.serviceType.val(res.service_type);
           this.guestName.val(res.guest.guest_name);
           this.guestCode.val(res.guest.guest_code);
+          this.totalAmount.val(res.total_amount);
         },
         err => {
           console.log(err);
@@ -124,6 +130,10 @@ export class ViewServicesComponent implements OnInit, AfterViewInit {
     this.guestName.val(guest.guest_name);
     this.guestCode.val(guest.guest_code);
     this.guestIdStore = guest.id;
+  }
+
+  setTotal(total){
+    this.totalAmount.val(total);
   }
 
 }

@@ -20,15 +20,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddShiftComponent } from './add-shift/add-shift.component';
 import { EditShiftComponent } from './edit-shift/edit-shift.component';
-import { ManagePersonnelComponent } from './manage-personnel/manage-personnel.component';
-import { EditPersonnelComponent } from './edit-personnel/edit-personnel.component';
 import { ManageBatchesComponent } from './manage-batches/manage-batches.component';
 import { AddBatchComponent } from './add-batch/add-batch.component';
 import { EditBatchComponent } from './edit-batch/edit-batch.component';
 import { ShiftsComponent } from './shifts/shifts.component';
-import { DoctorsSheetComponent } from './sheets/doctors-sheet/doctors-sheet.component';
-import { NursesSheetComponent } from './sheets/nurses-sheet/nurses-sheet.component';
-import { StaffSheetComponent } from './sheets/staff-sheet/staff-sheet.component';
+import { RosterSheetComponent } from './roster-sheet/roster-sheet.component';
+import { ManageDoctorsComponent } from './personnel/manage-doctors/manage-doctors.component';
+import { ManageNursesComponent } from './personnel/manage-nurses/manage-nurses.component';
+import { ManageStaffComponent } from './personnel/manage-staff/manage-staff.component';
+import { EditDoctorComponent } from './personnel/edit-doctor/edit-doctor.component';
+import { EditNurseComponent } from './personnel/edit-nurse/edit-nurse.component';
+import { EditStaffComponent } from './personnel/edit-staff/edit-staff.component';
 
 
 @NgModule({
@@ -41,15 +43,17 @@ import { StaffSheetComponent } from './sheets/staff-sheet/staff-sheet.component'
     SettingsComponent,
     AddShiftComponent,
     EditShiftComponent,
-    ManagePersonnelComponent,
-    EditPersonnelComponent,
     ManageBatchesComponent,
     AddBatchComponent,
     EditBatchComponent,
     ShiftsComponent,
-    DoctorsSheetComponent,
-    NursesSheetComponent,
-    StaffSheetComponent
+    RosterSheetComponent,
+    ManageDoctorsComponent,
+    ManageNursesComponent,
+    ManageStaffComponent,
+    EditDoctorComponent,
+    EditNurseComponent,
+    EditStaffComponent,
   ],
   imports: [
     CommonModule,

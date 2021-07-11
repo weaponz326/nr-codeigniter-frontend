@@ -79,7 +79,7 @@ export class AllAssetsComponent implements OnInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Asset ID", dataField: "asset_id", width: "15%" },
+    { text: "Asset ID", dataField: "asset_code", width: "15%" },
     { text: "Asset Name", dataField: "asset_name", width: "30%" },
     { text: "Type", dataField: "type", width: "20%" },
     { text: "Location", dataField: "location", width: "20%" },
