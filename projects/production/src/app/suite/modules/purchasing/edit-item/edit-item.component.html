@@ -1,4 +1,4 @@
-<jqxWindow #addItemReference 
+<jqxWindow #editItemReference 
     [width]="540"
     [height]="210"
     [autoOpen]="false"
@@ -48,6 +48,9 @@
             <div class="edit-dialog-field-alt edit-dialog-buttons-alt">
                 <jqxButton #cancelButtonReference (click)="closeWindow()"
                 >Cancel</jqxButton>
+
+                <jqxButton #deleteButtonReference (click)="deleteItem()"
+                >Delete</jqxButton>
 
                 <jqxButton #okButtonReference (click)="saveItem()"
                 >Save</jqxButton>

@@ -14,7 +14,7 @@ import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite
   templateUrl: './all-rosters.component.html',
   styleUrls: ['./all-rosters.component.css']
 })
-export class AllRostersComponent implements OnInit {
+export class AllRostersComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,

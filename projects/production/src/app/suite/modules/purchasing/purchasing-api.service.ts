@@ -41,7 +41,7 @@ export class PurchasingApiService {
   // ----------------------------------------------------------------------------------------------------------------------------------------
   // purchasing item
 
-  public getPurchasingItem(): Observable<any>{
+  public getPurchasingItems(): Observable<any>{
     return this.http.get(this.productionUrl + "module-purchasing/purchasing-item?purchasing=" + sessionStorage.getItem('purchasing_id'));
   }
 

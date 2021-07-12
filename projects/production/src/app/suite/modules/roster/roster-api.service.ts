@@ -38,4 +38,73 @@ export class RosterApiService {
     return this.http.delete(this.productionUrl + "module-roster/roster/" + sessionStorage.getItem('roster_id'));
   }
 
+  // ------------------------------------------------------------------------------------------------------------
+  // shifts
+
+  public getShifts(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-roster/shift?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public postShift(shift): Observable<any>{
+    return this.http.post(this.productionUrl + "module-roster/shift/", shift);
+  }
+
+  public putShift(shiftId, shift): Observable<any>{
+    return this.http.put(this.productionUrl + "module-roster/shift/" + shiftId, shift);
+  }
+
+  public deleteShift(shiftId): Observable<any>{
+    return this.http.delete(this.productionUrl + "module-roster/shift/" + shiftId);
+  }
+
+  // ------------------------------------------------------------------------------------------------------------
+  // batches
+
+  public getBatches(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-roster/batch?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public postBatch(batch): Observable<any>{
+    return this.http.post(this.productionUrl + "module-roster/batch/", batch);
+  }
+
+  public putBatch(batchId, batch): Observable<any>{
+    return this.http.put(this.productionUrl + "module-roster/batch/" + batchId, batch);
+  }
+
+  public deleteBatch(batchId): Observable<any>{
+    return this.http.delete(this.productionUrl + "module-roster/batch/" + batchId);
+  }
+
+  public getPersonnel(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-roster/personnel?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public putPersonnel(personnelId, personnel): Observable<any>{
+    return this.http.put(this.productionUrl + "module-roster/personnel/" + personnelId, personnel);
+  }
+
+  public refreshPersonnel(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-roster/refresh-personnel?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  // ---------------------------------------------------------------------------------------------------------------------
+  // sheet
+
+  public refreshSheet(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-roster/refresh-sheet?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public getRosterDays(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-roster/roster-day?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public getRosterSheet(): Observable<any>{
+    return this.http.get(this.productionUrl + "module-roster/roster-sheet?roster=" + sessionStorage.getItem('roster_id'));
+  }
+
+  public postRosterSheet(sheet): Observable<any>{
+    return this.http.post(this.productionUrl + "module-roster/roster-sheet/", sheet);
+  }
+
 }

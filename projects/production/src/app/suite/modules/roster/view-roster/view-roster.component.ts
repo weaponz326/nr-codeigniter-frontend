@@ -11,13 +11,14 @@ import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilities/delete-confirm/delete-confirm.component';
 
+import { RosterSheetComponent } from '../roster-sheet/roster-sheet.component';
 
 @Component({
   selector: 'app-view-roster',
   templateUrl: './view-roster.component.html',
   styleUrls: ['./view-roster.component.css']
 })
-export class ViewRosterComponent implements OnInit {
+export class ViewRosterComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,
@@ -32,6 +33,8 @@ export class ViewRosterComponent implements OnInit {
   @ViewChild('rosterNameReference') rosterName: jqxInputComponent;
   @ViewChild('fromDateReference') fromDate: jqxDateTimeInputComponent;
   @ViewChild('toDateReference') toDate: jqxDateTimeInputComponent;
+
+  @ViewChild('rosterSheetComponentReference') rosterSheet: RosterSheetComponent;
 
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
@@ -69,27 +72,29 @@ export class ViewRosterComponent implements OnInit {
 
   saveRoster(){
     let rosterData = {
-      account: sessionStorage.getItem('production_id'),
+      account: sessionStorage.getItem('restaurant_id'),
       roster_code: this.rosterCode.val(),
       roster_name: this.rosterName.val(),
       from_date: this.fromDate.val(),
       to_date: this.toDate.val(),
     }
 
-    this.rosterApi.putRoster(rosterData)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+    // this.rosterApi.putRoster(rosterData)
+    //   .subscribe(
+    //     res => {
+    //       console.log(res);
+    //       this.loadingSpinner.httpLoader.close();
+    //     },
+    //     err => {
+    //       console.log(err);
+    //       this.loadingSpinner.httpLoader.close();
+    //       this.connectionNotification.errorNotification.open();
+    //     }
+    //   )
 
     console.log(rosterData);
+
+    this.rosterSheet.postSheetData();
   }
 
   deleteRoster(){
@@ -118,5 +123,6 @@ export class ViewRosterComponent implements OnInit {
         )
     }
   }
+
 
 }

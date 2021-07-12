@@ -3,9 +3,9 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 
-import { PurchasingApiService } from '../purchasing-api.service';
-import { AddItemComponent } from '../add-item/add-item.component'
-import { EditItemComponent } from '../edit-item/edit-item.component'
+import { RosterApiService } from '../roster-api.service';
+import { AddShiftComponent } from '../add-shift/add-shift.component'
+import { EditShiftComponent } from '../edit-shift/edit-shift.component'
 
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
@@ -13,19 +13,19 @@ import { DeleteConfirmComponent } from 'projects/personal/src/app/suite/utilitie
 
 
 @Component({
-  selector: 'app-purchasing-details',
-  templateUrl: './purchasing-details.component.html',
-  styleUrls: ['./purchasing-details.component.css']
+  selector: 'app-shifts',
+  templateUrl: './shifts.component.html',
+  styleUrls: ['./shifts.component.css']
 })
-export class PurchasingDetailsComponent implements OnInit, AfterViewInit {
+export class ShiftsComponent implements OnInit, AfterViewInit {
 
-  constructor(private purchasingApi: PurchasingApiService) { }
+  constructor(private rosterApi: RosterApiService) { }
 
   @ViewChild("gridReference") grid: jqxGridComponent;
   @ViewChild("buttonReference") button: jqxButtonComponent;
 
-  @ViewChild('addItemComponentReference') addItem: AddItemComponent;
-  @ViewChild('editItemComponentReference') editItem: EditItemComponent;
+  @ViewChild('addShiftComponentReference') addShift: AddShiftComponent;
+  @ViewChild('editShiftComponentReference') editShift: EditShiftComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
   @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
@@ -39,7 +39,7 @@ export class PurchasingDetailsComponent implements OnInit, AfterViewInit {
   }
 
   getData(){
-    this.purchasingApi.getPurchasingItems()
+    this.rosterApi.getShifts()
       .subscribe(
         res => {
           console.log(res);
@@ -53,29 +53,29 @@ export class PurchasingDetailsComponent implements OnInit, AfterViewInit {
       )
   }
 
-  onAddCommit(detailData: any) {
-    this.grid.addrow(null, detailData);
+  onAddCommit(shiftData: any) {
+    this.grid.addrow(null, shiftData);
   }
 
-  onEditCommit(detailData: any) {
-    this.grid.updaterow(detailData.id, detailData);
+  onEditCommit(shiftData: any) {
+    this.grid.updaterow(shiftData.id, shiftData);
   }
 
-  onDeleteCommit(detailId: number) {
-    this.grid.deleterow(detailId);
+  onDeleteCommit(shiftId: number) {
+    this.grid.deleterow(shiftId);
   }
 
   // widgets
-  // -------------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------
 
   source: any = {
     localdata: null,
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'item_description', type: 'string' },
-      { name: 'price', type: 'string' },
-      { name: 'quantity', type: 'string' },
+      { name: 'shift_name', type: 'string' },
+      { name: 'start_time', type: 'string' },
+      { name: 'end_time', type: 'string' },
     ],
     id: 'id',
     addrow: (rowid, rowdata, position, commit) => {
@@ -92,28 +92,27 @@ export class PurchasingDetailsComponent implements OnInit, AfterViewInit {
   dataAdapter: any = new jqx.dataAdapter(this.source);
 
   columns: any[] = [
-    { text: "Item Description", dataField: "item_description", width: "40%" },
-    { text: 'Price', datafield: 'price', width: "20%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
-    { text: 'Quantity', datafield: 'quantity', width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    { text: "Total Price", dataField: "total_price", width: "25%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum']}
+    { text: 'Shift Name', dataField: 'shift_name', width: "50%" },
+    { text: 'Start Time', dataField: 'start_time', width: "25%" },
+    { text: 'End Time', dataField: 'end_time', width: "25%" },
   ];
 
   addRow(rowid, rowdata, position, commit) {
     console.log("u are about adding a new row...");
     console.log(rowdata);
 
-    let itemData = {
-      purchasing: sessionStorage.getItem('purchasing_id'),
-      item_dscription: rowdata.item_description,
-      quantity: rowdata.quantity,
-      price: rowdata.price,
+    let shiftData = {
+      roster: sessionStorage.getItem('roster_id'),
+      shift_name: rowdata.shift_name,
+      start_time: rowdata.start_time,
+      end_time: rowdata.end_time,
     }
 
-    console.log(itemData);
+    console.log(shiftData);
 
     this.loadingSpinner.httpLoader.open();
 
-    this.purchasingApi.postPurchasingItem(itemData)
+    this.rosterApi.postShift(shiftData)
       .subscribe(
         res => {
           console.log(res);
@@ -132,16 +131,16 @@ export class PurchasingDetailsComponent implements OnInit, AfterViewInit {
     console.log("u are about updating a row...");
     console.log(newdata);
 
-    let itemData = {
-      purchasing: sessionStorage.getItem('purchasing_id'),
-      item_description: newdata.item_description,
-      quantity: newdata.quantity,
-      price: newdata.price,
+    let shiftData = {
+      roster: sessionStorage.getItem('roster_id'),
+      shift_name: newdata.shift_name,
+      start_time: newdata.start_time,
+      end_time: newdata.end_time,
     }
 
     this.loadingSpinner.httpLoader.open();
 
-    this.purchasingApi.putPurchasingItem(rowid, itemData)
+    this.rosterApi.putShift(rowid, shiftData)
       .subscribe(
         res => {
           console.log(res);
@@ -161,7 +160,7 @@ export class PurchasingDetailsComponent implements OnInit, AfterViewInit {
 
     this.loadingSpinner.httpLoader.open();
 
-    this.purchasingApi.deletePurchasingItem(rowid)
+    this.rosterApi.deleteShift(rowid)
       .subscribe(
         res => {
           console.log(res);
@@ -175,5 +174,5 @@ export class PurchasingDetailsComponent implements OnInit, AfterViewInit {
         }
       )
   }
-  
+
 }

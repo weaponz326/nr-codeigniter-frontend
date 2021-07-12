@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
+import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 
 
 @Component({
@@ -12,8 +13,8 @@ export class ItemFormComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("productCodeReference") productCode: jqxNumberInputComponent;
-  @ViewChild("productNameReference") productName: jqxNumberInputComponent;
+  @ViewChild("productCodeReference") productCode: jqxInputComponent;
+  @ViewChild("productNameReference") productName: jqxInputComponent;
   @ViewChild("quantityReference") quantity: jqxNumberInputComponent;
   @ViewChild("priceReference") price: jqxNumberInputComponent;
 

@@ -53,7 +53,7 @@ export class NewRosterComponent implements OnInit {
     this.loadingSpinner.httpLoader.open();
 
     let rosterData = {
-      account: sessionStorage.getItem('restaurant_id'),
+      account: sessionStorage.getItem('shop_id'),
       roster_code: this.rosterCode.val(),
       roster_name: this.rosterName.val(),
       from_date: this.fromDate.val(),

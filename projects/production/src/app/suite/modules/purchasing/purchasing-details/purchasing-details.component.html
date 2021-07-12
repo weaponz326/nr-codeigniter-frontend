@@ -8,7 +8,7 @@
 
         <div class="row top-button-row">
             <div class="col-md-12">
-                <jqxButton #buttonReference
+                <jqxButton #buttonReference (click)="addItem.openWindow()"
                     [width]="150"
                     [height]="30"
                 >Add Item</jqxButton>
@@ -16,7 +16,7 @@
         </div>
 
         <div>
-            <jqxGrid #detailsGridReference
+            <jqxGrid #gridReference (onRowdoubleclick)="editItem.openWindow($event)"
                 [width]="'100%'"
                 [autoheight]="true"
                 [rowsheight]="24"
@@ -24,8 +24,27 @@
                 [showstatusbar]="true"
                 [showaggregates]="true"
                 [columns]="columns"
+                [source]="dataAdapter"
             ></jqxGrid>
         </div>
 
     </div>
 </div>
+
+<!-- add and edit order item components -->
+
+<app-add-item #addItemComponentReference
+    (addCommit)="onAddCommit($event)"
+></app-add-item>
+
+<app-edit-item #editItemComponentReference
+    (editCommit)="onEditCommit($event)"
+    (deleteCommit)="onDeleteCommit($event)"
+></app-edit-item>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>
+

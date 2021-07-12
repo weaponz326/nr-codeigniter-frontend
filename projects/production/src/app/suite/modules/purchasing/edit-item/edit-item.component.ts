@@ -7,24 +7,27 @@ import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
 
 
 @Component({
-  selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css']
+  selector: 'app-edit-item',
+  templateUrl: './edit-item.component.html',
+  styleUrls: ['./edit-item.component.css']
 })
-export class AddItemComponent implements OnInit {
+export class EditItemComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild("addItemReference") addItemWindow: jqxWindowComponent;
+  @ViewChild("editItemReference") editItemWindow: jqxWindowComponent;
   @ViewChild("okButtonReference") okButton: jqxButtonComponent;
   @ViewChild("cancelButtonReference") cancelButton: jqxButtonComponent;
 
-  @ViewChild("itemDescriiptionReference") itemDescription: jqxInputComponent;
+  @ViewChild("itemDescriptionReference") itemDescription: jqxInputComponent;
   @ViewChild("quantityReference") quantity: jqxNumberInputComponent;
   @ViewChild("priceReference") price: jqxNumberInputComponent;
 
   // emit event to commit data into grid in parent component
-  @Output() addCommit = new EventEmitter<object>();
+  @Output() editCommit = new EventEmitter<object>();
+  @Output() deleteCommit = new EventEmitter<number>();
+
+  itemId;
 
   ngOnInit(): void {
   }
@@ -32,17 +35,25 @@ export class AddItemComponent implements OnInit {
   // widgets
   // ---------------------------------------------------------------------------------------------------
 
-  // open add item popup dialog window
-  openWindow(){
-    this.addItemWindow.open();
+  // open edit item popup dialog window
+  openWindow(event: any){
+    this.editItemWindow.open();
+
+    console.log(event.args.row.bounddata);
+    this.itemId = event.args.row.bounddata.id;
+
+    this.itemDescription.val(event.args.row.bounddata.item_description);
+    this.quantity.val(event.args.row.bounddata.quantity);
+    this.price.val(event.args.row.bounddata.price);
   }
 
   closeWindow(){
-    this.addItemWindow.close();
+    this.editItemWindow.close();
   }
 
   saveItem(){
     let itemData = {
+      id: this.itemId,
       purchasing: sessionStorage.getItem('purchasing_id'),
       item_description: this.itemDescription.val(),
       quantity: this.quantity.val(),
@@ -50,9 +61,13 @@ export class AddItemComponent implements OnInit {
     }
 
     console.log(itemData);
-    this.addCommit.emit(itemData);
+    this.editCommit.emit(itemData);
 
     this.closeWindow();
+  }
+
+  deleteItem(){
+    this.deleteCommit.emit(this.itemId);
   }
 
 }
