@@ -56,7 +56,7 @@ export class AllCashflowComponent implements OnInit, AfterViewInit {
 
   viewSheet(event: any){
     console.log(event.args.row.bounddata);
-    sessionStorage.setItem('sheet_id', event.args.row.bounddata.id);
+    sessionStorage.setItem('cashflow_id', event.args.row.bounddata.id);
 
     this.router.navigateByUrl('/suite/cashflow/view-sheet');
   }

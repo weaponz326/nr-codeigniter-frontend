@@ -63,4 +63,8 @@ export class OrdersApiService {
     return this.http.delete(this.shopUrl + "module-orders/order-item/" + itemId);
   }
 
+  public patchTotal(totalData): Observable<any>{
+    return this.http.patch(this.shopUrl + "module-orders/order-total/" + sessionStorage.getItem('order_id'), totalData);
+  }
+
 }

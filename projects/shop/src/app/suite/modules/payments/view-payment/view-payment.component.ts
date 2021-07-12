@@ -49,7 +49,13 @@ export class ViewPaymentComponent implements OnInit {
           this.paymentForm.paymentCode.val(res.payment_code);
           this.paymentForm.paymentDate.val(res.payment_date);
           this.paymentForm.customerName.val(res.customer_name);
-          this.paymentForm.amountPaid.val(res.amount_paid);
+          this.paymentForm.orderCode.val(res.order.order_code);
+          this.paymentForm.amountDue.val(res.order.order_total);
+          this.paymentForm.payment.val(res.payment);
+
+          if (this.paymentForm.amountDue.val() < this.paymentForm.payment.val()) {
+            this.paymentForm.balance.val(this.paymentForm.payment.val() - this.paymentForm.amountDue.val());
+          }
         },
         err => {
           console.log(err);
@@ -67,7 +73,7 @@ export class ViewPaymentComponent implements OnInit {
       payment_code: this.paymentForm.paymentCode.val(),
       payment_date: this.paymentForm.paymentDate.val(),
       customer_name: this.paymentForm.customerName.val(),
-      amount_paid: this.paymentForm.amountPaid.val(),
+      payment: this.paymentForm.payment.val(),
     }
 
     this.paymentsApi.putPayment(paymentData)

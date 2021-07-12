@@ -36,15 +36,15 @@ export class ViewSheetComponent implements OnInit, AfterViewInit {
   @ViewChild("sheetTypeReference")sheetType: jqxDropDownListComponent;
 
   navHeading: any[] = [
-    { text: "All Sheets", url: "/suite/cashflow/all-sheets" },
+    { text: "All Sheets", url: "/suite/cashflow/all-cashflow" },
     { text: "View Sheet", url: "/suite/cashflow/view-sheet" },
   ];
 
   // sheet type source for dropdownlist
-  typeSource: any[] = ["Weekly", "Monthly", "Quarterly"];
+  typeSource: any[] = ["Daily" ,"Weekly", "Monthly", "Quarterly"];
 
   // show sheet according to sheet type
-  showSheet: string = "weekly";
+  showSheet;
 
   ngOnInit(): void {
   }
@@ -57,6 +57,8 @@ export class ViewSheetComponent implements OnInit, AfterViewInit {
           this.sheetCode.val(res.sheet_code);
           this.sheetName.val(res.sheet_name);
           this.sheetType.val(res.sheet_type);
+
+          this.showSheet = this.sheetType.val();
         },
         err => {
           console.log(err);

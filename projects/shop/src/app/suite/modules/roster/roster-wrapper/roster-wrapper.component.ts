@@ -12,7 +12,7 @@ export class RosterWrapperComponent implements OnInit {
   navLinks: any[] = [
     { text: "All Rosters", url: "/suite/roster/all-rosters", icon: "fa fa-fw fa-list" },
   ]
-  
+
   ngOnInit(): void {
   }
 

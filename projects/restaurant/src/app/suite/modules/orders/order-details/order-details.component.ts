@@ -134,6 +134,8 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
           commit(true, res.data.id);
+
+          this.updateTotal(this.grid.getcolumnaggregateddata('total_price', ['sum'])['sum'])
         },
         err => {
           console.log(err);
@@ -183,6 +185,8 @@ export class OrderDetailsComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
           commit(true);
+
+          this.updateTotal(this.grid.getcolumnaggregateddata('total_price', ['sum'])['sum'])
         },
         err => {
           console.log(err);

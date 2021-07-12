@@ -20,6 +20,9 @@ import { MonthlyComponent } from './sheets/monthly/monthly.component';
 import { QuarterlyComponent } from './sheets/quarterly/quarterly.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { DailyComponent } from './sheets/daily/daily.component';
+import { AddInflowItemComponent } from './sheets/add-inflow-item/add-inflow-item.component';
+import { AddOutflowItemComponent } from './sheets/add-outflow-item/add-outflow-item.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { SettingsComponent } from './settings/settings.component';
     MonthlyComponent,
     QuarterlyComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    DailyComponent,
+    AddInflowItemComponent,
+    AddOutflowItemComponent,
   ],
   imports: [
     CommonModule,

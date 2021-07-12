@@ -19,6 +19,7 @@ import { ViewPurchasingComponent } from './view-purchasing/view-purchasing.compo
 import { PurchasingDetailsComponent } from './purchasing-details/purchasing-details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SettingsComponent } from './settings/settings.component';
     ViewPurchasingComponent,
     PurchasingDetailsComponent,
     DashboardComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddItemComponent
   ],
   imports: [
     CommonModule,

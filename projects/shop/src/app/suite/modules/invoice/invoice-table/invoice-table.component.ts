@@ -73,8 +73,8 @@ export class InvoiceTableComponent implements OnInit, AfterViewInit {
     dataType: 'json',
     dataFields: [
       { name: 'id', type: 'string' },
-      { name: 'product_id', map: 'product>id', type: 'string' },
-      { name: 'product', map: 'product>item_name', type: 'string' },
+      { name: 'product_code', map: 'product>product_code', type: 'string' },
+      { name: 'product_name', map: 'product>product_name', type: 'string' },
       { name: 'price', map: 'product>price', type: 'string' },
       { name: 'quantity', type: 'string' },
     ],
@@ -97,15 +97,7 @@ export class InvoiceTableComponent implements OnInit, AfterViewInit {
     { text: "Product Name", dataField: "product_name", width: "35%" },
     { text: 'Price', datafield: 'price', width: "15%", cellsalign: 'right', cellsformat: 'c2', columntype: 'numberinput' },
     { text: 'Quantity', datafield: 'quantity', width: "15%", cellsalign: 'right', columntype: 'numberinput' },
-    {
-      text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'],
-      cellsrenderer: function (index, datafield, value, defaultvalue, column, rowdata) {
-        console.log(rowdata.price);
-        console.log(rowdata.qunatity);
-        var total = parseFloat(rowdata.price) * parseFloat(rowdata.quantity);
-        return "<div style='margin: 4px; float: right;'>" + total + "</div>";
-      }
-    }
+    { text: "Total Price", dataField: "total_price", width: "20%", cellsalign: 'right', cellsformat: 'c2', aggregates: ['sum'] }
   ];
 
   addRow(rowid, rowdata, position, commit) {

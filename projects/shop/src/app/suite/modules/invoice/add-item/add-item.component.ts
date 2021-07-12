@@ -43,6 +43,8 @@ export class AddItemComponent implements OnInit {
     let itemData = {
       invoice: sessionStorage.getItem('invoice_id'),
       product_id: this.itemForm.productIdStore,
+      product_code: this.itemForm.productCode.val(),
+      product_name: this.itemForm.productName.val(),
       quantity: this.itemForm.quantity.val(),
     }
 

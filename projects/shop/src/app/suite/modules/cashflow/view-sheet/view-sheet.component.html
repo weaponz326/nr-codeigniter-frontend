@@ -35,6 +35,7 @@
                         [height]="28"
                         [source]="typeSource"
                         [autoDropDownHeight]="true"
+                        [disabled]="true"
                     ></jqxDropDownList>
                 </div>
             </div>
@@ -69,18 +70,21 @@
 
     </div>
 
-    <!-- weekly sheet table -->
-    <div *ngIf="showSheet=='weekly'">
+    <!-- sheet tables -->
+
+    <div *ngIf="showSheet=='Daily'">
+        <app-daily></app-daily>
+    </div>
+
+    <div *ngIf="showSheet=='Weekly'">
         <app-weekly></app-weekly>
     </div>
 
-    <!-- monthly sheet table -->
-    <div *ngIf="showSheet=='monthly'">
+    <div *ngIf="showSheet=='Monthly'">
         <app-monthly></app-monthly>
     </div>
 
-    <!-- quarterly sheet table -->
-    <div *ngIf="showSheet=='quarterly'">
+    <div *ngIf="showSheet=='Quarterly'">
         <app-quarterly></app-quarterly>
     </div>
 

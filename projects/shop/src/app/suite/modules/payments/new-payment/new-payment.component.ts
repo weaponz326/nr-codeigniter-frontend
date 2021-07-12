@@ -46,7 +46,7 @@ export class NewPaymentComponent implements OnInit {
       payment_code: this.paymentForm.paymentCode.val(),
       payment_date: this.paymentForm.paymentDate.val(),
       customer_name: this.paymentForm.customerName.val(),
-      amount_paid: this.paymentForm.amountPaid.val(),
+      payment: this.paymentForm.payment.val(),
     }
 
     console.log(paymentData);

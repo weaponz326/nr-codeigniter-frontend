@@ -12,7 +12,7 @@
 
         <div class="row top-button-row">
             <div class="col-md-12">
-                <jqxButton
+                <jqxButton (click)="addInflowItem.openWindow()"
                     [width]="150"
                     [height]="30"
                 >Add Inflow</jqxButton>
@@ -27,13 +27,14 @@
             [showstatusbar]="true"
             [showaggregates]="true"
             [columns]="inflowColumns"
+            [source]="inflowDataAdapter"
         ></jqxGrid>
 
         <br />
 
         <div class="row top-button-row">
             <div class="col-md-12">
-                <jqxButton
+                <jqxButton (click)="addOutflowItem.openWindow()" 
                     [width]="150"
                     [height]="30"
                 >Add Outflow</jqxButton>
@@ -48,6 +49,7 @@
             [showstatusbar]="true"
             [showaggregates]="true"
             [columns]="outflowColumns"
+            [source]="outflowDataAdapter"
         ></jqxGrid>
 
         <br />
@@ -64,3 +66,20 @@
 
     </div>
 </div>
+
+<!-- add inflow and outflow items -->
+
+<app-add-inflow-item #addInflowItemComponentReference
+    (addCommit)="onInflowAddCommit($event)"
+></app-add-inflow-item>
+
+<app-add-outflow-item #addOutflowItemComponentReference
+    (addCommit)="onOutflowAddCommit($event)"
+></app-add-outflow-item>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>
+

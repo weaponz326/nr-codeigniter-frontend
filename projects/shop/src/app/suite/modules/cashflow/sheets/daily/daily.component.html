@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-10">
+
+        <hr class="top-divider" />
+        <hr class="bottom-divider" />
+
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <small class="text-info">Click cell to edit field values inline</small>
+            </div>
+        </div>
+
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton (click)="addInflowItem.openWindow()"
+                    [width]="150"
+                    [height]="30"
+                >Add Inflow</jqxButton>
+            </div>
+        </div>
+
+        <jqxGrid #inflowGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [showemptyrow]="false"
+            [showstatusbar]="true"
+            [showaggregates]="true"
+            [columns]="inflowColumns"
+            [source]="inflowDataAdapter"
+        ></jqxGrid>
+
+        <br />
+
+        <div class="row top-button-row">
+            <div class="col-md-12">
+                <jqxButton (click)="addOutflowItem.openWindow()" 
+                    [width]="150"
+                    [height]="30"
+                >Add Outflow</jqxButton>
+            </div>
+        </div>
+
+        <jqxGrid #outflowGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [showemptyrow]="false"
+            [showstatusbar]="true"
+            [showaggregates]="true"
+            [columns]="outflowColumns"
+            [source]="outflowDataAdapter"
+        ></jqxGrid>
+
+        <br />
+
+        <jqxGrid #netflowGridReference
+            [width]="'100%'"
+            [autoheight]="true"
+            [rowsheight]="24"
+            [showemptyrow]="false"
+            [showstatusbar]="true"
+            [showaggregates]="true"
+            [columns]="netflowColumns"
+        ></jqxGrid>
+
+    </div>
+</div>
+
+<!-- add inflow and outflow items -->
+
+<app-add-inflow-item #addInflowItemComponentReference
+    (addCommit)="onInflowAddCommit($event)"
+></app-add-inflow-item>
+
+<app-add-outflow-item #addOutflowItemComponentReference
+    (addCommit)="onOutflowAddCommit($event)"
+></app-add-outflow-item>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>
+

@@ -38,4 +38,29 @@ export class PurchasingApiService {
     return this.http.delete(this.shopUrl + "module-purchasing/purchasing/" + sessionStorage.getItem('purchasing_id'));
   }
 
+  // ---------------------------------------------------------------------------------------------------------------------
+  // purchasing items
+
+  public getPurchasingItems(): Observable<any>{
+    return this.http.get(this.shopUrl + "module-purchasing/purchasing-item?purchasing=" + sessionStorage.getItem('purchasing_id'));
+  }
+
+  public postPurchasingItem(item): Observable<any>{
+    return this.http.post(this.shopUrl + "module-purchasing/purchasing-item/", item);
+  }
+
+  // retreive, update and delete purchasing
+
+  public getSinglePurchasingItem(itemId): Observable<any>{
+    return this.http.get(this.shopUrl + "module-purchasing/purchasing-item/" + itemId);
+  }
+
+  public putPurchasingItem(itemId, item): Observable<any>{
+    return this.http.put(this.shopUrl + "module-purchasing/purchasing-item/" + itemId, item);
+  }
+
+  public deletePurchasingItem(itemId): Observable<any>{
+    return this.http.delete(this.shopUrl + "module-purchasing/purchasing-item/" + itemId);
+  }
+
 }

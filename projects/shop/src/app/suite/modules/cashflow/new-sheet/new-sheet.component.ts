@@ -35,7 +35,7 @@ export class NewSheetComponent implements OnInit {
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   // sheet type source for dropdownlist
-  typeSource: any[] = ["Weekly", "Monthly", "Quarterly"];
+  typeSource: any[] = ["Daily", "Weekly", "Monthly", "Quarterly"];
 
   ngOnInit(): void {
   }
