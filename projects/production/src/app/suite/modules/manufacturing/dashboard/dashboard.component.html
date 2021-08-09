@@ -1,1 +1,71 @@
-<p>dashboard works!</p>
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">All Manufacturing</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Ongoing</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Backlog</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold">Manufacturing by Month</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas baseChart
+                            [datasets]="manufacturingLineChartData"
+                            [labels]="manufacturingLineChartLabels"
+                            [options]="chartOptions"
+                            [legend]="true"
+                            [chartType]="'line'"
+                        ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

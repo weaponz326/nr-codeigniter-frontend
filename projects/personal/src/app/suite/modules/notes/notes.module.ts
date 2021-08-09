@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxEditorModule } from 'jqwidgets-ng/jqxeditor';
 import { jqxFileUploadModule } from 'jqwidgets-ng/jqxfileupload';
@@ -34,6 +35,7 @@ import { SettingsComponent } from './settings/settings.component';
     NotesRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxInputModule,
     jqxEditorModule,
     jqxFileUploadModule,

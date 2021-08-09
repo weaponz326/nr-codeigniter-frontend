@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -55,6 +56,7 @@ import { SelectFeesComponent } from './select-fees/select-fees.component';
     FeesRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,

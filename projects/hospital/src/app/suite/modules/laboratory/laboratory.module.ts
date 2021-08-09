@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 
+import { ChartsModule } from 'ng2-charts';
+import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -39,6 +40,7 @@ import { SettingsComponent } from './settings/settings.component';
     LaboratoryRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

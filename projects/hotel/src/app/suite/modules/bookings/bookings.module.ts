@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -41,6 +42,7 @@ import { EditBookedRoomComponent } from './edit-booked-room/edit-booked-room.com
     BookingsRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxGridModule,
     jqxButtonModule,
     jqxWindowModule,

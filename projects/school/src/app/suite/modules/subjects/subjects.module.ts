@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -28,9 +29,9 @@ import { SettingsComponent } from './settings/settings.component';
     AllSubjectsComponent,
     AddSubjectComponent,
     ViewSubjectComponent,
-    SubjectFormComponent, 
-    TeachersTableComponent, 
-    DashboardComponent, 
+    SubjectFormComponent,
+    TeachersTableComponent,
+    DashboardComponent,
     SettingsComponent
   ],
   imports: [
@@ -38,6 +39,7 @@ import { SettingsComponent } from './settings/settings.component';
     SubjectsRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

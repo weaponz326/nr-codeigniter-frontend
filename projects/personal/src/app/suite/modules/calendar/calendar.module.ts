@@ -5,6 +5,7 @@ import { jqxSchedulerModule } from 'jqwidgets-ng/jqxscheduler';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid'
 
+import { ChartsModule } from 'ng2-charts';
 import { CalendarRoutingModule } from './calendar-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
@@ -29,6 +30,7 @@ import { SettingsComponent } from './settings/settings.component';
     CalendarRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxSchedulerModule,
     jqxButtonModule,
     jqxGridModule

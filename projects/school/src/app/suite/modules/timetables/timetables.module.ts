@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -46,6 +47,7 @@ import { SelectSubjectComponent } from './select-subject/select-subject.componen
     TimetablesRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,

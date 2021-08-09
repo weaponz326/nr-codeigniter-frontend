@@ -52,10 +52,6 @@ const routes: Routes = [
     loadChildren: () => import("./modules/manufacturing/manufacturing.module").then(m => m.ManufacturingModule)
   },
   {
-    path: "schedules",
-    loadChildren: () => import("./modules/schedules/schedules.module").then(m => m.SchedulesModule)
-  },
-  {
     path: "roster",
     loadChildren: () => import("./modules/roster/roster.module").then(m => m.RosterModule)
   },

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { UtilitiesModule } from 'projects/personal/src/app/suite/utilities/utilities.module';
 import { DashboardModule } from 'projects/personal/src/app/suite/dashboard/dashboard.module';
@@ -21,6 +22,7 @@ import { TasksWrapperComponent } from './tasks-wrapper/tasks-wrapper.component';
     TasksRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
   ]
 })
 export class TasksModule { }

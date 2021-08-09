@@ -1,1 +1,124 @@
-<p>dashboard works!</p>
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Admissions Today</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">52</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Out-Patient</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">44</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">In-Patient</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">8</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-uppercase mb-1">Discharged Today</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold">Admissions by Day</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas baseChart
+                            [datasets]="admissionsLineChartData"
+                            [labels]="admissionsLineChartLabels"
+                            [options]="chartOptions"
+                            [legend]="true"
+                            [chartType]="'line'"
+                        ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold">Credit / Debit</h6>
+                </div>
+                <div class="card-body">
+                    <canvas baseChart
+                        [data]="typePieChartData"
+                        [labels]="typePieChartLabels"
+                        [options]="chartOptions"
+                        [legend]="true"
+                        [chartType]="'pie'"
+                    ></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold">Admissions by Encounter</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas baseChart
+                            [data]="encounterDoughnutChartData"
+                            [labels]="encounterDoughnutChartLabels"
+                            [options]="chartOptions"
+                            [legend]="true"
+                            [chartType]="'doughnut'"
+                        ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

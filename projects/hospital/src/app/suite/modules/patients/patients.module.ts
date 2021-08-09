@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxDateTimeInputModule } from 'jqwidgets-ng/jqxdatetimeinput';
 import { jqxTextAreaModule } from 'jqwidgets-ng/jqxtextarea'
@@ -38,6 +39,7 @@ import { SettingsComponent } from './settings/settings.component';
     PatientsRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxInputModule,
     jqxDateTimeInputModule,
     jqxTextAreaModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -45,6 +46,7 @@ import { SelectStudentComponent } from './select-student/select-student.componen
     ClassesRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxGridModule,
     jqxButtonModule,
     jqxInputModule,

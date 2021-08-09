@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxDropDownListModule } from 'jqwidgets-ng/jqxdropdownlist';
@@ -45,6 +46,7 @@ import { AddOutflowItemComponent } from './sheets/add-outflow-item/add-outflow-i
     CashflowRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

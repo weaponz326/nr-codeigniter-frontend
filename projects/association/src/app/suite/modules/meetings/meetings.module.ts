@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -36,6 +37,7 @@ import { MeetingFormComponent } from './meeting-form/meeting-form.component';
     MeetingsRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

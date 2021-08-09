@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxKanbanModule } from 'jqwidgets-ng/jqxkanban'
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons'
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput'
@@ -40,6 +41,7 @@ import { SettingsComponent } from './settings/settings.component';
     TasksRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxKanbanModule,
     jqxButtonModule,
     jqxInputModule,

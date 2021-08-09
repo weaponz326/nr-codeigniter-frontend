@@ -3,6 +3,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
@@ -50,6 +51,7 @@ import { AddExtraComponent } from './add-extra/add-extra.component';
     UtilitiesModule,
     DashboardModule,
     jqxButtonModule,
+    ChartsModule,
     jqxGridModule,
     jqxWindowModule,
     jqxInputModule,

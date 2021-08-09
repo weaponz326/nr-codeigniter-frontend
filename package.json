@@ -22,9 +22,11 @@
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
     "bootstrap": "^4.6.0",
+    "chart.js": "^2.9.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "jqwidgets-ng": "^11.1.3",
+    "ng2-charts": "^2.2.3",
     "rxjs": "^6.6.3",
     "tslib": "^1.14.1",
     "zone.js": "~0.10.2"
