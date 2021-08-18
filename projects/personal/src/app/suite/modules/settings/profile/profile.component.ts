@@ -42,8 +42,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     // get basic profile
-    // gets both user and profile at the same time
-
+    // gets both user and profile
     this.settingsApi.getUser()
       .subscribe(
         res => {
@@ -71,7 +70,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       )
 
     // get extended profile
-    // gets additional, location, contact
     this.settingsApi.getExtendedProfile()
       .subscribe(
         res => {
@@ -84,7 +82,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
           this.contact.phoneInput.val(res.phone);
           this.contact.emailInput.val(res.email);
           this.contact.addressTextArea.val(res.address);
-
         },
         err => {
           console.log(err);
@@ -97,18 +94,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   // --------------------------------------------------------------------------------------------------------------------
 
   // save basic profile
-  // user and profile are sent seperately
-  saveBasic(basic){
-    let user = {
-      first_name: basic.first_name,
-      last_name: basic.last_name
-    }
-
-    let profile = {
-      location: basic.location,
-      about: basic.about
-    }
-
+  sendUser(user){
     this.loadingSpinner.httpLoader.open();
 
     this.settingsApi.putUser(user)
@@ -123,6 +109,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
           this.connectionNotification.errorNotification.open();
         }
       )
+  }
+
+  sendProfile(profile){
+    this.loadingSpinner.httpLoader.open();
 
     this.settingsApi.putProfile(profile)
       .subscribe(
@@ -138,16 +128,33 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       )
   }
 
-  saveAdditional(data){
-    let additional = {
-      user: localStorage.getItem('personal_id'),
-      gender: data.gender,
-      date_of_birth: data.date_of_birth
+  // user and profile are sent seperately
+  saveBasic(basic){
+    let user = {
+      first_name: basic.first_name,
+      last_name: basic.last_name
     }
 
+    let profile = {
+      location: basic.location,
+      about: basic.about
+    }
+
+    this.sendUser(user);
+    this.sendProfile(profile);
+  }
+
+  savePhoto(photo){
+    this.sendProfile(photo);
+
+  }
+
+  // extended profile
+
+  sendExtended(data){
     this.loadingSpinner.httpLoader.open();
 
-    this.settingsApi.postAdditionalProfile(additional)
+    this.settingsApi.postExtendedProfile(data)
       .subscribe(
         res => {
           console.log(res);
@@ -161,52 +168,36 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       )
   }
 
+  saveAdditional(data){
+    let additionalData = {
+      user: localStorage.getItem('personal_id'),
+      gender: data.gender,
+      date_of_birth: data.date_of_birth
+    }
+
+    this.sendExtended(additionalData);
+  }
+
   saveLocation(data){
-    let location = {
+    let locationData = {
       user: localStorage.getItem('personal_id'),
       country: data.country,
       state: data.state,
       city: data.city
     }
 
-    this.loadingSpinner.httpLoader.open();
-
-    this.settingsApi.postLocationProfile(location)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+    this.sendExtended(locationData);
   }
 
   saveContact(data){
-    let location = {
+    let contactData = {
       user: localStorage.getItem('personal_id'),
       phone: data.phone,
       email: data.email,
       address: data.address
     }
 
-    this.loadingSpinner.httpLoader.open();
-
-    this.settingsApi.postContactProfile(location)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+    this.sendExtended(contactData);
   }
 
 }

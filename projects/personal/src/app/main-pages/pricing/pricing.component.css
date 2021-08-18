@@ -15,3 +15,7 @@
 #pricingDiv .card:hover{
   box-shadow: 0px 2px 8px 0px;
 }
+
+p.pricing-point{
+  font-size: 80%;
+}

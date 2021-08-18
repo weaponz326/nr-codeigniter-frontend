@@ -11,8 +11,8 @@
 
                 <ul>
                     <li>Basic Profile</li>
-                    <li>Bio Profile</li>
                     <li>Profile Photo</li>
+                    <li>Bio Profile</li>
                     <li>Location Details</li>
                     <li>Contact Details</li>
                 </ul>
@@ -20,20 +20,22 @@
                 <!-- profile tabs contents components -->
 
                 <div class="profile-content-div">
-                    <app-basic #basicComponentReference
+                    <app-basic
+                        #basicComponentReference
                         (additionalEvent)="saveBasic($event)"
                     ></app-basic>
+                </div>
+                <div class="profile-content-div">
+                    <app-photo
+                        #photoComponentReference
+                        (photoEvent)="savePhoto($event)"
+                    ></app-photo>
                 </div>
                 <div  class="profile-content-div">
                     <app-additional
                         #additionalComponentReference
                         (additionalEvent)="saveAdditional($event)"
                     ></app-additional>
-                </div>
-                <div class="profile-content-div">
-                    <app-photo
-                        #photoComponentReference
-                    ></app-photo>
                 </div>
                 <div class="profile-content-div">
                     <app-location

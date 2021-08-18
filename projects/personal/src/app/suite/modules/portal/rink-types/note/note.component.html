@@ -1,15 +1,14 @@
 <jqxWindow #noteWindowReference
-    [width]="612"
-    [height]="400"
+    [width]="555"
+    [height]="600"
     [autoOpen]="false">
 
     <div>Select Note Source</div>
 
     <div>
         <jqxGrid #noteGridReference (onRowdoubleclick)="rowSelect($event)"
-            [width]="'100%'"
-            [height]="350"
-            [rowsheight]="24"
+            [width]="540"
+            [height]="555"
             [source]="dataAdapter"
             [selectionmode]="'singlerow'"
             [sortable]="true"

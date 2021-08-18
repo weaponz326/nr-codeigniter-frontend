@@ -22,32 +22,30 @@
 
                 <ng-template #senderBlock>
                     <div (click)="viewRink(rink.id)">
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-md-12">
-                                <i class="fa fa-arrow-alt-circle-up rinkout-icon"></i>
+                                <i class="fa fa-w fa-arrow-circle-up mr-2 rinkout-icon"></i>
                                 <small>RinkOut - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</small>
                             </div>
                         </div>
 
-                        <br />
-
-                        <div class="row">
-                            <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                            <div class="col-md-5">
-                                <label class="text-muted"><em><small>Name :</small></em></label><br />
-                                {{rink.recipient.user.first_name}} {{rink.recipient.user.last_name}}
+                        <div class="row mb-3">
+                            <div class="col-md-1 align-middle">
+                                <img src="../../../../../assets/images/utilities/photo-avatar.jpg" alt="" width="40" height="40" class="rounded-circle" />
                             </div>
-                            <div class="col-md-5">
-                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                            <div class="col-md-5 align-middle">
+                                <strong>{{rink.recipient.user.first_name}} {{rink.recipient.user.last_name}}</strong>
+                            </div>
+                            <div class="col-md-5 align-middle">
                                 {{rink.recipient.location}}
                             </div>
                         </div>
 
-                        <br />
-
                         <div class="row">
-                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                            <div class="col-md-5">{{rink.rink_type}}</div>
+                            <div class="offset-md-1 col-md-5">
+                                <img src="../../../../../assets/images/modules/notes.png" alt="" width="25" height="25" class="mr-2" />
+                                {{rink.rink_type}}
+                            </div>
                         </div>
                     </div>
                 </ng-template>
@@ -56,32 +54,30 @@
                     <div (click)="viewRink(rink.id)">
                         <div class="row">
                             <div class="col-md-12">
-                                <i class="fa fa-arrow-alt-circle-down rinkin-icon"></i>
+                                <i class="fa fa-w fa-arrow-circle-down mr-2 rinkin-icon"></i>
                                 <small>RinkIn - {{rink.rink_date | date: 'MMMM d, y, hh:mm:ss a'}}</small>
                             </div>
                         </div>
 
-                        <br />
-
                         <div class="row">
-                            <div class="col-md-2 text-muted"><label class="float-right">From</label></div>
-                            <div class="col-md-5">
-                                <label class="text-muted"><em><small>Name :</small></em></label><br />
-                                {{rink.sender.user.first_name}} {{rink.sender.user.last_name}}
+                            <div class="col-md-1  align-middle">
+                                <img src="../../../../../assets/images/utilities/photo-avatar.jpg" alt="" width="40" height="40" class="rounded-circle" />
                             </div>
-                            <div class="col-md-5">
-                                <label class="text-muted"><em><small>Location :</small></em></label><br />
+                            <div class="col-md-5 align-middle">
+                                <strong>{{rink.sender.user.first_name}} {{rink.sender.user.last_name}}</strong>
+                            </div>
+                            <div class="col-md-5 align-middle">
                                 {{rink.sender.location}}
                             </div>
                         </div>
 
-                        <br />
-
                         <div class="row">
-                            <div class="col-md-2 text-muted"><label class="float-right">Type</label></div>
-                            <div class="col-md-5">{{rink.rink_type}}</div>
+                            <div class="offset-md-1 col-md-5">
+                                <img src="../../../../../assets/images/modules/notes.png" alt="" width="25" height="25" class="mr-2" />
+                                {{rink.rink_type}}
+                            </div>
                         </div>
-                      </div>
+                    </div>
                 </ng-template>
 
             </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
@@ -20,27 +20,18 @@ export class SearchDetailComponent implements OnInit {
     private portalApi: PortalApiService
   ) { }
 
+  @Input() searchDetail: any;
+
   @ViewChild('buttonReference') button: jqxButtonComponent;
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
-  searchDetail: any;
-
   ngOnInit(): void {
-    this.portalApi.getDetail(sessionStorage.getItem('searchUser'))
-      .subscribe(
-        res => {
-          console.log(res);
-          this.searchDetail = res;
-        },
-        err => {
-          console.log(err);
-          this.connectionNotification.errorNotification.open();
-        }
-      )
   }
 
-  createRink(){
+  createRink(userId){
+    console.log(userId);
+    sessionStorage.setItem('rink_recipient', userId);
     this.router.navigateByUrl('suite/portal/new-rink');
   }
 

@@ -18,7 +18,7 @@ export class AppointmentDetailComponent implements OnInit {
   appointmentDetail: any;
 
   ngOnInit(): void {
-    this.portalApi.getSingleTask(sessionStorage.getItem('source_id'))
+    this.portalApi.getSingleAppointment()
       .subscribe(
         res => {
           console.log(res);

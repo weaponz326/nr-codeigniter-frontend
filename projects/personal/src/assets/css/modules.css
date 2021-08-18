@@ -154,8 +154,18 @@ for when labels are longer than usual */
 	float: right;
 }
 
-/* shared modules */
+/* settings modules */
 
 .profile-content-div{
   overflow: hidden;
+}
+
+/* portal moules */
+
+.rinkout-icon{
+  color: blue;
+}
+
+.rinkin-icon{
+  color: green;
 }

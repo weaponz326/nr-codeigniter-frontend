@@ -7,17 +7,19 @@
 <div class="row">
     <div class="col-md-6">
 
-        <div class="row">
-            <div class="col-md-4">Date Created :</div>
-            <div class="col-md-8">{{noteDetail.created_at}}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">Subject :</div>
-            <div class="col-md-8">{{noteDetail.subject}}</div>
-        </div>        
-        <div class="row">
-            <div class="col-md-4">Body :</div>
-            <div class="col-md-8">{{noteDetail.body}}</div>
+        <div class="card shadow">
+            <div class="card-body">
+
+                <div class="row mb-2">
+                    <div class="col-md-4">Subject :</div>
+                    <div class="col-md-8">{{noteDetail.subject}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Body :</div>
+                    <div class="col-md-8">{{noteDetail.body}}</div>
+                </div>
+
+            </div>
         </div>
 
     </div>

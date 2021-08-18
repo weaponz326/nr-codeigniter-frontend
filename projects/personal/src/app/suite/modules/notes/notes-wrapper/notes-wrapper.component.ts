@@ -10,7 +10,7 @@ export class NotesWrapperComponent implements OnInit {
   constructor() { }
 
   navLinks: any[] = [
-    { text: "View Note", url: "/suite/notes/view-note", icon: "fa fa-fw fa-eye" },
+    { text: "New Note", url: "/suite/notes/view-note", icon: "fa fa-fw fa-plus" },
     { text: "All Notes", url: "/suite/notes/all-notes", icon: "fa fa-fw fa-list" }
   ]
 

@@ -70,25 +70,12 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    if(sessionStorage['note_id']) {
-      // load note's subject
-      this.notesApi.getSubject()
+    if(sessionStorage.getItem('note_id') !== null) {
+      this.notesApi.getNote()
         .subscribe(
           res => {
             console.log(res);
             this.input.val(res.subject);
-          },
-          err => {
-            console.log(err);
-            this.connectionNotification.errorNotification.open();
-          }
-        )
-
-      // load note's body
-      this.notesApi.getBody()
-        .subscribe(
-          res => {
-            console.log(res);
             this.editor.val(res.body);
           },
           err => {
@@ -104,27 +91,16 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
     sessionStorage.removeItem('note_id');
   }
 
-  newNote() {
-    // destroy session and refresh page
-    sessionStorage.removeItem('note_id');
-    this.router.navigateByUrl('suite/notes/view-note', {skipLocationChange: true}).then(() => {
-      // TODO - refresh not working
-      this.router.navigate([decodeURI(this.location.path())]);
-    });
-  }
-
   saveNote(){
+    let noteData = {
+      user: localStorage.getItem('personal_id'),
+      subject: this.input.val(),
+      body: this.editor.val()
+    }
+
     // update note if note id is not set in session
-    if(sessionStorage['note_id']) {
-      let noteData = {
-        note_id: sessionStorage.getItem('note_id'),
-        user: localStorage.getItem('personal_id'),
-        subject: this.input.val(),
-        body: this.editor.val()
-      }
-
+    if(sessionStorage.getItem('note_id') !== null) {
       this.loadingSpinner.httpLoader.open();
-
       this.notesApi.putNote(noteData)
         .subscribe(
           res => {
@@ -138,21 +114,13 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
           }
         )
     }else{
-      let noteData = {
-        user: localStorage.getItem('personal_id'),
-        subject: this.input.val(),
-        body: this.editor.val()
-      }
-
       this.loadingSpinner.httpLoader.open();
-
       this.notesApi.postNote(noteData)
         .subscribe(
           res => {
             console.log(res);
             this.loadingSpinner.httpLoader.close();
-            // set note id in session
-            sessionStorage.setItem('note_id', res.note_id);
+            sessionStorage.setItem('note_id', res.id);
           },
           err => {
             console.log(err);
@@ -164,7 +132,7 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   deleteNote(){
-    if(sessionStorage['note_id']) {
+    if(sessionStorage.getItem('note_id')) {
       this.deleteConfirmComponent.openWindow();
     }
   }
@@ -191,61 +159,91 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  // widgets
   // --------------------------------------------------------------------------------
 
   sendSubject(event: any){
-    console.log(event.args.value)
+    console.log(event?.args.value)
+
+    let subjectData = {
+      user: localStorage.getItem('personal_id'),
+      subject: event?.args.value
+    }
 
     // update note if note id is not set in session
-    if(sessionStorage['note_id']) {
-      let subjectData = {
-        note_id: sessionStorage.getItem('note_id'),
-        subject: event.args.value
-      }
-
+    if(sessionStorage.getItem('note_id') !== null) {
       this.loadingSpinner.httpLoader.open();
-
-      this.notesApi.putSubject(subjectData)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+      this.notesApi.putNote(subjectData)
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
+    else {
+      this.loadingSpinner.httpLoader.open();
+      this.notesApi.postNote(subjectData)
+        .subscribe(
+          res => {
+            console.log(res);
+            sessionStorage.setItem('note_id', res.id)
+            this.loadingSpinner.httpLoader.close();
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
+    }
+
   }
 
   sendBody(event: any){
     console.log(event.args);
     console.log(this.editor.val());
 
+    let bodyData = {
+      user: localStorage.getItem('personal_id'),
+      body: this.editor.val()
+    }
+
     // update note if note id is not set in session
-    if(sessionStorage['note_id']) {
-      let bodyData = {
-        note_id: sessionStorage.getItem('note_id'),
-        body: this.editor.val()
-      }
-
+    if(sessionStorage.getItem('note_id') !== null) {
       this.loadingSpinner.httpLoader.open();
-
-      this.notesApi.putBody(bodyData)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+      this.notesApi.putNote(bodyData)
+        .subscribe(
+          res => {
+            console.log(res);
+            this.loadingSpinner.httpLoader.close();
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
+    }
+    else {
+      this.loadingSpinner.httpLoader.open();
+      this.notesApi.putNote(bodyData)
+        .subscribe(
+          res => {
+            console.log(res);
+            sessionStorage.setItem('note_id', res.id);
+            this.loadingSpinner.httpLoader.close();
+          },
+          err => {
+            console.log(err);
+            this.loadingSpinner.httpLoader.close();
+            this.connectionNotification.errorNotification.open();
+          }
+        )
     }
   }
 

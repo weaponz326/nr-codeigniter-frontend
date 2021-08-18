@@ -17,11 +17,11 @@ export class SettingsApiService {
   // get all profile categories
 
   public getUser(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-settings/user/" + localStorage.getItem('personal_id'));
+    return this.http.get(this.personalUrl + "users/user/" + localStorage.getItem('personal_id'));
   }
 
   public getProfile(): Observable<any>{
-    return this.http.get(this.personalUrl + "module-settings/profile/" + localStorage.getItem('personal_id'));
+    return this.http.get(this.personalUrl + "users/user-profile/" + localStorage.getItem('personal_id'));
   }
 
   public getExtendedProfile(): Observable<any>{
@@ -32,25 +32,17 @@ export class SettingsApiService {
   // both user and profile sent at the same time
 
   public putUser(user): Observable<any>{
-    return this.http.put(this.personalUrl + "module-settings/user/" + localStorage.getItem('personal_id'), user);
+    return this.http.put(this.personalUrl + "users/user/" + localStorage.getItem('personal_id'), user);
   }
 
   public putProfile(profile): Observable<any>{
-    return this.http.put(this.personalUrl + "module-settings/profile/" + localStorage.getItem('personal_id'), profile);
+    return this.http.put(this.personalUrl + "users/user-profile/" + localStorage.getItem('personal_id'), profile);
   }
 
   // send extended profile
 
-  public postAdditionalProfile(additional): Observable<any>{
-    return this.http.post(this.personalUrl + "module-settings/additional-extended/", additional);
-  }
-
-  public postLocationProfile(location): Observable<any>{
-    return this.http.post(this.personalUrl + "module-settings/location-extended/", location);
-  }
-
-  public postContactProfile(contact): Observable<any>{
-    return this.http.post(this.personalUrl + "module-settings/contact-extended/", contact);
+  public postExtendedProfile(extended): Observable<any>{
+    return this.http.post(this.personalUrl + "module-settings/extended-profile/", extended);
   }
 
 }

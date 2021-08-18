@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
@@ -16,7 +18,6 @@ import { UtilitiesModule } from '../../utilities/utilities.module';
 import { DashboardModule } from '../../dashboard/dashboard.module';
 
 import { PortalWrapperComponent } from './portal-wrapper/portal-wrapper.component';
-import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
 import { ViewRinkComponent } from './view-rink/view-rink.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { NewRinkComponent } from './new-rink/new-rink.component';
@@ -36,7 +37,6 @@ import { SettingsComponent } from './settings/settings.component';
 @NgModule({
   declarations: [
     PortalWrapperComponent,
-    RecentContactsComponent,
     ViewRinkComponent,
     TimelineComponent,
     NewRinkComponent,
@@ -54,10 +54,12 @@ import { SettingsComponent } from './settings/settings.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ScrollingModule,
     PortalRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxInputModule,
     jqxButtonModule,
     jqxPanelModule,

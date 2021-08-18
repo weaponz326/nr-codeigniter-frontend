@@ -18,7 +18,7 @@ export class TaskDetailComponent implements OnInit {
   taskDetail: any;
 
   ngOnInit(): void {
-    this.portalApi.getSingleTask(sessionStorage.getItem('source_id'))
+    this.portalApi.getSingleTask()
       .subscribe(
         res => {
           console.log(res);

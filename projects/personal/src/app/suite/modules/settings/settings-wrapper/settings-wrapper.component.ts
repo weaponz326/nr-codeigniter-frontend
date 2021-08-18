@@ -10,8 +10,9 @@ export class SettingsWrapperComponent implements OnInit {
   constructor() { }
 
   navLinks: any[] = [
+    { text: "General", url: "/suite/settings/general", icon: "fa fa-fw fa-list" },
     { text: "Profile", url: "/suite/settings/profile", icon: "fa fa-fw fa-user" },
-    { text: "Privacy", url: "/suite/settings/privacy", icon: "fa fa-fw fa-mask" }
+    { text: "Security", url: "/suite/settings/security", icon: "fa fa-fw fa-lock" }
   ]
 
   ngOnInit(): void {

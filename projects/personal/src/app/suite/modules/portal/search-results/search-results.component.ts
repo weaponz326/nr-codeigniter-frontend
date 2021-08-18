@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { PortalApiService } from '../portal-api.service'
@@ -20,26 +20,15 @@ export class SearchResultsComponent implements OnInit {
 
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
-  searchResults: any;
-  searchInput = sessionStorage.getItem('searchInput');
+  @Input() searchResults: any;
+  @Input() searchQuery: any;
+  @Output() viewDetailEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
-    this.portalApi.getSearch(sessionStorage.getItem('searchInput'), sessionStorage.getItem('searchFilter'))
-      .subscribe(
-        res => {
-          console.log(res);
-          this.searchResults = res;
-        },
-        err => {
-          console.log(err);
-          this.connectionNotification.errorNotification.open();
-        }
-      )
   }
 
-  goToDetail(userId){
-    sessionStorage.setItem('searchUser', userId)
-    this.router.navigateByUrl('/suite/portal/search/search-detail');
+  viewDetail(userId){
+    this.viewDetailEvent.emit(userId);
   }
 
 }

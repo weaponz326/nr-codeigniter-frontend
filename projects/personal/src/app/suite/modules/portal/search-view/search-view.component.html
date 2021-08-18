@@ -2,33 +2,29 @@
 
 <div class="container">
 
-    <div class="row" id="searchDiv">
+    <div class="row mb-3">
         <div class="col-md-8">
 
             <div class="row">
-                <div class="offset-md-2 col-md-8">
-                    <div id="searchComboBoxDiv">
-                        <jqxDropDownList #searchDropDownListReference
-                            [width]="'100%'"
-                            [height]="30"
-                            [source]="searchFilter"
-                            [selectedIndex]="0"
-                        ></jqxDropDownList>
-                    </div>
-                    <div id="searchInputDiv">
-                        <jqxInput #searchInputReference 
-                            [width]="'100%'"
-                            [height]="30"
-                            [placeHolder]="'Search for users'"
-                        ></jqxInput>
-                    </div>                    
-                    <div id="searchButtonDiv">
-                        <jqxButton #searchButtonReference class="search-elements"
-                            (click)="doSearch(this.searchInput.val(), this.searchDropDownList.val())"
-                            [width]="'100%'"
-                            [height]="30"
-                        >Search</jqxButton>
-                    </div>
+                <div class="col-md-9 mx-auto">
+
+                    <form (ngSubmit)="doSearch()">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{searchFilter}}</button>
+                                <div class="dropdown-menu">
+                                    <li *ngFor="let suite of searchFilterValues">
+                                        <a class="dropdown-item" href="#" (click)="setSearchFilter($event, suite)">{{suite}}</a>
+                                    </li>
+                                </div>
+                            </div>
+                            <input [(ngModel)]="searchInput" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Search for users" aria-label="Search for users" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="submit" id="button-addon2">Search</button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
 
@@ -37,16 +33,30 @@
 
     <div class="row">
         <div class="col-md-8">
-            <!-- router for search results -->
-            <router-outlet></router-outlet>
-        </div>
 
-        <div class="offset-md-1 col-md-3">
-            <jqxButton #recentConatactsButtonReference (click)="goRecentContacts()"
-                [width]="150"
-                [height]="34"
-            >Recent Contacts</jqxButton>
+            <!-- <div *ngIf="!isSearchResultsReady">
+                <app-recent-contacts></app-recent-contacts>
+            </div> -->
+
+            <div *ngIf="isSearchResultsReady">
+                <app-search-results
+                    (viewDetailEvent)="gotoSearchDetail($event)"
+                    [searchQuery]="searchQuery"
+                    [searchResults]="searchResults"
+                ></app-search-results>
+            </div>
+
+            <div *ngIf="isSearchDetailReady">
+                <app-search-detail
+                    [searchDetail]="searchDetail"
+                ></app-search-detail>
+            </div>
+
         </div>
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

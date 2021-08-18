@@ -27,10 +27,10 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
     private portalApi: PortalApiService,
   ) { }
 
-  @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('nameInputReference') nameInput: jqxInputComponent;
   @ViewChild('locationInputReference') locationInput: jqxInputComponent;
   @ViewChild('typeDropDownListReference') typeDropDownList: jqxDropDownListComponent;
+  @ViewChild('sourceInputReference') sourceInput: jqxInputComponent;
   @ViewChild('sourceButtonReference') sourceButton: jqxButtonComponent;
   @ViewChild('commentTextAreaReference') commentTextArea: jqxTextAreaComponent;
   @ViewChild('sendButtonReference') sendButton: jqxButtonComponent;
@@ -90,7 +90,6 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
 
   onSourceSelected(sourceData: any){
     console.log(sourceData);
-
     let type = this.typeDropDownList.val();
 
     if (type == "Task") {
@@ -103,12 +102,14 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
       this.selectedSourceId = sourceData.id;
       this.selectedSource = sourceData.subject;
     }
+
+    this.sourceInput.val(this.selectedSource);
   }
 
   sendRink(){
     let rinkData = {
       sender: localStorage.getItem('personal_id'),
-      recipient: sessionStorage.getItem('searchUser'),
+      recipient: sessionStorage.getItem('rink_recipient'),
       rink_type: this.typeDropDownList.val(),
       rink_source: this.selectedSourceId,
       comment: this.commentTextArea.val()
@@ -124,8 +125,8 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('rink_id', res.rink_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('rink_id', res.id);
             this.router.navigateByUrl('/suite/portal/view-rink');
           }
         },
@@ -137,11 +138,7 @@ export class NewRinkComponent implements OnInit, AfterViewInit {
       )
   }
 
-  // widgets
-  // -----------------------------------------------------------------------------------------
-
-  // budget type settings
-  typeSource: string[] = ['Appointment', 'Task', 'Note'];
+  typeSource: any[] = ['Appointment', 'Task', 'Note'];
 
 }
 

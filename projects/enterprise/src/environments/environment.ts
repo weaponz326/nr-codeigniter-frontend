@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   baseUrl: "http://localhost:8000/",                // url for application backend
   personalUrl: "http://localhost:8001/",            // url for personal backend
-  enterpriseUrl: "http://localhost:8005/",            // url for enterprise backend
+  enterpriseUrl: "http://localhost:8004/",            // url for enterprise backend
 };
 
 /*

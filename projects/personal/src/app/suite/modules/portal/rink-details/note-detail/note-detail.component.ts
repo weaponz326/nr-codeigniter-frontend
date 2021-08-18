@@ -18,7 +18,7 @@ export class NoteDetailComponent implements OnInit {
   noteDetail: any;
 
   ngOnInit(): void {
-    this.portalApi.getSingleTask(sessionStorage.getItem('source_id'))
+    this.portalApi.getSingleNote()
       .subscribe(
         res => {
           console.log(res);
