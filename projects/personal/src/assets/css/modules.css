@@ -169,3 +169,7 @@ for when labels are longer than usual */
 .rinkin-icon{
   color: green;
 }
+
+.access-level-hint{
+  font-size: 80%;
+}

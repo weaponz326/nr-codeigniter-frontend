@@ -10,7 +10,11 @@ import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { NewRinkComponent } from './new-rink/new-rink.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
-import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
+import { MenuDetailComponent } from './rink-details/menu-detail/menu-detail.component';
+import { StaffDetailComponent } from './rink-details/staff-detail/staff-detail.component';
+import { OrderDetailComponent } from './rink-details/order-detail/order-detail.component';
+import { DeliveryDetailComponent } from './rink-details/delivery-detail/delivery-detail.component';
+import { CustomerDetailComponent } from './rink-details/customer-detail/customer-detail.component';
 
 
 const routes: Routes = [
@@ -27,13 +31,22 @@ const routes: Routes = [
         path: "search",
         component: SearchViewComponent,
         children: [
-          { path: "", component: RecentContactsComponent },
-          { path: "recent-contacts", component: RecentContactsComponent },
+          { path: "", component: SearchResultsComponent },
           { path: "search-results", component: SearchResultsComponent },
           { path: "search-detail", component: SearchDetailComponent },
         ]
       },
-      { path: "view-rink", component: ViewRinkComponent },
+      {
+        path: "view-rink",
+        component: ViewRinkComponent ,
+        children: [
+          { path: "menu", component: MenuDetailComponent },
+          { path: "staff", component: StaffDetailComponent },
+          { path: "order", component: OrderDetailComponent },
+          { path: "delivery", component: DeliveryDetailComponent },
+          { path: "customer", component: CustomerDetailComponent },
+        ]
+      },
     ]
   },
 ];

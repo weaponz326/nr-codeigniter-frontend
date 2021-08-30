@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
@@ -48,6 +49,7 @@ import { UserMiniActivitiesComponent } from './user-mini-activities/user-mini-ac
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AdminRoutingModule,
     UtilitiesModule,
     DashboardModule,

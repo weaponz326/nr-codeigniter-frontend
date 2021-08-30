@@ -28,7 +28,7 @@ export class TimelineComponent implements OnInit {
     { text: "Timeline", url: "/suite/portal/timeline" },
   ];
 
-  personalId = localStorage.getItem('personal_id');
+  restaurantId = sessionStorage.getItem('restaurant_id');
   rinks: any;
 
   ngOnInit(): void {

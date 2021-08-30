@@ -2,19 +2,21 @@
 
 <div class="container">
 
-    <div class="row" id="searchDiv">
+    <div class="row mb-3">
         <div class="col-md-8">
 
             <div class="row">
-                <div class="offset-md-3 col-md-6">
-                    <jqxInput #searchInputReference
-                        [width]="'80%'"
-                        [height]="30"
-                    ></jqxInput>
-                    <jqxButton #searchButtonReference (click)="sendSearch(this.searchInput.val())"
-                        [width]="'20%'"
-                        [height]="30"
-                    >Search</jqxButton>
+                <div class="col-md-8 mx-auto">
+
+                    <form (ngSubmit)="doSearch()">
+                        <div class="input-group">
+                            <input [(ngModel)]="searchInput" [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="Search for users" aria-label="Search for users" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="submit" id="button-addon2">Search</button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
 
@@ -23,8 +25,26 @@
 
     <div class="row">
         <div class="col-md-8">
-            <router-outlet></router-outlet>
+
+            <div *ngIf="isSearchResultsReady">
+                <app-search-results
+                    (viewDetailEvent)="gotoSearchDetail($event)"
+                    [searchQuery]="searchQuery"
+                    [searchResults]="searchResults"
+                ></app-search-results>
+            </div>
+
+            <div *ngIf="isSearchDetailReady">
+                <app-search-detail
+                    [searchDetail]="searchDetail"
+                ></app-search-detail>
+            </div>
+
         </div>
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

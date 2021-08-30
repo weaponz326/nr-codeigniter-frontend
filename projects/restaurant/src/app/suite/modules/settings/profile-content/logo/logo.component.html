@@ -1,26 +1,28 @@
-<div class="row">
-    <div class="col-md-7">
+<div class="row mx-2">
+    <div class="col-md-6">
 
         <br />
 
         <div class="row">
             <div class="col-md-12">
-                <h5>Hospital Logo</h5>
+                <h5>Restaurant Logo</h5>
             </div>
         </div>
 
         <br />
 
-        <jqxPanel #photoPanelReference
-            [width]="180"
+        <input #imageUpload type="file" requiredFileType="image" class="image-upload" (change)="onImageSelected($event) "/>
+        <jqxPanel #logoReference (click)="imageUpload.click()"
+            [width]="200"
             [height]="180"
-        ></jqxPanel>
+        ><img [src]="imgSrc" class="panel-image" /></jqxPanel>
 
         <br />
 
-        <jqxButton #savePhotoButtonReference
+        <jqxButton #saveLogoButtonReference
+          (click)="emitLogo()"
             [width]="100"
-            [height]="28"
+            [height]="32"
         >Save</jqxButton>
 
     </div>

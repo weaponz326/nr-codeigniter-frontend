@@ -20,21 +20,22 @@
 
                 <div class="profile-content-div">
                     <app-basic #basicComponentReference
-                ></app-basic>
+                        (basicEvent)="saveBasic($event)"
+                    ></app-basic>
                 </div>
                 <div class="profile-content-div">
-                    <app-logo
-                        #photoComponentReference
+                    <app-logo #photoComponentReference
+                        (logoEvent)="saveLogo($event)"
                     ></app-logo>
                 </div>
                 <div class="profile-content-div">
-                    <app-location
-                        #locationComponentReference
+                    <app-location #locationComponentReference
+                        (locationEvent)="saveLocation($event)"
                     ></app-location>
                 </div>
                 <div class="profile-content-div">
-                    <app-contact
-                        #contactComponentReference
+                    <app-contact #contactComponentReference
+                        (contactEvent)="saveContact($event)"
                     ></app-contact>
                 </div>
 

@@ -24,11 +24,10 @@ export class ViewRinkComponent implements OnInit {
     { text: "View Rink", url: "/suite/portal/view-rink" },
   ];
 
-  hospitalId = localStorage.getItem('hospital_id');
+  restaurantId = sessionStorage.getItem('restaurant_id');
   rink: any;
 
   ngOnInit(): void {
-    console.log("this hook aint working");
     this.portalApi.getSingleRink(sessionStorage.getItem('rink_id'))
       .subscribe(
         res => {
@@ -36,14 +35,18 @@ export class ViewRinkComponent implements OnInit {
           this.rink = res;
           sessionStorage.setItem('source_id', res.rink_source)
 
-          // // route to show rink detail
-          // if (res.rink_type == "Task"){
-          //   this.router.navigateByUrl('suite/portal/view-rink/task');
-          // }else if(res.rink_type == "Appointment"){
-          //   this.router.navigateByUrl('suite/portal/view-rink/appointment');
-          // }else if(res.rink_type == "Note"){
-          //   this.router.navigateByUrl('suite/portal/view-rink/note');
-          // }
+          // route to show rink detail
+          if (res.rink_type == "Menu"){
+            this.router.navigateByUrl('suite/portal/view-rink/menu');
+          }else if(res.rink_type == "Staff"){
+            this.router.navigateByUrl('suite/portal/view-rink/staff');
+          }else if(res.rink_type == "Order"){
+            this.router.navigateByUrl('suite/portal/view-rink/order');
+          }else if(res.rink_type == "Delivery"){
+            this.router.navigateByUrl('suite/portal/view-rink/delivery');
+          }else if(res.rink_type == "Customer"){
+            this.router.navigateByUrl('suite/portal/view-rink/customer');
+          }
         },
         err => {
           console.log(err);

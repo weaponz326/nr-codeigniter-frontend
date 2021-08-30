@@ -7,6 +7,7 @@ import { jqxDropDownListComponent } from 'jqwidgets-ng/jqxdropdownlist';
 import { jqxTextAreaComponent } from 'jqwidgets-ng/jqxtextarea';
 
 import { PortalApiService } from '../portal-api.service';
+
 import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
@@ -23,10 +24,10 @@ export class NewRinkComponent implements OnInit {
     private portalApi: PortalApiService,
   ) { }
 
-  @ViewChild('goToSearchButtonReference') goToSearchbutton: jqxButtonComponent;
   @ViewChild('nameInputReference') nameInput: jqxInputComponent;
   @ViewChild('locationInputReference') locationInput: jqxInputComponent;
   @ViewChild('typeDropDownListReference') typeDropDownList: jqxDropDownListComponent;
+  @ViewChild('sourceInputReference') sourceInput: jqxInputComponent;
   @ViewChild('sourceButtonReference') sourceButton: jqxButtonComponent;
   @ViewChild('commentTextAreaReference') commentTextArea: jqxTextAreaComponent;
   @ViewChild('sendButtonReference') sendButton: jqxButtonComponent;
@@ -51,7 +52,7 @@ export class NewRinkComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
-          this.nameInput.val(res.user.first_name + " " + res.user.last_name);
+          this.nameInput.val(res.name);
           this.locationInput.val(res.location);
         },
         err => {
@@ -69,39 +70,22 @@ export class NewRinkComponent implements OnInit {
   openSourceWindow(){
     let type = this.typeDropDownList.val();
 
-    // if (type == "Task") {
-    //   console.log("u are opening task source window");
-    //   this.taskSourceComponent.taskWindow.open();
-    // }else if (type == "Appointment") {
-    //   console.log("u are opening appointment source window");
-    //   this.appointmentSourceComponent.appointmentWindow.open();
-    // }else if (type == "Note") {
-    //   console.log("u are opening note source window");
-    //   this.noteSourceComponent.noteWindow.open();
-    // }
+    // TODO: select module window to open
   }
 
   onSourceSelected(sourceData: any){
     console.log(sourceData);
-
     let type = this.typeDropDownList.val();
 
-    // if (type == "Task") {
-    //   this.selectedSourceId = sourceData.id;
-    //   this.selectedSource = sourceData.task_name;
-    // }else if (type == "Appointment") {
-    //   this.selectedSourceId = sourceData.id;
-    //   this.selectedSource = sourceData.subject;
-    // }else if (type == "Note") {
-    //   this.selectedSourceId = sourceData.id;
-    //   this.selectedSource = sourceData.subject;
-    // }
+    // TODO: set source according to selected module
+
+    this.sourceInput.val(this.selectedSource);
   }
 
   sendRink(){
     let rinkData = {
-      sender: localStorage.getItem('personal_id'),
-      recipient: sessionStorage.getItem('searchUser'),
+      sender: sessionStorage.getItem('resturant_id'),
+      recipient: sessionStorage.getItem('rink_recipient'),
       rink_type: this.typeDropDownList.val(),
       rink_source: this.selectedSourceId,
       comment: this.commentTextArea.val()
@@ -117,8 +101,8 @@ export class NewRinkComponent implements OnInit {
           console.log(res);
           this.loadingSpinner.httpLoader.close();
 
-          if (res.status == true){
-            sessionStorage.setItem('rink_id', res.rink_id);
+          if (res.message == "OK"){
+            sessionStorage.setItem('rink_id', res.id);
             this.router.navigateByUrl('/suite/portal/view-rink');
           }
         },
@@ -130,10 +114,6 @@ export class NewRinkComponent implements OnInit {
       )
   }
 
-  // widgets
-  // -----------------------------------------------------------------------------------------
-
-  // budget type settings
-  typeSource: string[] = ['Staff', 'Customer', 'Menu'];
+  typeSource: string[] = ['Staff', 'Order', 'Delivery', 'Customer', 'Menu'];
 
 }

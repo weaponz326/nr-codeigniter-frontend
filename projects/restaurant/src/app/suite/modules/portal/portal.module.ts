@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
@@ -18,11 +19,14 @@ import { NewRinkComponent } from './new-rink/new-rink.component';
 import { ViewRinkComponent } from './view-rink/view-rink.component';
 import { SearchViewComponent } from './search-view/search-view.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { RecentContactsComponent } from './recent-contacts/recent-contacts.component';
-import { RinkDetailsComponent } from './rink-details/rink-details.component';
 import { SearchDetailComponent } from './search-detail/search-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { MenuDetailComponent } from './rink-details/menu-detail/menu-detail.component';
+import { StaffDetailComponent } from './rink-details/staff-detail/staff-detail.component';
+import { OrderDetailComponent } from './rink-details/order-detail/order-detail.component';
+import { DeliveryDetailComponent } from './rink-details/delivery-detail/delivery-detail.component';
+import { CustomerDetailComponent } from './rink-details/customer-detail/customer-detail.component';
 
 
 @NgModule({
@@ -33,14 +37,18 @@ import { SettingsComponent } from './settings/settings.component';
     ViewRinkComponent,
     SearchViewComponent,
     SearchResultsComponent,
-    RecentContactsComponent,
-    RinkDetailsComponent,
     SearchDetailComponent,
     DashboardComponent,
     SettingsComponent,
+    MenuDetailComponent,
+    StaffDetailComponent,
+    OrderDetailComponent,
+    DeliveryDetailComponent,
+    CustomerDetailComponent,
   ],
   imports: [
     CommonModule,
+    FormsModule,
     PortalRoutingModule,
     UtilitiesModule,
     DashboardModule,

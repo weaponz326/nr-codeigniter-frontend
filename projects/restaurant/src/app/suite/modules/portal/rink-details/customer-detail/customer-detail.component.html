@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <h4>Customer Details</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="card shadow">
+            <div class="card-body">
+
+                <div class="row mb-2">
+                    <div class="col-md-4">Customer Name :</div>
+                    <div class="col-md-8">{{customerDetail.customer_name}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Gender :</div>
+                    <div class="col-md-8">{{customerDetail.gender}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Phone No. :</div>
+                    <div class="col-md-8">{{customerDetail.phone}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Email :</div>
+                    <div class="col-md-8">{{customerDetail.email}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Customer ID :</div>
+                    <div class="col-md-8">{{customerDetail.customer_code}}</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>

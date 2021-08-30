@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+        <h4>Staff Details</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="card shadow">
+            <div class="card-body">
+
+                <div class="row mb-2">
+                    <div class="col-md-4">First Name :</div>
+                    <div class="col-md-8">{{staffDetail.first_name}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Last Name :</div>
+                    <div class="col-md-8">{{staffDetail.last_name}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Gender :</div>
+                    <div class="col-md-8">{{staffDetail.gender}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Phone No. :</div>
+                    <div class="col-md-8">{{staffDetail.phone}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Email :</div>
+                    <div class="col-md-8">{{staffDetail.email}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Staff ID :</div>
+                    <div class="col-md-8">{{staffDetail.staff_code}}</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>

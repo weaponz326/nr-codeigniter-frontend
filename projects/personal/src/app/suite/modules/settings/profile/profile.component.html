@@ -20,32 +20,27 @@
                 <!-- profile tabs contents components -->
 
                 <div class="profile-content-div">
-                    <app-basic
-                        #basicComponentReference
+                    <app-basic #basicComponentReference
                         (additionalEvent)="saveBasic($event)"
                     ></app-basic>
                 </div>
                 <div class="profile-content-div">
-                    <app-photo
-                        #photoComponentReference
+                    <app-photo #photoComponentReference
                         (photoEvent)="savePhoto($event)"
                     ></app-photo>
                 </div>
                 <div  class="profile-content-div">
-                    <app-additional
-                        #additionalComponentReference
+                    <app-additional #additionalComponentReference
                         (additionalEvent)="saveAdditional($event)"
                     ></app-additional>
                 </div>
                 <div class="profile-content-div">
-                    <app-location
-                        #locationComponentReference
+                    <app-location #locationComponentReference
                         (locationEvent)="saveLocation($event)"
                     ></app-location>
                 </div>
                 <div class="profile-content-div">
-                    <app-contact
-                        #contactComponentReference
+                    <app-contact #contactComponentReference
                         (contactEvent)="saveContact($event)"
                     ></app-contact>
                 </div>

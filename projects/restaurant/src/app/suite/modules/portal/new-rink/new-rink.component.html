@@ -2,8 +2,7 @@
 
 <div class="container">
 
-    <div class="row">
-
+    <div class="row page-form-div">
         <div class="col-md-8">
 
             <div class="row">
@@ -43,13 +42,18 @@
             </div>
 
             <div class="row">
-                <div class="offset-md-3 col-md-9">
-                    <jqxButton #sourceButtonReference (click)="openSourceWindow()"
-                        [width]="100"
+                <div class="col-md-3"><label>Rink Source :</label></div>
+                <div class="col-md-6">
+                    <jqxInput #sourceInputReference
+                        [width]="'88%'"
                         [height]="28"
                         [disabled]="true"
-                    >Source</jqxButton>
-                    {{this.selectedSource}}
+                    ></jqxInput>
+                    <jqxButton #sourceButtonReference (click)="openSourceWindow()"
+                        [width]="'10%'"
+                        [height]="28"
+                        [disabled]="true"
+                    >...</jqxButton>
                 </div>
             </div>
 
@@ -68,28 +72,20 @@
             <br />
 
             <div class="row page-form-div">
-              <div class="col-md-9">
-                  <jqxButton #cancelButtonReference class="float-right"
-                      [width]="100"
-                      [height]="28"
-                  >Cancel</jqxButton>
+                <div class="col-md-9">
+                    <jqxButton #cancelButtonReference class="float-right"
+                        [width]="100"
+                        [height]="28"
+                    >Cancel</jqxButton>
 
-                  <jqxButton #sendButtonReference class="float-right" (click)="sendRink()"
-                      [width]="100"
-                      [height]="28"
-                  >Send</jqxButton>
-              </div>
-          </div>
+                    <jqxButton #sendButtonReference class="float-right" (click)="sendRink()"
+                        [width]="100"
+                        [height]="28"
+                    >Send</jqxButton>
+                </div>
+            </div>
 
         </div>
-
-        <div class="col-md-4">
-            <jqxButton #goToSearchButtonReference class="float-right" routerLink="/suite/portal/search"
-                [width]="120"
-                [height]="30"
-            >Search</jqxButton>
-        </div>
-
     </div>
 
 </div>

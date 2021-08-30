@@ -14,29 +14,20 @@ export class SettingsApiService {
 
   restaurantUrl = environment.restaurantUrl;
 
-  // get all profile categories
-
   public getProfile(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-settings/profile/" + localStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "accounts/profile/" + sessionStorage.getItem('restaurant_id'));
+  }
+
+  public putProfile(profile): Observable<any>{
+    return this.http.put(this.restaurantUrl + "accounts/profile/" + sessionStorage.getItem('restaurant_id'), profile);
   }
 
   public getExtendedProfile(): Observable<any>{
-    return this.http.get(this.restaurantUrl + "module-settings/extended-profile/" + localStorage.getItem('restaurant_id'));
+    return this.http.get(this.restaurantUrl + "module-settings/extended-profile/" + sessionStorage.getItem('restaurant_id'));
   }
 
-  // send basic profile
-  public putProfile(profile): Observable<any>{
-    return this.http.put(this.restaurantUrl + "module-settings/profile/" + localStorage.getItem('restaurant_id'), profile);
-  }
-
-  // send extended profile
-
-  public postLocationProfile(location): Observable<any>{
-    return this.http.post(this.restaurantUrl + "module-settings/location-extended/", location);
-  }
-
-  public postContactProfile(contact): Observable<any>{
-    return this.http.post(this.restaurantUrl + "module-settings/contact-extended/", contact);
+  public postExtendedProfile(data): Observable<any>{
+    return this.http.post(this.restaurantUrl + "module-settings/extended-profile/", data);
   }
 
 }

@@ -13,7 +13,6 @@ export class AdminWrapperComponent implements OnInit {
     { text: "All Users", url: "/suite/admin/all-users", icon: "fa fa-fw fa-users" },
     { text: "Invitations", url: "/suite/admin/invitations", icon: "fa fa-fw fa-envelope" },
     { text: "New Invitation", url: "/suite/admin/search", icon: "fa fa-fw fa-plus" },
-    { text: "All Activities", url: "/suite/admin/all-activities", icon: "fa fa-fw fa-edit" },
   ]
 
   ngOnInit(): void {

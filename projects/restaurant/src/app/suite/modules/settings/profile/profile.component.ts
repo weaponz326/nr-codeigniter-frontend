@@ -78,18 +78,46 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   // saving profile
   // --------------------------------------------------------------------------------------------------------------------
 
+  sendProfile(data){
+    this.loadingSpinner.httpLoader.open();
+
+    this.settingsApi.putProfile(data)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
   // save basic profile
-  // user and profile are sent seperately
   saveBasic(basic){
-    let profile = {
+    let basicData = {
       name: basic.name,
       location: basic.location,
       about: basic.about
     }
 
+    this.sendProfile(basicData);
+  }
+
+  saveLogo(logo){
+    let logoData = {
+      logo: logo
+    }
+
+    this.sendProfile(logoData);
+  }
+
+  sendExtended(data){
     this.loadingSpinner.httpLoader.open();
 
-    this.settingsApi.putProfile(profile)
+    this.settingsApi.postExtendedProfile(data)
       .subscribe(
         res => {
           console.log(res);
@@ -104,52 +132,26 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   saveLocation(data){
-    let location = {
-      user: localStorage.getItem('personal_id'),
+    let locationData = {
+      account: sessionStorage.getItem('restaurant_id'),
       country: data.country,
       state: data.state,
       city: data.city
     }
 
-    this.loadingSpinner.httpLoader.open();
-
-    this.settingsApi.postLocationProfile(location)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+    this.sendExtended(locationData);
   }
 
   saveContact(data){
-    let location = {
-      user: localStorage.getItem('personal_id'),
+    let contactData = {
+      account: sessionStorage.getItem('restaurant_id'),
       phone1: data.phone1,
       phone2: data.phone2,
       email: data.email,
       address: data.address
     }
 
-    this.loadingSpinner.httpLoader.open();
-
-    this.settingsApi.postContactProfile(location)
-      .subscribe(
-        res => {
-          console.log(res);
-          this.loadingSpinner.httpLoader.close();
-        },
-        err => {
-          console.log(err);
-          this.loadingSpinner.httpLoader.close();
-          this.connectionNotification.errorNotification.open();
-        }
-      )
+    this.sendExtended(contactData);
   }
 
 }

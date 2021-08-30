@@ -1,24 +1,29 @@
-<div class="row">
-  <div class="col-md-12 text-center text-muted">
-    <small>showing results for <b>"{{this.searchInput}}"</b></small>
-  </div>
-</div>
-
-<div *ngFor="let result of searchResults" >
-
-    <hr />
-    <div class="row" (click)="goToDetail(result.id)">
-        <div class="col-md-6">
-            <label class="text-muted"><em><small>Name :</small></em></label><br />
-            {{result.user.first_name}} {{result.user.last_name}}
-        </div>
-        <div class="col-md-6">
-            <label class="text-muted"><em><small>Name :</small></em></label><br />
-            {{result.location}}
-        </div>
+<div class="row mb-3">
+    <div class="col-md-12 text-center text-muted">
+        <small>showing results for <b>"{{searchQuery}}"</b></small>
     </div>
-
 </div>
+
+<div class="result-body">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tbody>
+                <tr *ngFor="let result of searchResults" (click)="viewDetail(result.id)">
+                    <td class="align-middle" width="75">
+                        <img src="../../../../../assets/images/utilities/photo-avatar.jpg" alt="" width="40" height="40" class="rounded-circle" />
+                    </td>
+                    <td class="align-middle">
+                        <p class="m-0"><strong>{{result.user.first_name}} {{result.user.last_name}}</strong></p>
+                    </td>
+                    <td class="align-middle">
+                        <p class="m-0">{{result.location}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
 <!-- http loader spinner and connection notification components -->
 

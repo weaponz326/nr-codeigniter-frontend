@@ -1,31 +1,23 @@
-<div class="row">
-  <div class="col-md-12">
-      <!-- <div class="row">
-          <div class="col-md-3 text-muted"><em>Name:</em></div>
-          <div class="col-md-9">{{searchDetail.user.first_name}} {{searchDetail.user.last_name}}</div>
-      </div>
-      <br />
-      <div class="row">
-          <div class="col-md-3 text-muted"><em>Location:</em></div>
-          <div class="col-md-9">{{searchDetail.location}}</div>
-      </div>
-      <br />
-      <div class="row">
-          <div class="col-md-3 text-muted"><em>About:</em></div>
-          <div class="col-md-9">{{searchDetail.about}}</div>
-      </div> -->
-  </div>
+<div class="row mt-3">
+    <div class="col-md-4 text-center align-middle">
+        <img src="../../../../../assets/images/utilities/photo-avatar.jpg" alt="" width="120" height="120" class="rounded" />
+    </div>
+    <div class="col-md-8">
+        <p class="mb-1"><strong>{{searchDetail?.user.first_name}} {{searchDetail?.user.last_name}}</strong></p>
+        <p class="mt-1 text-muted">{{searchDetail?.location}}</p>
+        <p class="mt-3"><small>{{searchDetail?.about}}</small></p>
+    </div>
 </div>
 
 <hr />
 
 <div class="row">
-  <div class="col-md-12 text-center">
-      <jqxButton #buttonReference (click)="sendInvitation()"
-          [width]="150"
-          [height]="35"
-      >Send Invitation</jqxButton>
-  </div>
+    <div class="col-md-12 text-center">
+        <jqxButton #buttonReference (click)="sendInvitaion(searchDetail?.id)"
+            [width]="150"
+            [height]="35"
+        >Send Invitation</jqxButton>
+    </div>
 </div>
 
 <!-- http loader spinner and connection notification components -->

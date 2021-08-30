@@ -5,32 +5,45 @@
     <div class="row">
         <div class="col-md-8">
 
-            <!-- <div class="row">
-                <div class="col-md-12">Date - {{invitation.invitation_date}}</div>
+            <div class="row mb-3">
+                <div class="col-md-3 text-muted"><label class="float-right">Invitation Date :</label></div>
+                <div class="col-md-9">{{invitation?.date_sent | date: 'MMMM d, y, hh:mm:ss a'}}</div>
             </div>
 
-            <br />
-
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">To</label></div>
-                <div class="col-md-5">
-                    <label class="text-muted"><em><small>Name :</small></em></label><br />
-                    {{invitation.user.name}}
-                </div>
-                <div class="col-md-5">
-                    <label class="text-muted"><em><small>Location :</small></em></label><br />
-                    {{invitation.user.location}}
+            <div class="row mb-3">
+                <div class="col-md-3 text-muted"><label class="float-right">Invitee :</label></div>
+                <div class="col-md-9">
+                    <div class="col-md-2">
+                        <img src="../../../../../assets/images/utilities/photo-avatar.jpg" alt="" width="40" height="40" class="rounded-circle" />
+                    </div>
+                    <div class="col-md-5">
+                        {{invitation?.user.name}}
+                    </div>
+                    <div class="col-md-5">
+                        {{invitation?.user.location}}
+                    </div>
                 </div>
             </div>
 
-            <br />
+            <div class="row mb-4">
+                <div class="col-md-3 text-muted"><label class="float-right">Invitation Status :</label></div>
+                <div class="col-md-9">{{invitation?.invitation_status}}</div>
+            </div>
 
-            <div class="row">
-                <div class="col-md-2 text-muted"><label class="float-right">Status</label></div>
-                <div class="col-md-5">{{invitation.status}}</div>
-            </div> -->
+            <div *ngIf="invitation?.invitation_status == 'Awaiting'" class="row">
+                <div class="offset-md-3 col">
+                    <jqxButton #cancelButtonReference
+                        [width]="150"
+                        [height]="32"
+                    >Cancel Invitation</jqxButton>
+                </div>
+            </div>
 
         </div>
     </div>
 
 </div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-connection-notification #connectionNotificationComponentReference></app-connection-notification>

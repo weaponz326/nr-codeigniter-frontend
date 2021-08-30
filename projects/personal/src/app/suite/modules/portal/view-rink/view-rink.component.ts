@@ -28,7 +28,6 @@ export class ViewRinkComponent implements OnInit {
   rink: any;
 
   ngOnInit(): void {
-    console.log("this hook aint working");
     this.portalApi.getSingleRink(sessionStorage.getItem('rink_id'))
       .subscribe(
         res => {

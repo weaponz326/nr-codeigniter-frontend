@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { AdminApiService } from '../admin-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
 
@@ -14,30 +15,18 @@ export class SearchResultsComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private adminApi: AdminApiService
   ) { }
 
-  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
-
-  searchResults: any;
-  searchInput = sessionStorage.getItem('searchInput');
+  @Input() searchResults: any;
+  @Input() searchQuery: any;
+  @Output() viewDetailEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
-    // this.adminApi.getSearch(sessionStorage.getItem('searchInput'), sessionStorage.getItem('searchFilter'))
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //       this.searchResults = res;
-    //     },
-    //     err => {
-    //       console.log(err);
-    //       this.connectionNotification.errorNotification.open();
-    //     }
-    //   )
   }
 
-  goToDetail(personalId){
-    sessionStorage.setItem('searchUser', personalId)
-    this.router.navigateByUrl('/suite/admin/search/search-detail');
+  viewDetail(userId){
+    this.viewDetailEvent.emit(userId);
   }
 
 }

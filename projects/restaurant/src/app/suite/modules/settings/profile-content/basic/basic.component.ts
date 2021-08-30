@@ -14,7 +14,7 @@ export class BasicComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('firstNameReference') nameInput: jqxInputComponent;
+  @ViewChild('nameReference') nameInput: jqxInputComponent;
   @ViewChild('locationReference') locationInput: jqxInputComponent;
   @ViewChild('aboutReference') aboutTextArea: jqxTextAreaComponent;
   @ViewChild('saveBasicButtonReference') saveBasicButton: jqxButtonComponent;

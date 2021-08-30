@@ -1,0 +1,166 @@
+<app-topnav [headings]="navHeading"></app-topnav>
+
+<div class="row mx-2">
+    <div class="col-md-8">
+
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <jqxPanel class="shadow"
+                    [width]="'100%'"
+                    [height]="60"
+                >
+                    <div class="m-2 text-center ">
+                        <p class="h6">Individual Subscription</p>
+                    </div>
+                </jqxPanel>
+            </div>
+            <div class="col-md-3">
+                <jqxPanel class="shadow"
+                    [width]="'100%'"
+                    [height]="60"
+                >
+                    <div class="m-2 text-center">
+                        <p class="h6">Small Team Subscription</p>
+                    </div>
+                </jqxPanel>
+            </div>
+            <div class="col-md-3">
+                <jqxPanel class="shadow"
+                    [width]="'100%'"
+                    [height]="60"
+                >
+                    <div class="m-2 text-center">
+                        <p class="h6">Large Team Subscription</p>
+                    </div>
+                </jqxPanel>
+            </div>
+            <div class="col-md-3">
+                <jqxPanel class="shadow"
+                    [width]="'100%'"
+                    [height]="60"
+                >
+                    <div class="m-2 text-center">
+                        <p class="h6">Comprehensive Subscription</p>
+                    </div>
+                </jqxPanel>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <jqxPanel class="shadow"
+                    [width]="'100%'"
+                    [height]="60"
+                >
+                    <div class="m-2 text-center">
+                        <p class="h6">Monthly Subscription</p>
+                    </div>
+                </jqxPanel>
+            </div>
+            <div class="col-md-3">
+                <jqxPanel class="shadow"
+                    [width]="'100%'"
+                    [height]="60"
+                >
+                    <div class="m-2 text-center">
+                        <p class="h6">Yearly Subscription</p>
+                    </div>
+                </jqxPanel>
+            </div>
+        </div>
+
+        <hr class="top-divider" />
+        <hr class="bottom-divider" />
+
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Name on Card :</label></div>
+                    <div class="col-md-8">
+                        <jqxInput #nameReference
+                            [width]="'100%'"
+                            [height]="32"
+                        ></jqxInput>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Credit/Debit Card Number :</label></div>
+                    <div class="col-md-8">
+                        <jqxNumberInput #cardNumberReference
+                            [width]="'100%'"
+                            [height]="32"
+                            [inputMode]="'simple'"
+                            [decimalDigits]="0"
+                            [textAlign]="'left'"
+                        ></jqxNumberInput>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Expiry Date :</label></div>
+
+                    <div class="col-md-4">
+                        <div class="row gx-0">
+
+                            <div class="col-md-5">
+                                <jqxNumberInput #expiryMonthReference
+                                    [width]="'100%'"
+                                    [height]="32"
+                                    [inputMode]="'simple'"
+                                    [decimalDigits]="0"
+                                    [textAlign]="'left'"
+                                    [max]="2"
+                                    [placeHolder]="'00'"
+                                ></jqxNumberInput>
+
+                            </div>
+                            <div class="col-md-2 text-center">/</div>
+                            <div class="col-md-5">
+                                <jqxNumberInput #expiryYearReference
+                                    [width]="'100%'"
+                                    [height]="32"
+                                    [inputMode]="'simple'"
+                                    [decimalDigits]="0"
+                                    [textAlign]="'left'"
+                                    [max]="2"
+                                    [placeHolder]="'00'"
+                                ></jqxNumberInput>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>CVC Number :</label></div>
+                    <div class="col-md-4">
+                        <jqxNumberInput #cvcReference
+                            [width]="'100%'"
+                            [height]="32"
+                            [inputMode]="'simple'"
+                            [decimalDigits]="0"
+                            [textAlign]="'left'"
+                            [max]="3"
+                            [placeHolder]="'000'"
+                        ></jqxNumberInput>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+
+                <p class="h5">Billing Summary</p>
+
+            </div>
+        </div>
+    </div>
+</div>

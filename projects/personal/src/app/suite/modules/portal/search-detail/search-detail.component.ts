@@ -23,7 +23,6 @@ export class SearchDetailComponent implements OnInit {
   @Input() searchDetail: any;
 
   @ViewChild('buttonReference') button: jqxButtonComponent;
-
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   ngOnInit(): void {

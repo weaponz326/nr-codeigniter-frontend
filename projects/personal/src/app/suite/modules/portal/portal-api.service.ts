@@ -27,15 +27,15 @@ export class PortalApiService {
   // get search results
   public getSearch(input: string, filter: string): Observable<any>{
     // return this.http.get(this.personalUrl + "module-portal/search?input=" + input + "&filter=" + filter);
-    return this.http.get(this.personalUrl + "module-portal/search/?search=" + input);
+    return this.http.get(this.personalUrl + "users/search/?search=" + input);
   }
 
   // get search detail of selected user
   public getDetail(user: string): Observable<any>{
-    return this.http.get(this.personalUrl + "module-portal/search/" + user);
+    return this.http.get(this.personalUrl + "users/search/" + user);
   }
 
-  // get users rinks with detailed detailed sender and recipient
+  // get users rinks with detailed sender and recipient
   public getSingleRink(rinkId): Observable<any>{
     return this.http.get(this.personalUrl + "module-portal/rink/" + rinkId);
   }

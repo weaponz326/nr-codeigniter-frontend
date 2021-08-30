@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <h4>Delivery Details</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="card shadow">
+            <div class="card-body">
+
+                <div class="row mb-2">
+                    <div class="col-md-4">Delivery ID :</div>
+                    <div class="col-md-8">{{deliveryDetail.delivery_code}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Delivery Date :</div>
+                    <div class="col-md-8">{{deliveryDetail.delivery_date}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Order ID :</div>
+                    <div class="col-md-8">{{deliveryDetail.order_code}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Customer :</div>
+                    <div class="col-md-8">{{deliveryDetail.customer}}</div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">Delivery Status :</div>
+                    <div class="col-md-8">{{deliveryDetail.delivery_status}}</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- http loader spinner and connection notification components -->
+
+<app-loading-spinner #loadingSpinnerComponentReference></app-loading-spinner>

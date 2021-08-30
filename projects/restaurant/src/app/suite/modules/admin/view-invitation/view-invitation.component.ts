@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AdminApiService } from '../admin-api.service';
+import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
+import { AdminApiService } from '../admin-api.service';
 import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
 
 
@@ -18,6 +19,7 @@ export class ViewInvitationComponent implements OnInit {
     private adminApi: AdminApiService,
   ) { }
 
+  @ViewChild('cancelButtonReference') cancelButton: jqxButtonComponent;
   @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   navHeading: any[] = [
@@ -28,6 +30,17 @@ export class ViewInvitationComponent implements OnInit {
   invitation: any;
 
   ngOnInit(): void {
+    this.adminApi.getInvitation()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.invitation = res;
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
   }
 
 }

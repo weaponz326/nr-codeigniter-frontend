@@ -26,7 +26,7 @@ export class SearchViewComponent implements OnInit, AfterViewInit {
     { text: "New Rink", url: "/suite/portal/search" },
   ];
 
-  searchFilterValues: any[] = ['All', 'Personal', 'Hospital', 'Restaurant', 'School', 'Enterprise', 'Hotel', 'Shop', 'Production'];
+  searchFilterValues: any[] = ['All', 'Personal', 'Restaurant', 'School', 'Enterprise', 'Association', 'Hospital', 'Hotel', 'Shop', 'Production'];
 
   searchInput = '';
   searchFilter = 'Personal';
