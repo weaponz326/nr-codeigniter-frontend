@@ -14,14 +14,19 @@ export class NotesApiService {
 
   personalUrl = environment.personalUrl;
 
-  // get all notes belonging to a user
+  // get all notes and belonging to a user
   public getNotes(): Observable<any>{
     return this.http.get(this.personalUrl + "module-notes/note?user=" + localStorage.getItem('personal_id'));
   }
 
-  // get single note
+  // get single note and its attachments
+
   public getNote(): Observable<any>{
     return this.http.get(this.personalUrl + "module-notes/note/" + sessionStorage.getItem('note_id'));
+  }
+
+  public getFiles(): Observable<any>{
+    return this.http.get(this.personalUrl + "module-notes/file?note=" + sessionStorage.getItem('note_id'));
   }
 
   // create, update and delete note
@@ -36,6 +41,14 @@ export class NotesApiService {
 
   public deleteNote(): Observable<any>{
     return this.http.delete(this.personalUrl + "module-notes/note/" + sessionStorage.getItem('note_id'));
+  }
+
+  public postFile(file): Observable<any>{
+    return this.http.post(this.personalUrl + "module-notes/file/", file);
+  }
+
+  public deleteFile(fileId): Observable<any>{
+    return this.http.delete(this.personalUrl + "module-notes/file/" + fileId);
   }
 
 }

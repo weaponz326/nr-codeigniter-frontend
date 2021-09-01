@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-7" id="editorSpace">
 
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-md-3">
                     <label class="float-right">Subject :</label>
                 </div>
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-md-12">
                     <jqxEditor #editorReference
                         (onChange)="sendBody($event)"
@@ -28,22 +28,22 @@
                 </div>
             </div>
 
-            <div class="row gx-1">
+            <div class="row mb-2">
                 <div class="col-md-12">
-                    <label>Attachments :</label>
+                    <input #fileUpload type="file" requiredFileType="file" class="file-upload-element" multiple (change)="onFileSelected($event) "/>
+                    <jqxButton #attachmentButtonReference (click)="fileUpload.click()"
+                        [width]="150"
+                        [height]="32"
+                    >Attachment <i class="fa fa-fw fa-paperclip ml-2"></i></jqxButton>
                 </div>
-                <div class="col-md-6">
-                    <jqxFileUpload #fileUploadReference
-                        [width]="'100%'"
-                        [height]="110"
-                    ></jqxFileUpload>
-                </div>
-                <div class="col-md-6">
-                    <jqxListBox #fileListBoxReference
-                        [width]="'100%'"
-                        [height]="110"
-                        [source]="filesSource"
-                    ></jqxListBox>
+            </div>
+
+            <div class="row mb-2 g-1">
+                <div *ngFor="let file of fileNames; index as i" class="col-md-4 mb-1">
+                    <div class="btn-group w-100" role="group">
+                        <button class="btn btn-outline-secondary file-name-btn">{{formatFileName(file.file)}}</button>
+                        <button class="btn btn-outline-secondary btn-sm file-delete-btn" (click)="deleteFile(file.id, i)"><i class="fa fa-fw fa-trash"></i></button>
+                    </div>
                 </div>
             </div>
 

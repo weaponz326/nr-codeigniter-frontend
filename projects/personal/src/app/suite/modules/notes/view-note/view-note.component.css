@@ -1,11 +1,27 @@
-#editorSpace .row{
-    margin-bottom: 10px;
+.btn-group{
+  height: 50px;
 }
 
-.browse-button {
-    margin: 3px;
+.file-name-btn{
+  font-size: 13px;
+  padding-left: 2px;
+  padding-right: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.file-upload{
+button.file-name-btn:hover{
+  background-color: white;
+  color: #858796;
+}
+
+.file-delete-btn{
+  font-size: 15px;
+  padding: 0;
+  max-width: 30px;
+}
+
+.file-upload-element{
   display: none;
 }

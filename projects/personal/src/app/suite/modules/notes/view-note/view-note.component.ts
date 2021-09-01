@@ -44,29 +44,21 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
     { text: "View Note", url: "/suite/notes/view-note" },
   ];
 
-  isFileSelected = false;
-  selectMsg = '';
-  filesSource: any[] = [];
+  fileNames = [];
+  filesToUpload: File[] = [];
 
   ngOnInit(): void {
   }
 
   onFileSelected(e: any){
-    this.isFileSelected = true;
-    this.selectMsg = e.target.files.length + ' files selected';
-    for (let i = 0; i < e.target.files.length; i++) {
-      let file: File = e.target.files[i];
+    this.filesToUpload = [];
+    this.filesToUpload = e.target.files;
 
-      // this.fileListBox.addItem(file.name);
-
-      if (file) {
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (e: any) => {
-          // this.filesSource = e.target.result;
-        }
-      }
+    for(var i = 0; i < this.filesToUpload.length; i++){
+      this.sendFile(this.filesToUpload[i]);
     }
+
+    console.log(this.filesToUpload);
   }
 
   ngAfterViewInit(): void {
@@ -77,6 +69,18 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log(res);
             this.input.val(res.subject);
             this.editor.val(res.body);
+          },
+          err => {
+            console.log(err);
+            this.connectionNotification.errorNotification.open();
+          }
+        )
+
+      this.notesApi.getFiles()
+        .subscribe(
+          res => {
+            console.log(res);
+            this.fileNames = res;
           },
           err => {
             console.log(err);
@@ -245,6 +249,43 @@ export class ViewNoteComponent implements OnInit, AfterViewInit, OnDestroy {
           }
         )
     }
+  }
+
+  sendFile(file){
+    let formData = new FormData();
+    formData.append("note", sessionStorage.getItem('note_id'));
+    formData.append("file", file);
+
+    this.notesApi.postFile(formData)
+      .subscribe(
+        res => {
+          console.log(res);
+          // TODO: pushes null into array
+          this.fileNames.push(res?.data?.file);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  deleteFile(fileId, index){
+    this.notesApi.deleteFile(fileId)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.fileNames.splice(index, 1);
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  formatFileName(name){
+    return name.replace('/notes/', '');
   }
 
 }
