@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
@@ -53,6 +54,7 @@ import { UserMiniActivitiesComponent } from './user-mini-activities/user-mini-ac
     AdminRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxButtonModule,
     jqxGridModule,
     jqxInputModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxNumberInputModule } from 'jqwidgets-ng/jqxnumberinput';
@@ -25,6 +26,7 @@ import { LocationComponent } from './profile-content/location/location.component
 import { GeneralComponent } from './general/general.component';
 import { SecurityComponent } from './security/security.component';
 import { BillingComponent } from './billing/billing.component';
+import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 
 
 @NgModule({
@@ -40,12 +42,14 @@ import { BillingComponent } from './billing/billing.component';
     GeneralComponent,
     SecurityComponent,
     BillingComponent,
+    PaymentDetailsComponent,
   ],
   imports: [
     CommonModule,
     SettingsRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxButtonModule,
     jqxInputModule,
     jqxNumberInputModule,

@@ -34,5 +34,4 @@ export class DashboardComponent implements OnInit {
     responsive: true,
   };
 
-
 }

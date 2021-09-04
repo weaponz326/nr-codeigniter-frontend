@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { ChartsModule } from 'ng2-charts';
 import { jqxInputModule } from 'jqwidgets-ng/jqxinput';
 import { jqxButtonModule } from 'jqwidgets-ng/jqxbuttons';
 import { jqxPanelModule } from 'jqwidgets-ng/jqxpanel';
@@ -52,6 +53,7 @@ import { CustomerDetailComponent } from './rink-details/customer-detail/customer
     PortalRoutingModule,
     UtilitiesModule,
     DashboardModule,
+    ChartsModule,
     jqxInputModule,
     jqxButtonModule,
     jqxPanelModule,

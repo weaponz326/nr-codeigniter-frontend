@@ -43,9 +43,9 @@
 
                         <div class="row">
                             <div class="offset-md-1 col-md-5">
-                                <img *ngIf="rink.type == 'Appointment'" src="../../../../../assets/images/modules/calendar.png" alt="" width="25" height="25" class="mr-2" />
-                                <img *ngIf="rink.type == 'Note'" src="../../../../../assets/images/modules/notes.png" alt="" width="25" height="25" class="mr-2" />
-                                <img *ngIf="rink.type == 'Task'" src="../../../../../assets/images/modules/tasks.png" alt="" width="25" height="25" class="mr-2" />
+                                <img *ngIf="rink.rink_type == 'Appointment'" src="../../../../../assets/images/modules/calendar.png" alt="" width="25" height="25" class="mr-2" />
+                                <img *ngIf="rink.rink_type == 'Note'" src="../../../../../assets/images/modules/notes.png" alt="" width="25" height="25" class="mr-2" />
+                                <img *ngIf="rink.rink_type == 'Task'" src="../../../../../assets/images/modules/tasks.png" alt="" width="25" height="25" class="mr-2" />
                                 Personal - {{rink.rink_type}}
                             </div>
                         </div>

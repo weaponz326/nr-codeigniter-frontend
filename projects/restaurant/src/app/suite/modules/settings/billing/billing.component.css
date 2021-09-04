@@ -1,5 +1,8 @@
-label {
-  font-size: 13px;
-  color: black;
+.subscription-panel:hover{
+  cursor: pointer;
 }
 
+.active-panel .subscription-panel{
+  background-color: gray;
+  color: white;
+}

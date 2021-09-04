@@ -10,9 +10,9 @@ export class SettingsWrapperComponent implements OnInit {
   constructor() { }
 
   navLinks: any[] = [
-    { text: "General", url: "/suite/settings/general", icon: "fa fa-fw fa-list" },
+    // { text: "General", url: "/suite/settings/general", icon: "fa fa-fw fa-list" },
     { text: "Profile", url: "/suite/settings/profile", icon: "fa fa-fw fa-building" },
-    { text: "Security", url: "/suite/settings/privacy", icon: "fa fa-fw fa-lock" },
+    // { text: "Security", url: "/suite/settings/privacy", icon: "fa fa-fw fa-lock" },
     { text: "Billing", url: "/suite/settings/billing", icon: "fa fa-fw fa-file" }
   ]
 

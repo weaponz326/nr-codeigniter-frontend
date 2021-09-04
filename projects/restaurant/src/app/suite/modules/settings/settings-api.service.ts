@@ -30,4 +30,14 @@ export class SettingsApiService {
     return this.http.post(this.restaurantUrl + "module-settings/extended-profile/", data);
   }
 
+  // biliing
+
+  public getSubscription(): Observable<any>{
+    return this.http.get(this.restaurantUrl + "module-settings/subscription-detail/" + sessionStorage.getItem('restaurant_id'));
+  }
+
+  public postSubscription(data): Observable<any>{
+    return this.http.post(this.restaurantUrl + "module-settings/subscription/", data);
+  }
+
 }

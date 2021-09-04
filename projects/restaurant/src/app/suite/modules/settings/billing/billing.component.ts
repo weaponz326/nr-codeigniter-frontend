@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { jqxInputComponent } from 'jqwidgets-ng/jqxinput';
-import { jqxNumberInputComponent } from 'jqwidgets-ng/jqxnumberinput';
-import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
+import { SettingsApiService } from '../settings-api.service';
+import { ConnectionNotificationComponent } from 'projects/personal/src/app/suite/utilities/connection-notification/connection-notification.component';
+import { LoadingSpinnerComponent } from 'projects/personal/src/app/suite/utilities/loading-spinner/loading-spinner.component';
 
 
 @Component({
@@ -12,22 +12,63 @@ import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 })
 export class BillingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settingsApi: SettingsApiService) { }
 
-  @ViewChild('nameReference') name: jqxInputComponent;
-  @ViewChild('cardNumberReference') cardNumber: jqxNumberInputComponent;
-  @ViewChild('expiryMonthReference') expiryMonth: jqxNumberInputComponent;
-  @ViewChild('expiryYearReference') expiryYear: jqxNumberInputComponent;
-  @ViewChild('cvcReference') cvc: jqxNumberInputComponent;
+  @ViewChild('loadingSpinnerComponentReference') loadingSpinner: LoadingSpinnerComponent;
+  @ViewChild('connectionNotificationComponentReference') connectionNotification: ConnectionNotificationComponent;
 
   navHeading: any[] = [
     { text: "Billing", url: "/suite/settings/billing" },
   ];
 
-  selectedPlan = 'Individual';
-  selectedRate = '';
+  selectedSubscription = '';
+  selectedPlan = '';
 
   ngOnInit(): void {
+    this.settingsApi.getSubscription()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.selectedSubscription = res.subscription;
+          this.selectedPlan = res.plan;
+        },
+        err => {
+          console.log(err);
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+
+  }
+
+  saveSubscription(){
+    let data = {
+      subscription: this.selectedSubscription,
+      plan: this.selectedPlan
+    }
+
+    this.loadingSpinner.httpLoader.open();
+    this.settingsApi.postSubscription(data)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.loadingSpinner.httpLoader.close();
+        },
+        err => {
+          console.log(err);
+          this.loadingSpinner.httpLoader.close();
+          this.connectionNotification.errorNotification.open();
+        }
+      )
+  }
+
+  setSubscription(subscription){
+    this.selectedSubscription = subscription;
+    console.log(this.selectedSubscription);
+  }
+
+  setPlan(plan){
+    this.selectedPlan = plan;
+    console.log(this.selectedPlan);
   }
 
 }

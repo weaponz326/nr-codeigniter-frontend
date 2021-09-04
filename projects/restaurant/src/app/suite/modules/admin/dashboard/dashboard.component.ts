@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label, SingleDataSet } from 'ng2-charts';
+
 import { jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 
 import { AdminApiService } from '../admin-api.service';
@@ -19,7 +22,18 @@ export class DashboardComponent implements OnInit {
     private adminApi: AdminApiService,
   ) { }
 
+  navHeading: any[] = [
+    { text: "Dashboard", url: "/suite/notes/dashboard" },
+  ];
+
   ngOnInit(): void {
   }
+
+  // ------------------------------------------------------------------------------------
+  // charts
+
+  chartOptions = {
+    responsive: true,
+  };
 
 }
